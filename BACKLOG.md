@@ -205,11 +205,11 @@
 ## U batch (added 03:38, night 2)
 - [x] U1 Plan card: test that the card's rank/gap equal the plan page's (shared function, both areas, 3 plans)
 - [x] U2 Compare preview card: show the two plans + who saves what (like T1), EN/ES
-- [ ] U3 DEVPOST/DECK: one line about link previews per plan (only if it fits; verify)
-- [ ] U4 /wall?m=…(own months) Spanish at 375: months editor + chips fit
+- [x] U3 DEVPOST/DECK: one line about link previews per plan (only if it fits; verify)
+- [x] U4 /wall?m=…(own months) Spanish at 375: months editor + chips fit
 - [x] U5 SCRIPT scene 11: the share card now shows the result card; check wording still true
 - [x] U6 axe on /api-backed error page /plan/xyz?area=dallas&lang=es
 - [x] U7 Re-run es-walk + widths + meta-check + axe as one 'all checks' script (scripts/check-all.mjs) for the morning
 - [x] U8 README: 'How to check' section lists check-all
-- [ ] U9 Lighthouse /plan/33633 EN after card change (no perf hit)
+- [x] U9 Lighthouse /plan/33633 EN after card change (no perf hit)
 - [ ] U10 Codex review 17 after U batch

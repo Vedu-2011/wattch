@@ -32,7 +32,7 @@ export function parseMonths(input: string, lang: "en" | "es" = "en"): MonthsResu
 
 export const average = (months: number[]) => Math.round(months.reduce((s, v) => s + v, 0) / months.length);
 
-/** For the URL: ?m=820,700,…  (12 whole numbers). */
+/** For the URL: ?m=820.700.…  (12 whole numbers, dot-separated — commas would read as thousands separators). */
 export const monthsToParam = (m: number[]) => m.join(".");
 export function monthsFromParam(s: string | null | undefined): number[] | null {
   if (!s) return null;
