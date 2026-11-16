@@ -457,12 +457,24 @@
 
 ## AP batch (added 05:00, night 2)
 - [x] AP1 rateType values in data: only Fixed/Variable? (Spanish plan-page mapping covers them)
-- [ ] AP2 Results page print: how many sheets? hide the tile wall in print if huge
-- [ ] AP3 /how and /sources print sheets (log)
+- [x] AP2 Results page print: how many sheets? hide the tile wall in print if huge
+- [x] AP3 /how and /sources print sheets (log)
 - [x] AP4 Plan page 'renewable' wording ES for 0%% and 100%%
 - [x] AP5 Plan page '1 months' / '0 months' (variable plans showed '1 meses', '0 months') → fix singular/zero
 - [x] AP6 Compare page '1 meses' same check
 - [x] AP7 Tests for month wording
 - [x] AP8 es-walk unaffected
-- [ ] AP9 STATUS line
+- [x] AP9 STATUS line
 - [ ] AP10 Codex review 31 after AP batch
+
+## AQ batch (added 05:08, night 2)
+- [x] AQ1 Grep other plural slips: '1 plans', '1 traps', '1 labels', '1 kinds' in EN/ES words (n === 1 handled?)
+- [x] AQ2 Dallas counts in /how: '2 didn't add up' style sentences singular/plural
+- [x] AQ3 'months a year' with 1 ('You'd miss it 1 months a year')
+- [x] AQ4 Tests for any fix
+- [x] AQ5 Spanish same
+- [x] AQ6 Compare 'cheaper in 1 months'
+- [x] AQ7 Results 'N variable-rate plans aren't ranked' with N=1
+- [x] AQ8 Remind 'in 1 days'
+- [ ] AQ9 STATUS line
+- [ ] AQ10 Codex review 32 after AQ batch

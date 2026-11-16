@@ -95,7 +95,7 @@ const en = {
   shareMine: "Share my result", shareCard: "Share card", linkCopied: "Link copied",
   shareFailed: "Couldn't share — copy the address bar instead",
   usageByMonth: "Your usage by month",
-  monthsUnder: (k: number, line: number) => `${k} months under ${n(line, "en")} kWh`,
+  monthsUnder: (k: number, line: number) => `${k} ${k === 1 ? "month" : "months"} under ${n(line, "en")} kWh`,
   switchTo: "Español",
 };
 
@@ -167,7 +167,7 @@ const es: Words = {
   shareMine: "Compartir mi resultado", shareCard: "Tarjeta para compartir", linkCopied: "Enlace copiado",
   shareFailed: "No se pudo compartir — copia la dirección de la barra",
   usageByMonth: "Tu consumo por mes",
-  monthsUnder: (k, line) => `${k} meses por debajo de ${n(line, "es")} kWh`,
+  monthsUnder: (k, line) => `${k} ${k === 1 ? "mes" : "meses"} por debajo de ${n(line, "es")} kWh`,
   switchTo: "English",
 };
 

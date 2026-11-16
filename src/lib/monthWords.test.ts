@@ -16,5 +16,8 @@ describe("month wording", () => {
     expect(WORDS.es.monthPrice(1)).toBe("precio por 1 mes");
     expect(WORDS.es.monthPrice(3)).toBe("precio por 3 meses");
     expect(CURRENT_WORDS.es.mo(1)).toBe("1 mes");
+    expect(WORDS.en.monthsUnder(1, 1000)).toBe("1 month under 1,000 kWh");
+    expect(WORDS.es.monthsUnder(1, 1000)).toBe("1 mes por debajo de 1,000 kWh");
+    expect(WORDS.en.monthsUnder(6, 1000)).toBe("6 months under 1,000 kWh");
   });
 });
