@@ -123,3 +123,5 @@
 - 2026-11-16 02:47 PT · Codex 11 fixes + /es static chrome Spanish + 10c script · DONE (219a93a). O3 top-8 at 1920 after chip row: ~1,086 px tall (≈ one screen), chips readable; no scene frames it closely. No change. $0.
 - 2026-11-16 02:48 PT · O4 logged. $0.
 - 2026-11-16 02:49 PT · O5 reduced motion (Spanish wall): finished state at 0.7 s ('Todos los planes, leídos.'), same final numbers as the animated run at 12.7 s. No change. $0.
+- 2026-11-16 02:50 PT · O5 + O6 · DONE (73b0cee). 206 tests. $0.
+- 2026-11-16 02:50 PT · O7 /api/card with 10 bad/odd inputs: all 200 image/png; kwh clamps to 100–5,000, unknown area→Houston, lang=fr→English, all-filters Spanish Dallas → 'Mi mejor plan' card. Saved in docs/screenshots/overnight-2/card-bad/. No change. $0.
