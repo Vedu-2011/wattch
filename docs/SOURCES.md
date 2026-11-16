@@ -27,7 +27,25 @@ Shape = each month ÷ 1,117. A user averaging X kWh gets X × shape for each mon
 Caveats (say them if asked): statewide Texas, not Houston-only; utilities report by billing month, so each
 month partly reflects the month before; real homes vary (a home with gas heat has a flatter winter).
 
-## Not yet verified — do NOT use until checked
-- Peltier / Lieber "$480 per family per year" overcharge study (ARCHITECTURE.md) — link not checked tonight.
-- EnergyBot "98% couldn't pick the cheapest plan" — link not checked tonight.
-- ERCOT "8 million premises" — not checked tonight.
+## Outside stats — checked Nov 15–16 2026 (overnight-2, Claude Code)
+
+### VERIFIED — OK to use, with the wording below
+- **EnergyBot "98%"** — page "Electricity Plan Study: Comparing Promised vs. Real Rates", https://energybot.com/electricity-plan-study.html
+  (opened Nov 16 2026 ~00:05 PT; page shows no date, only "Copyright © 2026"). Exact quotes:
+  - "A 2024 survey conducted in the Dallas and Houston areas…"
+  - "Despite 87% of surveyed consumers prioritizing cost, 98% did not select the least expensive option when given a choice."
+  - "Participants were provided with the supplier name, plan name, and advertised rates."
+  - Interval usage data "from 501 participants in the Dallas and Houston metropolitan areas"; "real rates deviate from expected rates by up to 45%".
+  - **How to say it:** "In a 2024 EnergyBot survey of Dallas and Houston shoppers, 98% didn't pick the cheapest plan — even though 87% said cost mattered most."
+  - **Caveat (say it in the deck):** EnergyBot is a commercial comparison site (paid by providers for referrals, per news coverage — that article
+    didn't load for me, so don't quote it). The survey count isn't on the page; 501 is the usage-data sample. Don't call it "501 people surveyed".
+
+### NOT VERIFIED — do NOT use
+- **Peltier / Lieber "$480 per family per year" / "~$4B" / "~11M families"** (ARCHITECTURE.md) — 3 searches (authors + figures + Dallas
+  Morning News Watchdog) found no such study or article. Different big numbers exist (winter-storm repricing $4.2B, "$16B overcharges",
+  a "$28B overpay" report) but they're about other things — don't swap them in.
+- ERCOT "8 million premises" — not checked.
+
+### Our own numbers are the headline anyway
+The strongest stat is ours and is reproducible from the repo (`npx tsx scripts/headline.ts`): at 1,100 kWh/month with Houston seasons,
+the plan Power to Choose lists first ranks #74 of 154 and costs $378/yr more than the best plan.

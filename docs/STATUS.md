@@ -37,5 +37,5 @@ Live: https://getwattch.vercel.app (main) · Overnight work: branch `overnight` 
 - Yearly cost uses today's price for 12 months; 3-month plans are tagged "3-month price".
 - One-time rebates aren't in yearly cost (notes only). Taxes not included.
 - Hand-reads are pinned to the label text they were made from; if a label changes, that plan falls back to "not verified".
-- Stats in ARCHITECTURE.md (Peltier/Lieber $480, EnergyBot 98%, ERCOT 8M) are still unverified — not used in the UI.
+- Outside stats (docs/SOURCES.md): EnergyBot 98% VERIFIED (2024 survey, commercial source); Peltier/Lieber $480 NOT found — do not use; ERCOT 8M unchecked.
 - Not done yet: wall animation polish, reveal count-up, /traps, /demo, a11y/Lighthouse pass, Devpost/script/deck.
