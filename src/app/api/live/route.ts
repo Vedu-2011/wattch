@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { planById } from "@/lib/plans/data";
-import { fetchEfl } from "@/lib/reader/fetchEfl";
+import { fetchEfl, plainLabelUrl } from "@/lib/reader/fetchEfl";
 import { ptcAveragesOnLabel } from "@/lib/reader/templates";
 
 export const maxDuration = 60;
@@ -12,9 +12,9 @@ export const maxDuration = 60;
  */
 const MSG = {
   en: { unknown: "We don't know that plan.", down: "Couldn't open the provider's label right now. Try again in a minute.",
-    gone: "The provider's link to this label is broken right now (the state's site links to the same file). Wattch's numbers come from the copy it read earlier." },
+    gone: "The provider's label file isn't there right now (its link answers \"not found\"). Wattch's numbers come from the copy it read earlier." },
   es: { unknown: "No conocemos ese plan.", down: "No pudimos abrir la etiqueta del proveedor ahora. Intenta de nuevo en un minuto.",
-    gone: "El enlace del proveedor a esta etiqueta no funciona ahora (el sitio del estado enlaza al mismo archivo). Los números de Wattch salen de la copia que leyó antes." },
+    gone: "El archivo de la etiqueta del proveedor no está ahora (su enlace dice \"no encontrado\"). Los números de Wattch salen de la copia que leyó antes." },
 } as const;
 
 export async function GET(req: Request) {
@@ -32,8 +32,11 @@ export async function GET(req: Request) {
       { headers: { "Cache-Control": "public, s-maxage=60" } });
   } catch {
     // plain words only — never a raw error from the provider's site. A file that's gone (404/410) isn't "try again later".
-    const gone = await fetch(rec.meta.eflUrl, { method: "GET", redirect: "follow", signal: AbortSignal.timeout(8000) })
+    // look at both the link people click and the address the download actually used (plainLabelUrl rewrites some)
+    const notFound = (u: string) => fetch(u, { method: "GET", redirect: "follow", signal: AbortSignal.timeout(8000) })
       .then((r) => r.status === 404 || r.status === 410).catch(() => false);
+    const urls = [...new Set([rec.meta.eflUrl, (() => { try { return plainLabelUrl(rec.meta.eflUrl); } catch { return rec.meta.eflUrl; } })()])];
+    const gone = (await Promise.all(urls.map(notFound))).some(Boolean);
     return NextResponse.json({ ok: false, gone, message: gone ? m.gone : m.down }, { status: 200 });
   }
 }

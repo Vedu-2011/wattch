@@ -33,7 +33,7 @@ export const CURRENT_WORDS = {
     variable: "Este plan tiene tarifa variable",
     unsure: ", así que su precio puede cambiar cada mes y Wattch no puede ponerle un número anual honesto. Compara el precio por kWh de tu última factura con el mejor plan:",
     perYr: "/año",
-    yours: "Tu plan", best: "Mejor plan", fee: "Cargo por salida hoy", payback: "Se paga en", mo: (n: number) => `${n} meses`,
+    yours: "Tu plan", best: "Mejor plan", fee: "Cargo por salida hoy", payback: "Se paga en", mo: (n: number) => (n === 1 ? "1 mes" : `${n} meses`),
     basis: (mine: boolean, k: string, city: string, seasons: boolean) =>
       `${mine ? "Tus propios 12 meses" : `El mismo promedio de ${k} kWh${seasons ? ` con las temporadas de ${city}` : ""}`}, precios de hoy, antes de impuestos.`,
     feeFrom: "Cargo por salida según la etiqueta de tu plan:",

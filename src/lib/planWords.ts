@@ -5,7 +5,7 @@ import type { Lang } from "@/lib/i18n";
 export const PLAN_WORDS = {
   en: {
     all: "← All plans",
-    months: (m: number) => `${m} months`,
+    months: (m: number) => (m === 0 ? "month to month" : m === 1 ? "1 month" : `${m} months`),
     renewable: (pct: number) => `${pct}% renewable`,
     checkTitle: "Does our math match the label?",
     usage: "Usage", says: "Label says", ours: "We get", match: "Match",
@@ -50,7 +50,7 @@ export const PLAN_WORDS = {
   },
   es: {
     all: "← Todos los planes",
-    months: (m: number) => `${m} meses`,
+    months: (m: number) => (m === 0 ? "mes a mes" : m === 1 ? "1 mes" : `${m} meses`),
     renewable: (pct: number) => `${pct}% renovable`,
     checkTitle: "¿Nuestras cuentas dan lo mismo que la etiqueta?",
     usage: "Consumo", says: "La etiqueta dice", ours: "Nos da", match: "Coincide",

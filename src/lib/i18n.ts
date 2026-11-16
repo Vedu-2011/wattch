@@ -141,7 +141,7 @@ const es: Words = {
   tSeasons: "Temporadas de Houston", tSeasonsHint: "agosto ≈ 2.6× febrero",
   tLocked: "Precio fijo 12+ meses", tNoCliffs: "Sin créditos con trampa", tGreen: "50%+ renovable",
   tRated: "4+ estrellas", tRatedHint: "calificación de Power to Choose", tAutopay: "Contar descuentos por pago automático",
-  monthPrice: (m) => `precio por ${m} meses`,
+  monthPrice: (m) => (m === 1 ? "precio por 1 mes" : `precio por ${m} meses`),
   perYear: "/año",
   compareWith1: "Comparar con el #1 →",
   rankNote: (notRanked) => `Costo anual a precios de hoy, sin impuestos. ${notRanked} planes de tarifa variable no están en la lista: su precio puede cambiar cada mes, así que un número anual sería adivinar. Los planes prepagados y los que no pudimos verificar tampoco.`,

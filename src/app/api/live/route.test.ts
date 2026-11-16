@@ -64,9 +64,9 @@ describe("/api/live — check one label again", () => {
     const es = await (await GET(new Request("http://x/api/live?id=p1&lang=es"))).json();
     siteDown = false;
     expect(en.body).toMatchObject({ ok: false, gone: true });
-    expect(en.body.message).toMatch(/link to this label is broken/);
+    expect(en.body.message).toMatch(/label file isn.t there right now/);
     expect(en.body.message).not.toMatch(/Try again/);
-    expect(es.message).toMatch(/^El enlace del proveedor a esta etiqueta no funciona/);
+    expect(es.message).toMatch(/^El archivo de la etiqueta del proveedor no está ahora/);
   });
 
   it("a good answer is shared by the CDN for a minute; a failure never is", async () => {

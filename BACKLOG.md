@@ -453,4 +453,16 @@
 - [ ] AO7 STATUS: final counts (Y9/AG9) — prepare
 - [x] AO8 tidy.sh dry look (what it moves) before running at handoff
 - [ ] AO9 BOARD Done line drafted
-- [ ] AO10 Codex review if code changed
+- [x] AO10 Codex review if code changed
+
+## AP batch (added 05:00, night 2)
+- [x] AP1 rateType values in data: only Fixed/Variable? (Spanish plan-page mapping covers them)
+- [ ] AP2 Results page print: how many sheets? hide the tile wall in print if huge
+- [ ] AP3 /how and /sources print sheets (log)
+- [x] AP4 Plan page 'renewable' wording ES for 0%% and 100%%
+- [x] AP5 Plan page '1 months' / '0 months' (variable plans showed '1 meses', '0 months') → fix singular/zero
+- [x] AP6 Compare page '1 meses' same check
+- [x] AP7 Tests for month wording
+- [x] AP8 es-walk unaffected
+- [ ] AP9 STATUS line
+- [ ] AP10 Codex review 31 after AP batch
