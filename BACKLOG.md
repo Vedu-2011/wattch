@@ -934,3 +934,15 @@
 - [x] CC8 Verify docs-only edits with lint/test
 - [x] CC9 PROGRESS line per check
 - [ ] CC10 Never merge; wait for 'merge'
+
+## CD batch (added 07:03, after the handoff) — Dallas gets the same checks Houston got
+- [x] CD1 Lighthouse Dallas results (mobile)
+- [x] CD2 Lighthouse Dallas plan page ES (mobile)
+- [x] CD3 Dallas compare prints on 1 sheet (ES)
+- [x] CD4 Dallas results keyboard-only: skip link → slider → first plan
+- [x] CD5 Dallas trap guide: every example link opens
+- [x] CD6 Fix anything found
+- [x] CD7 PROGRESS line
+- [x] CD8 STATUS line
+- [x] CD9 Commit (push only with a code change)
+- [x] CD10 Codex if code changed

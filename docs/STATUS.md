@@ -60,6 +60,7 @@ wait. For future overnight nights: push once per batch, or turn off previews for
   Dallas (real browser); Dallas read $1.149; Houston 172/171/154, #74, $378; Dallas 154 verified/137 ranked, #91, $530. All match.
 - Code hygiene at 06:40: no console.log in app code, no .only/.skip tests, no TODO/FIXME added tonight, npm audit 0,
   package.json only gained the `refresh` script (no new dependencies), no key-like strings in tracked files.
+- Dallas in Spanish (07:10): Lighthouse plan 94/100/100/91, compare 94/100/100/100; Dallas compare prints on 1 sheet.
 - Friendly errors on /remind, "my 12 months", unknown plans; reduced motion; printing (plan, compare, Dallas) on 1 sheet.
 
 **New checks that stay:** src/lib/dataSanity.test.ts, search.test.ts, tolerance.words.test.ts, sitemap duplicates,
