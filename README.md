@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Wattch — the real price of every Houston power plan
 
-## Getting Started
+**Live:** https://getwattch.vercel.app
 
-First, run the development server:
+Texas lets you pick your electricity plan, then hides the real price in each plan's fine print (the
+Electricity Facts Label, or EFL). Wattch reads the fine print of every Houston (CenterPoint) plan on the state's
+Power to Choose site, checks every read against the label's own printed prices, and does the honest math at
+**your** usage — with real Texas seasons, because summer AC bills are about twice spring's.
 
+**AI reads. Code checks. Code decides.** The AI only copies numbers off each label. Plain, tested code rebuilds the
+label's three printed prices (500 / 1,000 / 2,000 kWh) from what was read; a plan is "verified" only if all three
+match within 0.1¢. Bills, yearly cost, ranking, cliffs and every "why" line are computed by code, never written by AI.
+
+## What it shows
+- **The reader wall** — one tile per plan flipping from "reading…" to ✓ (replays the real reads and their timing).
+- **The reveal** — what the plan the state site lists first would cost you a year vs. your best plan, and why
+  (e.g. "Its $125 credit only kicks in at 1,000 kWh. You'd miss it 6 months a year").
+- **Texas seasons** — 12 real months shaped by EIA data, not one flat month.
+- **Plan pages** — the label check table, your bill line by line, your year, and a bill-vs-usage chart with price cliffs.
+- **Share card + QR** for trying it on your own phone.
+
+## AI tools used
+| Tool | What for |
+|---|---|
+| **Anthropic Claude API — `claude-haiku-5-5`** | Inside the app's data pipeline: reads each plan's EFL text into JSON (`src/lib/reader/parse.ts`). Its output is never trusted until code rebuilds the label's prices. |
+| **Claude Code** (Anthropic) | Coding assistant: wrote and tested much of the code, the data fixes, and the UI. |
+| **Codex** (OpenAI) | Coding assistant and code reviewer before each push. |
+| **Claude** (claude.ai chat) | Planning, architecture, and writing prompts/docs. |
+| **Anakin.io** (sponsor) | Opens fine-print pages that need a real browser or block plain downloads (`src/lib/reader/fetchEfl.ts`). |
+
+## Data sources
+See [docs/SOURCES.md](docs/SOURCES.md) and the in-app `/sources` page: Power to Choose (PUCT) plan list, each
+provider's EFL, 16 TAC § 25.475 (EFL rules), and EIA Form 861M (Texas monthly residential usage).
+
+## Run it
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm ci
+npm run dev        # http://localhost:3000
+npm test           # vitest — bill math, ranking, seasons, label checks, CSV parser, real label text
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Data pipeline (writes `data/plans.json` + `data/text/<id>.txt`):
+```bash
+ANTHROPIC_API_KEY=... npx tsx scripts/ingest.ts              # read every Houston plan (reuses unchanged reads)
+ANTHROPIC_API_KEY=... npx tsx scripts/ingest.ts --redo-failed --force
+npx tsx scripts/recheck.ts      # free: second chances for plans that didn't add up (no network, no AI)
+npx tsx scripts/top.ts          # quick look at the top plans
+python3 scripts/seasons.py data/sources/eia861m-texas.csv    # rebuild data/seasons.json
+node scripts/shots.mjs <folder> # screenshots at 375 / 1440 / 1920 (needs the dev server and Google Chrome)
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Wattch shows the math. Always open the plan's fine print before you switch. Prices are before taxes.

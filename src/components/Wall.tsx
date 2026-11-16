@@ -39,9 +39,12 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons 
   const [kwh, setKwh] = useState(initialKwh);
   const [seasons, setSeasons] = useState(initialSeasons);
   const [withConditional, setWithConditional] = useState(true);
+  const [lockedYear, setLockedYear] = useState(false);
+  const minTermMonths = lockedYear ? 12 : 0;
   const verifiedRead = plans.filter((p) => readIds.has(p.id) && p.status === "verified").length;
-  const ranked = useMemo(() => rank(plans, kwh, { includeConditional: withConditional, seasons }), [plans, kwh, withConditional, seasons]);
-  const pick = useMemo(() => ptcTopPick(plans), [plans]);
+  const ranked = useMemo(() => rank(plans, kwh, { includeConditional: withConditional, seasons, minTermMonths }), [plans, kwh, withConditional, seasons, minTermMonths]);
+  // with the 12-month filter on, compare against the state site's #1 among those same plans
+  const pick = useMemo(() => ptcTopPick(plans.filter((p) => (p.pricing?.termMonths ?? 0) >= minTermMonths)), [plans, minTermMonths]);
   const notRanked = plans.filter((p) => p.status === "verified" && !p.prepaid && p.rateType.toLowerCase() === "variable").length;
   const when = new Date(builtAt).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
   // when the last tile flips, bring the answer into view (the wall is long on a phone)
@@ -79,7 +82,7 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons 
 
       {done && ranked.length > 0 && (
         <section id="answer" className="pop mt-8 scroll-mt-4 space-y-6">
-          <Reveal kwh={kwh} seasons={seasons} ranked={ranked} pick={pick} />
+          <Reveal kwh={kwh} seasons={seasons} ranked={ranked} pick={pick} locked={lockedYear} />
 
           <div className="rounded-3xl bg-card p-5 shadow-[var(--shadow-soft)]">
             <label htmlFor="slide" className="block text-base font-semibold">
@@ -88,6 +91,7 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons 
             <input id="slide" type="range" min={200} max={3000} step={10} value={kwh} onChange={(e) => setKwh(Number(e.target.value))} className="mt-3 w-full" />
             <div className="mt-3 flex flex-wrap gap-2">
               <Toggle on={seasons} set={setSeasons} label="Texas seasons" hint="summer AC ≈ 2× spring" />
+              <Toggle on={lockedYear} set={setLockedYear} label="Price locked 12+ months" />
               <Toggle on={withConditional} set={setWithConditional} label="Count autopay discounts" />
             </div>
             <ol className="mt-4 space-y-2">
@@ -181,7 +185,7 @@ function creditLine(r: Ranked): number | undefined {
   return c?.minKwh;
 }
 
-function Reveal({ kwh, seasons, ranked, pick }: { kwh: number; seasons: boolean; ranked: Ranked[]; pick: ClientPlan | null }) {
+function Reveal({ kwh, seasons, ranked, pick, locked }: { kwh: number; seasons: boolean; ranked: Ranked[]; pick: ClientPlan | null; locked: boolean }) {
   const best = ranked[0];
   const pickRow = pick ? ranked.find((r) => r.plan.id === pick.id) : undefined;
   const pickRank = pickRow ? ranked.indexOf(pickRow) + 1 : 0;
@@ -207,7 +211,7 @@ function Reveal({ kwh, seasons, ranked, pick }: { kwh: number; seasons: boolean;
               <span className="num tracking-tight">{money(gap)}</span>
             </p>
             <h2 className="display mt-3 text-2xl font-extrabold leading-tight sm:text-4xl">
-              more a year — if you pick the plan the state site lists first.
+              more a year — if you pick the plan the state site lists first{locked ? " (12+ month plans)" : ""}.
             </h2>
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
               <PlanCard tone="bad" eyebrow={`State site's #1 · #${pickRank} for you`} r={pickRow} sticker={pickRow.plan.ptc.k1000} />

@@ -5,8 +5,9 @@ const steps = [
   { t: "Get every plan", d: "Wattch downloads the full plan list from Power to Choose, the state of Texas's official plan site, and keeps the Houston (CenterPoint) plans." },
   { t: "Open the fine print", d: "Every plan has an Electricity Facts Label, usually a PDF. When a provider's page only works in a real browser or blocks plain downloads, Anakin.io opens it for us." },
   { t: "AI reads", d: "An AI reader copies the numbers off each label: energy price, delivery charges, base fee, bill credits, minimum-use fees, time-of-use splits. It does not decide anything." },
-  { t: "Code checks the AI", d: "Texas makes every label print its average price at 500, 1,000 and 2,000 kWh. Plain code rebuilds those three prices from what the AI read. If all three match to a tenth of a cent, the plan is verified. If not, the AI gets one more try with the exact mismatch. Still wrong? The plan is shown as not verified and never ranked." },
-  { t: "Code decides", d: "Your bill at your usage, the ranking, the yearly cost and the price cliffs are all plain math with tests. Same inputs, same answer, every time." },
+  { t: "Code checks the AI", d: "Texas makes every label print its average price at 500, 1,000 and 2,000 kWh. Plain code rebuilds those three prices from what the AI read. If all three match to a tenth of a cent, the plan is verified. If not, the AI gets one more try with the exact mismatch. Then a few free second chances: some labels keep their prices in PDF form fields, which plain code reads; a handful were read by hand. Every one of those still has to pass the same three-price check. Still wrong? The plan is shown as not verified and never ranked." },
+  { t: "Real Texas seasons", d: "Nobody uses the same power every month. Wattch spreads your average over 12 months the way Texas homes really use power (U.S. Energy Information Administration data, 2023–2025): August is about twice April. That's where bill-credit plans hurt: you miss the credit in the mild months." },
+  { t: "Code decides", d: "Your bill at your usage, the ranking, the yearly cost, the price cliffs and every \"why\" line are plain math with tests. Same inputs, same answer, every time. Variable-rate plans aren't ranked, because their price can change every month." },
 ];
 
 export default function How() {

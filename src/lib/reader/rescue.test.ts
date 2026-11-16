@@ -115,6 +115,20 @@ describe("grounded()", () => {
   });
 });
 
+describe("fillTdu()", () => {
+  const noTdu = readSoFedForm(text("29273"), { k500: 12.7, k1000: 11.7, k2000: 11.2 })!;
+  it("tries candidates in order and keeps the first that matches all 3", () => {
+    const f = fillTdu(noTdu, [{ cents: 9, monthly: 9 }, ...CNP])!;
+    expect([f.pricing.tduCentsPerKwh, f.pricing.tduMonthlyDollars]).toEqual([6.5333, 4.9]);
+  });
+  it("never touches a label that printed its own delivery charges", () => {
+    expect(fillTdu({ ...noTdu, tduCentsPerKwh: 1, tduMonthlyDollars: 0 }, CNP)).toBeNull();
+  });
+  it("gives up when no candidate rebuilds the label", () => {
+    expect(fillTdu(noTdu, [{ cents: 9, monthly: 9 }])).toBeNull();
+  });
+});
+
 describe("tduCandidates()", () => {
   it("picks the most common printed CenterPoint charges and skips filled ones", () => {
     const r = (cents: number, monthly: number, filled = false) => ({ check: { status: "verified", tduFilled: filled }, pricing: { tduCentsPerKwh: cents, tduMonthlyDollars: monthly } }) as unknown as PlanRecord;

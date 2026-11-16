@@ -50,6 +50,11 @@ describe("ranking", () => {
     const plans = [plan("v", flat11, { rateType: "Variable" }), plan("pp", flat11, { prepaid: true }), plan("m", flat11, { status: "mismatch" }), plan("ok", flat11)];
     expect(rankable(plans).map((p) => p.id)).toEqual(["ok"]);
   });
+  it("the 12+ month filter drops short price locks", () => {
+    const plans = [plan("short", pricing({ ...flat11, termMonths: 3 })), plan("year", pricing({ ...flat11, termMonths: 12 }))];
+    expect(rank(plans, 1000, { minTermMonths: 12 }).map((r) => r.plan.id)).toEqual(["year"]);
+    expect(rank(plans, 1000)).toHaveLength(2);
+  });
   it("autopay credits count only when asked", () => {
     const auto = pricing({ credits: [{ minKwh: 0, maxKwh: null, dollars: 10, label: "Autopay", conditional: true }] });
     const p = [plan("a", auto)];

@@ -22,7 +22,8 @@ export type ClientPlan = {
   pricing: PlanPricing | null;
 };
 
-export type RankOpts = { includeConditional?: boolean; seasons?: boolean };
+/** minTermMonths: only plans whose price is locked at least this long (a 3-month price doesn't last a year). */
+export type RankOpts = { includeConditional?: boolean; seasons?: boolean; minTermMonths?: number };
 /** monthly = the average month; avgCents = what you really pay per kWh over the year. */
 export type Ranked = { plan: ClientPlan; months: number[]; monthly: number; annual: number; avgCents: number };
 
@@ -56,6 +57,7 @@ export function rank(plans: ClientPlan[], kwh: number, opts: RankOpts = {}): Ran
   const months = yearFor(kwh, opts.seasons ?? true);
   const used = months.reduce((s, m) => s + m, 0);
   return rankable(plans)
+    .filter((plan) => plan.pricing!.termMonths >= (opts.minTermMonths ?? 0))
     .map((plan) => {
       const annual = annualCost(plan.pricing!, months, { includeConditional });
       return { plan, months, annual, monthly: Math.round((annual / 12) * 100) / 100, avgCents: Math.round((annual / used) * 1000) / 10 };
