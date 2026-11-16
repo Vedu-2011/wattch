@@ -1,6 +1,6 @@
-# Wattch — STATUS (Claude Code, overnight-2, updated Nov 16 2026 ~06:05 PT)
+# Wattch — STATUS (Claude Code, overnight-2, updated Nov 16 2026 ~06:35 PT)
 
-Live: https://getwattch.vercel.app (main) · Overnight work: branch `overnight` (Vercel preview, 206 commits ahead of
+Live: https://getwattch.vercel.app (main) · Overnight work: branch `overnight` (Vercel preview, 215 commits ahead of
 main, NOT merged — waits for Vedhanth's "merge") · Repo: github.com/Vedu-2011/wattch
 
 ## How to check it this morning (5 minutes, on the overnight preview)
