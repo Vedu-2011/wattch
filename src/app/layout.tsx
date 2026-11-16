@@ -39,9 +39,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </Link>
           <div className="flex items-center gap-2">
             <span className="hidden md:block"><FreshBadge /></span>
-            <nav className="flex gap-1 text-sm font-medium">
-              <Link className="rounded-full px-3 py-1.5 hover:bg-paper-2" href="/how">How it works</Link>
-              <Link className="rounded-full px-3 py-1.5 hover:bg-paper-2" href="/sources">Sources</Link>
+            <nav className="flex gap-0.5 whitespace-nowrap text-sm font-medium sm:gap-1">
+              <Link className="rounded-full px-2 py-1.5 hover:bg-paper-2 sm:px-3" href="/traps">Traps</Link>
+              <Link className="rounded-full px-2 py-1.5 hover:bg-paper-2 sm:px-3" href="/how"><span className="sm:hidden">How</span><span className="hidden sm:inline">How it works</span></Link>
+              <Link className="rounded-full px-2 py-1.5 hover:bg-paper-2 sm:px-3" href="/sources">Sources</Link>
             </nav>
           </div>
         </header>
