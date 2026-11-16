@@ -44,6 +44,12 @@ for (const u of spanish) {
   console.log(ok ? "ok     " : "OGIMAGE", u, ok ? "" : "\n   " + (img || "(no og:image)"));
   bad += ok ? 0 : 1;
 }
+// an unknown plan streams a friendly not-found page with status 200, so it must say noindex
+for (const u of ["/plan/99999999", "/plan/nope?lang=es"]) {
+  const ok = /<meta name="robots" content="noindex"/.test(await page(u));
+  console.log(ok ? "ok     " : "INDEX  ", u, ok ? "" : "(missing noindex)");
+  bad += ok ? 0 : 1;
+}
 // robots keeps the scripted walk-through and the APIs out; the sitemap must be valid XML (a raw "&" breaks the whole file)
 {
   const robots = await page("/robots.txt");

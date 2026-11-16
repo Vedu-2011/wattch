@@ -369,3 +369,15 @@
 - [x] AH8 STATUS speed line
 - [x] AH9 Don't change animations/demo timing (log)
 - [x] AH10 Codex review 27 after AH batch
+
+## AI batch (added 04:37, night 2) — bad inputs
+- [x] AI1 /wall?kwh=0, -5, 99999, abc, 1e9 → friendly, no crash, sensible clamp
+- [x] AI2 /compare?a=nope&b=37797, a only, same id twice, a=Dallas b=Houston → friendly
+- [x] AI3 /plan/<huge id>, /plan/%00, /plan/../ → 404 page, no stack
+- [x] AI4 /remind?end=garbage, end=1900-01-01, end=2099-12-31 → friendly
+- [x] AI5 /wall?m=1.2.3 (too few months), m=99999×12 → falls back + note?
+- [x] AI6 /api/card with 2000-char params → 200 png, no slowdown
+- [x] AI7 /api/remind bad input → 400 friendly text, not a stack
+- [x] AI8 ?lang=xx and ?area=xx everywhere → English/Houston defaults
+- [x] AI9 Fix any crash found; test for it
+- [ ] AI10 Codex review 27 after AI batch

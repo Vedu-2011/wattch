@@ -33,7 +33,8 @@ export async function generateMetadata({ params, searchParams }: PageProps<"/pla
   const sp = await searchParams;
   const rec = planById(id);
   const es = asLang(one(sp.lang)) === "es";
-  if (!rec) return { title: es ? "Wattch — plan no encontrado" : "Wattch — plan not found" };
+  // the page streams (loading screen first), so it can't answer 404 — tell search engines not to index it instead
+  if (!rec) return { title: es ? "Wattch — plan no encontrado" : "Wattch — plan not found", robots: { index: false } };
   const who = tidyName(rec.meta.provider);
   const area = areaOf(rec.meta.id) ?? "houston";
   const city = AREAS[area].city;
