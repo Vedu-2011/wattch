@@ -67,8 +67,8 @@ and scripts/link-names.mjs in check-all (same-name links, heading levels, <html 
 **Quality:** 259 tests · lint + build clean · check-all (5 checks) PASS · Codex 28–49 clean or fixed (48 found one, fixed).
 
 **For the planner**
-- A month typed as 0 kWh → −$0.10 (Houston) / −$0.94 (Dallas) on plans whose $5 autopay discount beats the delivery
-  fee. Left as the label's math; a $0 floor is a policy call.
+- A month typed as 0 kWh, only with "Count autopay discounts" ON (off by default) → below $0 on 15 of 171 Houston plans
+  (lowest −$0.10) and 10 of 154 Dallas (lowest −$0.94). Default setting: never below $0. A $0 floor is a policy call.
 - Idea, not built: search plans by name on the results page / compare. /demo stays English-only (presenter page).
 
 ## Since 04:20 (BACKLOG AA–AC) — honest about what it can't price
