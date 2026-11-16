@@ -43,6 +43,15 @@ describe("every plan record", () => {
       expect(r.meta.eflUrl, id).toMatch(/^https:\/\//);
     }
   });
+  it("plans Wattch never read have no prices and are marked 'unread' (their page says so plainly)", () => {
+    for (const id of ids) {
+      const r = planById(id)!;
+      if (r.read.parsedBy === "none") expect(r.check.status, id).toBe("unread");
+      if (r.check.status === "unread") expect(r.pricing, id).toBeFalsy();
+    }
+    expect(PLAN_WORDS.es.unread).toMatch(/^Todavía sin leer/);
+    expect(PLAN_WORDS.es.notVerified("English detail")).not.toMatch(/English/);
+  });
   it("hand-read labels say so in Spanish too", () => {
     const hand = ids.map((id) => planById(id)!).filter((r) => r.read.parsedBy.startsWith("hand-read"));
     expect(hand.length).toBeGreaterThan(0);

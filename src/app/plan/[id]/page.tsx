@@ -92,7 +92,7 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
     <div lang={lang} className="mx-auto max-w-4xl px-5 pt-6">
       <div className="no-print flex flex-wrap items-center justify-between gap-3"><Link href={`/wall?${back}`} className="whitespace-nowrap text-sm font-medium text-ink-2 hover:text-ink">{t.all}</Link><span className="flex items-center gap-2"><ShareLink title={`${rec.meta.planName} · Wattch`} lang={lang} /><PrintButton lang={lang} /></span></div>
       <h1 className="display mt-3 text-4xl font-extrabold leading-tight">{rec.meta.planName}</h1>
-      <p className="mt-1 text-ink-2">{rec.meta.provider} · {es ? ({ Fixed: "Precio fijo", Variable: "Precio variable" } as Record<string, string>)[rec.meta.rateType] ?? rec.meta.rateType : rec.meta.rateType} · {p ? t.months(p.termMonths) : ""} · {t.renewable(rec.meta.renewablePct)}</p>
+      <p className="mt-1 text-ink-2">{rec.meta.provider} · {es ? ({ Fixed: "Precio fijo", Variable: "Precio variable" } as Record<string, string>)[rec.meta.rateType] ?? rec.meta.rateType : rec.meta.rateType} {p ? `· ${t.months(p.termMonths)} ` : ""}· {t.renewable(rec.meta.renewablePct)}</p>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-[1.2fr_1fr]">
         <section className="rounded-3xl bg-card p-5 shadow-[var(--shadow-soft)]">
@@ -111,15 +111,17 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
             </table>
           ) : null}
           <p className={`mt-3 rounded-2xl px-3 py-2 text-sm font-medium ${rec.check.status === "verified" ? "bg-good-2" : "bg-volt-2"}`}>
-            {rec.check.status === "verified" ? t.verified : t.notVerified(rec.check.message)}
+            {rec.check.status === "verified" ? t.verified : rec.check.status === "unread" ? t.unread : t.notVerified(rec.check.message)}
           </p>
           {rec.check.status === "verified" && (rec.check.tduFilled || !rec.read.parsedBy.startsWith("claude")) && (
             <p className="mt-2 text-sm text-ink-2" lang="en">{rec.check.message}</p>
           )}
           <div className="no-print"><LiveCheck id={id} lang={lang} /></div>
           <p className="mt-3 text-xs text-ink-2">
+            {rec.check.status !== "unread" && <>
             {t.fetched(read)}{/* "3 hours ago" is wrong on paper, so print shows the date only */}<span className="no-print"> (<Fresh at={rec.read.fetchedAt} prefix="" lang={lang} />)</span> {rec.read.via === "anakin" ? t.viaAnakin : t.viaDirect} ·{" "}
             {t.readBy(rec.read.parsedBy)}.{" "}
+            </>}
             <a className="underline" href={rec.meta.eflUrl} target="_blank" rel="noreferrer">{t.original}</a>
           </p>
         </section>
@@ -212,7 +214,7 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
         </section>
       )}
       <p className="mt-4 hidden text-xs print:block">
-        {t.printed(id, read)} {t.originalLabel} {rec.meta.eflUrl}
+        {rec.check.status === "unread" ? t.printedUnread(id) : t.printed(id, read)} {t.originalLabel} {rec.meta.eflUrl}
       </p>
     </div>
     </HighlightScope>

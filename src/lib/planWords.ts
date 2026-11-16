@@ -11,6 +11,7 @@ export const PLAN_WORDS = {
     usage: "Usage", says: "Label says", ours: "We get", match: "Match",
     verified: "Verified: all 3 label prices rebuilt within about a tenth of a cent.",
     notVerified: (m: string) => `Not verified: ${m} We don't rank this plan.`,
+    unread: "Not read yet: Wattch couldn't get the prices out of this plan's fine print, so there are no numbers to check. We don't rank this plan. You can still open the provider's label below.",
     fetched: (when: string) => `Fine print fetched ${when} CT`,
     viaAnakin: "through Anakin.io (the page needed a real browser)",
     viaDirect: "straight from the provider",
@@ -46,6 +47,7 @@ export const PLAN_WORDS = {
     notesTitle: "Things the fine print says",
     notesBy: "Written by the AI reader. The math above never uses these notes.",
     printed: (id: string, when: string) => `Printed from Wattch (getwattch.vercel.app/plan/${id}). Prices before taxes, from the plan's own fine-print label read ${when} CT.`,
+    printedUnread: (id: string) => `Printed from Wattch (getwattch.vercel.app/plan/${id}). Wattch hasn't read this plan's label yet.`,
     originalLabel: "Original label:",
   },
   es: {
@@ -55,7 +57,10 @@ export const PLAN_WORDS = {
     checkTitle: "¿Nuestras cuentas dan lo mismo que la etiqueta?",
     usage: "Consumo", says: "La etiqueta dice", ours: "Nos da", match: "Coincide",
     verified: "Verificado: Wattch rehízo los 3 precios de la etiqueta con cerca de una décima de centavo de diferencia o menos.",
-    notVerified: (m: string) => `Sin verificar: ${m} No ponemos este plan en la lista.`,
+    // the detailed reason is stored in English; in Spanish say it plainly (the table above shows the numbers)
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars -- same shape as the English one
+    notVerified: (_reason: string) => "Sin verificar: los cargos de la etiqueta no dan los mismos precios promedio que ella imprime. No ponemos este plan en la lista.",
+    unread: "Todavía sin leer: Wattch no pudo sacar los precios de la letra pequeña de este plan, así que no hay números que revisar. No ponemos este plan en la lista. Igual puedes abrir la etiqueta del proveedor abajo.",
     fetched: (when: string) => `Letra pequeña descargada el ${when} CT`,
     viaAnakin: "con Anakin.io (la página necesitaba un navegador real)",
     viaDirect: "directo del proveedor",
@@ -97,6 +102,7 @@ export const PLAN_WORDS = {
     notesTitle: "Lo que dice la letra pequeña",
     notesBy: "Escrito por el lector de IA, en inglés. Las cuentas de arriba nunca usan estas notas.",
     printed: (id: string, when: string) => `Impreso desde Wattch (getwattch.vercel.app/plan/${id}). Precios antes de impuestos, de la etiqueta del plan leída el ${when} CT.`,
+    printedUnread: (id: string) => `Impreso desde Wattch (getwattch.vercel.app/plan/${id}). Wattch todavía no ha leído la etiqueta de este plan.`,
     originalLabel: "Etiqueta original:",
   },
 } as const;

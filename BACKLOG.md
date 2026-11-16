@@ -620,7 +620,7 @@
 - [x] BC6 STATUS morning check list still accurate
 - [x] BC7 Fix anything found
 - [x] BC8 STATUS line
-- [ ] BC9 Codex if code changed
+- [x] BC9 Codex if code changed
 - [x] BC10 PROGRESS line
 
 ## BD batch (added 05:41, night 2) — voice sweep
@@ -632,5 +632,17 @@
 - [x] BD6 Fix anything found
 - [x] BD7 Tests/parity still pass
 - [x] BD8 STATUS line
-- [ ] BD9 Codex if code changed
+- [x] BD9 Codex if code changed
 - [x] BD10 PROGRESS line
+
+## BE batch (added 05:45, night 2) — plans that didn't check out
+- [x] BE1 Not-verified plan page (33670) EN + ES: clear why, no yearly claim, screenshot 375
+- [ ] BE2 Results wall: not-verified tile has a screen-reader name saying so
+- [ ] BE3 Traps page with area=dallas shows Dallas counts (14 usage traps)
+- [x] BE4 Unread Dallas plan page (couldn't open): friendly, links to the label
+- [x] BE5 Not-verified plan: 'Check this label again' still there
+- [ ] BE6 Compare with a not-verified plan: note shows (covered?)
+- [x] BE7 Fix anything found + tests
+- [ ] BE8 STATUS line
+- [ ] BE9 Codex if code changed
+- [ ] BE10 PROGRESS line
