@@ -30,7 +30,11 @@ export function NavView({ lang }: { lang: L }) {
     </nav>
   );
 }
-export const Nav = () => <NavView lang={useUiLang()} />;
+const esPath = (path: string) => path === "/es" || path.startsWith("/es/");
+/** Reads ?lang= (needs a Suspense boundary; on a static page it waits for the browser). */
+const NavByQuery = () => <NavView lang={useUiLang()} />;
+/** On /es the path alone says Spanish, so even the static Spanish home ships Spanish links in its HTML. */
+export const Nav = () => (esPath(usePathname()) ? <NavView lang="es" /> : <NavByQuery />);
 
 export const FOOT = {
   en: "Wattch shows the math. Always open the plan's fine print before you switch. Prices before taxes. Plan list from the state's Power to Choose site.",
@@ -38,7 +42,8 @@ export const FOOT = {
 } as const;
 
 export const FooterView = ({ lang }: { lang: L }) => <span lang={lang}>{FOOT[lang]}</span>;
-export const Footer = () => <FooterView lang={useUiLang()} />;
+const FooterByQuery = () => <FooterView lang={useUiLang()} />;
+export const Footer = () => (esPath(usePathname()) ? <FooterView lang="es" /> : <FooterByQuery />);
 
 /** Sets <html lang> to the page's language after load (the root layout is shared, so it ships as "en"). */
 export function HtmlLang() {

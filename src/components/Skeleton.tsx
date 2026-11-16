@@ -29,10 +29,11 @@ function ByUrl({ kind, blocks }: { kind: Kind; blocks: string[] }) {
   return <SkeletonView label={LOADING_WORDS[lang][kind]} blocks={blocks} lang={lang} />;
 }
 
-/** The loading text in the page's language (from ?lang=es in the URL). */
+/** The loading text in the page's language (from ?lang=es in the URL), once the browser can read it. */
 export function Skeleton({ kind, blocks }: { kind: Kind; blocks: string[] }) {
   return (
-    <Suspense fallback={<SkeletonView label={LOADING_WORDS.en[kind]} blocks={blocks} />}>
+    // loading screens are prepared before the URL is known, so the fallback has no words (never English on a Spanish page)
+    <Suspense fallback={<SkeletonView label="…" blocks={blocks} />}>
       <ByUrl kind={kind} blocks={blocks} />
     </Suspense>
   );

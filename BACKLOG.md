@@ -127,8 +127,17 @@
 - [x] N4 Commit the width checker as scripts/widths.mjs (320 + 1920, EN + ES) so the 320px fix stays fixed; run it on English pages too
 - [x] N5 Keyboard-only pass on the Spanish plan page + compare page (focus visible, LiveCheck + Print reachable)
 - [x] N6 <html lang> is "en" on Spanish pages (pages set lang on their own wrapper) — check what screen readers/SEO see; fix only if cheap and safe, else document
-- [ ] N7 Codex review 11 (fb2a17c..HEAD)
+- [x] N7 Codex review 11 (fb2a17c..HEAD)
 - [ ] N8 Anakin quota probe again (~05:00); if back, run the Dallas re-read under PAID-API LOCK (≤ $0.30)
 - [x] N9 docs/JUDGE-QA + DEVPOST ⟲ numbers re-verified against scripts/headline.ts (both areas)
 - [x] N10 SCRIPT.md scene 9: the "Already on a plan?" answer + top-8 chip layout changed tonight — re-check the clicks and words still match the screen
 - [x] O1 Spanish social tags (og/twitter) checked on 4 pages — all Spanish. /es description named only Houston → both areas; meta-check now requires both home descriptions to name both areas
+- [x] O2 SCRIPT 10c live at 1920: on results click Español → big number + "más al año" visible without scrolling; English click returns
+- [ ] O3 Top-8 at 1920 after the chip-row change: rows still fit the video framing for scenes 5–6 (screenshot, compare with gallery)
+- [ ] O4 sitemap.xml + robots.txt (none exist): main pages in both languages, both areas; /demo stays noindex
+- [ ] O5 Reduced motion on the Spanish results: count-up and wall walk skip animation (prefers-reduced-motion)
+- [ ] O6 Spanish /remind end-to-end in Chrome: type a date, get the .ics (Spanish file name? Spanish text), friendly Spanish errors
+- [ ] O7 /api/card with bad or missing params (kwh=abc, area=xx, lang=fr): still a valid image, never a stack trace
+- [ ] O8 Lighthouse: Dallas Spanish plan page + /remind?lang=es — log
+- [ ] O9 Codex review 12 after O batch
+- [ ] O10 PROGRESS.md: one-paragraph "night 2 summary" at the top of tonight's section for the planner

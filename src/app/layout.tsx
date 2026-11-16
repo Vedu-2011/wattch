@@ -34,7 +34,11 @@ function FreshBadge() {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable} antialiased`}>
+    <html lang="en" suppressHydrationWarning className={`${display.variable} ${body.variable} ${mono.variable} antialiased`}>
+      <head>
+        {/* The layout is shared and static, so it ships lang="en". Fix it before anything paints on Spanish URLs. */}
+        <script dangerouslySetInnerHTML={{ __html: `(function(){var p=location.pathname;if(p==="/es"||p.indexOf("/es/")===0||new URLSearchParams(location.search).get("lang")==="es")document.documentElement.lang="es"})()` }} />
+      </head>
       <body className="min-h-dvh flex flex-col bg-paper text-ink">
         <header className="no-print mx-auto w-full max-w-6xl px-4 pt-5 flex items-center justify-between gap-2 sm:px-5">
           <Link href="/" className="flex items-center gap-2" aria-label="Wattch home">
