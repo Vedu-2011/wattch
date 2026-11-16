@@ -560,7 +560,7 @@
 - [x] AX6 Results 'Use my real 12 months' button: keyboard + screen-reader name
 - [x] AX7 Plan page 'Show same usage every month' link keeps lang + area
 - [x] AX8 Fix anything found + tests
-- [ ] AX9 STATUS line
+- [x] AX9 STATUS line
 - [x] AX10 Codex review 37 if code changed
 
 ## AY batch (added 05:30, night 2) — does the repo work for someone else?
@@ -572,5 +572,17 @@
 - [x] AY6 sitemap/robots/preview links use the production address
 - [ ] AY7 Anakin quota check at >= 06:00 (PAID-API LOCK, $0 if still out)
 - [x] AY8 Fix anything found
-- [ ] AY9 STATUS line
+- [x] AY9 STATUS line
 - [x] AY10 Codex review if code changed
+
+## AZ batch (added 05:31, night 2) — numbers sanity
+- [x] AZ1 Every ranked plan, both areas, at 200/1100/3000 kWh: yearly cost finite, > 0, < $10,000
+- [x] AZ2 Ranking ties: same yearly cost → stable order (by id), test
+- [x] AZ3 Results page at 200 and 3000 kWh renders, no NaN/undefined, EN + ES
+- [x] AZ4 Monthly bill never negative at any usage 100–3,000 (credits bigger than the bill?)
+- [x] AZ5 Plan pages: 'real ¢/kWh' between 3¢ and 60¢ for ranked plans
+- [x] AZ6 DEVPOST/STATUS Codex review count current
+- [x] AZ7 Fix anything found + tests
+- [x] AZ8 Look at the 3 most extreme plans by hand if anything looks odd
+- [x] AZ9 STATUS line
+- [x] AZ10 Codex review if code changed

@@ -33,7 +33,14 @@ wait. For future overnight nights: push once per batch, or turn off previews for
 - Checked, no change: 84 internal links all open (EN/ES/Dallas); friendly errors on /remind and "my 12 months";
   the re-check button is disabled while it runs. /demo stays English-only (presenter page, not linked).
 - Idea for the planner (not built): search plans by name on the results page / compare.
-- Codex 28–34 clean on my code (31's only note is the swept-in .codex/ folder, see Known gaps). 236 tests.
+- Number sanity (every ranked plan, both areas): yearly cost finite and $0–$10,000 at 200/1,100/3,000 kWh, real price
+  3–60¢ at 1,100, no monthly bill below $0 from 100 to 3,000 kWh. Edge for the planner: at exactly 0 kWh in a month
+  (only possible by typing a 0 in "my 12 months"), $5 autopay discounts beat the $4.90 delivery fee → −$0.10 that month
+  (Octopus / No Bull / Digital Choice; Dallas −$0.94). Left as the label's math; a $0 floor is a policy call.
+- README says which keys go in .env.local (none needed to run the app). A fresh clone with no keys: npm ci + 236 tests pass.
+- Checked, no change: Dallas share text, trap carousel under reduced motion, Dallas plan prints on 1 sheet, badge in
+  Spanish/Dallas in a real browser, all data files tracked, biggest browser script 235 KB.
+- Codex 28–36 clean on my code (31's only note is the swept-in .codex/ folder, see Known gaps). 236 tests.
 
 ## Since 04:20 (BACKLOG AA–AC) — honest about what it can't price
 - **Variable, prepaid and not-verified plans** no longer get a firm yearly number anywhere: their plan page and any
