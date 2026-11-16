@@ -296,4 +296,16 @@
 - [x] AB7 JUDGE-QA Q13 mentions compare note for variable plans? (only if AB1–4 changed things)
 - [x] AB8 es-walk stop on variable compare page (note in Spanish)
 - [x] AB9 meta-check: variable compare link's og:image (fine either way) — log
-- [ ] AB10 Codex review 23 after AB batch
+- [x] AB10 Codex review 23 after AB batch
+
+## AC batch (added 04:24, night 2)
+- [x] AC1 'I'm already on a plan' (CurrentPlan): picking a variable plan → note like plan page? check
+- [x] AC2 Plan page plan card (/api/card?plan=variable) = general card (verify image) — log
+- [x] AC3 Sitemap: variable/unverified plan pages still listed (fine) — log
+- [x] AC4 STATUS 'Since 04:20' section (honesty notes)
+- [x] AC5 DEVPOST: 'honest about what it can't price' line? only if it fits
+- [x] AC6 Print plan page with the note (one sheet still?)
+- [x] AC7 Dallas variable plan page check (area words)
+- [x] AC8 widths: add a variable plan page at 320
+- [x] AC9 Lighthouse /plan/24977 a11y (note contrast on dark card)
+- [ ] AC10 Codex review 24 after AC batch

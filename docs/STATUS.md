@@ -16,6 +16,12 @@ newest preview that built is commit 85e52e2, which already has everything in ste
 checks and docs. The limit resets on its own; the next push after that builds the latest. Leave space before "merge"
 so production can build.
 
+## Since 04:20 (BACKLOG AA–AC) — honest about what it can't price
+- **Variable, prepaid and not-verified plans** no longer get a firm yearly number anywhere: their plan page and any
+  compare page show a plain note ("only a rough guide — that's why it isn't in the ranking"), the link description
+  drops "really costs $X a year", and the share card falls back to the general one. Found by opening those plans on purpose.
+- **Texas time in one helper** with a test for the midnight edge. Codex 21–23 clean. 230 tests, check-all PASS.
+
 ## Since 04:00 (BACKLOG W + X)
 - **Share button** on plan and compare pages (next to Print). The button itself says "Link copied".
 - **Dates in Texas time:** the home badge and the results "read on" time no longer follow the viewer's own clock.
@@ -32,7 +38,7 @@ so production can build.
   Houston; months URL comment had the wrong format.
 - **`node scripts/check-all.mjs`** runs axe + Spanish walk + widths (40 pages × sizes) + meta-check in ~2 min.
 - **Codex 14–17:** 3 real P2s fixed (compare test, preview settings, "cheapest" label), 17 clean.
-- **Quality now:** 225 tests · lint + build clean · axe 0 on 25 pages · check-all PASS.
+- **Quality now:** 230 tests · lint + build clean · axe 0 on 25 pages · check-all PASS.
 
 ## Since 01:57 (BACKLOG K–R) — polish, found by checking
 - **Spanish before JavaScript:** Spanish pages used to send English loading text and `lang="en"` in their first HTML
