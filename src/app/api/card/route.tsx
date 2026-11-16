@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { clientPlans } from "@/lib/plans/data";
+import { anyFilter, filterOpts, parseWallParams } from "@/lib/params";
 import { reveal } from "@/lib/rank";
 
 const money = (n: number) => n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
@@ -7,17 +8,15 @@ const money = (n: number) => n.toLocaleString("en-US", { style: "currency", curr
 /** Share card for one result (1200×630). Every number is computed here by the same code as the page. */
 export async function GET(req: Request) {
   const sp = new URL(req.url).searchParams;
-  const k = Math.round(Number(sp.get("kwh")));
-  const kwh = Number.isFinite(k) && k >= 100 && k <= 5000 ? k : 1100;
-  const seasons = sp.get("flat") !== "1";
-  const r = reveal(clientPlans(), kwh, { seasons });
+  const { kwh, seasons, months, filters } = parseWallParams((k) => sp.get(k));
+  const r = reveal(clientPlans(), kwh, { seasons, months, ...filterOpts(filters) });
   const big = r.pick && r.gap >= 1;
   return new ImageResponse(
     (
       <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", background: "#1b1611", color: "#f5efe3", padding: "56px 64px", fontFamily: "sans-serif" }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <div style={{ display: "flex", fontSize: 40, fontWeight: 800 }}>⚡ Wattch</div>
-          <div style={{ display: "flex", fontSize: 26, color: "#ffcf2e" }}>{kwh.toLocaleString()} kWh a month · Houston</div>
+          <div style={{ display: "flex", fontSize: 26, color: "#ffcf2e" }}>{months ? "My own 12 months" : `${kwh.toLocaleString()} kWh a month`} · Houston{anyFilter(filters) ? " · filtered" : ""}</div>
         </div>
         {big ? (
           <div style={{ display: "flex", flexDirection: "column" }}>

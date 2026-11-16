@@ -142,7 +142,8 @@ export function whyLine(p: PlanPricing, months: number[]): string | null {
 export function reveal(plans: ClientPlan[], kwh: number, opts: RankOpts = {}) {
   const ranked = rank(plans, kwh, opts);
   const best = ranked[0] ?? null;
-  const top = ptcTopPick(plans);
+  // the state site's #1 among the plans that pass the same filters
+  const top = ptcTopPick(plans.filter((p) => p.pricing && passesFilters(p, opts)));
   const pick = top ? ranked.find((r) => r.plan.id === top.id) ?? null : null;
   const gap = best && pick ? Math.round((pick.annual - best.annual) * 100) / 100 : 0;
   return { ranked, best, pick, pickRank: pick ? ranked.indexOf(pick) + 1 : 0, gap, why: pick ? whyLine(pick.plan.pricing!, pick.months) : null };

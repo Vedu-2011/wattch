@@ -12,7 +12,7 @@
 - [x] /compare?a=&b= — two plans side by side: bill at your usage, 12-month bars, cliffs, check rows; "Compare" button from ranking rows
 - [x] Filters on the ranking: price locked ≥12 mo (exists), no bill-credit cliffs, renewable ≥50%, provider rating ≥4 — each filter changes the list and is shareable in the URL
 - [x] Landing hero: live counter "Houston plans read: N · traps found: M" from real data + one example trap card that rotates every few seconds — numbers come from data/plans.json
-- [ ] Wall: make the reading animation feel alive (Kapi walks across, tiles stamp ✓) but finish ≤10s; reduced-motion respected — looks great at 375 and 1920
+- [x] Wall: make the reading animation feel alive (Kapi walks across, tiles stamp ✓) but finish ≤10s; reduced-motion respected — looks great at 375 and 1920
 - [ ] Reveal: count-up animation on the $ number, confetti-free; "Share my result" image via /api/card with the user's numbers — card renders with real numbers
 - [ ] "Trap encyclopedia" /traps: every trap type found in the data (bill-credit cliff, minimum-use fee, tiered, TOU, autopay credit, setup fee, 3-month teaser) with a real example plan + how much it costs at 3 usages — every example links to a real plan page
 - [ ] Demo mode /demo: a scripted, click-through flow for the video (fixed usage 1,100, auto-advances), with a "judge mode" QR — runs start to finish without input

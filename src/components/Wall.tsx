@@ -6,6 +6,8 @@ import { CurrentPlan } from "@/components/CurrentPlan";
 import { JudgeQr } from "@/components/JudgeQr";
 import { MyMonths } from "@/components/MyMonths";
 import { average, monthsToParam } from "@/lib/months";
+import { FILTER_KEYS, NO_FILTERS, type WallFilters, anyFilter, filterOpts as toOpts } from "@/lib/params";
+import { CountUp } from "@/components/CountUp";
 import { ShareButton } from "@/components/ShareButton";
 import { YearBars } from "@/components/YearBars";
 import { type ClientPlan, type Ranked, passesFilters, ptcTopPick, rank, traps, whyLine, yearFor } from "@/lib/rank";
@@ -41,8 +43,6 @@ function useReveal(plans: ClientPlan[], totalMs = 9000) {
   return { readIds, done: skip || now >= totalMs, skip: () => setSkip(true) };
 }
 
-export type WallFilters = { locked: boolean; noCliffs: boolean; green: boolean; rated: boolean };
-const NO_FILTERS: WallFilters = { locked: false, noCliffs: false, green: false, rated: false };
 
 export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons, months: initialMonths = null, filters: initialFilters = NO_FILTERS }: { plans: ClientPlan[]; kwh: number; builtAt: string; seasons: boolean; months?: number[] | null; filters?: WallFilters }) {
   const { readIds, done, skip } = useReveal(plans);
@@ -53,18 +53,16 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons,
   const qs = `kwh=${kwh}${seasons ? "" : "&flat=1"}${mine ? `&m=${monthsToParam(mine)}` : ""}`;
   const [withConditional, setWithConditional] = useState(true);
   const [f, setF] = useState<WallFilters>(initialFilters);
-  const lockedYear = f.locked;
-  const minTermMonths = lockedYear ? 12 : 0;
-  const filterOpts = useMemo(() => ({ minTermMonths, noCliffs: f.noCliffs, minRenewable: f.green ? 50 : 0, minRating: f.rated ? 4 : 0 }), [minTermMonths, f]);
-  const filtered = f.locked || f.noCliffs || f.green || f.rated;
+  const filterOpts = useMemo(() => toOpts(f), [f]);
+  const filtered = anyFilter(f);
   // keep the address bar shareable: usage, your months, and every filter
   useEffect(() => {
     const u = new URL(window.location.href);
     u.searchParams.set("kwh", String(kwh));
     if (mine) u.searchParams.set("m", monthsToParam(mine)); else u.searchParams.delete("m");
     if (seasons) u.searchParams.delete("flat"); else u.searchParams.set("flat", "1");
-    for (const [k, on] of [["lock", f.locked], ["nocliff", f.noCliffs], ["green", f.green], ["rated", f.rated]] as const) {
-      if (on) u.searchParams.set(k, "1"); else u.searchParams.delete(k);
+    for (const key of Object.keys(FILTER_KEYS) as (keyof WallFilters)[]) {
+      if (f[key]) u.searchParams.set(FILTER_KEYS[key], "1"); else u.searchParams.delete(FILTER_KEYS[key]);
     }
     window.history.replaceState(null, "", u);
   }, [kwh, mine, seasons, f]);
@@ -274,7 +272,7 @@ function Reveal({ kwh, seasons, ranked, pick, locked, mine, qs }: { kwh: number;
         {pickRow && gap >= 1 ? (
           <>
             <p className="display mt-3 text-[4.5rem] font-extrabold leading-[0.85] text-volt sm:text-[7rem] lg:text-[8.5rem]">
-              <span className="num tracking-tight">{money(gap)}</span>
+              <span className="num tracking-tight"><CountUp value={gap} format={money} /></span>
             </p>
             <h2 className="display mt-3 text-2xl font-extrabold leading-tight sm:text-4xl">
               more a year — if you pick the plan the state site lists first{locked ? " (among plans that pass your filters)" : ""}.
@@ -303,7 +301,7 @@ function Reveal({ kwh, seasons, ranked, pick, locked, mine, qs }: { kwh: number;
           <Link href={`/plan/${best.plan.id}?${qs}`} className="rounded-full bg-volt px-5 py-2.5 font-bold text-ink">See the math</Link>
           {pickRow && gap >= 1 && <Link href={`/plan/${pickRow.plan.id}?${qs}`} className="rounded-full bg-paper/15 px-5 py-2.5 font-bold">Open the #1 plan&apos;s fine print</Link>}
           {pickRow && gap >= 1 && <Link href={`/compare?a=${best.plan.id}&b=${pickRow.plan.id}&${qs}`} className="rounded-full bg-paper/15 px-5 py-2.5 font-bold">Side by side</Link>}
-          <ShareButton kwh={kwh} text={shareText} flat={!seasons} />
+          <ShareButton text={shareText} />
         </div>
       </div>
 
