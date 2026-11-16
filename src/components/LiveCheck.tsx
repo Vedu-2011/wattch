@@ -5,7 +5,7 @@ import { timeAgo } from "@/lib/timeAgo";
 
 type Live = { ok: true; via: "direct" | "anakin"; ms: number; same: boolean; pricesSame: boolean; readAt: string } | { ok: false; message: string };
 
-const T = {
+export const LIVE_WORDS = {
   en: {
     offline: "Couldn't reach the provider's site right now. Try again in a minute.",
     busy: "Opening the label…",
@@ -22,13 +22,14 @@ const T = {
     same: (ago: string, s: string) => `✓ La misma etiqueta, palabra por palabra, que Wattch leyó (${ago}). Se abrió en ${s} s.`,
     newFile: "✓ El archivo es nuevo (muchas veces solo cambia la fecha), pero sigue mostrando los mismos 3 precios que revisamos.",
     changed: (ago: string) => `Esta etiqueta cambió desde que Wattch la leyó (${ago}). Los números aquí pueden estar viejos hasta la próxima lectura.`,
-    failed: () => "No pudimos abrir la etiqueta del proveedor ahora. Intenta de nuevo en un minuto.",
+    // the server explains failures in English; Spanish shows one plain sentence instead
+    failed: (english: string) => (english ? "No pudimos abrir la etiqueta del proveedor ahora. Intenta de nuevo en un minuto." : ""),
   },
 } as const;
 
 /** Opens the provider's label again, right now, and says in plain words whether it still says what we read. */
 export function LiveCheck({ id, lang = "en" }: { id: string; lang?: Lang }) {
-  const t = T[lang];
+  const t = LIVE_WORDS[lang];
   const [state, setState] = useState<"idle" | "busy" | Live>("idle");
   async function run() {
     setState("busy");

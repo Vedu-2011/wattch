@@ -11,7 +11,7 @@ export function useUiLang(): L {
   return path === "/es" || sp.get("lang") === "es" ? "es" : "en";
 }
 
-const NAV = {
+export const NAV = {
   en: { traps: "Traps", howShort: "How", how: "How it works", sources: "Sources" },
   es: { traps: "Trampas", howShort: "Cómo", how: "Cómo funciona", sources: "Fuentes" },
 } as const;
@@ -31,7 +31,7 @@ export function NavView({ lang }: { lang: L }) {
 }
 export const Nav = () => <NavView lang={useUiLang()} />;
 
-const FOOT = {
+export const FOOT = {
   en: "Wattch shows the math. Always open the plan's fine print before you switch. Prices before taxes. Plan list from the state's Power to Choose site.",
   es: "Wattch muestra las cuentas. Siempre abre la letra pequeña del plan antes de cambiarte. Precios antes de impuestos. Lista de planes del sitio Power to Choose del estado.",
 } as const;

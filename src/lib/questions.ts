@@ -12,7 +12,7 @@ const $ = (d: number) => `$${d.toLocaleString("en-US", { maximumFractionDigits: 
 const n = (k: number) => k.toLocaleString("en-US");
 const s = (k: number, one: string, many: string) => (k === 1 ? one : many);
 
-const Q = {
+export const QUESTION_WORDS = {
   en: {
     orMore: (k: string) => `${k} kWh or more`,
     between: (a: string, b: string) => `between ${a} and ${b} kWh`,
@@ -62,7 +62,7 @@ const Q = {
 } as const;
 
 export function questions(p: PlanPricing, months: number[], max = 4, lang: Lang = "en"): Question[] {
-  const W = Q[lang];
+  const W = QUESTION_WORDS[lang];
   const out: Question[] = [];
   // bill credits that need a minimum usage: how many of YOUR months miss it
   for (const c of p.credits.filter((c) => !c.conditional && c.minKwh > 0).sort((a, b) => b.dollars - a.dollars)) {

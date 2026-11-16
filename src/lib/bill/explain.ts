@@ -14,7 +14,7 @@ const n = (k: number) => k.toLocaleString("en-US");
 /** cents as the label prints them (up to 4 decimals, e.g. CenterPoint's 6.5611¢) */
 const c = (x: number) => `${Number(x.toFixed(4))}¢`;
 
-const S = {
+export const EXPLAIN_WORDS = {
   en: {
     tou: (parts: string) => `Priced by time of day, using the label's own mix: ${parts}. Your mix may differ.`,
     touPart: (pct: number, cents: string, label: string) => `${pct}% at ${cents} (${label})`,
@@ -59,7 +59,7 @@ const S = {
   },
 } as const;
 
-type Words = (typeof S)[Lang];
+type Words = (typeof EXPLAIN_WORDS)[Lang];
 
 function energyWhy(p: PlanPricing, kwh: number, W: Words): string {
   if (p.touPeriods.length > 0) return W.tou(p.touPeriods.map((t) => W.touPart(Math.round(t.share * 100), c(t.cents), t.label)).join(", "));
@@ -76,7 +76,7 @@ function energyWhy(p: PlanPricing, kwh: number, W: Words): string {
 
 export function explainBill(p: PlanPricing, kwh: number, opts: { includeConditional?: boolean; utility?: string; lang?: Lang } = {}): LineWhy[] {
   const utility = opts.utility ?? "CenterPoint";
-  const W: Words = S[opts.lang ?? "en"];
+  const W: Words = EXPLAIN_WORDS[opts.lang ?? "en"];
   const out: LineWhy[] = billLines(p, kwh, opts).map((l) => {
     if (l.key === "energy") return { key: l.key, text: energyWhy(p, kwh, W) };
     if (l.key === "base") return { key: l.key, text: p.baseChargeDollars > 0 ? W.base($(p.baseChargeDollars)) : W.noBase };

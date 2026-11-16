@@ -31,7 +31,7 @@ export function parseDay(s: string | null | undefined): Date | null {
 const addDays = (d: Date, n: number) => new Date(d.getTime() + n * 86400000);
 
 /** Why a date can't be used, in plain words — or null when it's fine. */
-const PROBLEMS = {
+export const PROBLEMS = {
   en: {
     bad: "That doesn't look like a date. Pick the day your contract ends.",
     past: "That day has already passed. If your contract already ended, you can shop for a new plan today.",
@@ -60,7 +60,7 @@ export function reminderDay(end: Date, now: Date): Date {
   return remind.getTime() > today.getTime() ? remind : addDays(today, 1);
 }
 
-const ICS_WORDS = {
+export const ICS_WORDS = {
   en: {
     summary: (end: string) => `Shop for a new power plan — yours ends ${end}`,
     desc: (plan: string, end: string, url: string) => `Your power plan${plan} ends on ${end}. If you don't pick a new plan, you may be moved to a month-to-month rate that can cost more. Compare every plan's real price: ${url}`,
