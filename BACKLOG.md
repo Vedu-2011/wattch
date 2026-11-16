@@ -128,7 +128,7 @@
 - [x] N5 Keyboard-only pass on the Spanish plan page + compare page (focus visible, LiveCheck + Print reachable)
 - [x] N6 <html lang> is "en" on Spanish pages (pages set lang on their own wrapper) — check what screen readers/SEO see; fix only if cheap and safe, else document
 - [x] N7 Codex review 11 (fb2a17c..HEAD)
-- [ ] N8 Anakin quota probe again (~05:00); if back, run the Dallas re-read under PAID-API LOCK (≤ $0.30)
+- [x] N8 Anakin quota probe again (~05:00); if back, run the Dallas re-read under PAID-API LOCK (≤ $0.30)
 - [x] N9 docs/JUDGE-QA + DEVPOST ⟲ numbers re-verified against scripts/headline.ts (both areas)
 - [x] N10 SCRIPT.md scene 9: the "Already on a plan?" answer + top-8 chip layout changed tonight — re-check the clicks and words still match the screen
 - [x] O1 Spanish social tags (og/twitter) checked on 4 pages — all Spanish. /es description named only Houston → both areas; meta-check now requires both home descriptions to name both areas
@@ -281,7 +281,7 @@
 - [x] AA4 Spanish Share title: 'Simple Saver 3 · Wattch' ok in ES (proper noun) — log
 - [x] AA5 Home badge date at midnight CT edge: builtAt 05:30 UTC shows previous Texas day — test for the formatter
 - [x] AA6 JUDGE-QA: date honesty line? (no — log)
-- [ ] AA7 PROGRESS: Anakin probe result (N8) feeds the Dallas re-read decision
+- [x] AA7 PROGRESS: Anakin probe result (N8) feeds the Dallas re-read decision
 - [x] AA8 STATUS 'Known gaps' refresh (Dallas 16 unread, Vercel limit)
 - [x] AA9 tidy: docs/screenshots/overnight-2 size check (repo weight) — log MB
 - [x] AA10 Codex review 22 after AA batch
@@ -416,7 +416,7 @@
 - [x] AL7 SCRIPT scene timing still ≈ 5:30 (no new scenes) — log
 - [x] AL8 Backup: docs/gallery images can stand in if Wi-Fi dies — note in STATUS
 - [x] AL9 STATUS demo-day line
-- [ ] AL10 Codex review 29 if code changed
+- [x] AL10 Codex review 29 if code changed
 
 ## AM batch (added 04:50, night 2) — wording
 - [x] AM1 Grep all UI words for AI-sounding terms (seamless, leverage, empower, unlock, delve, robust, effortless, journey, elevate, cutting-edge, game-changer)
@@ -434,11 +434,23 @@
 - [x] AN1 Every outside link on /sources answers (2xx/3xx)
 - [x] AN2 Every link in docs/SOURCES.md answers
 - [x] AN3 Plan pages 'Open the original label' links: sample 10 Houston + 10 Dallas answer
-- [ ] AN4 Enroll links (if shown): sample 5
+- [x] AN4 Enroll links (if shown): sample 5
 - [x] AN5 Fix or note broken ones (no invented replacements)
 - [x] AN6 /how links
 - [x] AN7 README links (repo, live, video)
 - [x] AN8 DEVPOST links
 - [x] AN9 STATUS links line
-- [ ] AN10 Codex review 30 if code changed
+- [x] AN10 Codex review 30 if code changed
 - [ ] AN11 Re-check the 36 Infuse/Revolution label links at ~06:45 (still 404?) → note in handoff
+
+## AO batch (added 04:53, night 2)
+- [x] AO1 Try a direct (free) download of the 16 unread Dallas labels — which work without Anakin?
+- [x] AO2 If some work: re-read just those (PAID-API LOCK, ≤ $0.30, ingest --redo-failed or equivalent), verify, rebuild
+- [x] AO3 After any re-read: headline unchanged? Dallas counts updated in docs
+- [x] AO4 Tests + check-all after data change
+- [ ] AO5 Handoff draft in scratchpad (fill at 7:00)
+- [ ] AO6 Night-2 summary final text drafted (O10)
+- [ ] AO7 STATUS: final counts (Y9/AG9) — prepare
+- [ ] AO8 tidy.sh dry look (what it moves) before running at handoff
+- [ ] AO9 BOARD Done line drafted
+- [ ] AO10 Codex review if code changed
