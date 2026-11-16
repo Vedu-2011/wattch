@@ -20,9 +20,9 @@ function useReveal(plans: ClientPlan[], totalMs = 9000) {
   useEffect(() => {
     if (skip) return;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) { setSkip(true); return; }
-    const t0 = performance.now();
     let raf = 0;
+    if (reduce) { raf = requestAnimationFrame(() => setNow(Infinity)); return () => cancelAnimationFrame(raf); }
+    const t0 = performance.now();
     const tick = () => { const n = performance.now() - t0; setNow(n); if (n < totalMs + 200) raf = requestAnimationFrame(tick); };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
