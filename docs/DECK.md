@@ -32,7 +32,7 @@ Source: scripts/headline.ts; the plan's label (linked from /plan/33633).
 cost mattered most." Small print on the slide: "EnergyBot is a commercial comparison site."
 Source: energybot.com/electricity-plan-study.html (quoted in SOURCES.md).
 
-**5 · How big the trap is in our data**
+**5 · How big the trap is in the data**
 18 ⟲ of 172 ⟲ plans have a hidden catch that changes the price; 7 kinds of trap. Breakdown (plans can have more than one):
 3-month teaser 20 · autopay credit 15 · bill-credit cliff 12 · minimum-use fee 10 · time-of-use 9 · setup fee 6 · tiered 1 ⟲.
 Source: data/plans.json via /traps and src/lib/hero.ts (checked Nov 16). Wording matters: "18 plans with a trap that
@@ -49,7 +49,7 @@ counts are bigger because they include softer catches (autopay credit, 3-month p
 - The same pipeline works for the rest of Texas's competitive market (AEP, TNMP): **[CHECK]** total
   competitive-market homes from an ERCOT/PUCT page before using any statewide number. ("8 million premises" is
   unverified — don't use.)
-- Illustration only, our math: if 1% of CenterPoint homes (≈25,000) switched off a plan that costs them $378 more,
+- Illustration only, my math: if 1% of CenterPoint homes (≈25,000) switched off a plan that costs them $378 more,
   that's ≈ $9.5M a year back to families. Label it "illustration", not a forecast.
 
 **7 · Product (demo slide)**

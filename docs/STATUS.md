@@ -24,6 +24,8 @@ wait. For future overnight nights: push once per batch, or turn off previews for
   compare page show a plain note ("only a rough guide — that's why it isn't in the ranking"), the link description
   drops "really costs $X a year", and the share card falls back to the general one. Found by opening those plans on purpose.
 - **Skip-to-content link** (EN/ES) for keyboard users, hidden until Tab.
+- **Wording check (04:55):** no AI-sounding words in the app, Devpost, deck or script (EN + ES); every error
+  message says what to do next; deck now says "my math" instead of "our".
 - **Demo day:** /demo now fits a 1280×720 or 1366×768 projector (the stage shrinks evenly; 1920 unchanged), and
   Home/End jump to the first/last scene. If the Wi-Fi dies, docs/gallery/ has 8 full-screen images in demo order.
 - **Privacy, checked (04:50):** 9 pages, no cookies, nothing in browser storage, no requests to any outside site.

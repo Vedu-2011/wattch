@@ -417,3 +417,15 @@
 - [x] AL8 Backup: docs/gallery images can stand in if Wi-Fi dies — note in STATUS
 - [x] AL9 STATUS demo-day line
 - [ ] AL10 Codex review 29 if code changed
+
+## AM batch (added 04:50, night 2) — wording
+- [x] AM1 Grep all UI words for AI-sounding terms (seamless, leverage, empower, unlock, delve, robust, effortless, journey, elevate, cutting-edge, game-changer)
+- [x] AM2 Same for DEVPOST/DECK/SCRIPT
+- [x] AM3 'we'/'our' in DEVPOST/SCRIPT (solo build → 'I') — UI 'our math' is the app speaking, fine
+- [x] AM4 Exclamation marks in UI (should be none/rare)
+- [x] AM5 Fix anything found
+- [x] AM6 Spanish: same grep (aprovechar, potenciar, sin problemas, revolucionar)
+- [x] AM7 Button labels: verbs, short (list them)
+- [x] AM8 Error messages all say what to do next
+- [x] AM9 STATUS wording line
+- [x] AM10 Codex review 30 if code changed
