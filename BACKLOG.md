@@ -108,6 +108,6 @@
 - [x] L5 docs/DECK.md truth pass: Spanish + test counts + Lighthouse numbers vs. the code
 - [x] L6 /demo: keep English (video), but make sure its numbers still match headline.ts for both areas (test exists? add if not)
 - [x] L7 Spanish copy self-review: read every ES table once for tú/usted consistency, accents, and "plan de luz" wording
-- [ ] L8 Wall JS weight check (first-load JS for /wall, /plan) vs. last night — note any growth from the word tables
+- [x] L8 Wall JS weight check (first-load JS for /wall, /plan) vs. last night — note any growth from the word tables
 - [ ] L9 docs/STATUS.md refresh before morning handoff
 - [ ] L10 Morning handoff file at >= 7:00 AM PT (OVERNIGHT.md) + BOARD row Done + tidy.sh
