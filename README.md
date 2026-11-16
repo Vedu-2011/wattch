@@ -59,6 +59,12 @@ npm run build
 ```
 
 Keeping the data fresh:
+
+The app runs on the committed data with no keys. Re-reading labels needs a `.env.local` with
+`ANTHROPIC_API_KEY=` (the Claude label reader in scripts/ingest.ts and refresh.ts) and, optionally, `ANAKIN_API_KEY=`
+(Anakin.io, for labels that need a real browser; the live "check this label again" also uses it as a fallback, and
+never calls Claude). Without Anakin those labels show as "couldn't open".
+
 ```bash
 npm run refresh                          # free dry run: what changed on Power to Choose since the last read (writes nothing)
 npm run refresh -- --area all            # Houston + Dallas–Fort Worth
