@@ -1,7 +1,19 @@
-# Wattch — STATUS (Claude Code, overnight-2, updated Nov 16 2026 ~03:25 PT)
+# Wattch — STATUS (Claude Code, overnight-2, updated Nov 16 2026 ~04:05 PT)
 
-Live: https://getwattch.vercel.app (main) · Overnight work: branch `overnight` (Vercel preview, 133 commits ahead of
+Live: https://getwattch.vercel.app (main) · Overnight work: branch `overnight` (Vercel preview, 147 commits ahead of
 main, NOT merged — waits for Vedhanth's "merge") · Repo: github.com/Vedu-2011/wattch
+
+## Since 03:25 (BACKLOG S–V) — link previews + checks
+- **Shared links preview the right thing:** every page's preview card is in its own language and city (before: only
+  the results page; Spanish pages showed the English card). A plan link shows that plan (advertised vs real yearly cost,
+  rank, gap); a compare link shows who saves how much. Tested against the results page (`standing()` = `reveal()`).
+- **Screen readers on Spanish pages** no longer hear English (progress bar, header labels, Kapi now decorative); the
+  progress bar says "30 of 172" / "29 de 172". es-walk checks labels too.
+- **Small fixes found by checking:** compare headers aligned + Print button; Dallas not-found page sent people to
+  Houston; months URL comment had the wrong format.
+- **`node scripts/check-all.mjs`** runs axe + Spanish walk + widths (40 pages × sizes) + meta-check in ~2 min.
+- **Codex 14–17:** 3 real P2s fixed (compare test, preview settings, "cheapest" label), 17 clean.
+- **Quality now:** 224 tests · lint + build clean · axe 0 on 23 pages · check-all PASS.
 
 ## Since 01:57 (BACKLOG K–R) — polish, found by checking
 - **Spanish before JavaScript:** Spanish pages used to send English loading text and `lang="en"` in their first HTML

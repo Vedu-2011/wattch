@@ -220,8 +220,8 @@
 - [x] V3 Plan + compare cards: footer line (getwattch.vercel.app) on compare card like the others
 - [x] V4 Test: card route returns image/png for plan=, a=&b=, bad ids (route test, no pixel check)
 - [x] V5 /remind preview card: generic card ok? (decide, log)
-- [ ] V6 JUDGE-QA: 'what does a shared link show?' — only if Q list < 22
-- [ ] V7 SCRIPT scene 11 optional line: 'a plan link shows that plan' (+5 s) — only if under cap
-- [ ] V8 STATUS.md: add U batch (previews, check-all, standing test)
+- [x] V6 JUDGE-QA: 'what does a shared link show?' — only if Q list < 22
+- [x] V7 SCRIPT scene 11 optional line: 'a plan link shows that plan' (+5 s) — only if under cap
+- [x] V8 STATUS.md: add U batch (previews, check-all, standing test)
 - [x] V9 widths.mjs: add /compare Dallas pair + own-months URL
 - [ ] V10 Codex review 18 after V batch

@@ -13,7 +13,7 @@ shown as not verified and never ranked. Houston: 171 of 172 labels verified ⟲.
 
 **2. Then what does the AI actually decide?**
 Nothing. It copies numbers off a messy PDF. The bill, the yearly cost, the ranking, the "why" sentence and the questions on each
-plan page are all plain code with tests (211 ⟲ tests). Same inputs, same answer, every time.
+plan page are all plain code with tests (224 ⟲ tests). Same inputs, same answer, every time.
 
 **3. Why Claude Haiku and not a bigger model?**
 The job is reading, not reasoning, and the code check catches mistakes either way. Haiku is fast and cheap enough to read
@@ -88,7 +88,7 @@ Many plans roll onto a month-to-month rate if you don't pick a new one. The remi
 reminder 30 days before your end date. Nothing is saved on Wattch: no account, no email.
 
 **18. How do you catch your own mistakes?**
-Three ways: the three-price check on every label, 211 ⟲ automated tests (including one that rebuilds every verified label and
+Three ways: the three-price check on every label, 224 ⟲ automated tests (including one that rebuilds every verified label and
 one that checks every English sentence has a Spanish one), and a second AI reviewer (Codex) reading each batch of changes before
 it's merged. Example: a review caught that Dallas plans were saying their delivery charges came from CenterPoint instead of
 Oncor. The math was right; the wording was wrong, and it's fixed.
@@ -107,6 +107,12 @@ Every page at a 320-pixel phone and a 1920 projector (a script fails if anything
 readers (axe finds 0 issues on 23 pages, and Spanish pages don't read English labels aloud), printing (plan and compare
 pages fit one sheet), and shared links (each page's preview card is in its own language and city). Checking these
 found real bugs, for example the compare table hiding the second plan on phones and the sitemap being invalid XML.
+
+**21. What does someone see when I send them a Wattch link?**
+A preview card made from the same code as the page, in the page's language and city. A results link shows the gap
+between the state site's #1 and your best plan; a plan link shows that plan's advertised price, its real yearly cost
+and its rank (Simple Saver 3: 6.2¢ advertised, $1,712 a year, #74 of 154 ⟲); a compare link shows which plan saves how
+much. A test checks the card's rank and gap match the results page.
 
 ---
 
