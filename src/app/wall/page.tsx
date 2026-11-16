@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Wall } from "@/components/Wall";
 import { RESULT_KEYS, parseWallParams } from "@/lib/params";
 import { areaInfo, clientPlans } from "@/lib/plans/data";
+import { AREAS } from "@/lib/plans/ptc";
 
 /** Reads ?kwh= from the URL, so it renders per request. */
 export const instant = false;
@@ -17,7 +18,8 @@ export async function generateMetadata({ searchParams }: PageProps<"/wall">): Pr
   for (const k of RESULT_KEYS) { const v = sp[k]; if (typeof v === "string") q.set(k, v); }
   const card = `/api/card?${q.toString()}`;
   return {
-    title: `Wattch — every ${area === "dallas" ? "Dallas–Fort Worth" : "Houston"} plan at ${kwh.toLocaleString()} kWh`,
+    title: `Wattch — every ${AREAS[area].city} plan at ${kwh.toLocaleString()} kWh`,
+    description: `Every ${AREAS[area].city} electricity plan, priced at ${kwh.toLocaleString()} kWh a month through a real ${AREAS[area].city} year, with the fine print checked.`,
     openGraph: { images: [{ url: card, width: 1200, height: 630 }] },
     twitter: { card: "summary_large_image", images: [card] },
   };

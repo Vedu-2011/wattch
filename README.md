@@ -66,6 +66,7 @@ npx tsx scripts/headline.ts     # the headline numbers (state site's #1 vs best,
 python3 scripts/houston_seasons.py   # rebuild data/seasons-houston.json from ERCOT profiles (see docs/SOURCES.md)
 python3 scripts/seasons.py data/sources/eia861m-texas.csv    # old statewide model (data/seasons.json)
 node scripts/axe.mjs            # accessibility check of every page (needs the app running on :3000)
+node scripts/meta-check.mjs     # Dallas URLs: no "Houston" in title/description/social card text (app on :3000)
 node scripts/shots.mjs <folder> # screenshots at 375 / 1440 / 1920 (needs the dev server and Google Chrome)
 ```
 
