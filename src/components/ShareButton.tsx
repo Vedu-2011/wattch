@@ -12,8 +12,8 @@ function resultQuery(): string {
 }
 
 /** Shares this exact result. The link unfurls into the share card (/api/card) built from the same math. */
-export function ShareButton({ text, lang = "en" }: { text: string; lang?: Lang }) {
-  const w = words(lang);
+export function ShareButton({ text, lang = "en", area = "houston" }: { text: string; lang?: Lang; area?: "houston" | "dallas" }) {
+  const w = words(lang, area);
   const [msg, setMsg] = useState<string | null>(null);
   async function share() {
     const url = `${window.location.origin}/wall?${resultQuery()}`;

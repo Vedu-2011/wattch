@@ -83,7 +83,7 @@
 ## J. Added overnight-2 (Nov 16, 01:47) — finish Spanish + review
 - [x] Spanish "Already on a plan?" (CurrentPlan) on the Spanish wall: search, verdict, exit-fee math, reminder link — no English on /wall?lang=es (live check), parity test
 - [x] Spanish "Use my real 12 months" (MyMonths) on the Spanish wall: labels, paste help, errors — parity test
-- [ ] Codex review 8 (running) — fix real findings
+- [x] Codex review 8 (running) — fix real findings
 - [ ] Spanish /how (?lang=es): steps, pipeline diagram labels; header "Cómo funciona" links to it — axe 0
 - [ ] 404 + error pages in Spanish when the URL has lang=es or starts with /es — screenshot
 - [ ] /api/live error messages in Spanish (?lang=es from LiveCheck) instead of the generic sentence — test

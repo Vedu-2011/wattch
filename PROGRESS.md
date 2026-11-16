@@ -76,3 +76,4 @@
 - 2026-11-16 01:40 PT · I8 JUDGE-QA · DONE (ab26665). +3 answers (Spanish, reminder, catching mistakes). $0.
 - 2026-11-16 01:42 PT · I9 gallery 7+8 · DONE (57f9027). $0.
 - 2026-11-16 01:46 PT · I10 Lighthouse ES plan + compare · DONE (a1fa2ee). Found + fixed CLS 0.177 on Spanish plan page (badge wrap). Scores: plan ES 96/100, plan EN 99/100, compare EN/ES 95/100, traps ES 95/100, wall ES 92/100. $0.
+- 2026-11-16 01:50 PT · J1+J2 Spanish CurrentPlan + MyMonths · DONE (925aabd). Real gap found: Spanish wall had both widgets in English. Also fixed 'I need 12' wording. 188 tests, axe 0. $0.

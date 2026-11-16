@@ -303,7 +303,7 @@ function Reveal({ kwh, seasons, ranked, pick, locked, mine, qs, lang, area }: { 
           <Link href={`/plan/${best.plan.id}?${qs}`} className="rounded-full bg-volt px-5 py-2.5 font-bold text-ink">{w.seeMath}</Link>
           {pickRow && gap >= 1 && <Link href={`/plan/${pickRow.plan.id}?${qs}`} className="rounded-full bg-paper/15 px-5 py-2.5 font-bold">{w.openFirst}</Link>}
           {pickRow && gap >= 1 && <Link href={`/compare?a=${best.plan.id}&b=${pickRow.plan.id}&${qs}`} className="rounded-full bg-paper/15 px-5 py-2.5 font-bold">{w.sideBySide}</Link>}
-          <ShareButton text={shareText} lang={lang} />
+          <ShareButton text={shareText} lang={lang} area={area} />
         </div>
       </div>
 
