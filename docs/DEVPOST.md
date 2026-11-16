@@ -49,8 +49,8 @@ for a number that was never real.
   "Will I use 1,000 kWh or more every single month? With your usage you'd miss it 6 months a year, $750 in all."
 - **Dallas–Fort Worth too.** The same pipeline read all 172 ⟲ Oncor plans (154 ⟲ verified) with its own seasons from
   ERCOT's North Central zone. The same "6.2¢" plan ranks #91 ⟲ there and costs $530 ⟲ more a year.
-- **En español.** The home page, the wall and the reveal work in Spanish, with the "why" sentences written by the
-  same code.
+- **En español.** Every page works in Spanish (tap Español, or add `?lang=es`): the results, the plan page, compare,
+  the trap guide, reminders and the share card. Same math, only the words change; the label's own text stays as printed.
 - **Don't get rolled over.** Enter your contract's end date and get a calendar reminder 30 days before (no account,
   nothing saved). Plan pages also print on one page to take to the kitchen table.
 
@@ -102,7 +102,7 @@ the work in code), and that the honest answer is often "it depends on your month
 
 ## What's next for Wattch
 - The other Texas utility areas (AEP, TNMP) — the pipeline is the same; Dallas took one command and $1.15.
-- Spanish for every page (the plan page is still English).
+- A native Spanish speaker's review of the translations (an AI tool wrote them; tests only check nothing is missing).
 - Re-reading every label automatically each night (the refresh script is ready; it needs a scheduler).
 
 ## Built with
@@ -113,6 +113,7 @@ vercel · vitest · playwright · axe-core · power-to-choose · ercot-load-prof
 - **Anthropic Claude API, claude-haiku-5-5** — inside the product: reads each label into JSON. Never trusted until code
   rebuilds the label's prices.
 - **Claude Code** and **Codex** — coding assistants that wrote and tested most of the code, and reviewed each other.
+  Claude Code also wrote the Spanish translations.
 - **Claude (claude.ai chat)** — planning, architecture and writing help.
 - **Anakin.io** — opens labels that need a real browser (scraping service, sponsor).
 
