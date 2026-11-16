@@ -53,6 +53,8 @@ wait. For future overnight nights: push once per batch, or turn off previews for
   installs and passes the tests. README says which keys go in .env.local (none needed to run the app).
 - Tonight's new Spanish re-read (results, plan, compare, traps, home): natural wording, "tú" everywhere (no "usted"
   forms), no missing accents (grep for pagina/energia/numero/ano: none).
+- Write-up numbers re-checked against the code at 06:40: axe list = 25 pages; 7 trap kinds; usage traps 18 Houston / 14
+  Dallas (real browser); Dallas read $1.149; Houston 172/171/154, #74, $378; Dallas 154 verified/137 ranked, #91, $530. All match.
 - Friendly errors on /remind, "my 12 months", unknown plans; reduced motion; printing (plan, compare, Dallas) on 1 sheet.
 
 **New checks that stay:** src/lib/dataSanity.test.ts, search.test.ts, tolerance.words.test.ts, sitemap duplicates,

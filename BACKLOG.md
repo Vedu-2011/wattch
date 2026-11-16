@@ -802,3 +802,15 @@
 - [x] BR8 Codex review if changed
 - [x] BR9 PROGRESS line
 - [x] BR10 Gallery if visible change
+
+## BS batch (added 06:37, night 2) — do the write-ups match the code?
+- [x] BS1 'axe 0 on 25 pages': count pages in scripts/axe.mjs
+- [x] BS2 '7 kinds of traps': count kinds in rank.ts traps
+- [x] BS3 '18 Houston / 14 Dallas usage traps': recompute
+- [x] BS4 '$1.15 Dallas read': PROGRESS source
+- [x] BS5 '172 / 171 / 154' and '172 / 154 / 137' from data
+- [x] BS6 '#74 $378' and '#91 $530' from headline.ts
+- [x] BS7 Fix any doc that's off
+- [x] BS8 STATUS line
+- [x] BS9 PROGRESS line
+- [x] BS10 Codex if code changed
