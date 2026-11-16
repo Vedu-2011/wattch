@@ -9,7 +9,7 @@ import { houstonPlans, PTC_CSV_URL } from "../src/lib/plans/ptc";
 import { anakinRead, fetchEfl } from "../src/lib/reader/fetchEfl";
 import { parseEfl, READER_MODEL } from "../src/lib/reader/parse";
 import { rescue, tduCandidates, type ManualRead } from "../src/lib/reader/rescue";
-import type { PlanRecord } from "../src/lib/plans/schema";
+import type { PlanPricing, PlanRecord } from "../src/lib/plans/schema";
 
 const args = process.argv.slice(2);
 const limit = args.includes("--limit") ? Number(args[args.indexOf("--limit") + 1]) : Infinity;
@@ -32,6 +32,7 @@ async function main() {
   console.log(`${metas.length} Houston plans on Power to Choose right now`);
   let inT = 0, outT = 0, done = 0;
   const results: PlanRecord[] = [];
+  const drafts = new Map<string, PlanPricing>();
   const queue = [...metas];
   async function worker() {
     for (let m = queue.shift(); m; m = queue.shift()) {
@@ -59,6 +60,7 @@ async function main() {
             } catch { /* keep the first result */ }
           }
           inT += r.inputTokens; outT += r.outputTokens;
+          if (r.draft) drafts.set(m.id, r.draft);
           rec = { meta: m, pricing: r.pricing, read: { fetchedAt, via: f.via, sha256: f.sha256, parsedBy: READER_MODEL, readMs: f.ms + (Date.now() - t0) },
             check: { status: r.pricing ? (r.ok ? "verified" : "mismatch") : "unread", rows: r.rows, message: r.message } };
         }
@@ -71,7 +73,9 @@ async function main() {
       console.log(`${String(done).padStart(3)}/${metas.length} ${rec.check.status.padEnd(8)} ${rec.read.via.padEnd(6)} ${m.provider} — ${m.planName}${rec.check.status !== "verified" ? "  · " + rec.check.message : ""}`);
     }
   }
-  await Promise.all(Array.from({ length: 6 }, worker));
+  // Anakin.io rate-limits bursts (429), so keep it gentle: --workers N (default 3)
+  const workers = args.includes("--workers") ? Number(args[args.indexOf("--workers") + 1]) : 3;
+  await Promise.all(Array.from({ length: workers }, worker));
   // second chances (no AI spend): Power to Choose averages, form-field reader, hand-reads, CenterPoint delivery fill
   const tdu = tduCandidates([...results, ...Object.values(old)]);
   const manual = new Map<string, ManualRead>();
@@ -81,7 +85,7 @@ async function main() {
   }
   for (const r of results) {
     if (r.check.status === "verified" || !existsSync(`data/text/${r.meta.id}.txt`)) continue;
-    const fix = rescue(r, await readFile(`data/text/${r.meta.id}.txt`, "utf8"), tdu, manual.get(r.meta.id));
+    const fix = rescue(r, await readFile(`data/text/${r.meta.id}.txt`, "utf8"), tdu, manual.get(r.meta.id), drafts.get(r.meta.id));
     if (!fix) continue;
     r.pricing = fix.pricing;
     r.read = { ...r.read, parsedBy: fix.parsedBy };

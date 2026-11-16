@@ -3,10 +3,11 @@ import { describe, expect, it } from "vitest";
 import { labelCheck, monthlyBill } from "@/lib/bill";
 import type { PlanRecord } from "@/lib/plans/schema";
 import { fillTdu, grounded } from "./parse";
-import { rescue, tduCandidates, textSha, type ManualRead } from "./rescue";
+import { rescue, slipFixes, tduCandidates, textSha, type ManualRead } from "./rescue";
 import { ptcAveragesOnLabel, readSoFedForm } from "./templates";
 
-const text = (id: string) => readFileSync(`data/text/${id}.txt`, "utf8");
+// frozen copies of real labels (Nov 15 2026): data/text changes every time a label is re-fetched
+const text = (id: string) => readFileSync(`test-data/labels/${id}.txt`, "utf8");
 const manual = (id: string) => JSON.parse(readFileSync(`data/manual/${id}.json`, "utf8")) as ManualRead;
 const CNP = [{ cents: 6.5333, monthly: 4.9 }, { cents: 6.5611, monthly: 4.9 }];
 
@@ -86,6 +87,44 @@ describe("hand-reads in data/manual are still checked by code", () => {
     expect(m.textSha256).toBe(textSha(text("35975")));
     expect(rescue(rec, text("35975"), CNP, m)).not.toBeNull();
     expect(rescue(rec, text("35975") + "\nUpdated label: energy charge 15.00¢", CNP, m)).toBeNull();
+  });
+});
+
+describe("small reader slips fixed by code (Nov 15 re-read)", () => {
+  const base = {
+    baseChargeDollars: 0, energyTiers: [{ fromKwh: 0, cents: 11.09 }], tduCentsPerKwh: 6.5333, tduMonthlyDollars: 4.9,
+    credits: [], usageFees: [], amortizedFees: [], touPeriods: [], termMonths: 12,
+    earlyTerminationFee: { dollars: 100, perMonthRemaining: false }, labelAvg: { k500: 18.6, k1000: 8.1, k2000: 12.9 }, notes: [],
+  };
+  it("Spark Sure Saver 12: a $100 credit read as starting at 1,000.01 kWh → label's 8.1¢ at 1,000 needs it at 1,000", () => {
+    const p = { ...base, credits: [{ minKwh: 1000.01, maxKwh: null, dollars: 100, label: "credit", conditional: false }] };
+    expect(labelCheck(p).ok).toBe(false);
+    const fixes = slipFixes(p);
+    expect(fixes).toHaveLength(1);
+    expect(fixes[0].pricing.credits[0].minKwh).toBe(1000);
+    expect(labelCheck(fixes[0].pricing).rows.map((r) => r.ours)).toEqual([18.6, 8.1, 12.9]);
+  });
+  it("Just Energy Days Bundle: 'Day Hours credited back' read as −4.1¢ → 0¢ rebuilds 11.1 / 10.2 / 9.8", () => {
+    const p = {
+      ...base, energyTiers: [{ fromKwh: 0, cents: 4.1 }], tduCentsPerKwh: 6.5611, termMonths: 3,
+      amortizedFees: [{ dollars: 49.99, months: 12, label: "setup" }],
+      touPeriods: [{ label: "Day Hours credit", share: 0.33, cents: -4.1 }, { label: "other", share: 0.67, cents: 4.1 }],
+      labelAvg: { k500: 11.1, k1000: 10.2, k2000: 9.8 },
+    };
+    expect(labelCheck(p).ok).toBe(false);
+    const [fix] = slipFixes(p);
+    expect(fix.pricing.touPeriods[0].cents).toBe(0);
+    expect(labelCheck(fix.pricing).ok).toBe(true);
+  });
+  it("leaves real bonus credits alone (TXU's −4.65¢ isn't the negative of another period's price)", () => {
+    const p = { ...base, touPeriods: [{ label: "night bonus", share: 0.1, cents: -4.65 }, { label: "all", share: 0.9, cents: 18.6 }] };
+    expect(slipFixes(p)).toEqual([]);
+  });
+  it("rescue only keeps a fix when the label check passes", () => {
+    const p = { ...base, credits: [{ minKwh: 1000.01, maxKwh: null, dollars: 5, label: "credit", conditional: false }] };
+    const rec = { meta: { ptc: { k500: 0, k1000: 0, k2000: 0 } }, read: { parsedBy: "x" }, pricing: p,
+      check: { status: "mismatch", rows: [], message: "" } } as unknown as PlanRecord;
+    expect(rescue(rec, "", [])).toBeNull();
   });
 });
 

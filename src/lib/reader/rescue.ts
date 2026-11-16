@@ -27,10 +27,18 @@ function check(p: PlanPricing, tdu: TduCandidate[]): { pricing: PlanPricing; row
  * 2. Ranchero / Southern Federal form-field labels → read by code (templates.ts).
  * 3. A hand-read of this exact label text (same sha256) in data/manual/.
  */
-export function rescue(rec: PlanRecord, text: string, tdu: TduCandidate[], manual?: ManualRead): Fix | null {
+export function rescue(rec: PlanRecord, text: string, tdu: TduCandidate[], manual?: ManualRead, draft?: PlanPricing | null): Fix | null {
   const ptc = rec.meta.ptc;
-  if (rec.pricing && ptcAveragesOnLabel(text, ptc)) {
-    const p = { ...rec.pricing, labelAvg: { ...ptc } };
+  // the reader's read, or (when its averages weren't on the label) its draft — code re-checks either way
+  const read = rec.pricing ?? draft ?? null;
+  if (read) {
+    for (const s of slipFixes(read)) {
+      const c = check(s.pricing, tdu);
+      if (c) return { ...c, parsedBy: `${rec.read.parsedBy} + code fix`, message: `${s.why} With that fixed, all 3 averages match.` };
+    }
+  }
+  if (read && ptcAveragesOnLabel(text, ptc)) {
+    const p = { ...read, labelAvg: { ...ptc } };
     const c = check(p, tdu);
     if (c) return { ...c, parsedBy: `${rec.read.parsedBy} + averages from Power to Choose`, message: "The reader copied one average wrong; with the averages the label prints, all 3 match." };
   }
@@ -47,6 +55,29 @@ export function rescue(rec: PlanRecord, text: string, tdu: TduCandidate[], manua
     }
   }
   return null;
+}
+
+/**
+ * Small, known reader slips, each fixed by code. A fix is only kept if the label check then passes.
+ * - "credit if usage greater than 1,000 kWh" read as 1000.01 while the label's own 1,000 kWh average includes the credit.
+ * - "Day Hours energy credited back" read as a NEGATIVE price on that share, instead of 0¢ (free).
+ */
+export function slipFixes(p: PlanPricing): { pricing: PlanPricing; why: string }[] {
+  const out: { pricing: PlanPricing; why: string }[] = [];
+  if (p.credits.some((c) => !Number.isInteger(c.minKwh))) {
+    out.push({
+      pricing: { ...p, credits: p.credits.map((c) => ({ ...c, minKwh: Math.floor(c.minKwh) })) },
+      why: "The reader started the credit just above a round number (like 1,000.01 kWh), but the label counts it at exactly that usage.",
+    });
+  }
+  const pos = new Set(p.touPeriods.filter((t) => t.cents > 0).map((t) => t.cents));
+  if (p.touPeriods.some((t) => t.cents < 0 && pos.has(-t.cents))) {
+    out.push({
+      pricing: { ...p, touPeriods: p.touPeriods.map((t) => (t.cents < 0 && pos.has(-t.cents) ? { ...t, cents: 0 } : t)) },
+      why: "The reader counted credited-back hours as a negative price; on the label those hours are free (0¢).",
+    });
+  }
+  return out;
 }
 
 /** The CenterPoint delivery charges most verified labels print, most common first. */

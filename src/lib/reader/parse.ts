@@ -34,6 +34,8 @@ export type ParseResult = {
   inputTokens: number;
   outputTokens: number;
   message: string;
+  /** set when the reader's averages weren't on the label: its other numbers, for code to re-check in rescue() */
+  draft?: PlanPricing;
 };
 
 async function callClaude(apiKey: string, text: string, feedback?: string) {
@@ -99,7 +101,7 @@ export async function parseEfl(apiKey: string, text: string): Promise<ParseResul
     }
     if (!grounded(text, parsed.data)) {
       last = { pricing: null, rows: [], ok: false, attempts: attempt, inputTokens: inT, outputTokens: outT,
-        message: "The label's prices aren't readable in this copy of the fine print." };
+        message: "The label's prices aren't readable in this copy of the fine print.", draft: parsed.data };
       return last;
     }
     const check = labelCheck(parsed.data);

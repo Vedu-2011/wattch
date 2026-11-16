@@ -46,14 +46,23 @@ export async function fetchEfl(rawUrl: string, opts: { anakinKey?: string; timeo
 export async function anakinRead(url: string, t0 = Date.now(), key?: string): Promise<FetchedEfl> {
   const headers: Record<string, string> = { "Content-Type": "application/json" };
   if (key) headers["X-API-Key"] = key;
-  const res = await fetch("https://api.anakin.io/v1/url-scraper/scrape", {
-    method: "POST", headers, body: JSON.stringify({ url }), signal: AbortSignal.timeout(110000),
-  });
+  let res = await scrape(url, headers);
+  // too many at once: wait and try again (2 more tries) before giving up
+  for (let i = 0; res.status === 429 && i < 2; i++) {
+    await new Promise((r) => setTimeout(r, 4000 * (i + 1)));
+    res = await scrape(url, headers);
+  }
   if (!res.ok) throw new ReadError(res.status === 402 ? "Out of Anakin.io reads for now." : `Anakin.io couldn't open this page (${res.status}).`);
   const data = (await res.json()) as { markdown?: string; finalUrl?: string };
   const text = data.markdown ?? "";
   if (!looksLikeEfl(text)) throw new ReadError("The page opened, but it doesn't look like a fine-print label.");
   return { text, via: "anakin", sha256: sha(new TextEncoder().encode(text)), ms: Date.now() - t0, finalUrl: data.finalUrl ?? url };
+}
+
+function scrape(url: string, headers: Record<string, string>) {
+  return fetch("https://api.anakin.io/v1/url-scraper/scrape", {
+    method: "POST", headers, body: JSON.stringify({ url }), signal: AbortSignal.timeout(110000),
+  });
 }
 
 export function sha(b: Uint8Array) {
