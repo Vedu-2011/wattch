@@ -35,7 +35,7 @@ export function Demo({ d }: { d: DemoData }) {
       <div className="flex items-end gap-4"><Kapi reading className="h-20 w-20 sm:h-28 sm:w-28" />
         <h2 className="display text-4xl font-extrabold leading-tight sm:text-7xl"><span className="num text-volt"><CountUp value={d.verified} format={(n) => String(Math.round(n))} ms={1800} /></span> of {d.total} labels check out.</h2>
       </div>
-      <p className="mt-6 max-w-3xl text-xl text-paper/80 sm:text-3xl">AI read every plan&apos;s fine-print label. Then plain code rebuilt the label&apos;s own prices to the tenth of a cent — so I know the reading is right.</p>
+      <p className="mt-6 max-w-3xl text-xl text-paper/80 sm:text-3xl">AI read every plan&apos;s fine-print label. Then plain code rebuilt the label&apos;s own prices to about a tenth of a cent — so I know the reading is right.</p>
     </Scene>,
     <Scene key="d" eyebrow={`A Houston home using ${d.kwh.toLocaleString("en-US")} kWh a month`}>
       <Kapi pose="surprised" className="float-right h-20 w-20 sm:h-36 sm:w-36" />

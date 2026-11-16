@@ -622,3 +622,15 @@
 - [x] BC8 STATUS line
 - [ ] BC9 Codex if code changed
 - [x] BC10 PROGRESS line
+
+## BD batch (added 05:41, night 2) — voice sweep
+- [x] BD1 App words: no 'we/our' (EN) or '-imos/nuestro' (ES) — Wattch speaks as Wattch
+- [x] BD2 DEVPOST/SCRIPT/DECK: solo 'I', no 'we/our'
+- [x] BD3 No AI-sounding words in the app (seamless, leverage, empower, delve, robust, unlock)
+- [x] BD4 Spanish uses tú everywhere (no usted/su as 'your')
+- [x] BD5 No exclamation marks in app copy
+- [x] BD6 Fix anything found
+- [x] BD7 Tests/parity still pass
+- [x] BD8 STATUS line
+- [ ] BD9 Codex if code changed
+- [x] BD10 PROGRESS line

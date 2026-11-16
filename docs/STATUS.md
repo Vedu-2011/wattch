@@ -42,6 +42,8 @@ wait. For future overnight nights: push once per batch, or turn off previews for
   re-ranking; 37 KB gzip); no image over 200 KB; build has no warnings; npm audit (app deps) 0 vulnerabilities; every dependency used.
 - Wording: "verified to a tenth of a cent" → "about a tenth" in the app (plan + /how, EN/ES), DEVPOST and SCRIPT (the
   check allows ±0.11¢ because labels round to 0.1¢). DEVPOST axe count 23 → 25 pages.
+  Two more spots found by a voice sweep: the results intro (EN/ES) and the /demo scene. App copy keeps product
+  "we/our" (the solo-"I" rule is for scripts, Devpost and narration, which are clean).
 - README says which keys go in .env.local (none needed to run the app). A fresh clone with no keys: npm ci + 236 tests pass.
 - Checked, no change: Dallas share text, trap carousel under reduced motion, Dallas plan prints on 1 sheet, badge in
   Spanish/Dallas in a real browser, all data files tracked, biggest browser script 235 KB.
