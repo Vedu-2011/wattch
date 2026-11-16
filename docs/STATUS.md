@@ -41,7 +41,8 @@ wait. For future overnight nights: push once per batch, or turn off previews for
 - **Phones + keyboards + screen readers:** bill chart labels readable on phones (were ~5 px); kWh box shows focus;
   slider says "1,100 kWh a month"; links that look the same ("Compare with #1", "Read its fine print") say which plan.
 - **Search** "find your current plan" ignores accents ("energia" finds "Energía").
-- **Live re-check** says plainly when a provider's label file is really gone.
+- **Live re-check** says plainly when a provider's label file is really gone. All 5 re-check answers seen in a real browser (EN/ES, stubbed):
+  same file, new file, same prices (hand-read, no stored fingerprint, Codex 48), changed, couldn't open.
 - **Plans Wattch never read** no longer show "Check this label again now" (it would have said "this label changed since
   Wattch read it", which is false, and could spend a paid read); /api/live answers plainly for them too. One rule
   (src/lib/plans/recheck.ts) for both, tested on every plan. Its test caught my first version also hiding the button on 2

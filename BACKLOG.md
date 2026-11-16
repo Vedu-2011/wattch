@@ -850,3 +850,15 @@
 - [x] BV8 Handoff test count
 - [x] BV9 Docs test count
 - [x] BV10 check-all
+
+## BW batch (added 06:48, night 2) — see every re-check answer on screen
+- [x] BW1 Browser run with /api/live answers stubbed: same, new file, same prices (no fingerprint), changed, failed
+- [x] BW2 Each shows the right sentence EN
+- [x] BW3 Same in ES
+- [x] BW4 Colors: good answers green, warnings yellow
+- [x] BW5 Screen reader: the answer is in the polite live region
+- [x] BW6 Fix anything off
+- [x] BW7 PROGRESS line
+- [x] BW8 STATUS line
+- [ ] BW9 Codex 49 result
+- [x] BW10 Screenshot one to docs/screenshots/overnight-2
