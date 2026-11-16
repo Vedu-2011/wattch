@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { langPair } from "@/lib/alternates";
+import { cardUrl, langPair, shareMeta } from "@/lib/alternates";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { CliffChart } from "@/components/CliffChart";
@@ -41,7 +41,7 @@ export async function generateMetadata({ params, searchParams }: PageProps<"/pla
       ? `${rec.meta.planName} (${who}) se anuncia a ${rec.meta.ptc.k1000}¢. Con 1,100 kWh al mes durante un año en ${city}, en realidad cuesta $${yr} al año.`
       : `${rec.meta.planName} (${who}) is advertised at ${rec.meta.ptc.k1000}¢. At 1,100 kWh a month through a ${city} year it really costs $${yr} a year.`
     : es ? `${rec.meta.planName} de ${who}: la letra pequeña, leída y revisada.` : `${rec.meta.planName} from ${who}: the fine print, read and checked.`;
-  return { title: `${rec.meta.planName} — ${es ? "la letra pequeña, revisada" : "the fine print, checked"} · Wattch`, description, alternates: langPair(`/plan/${id}`, sp) };
+  return { title: `${rec.meta.planName} — ${es ? "la letra pequeña, revisada" : "the fine print, checked"} · Wattch`, description, alternates: langPair(`/plan/${id}`, sp), ...shareMeta(cardUrl(sp, { area })) };
 }
 
 export default async function PlanPage({ params, searchParams }: PageProps<"/plan/[id]">) {

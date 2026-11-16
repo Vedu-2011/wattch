@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { langPair } from "@/lib/alternates";
+import { langPair, shareMeta } from "@/lib/alternates";
 import { Wall } from "@/components/Wall";
 import { RESULT_KEYS, parseWallParams } from "@/lib/params";
 import { areaInfo, clientPlans } from "@/lib/plans/data";
@@ -24,8 +24,7 @@ export async function generateMetadata({ searchParams }: PageProps<"/wall">): Pr
     description: lang === "es"
       ? `Cada plan de luz de ${city}, con el precio de ${k} kWh al mes durante un año real en ${city}, con la letra pequeña revisada.`
       : `Every ${city} electricity plan, priced at ${k} kWh a month through a real ${city} year, with the fine print checked.`,
-    openGraph: { images: [{ url: card, width: 1200, height: 630 }] },
-    twitter: { card: "summary_large_image", images: [card] },
+    ...shareMeta(card),
     alternates: langPair("/wall", sp),
   };
 }

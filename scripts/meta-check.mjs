@@ -36,6 +36,14 @@ for (const u of ["/", "/es"]) {
   console.log(ok ? "ok     " : "ONE AREA", u, ok ? "" : "\n   " + d);
   bad += ok ? 0 : 1;
 }
+// a shared Spanish link must preview the Spanish card (and a Dallas link the Dallas card); bots get tags in <head>
+for (const u of spanish) {
+  const html = await (await fetch(BASE + u, { headers: { "user-agent": "facebookexternalhit/1.1" } })).text();
+  const img = (html.match(/<meta property="og:image" content="([^"]*)"/) ?? [, ""])[1].replaceAll("&amp;", "&");
+  const ok = /lang=es/.test(img) && (!/area=dallas/.test(u) || /area=dallas/.test(img)) && /og:site_name/.test(html);
+  console.log(ok ? "ok     " : "OGIMAGE", u, ok ? "" : "\n   " + (img || "(no og:image)"));
+  bad += ok ? 0 : 1;
+}
 // robots keeps the scripted walk-through and the APIs out; the sitemap must be valid XML (a raw "&" breaks the whole file)
 {
   const robots = await page("/robots.txt");

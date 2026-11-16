@@ -185,7 +185,7 @@
 - [x] S4 Long provider names on plan page header at 320 (longest provider in data) — wraps cleanly?
 - [x] S5 Wall 'notRanked' variable plans note in Spanish — wording check
 - [x] S6 /remind at 320 Spanish with a long plan name in ?plan= (80 chars) — no overflow
-- [ ] S7 Home trap card rotation in Spanish: every trap card text Spanish, numbers match English
+- [x] S7 Home trap card rotation in Spanish: every trap card text Spanish, numbers match English
 - [ ] S8 JUDGE-QA: add Q 'What did you check that a user never sees?' (sitemap, print, keyboard, 320px) — short
-- [ ] S9 OG image for /compare (if it uses the default card, log; else check Spanish)
+- [x] S9 OG image for /compare (if it uses the default card, log; else check Spanish)
 - [ ] S10 Codex review 15 after S batch

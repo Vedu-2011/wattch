@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { langPair } from "@/lib/alternates";
+import { cardUrl, langPair, shareMeta } from "@/lib/alternates";
 import { Kapi } from "@/components/Kapi";
 import { Pipeline } from "@/components/Pipeline";
 import { HOW_WORDS } from "@/lib/howWords";
@@ -14,7 +14,7 @@ const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
 export async function generateMetadata({ searchParams }: PageProps<"/how">): Promise<Metadata> {
   const sp = await searchParams;
   const t = HOW_WORDS[asLang(one(sp.lang))];
-  return { title: t.title, description: t.desc, alternates: langPair("/how", sp) };
+  return { title: t.title, description: t.desc, alternates: langPair("/how", sp), ...shareMeta(cardUrl(sp)) };
 }
 /** Reads ?lang= from the URL, so it renders per request. */
 export const instant = false;
