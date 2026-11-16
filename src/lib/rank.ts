@@ -11,17 +11,18 @@ export type ClientPlan = {
   /** Power to Choose's star rating for the provider (1–5), null/0 when not rated */
   rating?: number | null;
   prepaid: boolean;
-  timeOfUse: boolean;
-  eflUrl: string;
-  enrollUrl: string;
   ptc: { k500: number; k1000: number; k2000: number };
   status: "verified" | "mismatch" | "unread";
-  via: "direct" | "anakin";
-  fetchedAt: string;
   readMs: number;
-  message: string;
-  rows: { kwh: number; printed: number; ours: number; ok: boolean }[];
   pricing: PlanPricing | null;
+  // Not sent to the browser (the plan page reads the full record on the server); optional so tests can omit them.
+  timeOfUse?: boolean;
+  eflUrl?: string;
+  enrollUrl?: string;
+  via?: "direct" | "anakin";
+  fetchedAt?: string;
+  message?: string;
+  rows?: { kwh: number; printed: number; ours: number; ok: boolean }[];
 };
 
 /** minTermMonths: only plans whose price is locked at least this long (a 3-month price doesn't last a year). */
