@@ -36,6 +36,8 @@
 }
 
 html { background: var(--paper); color: var(--ink); }
+/* projector / big screens: scale everything (all sizes are rem) so the back row can read it */
+@media (min-width: 1800px) { html { font-size: 18px; } }
 body { font-family: var(--font-body), system-ui, sans-serif; }
 .num { font-family: var(--font-mono), ui-monospace, monospace; font-variant-numeric: tabular-nums; }
 .display { font-family: var(--font-display), system-ui, sans-serif; letter-spacing: -0.02em; }

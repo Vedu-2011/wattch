@@ -12,17 +12,17 @@ export default function Home() {
             <span className="h-2 w-2 rounded-full bg-good" /> {snapshotInfo.total} Houston plans · fine print read{" "}
             {new Date(snapshotInfo.builtAt).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
           </p>
-          <h1 className="display mt-5 text-5xl font-extrabold leading-[0.95] sm:text-7xl">
+          <h1 className="display mt-5 text-[2.6rem] font-extrabold leading-[0.95] sm:text-7xl">
             Your power plan&apos;s real price is in the fine print.
           </h1>
-          <p className="mt-5 max-w-xl text-lg text-ink-2">
+          <p className="mt-5 max-w-xl text-base text-ink-2 sm:text-lg">
             Texas lets you pick your electricity plan, then hides the real price in a PDF. Wattch reads every Houston
             plan&apos;s fine print, checks its own work against the label, and does the honest math at <em>your</em> usage.
           </p>
-          <p className="mt-3 text-sm text-ink-2">{verified} plans checked to the cent so far.</p>
+          <p className="mt-3 text-sm text-ink-2">{verified} plans checked against their own label, to a tenth of a cent.</p>
         </div>
         <div className="relative">
-          <Kapi reading className="absolute -top-14 right-4 h-24 w-24 drop-shadow-md" />
+          <Kapi reading className="absolute -top-16 right-3 z-10 h-20 w-20 drop-shadow-md sm:-top-20 sm:h-24 sm:w-24" />
           <UsagePicker />
         </div>
       </div>

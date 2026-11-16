@@ -47,10 +47,14 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
             </table>
           ) : null}
           <p className={`mt-3 rounded-2xl px-3 py-2 text-sm font-medium ${rec.check.status === "verified" ? "bg-good-2" : "bg-volt-2"}`}>
-            {rec.check.status === "verified" ? "Verified: every price on the label rebuilt to the cent." : `Not verified: ${rec.check.message} We don't rank this plan.`}
+            {rec.check.status === "verified" ? "Verified: all 3 label prices rebuilt within a tenth of a cent." : `Not verified: ${rec.check.message} We don't rank this plan.`}
           </p>
+          {rec.check.status === "verified" && (rec.check.tduFilled || !rec.read.parsedBy.startsWith("claude")) && (
+            <p className="mt-2 text-sm text-ink-2">{rec.check.message}</p>
+          )}
           <p className="mt-3 text-xs text-ink-2">
-            Fine print fetched {read} {rec.read.via === "anakin" ? "through Anakin.io (the page needed a real browser)" : "straight from the provider"} · read by {rec.read.parsedBy}.{" "}
+            Fine print fetched {read} {rec.read.via === "anakin" ? "through Anakin.io (the page needed a real browser)" : "straight from the provider"} ·{" "}
+            {rec.read.parsedBy.startsWith("hand-read") ? rec.read.parsedBy : `read by ${rec.read.parsedBy}`}.{" "}
             <a className="underline" href={rec.meta.eflUrl} target="_blank" rel="noreferrer">Open the original label</a>
           </p>
         </section>

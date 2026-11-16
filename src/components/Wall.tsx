@@ -44,6 +44,14 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons 
   const pick = useMemo(() => ptcTopPick(plans), [plans]);
   const notRanked = plans.filter((p) => p.status === "verified" && !p.prepaid && p.rateType.toLowerCase() === "variable").length;
   const when = new Date(builtAt).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+  // when the last tile flips, bring the answer into view (the wall is long on a phone)
+  const [arrived, setArrived] = useState(false);
+  useEffect(() => {
+    if (!done || arrived) return;
+    const smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const t = setTimeout(() => { if (window.scrollY < 200) document.getElementById("answer")?.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" }); setArrived(true); }, smooth ? 450 : 0);
+    return () => clearTimeout(t);
+  }, [done, arrived]);
 
   return (
     <div className="mx-auto max-w-6xl px-4 pt-6 sm:px-5">
@@ -65,12 +73,12 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons 
         </div>
       </div>
 
-      <div className="mt-5 grid grid-cols-3 gap-2 sm:grid-cols-6 lg:grid-cols-10">
+      <div className="mt-5 grid grid-cols-10 gap-1 sm:grid-cols-8 sm:gap-2 lg:grid-cols-12">
         {plans.map((p) => <Tile key={p.id} p={p} read={readIds.has(p.id)} />)}
       </div>
 
       {done && ranked.length > 0 && (
-        <section className="pop mt-10 space-y-6">
+        <section id="answer" className="pop mt-8 scroll-mt-4 space-y-6">
           <Reveal kwh={kwh} seasons={seasons} ranked={ranked} pick={pick} />
 
           <div className="rounded-3xl bg-card p-5 shadow-[var(--shadow-soft)]">
@@ -121,7 +129,7 @@ function Toggle({ on, set, label, hint }: { on: boolean; set: (v: boolean) => vo
       <span className={`relative h-4 w-7 rounded-full ${on ? "bg-volt" : "bg-ink/20"}`}>
         <span className={`absolute top-0.5 h-3 w-3 rounded-full bg-card transition-all ${on ? "left-3.5" : "left-0.5"}`} />
       </span>
-      {label}{hint && <span className={on ? "text-paper/60" : "text-ink-2"}>· {hint}</span>}
+      {label}{hint && <span className={`hidden sm:inline ${on ? "text-paper/60" : "text-ink-2"}`}>· {hint}</span>}
     </button>
   );
 }
@@ -137,24 +145,25 @@ function Counter({ label, value, of, tone }: { label: string; value: number; of?
 
 function Tile({ p, read }: { p: ClientPlan; read: boolean }) {
   const ok = p.status === "verified";
+  const back = ok ? "bg-good-2" : p.status === "mismatch" ? "bg-volt-2" : "bg-paper-2";
   return (
-    <div className={`flip ${read ? "is-read" : ""} h-24`} title={`${p.provider} — ${p.planName}`}>
+    <div className={`flip ${read ? "is-read" : ""} h-8 sm:h-20`} title={`${p.provider} — ${p.planName}`}>
       <div className="flip-inner h-full">
-        <div className="flip-face relative h-full overflow-hidden rounded-xl bg-card p-2 shadow-[var(--shadow-soft)]">
+        <div className="flip-face relative flex h-full items-center justify-center overflow-hidden rounded-md bg-card shadow-[var(--shadow-soft)] sm:block sm:rounded-xl sm:p-2">
           <div className="scanline pointer-events-none absolute inset-x-0 h-1/2 bg-gradient-to-b from-transparent via-volt-2 to-transparent opacity-70" />
-          <Kapi reading className="relative h-7 w-7" />
-          <p className="relative mt-1 line-clamp-2 text-[11px] leading-tight text-ink-2">{title(p.provider)}</p>
+          <Kapi reading className="relative h-5 w-5 sm:h-6 sm:w-6" />
+          <p className="relative mt-1 hidden text-[11px] leading-tight text-ink-2 sm:line-clamp-2">{title(p.provider)}</p>
         </div>
-        <div className={`flip-face flip-back h-full rounded-xl p-2 shadow-[var(--shadow-soft)] ${ok ? "bg-good-2" : p.status === "mismatch" ? "bg-volt-2" : "bg-paper-2"}`}>
-          <p className="line-clamp-2 text-[11px] font-semibold leading-tight">{p.planName}</p>
+        <div className={`flip-face flip-back flex h-full items-center justify-center rounded-md shadow-[var(--shadow-soft)] sm:block sm:rounded-xl sm:p-2 ${back}`}>
+          <span aria-hidden className={`text-sm font-bold sm:hidden ${ok ? "text-good" : "text-ink-2"}`}>{ok ? "✓" : p.status === "mismatch" ? "?" : "–"}</span>
+          <p className="hidden text-[11px] font-semibold leading-tight sm:line-clamp-2">{p.planName}</p>
           {ok && p.pricing ? (
-            <p className="num mt-1 text-[11px] leading-tight">
+            <p className="num mt-1 hidden text-[11px] leading-tight sm:block">
               {p.pricing.touPeriods.length ? "time-of-use" : `${p.pricing.energyTiers[p.pricing.energyTiers.length - 1].cents.toFixed(1)}¢/kWh`}
-              {p.pricing.credits.some((c) => !c.conditional && c.minKwh > 0) && <span className="block text-over">credit cliff</span>}
-              <span className="block text-good">✓ 3/3 match</span>
+              {p.pricing.credits.some((c) => !c.conditional && c.minKwh > 0) ? <span className="text-over"> · cliff</span> : <span className="text-good"> · ✓</span>}
             </p>
           ) : (
-            <p className="mt-1 text-[11px] leading-tight text-ink-2">{p.status === "mismatch" ? "Didn't add up — not ranked" : "Couldn't open"}</p>
+            <p className="mt-1 hidden text-[11px] leading-tight text-ink-2 sm:block">{p.status === "mismatch" ? "Didn't add up" : "Couldn't open"}</p>
           )}
         </div>
       </div>

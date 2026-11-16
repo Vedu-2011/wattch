@@ -12,6 +12,10 @@ Deleting files always triggers a permission prompt, even in bypass mode, and a p
 - To stop tracking a file in git, edit .gitignore and use `git rm --cached` ONLY if it doesn't prompt; otherwise log it.
 - If ANY command or tool asks for approval: cancel it, write it in ~/Hackathons/_coord/NEEDS-VEDHANTH.md
   (what, why, exact command), and move on to the next task. Never wait.
+- Commands that ALWAYS prompt even in bypass mode — never use them:
+  * `cd <dir>` followed by git in the same command → use `git -C "/Users/mellamputi_vedhanth/Hackathons/Triple H" <cmd>` instead.
+  * git chained with other commands (`; && |`) → run each git command as its own Bash call.
+  * Editing files with sed/awk in Bash → use your Edit/Write tools (BOARD.md too).
 - Temp folders (like the clone in Setup) go under ~/Hackathons/_coord/_tmp/ and get logged in TO-DELETE.md.
 
 Read first: ~/Hackathons/CLAUDE.md, ./CLAUDE.md, docs/ARCHITECTURE.md, _coord/BOARD.md. Add your BOARD row.

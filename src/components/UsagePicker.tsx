@@ -1,6 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { TEXAS_AVG_KWH } from "@/lib/seasons";
 
 const PRESETS = [
   { label: "Small apartment", kwh: 600 },
@@ -19,7 +20,10 @@ export function UsagePicker({ initial = 1100 }: { initial?: number }) {
       onSubmit={(e) => { e.preventDefault(); if (valid) router.push(`/wall?kwh=${n}`); }}
     >
       <label htmlFor="kwh" className="block text-base font-semibold">How much power do you use in a month?</label>
-      <p className="mt-1 text-sm text-ink-2">It&apos;s on your bill as &ldquo;kWh used.&rdquo; Not sure? Pick the closest one.</p>
+      <p className="mt-1 text-sm text-ink-2">
+        It&apos;s on your bill as &ldquo;kWh used.&rdquo; Not sure? The average Texas home uses about{" "}
+        <span className="num">{TEXAS_AVG_KWH.toLocaleString()}</span> kWh a month.
+      </p>
       <div className="mt-4 flex flex-wrap gap-2">
         {PRESETS.map((p) => (
           <button type="button" key={p.kwh} onClick={() => setKwh(String(p.kwh))}
@@ -28,13 +32,13 @@ export function UsagePicker({ initial = 1100 }: { initial?: number }) {
           </button>
         ))}
       </div>
-      <div className="mt-4 flex items-stretch gap-3">
-        <div className="flex flex-1 items-center rounded-2xl bg-paper px-4">
+      <div className="mt-4 flex flex-col items-stretch gap-3 sm:flex-row">
+        <div className="flex min-w-0 flex-1 items-center rounded-2xl bg-paper px-4">
           <input id="kwh" inputMode="numeric" value={kwh} onChange={(e) => setKwh(e.target.value.replace(/[^0-9]/g, ""))}
-            className="num w-full bg-transparent py-3 text-2xl font-semibold outline-none" aria-describedby="kwh-unit" />
+            className="num w-full min-w-0 bg-transparent py-3 text-2xl font-semibold outline-none" aria-describedby="kwh-unit" />
           <span id="kwh-unit" className="text-ink-2">kWh</span>
         </div>
-        <button disabled={!valid} className="rounded-2xl bg-volt px-5 text-base font-bold text-ink shadow-[var(--shadow-soft)] transition hover:brightness-95 disabled:opacity-40">
+        <button disabled={!valid} className="rounded-2xl bg-volt px-5 py-3.5 text-base font-bold text-ink shadow-[var(--shadow-soft)] transition hover:brightness-95 disabled:opacity-40">
           Read every plan
         </button>
       </div>
