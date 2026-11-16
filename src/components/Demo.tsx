@@ -53,8 +53,8 @@ export function Demo({ d }: { d: DemoData }) {
       <h2 className="display text-4xl font-extrabold leading-tight sm:text-7xl">{d.best.name}</h2>
       <p className="mt-2 text-xl text-paper/70 sm:text-2xl">{tidy(d.best.provider)}</p>
       <div className="mt-8 grid max-w-4xl gap-4 sm:grid-cols-2">
-        <div className="rounded-3xl bg-paper/10 p-5"><p className="text-sm font-bold uppercase text-volt">State site&apos;s #1</p><p className="num mt-2 text-4xl font-semibold">{money(d.pick.annual)}<span className="text-lg opacity-70">/yr</span></p><p className="num text-paper/70">really {d.pick.real.toFixed(1)}¢/kWh</p></div>
-        <div className="rounded-3xl bg-good-2 p-5 text-ink"><p className="text-sm font-bold uppercase text-good">Wattch&apos;s #1</p><p className="num mt-2 text-4xl font-semibold">{money(d.best.annual)}<span className="text-lg opacity-70">/yr</span></p><p className="num text-ink-2">really {d.best.real.toFixed(1)}¢/kWh</p></div>
+        <div className="rounded-3xl bg-paper/10 p-5"><p className="text-sm font-bold uppercase text-volt lg:text-lg">State site&apos;s #1</p><p className="num mt-2 text-4xl font-semibold lg:text-7xl">{money(d.pick.annual)}<span className="text-lg opacity-70 lg:text-3xl">/yr</span></p><p className="num text-paper/70 lg:mt-1 lg:text-2xl">really {d.pick.real.toFixed(1)}¢/kWh</p></div>
+        <div className="rounded-3xl bg-good-2 p-5 text-ink"><p className="text-sm font-bold uppercase text-good lg:text-lg">Wattch&apos;s #1</p><p className="num mt-2 text-4xl font-semibold lg:text-7xl">{money(d.best.annual)}<span className="text-lg opacity-70 lg:text-3xl">/yr</span></p><p className="num text-ink-2 lg:mt-1 lg:text-2xl">really {d.best.real.toFixed(1)}¢/kWh</p></div>
       </div>
     </Scene>,
     <Scene key="g" eyebrow="Now you">
