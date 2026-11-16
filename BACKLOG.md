@@ -25,7 +25,7 @@
 - [x] Typography + spacing consistency pass; projector check at 1920 (text readable from the back of a room)
 - [x] Favicon + app icon from Kapi; proper <title>/description per page; Open Graph images
 ## D. Quality
-- [ ] Tests to 100+: rescue/templates edge cases, compare math, current-plan/ETF math, 12-month input parsing, filters, API routes (mocked) — `npm test` ≥100 passing
+- [x] Tests to 100+: rescue/templates edge cases, compare math, current-plan/ETF math, 12-month input parsing, filters, API routes (mocked) — `npm test` ≥100 passing
 - [ ] Lighthouse (Playwright + lighthouse npm) on /, /wall, /plan: performance ≥90 mobile, accessibility ≥95 — scores logged in PROGRESS.md
 - [ ] Shrink what the browser downloads: don't ship full label text to /wall; per-plan data only on /plan — /wall JS+data < 300 KB
 - [ ] Type-safety pass: no `any`, zod-parse data/plans.json at load with a friendly error page if broken

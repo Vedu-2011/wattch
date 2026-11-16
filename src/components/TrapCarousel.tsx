@@ -31,10 +31,13 @@ export function TrapCarousel({ cards }: { cards: TrapCard[] }) {
       </div>
       <div className="mt-3 flex items-center justify-between gap-3">
         <Link href={`/plan/${c.id}`} className="text-sm font-semibold underline underline-offset-4">See the fine print</Link>
-        <div className="flex gap-1.5">
+        <div className="flex">
           {cards.map((x, j) => (
+            // 24px tap area around a small dot
             <button key={x.id} type="button" onClick={() => setI(j)} aria-label={`Example ${j + 1} of ${cards.length}`} aria-current={j === i}
-              className={`h-2.5 rounded-full transition-all ${j === i ? "w-6 bg-over" : "w-2.5 bg-ink/20"}`} />
+              className="flex h-6 min-w-6 items-center justify-center px-0.5">
+              <span className={`block h-2.5 rounded-full transition-all ${j === i ? "w-6 bg-over" : "w-2.5 bg-ink/20"}`} />
+            </button>
           ))}
         </div>
       </div>

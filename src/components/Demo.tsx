@@ -90,10 +90,12 @@ export function Demo({ d }: { d: DemoData }) {
         </div>
       </div>
       <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
-        <div className="flex gap-1.5">
+        <div className="flex">
           {scenes.map((_, j) => (
             <button key={j} type="button" onClick={() => go(j)} aria-label={`Scene ${j + 1} of ${n}`} aria-current={j === i}
-              className={`h-2.5 rounded-full transition-all ${j === i ? "w-8 bg-ink" : "w-2.5 bg-ink/20"}`} />
+              className="flex h-6 min-w-6 items-center justify-center px-0.5">
+              <span className={`block h-2.5 rounded-full transition-all ${j === i ? "w-8 bg-ink" : "w-2.5 bg-ink/20"}`} />
+            </button>
           ))}
         </div>
         <div className="flex flex-wrap gap-2 whitespace-nowrap text-sm sm:text-base">
