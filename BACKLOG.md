@@ -162,6 +162,6 @@
 - [ ] Q5 Share text (Web Share / copy) for Dallas Spanish: names Dallas–Fort Worth, Spanish words
 - [x] Q6 /how?area=dallas&lang=es: the 'last read' box shows Dallas numbers (154 verified), not Houston
 - [x] Q7 tests: compare table — a test that both plans' monthly totals add up to the yearly totals shown
-- [ ] Q8 README: AI tools list still complete (Claude Code, Codex, Claude Haiku, Anakin) — check vs code
-- [ ] Q9 Lighthouse /compare?lang=es at mobile after the table change
+- [x] Q8 README: AI tools list still complete (Claude Code, Codex, Claude Haiku, Anakin) — check vs code
+- [x] Q9 Lighthouse /compare?lang=es at mobile after the table change
 - [ ] Q10 Codex review 13 after Q batch
