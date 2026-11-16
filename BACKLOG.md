@@ -209,7 +209,7 @@
 - [ ] U4 /wall?m=…(own months) Spanish at 375: months editor + chips fit
 - [x] U5 SCRIPT scene 11: the share card now shows the result card; check wording still true
 - [x] U6 axe on /api-backed error page /plan/xyz?area=dallas&lang=es
-- [ ] U7 Re-run es-walk + widths + meta-check + axe as one 'all checks' script (scripts/check-all.mjs) for the morning
-- [ ] U8 README: 'How to check' section lists check-all
+- [x] U7 Re-run es-walk + widths + meta-check + axe as one 'all checks' script (scripts/check-all.mjs) for the morning
+- [x] U8 README: 'How to check' section lists check-all
 - [ ] U9 Lighthouse /plan/33633 EN after card change (no perf hit)
 - [ ] U10 Codex review 17 after U batch
