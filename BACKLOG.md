@@ -197,7 +197,7 @@
 - [x] T4 Wall progress bar: aria-valuetext ('84 of 172') in both languages
 - [x] T5 Footer at 320 Spanish: no wrap mess (screen)
 - [x] T6 Plan page 'Check this label again' button at 320 Spanish: text fits
-- [ ] T7 Remove dead code: grep for exported-but-unused helpers after tonight (ts-prune style via grep), log only unless trivial
-- [ ] T8 Lighthouse / and /es once more after header + Kapi changes
+- [x] T7 Remove dead code: grep for exported-but-unused helpers after tonight (ts-prune style via grep), log only unless trivial
+- [x] T8 Lighthouse / and /es once more after header + Kapi changes
 - [ ] T9 PROGRESS night-2 summary draft (feeds O10)
 - [ ] T10 Codex review 16 after T batch
