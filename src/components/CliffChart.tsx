@@ -29,7 +29,7 @@ export function CliffChart({ pricing, kwh, lang = "en" }: { pricing: PlanPricing
   const hb = monthlyBill(pricing, h);
   return (
     <figure>
-      <svg viewBox={`0 0 ${W} ${H}`} className="w-full" role="img"
+      <svg viewBox={`0 0 ${W} ${H}`} className="cliff-chart w-full" role="img"
         aria-label={es ? `Factura mensual de 200 a 2,600 kWh.${cliffs.length ? ` Salto de precio en ${cliffs.map((c) => c.kwh).join(" y ")} kWh.` : ""}` : `Monthly bill from 200 to 2,600 kWh.${cliffs.length ? ` Price cliff at ${cliffs.map((c) => c.kwh).join(" and ")} kWh.` : ""}`}
         onMouseMove={(e) => {
           const r = (e.currentTarget as SVGSVGElement).getBoundingClientRect();

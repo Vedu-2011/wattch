@@ -448,11 +448,11 @@
 - [x] AO2 If some work: re-read just those (PAID-API LOCK, ≤ $0.30, ingest --redo-failed or equivalent), verify, rebuild
 - [x] AO3 After any re-read: headline unchanged? Dallas counts updated in docs
 - [x] AO4 Tests + check-all after data change
-- [ ] AO5 Handoff draft in scratchpad (fill at 7:00)
+- [x] AO5 Handoff draft in scratchpad (fill at 7:00)
 - [ ] AO6 Night-2 summary final text drafted (O10)
 - [ ] AO7 STATUS: final counts (Y9/AG9) — prepare
 - [x] AO8 tidy.sh dry look (what it moves) before running at handoff
-- [ ] AO9 BOARD Done line drafted
+- [x] AO9 BOARD Done line drafted
 - [x] AO10 Codex review if code changed
 
 ## AP batch (added 05:00, night 2)
@@ -465,7 +465,7 @@
 - [x] AP7 Tests for month wording
 - [x] AP8 es-walk unaffected
 - [x] AP9 STATUS line
-- [ ] AP10 Codex review 31 after AP batch
+- [x] AP10 Codex review 31 after AP batch
 
 ## AQ batch (added 05:08, night 2)
 - [x] AQ1 Grep other plural slips: '1 plans', '1 traps', '1 labels', '1 kinds' in EN/ES words (n === 1 handled?)
@@ -478,3 +478,15 @@
 - [x] AQ8 Remind 'in 1 days'
 - [ ] AQ9 STATUS line
 - [ ] AQ10 Codex review 32 after AQ batch
+
+## AR batch (added 05:10, night 2) — eyes-on phone review
+- [x] AR1 Home ES 375 full page: anything off?
+- [x] AR2 Results EN 375 first 2 screens
+- [x] AR3 Compare EN 375 (Share/Print row, note, table)
+- [x] AR4 Plan EN 375 bill section
+- [x] AR5 Fix anything found
+- [ ] AR6 Same at 1920 for results
+- [x] AR7 Dallas home EN 375
+- [ ] AR8 Traps ES 375
+- [ ] AR9 STATUS line
+- [ ] AR10 Codex if code changed
