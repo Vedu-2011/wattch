@@ -106,3 +106,4 @@
 - 2026-11-16 02:19 PT · M1 number-parity test · DONE (1b959df). 200 tests. $0.
 - 2026-11-16 02:23 PT · M2+M3 320px header + wall chips fix · DONE (ac85cab). $0.
 - 2026-11-16 02:23 PT · M4 gallery 8 regenerated (6fddf45). Codex review 10 started (since 195946f). $0.
+- 2026-11-16 02:24 PT · M6 README commands + season-script guard · DONE (fb2a17c). Incident: houston_seasons.py with no args emptied data/sources/ercot-coast-residential-monthly.csv during the check; restored from HEAD (git show), nothing lost. $0.

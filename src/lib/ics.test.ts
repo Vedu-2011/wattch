@@ -55,4 +55,19 @@ describe("Spanish reminder", () => {
     expect(endDateProblem(parseDay("2020-01-01"), now, "es")).toMatch(/Ese día ya pasó/);
     expect(endDateProblem(null, now, "es")).toMatch(/no parece una fecha/);
   });
+
+  it("folds Spanish text safely: ≤75 bytes a line, CRLF only, never splits an accented letter", () => {
+    const name = "Ahorro Económico Diseñado para Familias Pequeñas del Área Metropolitana — Año Completo";
+    const raw = reminderIcs({ end: parseDay("2027-03-14")!, now, planName: name, lang: "es" });
+    const bytes = (s: string) => new TextEncoder().encode(s);
+    const strict = new TextDecoder("utf-8", { fatal: true });
+    expect(raw).not.toMatch(/[^\r]\n/);
+    for (const line of raw.split("\r\n")) {
+      expect(bytes(line).length).toBeLessThanOrEqual(75);
+      expect(() => strict.decode(bytes(line))).not.toThrow(); // each line is whole UTF-8 on its own
+    }
+    const unfolded = raw.replace(/\r\n /g, "");
+    expect(unfolded).toContain(`Tu plan de luz (${name}) termina el 14 de marzo de 2027`);
+    expect(unfolded).not.toContain("�");
+  });
 });
