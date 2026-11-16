@@ -46,7 +46,7 @@ export function readSoFedForm(text: string, ptc: Avg): PlanPricing | null {
 export function ptcAveragesOnLabel(text: string, ptc: Avg): boolean {
   if (!(ptc.k500 > 0 && ptc.k1000 > 0 && ptc.k2000 > 0)) return false;
   const flat = text.replace(/\s+/g, " ");
-  const forms = (v: number) => [...new Set([v.toFixed(1), String(v)])].map((f) => f.replace(".", "\\."));
+  const forms = (v: number) => [...new Set([v.toFixed(1), String(v), v.toFixed(2)])].map((f) => f.replace(".", "\\."));
   const num = (v: number) => `(?<![0-9.])(?:${forms(v).join("|")})(?![0-9])`;
   // a row of three prices in a row: "19.4¢ 18.0¢ 17.2¢"
   const row = new RegExp(`${num(ptc.k500)} ?¢ ?${num(ptc.k1000)} ?¢ ?${num(ptc.k2000)} ?¢`);

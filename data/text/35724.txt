@@ -1,0 +1,73 @@
+# Electricity Facts Label (EFL)
+
+## OCTOPUS ENERGY - Octo Simple 14 \- CNP \- 10/26/2026
+
+Electricity Price
+
+Average monthly use:500 kWh1000 kWh2000 kWhAverage price per kWh:11.9¢11.9¢11.9¢
+
+Octopus Energy Charge
+
+5.3905¢ per kWh
+
+CNP Charge per kWh
+
+6.5333¢ per kWh
+
+CNP per meter Fee
+
+$4.90 per month
+
+Base Charge:$0.00 per month
+
+Autopay Discount:$5.00 per billing cycle
+
+The average prices disclosed above reflect a $5.00 monthly credit for enrollment in autopay. All new accounts will automatically receive this $5.00 credit on their initial invoice as a courtesy grace period. To maintain this credit on subsequent invoices, a valid credit card or debit card must be registered for autopay via the Customer Portal prior to the issuance date of your second monthly invoice. If valid card enrollment is not confirmed by that date, the $5.00 credit will be removed from your second and all subsequent invoices until valid card enrollment is successfully completed and remains active with sufficient funds to process recurring payments. Due to extended verification timelines, bank account routing (ACH) registration is not supported for initial setup.
+
+This price disclosure is an example based on the usage levels shown above. Your average price for electricity will depend on your exact monthly usage. The price you pay each month will consist of the applicable Octopus Energy charge, base charge, and the TDU recurring charges (per meter and per kWh). TDU charges will be itemised separately on your bill. This price is fixed for the term of the contract except as noted below.
+
+Each month you will also be billed all taxes, including sales tax, and reimbursement for the state miscellaneous gross receipts tax, as applicable. These taxes are not included in the above average price calculation.
+
+The average prices listed above do not include other Octopus Energy fees and TDU fees for underground service (if applicable to your location) or facility relocation fees or other charges ordered by a municipality.
+
+Other Key Terms and Questions
+
+See Terms of Service (TOS) Agreement for a full listing of fees, deposit policy, and other important terms.
+
+More information regarding Octopus Energy's Intelligent Octopus (IO) feature will be found under the IO Agreement at [https://assets.backend.octopusenergy.com/x/e71b875d6d/intelligent-octopus-en.pdf](https://assets.backend.octopusenergy.com/x/e71b875d6d/intelligent-octopus-en.pdf).
+
+Disclosure Chart
+
+- **Type of Product**: Fixed Rate Product
+- **Contract Term**: 14 months
+- **Do I have a termination fee or any fees associated with terminating service?**: Yes, $200
+- **Can my price change during the contract period?**: Yes
+- **If the price can change, how will it change and by how much?**: The average prices shown above may change during the contract term only under the following circumstances: to reflect actual changes to the TDU charges; changes to the Electric Reliability Council of Texas or Texas Regional Entity administrative fees charged to loads; or changes resulting from federal, state or local laws or regulatory actions that impose new or modified fees or costs that are outside our control.
+- **What other fees may I be charged?**:
+  - Credit Card Processing Fee: 2% per transaction
+  - Disconnect Fee: $10.00 per disconnect
+  - NSF and Returned Payments Fee: $35.00
+- **Is this a pre-pay or pay in advance product?**: No
+- **Does Octopus Energy purchase excess distributed renewable generation?**: Yes (at the Real Time Settlement Price Point)
+- **Renewable Content**: This product is 100% renewable.
+- **Statewide average for Renewable Content**: 37.2%
+
+**Octopus Energy**
+
+octopusenergy.com
+
+heretohelp@octopusenergy.com
+
+**(833) OCTO-888**
+
+(9 a.m. - 5 p.m. on Monday, Tuesday, Wednesday, Friday and 9 a.m. - 4 p.m. on Thursday, CT)
+
+Ver. # OCTO-SIMPLE-14-CENTERPOINT-LZ\_HOUSTON-202610261600
+
+**Contact Address**
+
+Octopus Energy LLC
+
+909 Fannin Street, Suite 3650, Houston, Texas 77010
+
+REP Licence Number: 10262

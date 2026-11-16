@@ -1,10 +1,9 @@
 {
- "builtAt": "2026-11-16T07:00:17.152Z",
+ "builtAt": "2026-11-16T07:03:52.084Z",
  "source": "https://www.powertochoose.org/en-us/Plan/ExportToCsv",
  "model": "claude-haiku-5-5",
  "counts": {
-  "verified": 161,
-  "unread": 8,
+  "verified": 169,
   "mismatch": 3
  },
  "plans": [
@@ -6001,18 +6000,77 @@
      "k2000": 13.7
     }
    },
-   "pricing": null,
+   "pricing": {
+    "baseChargeDollars": 0,
+    "energyTiers": [
+     {
+      "fromKwh": 0,
+      "cents": 13.097
+     }
+    ],
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
+    "credits": [
+     {
+      "minKwh": 999,
+      "maxKwh": null,
+      "dollars": 125,
+      "label": "Monthly Bill Credit over 999 kWh",
+      "conditional": false
+     }
+    ],
+    "usageFees": [],
+    "amortizedFees": [],
+    "touPeriods": [],
+    "termMonths": 12,
+    "earlyTerminationFee": {
+     "dollars": 20,
+     "perMonthRemaining": true
+    },
+    "labelAvg": {
+     "k500": 20.6,
+     "k1000": 7.6,
+     "k2000": 13.7
+    },
+    "notes": [
+     "$125 monthly credit applies only above 999 kWh",
+     "TDU delivery charges are passed through, not included in numbers shown",
+     "Early termination: $20 times months remaining on term",
+     "Paperless product; a valid email is required or fees apply",
+     "Renewable content is 3% by default"
+    ]
+   },
    "read": {
-    "fetchedAt": "2026-11-16T06:57:50.925Z",
+    "fetchedAt": "2026-11-16T07:03:15.716Z",
     "via": "direct",
-    "sha256": "",
-    "parsedBy": "none",
-    "readMs": 0
+    "sha256": "62eef7f668eb68d698f383d7675c8f28c728f9dfa44fe194bb92667731d17a94",
+    "parsedBy": "claude-haiku-5-5",
+    "readMs": 7354
    },
    "check": {
-    "status": "unread",
-    "rows": [],
-    "message": "The page opened, but it doesn't look like a fine-print label."
+    "status": "verified",
+    "rows": [
+     {
+      "kwh": 500,
+      "printed": 20.6,
+      "ours": 20.6,
+      "ok": true
+     },
+     {
+      "kwh": 1000,
+      "printed": 7.6,
+      "ours": 7.6,
+      "ok": true
+     },
+     {
+      "kwh": 2000,
+      "printed": 13.7,
+      "ours": 13.6,
+      "ok": true
+     }
+    ],
+    "message": "The label doesn't print delivery charges; with CenterPoint's, all 3 averages match.",
+    "tduFilled": true
    }
   },
   {
@@ -6034,18 +6092,68 @@
      "k2000": 11.7
     }
    },
-   "pricing": null,
+   "pricing": {
+    "baseChargeDollars": 0,
+    "energyTiers": [
+     {
+      "fromKwh": 0,
+      "cents": 4.9217
+     }
+    ],
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
+    "credits": [],
+    "usageFees": [],
+    "amortizedFees": [],
+    "touPeriods": [],
+    "termMonths": 12,
+    "earlyTerminationFee": {
+     "dollars": 20,
+     "perMonthRemaining": true
+    },
+    "labelAvg": {
+     "k500": 12.5,
+     "k1000": 12,
+     "k2000": 11.7
+    },
+    "notes": [
+     "TDU delivery charges are passed through and not included in the energy price",
+     "Paperless only: a valid email address is required or fees apply",
+     "Early termination fee is $20 per month remaining on the term",
+     "Renewable content is 3% by default"
+    ]
+   },
    "read": {
-    "fetchedAt": "2026-11-16T06:54:04.952Z",
+    "fetchedAt": "2026-11-16T07:02:43.051Z",
     "via": "direct",
-    "sha256": "",
-    "parsedBy": "none",
-    "readMs": 0
+    "sha256": "67f4cc6f1535de899087d2ca0c1cf783a12f6e19e43a4f1ee655e095046dda5d",
+    "parsedBy": "claude-haiku-5-5 + averages from Power to Choose",
+    "readMs": 7130
    },
    "check": {
-    "status": "unread",
-    "rows": [],
-    "message": "The page opened, but it doesn't look like a fine-print label."
+    "status": "verified",
+    "rows": [
+     {
+      "kwh": 500,
+      "printed": 12.5,
+      "ours": 12.4,
+      "ok": true
+     },
+     {
+      "kwh": 1000,
+      "printed": 12,
+      "ours": 11.9,
+      "ok": true
+     },
+     {
+      "kwh": 2000,
+      "printed": 11.7,
+      "ours": 11.7,
+      "ok": true
+     }
+    ],
+    "message": "The reader copied one average wrong; with the averages the label prints, all 3 match.",
+    "tduFilled": true
    }
   },
   {
@@ -6067,18 +6175,68 @@
      "k2000": 14.6
     }
    },
-   "pricing": null,
+   "pricing": {
+    "baseChargeDollars": 0,
+    "energyTiers": [
+     {
+      "fromKwh": 0,
+      "cents": 7.8
+     }
+    ],
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
+    "credits": [],
+    "usageFees": [],
+    "amortizedFees": [],
+    "touPeriods": [],
+    "termMonths": 13,
+    "earlyTerminationFee": {
+     "dollars": 20,
+     "perMonthRemaining": true
+    },
+    "labelAvg": {
+     "k500": 15.3,
+     "k1000": 14.9,
+     "k2000": 14.6
+    },
+    "notes": [
+     "TDU delivery charges are passed through and not included in the energy price",
+     "Early termination fee is $20 per month remaining on the term",
+     "Paperless product; a valid email address is required or fees apply",
+     "Renewable content is 3% by default"
+    ]
+   },
    "read": {
-    "fetchedAt": "2026-11-16T06:59:00.886Z",
+    "fetchedAt": "2026-11-16T07:03:37.673Z",
     "via": "direct",
-    "sha256": "",
-    "parsedBy": "none",
-    "readMs": 0
+    "sha256": "6853ec54d705f5df7b205b1e347f8ae1b1b08e6347c0fdcd11e29bf48b9622d1",
+    "parsedBy": "claude-haiku-5-5 + averages from Power to Choose",
+    "readMs": 6812
    },
    "check": {
-    "status": "unread",
-    "rows": [],
-    "message": "The page opened, but it doesn't look like a fine-print label."
+    "status": "verified",
+    "rows": [
+     {
+      "kwh": 500,
+      "printed": 15.3,
+      "ours": 15.3,
+      "ok": true
+     },
+     {
+      "kwh": 1000,
+      "printed": 14.9,
+      "ours": 14.8,
+      "ok": true
+     },
+     {
+      "kwh": 2000,
+      "printed": 14.6,
+      "ours": 14.6,
+      "ok": true
+     }
+    ],
+    "message": "The reader copied one average wrong; with the averages the label prints, all 3 match.",
+    "tduFilled": true
    }
   },
   {
@@ -6100,18 +6258,68 @@
      "k2000": 11.3
     }
    },
-   "pricing": null,
+   "pricing": {
+    "baseChargeDollars": 0,
+    "energyTiers": [
+     {
+      "fromKwh": 0,
+      "cents": 4.5
+     }
+    ],
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
+    "credits": [],
+    "usageFees": [],
+    "amortizedFees": [],
+    "touPeriods": [],
+    "termMonths": 8,
+    "earlyTerminationFee": {
+     "dollars": 20,
+     "perMonthRemaining": true
+    },
+    "labelAvg": {
+     "k500": 12,
+     "k1000": 11.6,
+     "k2000": 11.3
+    },
+    "notes": [
+     "TDU delivery charges are passed through and not listed on label",
+     "Paperless product: valid email required or e-Docs Breakage Fee applies",
+     "Early termination: $20 per month remaining on contract",
+     "Averages exclude municipal facility relocation fees and other charges"
+    ]
+   },
    "read": {
-    "fetchedAt": "2026-11-16T06:58:38.034Z",
+    "fetchedAt": "2026-11-16T07:03:30.913Z",
     "via": "direct",
-    "sha256": "",
-    "parsedBy": "none",
-    "readMs": 0
+    "sha256": "efe5522aa24deb8e3e2c237d6efae1b358501235b84d26c23deb87d17ca5c6d7",
+    "parsedBy": "claude-haiku-5-5 + averages from Power to Choose",
+    "readMs": 6758
    },
    "check": {
-    "status": "unread",
-    "rows": [],
-    "message": "The page opened, but it doesn't look like a fine-print label."
+    "status": "verified",
+    "rows": [
+     {
+      "kwh": 500,
+      "printed": 12,
+      "ours": 12,
+      "ok": true
+     },
+     {
+      "kwh": 1000,
+      "printed": 11.6,
+      "ours": 11.5,
+      "ok": true
+     },
+     {
+      "kwh": 2000,
+      "printed": 11.3,
+      "ours": 11.3,
+      "ok": true
+     }
+    ],
+    "message": "The reader copied one average wrong; with the averages the label prints, all 3 match.",
+    "tduFilled": true
    }
   },
   {
@@ -8639,18 +8847,75 @@
      "k2000": 11.9
     }
    },
-   "pricing": null,
+   "pricing": {
+    "baseChargeDollars": 0,
+    "energyTiers": [
+     {
+      "fromKwh": 0,
+      "cents": 5.3905
+     }
+    ],
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
+    "credits": [
+     {
+      "minKwh": 0,
+      "maxKwh": null,
+      "dollars": 5,
+      "label": "Autopay discount $5.00 per billing cycle (requires valid card registration)",
+      "conditional": true
+     }
+    ],
+    "usageFees": [],
+    "amortizedFees": [],
+    "touPeriods": [],
+    "termMonths": 14,
+    "earlyTerminationFee": {
+     "dollars": 200,
+     "perMonthRemaining": false
+    },
+    "labelAvg": {
+     "k500": 11.9,
+     "k1000": 11.9,
+     "k2000": 11.9
+    },
+    "notes": [
+     "$5 autopay credit requires valid card; ACH not supported for setup",
+     "Credit removed from second invoice without valid card enrollment",
+     "Averages exclude taxes, TDU underground and relocation fees",
+     "Price can change for TDU and regulatory cost changes"
+    ]
+   },
    "read": {
-    "fetchedAt": "2026-11-16T06:56:55.878Z",
-    "via": "direct",
-    "sha256": "",
-    "parsedBy": "none",
-    "readMs": 0
+    "fetchedAt": "2026-11-16T07:02:55.354Z",
+    "via": "anakin",
+    "sha256": "2a45ec3714d732d38c53fc1f8b9e8e8412f4ee0f3027829036f146394846cf7f",
+    "parsedBy": "claude-haiku-5-5",
+    "readMs": 19250
    },
    "check": {
-    "status": "unread",
-    "rows": [],
-    "message": "The page opened, but it doesn't look like a fine-print label."
+    "status": "verified",
+    "rows": [
+     {
+      "kwh": 500,
+      "printed": 11.9,
+      "ours": 11.9,
+      "ok": true
+     },
+     {
+      "kwh": 1000,
+      "printed": 11.9,
+      "ours": 11.9,
+      "ok": true
+     },
+     {
+      "kwh": 2000,
+      "printed": 11.9,
+      "ours": 11.9,
+      "ok": true
+     }
+    ],
+    "message": "All 3 label averages match."
    }
   },
   {
@@ -13722,18 +13987,67 @@
      "k2000": 13.9
     }
    },
-   "pricing": null,
+   "pricing": {
+    "baseChargeDollars": 4.95,
+    "energyTiers": [
+     {
+      "fromKwh": 0,
+      "cents": 13.7
+     }
+    ],
+    "tduCentsPerKwh": 0,
+    "tduMonthlyDollars": 0,
+    "credits": [],
+    "usageFees": [],
+    "amortizedFees": [],
+    "touPeriods": [],
+    "termMonths": 12,
+    "earlyTerminationFee": {
+     "dollars": 20,
+     "perMonthRemaining": true
+    },
+    "labelAvg": {
+     "k500": 14.7,
+     "k1000": 14.2,
+     "k2000": 13.9
+    },
+    "notes": [
+     "Early cancellation fee: $20 per month remaining in term.",
+     "Delivery (CenterPoint TDU) charges are passed through, not printed on label.",
+     "Average prices exclude municipal facility relocation fees and other charges.",
+     "Price may change for TDU, ERCOT, or regulatory-driven fee changes."
+    ]
+   },
    "read": {
-    "fetchedAt": "2026-11-16T06:56:30.427Z",
+    "fetchedAt": "2026-11-16T07:02:50.182Z",
     "via": "direct",
-    "sha256": "",
-    "parsedBy": "none",
-    "readMs": 0
+    "sha256": "b86cf4173e51a8c66c78130ae15654f70dabaf9b3a76ab13cd7b3757c1d09171",
+    "parsedBy": "claude-haiku-5-5",
+    "readMs": 3566
    },
    "check": {
-    "status": "unread",
-    "rows": [],
-    "message": "The page opened, but it doesn't look like a fine-print label."
+    "status": "verified",
+    "rows": [
+     {
+      "kwh": 500,
+      "printed": 14.7,
+      "ours": 14.7,
+      "ok": true
+     },
+     {
+      "kwh": 1000,
+      "printed": 14.2,
+      "ours": 14.2,
+      "ok": true
+     },
+     {
+      "kwh": 2000,
+      "printed": 13.9,
+      "ours": 13.9,
+      "ok": true
+     }
+    ],
+    "message": "All 3 label averages match."
    }
   },
   {
@@ -14100,18 +14414,68 @@
      "k2000": 11.7
     }
    },
-   "pricing": null,
+   "pricing": {
+    "baseChargeDollars": 0,
+    "energyTiers": [
+     {
+      "fromKwh": 0,
+      "cents": 4.9217
+     }
+    ],
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
+    "credits": [],
+    "usageFees": [],
+    "amortizedFees": [],
+    "touPeriods": [],
+    "termMonths": 12,
+    "earlyTerminationFee": {
+     "dollars": 20,
+     "perMonthRemaining": true
+    },
+    "labelAvg": {
+     "k500": 12.5,
+     "k1000": 12,
+     "k2000": 11.7
+    },
+    "notes": [
+     "TDU delivery charges are passed through and not included in the energy price",
+     "Early termination fee is $20 per month remaining on the term",
+     "Paperless product: a valid email address is required or fees apply",
+     "Average prices exclude municipal fees and facility relocation charges"
+    ]
+   },
    "read": {
-    "fetchedAt": "2026-11-16T06:58:14.853Z",
+    "fetchedAt": "2026-11-16T07:03:23.071Z",
     "via": "direct",
-    "sha256": "",
-    "parsedBy": "none",
-    "readMs": 0
+    "sha256": "9c81620e581cd6dadac2225cb382dc13fa470104325aeb403d9b150a68ddc5ed",
+    "parsedBy": "claude-haiku-5-5 + averages from Power to Choose",
+    "readMs": 6909
    },
    "check": {
-    "status": "unread",
-    "rows": [],
-    "message": "The page opened, but it doesn't look like a fine-print label."
+    "status": "verified",
+    "rows": [
+     {
+      "kwh": 500,
+      "printed": 12.5,
+      "ours": 12.4,
+      "ok": true
+     },
+     {
+      "kwh": 1000,
+      "printed": 12,
+      "ours": 11.9,
+      "ok": true
+     },
+     {
+      "kwh": 2000,
+      "printed": 11.7,
+      "ours": 11.7,
+      "ok": true
+     }
+    ],
+    "message": "The reader copied one average wrong; with the averages the label prints, all 3 match.",
+    "tduFilled": true
    }
   },
   {
@@ -14133,18 +14497,68 @@
      "k2000": 11.3
     }
    },
-   "pricing": null,
+   "pricing": {
+    "baseChargeDollars": 0,
+    "energyTiers": [
+     {
+      "fromKwh": 0,
+      "cents": 4.5
+     }
+    ],
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
+    "credits": [],
+    "usageFees": [],
+    "amortizedFees": [],
+    "touPeriods": [],
+    "termMonths": 8,
+    "earlyTerminationFee": {
+     "dollars": 20,
+     "perMonthRemaining": true
+    },
+    "labelAvg": {
+     "k500": 12,
+     "k1000": 11.6,
+     "k2000": 11.3
+    },
+    "notes": [
+     "Label averages include TDU delivery charges, which are passed through and not printed.",
+     "Early termination fee is $20 per month remaining on term.",
+     "Paperless product; valid email required or e-Docs Breakage Fee applies.",
+     "Municipal relocation fees and other municipal charges are not included in averages."
+    ]
+   },
    "read": {
-    "fetchedAt": "2026-11-16T06:59:22.379Z",
+    "fetchedAt": "2026-11-16T07:03:44.487Z",
     "via": "direct",
-    "sha256": "",
-    "parsedBy": "none",
-    "readMs": 0
+    "sha256": "8bb4d3432ae96d92d7a47cedf5067622a7aae044f1a8a0e6dd982b34b4633dc8",
+    "parsedBy": "claude-haiku-5-5 + averages from Power to Choose",
+    "readMs": 7564
    },
    "check": {
-    "status": "unread",
-    "rows": [],
-    "message": "The page opened, but it doesn't look like a fine-print label."
+    "status": "verified",
+    "rows": [
+     {
+      "kwh": 500,
+      "printed": 12,
+      "ours": 12,
+      "ok": true
+     },
+     {
+      "kwh": 1000,
+      "printed": 11.6,
+      "ours": 11.5,
+      "ok": true
+     },
+     {
+      "kwh": 2000,
+      "printed": 11.3,
+      "ours": 11.3,
+      "ok": true
+     }
+    ],
+    "message": "The reader copied one average wrong; with the averages the label prints, all 3 match.",
+    "tduFilled": true
    }
   }
  ]

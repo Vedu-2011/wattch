@@ -133,6 +133,23 @@ describe("averages must sit in the price row", () => {
   it("accepts a row of three prices", () => {
     expect(ptcAveragesOnLabel("Average price per kWh 19.2¢ 6.2¢ 12.2¢", ptc)).toBe(true);
   });
+  it("accepts a price printed with two decimals (Express: '20.6¢ 7.60¢ 13.7¢')", () => {
+    expect(ptcAveragesOnLabel(text("36619"), { k500: 20.6, k1000: 7.6, k2000: 13.7 })).toBe(true);
+  });
+  it("Express Flash Value 12: right read, delivery 'passed through as billed' → CenterPoint's charges make all 3 match", () => {
+    const pricing = {
+      baseChargeDollars: 0, energyTiers: [{ fromKwh: 0, cents: 13.097 }], tduCentsPerKwh: 0, tduMonthlyDollars: 0,
+      credits: [{ minKwh: 999, maxKwh: null, dollars: 125, label: "Monthly Bill Credit", conditional: false }],
+      usageFees: [], amortizedFees: [], touPeriods: [], termMonths: 12, earlyTerminationFee: { dollars: 20, perMonthRemaining: true },
+      labelAvg: { k500: 20.6, k1000: 7.6, k2000: 13.7 }, notes: [],
+    };
+    const rec = { meta: { ptc: { k500: 20.6, k1000: 7.6, k2000: 13.7 } }, read: { parsedBy: "claude-haiku-5-5" }, pricing,
+      check: { status: "mismatch", rows: [], message: "" } } as unknown as PlanRecord;
+    const fix = rescue(rec, text("36619"), CNP)!;
+    expect(fix.tduFilled).toBe(true);
+    expect(fix.rows.every((r) => r.ok)).toBe(true);
+    expect(fix.rows.map((r) => r.ours).slice(0, 2)).toEqual([20.6, 7.6]);
+  });
   it("rejects the same numbers scattered around the label", () => {
     expect(ptcAveragesOnLabel("Renewable 19.2 ¢ … deposit 6.2 ¢ … late fee 12.2 ¢", ptc)).toBe(false);
   });

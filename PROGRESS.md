@@ -1,2 +1,3 @@
 # PROGRESS LOG (append only, newest at bottom)
 - 2026-11-15 22:50 PT · planner · Overnight-2 set up: OVERNIGHT.md + BACKLOG.md + hooks. Start state: 161/172 verified, 62 tests, live getwattch.vercel.app (main af6feee).
+- 2026-11-15 23:02 PT · A1 paid re-read · DONE. --redo-failed --force ($0.04) then full re-read of changed labels ($0.68; Anakin 429s + 2 reader slips dropped it to 151) → added code slip-fixes (credit at 1000.01 → 1000; "credited back" day hours −X¢ → 0¢), Anakin 429 retry, --workers (default 3), draft-on-ungrounded → AP Gas rescued; re-ran failed with 1 worker ($0.055). Result 161 verified / 3 mismatch (Pronto) / 8 unread. Tests 66 (labels frozen in test-data/labels). $ ≈ 0.78 total.

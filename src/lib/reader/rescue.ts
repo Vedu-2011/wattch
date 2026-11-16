@@ -31,6 +31,11 @@ export function rescue(rec: PlanRecord, text: string, tdu: TduCandidate[], manua
   const ptc = rec.meta.ptc;
   // the reader's read, or (when its averages weren't on the label) its draft — code re-checks either way
   const read = rec.pricing ?? draft ?? null;
+  if (read && rec.pricing && grounded(text, read)) {
+    // the read was right; the label just doesn't print delivery charges ("passed through as billed")
+    const c = check(read, tdu);
+    if (c) return { ...c, parsedBy: rec.read.parsedBy, message: "The label doesn't print delivery charges; with CenterPoint's, all 3 averages match." };
+  }
   if (read) {
     for (const s of slipFixes(read)) {
       const c = check(s.pricing, tdu);
