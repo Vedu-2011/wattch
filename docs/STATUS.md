@@ -1,6 +1,33 @@
-# Wattch — STATUS (Claude Code, overnight-2, updated Nov 16 2026 ~00:20 PT)
+# Wattch — STATUS (Claude Code, overnight-2, updated Nov 16 2026 ~01:25 PT)
 
-Live: https://getwattch.vercel.app (main) · Overnight work: branch `overnight` (Vercel preview) · Repo: github.com/Vedu-2011/wattch
+Live: https://getwattch.vercel.app (main) · Overnight work: branch `overnight` (Vercel preview, 56 commits ahead of
+main, NOT merged — waits for Vedhanth's "merge") · Repo: github.com/Vedu-2011/wattch
+
+## Since 00:20 (BACKLOG F + G + H) — the short version
+- **Dallas–Fort Worth (Oncor)** works everywhere: city picker on home (stats + trap card switch with no reload), wall,
+  plan, compare (mixed-area guard), share card, /traps?area=dallas, Dallas seasons (ERCOT North Central).
+  172 plans read → 156 read → **154 verified** → 137 ranked. Same "6.2¢" plan ranks **#91**, **$530/yr** more than
+  the best (Just Energy Sustainable Living Bundle - 3, $1,309). 16 Dallas labels unread: 13 = Anakin.io quota ran out,
+  2 = Anakin 429, 1 = unreadable. Re-read when quota returns (≤ $0.30).
+- **Renewal reminder** /remind (EN + ES): end date → .ics with a reminder 30 days before; nothing stored.
+- **Plan page:** one plain sentence under every bill line + "missed credit" box; "Ask yourself before you sign"
+  questions from the plan's own label; prints on one Letter page.
+- **/how** pipeline diagram with live counts; usage hint in the picker; edge states (0 / 50 / 5000 kWh, all-zero
+  months, every filter on) give friendly text, never NaN.
+- **One headline source** src/lib/headline.ts (home, wall, card, demo, scripts all agree — tested).
+- **`npm run refresh`**: free dry run diffs the state's list; `--apply` re-downloads and re-reads only changed labels.
+- **Docs:** DEVPOST/DECK/SCRIPT truth pass (Dallas, reminder, explainer; every number re-run), docs/JUDGE-QA.md
+  (15 judge questions, [CHECK] marks), scripts/meta-check.mjs (no "Houston" in Dallas page metadata — 9/9 clean).
+- **Quality now:** 164 tests · lint + build clean · axe 0 on 17 pages (375 + 1440) · Lighthouse mobile: /remind and
+  /how 96/100/100/100, Dallas wall 93/100/100/90, Dallas traps 94/100/100/100.
+- **Paid API tonight: ≈ $2.06 of the $3 cap.** PAID-API LOCK released.
+
+## Known gaps (new)
+- Header freshness badge shows Houston counts on Dallas pages.
+- Plan, compare and traps pages are English only (Spanish: home, wall, reveal, /remind). Backlog item queued.
+- Dallas: 16 labels unread (Anakin quota) — shown honestly as "couldn't open".
+
+## Houston numbers (unchanged since 00:20)
 
 ## Numbers (all from code / data in the repo — `npx tsx scripts/headline.ts`)
 - **172** Houston (CenterPoint, English) plans on Power to Choose at the last read (data built Nov 16, 07:03 UTC).
@@ -50,6 +77,6 @@ Live: https://getwattch.vercel.app (main) · Overnight work: branch `overnight` 
 docs/DEVPOST.md (every field + gallery captions) · docs/SCRIPT.md (12 scenes, ~4:35 + pauses) · docs/DECK.md (15 slides,
 [CHECK] marks on unsourced items) · docs/gallery/ (6 × 1920×1080) · README (AI tools for STEM2Connect/GenHacks).
 
-## Next (BACKLOG F + G)
-Spanish core flow · Dallas/other areas · renewal reminder · /how diagram · bill-line explainer · refresh script ·
-one headline source · usage hint · print view · projector pass · edge states · "questions to ask" · JUDGE-QA.md.
+## Next (BACKLOG H + new)
+Spanish plan page · header badge per area · Dallas re-read when Anakin quota is back · codex review 7 ·
+for the planner/Vedhanth: fill DECK [CHECK] cells (competitors, referral fee), pick "the ask", decide on merge.
