@@ -282,3 +282,4 @@ Shared links now preview the right thing on every page (plan card, compare card,
 - 2026-11-16 06:49 PT · BW all 5 re-check answers in a real browser with /api/live stubbed, EN + ES: same (green), new file (green), same prices for no-fingerprint labels (green, new), changed (yellow), failed (yellow); all inside the polite live region. Screenshot docs/screenshots/overnight-2/recheck-same-prices.png. $0.
 - 2026-11-16 06:49 PT · BW9 Codex 49: no findings (fileKnown change). Codex 11–49 done tonight. $0.
 - 2026-11-16 06:49 PT · BX handoff numbers ready: 259 tests, 225 commits ahead of main, Codex 11–49, diff vs main 740 files (+36,126 / -1,577 incl. data + screenshots), paid ≈ $2.06 of $3. Summary + BOARD drafts updated. $0.
+- 2026-11-16 06:50 PT · BY the 7-step morning check in STATUS still matches the app (same-plan sentence, Dallas unread page, Español, share cards); step 5 now also says there's no re-check button; header 06:50 / 225 commits; Codex 28–49. $0.

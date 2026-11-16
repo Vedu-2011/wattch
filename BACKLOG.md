@@ -874,3 +874,15 @@
 - [x] BX8 PROGRESS line
 - [x] BX9 Night summary draft: Codex count 39 reviews
 - [x] BX10 BOARD Done-line draft numbers
+
+## BY batch (added 06:50, night 2) — does the morning check in STATUS still work?
+- [x] BY1 Read the 7-step morning check in docs/STATUS.md
+- [x] BY2 Every URL in it opens (200) on a local build
+- [x] BY3 Every 'you should see' matches the page today
+- [x] BY4 Add step for the re-check fix if useful
+- [x] BY5 Keep it 7 steps max
+- [x] BY6 PROGRESS line
+- [x] BY7 Commit + push
+- [x] BY8 Handoff points to it
+- [x] BY9 Plain words
+- [x] BY10 No dev jargon

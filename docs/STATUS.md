@@ -1,6 +1,6 @@
-# Wattch — STATUS (Claude Code, overnight-2, updated Nov 16 2026 ~06:35 PT)
+# Wattch — STATUS (Claude Code, overnight-2, updated Nov 16 2026 ~06:50 PT)
 
-Live: https://getwattch.vercel.app (main) · Overnight work: branch `overnight` (Vercel preview, 215 commits ahead of
+Live: https://getwattch.vercel.app (main) · Overnight work: branch `overnight` (Vercel preview, 225 commits ahead of
 main, NOT merged — waits for Vedhanth's "merge") · Repo: github.com/Vedu-2011/wattch
 
 ## How to check it this morning (5 minutes, on the overnight preview)
@@ -8,7 +8,7 @@ main, NOT merged — waits for Vedhanth's "merge") · Repo: github.com/Vedu-2011
 2. Open **Compare** for the #1 and the best plan → **Share** → the card says who saves how much.
 3. Press **Español** on any page → everything changes, including the link preview.
 4. Pick **Dallas–Fort Worth** on the home page → the numbers say Dallas, never Houston.
-5. Open a Dallas plan Wattch couldn't read (e.g. /plan/31967?area=dallas) → it says "Not read yet", no odd notes.
+5. Open a Dallas plan Wattch couldn't read (e.g. /plan/31967?area=dallas) → it says "Not read yet", no odd notes and no "Check this label again" button.
 6. Compare a plan with itself → it says "That's the same plan twice".
 7. Say **"merge"** to the planner only after this list looks right.
 
@@ -64,7 +64,7 @@ wait. For future overnight nights: push once per batch, or turn off previews for
 
 **New checks that stay:** src/lib/dataSanity.test.ts, search.test.ts, tolerance.words.test.ts, sitemap duplicates,
 and scripts/link-names.mjs in check-all (same-name links, heading levels, <html lang> on 19 pages).
-**Quality:** 259 tests · lint + build clean · check-all (5 checks) PASS · Codex 28–45 clean or fixed.
+**Quality:** 259 tests · lint + build clean · check-all (5 checks) PASS · Codex 28–49 clean or fixed (48 found one, fixed).
 
 **For the planner**
 - A month typed as 0 kWh → −$0.10 (Houston) / −$0.94 (Dallas) on plans whose $5 autopay discount beats the delivery
