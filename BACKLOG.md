@@ -910,3 +910,27 @@
 - [x] CA8 Commit + push
 - [x] CA9 BOARD row current
 - [x] CA10 Then the 7:00 handoff
+
+## CB batch (added 07:02, after the handoff) — small, safe
+- [x] CB1 LIVE_WORDS: test that EN and ES have the same keys (samePrices was added tonight)
+- [x] CB2 Same for compareWords finePrintOf
+- [x] CB3 Same for /api/live MSG (unread added tonight)
+- [x] CB4 Fix any gap
+- [x] CB5 Full verify
+- [x] CB6 Codex review
+- [x] CB7 PROGRESS line
+- [x] CB8 Handoff addendum only if something changes
+- [x] CB9 Push once
+- [x] CB10 Docs test count
+
+## CC batch (added 07:02, after the handoff) — waiting on people; low-risk only
+- [ ] CC1 Hourly: Anakin probe (lock, $0 if out); if back → tell the planner in a handoff addendum, don't re-read without OK
+- [ ] CC2 Hourly: free refresh dry run; note new/changed plans in STATUS
+- [x] CC3 Watch _coord/handoffs for a planner reply or prompt file
+- [x] CC4 If a new prompts/*.md appears: stop the loop and do it
+- [x] CC5 Keep tree clean, no pushes without a change
+- [x] CC6 README: show what the refresh dry run prints (short example)
+- [x] CC7 STATUS: one line on how to run the refresh after Anakin is back
+- [x] CC8 Verify docs-only edits with lint/test
+- [x] CC9 PROGRESS line per check
+- [ ] CC10 Never merge; wait for 'merge'

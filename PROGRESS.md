@@ -300,3 +300,5 @@ Codex reviewed every batch (reviews 11–49; the real findings were fixed). Paid
 person: Vercel's free build limit was hit at ~04:10 (production after "merge" likely waits until ~10 PM Nov 16), and
 `.codex/` got swept into a commit (untracking it is the planner's call). Full detail: docs/STATUS.md.
 - 2026-11-16 07:02 PT · L10/O10/BP7–9: handoff saved (_coord/handoffs/2026-11-16-0701--triple-h--claude--overnight-2.md), final night-2 summary above, BOARD row moved to Done, tidy.sh run. Loop continues (BP10). $0.
+- 2026-11-16 07:02 PT · CB: EN/ES key parity for LIVE_WORDS (incl. new samePrices) and COMPARE_WORDS (incl. finePrintOf) is already enforced by src/lib/i18n.parity.test.ts; /api/live MSG can't be exported from a Next route file, and route.test.ts already checks the Spanish down/gone/unread messages. No change. $0.
+- 2026-11-16 07:02 PT · CC: no new prompt or planner handoff yet (newest handoff is mine, 07:01). README already lists the refresh dry run + --apply; STATUS planner section already has the re-read command. No change. Next: hourly Anakin probe + free dry run (CC1/CC2) around 08:00. $0.
