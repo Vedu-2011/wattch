@@ -1,10 +1,10 @@
 {
- "builtAt": "2026-11-16T05:54:29.977Z",
+ "builtAt": "2026-11-16T05:58:09.704Z",
  "source": "https://www.powertochoose.org/en-us/Plan/ExportToCsv",
  "model": "claude-haiku-5-5",
  "counts": {
-  "verified": 131,
-  "mismatch": 33,
+  "verified": 143,
+  "mismatch": 21,
   "unread": 8
  },
  "plans": [
@@ -3354,8 +3354,8 @@
       "cents": 5.8716
      }
     ],
-    "tduCentsPerKwh": 0,
-    "tduMonthlyDollars": 0,
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
     "credits": [],
     "usageFees": [],
     "amortizedFees": [],
@@ -3385,28 +3385,29 @@
     "readMs": 5366
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
       "printed": 13.4,
-      "ours": 5.9,
-      "ok": false
+      "ours": 13.4,
+      "ok": true
      },
      {
       "kwh": 1000,
       "printed": 12.9,
-      "ours": 5.9,
-      "ok": false
+      "ours": 12.9,
+      "ok": true
      },
      {
       "kwh": 2000,
       "printed": 12.7,
-      "ours": 5.9,
-      "ok": false
+      "ours": 12.7,
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "tduFilled": true,
+    "message": "This label doesn't print delivery charges. With CenterPoint's charges from other labels (6.5333¢/kWh + $4.90/mo), all 3 averages match."
    }
   },
   {
@@ -3436,8 +3437,8 @@
       "cents": 5.7716
      }
     ],
-    "tduCentsPerKwh": 0,
-    "tduMonthlyDollars": 0,
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
     "credits": [],
     "usageFees": [],
     "amortizedFees": [],
@@ -3467,28 +3468,29 @@
     "readMs": 6696
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
       "printed": 13.3,
-      "ours": 5.8,
-      "ok": false
+      "ours": 13.3,
+      "ok": true
      },
      {
       "kwh": 1000,
       "printed": 12.8,
-      "ours": 5.8,
-      "ok": false
+      "ours": 12.8,
+      "ok": true
      },
      {
       "kwh": 2000,
       "printed": 12.6,
-      "ours": 5.8,
-      "ok": false
+      "ours": 12.6,
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "tduFilled": true,
+    "message": "This label doesn't print delivery charges. With CenterPoint's charges from other labels (6.5333¢/kWh + $4.90/mo), all 3 averages match."
    }
   },
   {
@@ -3518,8 +3520,8 @@
       "cents": 6.1716
      }
     ],
-    "tduCentsPerKwh": 0,
-    "tduMonthlyDollars": 0,
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
     "credits": [],
     "usageFees": [],
     "amortizedFees": [],
@@ -3549,28 +3551,29 @@
     "readMs": 7361
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
       "printed": 13.7,
-      "ours": 6.2,
-      "ok": false
+      "ours": 13.7,
+      "ok": true
      },
      {
       "kwh": 1000,
       "printed": 13.2,
-      "ours": 6.2,
-      "ok": false
+      "ours": 13.2,
+      "ok": true
      },
      {
       "kwh": 2000,
       "printed": 13,
-      "ours": 6.2,
-      "ok": false
+      "ours": 13,
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "tduFilled": true,
+    "message": "This label doesn't print delivery charges. With CenterPoint's charges from other labels (6.5333¢/kWh + $4.90/mo), all 3 averages match."
    }
   },
   {
@@ -3600,8 +3603,8 @@
       "cents": 6.5716
      }
     ],
-    "tduCentsPerKwh": 0,
-    "tduMonthlyDollars": 0,
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
     "credits": [],
     "usageFees": [],
     "amortizedFees": [],
@@ -3631,28 +3634,29 @@
     "readMs": 5352
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
       "printed": 14.1,
-      "ours": 6.6,
-      "ok": false
+      "ours": 14.1,
+      "ok": true
      },
      {
       "kwh": 1000,
       "printed": 13.6,
-      "ours": 6.6,
-      "ok": false
+      "ours": 13.6,
+      "ok": true
      },
      {
       "kwh": 2000,
       "printed": 13.4,
-      "ours": 6.6,
-      "ok": false
+      "ours": 13.4,
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "tduFilled": true,
+    "message": "This label doesn't print delivery charges. With CenterPoint's charges from other labels (6.5333¢/kWh + $4.90/mo), all 3 averages match."
    }
   },
   {
@@ -3682,8 +3686,8 @@
       "cents": 5.0716
      }
     ],
-    "tduCentsPerKwh": 0,
-    "tduMonthlyDollars": 0,
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
     "credits": [],
     "usageFees": [],
     "amortizedFees": [],
@@ -3713,28 +3717,29 @@
     "readMs": 5754
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
       "printed": 12.6,
-      "ours": 5.1,
-      "ok": false
+      "ours": 12.6,
+      "ok": true
      },
      {
       "kwh": 1000,
       "printed": 12.1,
-      "ours": 5.1,
-      "ok": false
+      "ours": 12.1,
+      "ok": true
      },
      {
       "kwh": 2000,
       "printed": 11.9,
-      "ours": 5.1,
-      "ok": false
+      "ours": 11.9,
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "tduFilled": true,
+    "message": "This label doesn't print delivery charges. With CenterPoint's charges from other labels (6.5333¢/kWh + $4.90/mo), all 3 averages match."
    }
   },
   {
@@ -4559,8 +4564,8 @@
       "cents": 6.38
      }
     ],
-    "tduCentsPerKwh": 0,
-    "tduMonthlyDollars": 0,
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
     "credits": [],
     "usageFees": [
      {
@@ -4596,28 +4601,29 @@
     "readMs": 5745
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
       "printed": 13.9,
-      "ours": 6.4,
-      "ok": false
+      "ours": 13.9,
+      "ok": true
      },
      {
       "kwh": 1000,
       "printed": 13.4,
-      "ours": 6.4,
-      "ok": false
+      "ours": 13.4,
+      "ok": true
      },
      {
       "kwh": 2000,
       "printed": 13.2,
-      "ours": 6.4,
-      "ok": false
+      "ours": 13.2,
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "tduFilled": true,
+    "message": "This label doesn't print delivery charges. With CenterPoint's charges from other labels (6.5333¢/kWh + $4.90/mo), all 3 averages match."
    }
   },
   {
@@ -4647,8 +4653,8 @@
       "cents": 5.28
      }
     ],
-    "tduCentsPerKwh": 0,
-    "tduMonthlyDollars": 0,
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
     "credits": [],
     "usageFees": [
      {
@@ -4684,28 +4690,29 @@
     "readMs": 5871
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
       "printed": 12.8,
-      "ours": 5.3,
-      "ok": false
+      "ours": 12.8,
+      "ok": true
      },
      {
       "kwh": 1000,
       "printed": 12.3,
-      "ours": 5.3,
-      "ok": false
+      "ours": 12.3,
+      "ok": true
      },
      {
       "kwh": 2000,
       "printed": 12.1,
-      "ours": 5.3,
-      "ok": false
+      "ours": 12.1,
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "tduFilled": true,
+    "message": "This label doesn't print delivery charges. With CenterPoint's charges from other labels (6.5333¢/kWh + $4.90/mo), all 3 averages match."
    }
   },
   {
@@ -5145,8 +5152,8 @@
       "cents": 7.1716
      }
     ],
-    "tduCentsPerKwh": 0,
-    "tduMonthlyDollars": 0,
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
     "credits": [],
     "usageFees": [],
     "amortizedFees": [],
@@ -5176,28 +5183,29 @@
     "readMs": 5390
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
       "printed": 14.7,
-      "ours": 7.2,
-      "ok": false
+      "ours": 14.7,
+      "ok": true
      },
      {
       "kwh": 1000,
       "printed": 14.2,
-      "ours": 7.2,
-      "ok": false
+      "ours": 14.2,
+      "ok": true
      },
      {
       "kwh": 2000,
       "printed": 14,
-      "ours": 7.2,
-      "ok": false
+      "ours": 14,
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "tduFilled": true,
+    "message": "This label doesn't print delivery charges. With CenterPoint's charges from other labels (6.5333¢/kWh + $4.90/mo), all 3 averages match."
    }
   },
   {
@@ -5227,8 +5235,8 @@
       "cents": 7.1716
      }
     ],
-    "tduCentsPerKwh": 0,
-    "tduMonthlyDollars": 0,
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
     "credits": [],
     "usageFees": [],
     "amortizedFees": [],
@@ -5258,28 +5266,29 @@
     "readMs": 5258
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
       "printed": 14.7,
-      "ours": 7.2,
-      "ok": false
+      "ours": 14.7,
+      "ok": true
      },
      {
       "kwh": 1000,
       "printed": 14.2,
-      "ours": 7.2,
-      "ok": false
+      "ours": 14.2,
+      "ok": true
      },
      {
       "kwh": 2000,
       "printed": 14,
-      "ours": 7.2,
-      "ok": false
+      "ours": 14,
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "tduFilled": true,
+    "message": "This label doesn't print delivery charges. With CenterPoint's charges from other labels (6.5333¢/kWh + $4.90/mo), all 3 averages match."
    }
   },
   {
@@ -5309,8 +5318,8 @@
       "cents": 7.1716
      }
     ],
-    "tduCentsPerKwh": 0,
-    "tduMonthlyDollars": 0,
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
     "credits": [],
     "usageFees": [],
     "amortizedFees": [],
@@ -5340,28 +5349,29 @@
     "readMs": 4920
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
       "printed": 14.7,
-      "ours": 7.2,
-      "ok": false
+      "ours": 14.7,
+      "ok": true
      },
      {
       "kwh": 1000,
       "printed": 14.2,
-      "ours": 7.2,
-      "ok": false
+      "ours": 14.2,
+      "ok": true
      },
      {
       "kwh": 2000,
       "printed": 14,
-      "ours": 7.2,
-      "ok": false
+      "ours": 14,
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "tduFilled": true,
+    "message": "This label doesn't print delivery charges. With CenterPoint's charges from other labels (6.5333¢/kWh + $4.90/mo), all 3 averages match."
    }
   },
   {
@@ -5391,8 +5401,8 @@
       "cents": 7.4716
      }
     ],
-    "tduCentsPerKwh": 0,
-    "tduMonthlyDollars": 0,
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
     "credits": [],
     "usageFees": [],
     "amortizedFees": [],
@@ -5422,28 +5432,29 @@
     "readMs": 7260
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
       "printed": 15,
-      "ours": 7.5,
-      "ok": false
+      "ours": 15,
+      "ok": true
      },
      {
       "kwh": 1000,
       "printed": 14.5,
-      "ours": 7.5,
-      "ok": false
+      "ours": 14.5,
+      "ok": true
      },
      {
       "kwh": 2000,
       "printed": 14.3,
-      "ours": 7.5,
-      "ok": false
+      "ours": 14.2,
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "tduFilled": true,
+    "message": "This label doesn't print delivery charges. With CenterPoint's charges from other labels (6.5333¢/kWh + $4.90/mo), all 3 averages match."
    }
   },
   {
@@ -5473,8 +5484,8 @@
       "cents": 6.3716
      }
     ],
-    "tduCentsPerKwh": 0,
-    "tduMonthlyDollars": 0,
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
     "credits": [],
     "usageFees": [],
     "amortizedFees": [],
@@ -5504,28 +5515,29 @@
     "readMs": 5132
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
       "printed": 13.9,
-      "ours": 6.4,
-      "ok": false
+      "ours": 13.9,
+      "ok": true
      },
      {
       "kwh": 1000,
       "printed": 13.4,
-      "ours": 6.4,
-      "ok": false
+      "ours": 13.4,
+      "ok": true
      },
      {
       "kwh": 2000,
       "printed": 13.2,
-      "ours": 6.4,
-      "ok": false
+      "ours": 13.2,
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "tduFilled": true,
+    "message": "This label doesn't print delivery charges. With CenterPoint's charges from other labels (6.5333¢/kWh + $4.90/mo), all 3 averages match."
    }
   },
   {
@@ -5999,7 +6011,7 @@
    },
    "pricing": null,
    "read": {
-    "fetchedAt": "2026-11-16T05:53:43.660Z",
+    "fetchedAt": "2026-11-16T05:57:32.634Z",
     "via": "direct",
     "sha256": "",
     "parsedBy": "none",
@@ -6032,7 +6044,7 @@
    },
    "pricing": null,
    "read": {
-    "fetchedAt": "2026-11-16T05:51:58.386Z",
+    "fetchedAt": "2026-11-16T05:57:27.138Z",
     "via": "direct",
     "sha256": "",
     "parsedBy": "none",
@@ -6065,7 +6077,7 @@
    },
    "pricing": null,
    "read": {
-    "fetchedAt": "2026-11-16T05:54:03.656Z",
+    "fetchedAt": "2026-11-16T05:57:46.709Z",
     "via": "direct",
     "sha256": "",
     "parsedBy": "none",
@@ -6098,7 +6110,7 @@
    },
    "pricing": null,
    "read": {
-    "fetchedAt": "2026-11-16T05:54:02.923Z",
+    "fetchedAt": "2026-11-16T05:57:35.771Z",
     "via": "direct",
     "sha256": "",
     "parsedBy": "none",
@@ -8644,7 +8656,7 @@
    },
    "pricing": null,
    "read": {
-    "fetchedAt": "2026-11-16T05:53:19.544Z",
+    "fetchedAt": "2026-11-16T05:57:31.281Z",
     "via": "direct",
     "sha256": "",
     "parsedBy": "none",
@@ -12873,35 +12885,16 @@
     ],
     "tduCentsPerKwh": 6.5611,
     "tduMonthlyDollars": 4.9,
-    "credits": [
-     {
-      "minKwh": 0,
-      "maxKwh": null,
-      "dollars": 0,
-      "label": "Day Hours energy credit (9AM-4PM usage credited; amount not stated on label)",
-      "conditional": false
-     }
-    ],
+    "credits": [],
     "usageFees": [],
     "amortizedFees": [
      {
       "dollars": 49.99,
       "months": 12,
-      "label": "One-time GoodBundle setup and carbon offset purchase"
+      "label": "GoodBundle setup and carbon offset purchase (1/12 included in averages)"
      }
     ],
-    "touPeriods": [
-     {
-      "label": "Day Hours (9AM-4PM)",
-      "share": 0.33,
-      "cents": 4.3
-     },
-     {
-      "label": "Other hours",
-      "share": 0.67,
-      "cents": 4.3
-     }
-    ],
+    "touPeriods": [],
     "termMonths": 3,
     "earlyTerminationFee": {
      "dollars": 175,
@@ -12913,18 +12906,18 @@
      "k2000": 9.9
     },
     "notes": [
-     "Day Hours (9AM-4PM) usage gets a bill credit; amount not printed",
-     "Averages assume 33% of usage falls in Day Hours",
-     "$49.99 setup fee spread over 12 months in averages",
-     "$175 exit fee per ESI ID; 3-month term"
+     "Day Hours (9AM-4PM) energy credit applies; it is not a fixed monthly credit.",
+     "Averages assume 33% of usage during Day Hours.",
+     "One-time $49.99 GoodBundle setup fee required; 1/12 included in averages.",
+     "Exit fee $175 per ESI ID; 3-month term; price can change."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:51:51.905Z",
-    "via": "anakin",
-    "sha256": "9e17f74d3b904cf7288d0ef7054492eb5abd8151799eaf29c59d43af3a039608",
+    "fetchedAt": "2026-11-16T05:57:26.353Z",
+    "via": "direct",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 40582
+    "readMs": 7245
    },
    "check": {
     "status": "mismatch",
@@ -13830,7 +13823,7 @@
    },
    "pricing": null,
    "read": {
-    "fetchedAt": "2026-11-16T05:52:47.598Z",
+    "fetchedAt": "2026-11-16T05:57:29.901Z",
     "via": "direct",
     "sha256": "",
     "parsedBy": "none",
@@ -14202,7 +14195,7 @@
    },
    "pricing": null,
    "read": {
-    "fetchedAt": "2026-11-16T05:53:45.582Z",
+    "fetchedAt": "2026-11-16T05:57:33.610Z",
     "via": "direct",
     "sha256": "",
     "parsedBy": "none",
@@ -14235,7 +14228,7 @@
    },
    "pricing": null,
    "read": {
-    "fetchedAt": "2026-11-16T05:54:09.266Z",
+    "fetchedAt": "2026-11-16T05:57:48.915Z",
     "via": "direct",
     "sha256": "",
     "parsedBy": "none",

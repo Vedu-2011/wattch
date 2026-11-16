@@ -9,15 +9,15 @@ Rules:
 - Money in dollars, energy prices in CENTS per kWh (e.g. "$0.0920 per kWh" = 9.2 cents).
 - labelAvg: the three "average price per kWh" numbers printed for 500, 1,000 and 2,000 kWh, in cents, exactly as printed.
 - energyTiers: the provider's energy charge. Flat rate = one tier with fromKwh 0. Tiered ("first 1000 kWh 9¢, above 1000 kWh 12¢") = one tier per block, fromKwh is where the block starts.
-- tduCentsPerKwh / tduMonthlyDollars: the delivery (TDU / TDSP / CenterPoint / CNP) charges printed on the label. If the label shows several per-kWh delivery charges, add them up.
+- tduCentsPerKwh / tduMonthlyDollars: the delivery (TDU / TDSP / CenterPoint / CNP) charges printed on the label. If the label shows several per-kWh delivery charges, add them up. If the label does NOT print delivery charge amounts (it only says they are passed through), use 0 for both. Never look them up or guess.
 - baseChargeDollars: the provider's own monthly base / customer charge (0 if none).
-- credits: any bill credit / usage credit / discount that lowers the bill when usage is in a range (minKwh..maxKwh, maxKwh null if no top). Autopay, paperless or other "only if you do X" credits: conditional true.
+- credits: ONLY credits applied on EVERY monthly bill when usage is in a range (minKwh..maxKwh, maxKwh null if no top). Autopay, paperless or other "only if you do X" monthly credits: conditional true. One-time or occasional rebates (sign-up bonus, "$100 after 6 months", gift cards) are NOT credits: mention them in notes only.
 - usageFees: minimum usage fees ("$9.95 if usage is less than 1,000 kWh" => belowKwh 1000).
 - amortizedFees: one-time fees the label says are spread into the averages (e.g. "1/12 of this setup cost is included" => months 12).
 - touPeriods: ONLY for time-of-use / free nights / free weekends plans: one entry per period with the share of usage the label ASSUMES for its averages and that period's energy price in cents. Shares add up to 1. Leave empty for normal plans.
 - earlyTerminationFee: dollars; perMonthRemaining true if it is "$X per month remaining".
 - notes: up to 4 short plain-English gotchas a normal person would miss (credits that vanish below a usage level, fees, conditions). 12 words max each. No marketing.
-Copy what the label says. If a number truly is not on the label, use 0 (or empty list). Call the tool once.`;
+Copy what the label says. If a number truly is not on the label, use 0 (or empty list). If the three average prices are not readable in the text, use 0 for all three. Call the tool once.`;
 
 const toolSchema = z.toJSONSchema(PlanPricing);
 
@@ -57,6 +57,27 @@ async function callClaude(apiKey: string, text: string, feedback?: string) {
   return { input: block?.input, usage: data.usage };
 }
 
+/** Every printed average the reader reports must literally appear in the label text. Stops made-up numbers. */
+export function grounded(text: string, p: PlanPricing): boolean {
+  const flat = text.replace(/\s+/g, " ");
+  return [p.labelAvg.k500, p.labelAvg.k1000, p.labelAvg.k2000].every((v) => {
+    if (!(v > 0)) return false;
+    const forms = new Set([v.toFixed(1), String(v), v.toFixed(2)]);
+    return [...forms].some((f) => new RegExp(`(^|[^0-9.])${f.replace(".", "\\.")}(?![0-9])`).test(flat));
+  });
+}
+
+/** Some labels don't print delivery charges. Try the CenterPoint charges that other verified labels print. */
+export function fillTdu(p: PlanPricing, candidates: { cents: number; monthly: number }[]): { pricing: PlanPricing; rows: CheckRow[] } | null {
+  if (p.tduCentsPerKwh !== 0 || p.tduMonthlyDollars !== 0) return null;
+  for (const c of candidates) {
+    const q = { ...p, tduCentsPerKwh: c.cents, tduMonthlyDollars: c.monthly };
+    const chk = labelCheck(q);
+    if (chk.ok) return { pricing: q, rows: chk.rows };
+  }
+  return null;
+}
+
 /** AI reads. Code checks: rebuild the label's three printed averages from what was read. One retry with the exact mismatch. */
 export async function parseEfl(apiKey: string, text: string): Promise<ParseResult> {
   let feedback: string | undefined;
@@ -70,6 +91,11 @@ export async function parseEfl(apiKey: string, text: string): Promise<ParseResul
       feedback = `Your last answer didn't fit the format: ${parsed.error.issues.slice(0, 3).map((i) => i.path.join(".") + " " + i.message).join("; ")}. Try again.`;
       last = { ...last, attempts: attempt, inputTokens: inT, outputTokens: outT, message: "Reader answer didn't fit the format." };
       continue;
+    }
+    if (!grounded(text, parsed.data)) {
+      last = { pricing: null, rows: [], ok: false, attempts: attempt, inputTokens: inT, outputTokens: outT,
+        message: "The label's prices aren't readable in this copy of the fine print." };
+      return last;
     }
     const check = labelCheck(parsed.data);
     last = { pricing: parsed.data, rows: check.rows, ok: check.ok, attempts: attempt, inputTokens: inT, outputTokens: outT,

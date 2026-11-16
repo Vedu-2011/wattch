@@ -87,6 +87,8 @@ export const PlanRecord = z.object({
     /** recomputed vs printed, cents */
     rows: z.array(z.object({ kwh: z.number(), printed: z.number(), ours: z.number(), ok: z.boolean() })),
     message: z.string(),
+    /** true when the label didn't print delivery charges and we used the ones other verified labels print */
+    tduFilled: z.boolean().optional(),
   }),
 });
 export type PlanRecord = z.infer<typeof PlanRecord>;
