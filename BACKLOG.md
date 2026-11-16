@@ -6,7 +6,7 @@
 - [x] Freshness: a "prices checked <time ago>" badge on every page + /api/live used on the plan page ("Check this label again now" button shows same/changed in plain words) — button works on a real plan
 - [x] Houston-only seasons if a real source exists (ERCOT residential load profile for the COAST weather zone); otherwise keep Texas seasons and say why in /sources — source quoted in docs/SOURCES.md or decision logged
 ## B. The "insane" demo features (judges must SEE these)
-- [ ] FINE-PRINT HIGHLIGHTER on /plan/[id]: show the label text the AI read, with every number it used highlighted and linked to the bill line that uses it (hover a bill line → its number glows in the label). This proves "AI reads, code decides" visually — works on 3 different plans incl. a TOU plan
+- [x] FINE-PRINT HIGHLIGHTER on /plan/[id]: show the label text the AI read, with every number it used highlighted and linked to the bill line that uses it (hover a bill line → its number glows in the label). This proves "AI reads, code decides" visually — works on 3 different plans incl. a TOU plan
 - [ ] "Your current plan" picker: search your current plan → "You're paying $X/yr more than your best plan" + early-termination-fee math ("switching costs $150, pays back in N months") — correct numbers on 3 test cases with tests
 - [ ] Enter your real 12 months (12 small inputs, or paste from bill) → personal year instead of Texas seasons; bars + ranking use it — tests for the math
 - [ ] /compare?a=&b= — two plans side by side: bill at your usage, 12-month bars, cliffs, check rows; "Compare" button from ranking rows

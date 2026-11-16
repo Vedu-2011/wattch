@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { Kapi } from "@/components/Kapi";
+import { CurrentPlan } from "@/components/CurrentPlan";
 import { JudgeQr } from "@/components/JudgeQr";
 import { ShareButton } from "@/components/ShareButton";
 import { YearBars } from "@/components/YearBars";
@@ -118,6 +119,8 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons 
               month, so a yearly number would be a guess. Prepaid plans and plans we couldn&apos;t verify aren&apos;t ranked either.
             </p>
           </div>
+
+          <CurrentPlan plans={plans} best={ranked[0]} includeConditional={withConditional} kwh={kwh} seasons={seasons} />
 
           <JudgeQr />
         </section>
