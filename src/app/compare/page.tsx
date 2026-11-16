@@ -74,7 +74,7 @@ export default async function Compare({ searchParams }: PageProps<"/compare">) {
             </div>
           ))}
         </div>
-        <div className="mt-4 overflow-x-auto">
+        <div className="mt-4 overflow-x-auto" tabIndex={0} role="region" aria-label="Each month's bill, as a table">
           <table className="num w-full min-w-[28rem] text-sm">
             <thead className="font-sans text-ink-2"><tr><th className="py-1 text-left font-medium">Month</th><th className="text-right font-medium">kWh</th><th className="text-right font-medium">{a.meta.planName}</th><th className="text-right font-medium">{b.meta.planName}</th></tr></thead>
             <tbody>

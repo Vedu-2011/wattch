@@ -46,7 +46,7 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
           <h2 className="text-lg font-bold">Does our math match the label?</h2>
           {rec.check.rows.length ? (
             <table className="mt-3 w-full text-left">
-              <thead className="text-sm text-ink-2"><tr><th className="py-1 font-medium">Usage</th><th className="font-medium">Label says</th><th className="font-medium">We get</th><th /></tr></thead>
+              <thead className="text-sm text-ink-2"><tr><th className="py-1 font-medium">Usage</th><th className="font-medium">Label says</th><th className="font-medium">We get</th><th><span className="sr-only">Match</span></th></tr></thead>
               <tbody className="num">
                 {rec.check.rows.map((r) => (
                   <HoverKey as="tr" k={`avg-${r.kwh}`} found={found(`avg-${r.kwh}`)} key={r.kwh}>

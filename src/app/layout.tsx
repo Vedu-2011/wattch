@@ -46,7 +46,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             </nav>
           </div>
         </header>
-        <div className="mx-auto mt-2 w-full max-w-6xl px-5 md:hidden"><FreshBadge /></div>
+        <aside aria-label="How fresh the data is" className="mx-auto mt-2 w-full max-w-6xl px-5 md:hidden"><FreshBadge /></aside>
         <main className="flex-1">{children}</main>
         <footer className="mx-auto w-full max-w-6xl px-5 py-10 text-sm text-ink-2">
           Wattch shows the math. Always open the plan&apos;s fine print before you switch. Prices before taxes.
