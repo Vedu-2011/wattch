@@ -740,5 +740,17 @@
 - [x] BM6 Tests + check-all
 - [x] BM7 BK4 iPhone-sized touch flow screenshots
 - [x] BM8 STATUS line
-- [ ] BM9 Codex review
+- [x] BM9 Codex review
 - [x] BM10 PROGRESS line
+
+## BN batch (added 06:21, night 2) — keep the screen-reader checks
+- [x] BN1 scripts/link-names.mjs: fails if two visible links share a name but go to different places
+- [x] BN2 It covers EN + ES + Dallas main pages; add it to check-all
+- [x] BN3 Same script: heading levels don't skip (h1 → h2 → h3) on main pages
+- [x] BN4 Same script: <html lang> matches the page language
+- [x] BN5 Fix anything it finds
+- [x] BN6 README checks list mentions it
+- [x] BN7 Full verify
+- [x] BN8 STATUS line
+- [ ] BN9 Codex review
+- [x] BN10 PROGRESS line

@@ -1,6 +1,6 @@
 // Every page check in one go (needs the app running: `npm run build && npx next start -p 3000`).
 // axe (accessibility, 25 pages), es-walk (Spanish click-through + screen-reader labels), widths (320 + 1920 overflow),
-// meta-check (titles, descriptions, preview cards, sitemap, robots). Prints one line per check; exits 1 if any fails.
+// meta-check (titles, descriptions, preview cards, sitemap, robots), link-names (same-name links, heading levels, lang). Prints one line per check; exits 1 if any fails.
 // Usage: node scripts/check-all.mjs   (BASE=https://… to check a deployed copy)
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
@@ -11,6 +11,7 @@ const checks = [
   ["es-walk (Spanish)", "es-walk.mjs"],
   ["widths (320 + 1920)", "widths.mjs"],
   ["meta-check (titles, previews, sitemap)", "meta-check.mjs"],
+  ["link-names (screen-reader links, headings, lang)", "link-names.mjs"],
 ];
 
 const BASE = process.env.BASE ?? "http://localhost:3000";
