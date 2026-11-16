@@ -477,7 +477,7 @@
 - [x] AQ7 Results 'N variable-rate plans aren't ranked' with N=1
 - [x] AQ8 Remind 'in 1 days'
 - [x] AQ9 STATUS line
-- [ ] AQ10 Codex review 32 after AQ batch
+- [x] AQ10 Codex review 32 after AQ batch
 
 ## AR batch (added 05:10, night 2) — eyes-on phone review
 - [x] AR1 Home ES 375 full page: anything off?
@@ -489,4 +489,16 @@
 - [x] AR7 Dallas home EN 375
 - [x] AR8 Traps ES 375
 - [x] AR9 STATUS line
-- [ ] AR10 Codex if code changed
+- [x] AR10 Codex if code changed
+
+## AS batch (added 05:14, night 2)
+- [x] AS1 README: AI tools list complete (STEM2Connect rule): Claude, Claude Code, Codex, Claude Haiku, Anakin.io
+- [x] AS2 Dallas unread count says 16 everywhere (DEVPOST, DECK, JUDGE-QA, STATUS, /how)
+- [x] AS3 Reduced motion: every CSS animation/transition off under prefers-reduced-motion
+- [x] AS4 404 page: friendly, EN + ES, links home
+- [x] AS5 Plan page Spanish chart at 320: 'salto' label not clipped
+- [x] AS6 Compare page still prints on 1 sheet (Share button row)
+- [x] AS7 Lint-like grep: no console.log left in src/
+- [x] AS8 No TODO/FIXME in src/ that a judge could see
+- [ ] AS9 STATUS line
+- [x] AS10 Codex review 33 if code changed
