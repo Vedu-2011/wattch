@@ -1,0 +1,406 @@
+{
+ "builtAt": "2026-11-16T05:32:38.969Z",
+ "source": "https://www.powertochoose.org/en-us/Plan/ExportToCsv",
+ "model": "claude-haiku-5-5",
+ "counts": {
+  "unread": 12
+ },
+ "plans": [
+  {
+   "meta": {
+    "id": "17330",
+    "provider": "AMIGO ENERGY",
+    "planName": "Sustainable Simply Days - 3",
+    "rateType": "Fixed",
+    "renewablePct": 22,
+    "prepaid": false,
+    "timeOfUse": true,
+    "eflUrl": "https://webs.amigoenergy.com/Generate_Docs/Generate_EflLinks.aspx?RID=/LYnLZkG5Os=&RCID=rv5fvOkFHh4=&L=6f+Ch9flI7k=",
+    "enrollUrl": "https://amigoenergy.com/lp/ptcsl/?utm_source=powertochoose&utm_medium=referral&utm_campaign=ST",
+    "website": "https://amigoenergy.com/",
+    "rating": 3,
+    "ptc": {
+     "k500": 11.2,
+     "k1000": 10.3,
+     "k2000": 9.9
+    }
+   },
+   "pricing": null,
+   "read": {
+    "fetchedAt": "2026-11-16T05:31:48.871Z",
+    "via": "direct",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "parsedBy": "none",
+    "readMs": 2945
+   },
+   "check": {
+    "status": "unread",
+    "rows": [],
+    "message": "Fetched, not read yet."
+   }
+  },
+  {
+   "meta": {
+    "id": "16509",
+    "provider": "CHAMPION ENERGY SERVICES LLC",
+    "planName": "Champ Saver-12",
+    "rateType": "Fixed",
+    "renewablePct": 25,
+    "prepaid": false,
+    "timeOfUse": false,
+    "eflUrl": "https://docs.championenergyservices.com/ExternalDocs?planname=PN2391&state=TX&language=EN",
+    "enrollUrl": "https://www.championenergyservices.com/Residential/Sign-Up?promo=powertochoose",
+    "website": "https://www.championenergyservices.com/Residential/Sign-Up?promo=powertochoose&agentid=ptcl12",
+    "rating": 5,
+    "ptc": {
+     "k500": 13.7,
+     "k1000": 13.2,
+     "k2000": 13
+    }
+   },
+   "pricing": null,
+   "read": {
+    "fetchedAt": "2026-11-16T05:31:48.793Z",
+    "via": "direct",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "parsedBy": "none",
+    "readMs": 566
+   },
+   "check": {
+    "status": "unread",
+    "rows": [],
+    "message": "Fetched, not read yet."
+   }
+  },
+  {
+   "meta": {
+    "id": "16511",
+    "provider": "CHAMPION ENERGY SERVICES LLC",
+    "planName": "Champ Saver-24",
+    "rateType": "Fixed",
+    "renewablePct": 25,
+    "prepaid": false,
+    "timeOfUse": false,
+    "eflUrl": "https://docs.championenergyservices.com/ExternalDocs?planname=PN2396&state=TX&language=EN",
+    "enrollUrl": "https://www.championenergyservices.com/Residential/Sign-Up?promo=powertochoose",
+    "website": "https://www.championenergyservices.com/Residential/Sign-Up?promo=powertochoose&agentid=ptcl24",
+    "rating": 5,
+    "ptc": {
+     "k500": 13.8,
+     "k1000": 13.3,
+     "k2000": 13.1
+    }
+   },
+   "pricing": null,
+   "read": {
+    "fetchedAt": "2026-11-16T05:31:48.793Z",
+    "via": "direct",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "parsedBy": "none",
+    "readMs": 704
+   },
+   "check": {
+    "status": "unread",
+    "rows": [],
+    "message": "Fetched, not read yet."
+   }
+  },
+  {
+   "meta": {
+    "id": "13187",
+    "provider": "CHAMPION ENERGY SERVICES LLC",
+    "planName": "Champ Saver-6",
+    "rateType": "Fixed",
+    "renewablePct": 26,
+    "prepaid": false,
+    "timeOfUse": false,
+    "eflUrl": "https://docs.championenergyservices.com/ExternalDocs?planname=PN2387&state=TX&language=EN",
+    "enrollUrl": "https://www.championenergyservices.com/Residential/Sign-Up?promo=powertochoose",
+    "website": "http://www.championenergyservices.com/",
+    "rating": 5,
+    "ptc": {
+     "k500": 13.3,
+     "k1000": 12.8,
+     "k2000": 12.6
+    }
+   },
+   "pricing": null,
+   "read": {
+    "fetchedAt": "2026-11-16T05:31:47.619Z",
+    "via": "direct",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "parsedBy": "none",
+    "readMs": 1251
+   },
+   "check": {
+    "status": "unread",
+    "rows": [],
+    "message": "Fetched, not read yet."
+   }
+  },
+  {
+   "meta": {
+    "id": "10615",
+    "provider": "CHAMPION ENERGY SERVICES LLC",
+    "planName": "Free Weekends-24",
+    "rateType": "Fixed",
+    "renewablePct": 25,
+    "prepaid": false,
+    "timeOfUse": true,
+    "eflUrl": "https://docs.championenergyservices.com/ExternalDocs?planname=PN2388&state=TX&language=EN",
+    "enrollUrl": "https://www.championenergyservices.com/Residential/Sign-Up?promo=powertochoose",
+    "website": "https://www.championenergyservices.com/Residential/Sign-Up?promo=powertochoose&agentid=ptclfw12",
+    "rating": 5,
+    "ptc": {
+     "k500": 14,
+     "k1000": 13.5,
+     "k2000": 13.2
+    }
+   },
+   "pricing": null,
+   "read": {
+    "fetchedAt": "2026-11-16T05:31:47.611Z",
+    "via": "direct",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "parsedBy": "none",
+    "readMs": 1233
+   },
+   "check": {
+    "status": "unread",
+    "rows": [],
+    "message": "Fetched, not read yet."
+   }
+  },
+  {
+   "meta": {
+    "id": "11680",
+    "provider": "CIRRO ENERGY",
+    "planName": "Smart Simple 12",
+    "rateType": "Fixed",
+    "renewablePct": 22,
+    "prepaid": false,
+    "timeOfUse": false,
+    "eflUrl": "https://www.cirroenergy.com/defl/M1F00205744901B.pdf",
+    "enrollUrl": "https://www.cirroenergy.com/lp/ptcZipCodeSearch?tdsp_code=D0001&promo_code=WA198B&txtPromocode=WA198B&fromLP=ptc&sid=APTC_1685677096&utm_campaign=Power+To+Choose+Listings&utm_medium=PTC_&utm_source=None",
+    "website": "https://www.cirroenergy.com",
+    "rating": 2,
+    "ptc": {
+     "k500": 13.3,
+     "k1000": 12.8,
+     "k2000": 12.6
+    }
+   },
+   "pricing": null,
+   "read": {
+    "fetchedAt": "2026-11-16T05:31:47.618Z",
+    "via": "direct",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "parsedBy": "none",
+    "readMs": 1147
+   },
+   "check": {
+    "status": "unread",
+    "rows": [],
+    "message": "Fetched, not read yet."
+   }
+  },
+  {
+   "meta": {
+    "id": "11675",
+    "provider": "CIRRO ENERGY",
+    "planName": "Smart Simple 36",
+    "rateType": "Fixed",
+    "renewablePct": 22,
+    "prepaid": false,
+    "timeOfUse": false,
+    "eflUrl": "https://www.cirroenergy.com/defl/M1F00205744972B.pdf",
+    "enrollUrl": "https://www.cirroenergy.com/lp/ptcZipCodeSearch?tdsp_code=D0001&promo_code=WA198B&txtPromocode=WA198B&fromLP=ptc&sid=APTC_1685677096&utm_campaign=Power+To+Choose+Listings&utm_medium=PTC_&utm_source=None",
+    "website": "https://www.cirroenergy.com",
+    "rating": 2,
+    "ptc": {
+     "k500": 14.1,
+     "k1000": 13.6,
+     "k2000": 13.4
+    }
+   },
+   "pricing": null,
+   "read": {
+    "fetchedAt": "2026-11-16T05:31:47.617Z",
+    "via": "direct",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "parsedBy": "none",
+    "readMs": 1527
+   },
+   "check": {
+    "status": "unread",
+    "rows": [],
+    "message": "Fetched, not read yet."
+   }
+  },
+  {
+   "meta": {
+    "id": "18423",
+    "provider": "CONSTELLATION NEWENERGY INC",
+    "planName": "12 Month A/C Protect Plus for 2 Units",
+    "rateType": "Fixed",
+    "renewablePct": 24,
+    "prepaid": false,
+    "timeOfUse": false,
+    "eflUrl": "https://www.constellation.com/bin/residential/GetContractVersionPDF?versionNum=5056871",
+    "enrollUrl": "https://www.constellation.com/content/constellation/en/campaigns/powertochoose.html?UTM_source=powertochoose.org&UTM_medium=referral",
+    "website": "https://www.constellation.com/content/constellation/en/campaigns/powertochoose.html",
+    "rating": 5,
+    "ptc": {
+     "k500": 19.1,
+     "k1000": 15.1,
+     "k2000": 15.9
+    }
+   },
+   "pricing": null,
+   "read": {
+    "fetchedAt": "2026-11-16T05:31:49.147Z",
+    "via": "direct",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "parsedBy": "none",
+    "readMs": 2230
+   },
+   "check": {
+    "status": "unread",
+    "rows": [],
+    "message": "Fetched, not read yet."
+   }
+  },
+  {
+   "meta": {
+    "id": "16205",
+    "provider": "Discount Power",
+    "planName": "Saver 12",
+    "rateType": "Fixed",
+    "renewablePct": 22,
+    "prepaid": false,
+    "timeOfUse": false,
+    "eflUrl": "https://www.discountpowertx.com/defl/M1F00204455733B.pdf",
+    "enrollUrl": "https://shop.discountpowertx.com/offer-selection/?txtPromocode=WQ4131&tdspCode=D0001&fromLP=ptc&sid=APTC_1686090020&utm_campaign=Power+To+Choose+Listings&utm_medium=PTC_&utm_source=None",
+    "website": "https://www.discountpowertx.com",
+    "rating": 2,
+    "ptc": {
+     "k500": 14.7,
+     "k1000": 14.2,
+     "k2000": 14
+    }
+   },
+   "pricing": null,
+   "read": {
+    "fetchedAt": "2026-11-16T05:31:47.623Z",
+    "via": "direct",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "parsedBy": "none",
+    "readMs": 1162
+   },
+   "check": {
+    "status": "unread",
+    "rows": [],
+    "message": "Fetched, not read yet."
+   }
+  },
+  {
+   "meta": {
+    "id": "17287",
+    "provider": "JUST ENERGY",
+    "planName": "Sustainable Living Bundle - 3",
+    "rateType": "Fixed",
+    "renewablePct": 22,
+    "prepaid": false,
+    "timeOfUse": false,
+    "eflUrl": "https://webs.justenergydeals.com/Generate_Docs/Generate_EflLinks.aspx?RID=FuOZhta/ldA=&RCID=gNASPlhlupI=&L=6f+Ch9flI7k=",
+    "enrollUrl": "https://justenergy.com/affiliatepartner/ptcsl/?utm_source=powertochoose&utm_medium=referral&utm_campaign=ST",
+    "website": "https://justenergy.com/",
+    "rating": 2,
+    "ptc": {
+     "k500": 11.1,
+     "k1000": 10.2,
+     "k2000": 9.8
+    }
+   },
+   "pricing": null,
+   "read": {
+    "fetchedAt": "2026-11-16T05:31:49.364Z",
+    "via": "direct",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "parsedBy": "none",
+    "readMs": 1570
+   },
+   "check": {
+    "status": "unread",
+    "rows": [],
+    "message": "Fetched, not read yet."
+   }
+  },
+  {
+   "meta": {
+    "id": "619",
+    "provider": "NEC Co-op Energy",
+    "planName": "Residential Electricity... Plain and simple.",
+    "rateType": "Variable",
+    "renewablePct": 15,
+    "prepaid": false,
+    "timeOfUse": false,
+    "eflUrl": "https://neccoopenergy.com/wp-content/uploads/2026/10/EFL-11-1-26-RESIDENTIAL-Centerpoint.pdf",
+    "enrollUrl": "https://neccoopenergy.com/residential-service/",
+    "website": "https://neccoopenergy.com/",
+    "rating": 5,
+    "ptc": {
+     "k500": 16.8,
+     "k1000": 15.6,
+     "k2000": 14.9
+    }
+   },
+   "pricing": null,
+   "read": {
+    "fetchedAt": "2026-11-16T05:31:47.609Z",
+    "via": "direct",
+    "sha256": "",
+    "parsedBy": "none",
+    "readMs": 0
+   },
+   "check": {
+    "status": "unread",
+    "rows": [],
+    "message": "The page opened, but it doesn't look like a fine-print label."
+   }
+  },
+  {
+   "meta": {
+    "id": "17267",
+    "provider": "TARA ENERGY",
+    "planName": "Balanced Days Bundle - 3",
+    "rateType": "Fixed",
+    "renewablePct": 22,
+    "prepaid": false,
+    "timeOfUse": true,
+    "eflUrl": "https://webs.taraenergy.com/Generate_Docs/Generate_EflLinks.aspx?RID=z9R/Q0Z4kT8=&RCID=cacW2cvK/I0=&L=6f+Ch9flI7k=",
+    "enrollUrl": "https://taraenergy.com/ptcsl/?utm_source=powertochoose&utm_medium=referral&utm_campaign=ST",
+    "website": "https://taraenergy.com/",
+    "rating": 3,
+    "ptc": {
+     "k500": 11.2,
+     "k1000": 10.3,
+     "k2000": 9.9
+    }
+   },
+   "pricing": null,
+   "read": {
+    "fetchedAt": "2026-11-16T05:31:48.858Z",
+    "via": "direct",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "parsedBy": "none",
+    "readMs": 2983
+   },
+   "check": {
+    "status": "unread",
+    "rows": [],
+    "message": "Fetched, not read yet."
+   }
+  }
+ ]
+}
