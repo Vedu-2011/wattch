@@ -860,5 +860,17 @@
 - [x] BW6 Fix anything off
 - [x] BW7 PROGRESS line
 - [x] BW8 STATUS line
-- [ ] BW9 Codex 49 result
+- [x] BW9 Codex 49 result
 - [x] BW10 Screenshot one to docs/screenshots/overnight-2
+
+## BX batch (added 06:49, night 2) — handoff numbers ready
+- [x] BX1 N = npm test count
+- [x] BX2 M = commits main..overnight
+- [x] BX3 K = last Codex review number (49)
+- [x] BX4 Commits since 22:00 count
+- [x] BX5 Paid spend total from PROGRESS
+- [x] BX6 Lines changed (diff --shortstat main..overnight)
+- [x] BX7 Save numbers to the scratchpad for the 7:00 fill
+- [x] BX8 PROGRESS line
+- [x] BX9 Night summary draft: Codex count 39 reviews
+- [x] BX10 BOARD Done-line draft numbers
