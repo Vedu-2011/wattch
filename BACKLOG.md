@@ -145,8 +145,8 @@
 ## P batch (added 02:50, night 2)
 - [x] P1 Spanish /compare: two plans side by side in Spanish at 375 + 1440, numbers match English (screens)
 - [x] P2 /sitemap + /robots: add a meta-check rule (robots disallows /demo, sitemap parses, every plan id present)
-- [ ] P3 Card: Spanish card for a negative/zero gap (state #1 is already best) — wording check
-- [ ] P4 Spanish /traps?area=dallas at 320: no overflow, every trap kind has a Spanish name
+- [x] P3 Card: Spanish card for a negative/zero gap (state #1 is already best) — wording check
+- [x] P4 Spanish /traps?area=dallas at 320: no overflow, every trap kind has a Spanish name
 - [ ] P5 Error states in Spanish: /plan/does-not-exist?lang=es + /api/live failure copy, screen
 - [x] P6 JUDGE-QA: add Q on 'how do you keep Spanish numbers identical' (point at i18n.numbers.test.ts)
 - [x] P7 DEVPOST: mention sitemap/hreflang only if it fits in one line; verify claims vs code

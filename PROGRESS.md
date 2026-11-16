@@ -133,3 +133,5 @@
 - 2026-11-16 02:55 PT · O9 Codex review 12 (base 6fddf45 → Codex 11 fixes, sitemap/robots, remind file name): no findings. $0.
 - 2026-11-16 02:59 PT · P1 Spanish compare + phone table fix · DONE (1d9e486). $0.
 - 2026-11-16 02:59 PT · P2 meta-check now also checks robots.txt (disallows /demo + /api, has sitemap) and sitemap.xml (no raw &, >300 urls, every url has a Spanish twin, Dallas present). Passes; regex flags the old bug. $0.
+- 2026-11-16 03:00 PT · P3 no-gap share card (flat 1,100 kWh: state #1 = best) EN + ES + Dallas ES: 'My best plan / Mi mejor plan', same $963, no odd '$0 more' wording. Saved card-nogap/. No change. $0.
+- 2026-11-16 03:00 PT · P4 /traps?area=dallas&lang=es at 320: no overflow, all 7 trap kinds have Spanish names; the only 'Houston/CenterPoint' text is the area toggle. No change. $0.
