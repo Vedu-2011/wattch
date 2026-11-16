@@ -187,3 +187,8 @@ Dallas–Fort Worth works everywhere; every page has Spanish (incl. loading scre
 - 2026-11-16 04:11 PT · X4 /how left as is (it's about the math; sharing doesn't belong there). X9 STATUS.md: 5-step 'how to check it this morning' list + 'Since 04:00' section. $0.
 - 2026-11-16 04:11 PT · Y1 Share hidden in print (no-print row). Y2 Share reached by Tab (8th), focus ring. Y3 Spanish '16 nov, 1:03 a. m. CT' reads fine — kept. Y4 no other dates in viewer time (ics uses UTC on purpose for a plain date). Y5 DEVPOST 'Share it' notes the Share button. Y6 SCRIPT doesn't show that row — unchanged. Y7 Lighthouse /compare 94/100/100/100, CLS 0. Y8 /demo shows no read date — unaffected. $0.
 - 2026-11-16 04:13 PT · X10 Codex review 20: no findings. Z2/Z3 share sheet gets 'Simple Saver 3 · Wattch' / 'SmartGreen 3 vs Simple Saver 3 · Wattch' + the page's own link (compare title was just 'Wattch'). Z4 sitemap unaffected. Z5 README mentions Share buttons. Z6 es-walk clicks Compartir on the plan page and expects 'Enlace copiado' (375 + 1440 ok). Z7 check-all header says 25 pages. $0.
+
+### NIGHT 2 SUMMARY — addendum 04:13 PT (W–Z)
+Shared links now preview the right thing on every page (plan card, compare card, all in the page's language and city), plan and compare pages have a Share button, dates show in Texas time for everyone, the Devpost gallery was re-taken (old images were out of date), and the automatic checks grew (axe 25 pages, Spanish walk clicks Share, widths include Dallas compare). Codex 17–20: no findings. 225 tests. Paid spend unchanged (≈ $2.06).
+
+- 2026-11-16 04:13 PT · Z1 no separate ShareLink unit test (no React render setup; es-walk clicks it). Z8 summary addendum above. Z9 BOARD row updated. $0.

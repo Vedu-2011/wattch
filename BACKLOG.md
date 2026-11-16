@@ -263,13 +263,13 @@
 - [ ] Y10 Codex review 21 after Y batch
 
 ## Z batch (added 04:12, night 2)
-- [ ] Z1 ShareLink unit-ish test: label EN/ES (render to string) — or skip if no React test setup; decide
+- [x] Z1 ShareLink unit-ish test: label EN/ES (render to string) — or skip if no React test setup; decide
 - [x] Z2 Plan page Share title includes plan name — confirm share sheet text on phone emulation (navigator.share args)
 - [x] Z3 Compare share title: 'A vs B · Wattch' instead of plain 'Wattch'
 - [x] Z4 sitemap: no change needed for share (log)
 - [x] Z5 README 'Share card' line mentions Share buttons
 - [x] Z6 es-walk: click Compartir on plan page, check Spanish confirmation
 - [x] Z7 check-all comment says 25 pages (done?) — verify header text
-- [ ] Z8 PROGRESS night-2 summary draft: add W–Z lines
-- [ ] Z9 BOARD row: update task text (still overnight)
+- [x] Z8 PROGRESS night-2 summary draft: add W–Z lines
+- [x] Z9 BOARD row: update task text (still overnight)
 - [ ] Z10 Codex review 22 after Z batch
