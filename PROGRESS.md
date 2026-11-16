@@ -90,3 +90,5 @@
 - 2026-11-16 01:59 PT · K3 keyboard pass on Spanish wall · DONE: 30 tab stops (header, English switch, nav, reveal links, share, slider, 6 toggles, Usar mis 12 meses reales, top 8, compare, plan search), every one has visible focus, all labels Spanish. No change needed. $0.
 - 2026-11-16 01:59 PT · K4 /es = / numbers test · DONE (9adbe9f). 193 tests. $0.
 - 2026-11-16 02:00 PT · K5 locale-free toLocaleString fixed (daaacc6). $0.
+- 2026-11-16 02:00 PT · K6 README · DONE (b04bca6). $0.
+- 2026-11-16 02:01 PT · K8 Lighthouse mobile (perf/a11y/best/SEO): /how?lang=es 95/100/100/100 (LCP 2.9 s, CLS 0), /es 96/100/100/100 (CLS 0.002), /how EN 95/100/100/100. Dynamic /how costs nothing visible. No change. $0.
