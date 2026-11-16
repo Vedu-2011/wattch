@@ -92,14 +92,14 @@ export default async function Compare({ searchParams }: PageProps<"/compare">) {
       <section className="mt-4 rounded-3xl bg-card p-5 shadow-[var(--shadow-soft)]">
         <h2 className="text-lg font-bold">{t.monthly}</h2>
         <p className="text-sm text-ink-2"><span className="mr-1 inline-block h-2.5 w-2.5 rounded-sm bg-ink align-middle" />{a.meta.planName} <span className="ml-3 mr-1 inline-block h-2.5 w-2.5 rounded-sm bg-volt align-middle" />{b.meta.planName}</p>
-        <div className="mt-4 flex h-44 items-end gap-1.5 sm:gap-3" role="img" aria-label={t.chart(c.rows.map((r, i) => `${M[i]} ${money(r.a)} ${t.vs} ${money(r.b)}`).join("; "))}>
+        <div className="mt-4 flex h-44 items-end gap-1.5 max-[359px]:gap-0.5 sm:gap-3" role="img" aria-label={t.chart(c.rows.map((r, i) => `${M[i]} ${money(r.a)} ${t.vs} ${money(r.b)}`).join("; "))}>
           {c.rows.map((r, i) => (
-            <div key={i} className="flex h-full flex-1 flex-col justify-end">
+            <div key={i} className="flex h-full min-w-0 flex-1 flex-col justify-end">
               <div className="flex h-full items-end gap-px sm:gap-0.5">
                 <div className="flex-1 rounded-t bg-ink" style={{ height: `${(r.a / max) * 100}%` }} title={`${M[i]}: ${money(r.a)}`} />
                 <div className="flex-1 rounded-t bg-volt" style={{ height: `${(r.b / max) * 100}%` }} title={`${M[i]}: ${money(r.b)}`} />
               </div>
-              <p className="mt-1 text-center text-[0.625rem] text-ink-2 sm:text-xs">{M[i]}</p>
+              <p className="mt-1 text-center text-[0.625rem] tracking-tight text-ink-2 max-[359px]:text-[0.5625rem] sm:text-xs sm:tracking-normal">{M[i]}</p>
             </div>
           ))}
         </div>

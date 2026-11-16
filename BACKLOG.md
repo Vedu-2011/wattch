@@ -153,3 +153,15 @@
 - [x] P8 Bundle check: did the header Suspense changes add JS to / ? (build output First Load JS before/after)
 - [x] P9 axe on /remind?lang=es with an error showing (role=alert, lang)
 - [x] P10 Re-run headline.ts + compare to SCRIPT ⟲ numbers (data unchanged? log)
+
+## Q batch (added 03:01, night 2)
+- [x] Q1 Compare page: on the Spanish compare, check the bar chart month labels + legend at 320 (screens)
+- [ ] Q2 Wall at 320 with every filter on, EN + ES: chips + sticky CTA don't cover the answer
+- [ ] Q3 Plan page print in Spanish after the compare-table change (still 1 page?)
+- [ ] Q4 Keyboard: Spanish /compare — tab order reaches both 'Leer su letra pequeña' links + the table region
+- [ ] Q5 Share text (Web Share / copy) for Dallas Spanish: names Dallas–Fort Worth, Spanish words
+- [ ] Q6 /how?area=dallas&lang=es: the 'last read' box shows Dallas numbers (154 verified), not Houston
+- [ ] Q7 tests: compare table — a test that both plans' monthly totals add up to the yearly totals shown
+- [ ] Q8 README: AI tools list still complete (Claude Code, Codex, Claude Haiku, Anakin) — check vs code
+- [ ] Q9 Lighthouse /compare?lang=es at mobile after the table change
+- [ ] Q10 Codex review 13 after Q batch
