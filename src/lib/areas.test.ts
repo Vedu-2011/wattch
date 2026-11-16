@@ -61,3 +61,16 @@ describe("area in links and words", () => {
     expect(words("es", "dallas").atUsage(1100, true, false)).toMatch(/Dallas–Fort Worth/);
   });
 });
+
+describe("home numbers per area", () => {
+  it("Houston's home stats are unchanged by the area option; Dallas has its own", async () => {
+    const { heroStats } = await import("@/lib/hero");
+    const { toClientPlan } = await import("@/lib/headline");
+    const h = (JSON.parse(readFileSync("data/plans.json", "utf8")).plans as unknown[]).map((p) => toClientPlan(PlanRecord.parse(p)));
+    expect(heroStats(h, 1100, 5, "en", "houston")).toEqual(heroStats(h));
+    const d = heroStats(plans.map(toClientPlan), 1100, 5, "en", "dallas");
+    expect(d.total).toBe(172);
+    expect(d.cards.length).toBeGreaterThan(0);
+    for (const c of d.cards) expect(plans.some((p) => p.meta.id === c.id)).toBe(true);
+  });
+});

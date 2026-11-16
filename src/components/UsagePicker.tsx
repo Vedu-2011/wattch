@@ -7,11 +7,14 @@ import { TEXAS_AVG_KWH } from "@/lib/seasons";
 
 const PRESET_KWH = [600, 1100, 2100];
 
-export function UsagePicker({ initial = 1100, lang = "en" }: { initial?: number; lang?: Lang }) {
+export function UsagePicker({ initial = 1100, lang = "en", area: areaProp, onArea }: { initial?: number; lang?: Lang; area?: Area; onArea?: (a: Area) => void }) {
   const w = words(lang);
   const router = useRouter();
   const [kwh, setKwh] = useState(String(initial));
-  const [area, setArea] = useState<Area>("houston");
+  const [own, setOwn] = useState<Area>("houston");
+  // controlled when the home page passes area/onArea (its stats switch too); otherwise it keeps its own choice
+  const area = areaProp ?? own;
+  const setArea = (a: Area) => { setOwn(a); onArea?.(a); };
   const n = Math.round(Number(kwh));
   const valid = Number.isFinite(n) && n >= 100 && n <= 5000;
   return (

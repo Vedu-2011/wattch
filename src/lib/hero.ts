@@ -1,4 +1,5 @@
 import { type Lang, TRAP_LABELS } from "@/lib/i18n";
+import type { Area } from "@/lib/plans/ptc";
 import { type ClientPlan, rank, rankable, traps, whyLine } from "@/lib/rank";
 
 export type TrapCard = { id: string; planName: string; provider: string; sticker: number; real: number; over: number; trap: string; why: string | null };
@@ -7,10 +8,10 @@ export type TrapCard = { id: string; planName: string; provider: string; sticker
  * Numbers for the home page, all from data/plans.json: plans read, plans with a usage trap, and the worst
  * real-vs-sticker examples at an average Houston year (1,100 kWh with seasons), one per provider.
  */
-export function heroStats(plans: ClientPlan[], kwh = 1100, max = 5, lang: Lang = "en") {
+export function heroStats(plans: ClientPlan[], kwh = 1100, max = 5, lang: Lang = "en", area: Area = "houston") {
   const read = plans.filter((p) => p.pricing).length;
   const withTrap = rankable(plans).filter((p) => traps(p.pricing!).some((t) => t.tone === "over")).length;
-  const ranked = rank(plans, kwh);
+  const ranked = rank(plans, kwh, { area });
   const cards: TrapCard[] = [];
   const seen = new Set<string>();
   const examples = ranked

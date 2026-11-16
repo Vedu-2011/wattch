@@ -3,13 +3,14 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import type { TrapCard } from "@/lib/hero";
 import { type Lang, words } from "@/lib/i18n";
+import type { Area } from "@/lib/plans/ptc";
 
 const tidy = (s: string) => s.replace(/\b(LLC|INC|LP|L\.P\.|CO)\b\.?/gi, "").replace(/\(TX\)/gi, "").replace(/\s+/g, " ").trim()
   .toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase());
 
 /** One real trap at a time, every 5 seconds. Pauses on hover/focus; no auto-advance with reduced motion. */
-export function TrapCarousel({ cards, lang = "en" }: { cards: TrapCard[]; lang?: Lang }) {
-  const w = words(lang);
+export function TrapCarousel({ cards, lang = "en", area = "houston" }: { cards: TrapCard[]; lang?: Lang; area?: Area }) {
+  const w = words(lang, area);
   const [i, setI] = useState(0);
   const [paused, setPaused] = useState(false);
   useEffect(() => {
