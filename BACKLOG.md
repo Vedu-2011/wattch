@@ -249,3 +249,15 @@
 - [x] X8 axe: add /compare Dallas + own-months wall pages (like widths)
 - [x] X9 PROGRESS: tidy nothing (append-only) — instead write morning 'how to review' list for Vedhanth in STATUS (5 bullets, plain words)
 - [ ] X10 Codex review 20 after X batch
+
+## Y batch (added 04:11, night 2)
+- [x] Y1 Share button: hidden when printing? (print preview check on plan page)
+- [x] Y2 Share button keyboard focus ring + axe on clicked state
+- [x] Y3 Results page 'read on … CT' in Spanish reads naturally ('16 nov, 1:03 a. m. CT')? decide
+- [x] Y4 Fresh.tsx/plan page/how: all dates Texas time now — grep for any other toLocale without timeZone
+- [x] Y5 DEVPOST: one line about the Share button? only if it fits the 'Share it' bullet
+- [x] Y6 SCRIPT: no change unless a scene shows the old header row (check scene list)
+- [x] Y7 Lighthouse /compare EN after Share button (CLS)
+- [x] Y8 Demo /demo unaffected by date change (it shows read date?)
+- [ ] Y9 Final STATUS refresh before handoff (counts, commits)
+- [ ] Y10 Codex review 21 after Y batch

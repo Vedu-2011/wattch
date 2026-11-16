@@ -43,7 +43,7 @@ for a number that was never real.
   says switch or wait; a trap guide with a real example of each of the 7 kinds of catch; "Check this label again now"
   re-opens a label live and says whether anything changed.
 - **Share it.** Every result is a link; it unfurls into a card with your own number. A plan link shows that plan's real
-  yearly cost and rank, and a compare link shows which plan saves how much.
+  yearly cost and rank, and a compare link shows which plan saves how much (each page has a Share button).
 - **Every bill line in plain words.** Under each line of your bill, one sentence says where it comes from ("1,100 kWh ×
   6.5611¢ for CenterPoint's wires to your home"), and a red box says when you just missed a credit and by how much.
 - **Ask yourself before you sign.** Each plan page writes up to 4 questions from that plan's own label and your months:
