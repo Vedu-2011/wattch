@@ -21,7 +21,7 @@
 - [x] 404 + error pages with Kapi; loading.tsx skeletons for /wall and /plan — each renders
 - [x] Accessibility: labels, focus rings, contrast ≥ AA, keyboard through the whole flow, chart has text alternative — axe (via Playwright) shows 0 serious issues
 - [x] Mobile nav (menu) + sticky "Read every plan" button on home for phones
-- [ ] Kapi: 3 more poses (thinking, surprised, celebrating) as original SVG; use them in reveal/empty/error states
+- [x] Kapi: 3 more poses (thinking, surprised, celebrating) as original SVG; use them in reveal/empty/error states
 - [ ] Typography + spacing consistency pass; projector check at 1920 (text readable from the back of a room)
 - [ ] Favicon + app icon from Kapi; proper <title>/description per page; Open Graph images
 ## D. Quality
