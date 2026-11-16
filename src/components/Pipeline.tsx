@@ -1,4 +1,6 @@
 /** The read → check → rank pipeline as a diagram. Every number comes from the data files (passed in), none typed here. */
+import { HOW_WORDS } from "@/lib/howWords";
+
 export type PipelineCounts = { total: number; read: number; verified: number; mismatch: number; unread: number; ranked: number };
 
 const Arrow = () => (
@@ -7,16 +9,17 @@ const Arrow = () => (
   </svg>
 );
 
-export function Pipeline({ c, city, model }: { c: PipelineCounts; city: string; model: string }) {
+export function Pipeline({ c, city, model, lang = "en" }: { c: PipelineCounts; city: string; model: string; lang?: "en" | "es" }) {
+  const t = HOW_WORDS[lang];
   const stages = [
-    { who: "State list", n: c.total, t: `${city} plans`, d: "Power to Choose, the state's plan site", tone: "bg-card" },
-    { who: "AI reads", n: c.read, t: "fine-print labels read", d: `${model} copies the numbers and decides nothing. ${c.unread} couldn't be opened or read.`, tone: "bg-volt-2" },
-    { who: "Code checks", n: c.verified, t: "verified", d: `Plain code rebuilt all 3 of each label's own prices. ${c.mismatch} didn't add up, so ${c.mismatch === 1 ? "it's" : "they're"} never ranked.`, tone: "bg-good-2" },
-    { who: "Code decides", n: c.ranked, t: "ranked for you", d: "Verified plans with a price you can count on (no variable-rate or prepaid), priced at your usage.", tone: "bg-ink text-paper" },
+    { who: t.s1, n: c.total, t: t.s1t(city), d: t.s1d, tone: "bg-card" },
+    { who: t.s2, n: c.read, t: t.s2t, d: t.s2d(model, c.unread), tone: "bg-volt-2" },
+    { who: t.s3, n: c.verified, t: t.s3t, d: t.s3d(c.mismatch), tone: "bg-good-2" },
+    { who: t.s4, n: c.ranked, t: t.s4t, d: t.s4d, tone: "bg-ink text-paper" },
   ];
   return (
     <figure className="rounded-3xl bg-paper-2 p-4 sm:p-6">
-      <figcaption className="text-sm font-semibold text-ink-2">From the state&apos;s list to your answer ({city}, latest read)</figcaption>
+      <figcaption className="text-sm font-semibold text-ink-2">{t.caption(city)}</figcaption>
       <ol className="mt-4 flex flex-col gap-2 lg:flex-row lg:items-stretch">
         {stages.map((s, i) => (
           <li key={s.who} className="flex flex-col gap-2 lg:flex-1 lg:flex-row lg:items-stretch">

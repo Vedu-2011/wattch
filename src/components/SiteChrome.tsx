@@ -24,7 +24,7 @@ export function NavView({ lang }: { lang: L }) {
   return (
     <nav lang={lang} className="flex gap-0 whitespace-nowrap text-[0.8125rem] font-medium sm:gap-1 sm:text-sm">
       <Link className={item} href={lang === "es" ? "/traps?lang=es" : "/traps"}>{t.traps}</Link>
-      <Link className={item} href="/how"><span className="sm:hidden">{t.howShort}</span><span className="hidden sm:inline">{t.how}</span></Link>
+      <Link className={item} href={lang === "es" ? "/how?lang=es" : "/how"}><span className="sm:hidden">{t.howShort}</span><span className="hidden sm:inline">{t.how}</span></Link>
       <Link className={item} href="/sources">{t.sources}</Link>
     </nav>
   );

@@ -84,7 +84,7 @@
 - [x] Spanish "Already on a plan?" (CurrentPlan) on the Spanish wall: search, verdict, exit-fee math, reminder link — no English on /wall?lang=es (live check), parity test
 - [x] Spanish "Use my real 12 months" (MyMonths) on the Spanish wall: labels, paste help, errors — parity test
 - [x] Codex review 8 (running) — fix real findings
-- [ ] Spanish /how (?lang=es): steps, pipeline diagram labels; header "Cómo funciona" links to it — axe 0
+- [x] Spanish /how (?lang=es): steps, pipeline diagram labels; header "Cómo funciona" links to it — axe 0
 - [ ] 404 + error pages in Spanish when the URL has lang=es or starts with /es — screenshot
 - [ ] /api/live error messages in Spanish (?lang=es from LiveCheck) instead of the generic sentence — test
 - [ ] scripts/meta-check.mjs: also sweep Spanish URLs for English titles/descriptions — all clean
