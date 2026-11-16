@@ -43,6 +43,7 @@ credit line. That's where the money goes.
 
 **8. Who's it for?**
 Anyone in Houston or Dallas–Fort Worth choosing a plan, in English or Spanish. No account, no email, nothing saved.
+(Checked Nov 16: across 9 pages, no cookies, nothing in browser storage, no requests to any outside site.)
 
 **9. How is this different from Power to Choose or comparison sites?**
 Power to Choose sorts by the 1,000 kWh price the provider prints. Wattch prices every plan at your own usage through a real

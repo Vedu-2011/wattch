@@ -56,6 +56,15 @@ describe("/api/live — check one label again", () => {
     expect(r.body.message).toMatch(/Try again/);
   });
 
+  it("a good answer is shared by the CDN for a minute; a failure never is", async () => {
+    fetchEfl.mockResolvedValue({ sha256: "abc", text: "", via: "direct", ms: 120 });
+    expect((await GET(new Request("http://x/api/live?id=p1"))).headers.get("cache-control")).toBe("public, s-maxage=60");
+    siteDown = true;
+    const bad = await GET(new Request("http://x/api/live?id=p1"));
+    siteDown = false;
+    expect(bad.headers.get("cache-control") ?? "").not.toMatch(/s-maxage/);
+  });
+
   it("?lang=es → the same plain messages in Spanish", async () => {
     const unknown = await (await GET(new Request("http://x/api/live?id=nope&lang=es"))).json();
     expect(unknown.message).toBe("No conocemos ese plan.");

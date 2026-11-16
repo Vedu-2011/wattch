@@ -393,3 +393,15 @@
 - [x] AJ8 README: meta-check line mentions noindex check
 - [x] AJ9 STATUS: bad-input sweep line
 - [x] AJ10 Codex review 28 after AJ batch
+
+## AK batch (added 04:44, night 2) — after-launch risks
+- [x] AK1 'Check this label again' (/api/live): no AI call; label URL from Wattch's data (can't be pointed elsewhere); only cost = Anakin fallback for ~14 labels
+- [x] AK2 Privacy: 9 pages → no outside requests, 0 cookies, empty localStorage → JUDGE-QA Q8
+- [x] AK3 /api/live: same plan hammered 10× → each call re-downloads; add a short cache? decide
+- [x] AK4 /api/card: heavy? time 20 cards in a row (log)
+- [x] AK5 ANAKIN_API_KEY on Vercel? (can't see; note for planner)
+- [x] AK6 Error page (500) Spanish: still untestable — log
+- [x] AK7 .env.local not committed (git check-ignore) + no key strings in repo (grep sk-ant)
+- [x] AK8 Headers: X-Robots for /demo? robots.txt covers — log
+- [x] AK9 STATUS: privacy line
+- [ ] AK10 Codex review 28 after AK batch

@@ -25,7 +25,9 @@ export async function GET(req: Request) {
     const f = await fetchEfl(rec.meta.eflUrl, { anakinKey: process.env.ANAKIN_API_KEY, timeoutMs: 15000 });
     const same = f.sha256 === rec.read.sha256;
     const pricesSame = same || (rec.pricing ? ptcAveragesOnLabel(f.text, rec.pricing.labelAvg) : false);
-    return NextResponse.json({ ok: true, via: f.via, ms: f.ms, same, pricesSame, readAt: rec.read.fetchedAt });
+    // one minute at the CDN: repeat clicks (or a crowd at a demo) don't re-download the provider's file every time
+    return NextResponse.json({ ok: true, via: f.via, ms: f.ms, same, pricesSame, readAt: rec.read.fetchedAt },
+      { headers: { "Cache-Control": "public, s-maxage=60" } });
   } catch {
     // plain words only — never a raw error from the provider's site
     return NextResponse.json({ ok: false, message: m.down }, { status: 200 });
