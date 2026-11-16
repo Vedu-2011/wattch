@@ -113,7 +113,7 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
           )}
           <div className="no-print"><LiveCheck id={id} lang={lang} /></div>
           <p className="mt-3 text-xs text-ink-2">
-            {t.fetched(read)}<Fresh at={rec.read.fetchedAt} prefix="" lang={lang} />) {rec.read.via === "anakin" ? t.viaAnakin : t.viaDirect} ·{" "}
+            {t.fetched(read)}{/* "3 hours ago" is wrong on paper, so print shows the date only */}<span className="no-print"> (<Fresh at={rec.read.fetchedAt} prefix="" lang={lang} />)</span> {rec.read.via === "anakin" ? t.viaAnakin : t.viaDirect} ·{" "}
             {t.readBy(rec.read.parsedBy)}.{" "}
             <a className="underline" href={rec.meta.eflUrl} target="_blank" rel="noreferrer">{t.original}</a>
           </p>

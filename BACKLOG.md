@@ -120,4 +120,4 @@
 - [x] M7 Spanish .ics: parse the generated file (line folding, UTF-8 accents, CRLF) — test
 - [x] M8 Lighthouse /sources?lang=es + /compare?lang=es (now with descriptions) — log
 - [x] M9 Spanish navigator.share text: check the exact text that gets copied on Spanish Houston + Dallas results
-- [ ] M10 Print view: the "(hace 1 hora)" relative time is stale on paper — show the date only in print, both languages
+- [x] M10 Print view: the "(hace 1 hora)" relative time is stale on paper — show the date only in print, both languages
