@@ -7,6 +7,7 @@ import { Fresh } from "@/components/Fresh";
 import { HighlightScope, HoverKey, LabelText } from "@/components/Highlight";
 import { LiveCheck } from "@/components/LiveCheck";
 import { PrintButton } from "@/components/PrintButton";
+import { ShareLink } from "@/components/ShareLink";
 import { YearBars } from "@/components/YearBars";
 import { annualCost, billLines, monthlyBill } from "@/lib/bill";
 import { explainBill } from "@/lib/bill/explain";
@@ -85,7 +86,7 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
   return (
     <HighlightScope es={es}>
     <div lang={lang} className="mx-auto max-w-4xl px-5 pt-6">
-      <div className="no-print flex items-center justify-between gap-3"><Link href={`/wall?${back}`} className="text-sm font-medium text-ink-2 hover:text-ink">{t.all}</Link><PrintButton lang={lang} /></div>
+      <div className="no-print flex flex-wrap items-center justify-between gap-3"><Link href={`/wall?${back}`} className="whitespace-nowrap text-sm font-medium text-ink-2 hover:text-ink">{t.all}</Link><span className="flex items-center gap-2"><ShareLink title={`${rec.meta.planName} · Wattch`} lang={lang} /><PrintButton lang={lang} /></span></div>
       <h1 className="display mt-3 text-4xl font-extrabold leading-tight">{rec.meta.planName}</h1>
       <p className="mt-1 text-ink-2">{rec.meta.provider} · {es ? ({ Fixed: "Precio fijo", Variable: "Precio variable" } as Record<string, string>)[rec.meta.rateType] ?? rec.meta.rateType : rec.meta.rateType} · {p ? t.months(p.termMonths) : ""} · {t.renewable(rec.meta.renewablePct)}</p>
 

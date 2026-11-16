@@ -240,8 +240,8 @@
 
 ## X batch (added 03:59, night 2)
 - [x] X1 Gallery: DEVPOST lists the gallery captions — still match the new images? (check text vs images)
-- [ ] X2 Plan page: 'Share' button? plan pages have no share button — decide (cheap: reuse ShareButton with plan text) + log
-- [ ] X3 Compare page: share button too? (same decision)
+- [x] X2 Plan page: 'Share' button? plan pages have no share button — decide (cheap: reuse ShareButton with plan text) + log
+- [x] X3 Compare page: share button too? (same decision)
 - [ ] X4 /how: mention 'every number on a share card comes from the same code' only if true + short
 - [x] X5 Card route: Dallas plan ids with ?area=houston on the card URL itself (not via page) → falls back? decide
 - [x] X6 Remove the duplicate cache-header literal if any remains; grep 'max-age' across src
