@@ -49,6 +49,7 @@ export function diffReport(d: PlanDiff, city: string): string {
   list("Advertised price changed (1,000 kWh)", d.priceChanged.map(({ before, after }) => `${name(after)}: ${before.ptc.k1000}¢ → ${after.ptc.k1000}¢`));
   list("Fine-print link moved", d.labelMoved.map(name));
   const n = needsRead(d).length;
-  lines.push("", n ? `→ ${n} label${n === 1 ? "" : "s"} need${n === 1 ? "s" : ""} the AI reader again (about $${(n * 0.0067).toFixed(2)}: the Nov 16 Dallas run cost ~0.67¢ per label). Run with --apply.` : "→ Nothing to re-read. The snapshot is current.");
+  lines.push("", n ? `→ ${n} label${n === 1 ? "" : "s"} need${n === 1 ? "s" : ""} the AI reader again (about $${(n * 0.0067).toFixed(2)}: the Nov 16 Dallas run cost ~0.67¢ per label). Run with --apply.` : "→ No changes on the state's list.");
+  lines.push("  A label can also change at the same link without the list changing; --apply re-downloads every label and re-reads only the ones whose text changed.");
   return lines.join("\n");
 }

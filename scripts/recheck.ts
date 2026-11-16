@@ -1,25 +1,29 @@
 /**
  * Gives every plan that didn't add up a second chance, with no network and no AI spend:
  * Power to Choose averages, the Ranchero/SoFed form-field reader, and hand-reads in data/manual/.
- * Usage: npx tsx scripts/recheck.ts
+ * Usage: npx tsx scripts/recheck.ts [--area houston|dallas]
  */
 import { readFile, readdir, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import type { PlanRecord } from "../src/lib/plans/schema";
 import { explainMismatch, rescue, tduCandidates, type ManualRead } from "../src/lib/reader/rescue";
+import { AREAS, asArea } from "../src/lib/plans/ptc";
+
+const args = process.argv.slice(2);
+const area = asArea(args.includes("--area") ? args[args.indexOf("--area") + 1] : "houston");
 
 async function main() {
-  const file = "data/plans.json";
+  const { dataFile: file, textDir } = AREAS[area];
   const snap = JSON.parse(await readFile(file, "utf8")) as { counts: Record<string, number>; plans: PlanRecord[] };
   const manual = new Map<string, ManualRead>();
-  for (const f of await readdir("data/manual")) {
+  if (area === "houston" && existsSync("data/manual")) for (const f of await readdir("data/manual")) {
     const m = JSON.parse(await readFile(`data/manual/${f}`, "utf8")) as ManualRead;
     manual.set(m.id, m);
   }
   const tdu = tduCandidates(snap.plans);
   for (const r of snap.plans) {
     if (r.check.status === "verified") continue;
-    const tf = `data/text/${r.meta.id}.txt`;
+    const tf = `${textDir}/${r.meta.id}.txt`;
     if (!existsSync(tf)) continue;
     const text = await readFile(tf, "utf8");
     const fix = rescue(r, text, tdu, manual.get(r.meta.id));

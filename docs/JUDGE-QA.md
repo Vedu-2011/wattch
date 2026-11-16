@@ -28,7 +28,7 @@ re-runs the check.
 **5. What's the headline, exactly?**
 An average home (1,100 kWh a month), with Houston's real seasons from ERCOT grid data: the plan Power to Choose lists first,
 Simple Saver 3 at "6.2¢", ranks #74 of 154 ⟲ and costs $378 a year more ⟲ than the best plan. Its $125 credit only applies in
-months at 1,000 kWh or more, so a normal home misses it 6 months a year. Dallas–Fort Worth: the same plan ranks #84 and costs
+months at 1,000 kWh or more, so a normal home misses it 6 months a year. Dallas–Fort Worth: the same plan ranks #91 of 137 ⟲ and costs
 $530 more ⟲.
 
 **6. Isn't 1,100 kWh cherry-picked?**
@@ -63,8 +63,9 @@ mattered most. (EnergyBot is a commercial comparison site; the survey size isn't
 
 **13. What doesn't it do yet?**
 Variable-rate and prepaid plans aren't ranked (their price can change, so a yearly cost would be a guess). Taxes aren't
-included. Areas other than CenterPoint and Oncor (AEP, TNMP) aren't read yet. In Dallas, 26 labels ⟲ weren't read because the
-scraping service's quota ran out mid-run; they show as "not read" and aren't ranked.
+included. Areas other than CenterPoint and Oncor (AEP, TNMP) aren't read yet. In Dallas, 16 labels ⟲ weren't read (15 because
+the scraping service's quota ran out or it was rate-limited mid-run, 1 with unreadable prices); they show as "not read" and
+aren't ranked.
 
 **14. What was the hardest part?**
 Labels that don't add up at first: delivery charges folded into other prices, credits written as "1,000.01 kWh", prices hidden

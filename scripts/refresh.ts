@@ -33,7 +33,10 @@ async function main() {
     console.log(`(last read: ${before ? before.builtAt : "never"})\n`);
     if (!apply) continue;
     if (!process.env.ANTHROPIC_API_KEY) { console.log("No ANTHROPIC_API_KEY, so nothing was re-read. Run with --env-file=.env.local."); continue; }
-    if (!needsRead(d).length && d.removed.length === 0) { console.log(`${city}: nothing to re-read.\n`); continue; }
+    // Always run ingest, even when the list didn't change: a provider can change a label at the same link without
+    // touching the advertised prices (codex review 6). Ingest re-downloads each label and only sends the ones whose
+    // text changed (sha256) to the AI, so an unchanged night costs $0 in AI.
+    console.log(`${city}: checking every label's text (${needsRead(d).length} known to be new or changed)…`);
     const r = spawnSync("npx", ["tsx", "scripts/ingest.ts", "--area", area], { stdio: "inherit", env: process.env });
     if (r.status !== 0) { console.log(`${city}: ingest failed (exit ${r.status}). The old snapshot is still in git.`); continue; }
     const after = load(dataFile)!;

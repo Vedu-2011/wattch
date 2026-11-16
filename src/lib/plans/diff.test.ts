@@ -24,7 +24,8 @@ describe("diffPlans", () => {
   it("same list → nothing to do", () => {
     const same = diffPlans(before, before);
     expect(needsRead(same)).toEqual([]);
-    expect(diffReport(same, "Houston")).toMatch(/Nothing to re-read/);
+    expect(diffReport(same, "Houston")).toMatch(/No changes on the state.s list/);
+    expect(diffReport(same, "Houston")).toMatch(/re-downloads every label/);
   });
   it("the report is plain and lists the changes", () => {
     const r = diffReport(d, "Houston");

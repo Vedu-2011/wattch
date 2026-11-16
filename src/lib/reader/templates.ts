@@ -16,7 +16,8 @@ export function readSoFedForm(text: string, ptc: Avg): PlanPricing | null {
   if (!/Southern Federal Power|Ranchero Power/i.test(text)) return null;
   const avgs = `${field(ptc.k500)}${field(ptc.k1000)}${field(ptc.k2000)}`;
   const re = new RegExp(
-    `\\d{4}${avgs.replace(/\./g, "\\.")}(?:Centerpoint)+(0\\.\\d{6})(\\d+\\.\\d{2}|0)(\\d{1,2}) Months?\\.\\s?(Yes\\. \\$(\\d+?)(?=(?:0[1-9]|1[0-2])\\d{2}20\\d{2}|\\D|$)|No)`,
+    // the delivery utility's name sits between the averages and the energy charge (CenterPoint or Oncor so far)
+    `\\d{4}${avgs.replace(/\./g, "\\.")}(?:Centerpoint|Oncor)+(0\\.\\d{6})(\\d+\\.\\d{2}|0)(\\d{1,2}) Months?\\.\\s?(Yes\\. \\$(\\d+?)(?=(?:0[1-9]|1[0-2])\\d{2}20\\d{2}|\\D|$)|No)`,
     "i",
   );
   const m = text.replace(/\s+/g, " ").match(re);

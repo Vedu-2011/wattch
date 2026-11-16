@@ -3,8 +3,8 @@
  "source": "https://www.powertochoose.org/en-us/Plan/ExportToCsv",
  "model": "claude-haiku-5-5",
  "counts": {
-  "verified": 144,
-  "unread": 26,
+  "verified": 154,
+  "unread": 16,
   "mismatch": 2
  },
  "plans": [
@@ -9005,18 +9005,65 @@
      "k2000": 9.5
     }
    },
-   "pricing": null,
+   "pricing": {
+    "baseChargeDollars": 4.95,
+    "energyTiers": [
+     {
+      "fromKwh": 0,
+      "cents": 2.1812
+     }
+    ],
+    "tduCentsPerKwh": 6.8673,
+    "tduMonthlyDollars": 4.06,
+    "credits": [],
+    "usageFees": [],
+    "amortizedFees": [],
+    "touPeriods": [],
+    "termMonths": 1,
+    "earlyTerminationFee": {
+     "dollars": 0,
+     "perMonthRemaining": false
+    },
+    "labelAvg": {
+     "k500": 10.9,
+     "k1000": 9.9,
+     "k2000": 9.5
+    },
+    "notes": [
+     "Delivery charges aren't printed on this label; they're passed through from CenterPoint."
+    ]
+   },
    "read": {
     "fetchedAt": "2026-11-16T08:31:11.409Z",
     "via": "direct",
     "sha256": "058aec9059a9c379f90399547214bb606caf55b266c922860a37dd194bc6d19b",
-    "parsedBy": "claude-haiku-5-5",
+    "parsedBy": "code (form-field reader)",
     "readMs": 3646
    },
    "check": {
-    "status": "unread",
-    "rows": [],
-    "message": "The label's prices aren't readable in this copy of the fine print."
+    "status": "verified",
+    "rows": [
+     {
+      "kwh": 500,
+      "printed": 10.9,
+      "ours": 10.9,
+      "ok": true
+     },
+     {
+      "kwh": 1000,
+      "printed": 9.9,
+      "ours": 10,
+      "ok": true
+     },
+     {
+      "kwh": 2000,
+      "printed": 9.5,
+      "ours": 9.5,
+      "ok": true
+     }
+    ],
+    "message": "Read by code from the label's form fields; all 3 averages match.",
+    "tduFilled": true
    }
   },
   {
@@ -9038,18 +9085,65 @@
      "k2000": 12.1
     }
    },
-   "pricing": null,
+   "pricing": {
+    "baseChargeDollars": 4.95,
+    "energyTiers": [
+     {
+      "fromKwh": 0,
+      "cents": 4.7917
+     }
+    ],
+    "tduCentsPerKwh": 6.8673,
+    "tduMonthlyDollars": 4.06,
+    "credits": [],
+    "usageFees": [],
+    "amortizedFees": [],
+    "touPeriods": [],
+    "termMonths": 3,
+    "earlyTerminationFee": {
+     "dollars": 179,
+     "perMonthRemaining": false
+    },
+    "labelAvg": {
+     "k500": 13.5,
+     "k1000": 12.6,
+     "k2000": 12.1
+    },
+    "notes": [
+     "Delivery charges aren't printed on this label; they're passed through from CenterPoint."
+    ]
+   },
    "read": {
     "fetchedAt": "2026-11-16T08:31:15.056Z",
     "via": "direct",
     "sha256": "4cfa0af95ced52dde02ce5b08474203d402c0a3a0326be8d3665bb14d28852d6",
-    "parsedBy": "claude-haiku-5-5",
+    "parsedBy": "code (form-field reader)",
     "readMs": 15961
    },
    "check": {
-    "status": "unread",
-    "rows": [],
-    "message": "The label's prices aren't readable in this copy of the fine print."
+    "status": "verified",
+    "rows": [
+     {
+      "kwh": 500,
+      "printed": 13.5,
+      "ours": 13.5,
+      "ok": true
+     },
+     {
+      "kwh": 1000,
+      "printed": 12.6,
+      "ours": 12.6,
+      "ok": true
+     },
+     {
+      "kwh": 2000,
+      "printed": 12.1,
+      "ours": 12.1,
+      "ok": true
+     }
+    ],
+    "message": "Read by code from the label's form fields; all 3 averages match.",
+    "tduFilled": true
    }
   },
   {
@@ -9071,18 +9165,65 @@
      "k2000": 13.9
     }
    },
-   "pricing": null,
+   "pricing": {
+    "baseChargeDollars": 4.95,
+    "energyTiers": [
+     {
+      "fromKwh": 0,
+      "cents": 6.5812
+     }
+    ],
+    "tduCentsPerKwh": 6.8673,
+    "tduMonthlyDollars": 4.06,
+    "credits": [],
+    "usageFees": [],
+    "amortizedFees": [],
+    "touPeriods": [],
+    "termMonths": 48,
+    "earlyTerminationFee": {
+     "dollars": 0,
+     "perMonthRemaining": false
+    },
+    "labelAvg": {
+     "k500": 15.3,
+     "k1000": 14.3,
+     "k2000": 13.9
+    },
+    "notes": [
+     "Delivery charges aren't printed on this label; they're passed through from CenterPoint."
+    ]
+   },
    "read": {
     "fetchedAt": "2026-11-16T08:31:28.920Z",
     "via": "direct",
     "sha256": "8c7e77540ab60bb3ee9ac39eab5eb6430849c94c0e05b9d3ab8cd55f1cc60a2b",
-    "parsedBy": "claude-haiku-5-5",
+    "parsedBy": "code (form-field reader)",
     "readMs": 16253
    },
    "check": {
-    "status": "unread",
-    "rows": [],
-    "message": "The label's prices aren't readable in this copy of the fine print."
+    "status": "verified",
+    "rows": [
+     {
+      "kwh": 500,
+      "printed": 15.3,
+      "ours": 15.3,
+      "ok": true
+     },
+     {
+      "kwh": 1000,
+      "printed": 14.3,
+      "ours": 14.4,
+      "ok": true
+     },
+     {
+      "kwh": 2000,
+      "printed": 13.9,
+      "ours": 13.9,
+      "ok": true
+     }
+    ],
+    "message": "Read by code from the label's form fields; all 3 averages match.",
+    "tduFilled": true
    }
   },
   {
@@ -9104,18 +9245,65 @@
      "k2000": 11.3
     }
    },
-   "pricing": null,
+   "pricing": {
+    "baseChargeDollars": 4.95,
+    "energyTiers": [
+     {
+      "fromKwh": 0,
+      "cents": 4.0283
+     }
+    ],
+    "tduCentsPerKwh": 6.8673,
+    "tduMonthlyDollars": 4.06,
+    "credits": [],
+    "usageFees": [],
+    "amortizedFees": [],
+    "touPeriods": [],
+    "termMonths": 7,
+    "earlyTerminationFee": {
+     "dollars": 99,
+     "perMonthRemaining": false
+    },
+    "labelAvg": {
+     "k500": 12.7,
+     "k1000": 11.8,
+     "k2000": 11.3
+    },
+    "notes": [
+     "Delivery charges aren't printed on this label; they're passed through from CenterPoint."
+    ]
+   },
    "read": {
     "fetchedAt": "2026-11-16T08:31:28.667Z",
     "via": "direct",
     "sha256": "02c6e260f0d2ae19f271cdd358ef7bc9d1365f85b1c5b34b4d1308719453800b",
-    "parsedBy": "claude-haiku-5-5",
+    "parsedBy": "code (form-field reader)",
     "readMs": 16265
    },
    "check": {
-    "status": "unread",
-    "rows": [],
-    "message": "The label's prices aren't readable in this copy of the fine print."
+    "status": "verified",
+    "rows": [
+     {
+      "kwh": 500,
+      "printed": 12.7,
+      "ours": 12.7,
+      "ok": true
+     },
+     {
+      "kwh": 1000,
+      "printed": 11.8,
+      "ours": 11.8,
+      "ok": true
+     },
+     {
+      "kwh": 2000,
+      "printed": 11.3,
+      "ours": 11.3,
+      "ok": true
+     }
+    ],
+    "message": "Read by code from the label's form fields; all 3 averages match.",
+    "tduFilled": true
    }
   },
   {
@@ -9137,18 +9325,65 @@
      "k2000": 12
     }
    },
-   "pricing": null,
+   "pricing": {
+    "baseChargeDollars": 4.95,
+    "energyTiers": [
+     {
+      "fromKwh": 0,
+      "cents": 4.6545
+     }
+    ],
+    "tduCentsPerKwh": 6.8673,
+    "tduMonthlyDollars": 4.06,
+    "credits": [],
+    "usageFees": [],
+    "amortizedFees": [],
+    "touPeriods": [],
+    "termMonths": 12,
+    "earlyTerminationFee": {
+     "dollars": 179,
+     "perMonthRemaining": false
+    },
+    "labelAvg": {
+     "k500": 13.3,
+     "k1000": 12.4,
+     "k2000": 12
+    },
+    "notes": [
+     "Delivery charges aren't printed on this label; they're passed through from CenterPoint."
+    ]
+   },
    "read": {
     "fetchedAt": "2026-11-16T08:31:12.438Z",
     "via": "direct",
     "sha256": "107e296e3d8c627655d9102ea0906147a0ba9908209f4d16bfebcb0a6a1aee1e",
-    "parsedBy": "claude-haiku-5-5",
+    "parsedBy": "code (form-field reader)",
     "readMs": 16229
    },
    "check": {
-    "status": "unread",
-    "rows": [],
-    "message": "The label's prices aren't readable in this copy of the fine print."
+    "status": "verified",
+    "rows": [
+     {
+      "kwh": 500,
+      "printed": 13.3,
+      "ours": 13.3,
+      "ok": true
+     },
+     {
+      "kwh": 1000,
+      "printed": 12.4,
+      "ours": 12.4,
+      "ok": true
+     },
+     {
+      "kwh": 2000,
+      "printed": 12,
+      "ours": 12,
+      "ok": true
+     }
+    ],
+    "message": "Read by code from the label's form fields; all 3 averages match.",
+    "tduFilled": true
    }
   },
   {
@@ -9170,18 +9405,65 @@
      "k2000": 12.6
     }
    },
-   "pricing": null,
+   "pricing": {
+    "baseChargeDollars": 4.95,
+    "energyTiers": [
+     {
+      "fromKwh": 0,
+      "cents": 5.2812
+     }
+    ],
+    "tduCentsPerKwh": 6.8673,
+    "tduMonthlyDollars": 4.06,
+    "credits": [],
+    "usageFees": [],
+    "amortizedFees": [],
+    "touPeriods": [],
+    "termMonths": 36,
+    "earlyTerminationFee": {
+     "dollars": 179,
+     "perMonthRemaining": false
+    },
+    "labelAvg": {
+     "k500": 14,
+     "k1000": 13,
+     "k2000": 12.6
+    },
+    "notes": [
+     "Delivery charges aren't printed on this label; they're passed through from CenterPoint."
+    ]
+   },
    "read": {
     "fetchedAt": "2026-11-16T08:31:11.906Z",
     "via": "direct",
     "sha256": "77f9de60fbe8e1d59b9b87a25943579ee568b7ee385396d853bc6d2dff975798",
-    "parsedBy": "claude-haiku-5-5",
+    "parsedBy": "code (form-field reader)",
     "readMs": 17013
    },
    "check": {
-    "status": "unread",
-    "rows": [],
-    "message": "The label's prices aren't readable in this copy of the fine print."
+    "status": "verified",
+    "rows": [
+     {
+      "kwh": 500,
+      "printed": 14,
+      "ours": 14,
+      "ok": true
+     },
+     {
+      "kwh": 1000,
+      "printed": 13,
+      "ours": 13.1,
+      "ok": true
+     },
+     {
+      "kwh": 2000,
+      "printed": 12.6,
+      "ours": 12.6,
+      "ok": true
+     }
+    ],
+    "message": "Read by code from the label's form fields; all 3 averages match.",
+    "tduFilled": true
    }
   },
   {
@@ -11131,18 +11413,65 @@
      "k2000": 12.6
     }
    },
-   "pricing": null,
+   "pricing": {
+    "baseChargeDollars": 4.95,
+    "energyTiers": [
+     {
+      "fromKwh": 0,
+      "cents": 5.2812
+     }
+    ],
+    "tduCentsPerKwh": 6.8673,
+    "tduMonthlyDollars": 4.06,
+    "credits": [],
+    "usageFees": [],
+    "amortizedFees": [],
+    "touPeriods": [],
+    "termMonths": 36,
+    "earlyTerminationFee": {
+     "dollars": 249,
+     "perMonthRemaining": false
+    },
+    "labelAvg": {
+     "k500": 14,
+     "k1000": 13,
+     "k2000": 12.6
+    },
+    "notes": [
+     "Delivery charges aren't printed on this label; they're passed through from CenterPoint."
+    ]
+   },
    "read": {
     "fetchedAt": "2026-11-16T08:31:08.081Z",
     "via": "direct",
     "sha256": "138123137805f90452cb6faeac4373766f2130215f34f85ed76d0d8f4c3df1af",
-    "parsedBy": "claude-haiku-5-5",
+    "parsedBy": "code (form-field reader)",
     "readMs": 3328
    },
    "check": {
-    "status": "unread",
-    "rows": [],
-    "message": "The label's prices aren't readable in this copy of the fine print."
+    "status": "verified",
+    "rows": [
+     {
+      "kwh": 500,
+      "printed": 14,
+      "ours": 14,
+      "ok": true
+     },
+     {
+      "kwh": 1000,
+      "printed": 13,
+      "ours": 13.1,
+      "ok": true
+     },
+     {
+      "kwh": 2000,
+      "printed": 12.6,
+      "ours": 12.6,
+      "ok": true
+     }
+    ],
+    "message": "Read by code from the label's form fields; all 3 averages match.",
+    "tduFilled": true
    }
   },
   {
@@ -11197,18 +11526,65 @@
      "k2000": 11.3
     }
    },
-   "pricing": null,
+   "pricing": {
+    "baseChargeDollars": 4.95,
+    "energyTiers": [
+     {
+      "fromKwh": 0,
+      "cents": 4.0283
+     }
+    ],
+    "tduCentsPerKwh": 6.8673,
+    "tduMonthlyDollars": 4.06,
+    "credits": [],
+    "usageFees": [],
+    "amortizedFees": [],
+    "touPeriods": [],
+    "termMonths": 7,
+    "earlyTerminationFee": {
+     "dollars": 99,
+     "perMonthRemaining": false
+    },
+    "labelAvg": {
+     "k500": 12.7,
+     "k1000": 11.8,
+     "k2000": 11.3
+    },
+    "notes": [
+     "Delivery charges aren't printed on this label; they're passed through from CenterPoint."
+    ]
+   },
    "read": {
     "fetchedAt": "2026-11-16T08:31:06.175Z",
     "via": "direct",
     "sha256": "971a3f8c9465f4842d9308f20266d0ad5b1d591d594aa3227dde951b2af5aad9",
-    "parsedBy": "claude-haiku-5-5",
+    "parsedBy": "code (form-field reader)",
     "readMs": 3106
    },
    "check": {
-    "status": "unread",
-    "rows": [],
-    "message": "The label's prices aren't readable in this copy of the fine print."
+    "status": "verified",
+    "rows": [
+     {
+      "kwh": 500,
+      "printed": 12.7,
+      "ours": 12.7,
+      "ok": true
+     },
+     {
+      "kwh": 1000,
+      "printed": 11.8,
+      "ours": 11.8,
+      "ok": true
+     },
+     {
+      "kwh": 2000,
+      "printed": 11.3,
+      "ours": 11.3,
+      "ok": true
+     }
+    ],
+    "message": "Read by code from the label's form fields; all 3 averages match.",
+    "tduFilled": true
    }
   },
   {
@@ -11230,18 +11606,65 @@
      "k2000": 12.1
     }
    },
-   "pricing": null,
+   "pricing": {
+    "baseChargeDollars": 4.95,
+    "energyTiers": [
+     {
+      "fromKwh": 0,
+      "cents": 4.7917
+     }
+    ],
+    "tduCentsPerKwh": 6.8673,
+    "tduMonthlyDollars": 4.06,
+    "credits": [],
+    "usageFees": [],
+    "amortizedFees": [],
+    "touPeriods": [],
+    "termMonths": 3,
+    "earlyTerminationFee": {
+     "dollars": 0,
+     "perMonthRemaining": false
+    },
+    "labelAvg": {
+     "k500": 13.5,
+     "k1000": 12.6,
+     "k2000": 12.1
+    },
+    "notes": [
+     "Delivery charges aren't printed on this label; they're passed through from CenterPoint."
+    ]
+   },
    "read": {
     "fetchedAt": "2026-11-16T08:31:08.484Z",
     "via": "direct",
     "sha256": "e85c63231d4214abb6d301c49ac9eeac41a6758b9424a10df62366a2f32bf856",
-    "parsedBy": "claude-haiku-5-5",
+    "parsedBy": "code (form-field reader)",
     "readMs": 3422
    },
    "check": {
-    "status": "unread",
-    "rows": [],
-    "message": "The label's prices aren't readable in this copy of the fine print."
+    "status": "verified",
+    "rows": [
+     {
+      "kwh": 500,
+      "printed": 13.5,
+      "ours": 13.5,
+      "ok": true
+     },
+     {
+      "kwh": 1000,
+      "printed": 12.6,
+      "ours": 12.6,
+      "ok": true
+     },
+     {
+      "kwh": 2000,
+      "printed": 12.1,
+      "ours": 12.1,
+      "ok": true
+     }
+    ],
+    "message": "Read by code from the label's form fields; all 3 averages match.",
+    "tduFilled": true
    }
   },
   {
@@ -11263,18 +11686,65 @@
      "k2000": 9.5
     }
    },
-   "pricing": null,
+   "pricing": {
+    "baseChargeDollars": 4.95,
+    "energyTiers": [
+     {
+      "fromKwh": 0,
+      "cents": 2.1812
+     }
+    ],
+    "tduCentsPerKwh": 6.8673,
+    "tduMonthlyDollars": 4.06,
+    "credits": [],
+    "usageFees": [],
+    "amortizedFees": [],
+    "touPeriods": [],
+    "termMonths": 1,
+    "earlyTerminationFee": {
+     "dollars": 0,
+     "perMonthRemaining": false
+    },
+    "labelAvg": {
+     "k500": 10.9,
+     "k1000": 9.9,
+     "k2000": 9.5
+    },
+    "notes": [
+     "Delivery charges aren't printed on this label; they're passed through from CenterPoint."
+    ]
+   },
    "read": {
     "fetchedAt": "2026-11-16T08:31:04.878Z",
     "via": "direct",
     "sha256": "dc3e9616edcc41c1efb1e1f8281d1634a0eef4248a9b2bb9f314d85ffffd53f7",
-    "parsedBy": "claude-haiku-5-5",
+    "parsedBy": "code (form-field reader)",
     "readMs": 3604
    },
    "check": {
-    "status": "unread",
-    "rows": [],
-    "message": "The label's prices aren't readable in this copy of the fine print."
+    "status": "verified",
+    "rows": [
+     {
+      "kwh": 500,
+      "printed": 10.9,
+      "ours": 10.9,
+      "ok": true
+     },
+     {
+      "kwh": 1000,
+      "printed": 9.9,
+      "ours": 10,
+      "ok": true
+     },
+     {
+      "kwh": 2000,
+      "printed": 9.5,
+      "ours": 9.5,
+      "ok": true
+     }
+    ],
+    "message": "Read by code from the label's form fields; all 3 averages match.",
+    "tduFilled": true
    }
   },
   {

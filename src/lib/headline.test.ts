@@ -30,9 +30,9 @@ describe("one headline, everywhere", () => {
     expect(h.pick?.plan.id).toBe("33633");
     expect(h.best?.plan.id).toBe("37797");
   });
-  it("Dallas–Fort Worth: state #1 ranks #84, $530 a year more", () => {
+  it("Dallas–Fort Worth: state #1 ranks #91, $530 a year more (after the free form-field rescue, Nov 16)", () => {
     const h = headline(load("dallas"), "dallas");
     expect(Math.round(h.gap)).toBe(530);
-    expect(h.pickRank).toBe(84);
+    expect(h.pickRank).toBe(91);
   });
 });
