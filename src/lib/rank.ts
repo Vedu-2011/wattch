@@ -49,7 +49,7 @@ export function traps(p: PlanPricing): Trap[] {
 export const rankable = (plans: ClientPlan[]) =>
   plans.filter((p) => p.status === "verified" && p.pricing && !p.prepaid && p.rateType.toLowerCase() !== "variable");
 
-/** The 12 months we price: flat, or shaped like a real Texas year. */
+/** The 12 months we price: flat, or shaped like a real Houston year. */
 export const yearFor = (kwh: number, seasons = true) => (seasons ? seasonalYear(kwh) : flatYear(kwh));
 
 export function rank(plans: ClientPlan[], kwh: number, opts: RankOpts = {}): Ranked[] {

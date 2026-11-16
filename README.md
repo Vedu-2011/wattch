@@ -5,7 +5,7 @@
 Texas lets you pick your electricity plan, then hides the real price in each plan's fine print (the
 Electricity Facts Label, or EFL). Wattch reads the fine print of every Houston (CenterPoint) plan on the state's
 Power to Choose site, checks every read against the label's own printed prices, and does the honest math at
-**your** usage — with real Texas seasons, because summer AC bills are about twice spring's.
+**your** usage — with real Houston seasons, because an August bill is about 2.6× a February one.
 
 **AI reads. Code checks. Code decides.** The AI only copies numbers off each label. Plain, tested code rebuilds the
 label's three printed prices (500 / 1,000 / 2,000 kWh) from what was read; a plan is "verified" only if all three
@@ -15,7 +15,7 @@ match within 0.1¢. Bills, yearly cost, ranking, cliffs and every "why" line are
 - **The reader wall** — one tile per plan flipping from "reading…" to ✓ (replays the real reads and their timing).
 - **The reveal** — what the plan the state site lists first would cost you a year vs. your best plan, and why
   (e.g. "Its $125 credit only kicks in at 1,000 kWh. You'd miss it 6 months a year").
-- **Texas seasons** — 12 real months shaped by EIA data, not one flat month.
+- **Houston seasons** — 12 real months shaped by ERCOT grid data for the Coast zone, not one flat month.
 - **Plan pages** — the label check table, your bill line by line, your year, and a bill-vs-usage chart with price cliffs.
 - **Share card + QR** for trying it on your own phone.
 

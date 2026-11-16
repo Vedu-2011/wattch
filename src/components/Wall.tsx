@@ -90,7 +90,7 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons 
             </label>
             <input id="slide" type="range" min={200} max={3000} step={10} value={kwh} onChange={(e) => setKwh(Number(e.target.value))} className="mt-3 w-full" />
             <div className="mt-3 flex flex-wrap gap-2">
-              <Toggle on={seasons} set={setSeasons} label="Texas seasons" hint="summer AC ≈ 2× spring" />
+              <Toggle on={seasons} set={setSeasons} label="Houston seasons" hint="August ≈ 2.6× February" />
               <Toggle on={lockedYear} set={setLockedYear} label="Price locked 12+ months" />
               <Toggle on={withConditional} set={setWithConditional} label="Count autopay discounts" />
             </div>
@@ -203,7 +203,7 @@ function Reveal({ kwh, seasons, ranked, pick, locked }: { kwh: number; seasons: 
     <div className="space-y-4">
       <div className="overflow-hidden rounded-[2rem] bg-ink p-5 text-paper shadow-[var(--shadow-lift)] sm:p-8">
         <p className="text-sm font-semibold text-volt">
-          At {kwh.toLocaleString()} kWh a month{seasons ? ", with real Texas seasons" : ", same every month"}
+          At {kwh.toLocaleString()} kWh a month{seasons ? ", with real Houston seasons" : ", same every month"}
         </p>
         {pickRow && gap >= 1 ? (
           <>

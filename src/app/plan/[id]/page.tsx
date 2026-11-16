@@ -82,9 +82,9 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
           </div>
           <p className="mt-1 text-sm text-paper/70">
             {seasons
-              ? `Averaging ${kwh.toLocaleString()} kWh, shaped like a real Texas year (more in summer, less in spring and fall).`
+              ? `Averaging ${kwh.toLocaleString()} kWh, shaped like a real Houston year (more in summer, less in winter and spring).`
               : `${kwh.toLocaleString()} kWh every month.`}{" "}
-            <Link className="underline underline-offset-4" href={`/plan/${id}?kwh=${kwh}${seasons ? "&flat=1" : ""}`}>{seasons ? "Show same usage every month" : "Use Texas seasons"}</Link>
+            <Link className="underline underline-offset-4" href={`/plan/${id}?kwh=${kwh}${seasons ? "&flat=1" : ""}`}>{seasons ? "Show same usage every month" : "Use Houston seasons"}</Link>
           </p>
           {why && <p className="mt-3 text-lg font-semibold"><span className="text-volt">Why?</span> {why}</p>}
           <div className="mt-4"><YearBars months={months} line={line} lineLabel={line ? `credit needs ${line.toLocaleString()} kWh` : undefined} dark /></div>
