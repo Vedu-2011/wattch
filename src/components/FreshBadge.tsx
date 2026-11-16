@@ -16,11 +16,11 @@ export function FreshBadge({ counts }: { counts: { houston: BadgeCounts; dallas:
 export function Badge({ c, lang = "en" }: { c: BadgeCounts; lang?: "en" | "es" }) {
   const es = lang === "es";
   return (
-    <Link href="/how" lang={lang} className="inline-flex items-center gap-2 rounded-full bg-good-2 px-3 py-1 text-xs font-medium text-ink hover:brightness-95">
-      <span aria-hidden className="h-2 w-2 rounded-full bg-good" />
-      <span>
+    <Link href="/how" lang={lang} className="inline-flex max-w-full items-center gap-2 rounded-full bg-good-2 px-3 py-1 text-xs font-medium text-ink hover:brightness-95">
+      <span aria-hidden className="h-2 w-2 shrink-0 rounded-full bg-good" />
+      <span className="truncate">
         <span className="num">{c.verified}</span> {es ? "de" : "of"} <span className="num">{c.total}</span> {es ? "etiquetas cuadran" : "labels check out"} ·{" "}
-        <Fresh at={c.builtAt} prefix={es ? "leídas" : "read"} lang={lang} />
+        <Fresh at={c.builtAt} prefix={es ? "leídas" : "read"} lang={lang} dateOnly />
       </span>
     </Link>
   );
