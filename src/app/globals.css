@@ -55,10 +55,16 @@ body { font-family: var(--font-body), system-ui, sans-serif; }
 .pop { animation: pop 420ms cubic-bezier(.2,.8,.2,1) both; }
 @keyframes fade-in { 0% { opacity: 0; transform: translateY(4px) } 100% { opacity: 1; transform: none } }
 .fade-in { animation: fade-in 360ms ease-out both; }
+/* Kapi's walk: a small bob and tilt, like little steps */
+@keyframes walk { 0%,100% { transform: translateY(0) rotate(-4deg) } 50% { transform: translateY(-4px) rotate(4deg) } }
+.walk { animation: walk 360ms ease-in-out infinite; transform-origin: 50% 90%; }
+/* the ✓ stamp lands on a tile just after it flips */
+@keyframes stamp { 0% { transform: scale(2.2) rotate(-18deg); opacity: 0 } 60% { transform: scale(.9) rotate(4deg); opacity: 1 } 100% { transform: scale(1) rotate(0); opacity: 1 } }
+.stamp { animation: stamp 380ms 420ms cubic-bezier(.2,.8,.2,1) both; }
 
 @media (prefers-reduced-motion: reduce) {
   .flip-inner { transition: none; }
-  .scanline, .pop, .fade-in { animation: none; }
+  .scanline, .pop, .fade-in, .walk, .stamp { animation: none; }
 }
 
 input[type="range"] { accent-color: var(--ink); }

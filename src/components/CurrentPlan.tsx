@@ -9,8 +9,8 @@ const money = (n: number) => n.toLocaleString("en-US", { style: "currency", curr
 const tidy = (s: string) => s.replace(/\b(LLC|INC|LP|L\.P\.|CO)\b\.?/gi, "").replace(/\(TX\)/gi, "").replace(/\s+/g, " ").trim();
 
 /** "Already on a plan?" Find yours, say how many months are left, and get a plain switch / wait answer. */
-export function CurrentPlan({ plans, best, includeConditional, kwh, seasons }: {
-  plans: ClientPlan[]; best: Ranked; includeConditional: boolean; kwh: number; seasons: boolean;
+export function CurrentPlan({ plans, best, includeConditional, kwh, seasons, qs, mine = false }: {
+  plans: ClientPlan[]; best: Ranked; includeConditional: boolean; kwh: number; seasons: boolean; qs: string; mine?: boolean;
 }) {
   const choices = useMemo(() => plans.filter((p) => p.status === "verified" && p.pricing), [plans]);
   const [q, setQ] = useState("");
@@ -19,8 +19,10 @@ export function CurrentPlan({ plans, best, includeConditional, kwh, seasons }: {
   const words = q.toLowerCase().split(/\s+/).filter(Boolean);
   const matches = words.length ? choices.filter((p) => words.every((w) => `${p.provider} ${p.planName}`.toLowerCase().includes(w))).slice(0, 6) : [];
   const cur = choices.find((p) => p.id === id) ?? null;
-  const annual = cur ? annualCost(cur.pricing!, best.months, { includeConditional }) : 0;
-  const m = cur ? switchMath(annual, best.annual, cur.pricing!, left) : null;
+  // variable-rate and prepaid plans aren't ranked: their price can change, so a yearly number would be a guess
+  const unsure = cur ? cur.prepaid || cur.rateType.toLowerCase() === "variable" : false;
+  const annual = cur && !unsure ? annualCost(cur.pricing!, best.months, { includeConditional }) : 0;
+  const m = cur && !unsure ? switchMath(annual, best.annual, cur.pricing!, left) : null;
   const f = cur?.pricing!.earlyTerminationFee;
 
   return (
@@ -59,6 +61,13 @@ export function CurrentPlan({ plans, best, includeConditional, kwh, seasons }: {
             <input type="number" min={0} max={36} value={left} onChange={(e) => setLeft(Math.max(0, Math.min(36, Math.round(Number(e.target.value) || 0))))}
               className="num w-20 rounded-xl bg-paper px-3 py-2 text-base outline-none focus-visible:ring-2 focus-visible:ring-volt" />
           </label>
+          {unsure && (
+            <p className="rounded-2xl bg-volt-2 p-4 text-sm">
+              {cur.prepaid ? "This is a prepaid plan" : "This plan has a variable rate"}, so its price can change from month to month and
+              Wattch can&apos;t honestly put a yearly number on it. Compare your last bill&apos;s price per kWh with the best plan:{" "}
+              <Link className="font-semibold underline" href={`/plan/${best.plan.id}?${qs}`}>{best.plan.planName}</Link>, {money(best.annual)}/yr.
+            </p>
+          )}
           {m && (
             <div className={`rounded-2xl p-4 ${m.verdict === "wait" ? "bg-volt-2" : m.verdict === "switch" ? "bg-good-2" : "bg-paper"}`}>
               <p className="text-lg font-semibold">{switchLine(m, left)}</p>
@@ -69,9 +78,9 @@ export function CurrentPlan({ plans, best, includeConditional, kwh, seasons }: {
                 <div><dt className="font-sans text-ink-2">Pays back in</dt><dd>{m.paybackMonths === null ? "—" : `${m.paybackMonths} mo`}</dd></div>
               </dl>
               <p className="mt-2 text-xs text-ink-2">
-                Same {kwh.toLocaleString()} kWh average{seasons ? " with Houston seasons" : ""}, today&apos;s prices, before taxes. Exit fee from your
+                {mine ? "Your own 12 months" : `Same ${kwh.toLocaleString()} kWh average${seasons ? " with Houston seasons" : ""}`}, today&apos;s prices, before taxes. Exit fee from your
                 plan&apos;s label: {f!.dollars ? `$${f!.dollars}${f!.perMonthRemaining ? " × months left" : ""}` : "none listed"}.{" "}
-                Best plan: <Link className="underline" href={`/plan/${best.plan.id}?kwh=${kwh}${seasons ? "" : "&flat=1"}`}>{best.plan.planName}</Link>.
+                Best plan: <Link className="underline" href={`/plan/${best.plan.id}?${qs}`}>{best.plan.planName}</Link>.
               </p>
             </div>
           )}

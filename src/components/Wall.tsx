@@ -15,11 +15,15 @@ const cents = (n: number) => `${n.toFixed(1)}¢`;
 const short = (s: string) => s.replace(/\b(LLC|INC|LP|L\.P\.|CO)\b\.?/gi, "").replace(/\(TX\)/gi, "").replace(/\s+/g, " ").trim();
 const title = (s: string) => short(s).toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase());
 
-/** The wall replays real reads. Order and pace come from how long each read really took, sped up so it fits a demo. */
+/**
+ * The wall replays real reads: faster reads finish first. Pace is by order (not raw time), so one very slow label
+ * doesn't leave the wall sitting still — tiles land steadily across the whole replay.
+ */
 function useReveal(plans: ClientPlan[], totalMs = 9000) {
   const order = useMemo(() => {
-    const max = Math.max(...plans.map((p) => p.readMs || 1), 1);
-    return plans.map((p, i) => ({ id: p.id, at: 400 + ((i % 12) * 140) + (p.readMs / max) * (totalMs - 2200) }));
+    const sorted = [...plans].sort((a, b) => (a.readMs || 0) - (b.readMs || 0));
+    const n = Math.max(sorted.length - 1, 1);
+    return sorted.map((p, i) => ({ id: p.id, at: 400 + (i / n) ** 1.15 * (totalMs - 1200) }));
   }, [plans, totalMs]);
   const [now, setNow] = useState(0);
   const [skip, setSkip] = useState(false);
@@ -83,7 +87,7 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons,
     <div className="mx-auto max-w-6xl px-4 pt-6 sm:px-5">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div className="flex items-end gap-3">
-          <Kapi reading className={`h-14 w-14 shrink-0 ${done ? "" : "animate-bounce [animation-duration:1.6s]"}`} />
+          <Kapi reading className="h-14 w-14 shrink-0" />
           <div>
             <h1 className="display text-3xl font-extrabold sm:text-4xl">{done ? "Every plan, read." : "Reading the fine print…"}</h1>
             <p className="mt-1 max-w-2xl text-sm text-ink-2">
@@ -99,7 +103,9 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons,
         </div>
       </div>
 
-      <div className="mt-5 grid grid-cols-10 gap-1 sm:grid-cols-8 sm:gap-2 lg:grid-cols-12">
+      <Walker progress={readIds.size / Math.max(plans.length, 1)} done={done} />
+
+      <div className="mt-4 grid grid-cols-10 gap-1 sm:grid-cols-8 sm:gap-2 lg:grid-cols-12">
         {plans.map((p) => <Tile key={p.id} p={p} read={readIds.has(p.id)} />)}
       </div>
 
@@ -161,7 +167,7 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons,
             </p>
           </div>
 
-          {ranked.length > 0 && <CurrentPlan plans={plans} best={ranked[0]} includeConditional={withConditional} kwh={kwh} seasons={seasons} />}
+          {ranked.length > 0 && <CurrentPlan plans={plans} best={ranked[0]} includeConditional={withConditional} kwh={kwh} seasons={seasons} qs={qs} mine={!!mine} />}
 
           <JudgeQr />
         </section>
@@ -191,6 +197,21 @@ function Counter({ label, value, of, tone }: { label: string; value: number; of?
   );
 }
 
+/** Kapi walks along a track as the plans get read, then sits at the end. */
+function Walker({ progress, done }: { progress: number; done: boolean }) {
+  const pct = Math.min(1, progress) * 100;
+  return (
+    <div className="relative mt-5 h-12" role="progressbar" aria-label="Plans read" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(pct)}>
+      <div className="absolute inset-x-0 bottom-1 h-2 overflow-hidden rounded-full bg-paper-2">
+        <div className="h-full rounded-full bg-volt transition-[width] duration-150 ease-linear" style={{ width: `${pct}%` }} />
+      </div>
+      <div className="absolute bottom-2 transition-[left] duration-150 ease-linear" style={{ left: `calc(${pct}% - ${pct / 100} * 2.5rem)` }}>
+        <Kapi reading className={`h-10 w-10 ${done ? "" : "walk"}`} />
+      </div>
+    </div>
+  );
+}
+
 function Tile({ p, read }: { p: ClientPlan; read: boolean }) {
   const ok = p.status === "verified";
   const back = ok ? "bg-good-2" : p.status === "mismatch" ? "bg-volt-2" : "bg-paper-2";
@@ -202,8 +223,9 @@ function Tile({ p, read }: { p: ClientPlan; read: boolean }) {
           <Kapi reading className="relative h-5 w-5 sm:h-6 sm:w-6" />
           <p className="relative mt-1 hidden text-[11px] leading-tight text-ink-2 sm:line-clamp-2">{title(p.provider)}</p>
         </div>
-        <div className={`flip-face flip-back flex h-full items-center justify-center rounded-md shadow-[var(--shadow-soft)] sm:block sm:rounded-xl sm:p-2 ${back}`}>
+        <div className={`flip-face flip-back flex h-full items-center justify-center rounded-md shadow-[var(--shadow-soft)] sm:block sm:rounded-xl sm:p-2 sm:pr-7 ${back}`}>
           <span aria-hidden className={`text-sm font-bold sm:hidden ${ok ? "text-good" : "text-ink-2"}`}>{ok ? "✓" : p.status === "mismatch" ? "?" : "–"}</span>
+          {ok && read && <span aria-hidden className="stamp absolute right-1.5 top-1.5 hidden h-5 w-5 items-center justify-center rounded-full bg-good text-[11px] font-bold text-paper sm:flex">✓</span>}
           <p className="hidden text-[11px] font-semibold leading-tight sm:line-clamp-2">{p.planName}</p>
           {ok && p.pricing ? (
             <p className="num mt-1 hidden text-[11px] leading-tight sm:block">
