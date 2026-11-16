@@ -48,6 +48,7 @@ const en = {
   // wall
   wallReading: "Reading the fine print…",
   progressName: "Plans read",
+  progressOf: (n: number, total: number) => `${n} of ${total}`,
   wallDone: "Every plan, read.",
   wallIntro: (when: string) => `Each tile is one real Houston plan's fine-print label, read on ${when}. ✓ means our math rebuilt the label's own prices to the tenth of a cent.`,
   counterRead: "read",
@@ -120,6 +121,7 @@ const es: Words = {
   areaQ: "¿Dónde vives?", areaHouston: "Houston (CenterPoint)", areaDallas: "Dallas–Fort Worth (Oncor)",
   wallReading: "Leyendo la letra pequeña…",
   progressName: "Planes leídos",
+  progressOf: (n, total) => `${n} de ${total}`,
   wallDone: "Todos los planes, leídos.",
   wallIntro: (when) => `Cada cuadro es la etiqueta de un plan real de Houston, leída el ${when}. ✓ quiere decir que nuestras cuentas reconstruyeron los precios de la propia etiqueta, al décimo de centavo.`,
   counterRead: "leídos",

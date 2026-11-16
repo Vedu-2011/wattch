@@ -17,10 +17,15 @@ describe("hreflang pair", () => {
 
 describe("share card per page", () => {
   it("keeps usage, area and language; ignores anything else", () => {
-    expect(cardUrl({ kwh: "1500", area: "dallas", lang: "es", a: "1" })).toBe("/api/card?kwh=1500&area=dallas&lang=es");
+    expect(cardUrl({ kwh: "1500", area: "dallas", lang: "es", a: "1", b: "2" })).toBe("/api/card?kwh=1500&lang=es&area=dallas");
     expect(cardUrl({})).toBe("/api/card?kwh=1100");
-    expect(cardUrl({ kwh: "abc", area: "xx", lang: "fr" })).toBe("/api/card?kwh=1100");
     expect(cardUrl({}, { area: "dallas", lang: "es" })).toBe("/api/card?kwh=1100&area=dallas&lang=es");
+    // a plan's own area wins over a stray ?area=
+    expect(cardUrl({ area: "dallas" }, { area: "houston" })).toBe("/api/card?kwh=1100");
+  });
+  it("forwards every setting that changes the result (Codex 15), like the results page does", () => {
+    const u = new URL(cardUrl({ kwh: "900", flat: "1", noauto: "1", m: "1,2,3,4,5,6,7,8,9,10,11,12", lock: "1", green: "1" }), "http://x");
+    for (const k of ["kwh", "flat", "noauto", "m", "lock", "green"]) expect(u.searchParams.has(k), k).toBe(true);
   });
   it("repeats siteName and type (a page's openGraph replaces the layout's)", () => {
     const m = shareMeta("/api/card?kwh=1100");

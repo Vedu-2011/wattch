@@ -1,3 +1,5 @@
+import { RESULT_KEYS } from "@/lib/params";
+
 /**
  * hreflang pair for a page: the same URL with and without ?lang=es, every other setting kept, so search engines
  * know the English and Spanish versions belong together. Relative URLs resolve against metadataBase (layout.tsx).
@@ -16,13 +18,17 @@ export function langPair(path: string, sp: Record<string, string | string[] | un
 type Sp = Record<string, string | string[] | undefined>;
 const first = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
 
-/** The share-card URL for a page: same usage, area and language as the page, so a shared link previews in that language. */
+/**
+ * The share-card URL for a page: every setting that changes the result (usage, own months, flat, autopay, filters,
+ * area, language) — the same list the results page forwards — so a shared link previews exactly what the page shows.
+ * The card route validates each value itself. `over` fills in what the page knows better (a plan's own area).
+ */
 export function cardUrl(sp: Sp, over: { area?: "houston" | "dallas"; lang?: "en" | "es" } = {}): string {
   const q = new URLSearchParams();
-  const kwh = first(sp.kwh);
-  q.set("kwh", kwh && /^\d{2,5}$/.test(kwh) ? kwh : "1100");
-  if ((over.area ?? first(sp.area)) === "dallas") q.set("area", "dallas");
-  if ((over.lang ?? first(sp.lang)) === "es") q.set("lang", "es");
+  for (const k of RESULT_KEYS) { const v = first(sp[k]); if (v !== undefined) q.set(k, v); }
+  if (!q.has("kwh")) q.set("kwh", "1100");
+  if (over.area === "dallas") q.set("area", "dallas"); else if (over.area === "houston") q.delete("area");
+  if (over.lang === "es") q.set("lang", "es");
   return `/api/card?${q}`;
 }
 

@@ -188,4 +188,16 @@
 - [x] S7 Home trap card rotation in Spanish: every trap card text Spanish, numbers match English
 - [x] S8 JUDGE-QA: add Q 'What did you check that a user never sees?' (sitemap, print, keyboard, 320px) — short
 - [x] S9 OG image for /compare (if it uses the default card, log; else check Spanish)
-- [ ] S10 Codex review 15 after S batch
+- [x] S10 Codex review 15 after S batch
+
+## T batch (added 03:30, night 2)
+- [ ] T1 Share-card preview for a /plan link: should it show that plan (not the generic card)? decide + log (no build if big)
+- [x] T2 /api/card?lang=es&area=dallas default card: Spanish city line reads naturally (screen)
+- [x] T3 English pages: same label sweep as S1 (no Spanish leaking into English aria-labels)
+- [x] T4 Wall progress bar: aria-valuetext ('84 of 172') in both languages
+- [x] T5 Footer at 320 Spanish: no wrap mess (screen)
+- [x] T6 Plan page 'Check this label again' button at 320 Spanish: text fits
+- [ ] T7 Remove dead code: grep for exported-but-unused helpers after tonight (ts-prune style via grep), log only unless trivial
+- [ ] T8 Lighthouse / and /es once more after header + Kapi changes
+- [ ] T9 PROGRESS night-2 summary draft (feeds O10)
+- [ ] T10 Codex review 16 after T batch
