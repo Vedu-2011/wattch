@@ -67,6 +67,9 @@ and scripts/link-names.mjs in check-all (same-name links, heading levels, <html 
 **Quality:** 259 tests · lint + build clean · check-all (5 checks) PASS · Codex 28–49 clean or fixed (48 found one, fixed).
 
 **For the planner**
+- Power to Choose changed since the last read (free dry run 06:53): Houston +2 new plans (Varsity TOUCHDOWN 12/24),
+  3 Champion prices +0.1¢; Dallas 2 Varsity price/link changes. Re-read ≈ $0.04 with `scripts/refresh.ts --area all --apply`;
+  not run (Anakin is out of reads and --apply re-downloads every label). Today's numbers still match the labels Wattch read.
 - A month typed as 0 kWh, only with "Count autopay discounts" ON (off by default) → below $0 on 15 of 171 Houston plans
   (lowest −$0.10) and 10 of 154 Dallas (lowest −$0.94). Default setting: never below $0. A $0 floor is a policy call.
 - Idea, not built: search plans by name on the results page / compare. /demo stays English-only (presenter page).
