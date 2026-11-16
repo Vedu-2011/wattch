@@ -120,3 +120,4 @@
 - 2026-11-16 02:37 PT · N9 numbers re-verified + headline.ts arg guard · DONE (5a90148). $0.
 - 2026-11-16 02:37 PT · N10 SCRIPT scene 9 exact clicks · DONE (43ecf95). $0.
 - 2026-11-16 02:38 PT · O1 /es description both areas + meta-check rule · DONE (2fd41bf). $0.
+- 2026-11-16 02:47 PT · Codex 11 fixes + /es static chrome Spanish + 10c script · DONE (219a93a). O3 top-8 at 1920 after chip row: ~1,086 px tall (≈ one screen), chips readable; no scene frames it closely. No change. $0.
