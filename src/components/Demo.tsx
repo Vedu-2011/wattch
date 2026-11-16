@@ -38,6 +38,7 @@ export function Demo({ d }: { d: DemoData }) {
       <p className="mt-6 max-w-3xl text-xl text-paper/80 sm:text-3xl">AI read every plan&apos;s fine-print label. Then plain code rebuilt the label&apos;s own prices to the tenth of a cent — so I know the reading is right.</p>
     </Scene>,
     <Scene key="d" eyebrow={`A Houston home using ${d.kwh.toLocaleString()} kWh a month`}>
+      <Kapi pose="surprised" className="float-right h-20 w-20 sm:h-36 sm:w-36" />
       <p className="display text-[5rem] font-extrabold leading-[0.85] text-volt sm:text-[11rem]"><span className="num"><CountUp value={d.gap} format={money} /></span></p>
       <h2 className="display mt-4 text-3xl font-extrabold leading-tight sm:text-6xl">more a year on the state site&apos;s #1.</h2>
       <p className="mt-4 text-xl text-paper/80 sm:text-3xl">Over a real Houston year it ranks <b className="num text-volt">#{d.pickRank}</b> of {d.ranked}.</p>
@@ -48,6 +49,7 @@ export function Demo({ d }: { d: DemoData }) {
       <p className="mt-4 text-lg text-paper/70 sm:text-2xl">Houston summers clear the line. Spring, fall and winter don&apos;t.</p>
     </Scene>,
     <Scene key="f" eyebrow="The plan that's really cheapest for this home">
+      <Kapi pose="celebrating" className="float-right h-20 w-20 sm:h-32 sm:w-32" />
       <h2 className="display text-4xl font-extrabold leading-tight sm:text-7xl">{d.best.name}</h2>
       <p className="mt-2 text-xl text-paper/70 sm:text-2xl">{tidy(d.best.provider)}</p>
       <div className="mt-8 grid max-w-4xl gap-4 sm:grid-cols-2">

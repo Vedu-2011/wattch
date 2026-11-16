@@ -85,7 +85,7 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons,
     <div className="mx-auto max-w-6xl px-4 pt-6 sm:px-5">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div className="flex items-end gap-3">
-          <Kapi reading className="h-14 w-14 shrink-0" />
+          <Kapi pose={done ? "celebrating" : "reading"} className="h-14 w-14 shrink-0" />
           <div>
             <h1 className="display text-3xl font-extrabold sm:text-4xl">{done ? "Every plan, read." : "Reading the fine print…"}</h1>
             <p className="mt-1 max-w-2xl text-sm text-ink-2">
@@ -112,9 +112,12 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons,
           {ranked.length > 0 ? (
             <Reveal kwh={kwh} seasons={seasons} ranked={ranked} pick={pick} locked={filtered} mine={!!mine} qs={qs} />
           ) : (
-            <div className="rounded-3xl bg-over-2 p-5 shadow-[var(--shadow-soft)]">
-              <p className="text-lg font-bold">No plan passes all your filters.</p>
-              <p className="mt-1 text-ink-2">Turn one of them off below and the list comes back.</p>
+            <div className="flex items-center gap-4 rounded-3xl bg-over-2 p-5 shadow-[var(--shadow-soft)]">
+              <Kapi pose="thinking" className="h-16 w-16 shrink-0" />
+              <div>
+                <p className="text-lg font-bold">No plan passes all your filters.</p>
+                <p className="mt-1 text-ink-2">Turn one of them off below and the list comes back.</p>
+              </div>
             </div>
           )}
 
@@ -265,8 +268,9 @@ function Reveal({ kwh, seasons, ranked, pick, locked, mine, qs }: { kwh: number;
 
   return (
     <div className="space-y-4">
-      <div className="overflow-hidden rounded-[2rem] bg-ink p-5 text-paper shadow-[var(--shadow-lift)] sm:p-8">
-        <p className="text-sm font-semibold text-volt">
+      <div className="relative overflow-hidden rounded-[2rem] bg-ink p-5 text-paper shadow-[var(--shadow-lift)] sm:p-8">
+        <Kapi pose={pickRow && gap >= 1 ? "surprised" : "celebrating"} className="absolute right-4 top-4 h-14 w-14 sm:right-6 sm:top-6 sm:h-24 sm:w-24" />
+        <p className="pr-16 text-sm font-semibold text-volt sm:pr-28">
           {mine ? `With your own 12 months (about ${kwh.toLocaleString()} kWh a month)` : `At ${kwh.toLocaleString()} kWh a month${seasons ? ", with real Houston seasons" : ", same every month"}`}
         </p>
         {pickRow && gap >= 1 ? (
