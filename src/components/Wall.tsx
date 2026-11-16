@@ -148,9 +148,14 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons,
                     <span className="num w-5 text-right text-ink-2">{i + 1}</span>
                     <span className="min-w-0 flex-1">
                       <span className="block truncate font-semibold">{r.plan.planName}</span>
-                      <span className="block truncate text-sm text-ink-2">{title(r.plan.provider)}
-                        {r.plan.pricing!.termMonths <= 3 && <Chip tone="sky">{w.monthPrice(r.plan.pricing!.termMonths)}</Chip>}
-                        {traps(r.plan.pricing!).slice(0, 2).map((t) => <Chip key={t.key} tone={t.tone}>{TRAP_LABELS[lang][t.key] ?? t.label}</Chip>)}</span>
+                      <span className="block truncate text-sm text-ink-2">{title(r.plan.provider)}</span>
+                      {/* own wrapping line, so the trap chips are never cut off on a small phone */}
+                      {(r.plan.pricing!.termMonths <= 3 || traps(r.plan.pricing!).length > 0) && (
+                        <span className="mt-1 flex flex-wrap gap-1">
+                          {r.plan.pricing!.termMonths <= 3 && <Chip tone="sky">{w.monthPrice(r.plan.pricing!.termMonths)}</Chip>}
+                          {traps(r.plan.pricing!).slice(0, 2).map((t) => <Chip key={t.key} tone={t.tone}>{TRAP_LABELS[lang][t.key] ?? t.label}</Chip>)}
+                        </span>
+                      )}
                     </span>
                     <span className="text-right">
                       <span className="num block text-lg font-semibold">{money(r.annual)}<span className="text-sm text-ink-2">{w.perYear}</span></span>
@@ -244,7 +249,7 @@ function Tile({ p, read, w }: { p: ClientPlan; read: boolean; w: Words }) {
 
 function Chip({ tone, children }: { tone: string; children: React.ReactNode }) {
   const c = tone === "over" ? "bg-over-2 text-over" : tone === "sky" ? "bg-[#e1e9fb] text-sky" : "bg-volt-2 text-ink";
-  return <span className={`ml-2 inline-block rounded-full px-2 py-0.5 text-[0.6875rem] font-semibold ${c}`}>{children}</span>;
+  return <span className={`inline-block rounded-full px-2 py-0.5 text-[0.6875rem] font-semibold ${c}`}>{children}</span>;
 }
 
 function creditLine(r: Ranked): number | undefined {

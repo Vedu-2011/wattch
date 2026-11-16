@@ -38,7 +38,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-dvh flex flex-col bg-paper text-ink">
         <header className="no-print mx-auto w-full max-w-6xl px-4 pt-5 flex items-center justify-between gap-2 sm:px-5">
           <Link href="/" className="flex items-center gap-2" aria-label="Wattch home">
-            <Kapi className="h-8 w-8 sm:h-9 sm:w-9" />
+            <Kapi className="h-8 w-8 max-[359px]:hidden sm:h-9 sm:w-9" />
             <span className="display text-xl font-extrabold sm:text-2xl">Wattch</span>
           </Link>
           <div className="flex items-center gap-1 sm:gap-2">
