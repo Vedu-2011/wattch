@@ -105,7 +105,7 @@ export default async function Compare({ searchParams }: PageProps<"/compare">) {
         </div>
         <div className="mt-4 overflow-x-auto" tabIndex={0} role="region" aria-label={t.tableName}>
           <table className="num w-full min-w-[15rem] text-sm max-[359px]:text-xs">
-            <thead className="font-sans text-ink-2"><tr><th className="py-1 pl-2 text-left align-bottom font-medium">{t.month}</th><th className="pl-2 text-right align-bottom font-medium">kWh</th><th className="pl-2 text-right align-bottom font-medium leading-tight">{a.meta.planName}</th><th className="pl-2 pr-2 text-right align-bottom font-medium leading-tight">{b.meta.planName}</th></tr></thead>
+            <thead className="font-sans text-ink-2"><tr><th className="py-1 pl-2 text-left align-bottom font-medium">{t.month}</th><th className="py-1 pl-2 text-right align-bottom font-medium">kWh</th><th className="py-1 pl-2 text-right align-bottom font-medium leading-tight">{a.meta.planName}</th><th className="py-1 pl-2 pr-2 text-right align-bottom font-medium leading-tight">{b.meta.planName}</th></tr></thead>
             <tbody>
               {c.rows.map((r, i) => (
                 <tr key={i} className={i % 2 ? "" : "bg-paper"}>
