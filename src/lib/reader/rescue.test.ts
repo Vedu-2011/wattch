@@ -3,8 +3,8 @@ import { describe, expect, it } from "vitest";
 import { labelCheck, monthlyBill } from "@/lib/bill";
 import type { PlanRecord } from "@/lib/plans/schema";
 import { fillTdu, grounded } from "./parse";
-import { rescue, slipFixes, tduCandidates, textSha, type ManualRead } from "./rescue";
-import { ptcAveragesOnLabel, readSoFedForm } from "./templates";
+import { explainMismatch, rescue, slipFixes, tduCandidates, textSha, type ManualRead } from "./rescue";
+import { ptcAveragesOnLabel, readProntoLabel, readSoFedForm } from "./templates";
 
 // frozen copies of real labels (Nov 15 2026): data/text changes every time a label is re-fetched
 const text = (id: string) => readFileSync(`test-data/labels/${id}.txt`, "utf8");
@@ -87,6 +87,33 @@ describe("hand-reads in data/manual are still checked by code", () => {
     expect(m.textSha256).toBe(textSha(text("35975")));
     expect(rescue(rec, text("35975"), CNP, m)).not.toBeNull();
     expect(rescue(rec, text("35975") + "\nUpdated label: energy charge 15.00¢", CNP, m)).toBeNull();
+  });
+});
+
+describe("Pronto Power labels (prepaid, real text)", () => {
+  it("Saver One: bundled 17.53¢ rate + $0.39/day × 30 → 19.9 / 18.7 / 18.1", () => {
+    const p = readProntoLabel(text("36326"))!;
+    expect(p.energyTiers[0].cents).toBe(17.53);
+    expect(p.baseChargeDollars).toBe(11.7);
+    expect([p.tduCentsPerKwh, p.tduMonthlyDollars]).toEqual([0, 0]);
+    expect(labelCheck(p).rows.map((r) => r.ours)).toEqual([19.9, 18.7, 18.1]);
+  });
+  it("Fall 2026: energy 8.3067¢ + printed CenterPoint delivery + daily fee → 18.2 / 16.5 / 15.7; $50 fee, 3 months", () => {
+    const p = readProntoLabel(text("36760"))!;
+    expect([p.energyTiers[0].cents, p.tduCentsPerKwh, p.tduMonthlyDollars]).toEqual([8.3067, 6.5333, 4.9]);
+    expect([p.termMonths, p.earlyTerminationFee.dollars]).toEqual([3, 50]);
+    expect(labelCheck(p).ok).toBe(true);
+  });
+  it("'Power To Choose' plan: its printed charges don't add up to its averages → explained, not verified", () => {
+    const rec = { meta: { ptc: { k500: 17.6, k1000: 15.9, k2000: 15.1 } }, pricing: null,
+      check: { status: "mismatch", rows: [], message: "" } } as unknown as PlanRecord;
+    expect(rescue({ ...rec, read: { parsedBy: "x" } } as PlanRecord, text("33670"), CNP)).toBeNull();
+    const e = explainMismatch(text("33670"), rec);
+    expect(e.check.message).toContain("come to 18.2¢ / 17.1¢ / 16.5¢, not the 17.6¢ / 15.9¢ / 15.1¢");
+    expect(e.check.rows.every((r) => !r.ok)).toBe(true);
+  });
+  it("only applies to Pronto labels", () => {
+    expect(readProntoLabel(text("36619"))).toBeNull();
   });
 });
 

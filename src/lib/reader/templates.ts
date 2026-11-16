@@ -39,6 +39,39 @@ export function readSoFedForm(text: string, ptc: Avg): PlanPricing | null {
 }
 
 /**
+ * Pronto Power (prepaid) labels print one row of FOUR prices: the rate, then the averages at 500 / 1,000 / 2,000 kWh,
+ * e.g. "17.53¢ 19.9¢ 18.7¢ 18.1¢". The averages are "based on 30 days usage" and include a "$0.39 per day"
+ * customer fee, so the monthly fee is 30 × $0.39. Delivery is either printed ("passed through … $4.90 per month and
+ * … 6.5333¢ per kWh", with a separate energy charge) or bundled into the rate.
+ */
+export function readProntoLabel(text: string): PlanPricing | null {
+  const flat = text.replace(/\s+/g, " ");
+  if (!/Pronto Power/i.test(flat) || !/Based on 30 days/i.test(flat)) return null;
+  const fee = flat.match(/daily customer fee[^$]{0,10}\$(\d+\.\d+)/i);
+  const row = flat.match(/(\d+\.\d+)¢ (\d+\.\d+)¢ (\d+\.\d+)¢ (\d+\.\d+)¢/);
+  if (!fee || !row) return null;
+  const [rate, a500, a1000, a2000] = row.slice(1, 5).map(Number);
+  const energy = flat.match(/Energy Charge \(per kWh\) (\d+\.\d+)¢/i);
+  const tdu = flat.match(/\$(\d+\.\d{2}) per month and a delivery charge of (\d+\.\d+)¢ per kWh/i);
+  const term = flat.match(/(\d+) Months/);
+  const etf = flat.match(/Yes, \$(\d+(?:\.\d{2})?)/);
+  return {
+    baseChargeDollars: Math.round(Number(fee[1]) * 30 * 100) / 100,
+    energyTiers: [{ fromKwh: 0, cents: energy && tdu ? Number(energy[1]) : rate }],
+    tduCentsPerKwh: energy && tdu ? Number(tdu[2]) : 0,
+    tduMonthlyDollars: energy && tdu ? Number(tdu[1]) : 0,
+    credits: [],
+    usageFees: [{ belowKwh: 26, dollars: 0.5, label: "Fee if a billing period's use is under 26 kWh" }].filter(() => /less than 26 kWh/i.test(flat)),
+    amortizedFees: [],
+    touPeriods: [],
+    termMonths: term ? Number(term[1]) : 0,
+    earlyTerminationFee: { dollars: etf ? Number(etf[1]) : 0, perMonthRemaining: false },
+    labelAvg: { k500: a500, k1000: a1000, k2000: a2000 },
+    notes: [`Prepaid. A $${fee[1]} daily fee (about $${(Number(fee[1]) * 30).toFixed(2)} a month) is in the averages.`],
+  };
+}
+
+/**
  * The reader sometimes copies the wrong number into the averages (e.g. a "37.2 %" renewable figure).
  * Power to Choose lists each plan's three averages too. When all three of those literally appear on the
  * label in the right order, trust them over the reader's copy.

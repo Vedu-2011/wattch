@@ -3,8 +3,8 @@
  "source": "https://www.powertochoose.org/en-us/Plan/ExportToCsv",
  "model": "claude-haiku-5-5",
  "counts": {
-  "verified": 169,
-  "mismatch": 3
+  "verified": 171,
+  "mismatch": 1
  },
  "plans": [
   {
@@ -9618,7 +9618,7 @@
     }
    },
    "pricing": {
-    "baseChargeDollars": 0,
+    "baseChargeDollars": 11.7,
     "energyTiers": [
      {
       "fromKwh": 0,
@@ -9632,7 +9632,7 @@
      {
       "belowKwh": 26,
       "dollars": 0.5,
-      "label": "Fee if billing-period usage is less than 26 kWh"
+      "label": "Fee if a billing period's use is under 26 kWh"
      }
     ],
     "amortizedFees": [],
@@ -9648,10 +9648,7 @@
      "k2000": 15.1
     },
     "notes": [
-     "Daily customer fee of $0.39 per day applies on top of energy price",
-     "Fee of $0.50 if billing-period usage is under 26 kWh",
-     "Negative account balances get billed $0.01 higher per kWh",
-     "Price may change without notice on subsequent purchases"
+     "Prepaid. A $0.39 daily fee (about $11.70 a month) is in the averages."
     ]
    },
    "read": {
@@ -9667,23 +9664,23 @@
      {
       "kwh": 500,
       "printed": 17.6,
-      "ours": 15.9,
+      "ours": 18.2,
       "ok": false
      },
      {
       "kwh": 1000,
       "printed": 15.9,
-      "ours": 15.9,
-      "ok": true
+      "ours": 17.1,
+      "ok": false
      },
      {
       "kwh": 2000,
       "printed": 15.1,
-      "ours": 15.9,
+      "ours": 16.5,
       "ok": false
      }
     ],
-    "message": "Our math didn't match the label."
+    "message": "The label's own charges (15.9¢ per kWh plus a $0.39 daily fee) come to 18.2¢ / 17.1¢ / 16.5¢, not the 17.6¢ / 15.9¢ / 15.1¢ it prints."
    }
   },
   {
@@ -9706,7 +9703,7 @@
     }
    },
    "pricing": {
-    "baseChargeDollars": 0.39,
+    "baseChargeDollars": 11.7,
     "energyTiers": [
      {
       "fromKwh": 0,
@@ -9716,7 +9713,13 @@
     "tduCentsPerKwh": 6.5333,
     "tduMonthlyDollars": 4.9,
     "credits": [],
-    "usageFees": [],
+    "usageFees": [
+     {
+      "belowKwh": 26,
+      "dollars": 0.5,
+      "label": "Fee if a billing period's use is under 26 kWh"
+     }
+    ],
     "amortizedFees": [],
     "touPeriods": [],
     "termMonths": 3,
@@ -9725,47 +9728,44 @@
      "perMonthRemaining": false
     },
     "labelAvg": {
-     "k500": 16.5,
-     "k1000": 18.2,
-     "k2000": 16.5
+     "k500": 18.2,
+     "k1000": 16.5,
+     "k2000": 15.7
     },
     "notes": [
-     "Daily customer fee $0.39 per day, about $11.70 per 30 days.",
-     "Early termination fee is $50.00.",
-     "Usage under 26 kWh per billing period incurs a $0.50 fee.",
-     "Pre-pay/pay-as-you-go product; no promotional credits offered."
+     "Prepaid. A $0.39 daily fee (about $11.70 a month) is in the averages."
     ]
    },
    "read": {
     "fetchedAt": "2026-11-16T06:50:10.949Z",
     "via": "direct",
     "sha256": "0be98e95824b58df84b5fc8add9bd911da3bf4c54f5e12926204b95e5c288378",
-    "parsedBy": "claude-haiku-5-5",
+    "parsedBy": "code (Pronto label reader)",
     "readMs": 4699
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
-      "printed": 16.5,
-      "ours": 15.9,
-      "ok": false
+      "printed": 18.2,
+      "ours": 18.2,
+      "ok": true
      },
      {
       "kwh": 1000,
-      "printed": 18.2,
-      "ours": 15.4,
-      "ok": false
+      "printed": 16.5,
+      "ours": 16.5,
+      "ok": true
      },
      {
       "kwh": 2000,
-      "printed": 16.5,
-      "ours": 15.1,
-      "ok": false
+      "printed": 15.7,
+      "ours": 15.7,
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "message": "Read by code: the label prints its rate and the 3 averages in one row, and a daily fee over 30 days; all 3 match."
    }
   },
   {
@@ -9788,11 +9788,11 @@
     }
    },
    "pricing": {
-    "baseChargeDollars": 0,
+    "baseChargeDollars": 11.7,
     "energyTiers": [
      {
       "fromKwh": 0,
-      "cents": 18.1
+      "cents": 17.53
      }
     ],
     "tduCentsPerKwh": 0,
@@ -9802,7 +9802,7 @@
      {
       "belowKwh": 26,
       "dollars": 0.5,
-      "label": "Fee if billing-period usage is less than 26 kWh"
+      "label": "Fee if a billing period's use is under 26 kWh"
      }
     ],
     "amortizedFees": [],
@@ -9813,47 +9813,44 @@
      "perMonthRemaining": false
     },
     "labelAvg": {
-     "k500": 17.53,
-     "k1000": 19.9,
-     "k2000": 18.7
+     "k500": 19.9,
+     "k1000": 18.7,
+     "k2000": 18.1
     },
     "notes": [
-     "Daily customer fee of $0.39 per day applies on top of price",
-     "Price is bundled; CenterPoint delivery charges are included",
-     "$0.50 fee if billing period usage is under 26 kWh",
-     "Negative balances are billed an extra 1¢ per kWh"
+     "Prepaid. A $0.39 daily fee (about $11.70 a month) is in the averages."
     ]
    },
    "read": {
     "fetchedAt": "2026-11-16T06:50:04.823Z",
     "via": "direct",
     "sha256": "20d87932f0f16583be6a40163bd6d2bec8142be57b8ff9121002dfce0eef8d34",
-    "parsedBy": "claude-haiku-5-5",
+    "parsedBy": "code (Pronto label reader)",
     "readMs": 6123
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
-      "printed": 17.53,
-      "ours": 18.1,
-      "ok": false
+      "printed": 19.9,
+      "ours": 19.9,
+      "ok": true
      },
      {
       "kwh": 1000,
-      "printed": 19.9,
-      "ours": 18.1,
-      "ok": false
+      "printed": 18.7,
+      "ours": 18.7,
+      "ok": true
      },
      {
       "kwh": 2000,
-      "printed": 18.7,
+      "printed": 18.1,
       "ours": 18.1,
-      "ok": false
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "message": "Read by code: the label prints its rate and the 3 averages in one row, and a daily fee over 30 days; all 3 match."
    }
   },
   {

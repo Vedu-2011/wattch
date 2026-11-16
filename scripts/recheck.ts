@@ -6,7 +6,7 @@
 import { readFile, readdir, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import type { PlanRecord } from "../src/lib/plans/schema";
-import { rescue, tduCandidates, type ManualRead } from "../src/lib/reader/rescue";
+import { explainMismatch, rescue, tduCandidates, type ManualRead } from "../src/lib/reader/rescue";
 
 async function main() {
   const file = "data/plans.json";
@@ -21,8 +21,10 @@ async function main() {
     if (r.check.status === "verified") continue;
     const tf = `data/text/${r.meta.id}.txt`;
     if (!existsSync(tf)) continue;
-    const fix = rescue(r, await readFile(tf, "utf8"), tdu, manual.get(r.meta.id));
+    const text = await readFile(tf, "utf8");
+    const fix = rescue(r, text, tdu, manual.get(r.meta.id));
     if (!fix) {
+      if (r.check.status === "mismatch") Object.assign(r, explainMismatch(text, r));
       console.log(`still ${r.check.status.padEnd(8)} ${r.meta.provider} — ${r.meta.planName}`);
       continue;
     }

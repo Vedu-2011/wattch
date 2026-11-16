@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 import { labelCheck, type CheckRow } from "@/lib/bill";
 import { PlanPricing, type PlanRecord } from "@/lib/plans/schema";
 import { fillTdu, grounded } from "./parse";
-import { ptcAveragesOnLabel, readSoFedForm } from "./templates";
+import { ptcAveragesOnLabel, readProntoLabel, readSoFedForm } from "./templates";
 
 export type TduCandidate = { cents: number; monthly: number };
 /** A hand-read pinned to the exact label text it was read from (sha256 of data/text/<id>.txt). */
@@ -52,6 +52,11 @@ export function rescue(rec: PlanRecord, text: string, tdu: TduCandidate[], manua
     const c = check(form, tdu);
     if (c) return { ...c, parsedBy: "code (form-field reader)", message: "Read by code from the label's form fields; all 3 averages match." };
   }
+  const pronto = readProntoLabel(text);
+  if (pronto) {
+    const c = check(pronto, tdu);
+    if (c) return { ...c, parsedBy: "code (Pronto label reader)", message: "Read by code: the label prints its rate and the 3 averages in one row, and a daily fee over 30 days; all 3 match." };
+  }
   if (manual && manual.textSha256 === textSha(text)) {
     const parsed = PlanPricing.safeParse(manual.pricing);
     if (parsed.success && grounded(text, parsed.data)) {
@@ -83,6 +88,38 @@ export function slipFixes(p: PlanPricing): { pricing: PlanPricing; why: string }
     });
   }
   return out;
+}
+
+/**
+ * When nothing rescues a plan, say WHY in plain words — found by code from the label text, not guessed.
+ */
+export function mismatchReason(text: string, rec: Pick<PlanRecord, "meta" | "pricing">): string {
+  const pronto = readProntoLabel(text);
+  if (pronto) {
+    const rows = labelCheck(pronto).rows;
+    const a = pronto.labelAvg;
+    return `The label's own charges (${pronto.energyTiers[0].cents}¢ per kWh plus a $${(pronto.baseChargeDollars / 30).toFixed(2)} daily fee) come to ${rows.map((r) => r.ours + "¢").join(" / ")}, not the ${a.k500}¢ / ${a.k1000}¢ / ${a.k2000}¢ it prints.`;
+  }
+  const blank = text.match(/\{[A-Za-z]+\}/);
+  if (blank) {
+    return `The provider published this label with blank template fields (it literally prints "${blank[0]}"), so its own prices can't be checked against each other.`;
+  }
+  const { k500, k1000, k2000 } = rec.meta.ptc;
+  if (k500 > 0 && !ptcAveragesOnLabel(text, rec.meta.ptc)) {
+    const onLabel = rec.pricing && grounded(text, rec.pricing);
+    if (!onLabel) {
+      return `This label's average-price row is empty. Power to Choose lists ${k500}¢ / ${k1000}¢ / ${k2000}¢, but the label itself doesn't print them, so there's nothing to check against.`;
+    }
+  }
+  return "Our math didn't match the label.";
+}
+
+/** For a plan nothing rescued: the plain reason, plus the code's own read and rows when a template reader applies. */
+export function explainMismatch(text: string, rec: PlanRecord): Pick<PlanRecord, "pricing" | "check"> {
+  const pronto = readProntoLabel(text);
+  const pricing = pronto ?? rec.pricing;
+  const rows = pronto ? labelCheck(pronto).rows : rec.check.rows;
+  return { pricing, check: { status: "mismatch", rows, message: mismatchReason(text, rec) } };
 }
 
 /** The CenterPoint delivery charges most verified labels print, most common first. */

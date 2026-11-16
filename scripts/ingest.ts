@@ -8,7 +8,7 @@ import { existsSync } from "node:fs";
 import { houstonPlans, PTC_CSV_URL } from "../src/lib/plans/ptc";
 import { anakinRead, fetchEfl } from "../src/lib/reader/fetchEfl";
 import { parseEfl, READER_MODEL } from "../src/lib/reader/parse";
-import { rescue, tduCandidates, type ManualRead } from "../src/lib/reader/rescue";
+import { explainMismatch, rescue, tduCandidates, type ManualRead } from "../src/lib/reader/rescue";
 import type { PlanPricing, PlanRecord } from "../src/lib/plans/schema";
 
 const args = process.argv.slice(2);
@@ -85,8 +85,12 @@ async function main() {
   }
   for (const r of results) {
     if (r.check.status === "verified" || !existsSync(`data/text/${r.meta.id}.txt`)) continue;
-    const fix = rescue(r, await readFile(`data/text/${r.meta.id}.txt`, "utf8"), tdu, manual.get(r.meta.id), drafts.get(r.meta.id));
-    if (!fix) continue;
+    const text = await readFile(`data/text/${r.meta.id}.txt`, "utf8");
+    const fix = rescue(r, text, tdu, manual.get(r.meta.id), drafts.get(r.meta.id));
+    if (!fix) {
+      if (r.check.status === "mismatch") Object.assign(r, explainMismatch(text, r));
+      continue;
+    }
     r.pricing = fix.pricing;
     r.read = { ...r.read, parsedBy: fix.parsedBy };
     r.check = { status: "verified", rows: fix.rows, message: fix.message, ...(fix.tduFilled ? { tduFilled: true } : {}) };
