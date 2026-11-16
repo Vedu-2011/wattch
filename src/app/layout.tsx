@@ -1,7 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Inter, JetBrains_Mono } from "next/font/google";
 import Link from "next/link";
+import { Fresh } from "@/components/Fresh";
 import { Kapi } from "@/components/Kapi";
+import { snapshotInfo } from "@/lib/plans/data";
 import "./globals.css";
 
 const display = Bricolage_Grotesque({ variable: "--font-display", subsets: ["latin"], weight: ["600", "700", "800"] });
@@ -15,6 +17,17 @@ export const metadata: Metadata = {
 };
 export const viewport: Viewport = { themeColor: "#f5efe3" };
 
+/** When the plan list was last read, and how many labels add up. From data/plans.json, never typed by hand. */
+function FreshBadge() {
+  const verified = snapshotInfo.counts.verified ?? 0;
+  return (
+    <Link href="/how" className={`inline-flex items-center gap-2 rounded-full bg-good-2 px-3 py-1 text-xs font-medium text-ink hover:brightness-95`}>
+      <span aria-hidden className="h-2 w-2 rounded-full bg-good" />
+      <span><span className="num">{verified}</span> of <span className="num">{snapshotInfo.total}</span> labels check out · <Fresh at={snapshotInfo.builtAt} prefix="read" /></span>
+    </Link>
+  );
+}
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable} antialiased`}>
@@ -24,11 +37,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <Kapi className="h-9 w-9" />
             <span className="display text-2xl font-extrabold">Wattch</span>
           </Link>
-          <nav className="flex gap-1 text-sm font-medium">
-            <Link className="rounded-full px-3 py-1.5 hover:bg-paper-2" href="/how">How it works</Link>
-            <Link className="rounded-full px-3 py-1.5 hover:bg-paper-2" href="/sources">Sources</Link>
-          </nav>
+          <div className="flex items-center gap-2">
+            <span className="hidden md:block"><FreshBadge /></span>
+            <nav className="flex gap-1 text-sm font-medium">
+              <Link className="rounded-full px-3 py-1.5 hover:bg-paper-2" href="/how">How it works</Link>
+              <Link className="rounded-full px-3 py-1.5 hover:bg-paper-2" href="/sources">Sources</Link>
+            </nav>
+          </div>
         </header>
+        <div className="mx-auto mt-2 w-full max-w-6xl px-5 md:hidden"><FreshBadge /></div>
         <main className="flex-1">{children}</main>
         <footer className="mx-auto w-full max-w-6xl px-5 py-10 text-sm text-ink-2">
           Wattch shows the math. Always open the plan&apos;s fine print before you switch. Prices before taxes.

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CliffChart } from "@/components/CliffChart";
+import { Fresh } from "@/components/Fresh";
+import { LiveCheck } from "@/components/LiveCheck";
 import { YearBars } from "@/components/YearBars";
 import { annualCost, billLines, monthlyBill } from "@/lib/bill";
 import { whyLine, yearFor } from "@/lib/rank";
@@ -23,7 +25,7 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
   const why = p ? whyLine(p, months) : null;
   const line = p?.credits.filter((c) => !c.conditional && c.minKwh > 0).sort((a, b) => b.dollars - a.dollars)[0]?.minKwh;
   const back = `kwh=${kwh}${seasons ? "" : "&flat=1"}`;
-  const read = new Date(rec.read.fetchedAt).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+  const read = new Date(rec.read.fetchedAt).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit", timeZone: "America/Chicago" });
   return (
     <div className="mx-auto max-w-4xl px-5 pt-6">
       <Link href={`/wall?${back}`} className="text-sm font-medium text-ink-2 hover:text-ink">← All plans</Link>
@@ -52,8 +54,9 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
           {rec.check.status === "verified" && (rec.check.tduFilled || !rec.read.parsedBy.startsWith("claude")) && (
             <p className="mt-2 text-sm text-ink-2">{rec.check.message}</p>
           )}
+          <LiveCheck id={id} />
           <p className="mt-3 text-xs text-ink-2">
-            Fine print fetched {read} {rec.read.via === "anakin" ? "through Anakin.io (the page needed a real browser)" : "straight from the provider"} ·{" "}
+            Fine print fetched {read} CT (<Fresh at={rec.read.fetchedAt} prefix="" />) {rec.read.via === "anakin" ? "through Anakin.io (the page needed a real browser)" : "straight from the provider"} ·{" "}
             {rec.read.parsedBy.startsWith("hand-read") ? rec.read.parsedBy : `read by ${rec.read.parsedBy}`}.{" "}
             <a className="underline" href={rec.meta.eflUrl} target="_blank" rel="noreferrer">Open the original label</a>
           </p>

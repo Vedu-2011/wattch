@@ -2,7 +2,7 @@
 ## A. Data + engine (the core must be bulletproof)
 - [x] Paid re-read with the new prompt: `npx tsx scripts/ingest.ts --redo-failed --force` then re-read the 31 labels whose text changed; keep hand-reads that still verify; log $ — verified count ≥ 161, every verified plan still passes the snapshot test
 - [x] The 8 unread (Express/Veteran/TriEagle blob-iframe EFLs): try Anakin.io browser options from its docs (anakin.io/docs/api-reference/url-scraper — wait/render/PDF options) or the provider's direct PDF endpoint; if truly impossible, show them honestly as "couldn't open" with the reason — each of the 8 either verified or has a clear reason in the UI
-- [ ] The 3 remaining mismatches: read each label by hand, find the exact cause, fix code (not data) if it's a pattern — each one verified or explained on its plan page
+- [x] The 3 remaining mismatches: read each label by hand, find the exact cause, fix code (not data) if it's a pattern — each one verified or explained on its plan page
 - [ ] Freshness: a "prices checked <time ago>" badge on every page + /api/live used on the plan page ("Check this label again now" button shows same/changed in plain words) — button works on a real plan
 - [ ] Houston-only seasons if a real source exists (ERCOT residential load profile for the COAST weather zone); otherwise keep Texas seasons and say why in /sources — source quoted in docs/SOURCES.md or decision logged
 ## B. The "insane" demo features (judges must SEE these)
