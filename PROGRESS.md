@@ -107,3 +107,5 @@
 - 2026-11-16 02:23 PT · M2+M3 320px header + wall chips fix · DONE (ac85cab). $0.
 - 2026-11-16 02:23 PT · M4 gallery 8 regenerated (6fddf45). Codex review 10 started (since 195946f). $0.
 - 2026-11-16 02:24 PT · M6 README commands + season-script guard · DONE (fb2a17c). Incident: houston_seasons.py with no args emptied data/sources/ercot-coast-residential-monthly.csv during the check; restored from HEAD (git show), nothing lost. $0.
+- 2026-11-16 02:24 PT · M7 Spanish .ics fold test · DONE (9ada7d2). 201 tests. $0.
+- 2026-11-16 02:25 PT · M8 Lighthouse /sources?lang=es 95/100/100/100, /compare?lang=es 95/100/100/100 (CLS 0). M5 Codex review 10 (195946f..6fddf45): no findings. fb2a17c + 9ada7d2 (script guard, ics test) landed after it started — next review covers them. $0.
