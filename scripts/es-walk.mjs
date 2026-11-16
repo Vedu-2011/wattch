@@ -8,6 +8,8 @@ const BASE = process.env.BASE ?? "http://localhost:3000";
 const OUT = fileURLToPath(new URL("../docs/screenshots/overnight-2/es-walk/", import.meta.url));
 const CHROME = process.env.CHROME_PATH ?? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 // common English words that never belong in our Spanish copy
+// words that only showed up in English screen-reader labels (Kapi's description, the progress bar, the home link)
+const LABEL_EN = /\b(capybara|Plans read|home|fresh)\b/i;
 const EN = /\b(the|your|you|every|month|months|bill|costs|price|Already|Change|Close|Search|Switch|Wait|Share|Remind|Home|plans? we)\b/;
 
 const b = await chromium.launch({ executablePath: CHROME });
@@ -21,9 +23,12 @@ for (const width of [375, 1440]) {
       c.querySelectorAll("[lang=en]").forEach((e) => e.remove());
       // plan and provider names are proper nouns; they stay as the label prints them
       const names = [...document.querySelectorAll("main a, main .font-semibold, main .font-bold, main h3")].map((e) => e.innerText.trim()).filter((s) => s.length > 3 && s.length < 60);
-      return { text: c.innerText, names };
+      // what screen readers say but nobody sees: aria-labels and alt text on the whole page (header + footer too)
+      const labels = [...document.querySelectorAll("[aria-label], img[alt]")].filter((e) => !e.closest("[lang=en]"))
+        .map((e) => e.getAttribute("aria-label") ?? e.getAttribute("alt") ?? "");
+      return { text: c.innerText + "\n" + labels.join("\n"), names };
     });
-    const hits = text.split("\n").filter((l) => EN.test(l) && !names.some((n) => l.includes(n)));
+    const hits = text.split("\n").filter((l) => (EN.test(l) || LABEL_EN.test(l)) && !names.some((n) => l.includes(n)));
     await pg.screenshot({ path: `${OUT}${step}-${width}.png` });
     console.log(hits.length ? "ENGLISH" : "ok     ", width, step.padEnd(8), new URL(pg.url()).pathname + new URL(pg.url()).search, hits.length ? "\n   " + hits.slice(0, 6).join("\n   ") : "");
     bad += hits.length;

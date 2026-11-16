@@ -1,22 +1,15 @@
 /**
  * Kapi — Wattch's capybara. Original drawing.
  * Poses: default (lightning bolt), reading (magnifying glass), thinking, surprised, celebrating.
+ * Decorative: the words next to Kapi always say what is going on, so screen readers skip it (in every language).
  */
 export type KapiPose = "default" | "reading" | "thinking" | "surprised" | "celebrating";
-
-const LABEL: Record<KapiPose, string> = {
-  default: "Kapi the capybara",
-  reading: "Kapi the capybara, reading with a magnifying glass",
-  thinking: "Kapi the capybara, thinking",
-  surprised: "Kapi the capybara, surprised",
-  celebrating: "Kapi the capybara, celebrating",
-};
 
 export function Kapi({ className = "", reading = false, pose }: { className?: string; reading?: boolean; pose?: KapiPose }) {
   const p: KapiPose = pose ?? (reading ? "reading" : "default");
   const ink = "#1b1611", brown = "#3b2614";
   return (
-    <svg viewBox="0 0 64 64" className={className} role="img" aria-label={LABEL[p]}>
+    <svg viewBox="0 0 64 64" className={className} aria-hidden="true" focusable="false">
       <ellipse cx="32" cy="40" rx="22" ry="17" fill="#a8774a" />
       <ellipse cx="32" cy="42" rx="16" ry="11" fill="#c08f5f" />
       <rect x="15" y="16" width="34" height="26" rx="13" fill="#a8774a" />

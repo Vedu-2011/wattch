@@ -104,7 +104,7 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons,
         </div>
       </div>
 
-      <Walker progress={readIds.size / Math.max(plans.length, 1)} done={done} />
+      <Walker progress={readIds.size / Math.max(plans.length, 1)} done={done} label={w.progressName} />
 
       <div className="mt-4 grid grid-cols-10 gap-1 sm:grid-cols-8 sm:gap-2 lg:grid-cols-12">
         {plans.map((p) => <Tile key={p.id} p={p} read={readIds.has(p.id)} w={w} />)}
@@ -204,10 +204,10 @@ function Counter({ label, value, of, tone }: { label: string; value: number; of?
 }
 
 /** Kapi walks along a track as the plans get read, then sits at the end. */
-function Walker({ progress, done }: { progress: number; done: boolean }) {
+function Walker({ progress, done, label }: { progress: number; done: boolean; label: string }) {
   const pct = Math.min(1, progress) * 100;
   return (
-    <div className="relative mt-5 h-12" role="progressbar" aria-label="Plans read" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(pct)}>
+    <div className="relative mt-5 h-12" role="progressbar" aria-label={label} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(pct)}>
       <div className="absolute inset-x-0 bottom-1 h-2 overflow-hidden rounded-full bg-paper-2">
         <div className="h-full rounded-full bg-volt transition-[width] duration-150 ease-linear" style={{ width: `${pct}%` }} />
       </div>

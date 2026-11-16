@@ -41,7 +41,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </head>
       <body className="min-h-dvh flex flex-col bg-paper text-ink">
         <header className="no-print mx-auto w-full max-w-6xl px-4 pt-5 flex items-center justify-between gap-2 sm:px-5">
-          <Link href="/" className="flex items-center gap-2" aria-label="Wattch home">
+          <Link href="/" className="flex items-center gap-2" aria-label="Wattch">
             <Kapi className="h-8 w-8 max-[359px]:hidden sm:h-9 sm:w-9" />
             <span className="display text-xl font-extrabold sm:text-2xl">Wattch</span>
           </Link>
@@ -51,7 +51,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <Suspense fallback={<NavView lang="en" />}><Nav /></Suspense>
           </div>
         </header>
-        <aside aria-label="How fresh the data is" className="no-print mx-auto mt-2 w-full max-w-6xl px-5 md:hidden"><FreshBadge /></aside>
+        <div className="no-print mx-auto mt-2 w-full max-w-6xl px-5 md:hidden"><FreshBadge /></div>
         <main className="flex-1">{children}</main>
         <footer className="no-print mx-auto w-full max-w-6xl px-5 py-10 text-sm text-ink-2">
           <Suspense fallback={<FooterView lang="en" />}><Footer /></Suspense>

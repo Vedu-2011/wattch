@@ -179,7 +179,7 @@
 - [x] R10 Codex review 14 after R batch
 
 ## S batch (added 03:18, night 2)
-- [ ] S1 Tiles at 375 (phone wall): the short ✓/?/– tiles — any with no accessible name? (axe passes; check title/aria)
+- [x] S1 Tiles at 375 (phone wall): the short ✓/?/– tiles — any with no accessible name? (axe passes; check title/aria)
 - [x] S2 Plan page at 320 Spanish: bill lines + highlight table no overflow (widths covers page; check inner tables)
 - [ ] S3 /traps 1920 screenshot per trap kind for the deck (Houston EN)
 - [x] S4 Long provider names on plan page header at 320 (longest provider in data) — wraps cleanly?
