@@ -57,6 +57,13 @@ for (const u of ["/plan/31967?area=dallas", "/plan/31967?area=dallas&lang=es"]) 
   console.log(ok ? "ok     " : "UNREAD ", u, ok ? "" : "\n   " + tags);
   bad += ok ? 0 : 1;
 }
+// a plan whose label doesn't add up must say so in its preview
+for (const u of ["/plan/33670", "/plan/33670?lang=es"]) {
+  const d = ((await page(u)).match(OWN) ?? []).join(" ");
+  const ok = !/checked|revisada/.test(d) && /don(.|&#x27;)t add up|no cuadra/.test(d) && /no dan los precios|don(.|&#x27;)t add up to/.test(d);
+  console.log(ok ? "ok     " : "MISMATCH", u, ok ? "" : "\n   " + d);
+  bad += ok ? 0 : 1;
+}
 // robots keeps the scripted walk-through and the APIs out; the sitemap must be valid XML (a raw "&" breaks the whole file)
 {
   const robots = await page("/robots.txt");

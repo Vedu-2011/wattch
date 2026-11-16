@@ -668,5 +668,17 @@
 - [x] BG6 Live re-check on an unread plan: message makes sense
 - [x] BG7 Fix anything found + tests
 - [x] BG8 STATUS line
-- [ ] BG9 Codex if code changed
+- [x] BG9 Codex if code changed
 - [x] BG10 PROGRESS line
+
+## BH batch (added 05:57, night 2) — plans whose numbers don't add up (3)
+- [x] BH1 Mismatch plan link preview: says its numbers don't add up, not just 'checked' (EN/ES)
+- [x] BH2 Mismatch plan page: bill shown with the 'rough guide' note, EN + ES
+- [x] BH3 Mismatch plan share card falls back to the general card
+- [x] BH4 meta-check covers a mismatch plan
+- [x] BH5 /how mismatch count matches data (Houston 1, Dallas 2)
+- [x] BH6 Tests
+- [x] BH7 Full verify
+- [x] BH8 STATUS line
+- [ ] BH9 Codex review
+- [x] BH10 PROGRESS line
