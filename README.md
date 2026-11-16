@@ -17,6 +17,12 @@ match within 0.1¢. Bills, yearly cost, ranking, cliffs and every "why" line are
   (e.g. "Its $125 credit only kicks in at 1,000 kWh. You'd miss it 6 months a year").
 - **Houston seasons** — 12 real months shaped by ERCOT grid data for the Coast zone, not one flat month.
 - **Plan pages** — the label check table, your bill line by line, your year, and a bill-vs-usage chart with price cliffs.
+- **Fine-print highlighter** — on each plan page, hover a bill line and the exact number it came from lights up in the label text.
+- **Your own 12 months** — type your usage from your bills instead of using an average.
+- **Filters** — price locked 12+ months, no bill-credit cliffs, 50%+ renewable, 4+ stars; autopay discounts on/off. Every setting lives in the URL.
+- **Already on a plan?** — switch-or-wait math with your plan's real early-exit fee.
+- **/compare** — two plans month by month. **/traps** — every kind of catch, each with a real plan. **/demo** — a click-free walk-through for presenting.
+- **Check this label again now** — re-downloads a label live and says whether the prices changed.
 - **Share card + QR** for trying it on your own phone.
 
 ## AI tools used
@@ -26,11 +32,13 @@ match within 0.1¢. Bills, yearly cost, ranking, cliffs and every "why" line are
 | **Claude Code** (Anthropic) | Coding assistant: wrote and tested much of the code, the data fixes, and the UI. |
 | **Codex** (OpenAI) | Coding assistant and code reviewer before each push. |
 | **Claude** (claude.ai chat) | Planning, architecture, and writing prompts/docs. |
+| *(not AI)* Playwright, axe-core, Lighthouse | Screenshots, accessibility and performance checks. |
 | **Anakin.io** (sponsor) | Opens fine-print pages that need a real browser or block plain downloads (`src/lib/reader/fetchEfl.ts`). |
 
 ## Data sources
 See [docs/SOURCES.md](docs/SOURCES.md) and the in-app `/sources` page: Power to Choose (PUCT) plan list, each
-provider's EFL, 16 TAC § 25.475 (EFL rules), and EIA Form 861M (Texas monthly residential usage).
+provider's EFL, 16 TAC § 25.475 (EFL rules), ERCOT load profiles for the Coast weather zone (Houston seasons) and
+EIA Form 861M (Texas monthly residential usage). Outside statistics are only used after their page was opened and quoted there.
 
 ## Run it
 ```bash
@@ -46,7 +54,10 @@ ANTHROPIC_API_KEY=... npx tsx scripts/ingest.ts              # read every Housto
 ANTHROPIC_API_KEY=... npx tsx scripts/ingest.ts --redo-failed --force
 npx tsx scripts/recheck.ts      # free: second chances for plans that didn't add up (no network, no AI)
 npx tsx scripts/top.ts          # quick look at the top plans
-python3 scripts/seasons.py data/sources/eia861m-texas.csv    # rebuild data/seasons.json
+npx tsx scripts/headline.ts     # the headline numbers (state site's #1 vs best, gap, rank) — use before any deck/video
+python3 scripts/houston_seasons.py   # rebuild data/seasons-houston.json from ERCOT profiles (see docs/SOURCES.md)
+python3 scripts/seasons.py data/sources/eia861m-texas.csv    # old statewide model (data/seasons.json)
+node scripts/axe.mjs            # accessibility check of every page (needs the app running on :3000)
 node scripts/shots.mjs <folder> # screenshots at 375 / 1440 / 1920 (needs the dev server and Google Chrome)
 ```
 
