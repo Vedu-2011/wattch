@@ -98,3 +98,5 @@
 - 2026-11-16 02:13 PT · L2 home city kept across languages · DONE (54d5e62). $0.
 - 2026-11-16 02:14 PT · L3 hreflang · DONE (7ec473f). 197 tests. $0.
 - 2026-11-16 02:15 PT · L4 bilingual global-error + test · DONE (bf38081). 198 tests. $0.
+- 2026-11-16 02:16 PT · L5 DECK truth pass · DONE (d942a9f). $0.
+- 2026-11-16 02:16 PT · L6 /demo vs headline.ts · DONE, no change: /demo computes from headline() (already tested); live payload gap 378.11, pickRank 74, ranked 154, 171 verified = scripts/headline.ts. Demo is Houston-only on purpose (video scenes). $0.
