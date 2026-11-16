@@ -56,6 +56,10 @@ const en = {
   tileCliff: "cliff",
   tileMismatch: "Didn't add up",
   tileUnread: "Couldn't open",
+  kwhNote: (note: "low" | "high" | "bad", kwh: number) =>
+    note === "bad" ? `That usage didn't look like a number, so this shows an average home (${n(kwh, "en")} kWh). Change it below.`
+    : note === "low" ? `That's below the lowest usage Wattch prices, so this starts at ${n(kwh, "en")} kWh. Change it below.`
+    : `That's more than ${n(kwh, "en")} kWh, the most Wattch prices, so this uses ${n(kwh, "en")} kWh.`,
   noneTitle: "No plan passes all your filters.",
   noneBody: "Turn one of them off below and the list comes back.",
   youAverage: (kwh: number, mine: boolean) => `You average ${n(kwh, "en")} kWh a month${mine ? " (your own 12 months)" : ""}`,
@@ -123,6 +127,10 @@ const es: Words = {
   tileCliff: "trampa",
   tileMismatch: "No cuadró",
   tileUnread: "No se pudo abrir",
+  kwhNote: (note, kwh) =>
+    note === "bad" ? `Ese consumo no parecía un número, así que esto muestra un hogar promedio (${n(kwh, "es")} kWh). Cámbialo abajo.`
+    : note === "low" ? `Eso está por debajo del mínimo que Wattch calcula, así que empieza en ${n(kwh, "es")} kWh. Cámbialo abajo.`
+    : `Eso es más de ${n(kwh, "es")} kWh, lo máximo que Wattch calcula, así que usa ${n(kwh, "es")} kWh.`,
   noneTitle: "Ningún plan pasa todos tus filtros.",
   noneBody: "Quita uno abajo y la lista vuelve.",
   youAverage: (kwh, mine) => `Usas en promedio ${n(kwh, "es")} kWh al mes${mine ? " (tus propios 12 meses)" : ""}`,

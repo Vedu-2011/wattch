@@ -24,10 +24,10 @@ export async function generateMetadata({ searchParams }: PageProps<"/wall">): Pr
 }
 
 export default async function WallPage({ searchParams }: PageProps<"/wall">) {
-  const { kwh, seasons, months, filters, withConditional, lang, area } = parse(await searchParams);
+  const { kwh, kwhNote, seasons, months, filters, withConditional, lang, area } = parse(await searchParams);
   return (
     <div lang={lang}>
-      <Wall plans={clientPlans(area)} kwh={kwh} seasons={seasons} months={months} filters={filters} withConditional={withConditional} builtAt={areaInfo(area).builtAt} lang={lang} area={area} />
+      <Wall plans={clientPlans(area)} kwh={kwh} seasons={seasons} months={months} filters={filters} withConditional={withConditional} builtAt={areaInfo(area).builtAt} lang={lang} area={area} kwhNote={kwhNote} />
     </div>
   );
 }

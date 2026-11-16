@@ -84,7 +84,7 @@ export function rank(plans: ClientPlan[], kwh: number, opts: RankOpts = {}): Ran
     .filter((plan) => passesFilters(plan, opts))
     .map((plan) => {
       const annual = annualCost(plan.pricing!, months, { includeConditional });
-      return { plan, months, annual, monthly: Math.round((annual / 12) * 100) / 100, avgCents: Math.round((annual / used) * 1000) / 10 };
+      return { plan, months, annual, monthly: Math.round((annual / 12) * 100) / 100, avgCents: used > 0 ? Math.round((annual / used) * 1000) / 10 : 0 };
     })
     .sort((a, b) => a.annual - b.annual || a.plan.provider.localeCompare(b.plan.provider) || a.plan.id.localeCompare(b.plan.id));
 }

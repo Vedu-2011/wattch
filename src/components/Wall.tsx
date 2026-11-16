@@ -46,7 +46,7 @@ function useReveal(plans: ClientPlan[], totalMs = 9000) {
 }
 
 
-export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons, months: initialMonths = null, filters: initialFilters = NO_FILTERS, withConditional: initialConditional = true, lang = "en", area = "houston" }: { plans: ClientPlan[]; kwh: number; builtAt: string; seasons: boolean; months?: number[] | null; filters?: WallFilters; withConditional?: boolean; lang?: Lang; area?: Area }) {
+export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons, months: initialMonths = null, filters: initialFilters = NO_FILTERS, withConditional: initialConditional = true, lang = "en", area = "houston", kwhNote = null }: { plans: ClientPlan[]; kwh: number; kwhNote?: "low" | "high" | "bad" | null; builtAt: string; seasons: boolean; months?: number[] | null; filters?: WallFilters; withConditional?: boolean; lang?: Lang; area?: Area }) {
   const w = words(lang, area);
   const { readIds, done, skip } = useReveal(plans);
   const [kwh, setKwh] = useState(initialKwh);
@@ -94,6 +94,7 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons,
           <div>
             <h1 className="display text-3xl font-extrabold sm:text-4xl">{done ? w.wallDone : w.wallReading}</h1>
             <p className="mt-1 max-w-2xl text-sm text-ink-2">{w.wallIntro(when)}</p>
+            {kwhNote && <p role="status" className="mt-2 max-w-2xl rounded-2xl bg-volt-2 px-3 py-2 text-sm font-medium">{w.kwhNote(kwhNote, initialKwh)}</p>}
           </div>
         </div>
         <div className="flex items-center gap-2 sm:gap-3">

@@ -9,13 +9,30 @@ export const NO_FILTERS: WallFilters = { locked: false, noCliffs: false, green: 
 export const FILTER_KEYS = { locked: "lock", noCliffs: "nocliff", green: "green", rated: "rated" } as const;
 
 /** Everything a /wall result depends on, read from URL params. Same rules for the page, the share card and metadata. */
+export const KWH_MIN = 100, KWH_MAX = 5000, KWH_DEFAULT = 1100;
+
+/**
+ * Usage from the URL. Out-of-range numbers are pulled to the nearest limit; anything that isn't a number becomes
+ * the average home. `note` says which, so the page can tell the visitor instead of silently changing it.
+ */
+export function readKwh(raw: string | null | undefined): { kwh: number; note: null | "low" | "high" | "bad" } {
+  if (raw == null || raw === "") return { kwh: KWH_DEFAULT, note: null };
+  const k = Math.round(Number(raw));
+  if (!Number.isFinite(k)) return { kwh: KWH_DEFAULT, note: "bad" };
+  if (k < KWH_MIN) return { kwh: KWH_MIN, note: "low" };
+  if (k > KWH_MAX) return { kwh: KWH_MAX, note: "high" };
+  return { kwh: k, note: null };
+}
+
 export function parseWallParams(get: (key: string) => string | null | undefined) {
-  const k = Math.round(Number(get("kwh")));
+  const usage = readKwh(get("kwh"));
   const filters = Object.fromEntries(
     (Object.keys(FILTER_KEYS) as (keyof WallFilters)[]).map((f) => [f, get(FILTER_KEYS[f]) === "1"]),
   ) as WallFilters;
   return {
-    kwh: Number.isFinite(k) && k >= 100 && k <= 5000 ? k : 1100,
+    kwh: usage.kwh,
+    /** set when the URL's usage couldn't be used as-is (see readKwh) */
+    kwhNote: usage.note,
     seasons: get("flat") !== "1",
     months: monthsFromParam(get("m") ?? undefined),
     filters,

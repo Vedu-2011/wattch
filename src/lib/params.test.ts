@@ -5,7 +5,7 @@ const from = (q: string) => { const u = new URLSearchParams(q); return parseWall
 
 describe("reading a shared result from the URL", () => {
   it("defaults: 1,100 kWh, Houston seasons, no months, no filters", () => {
-    expect(from("")).toEqual({ kwh: 1100, seasons: true, months: null, filters: { locked: false, noCliffs: false, green: false, rated: false }, withConditional: true, lang: "en", area: "houston" });
+    expect(from("")).toEqual({ kwh: 1100, kwhNote: null, seasons: true, months: null, filters: { locked: false, noCliffs: false, green: false, rated: false }, withConditional: true, lang: "en", area: "houston" });
     expect(from("kwh=1100&lang=es").lang).toBe("es");
     expect(from("kwh=1100&area=dallas").area).toBe("dallas");
     expect(from("kwh=1100&area=austin").area).toBe("houston");
@@ -25,7 +25,8 @@ describe("reading a shared result from the URL", () => {
   });
   it("ignores junk", () => {
     const p = from("kwh=99999&m=1.2.3&lock=yes");
-    expect(p.kwh).toBe(1100);
+    expect(p.kwh).toBe(5000); // too high → the most Wattch prices, and the page says so
+    expect(p.kwhNote).toBe("high");
     expect(p.months).toBeNull();
     expect(p.filters.locked).toBe(false);
   });

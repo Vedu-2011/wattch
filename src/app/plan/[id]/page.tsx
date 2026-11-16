@@ -12,7 +12,7 @@ import { explainBill } from "@/lib/bill/explain";
 import { whyLine, yearFor } from "@/lib/rank";
 import { belongs, labelSegments } from "@/lib/finePrint";
 import { monthsFromParam } from "@/lib/months";
-import { billQs, parseWallParams } from "@/lib/params";
+import { billQs, parseWallParams, readKwh } from "@/lib/params";
 import { areaOf, labelText, planById } from "@/lib/plans/data";
 import { AREAS } from "@/lib/plans/ptc";
 
@@ -37,8 +37,7 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
   const sp = await searchParams;
   const rec = planById(id);
   if (!rec) notFound();
-  const k = Math.round(Number(Array.isArray(sp.kwh) ? sp.kwh[0] : sp.kwh));
-  const kwh = Number.isFinite(k) && k >= 100 && k <= 5000 ? k : 1000;
+  const { kwh } = readKwh(Array.isArray(sp.kwh) ? sp.kwh[0] : sp.kwh);
   const seasons = (Array.isArray(sp.flat) ? sp.flat[0] : sp.flat) !== "1";
   const p = rec.pricing;
   const mine = monthsFromParam(Array.isArray(sp.m) ? sp.m[0] : sp.m);

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { compareYear } from "@/lib/compare";
 import { monthsFromParam } from "@/lib/months";
-import { billQs, parseWallParams } from "@/lib/params";
+import { billQs, parseWallParams, readKwh } from "@/lib/params";
 import { areaOf, planById } from "@/lib/plans/data";
 import { AREAS } from "@/lib/plans/ptc";
 import type { PlanRecord } from "@/lib/plans/schema";
@@ -20,8 +20,7 @@ export default async function Compare({ searchParams }: PageProps<"/compare">) {
   const sp = await searchParams;
   const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
   const a = planById(one(sp.a) ?? ""), b = planById(one(sp.b) ?? "");
-  const k = Math.round(Number(one(sp.kwh)));
-  const kwh = Number.isFinite(k) && k >= 100 && k <= 5000 ? k : 1100;
+  const { kwh } = readKwh(one(sp.kwh));
   const seasons = one(sp.flat) !== "1";
   const mine = monthsFromParam(one(sp.m));
   const area = areaOf(a?.meta.id ?? "") ?? "houston";
