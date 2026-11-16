@@ -48,9 +48,17 @@ npm test           # vitest — bill math, ranking, seasons, label checks, CSV p
 npm run build
 ```
 
-Data pipeline (writes `data/plans.json` + `data/text/<id>.txt`):
+Keeping the data fresh:
+```bash
+npm run refresh                          # free dry run: what changed on Power to Choose since the last read (writes nothing)
+npm run refresh -- --area all            # Houston + Dallas–Fort Worth
+npx tsx --env-file=.env.local scripts/refresh.ts --apply   # re-read; only new or changed labels go to the AI (~0.7¢ each)
+```
+
+Data pipeline (writes `data/plans.json` + `data/text/<id>.txt`; `--area dallas` writes `data/plans-dallas.json` + `data/text-dallas/`):
 ```bash
 ANTHROPIC_API_KEY=... npx tsx scripts/ingest.ts              # read every Houston plan (reuses unchanged reads)
+python3 -I scripts/area_seasons.py NCENT ...   # an area's seasons from ERCOT profiles (arguments in the file header; docs/SOURCES.md)
 ANTHROPIC_API_KEY=... npx tsx scripts/ingest.ts --redo-failed --force
 npx tsx scripts/recheck.ts      # free: second chances for plans that didn't add up (no network, no AI)
 npx tsx scripts/top.ts          # quick look at the top plans
