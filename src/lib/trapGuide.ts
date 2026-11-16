@@ -1,3 +1,4 @@
+import type { Area } from "@/lib/plans/ptc";
 import type { PlanPricing } from "@/lib/plans/schema";
 import { type ClientPlan, rank, rankable } from "@/lib/rank";
 
@@ -40,11 +41,11 @@ export type TrapEntry = TrapKind & {
 
 /**
  * For each kind: how many rankable plans have it, and a real example — the plan with that trap whose yearly cost
- * at 1,100 kWh (Houston seasons) is furthest above what its sticker price suggests — priced at 3 usages.
+ * at 1,100 kWh (that area's seasons) is furthest above what its sticker price suggests — priced at 3 usages.
  */
-export function trapGuide(plans: ClientPlan[]): TrapEntry[] {
+export function trapGuide(plans: ClientPlan[], area: Area = "houston"): TrapEntry[] {
   const pool = rankable(plans);
-  const byKwh = new Map(GUIDE_USAGES.map((k) => [k, rank(plans, k)]));
+  const byKwh = new Map(GUIDE_USAGES.map((k) => [k, rank(plans, k, { area })]));
   const mid = byKwh.get(1100)!;
   return TRAP_KINDS.map((t) => {
     const withIt = pool.filter((p) => t.test(p.pricing!));

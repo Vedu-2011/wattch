@@ -54,7 +54,7 @@
 
 ## H. Added overnight-2 (Nov 16, 00:55) — second area polish + submission truth
 - [x] Compare guard: /compare with one Houston and one Dallas plan id → friendly "these plans are in different areas" message, not a mixed bill — test
-- [ ] Free second chances for Dallas: make scripts/recheck.ts take --area and run it on the 2 Dallas mismatches + 26 unread ($0, no network) — counts before/after in PROGRESS
+- [x] Free second chances for Dallas: make scripts/recheck.ts take --area and run it on the 2 Dallas mismatches + 26 unread ($0, no network) — counts before/after in PROGRESS
 - [ ] /traps trap guide per area (?area=dallas): counts and examples from Oncor plans, Houston unchanged — screenshots
 - [ ] Home: after picking Dallas–Fort Worth, the hero stats + trap carousel switch to Dallas numbers (no reload) — test that Houston home is unchanged
 - [ ] Metadata check: every page with ?area=dallas has no "Houston" in title/description/og text — test over all routes

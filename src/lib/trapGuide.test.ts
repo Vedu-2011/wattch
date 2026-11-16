@@ -1,7 +1,9 @@
 import { describe, expect, it } from "vitest";
 import raw from "../../data/plans.json";
-import type { PlanRecord } from "@/lib/plans/schema";
-import type { ClientPlan } from "./rank";
+import { readFileSync } from "node:fs";
+import { toClientPlan } from "@/lib/headline";
+import { PlanRecord } from "@/lib/plans/schema";
+import { type ClientPlan, rank } from "./rank";
 import { GUIDE_USAGES, TRAP_KINDS, trapGuide } from "./trapGuide";
 
 const plans = (raw as unknown as { plans: PlanRecord[] }).plans.map((r) => ({
@@ -26,5 +28,26 @@ describe("trap encyclopedia", () => {
     const c = g.find((e) => e.key === "credit")!;
     expect(c.count).toBeGreaterThan(0);
     expect(c.example!.at[1].extra).toBeGreaterThan(0);
+  });
+});
+
+describe("trap guide per area", () => {
+  const load = (f: string) => (JSON.parse(readFileSync(f, "utf8")).plans as unknown[]).map((p) => toClientPlan(PlanRecord.parse(p)));
+  it("Houston is the default, so the old page is unchanged", () => {
+    const h = load("data/plans.json");
+    expect(trapGuide(h, "houston")).toEqual(trapGuide(h));
+  });
+  it("Dallas uses Dallas plans and Dallas seasons: examples are Oncor plans, priced differently from a Houston year", () => {
+    const d = load("data/plans-dallas.json");
+    const g = trapGuide(d, "dallas");
+    const ids = new Set(d.map((p) => p.id));
+    for (const e of g) if (e.example) expect(ids.has(e.example.id)).toBe(true);
+    const credit = g.find((e) => e.key === "credit")!;
+    expect(credit.count).toBeGreaterThan(0);
+    // the 1,100 kWh price is the Dallas-seasons yearly cost of that plan, not the Houston one
+    const id = credit.example!.id;
+    const at1100 = credit.example!.at.find((a) => a.kwh === 1100)!.annual;
+    expect(at1100).toBe(rank(d, 1100, { area: "dallas" }).find((r) => r.plan.id === id)!.annual);
+    expect(at1100).not.toBe(rank(d, 1100, { area: "houston" }).find((r) => r.plan.id === id)!.annual);
   });
 });
