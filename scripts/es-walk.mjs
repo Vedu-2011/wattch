@@ -35,6 +35,9 @@ for (const width of [375, 1440]) {
   await pg.goto(`${BASE}/traps?lang=es`); await check("5-traps");
   await pg.goto(`${BASE}/remind?lang=es`); await check("6-remind");
   await pg.goto(`${BASE}/how?lang=es`); await check("7-how");
+  const src = await pg.locator(`a[href^="/sources"]`).first().getAttribute("href"); // hidden in the phone header, so read the link and go
+  if (src !== "/sources?lang=es") { console.log("ENGLISH LINK", src); bad++; }
+  await pg.goto(BASE + src); await check("7b-sources");
   await pg.goto(`${BASE}/wall?kwh=1100&area=dallas&lang=es`); await check("8-dallas");
   await pg.close();
 }

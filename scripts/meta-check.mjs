@@ -12,7 +12,7 @@ const dallas = [
 ];
 const spanish = [
   "/es", "/wall?kwh=1100&lang=es", "/plan/33633?kwh=1100&lang=es", "/plan/17283?kwh=1100&area=dallas&lang=es",
-  "/compare?a=37797&b=33633&kwh=1100&lang=es", "/traps?lang=es", "/traps?area=dallas&lang=es", "/how?lang=es", "/remind?lang=es",
+  "/compare?a=37797&b=33633&kwh=1100&lang=es", "/traps?lang=es", "/traps?area=dallas&lang=es", "/how?lang=es", "/remind?lang=es", "/sources?lang=es",
 ];
 // common English words that never appear in our Spanish copy (plan names like "Simple Saver" are allowed)
 const ENGLISH = /\b(the|every|your|works|reads|checks|plans? at|really costs|compare two|remind me|fine print|traps in)\b/i;

@@ -93,3 +93,4 @@
 - 2026-11-16 02:00 PT · K6 README · DONE (b04bca6). $0.
 - 2026-11-16 02:01 PT · K8 Lighthouse mobile (perf/a11y/best/SEO): /how?lang=es 95/100/100/100 (LCP 2.9 s, CLS 0), /es 96/100/100/100 (CLS 0.002), /how EN 95/100/100/100. Dynamic /how costs nothing visible. No change. $0.
 - 2026-11-16 02:02 PT · K9 JUDGE-QA Q19 · DONE (2a1b230). $0.
+- 2026-11-16 02:02 PT · K10 DEVPOST Spanish · DONE (195946f). $0.

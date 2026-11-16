@@ -97,7 +97,17 @@
 - [x] K4 Spanish /es home: hero numbers match the English home for both areas (same math, test)
 - [x] K5 i18n: number/date formats on Spanish pages consistent (es-US dates, $ amounts unchanged) — grep + fix strays
 - [x] K6 README: list Spanish + Dallas coverage and every AI tool used (STEM2Connect rule) — verify against code
-- [ ] K7 Codex review 9 (J1–J7 diff)
+- [x] K7 Codex review 9 (J1–J7 diff)
 - [x] K8 Lighthouse on /how?lang=es and /es (now dynamic) — perf ≥ 90, CLS < 0.1
 - [x] K9 JUDGE-QA: add Q on Spanish (why, how checked, what stays English and why: label text + AI notes)
 - [x] K10 docs/DEVPOST.md: one Spanish line in "what it does", verified against the live pages
+- [x] L1 Spanish /sources (?lang=es): headings + explanations translated, source titles/quotes stay as published (lang=en); nav "Fuentes" links with lang; add to es-walk + axe + meta-check
+- [ ] L2 LangSwitch keeps every result param (kwh, area, m, filters, a/b, autopay) when switching — test + live check
+- [ ] L3 hreflang: each page declares its other-language twin (alternates.languages) so search engines pair them
+- [ ] L4 global-error.tsx (data file broken) in Spanish when the URL is Spanish — or document why it cannot (no hooks there)
+- [ ] L5 docs/DECK.md truth pass: Spanish + test counts + Lighthouse numbers vs. the code
+- [ ] L6 /demo: keep English (video), but make sure its numbers still match headline.ts for both areas (test exists? add if not)
+- [ ] L7 Spanish copy self-review: read every ES table once for tú/usted consistency, accents, and "plan de luz" wording
+- [ ] L8 Wall JS weight check (first-load JS for /wall, /plan) vs. last night — note any growth from the word tables
+- [ ] L9 docs/STATUS.md refresh before morning handoff
+- [ ] L10 Morning handoff file at >= 7:00 AM PT (OVERNIGHT.md) + BOARD row Done + tidy.sh
