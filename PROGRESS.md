@@ -116,3 +116,4 @@
 - 2026-11-16 02:29 PT · N3 replay tiles: names clamp to 2 lines by design (line-clamp-2, visual only); each tile has title='Provider — Plan' and the full text stays in the DOM for screen readers. No change. $0.
 - 2026-11-16 02:34 PT · N3 logged; N4 widths.mjs + 320px badge wrap · DONE (6503a55). $0.
 - 2026-11-16 02:35 PT · N5 keyboard pass: Spanish plan 20 stops (Imprimir, 3 check rows, Revisar esta etiqueta, bill lines, label text, reminder) + compare 9 stops — all visible focus, all Spanish. No change. $0.
+- 2026-11-16 02:36 PT · N5+N6 · DONE (97f9b02). Codex review 11 started (since 6fddf45). $0.

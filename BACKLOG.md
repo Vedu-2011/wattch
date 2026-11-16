@@ -129,5 +129,5 @@
 - [x] N6 <html lang> is "en" on Spanish pages (pages set lang on their own wrapper) — check what screen readers/SEO see; fix only if cheap and safe, else document
 - [ ] N7 Codex review 11 (fb2a17c..HEAD)
 - [ ] N8 Anakin quota probe again (~05:00); if back, run the Dallas re-read under PAID-API LOCK (≤ $0.30)
-- [ ] N9 docs/JUDGE-QA + DEVPOST ⟲ numbers re-verified against scripts/headline.ts (both areas)
+- [x] N9 docs/JUDGE-QA + DEVPOST ⟲ numbers re-verified against scripts/headline.ts (both areas)
 - [ ] N10 SCRIPT.md scene 9: the "Already on a plan?" answer + top-8 chip layout changed tonight — re-check the clicks and words still match the screen

@@ -11,6 +11,10 @@ import type { PlanRecord } from "../src/lib/plans/schema";
 import { reveal } from "../src/lib/rank";
 
 const kwh = Number(process.argv[2] ?? HEADLINE_KWH);
+if (!Number.isFinite(kwh) || kwh < 50 || kwh > 10000) {
+  console.error(`Usage: npx tsx scripts/headline.ts [kWh a month, default ${HEADLINE_KWH}] — prints Houston and Dallas–Fort Worth. Got "${process.argv[2]}".`);
+  process.exit(1);
+}
 for (const area of Object.keys(AREAS) as Area[]) {
   const snap = JSON.parse(readFileSync(AREAS[area].dataFile, "utf8")) as { plans: PlanRecord[]; counts: Record<string, number>; builtAt: string };
   const plans = snap.plans.map(toClientPlan);
