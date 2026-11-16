@@ -105,7 +105,7 @@
 - [x] L2 LangSwitch keeps every result param (kwh, area, m, filters, a/b, autopay) when switching — test + live check
 - [x] L3 hreflang: each page declares its other-language twin (alternates.languages) so search engines pair them
 - [x] L4 global-error.tsx (data file broken) in Spanish when the URL is Spanish — or document why it cannot (no hooks there)
-- [ ] L5 docs/DECK.md truth pass: Spanish + test counts + Lighthouse numbers vs. the code
+- [x] L5 docs/DECK.md truth pass: Spanish + test counts + Lighthouse numbers vs. the code
 - [ ] L6 /demo: keep English (video), but make sure its numbers still match headline.ts for both areas (test exists? add if not)
 - [ ] L7 Spanish copy self-review: read every ES table once for tú/usted consistency, accents, and "plan de luz" wording
 - [ ] L8 Wall JS weight check (first-load JS for /wall, /plan) vs. last night — note any growth from the word tables
