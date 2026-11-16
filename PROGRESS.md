@@ -81,3 +81,4 @@
 - 2026-11-16 01:52 PT · J4 Spanish /how · DONE (3a7f485). Also: last-read box was Houston-only without saying so → per area. /how now dynamic (was static). 189 tests, axe 0 on 22. $0.
 - 2026-11-16 01:54 PT · J5 Spanish 404/error · DONE (d31be4b). 190 tests. $0.
 - 2026-11-16 01:54 PT · J6 /api/live Spanish · DONE (6b7f31b). 191 tests. $0.
+- 2026-11-16 01:55 PT · J7 meta-check Spanish sweep · DONE (7921659). Found + fixed: Spanish /compare had English description. 17 URLs clean. Added K1–K10 to BACKLOG. $0.
