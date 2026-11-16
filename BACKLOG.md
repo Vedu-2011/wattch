@@ -99,5 +99,5 @@
 - [x] K6 README: list Spanish + Dallas coverage and every AI tool used (STEM2Connect rule) — verify against code
 - [ ] K7 Codex review 9 (J1–J7 diff)
 - [x] K8 Lighthouse on /how?lang=es and /es (now dynamic) — perf ≥ 90, CLS < 0.1
-- [ ] K9 JUDGE-QA: add Q on Spanish (why, how checked, what stays English and why: label text + AI notes)
+- [x] K9 JUDGE-QA: add Q on Spanish (why, how checked, what stays English and why: label text + AI notes)
 - [ ] K10 docs/DEVPOST.md: one Spanish line in "what it does", verified against the live pages
