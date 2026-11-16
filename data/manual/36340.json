@@ -1,0 +1,37 @@
+{
+ "id": "36340",
+ "plan": "SMARTENERGY HOLDINGS LLC — SmartGreen 9 $200 Bill Credit",
+ "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+ "readBy": "hand-read by Claude Code, Nov 15 2026",
+ "why": "The two $100 rebates are one-time and must be claimed; the label's averages leave them out, so they are not monthly credits.",
+ "pricing": {
+  "baseChargeDollars": 4.95,
+  "energyTiers": [
+   {
+    "fromKwh": 0,
+    "cents": 5.3
+   }
+  ],
+  "tduCentsPerKwh": 6.5333,
+  "tduMonthlyDollars": 4.9,
+  "credits": [],
+  "usageFees": [],
+  "amortizedFees": [],
+  "touPeriods": [],
+  "termMonths": 9,
+  "earlyTerminationFee": {
+   "dollars": 20,
+   "perMonthRemaining": true
+  },
+  "labelAvg": {
+   "k500": 13.8,
+   "k1000": 12.8,
+   "k2000": 12.3
+  },
+  "notes": [
+   "Two $100 one-time rebates you must claim; not in the averages.",
+   "Rebates are lost if you leave early or switch plans.",
+   "$20 per month left if you cancel early."
+  ]
+ }
+}

@@ -43,8 +43,9 @@ export const PlanPricing = z.object({
   usageFees: z.array(UsageFee),
   /** one-time fees the EFL says are spread into the averages, e.g. $49.99 over 12 months */
   amortizedFees: z.array(z.object({ dollars: z.number(), months: z.number().min(1), label: z.string() })),
-  /** time-of-use / free nights: the share of usage the EFL assumes in each period. Empty for normal plans */
-  touPeriods: z.array(z.object({ label: z.string(), share: z.number().min(0).max(1), cents: z.number().min(0) })),
+  /** time-of-use / free nights: the share of usage the EFL assumes in each period. Empty for normal plans.
+   *  A negative price is an extra credit on that share (e.g. TXU's "25% back on summer nights"). */
+  touPeriods: z.array(z.object({ label: z.string(), share: z.number().min(0).max(1), cents: z.number().min(-200).max(200) })),
   termMonths: z.number().min(0),
   earlyTerminationFee: z.object({ dollars: z.number().min(0), perMonthRemaining: z.boolean() }),
   /** average price per kWh printed on the label at 500 / 1000 / 2000 kWh, in cents */

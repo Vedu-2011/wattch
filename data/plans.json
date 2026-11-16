@@ -3,9 +3,9 @@
  "source": "https://www.powertochoose.org/en-us/Plan/ExportToCsv",
  "model": "claude-haiku-5-5",
  "counts": {
-  "verified": 143,
-  "mismatch": 21,
-  "unread": 8
+  "verified": 161,
+  "unread": 8,
+  "mismatch": 3
  },
  "plans": [
   {
@@ -950,7 +950,7 @@
     }
    },
    "pricing": {
-    "baseChargeDollars": 4.9,
+    "baseChargeDollars": 0,
     "energyTiers": [
      {
       "fromKwh": 0,
@@ -959,24 +959,27 @@
     ],
     "tduCentsPerKwh": 6.5611,
     "tduMonthlyDollars": 4.9,
-    "credits": [
-     {
-      "minKwh": 0,
-      "maxKwh": null,
-      "dollars": 0,
-      "label": "Day Hours energy credit (9AM-4PM usage), amount not printed on label",
-      "conditional": false
-     }
-    ],
+    "credits": [],
     "usageFees": [],
     "amortizedFees": [
      {
       "dollars": 49.99,
       "months": 12,
-      "label": "One-time GoodBundle set up and carbon offset purchase"
+      "label": "One-time GoodBundle setup"
      }
     ],
-    "touPeriods": [],
+    "touPeriods": [
+     {
+      "label": "Day Hours 9 AM–4 PM (energy credited back)",
+      "share": 0.33,
+      "cents": 0
+     },
+     {
+      "label": "All other hours",
+      "share": 0.67,
+      "cents": 4.3
+     }
+    ],
     "termMonths": 3,
     "earlyTerminationFee": {
      "dollars": 175,
@@ -988,42 +991,41 @@
      "k2000": 9.9
     },
     "notes": [
-     "Day Hours (9AM-4PM) energy credit lowers averages; amount not printed",
-     "One-time $49.99 setup fee amortized over 12 months in averages",
-     "Exit fee is $175 per ESI ID",
-     "Averages assume 33% of usage during Day Hours"
+     "Energy used 9 AM–4 PM is credited back; label assumes 33% then.",
+     "One-time $49.99 setup fee; 1/12 is inside the averages.",
+     "$175 exit fee; only a 3-month term."
     ]
    },
    "read": {
     "fetchedAt": "2026-11-16T05:51:53.640Z",
     "via": "direct",
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "parsedBy": "claude-haiku-5-5",
+    "parsedBy": "hand-read by Claude Code, Nov 15 2026",
     "readMs": 7494
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
       "printed": 11.3,
-      "ours": 13.7,
-      "ok": false
+      "ours": 11.3,
+      "ok": true
      },
      {
       "kwh": 1000,
       "printed": 10.3,
-      "ours": 12.3,
-      "ok": false
+      "ours": 10.3,
+      "ok": true
      },
      {
       "kwh": 2000,
       "printed": 9.9,
-      "ours": 11.6,
-      "ok": false
+      "ours": 9.9,
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "message": "Hand-read, then checked by code: all 3 averages match. The reader saw the Day Hours credit but didn't model it. The label's averages assume 33% of use in Day Hours at 0¢ energy."
    }
   },
   {
@@ -1074,7 +1076,7 @@
     },
     "labelAvg": {
      "k500": 19.2,
-     "k1000": 7.2,
+     "k1000": 6.2,
      "k2000": 12.2
     },
     "notes": [
@@ -1088,11 +1090,11 @@
     "fetchedAt": "2026-11-16T05:52:58.376Z",
     "via": "direct",
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "parsedBy": "claude-haiku-5-5",
+    "parsedBy": "claude-haiku-5-5 + averages from Power to Choose",
     "readMs": 5786
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
@@ -1102,9 +1104,9 @@
      },
      {
       "kwh": 1000,
-      "printed": 7.2,
+      "printed": 6.2,
       "ours": 6.2,
-      "ok": false
+      "ok": true
      },
      {
       "kwh": 2000,
@@ -1113,7 +1115,7 @@
       "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "message": "The reader copied one average wrong; with the averages the label prints, all 3 match."
    }
   },
   {
@@ -9632,15 +9634,15 @@
     }
    },
    "pricing": {
-    "baseChargeDollars": 0,
+    "baseChargeDollars": 4.95,
     "energyTiers": [
      {
       "fromKwh": 0,
-      "cents": 10.7
+      "cents": 2.2312
      }
     ],
-    "tduCentsPerKwh": 2.23124,
-    "tduMonthlyDollars": 4.95,
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
     "credits": [],
     "usageFees": [],
     "amortizedFees": [],
@@ -9656,42 +9658,40 @@
      "k2000": 9.3
     },
     "notes": [
-     "Energy price is a variable rate; may change monthly at provider's discretion.",
-     "Delivery charge is CenterPoint TDU: 2.23124¢/kWh plus $4.95 monthly.",
-     "Label averages exclude taxes and non-recurring TDU charges.",
-     "Renewable content is 6%, below the 18.6% state average."
+     "Delivery charges aren't printed on this label; they're passed through from CenterPoint."
     ]
    },
    "read": {
     "fetchedAt": "2026-11-16T05:52:37.737Z",
     "via": "direct",
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "parsedBy": "claude-haiku-5-5",
+    "parsedBy": "code (form-field reader)",
     "readMs": 5839
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
       "printed": 10.7,
-      "ours": 13.9,
-      "ok": false
+      "ours": 10.7,
+      "ok": true
      },
      {
       "kwh": 1000,
       "printed": 9.7,
-      "ours": 13.4,
-      "ok": false
+      "ours": 9.8,
+      "ok": true
      },
      {
       "kwh": 2000,
       "printed": 9.3,
-      "ours": 13.2,
-      "ok": false
+      "ours": 9.3,
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "message": "Read by code from the label's form fields; all 3 averages match.",
+    "tduFilled": true
    }
   },
   {
@@ -9714,24 +9714,18 @@
     }
    },
    "pricing": {
-    "baseChargeDollars": 0,
+    "baseChargeDollars": 4.95,
     "energyTiers": [
      {
       "fromKwh": 0,
-      "cents": 12.7
+      "cents": 4.2047
      }
     ],
-    "tduCentsPerKwh": 4.2047,
-    "tduMonthlyDollars": 4.95,
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
     "credits": [],
     "usageFees": [],
-    "amortizedFees": [
-     {
-      "dollars": 179,
-      "months": 12,
-      "label": "Early termination/setup fee amortized"
-     }
-    ],
+    "amortizedFees": [],
     "touPeriods": [],
     "termMonths": 3,
     "earlyTerminationFee": {
@@ -9739,47 +9733,45 @@
      "perMonthRemaining": false
     },
     "labelAvg": {
-     "k500": 11.7,
+     "k500": 12.7,
      "k1000": 11.7,
      "k2000": 11.2
     },
     "notes": [
-     "Energy price is 12.7 cents per kWh flat.",
-     "Delivery charges add 4.2047 cents per kWh plus $4.95 monthly.",
-     "Early termination fee is $179 flat.",
-     "Renewable content is only 6 percent."
+     "Delivery charges aren't printed on this label; they're passed through from CenterPoint."
     ]
    },
    "read": {
     "fetchedAt": "2026-11-16T05:52:33.124Z",
     "via": "direct",
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "parsedBy": "claude-haiku-5-5",
+    "parsedBy": "code (form-field reader)",
     "readMs": 4424
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
-      "printed": 11.7,
-      "ours": 20.9,
-      "ok": false
+      "printed": 12.7,
+      "ours": 12.7,
+      "ok": true
      },
      {
       "kwh": 1000,
       "printed": 11.7,
-      "ours": 18.9,
-      "ok": false
+      "ours": 11.7,
+      "ok": true
      },
      {
       "kwh": 2000,
       "printed": 11.2,
-      "ours": 17.9,
-      "ok": false
+      "ours": 11.2,
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "message": "Read by code from the label's form fields; all 3 averages match.",
+    "tduFilled": true
    }
   },
   {
@@ -9806,11 +9798,11 @@
     "energyTiers": [
      {
       "fromKwh": 0,
-      "cents": 7.7
+      "cents": 6.8312
      }
     ],
-    "tduCentsPerKwh": 6.83124,
-    "tduMonthlyDollars": 0,
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
     "credits": [],
     "usageFees": [],
     "amortizedFees": [],
@@ -9826,42 +9818,40 @@
      "k2000": 13.9
     },
     "notes": [
-     "Label averages are printed in the price table; verify energy rate digits.",
-     "TDU charges may change during the contract term.",
-     "Renewable content is 6%, below state average of 18.6%.",
-     "Early termination fee not stated on this label; check Terms of Service."
+     "Delivery charges aren't printed on this label; they're passed through from CenterPoint."
     ]
    },
    "read": {
     "fetchedAt": "2026-11-16T05:52:32.490Z",
     "via": "direct",
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "parsedBy": "claude-haiku-5-5",
+    "parsedBy": "code (form-field reader)",
     "readMs": 5246
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
       "printed": 15.3,
-      "ours": 15.5,
-      "ok": false
+      "ours": 15.3,
+      "ok": true
      },
      {
       "kwh": 1000,
       "printed": 14.3,
-      "ours": 15,
-      "ok": false
+      "ours": 14.4,
+      "ok": true
      },
      {
       "kwh": 2000,
       "printed": 13.9,
-      "ours": 14.8,
-      "ok": false
+      "ours": 13.9,
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "message": "Read by code from the label's form fields; all 3 averages match.",
+    "tduFilled": true
    }
   },
   {
@@ -9884,15 +9874,15 @@
     }
    },
    "pricing": {
-    "baseChargeDollars": 0,
+    "baseChargeDollars": 4.95,
     "energyTiers": [
      {
       "fromKwh": 0,
-      "cents": 11.1
+      "cents": 4.0368
      }
     ],
-    "tduCentsPerKwh": 4.03684,
-    "tduMonthlyDollars": 0,
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
     "credits": [],
     "usageFees": [],
     "amortizedFees": [],
@@ -9908,42 +9898,40 @@
      "k2000": 11.1
     },
     "notes": [
-     "Label averages are printed values; delivery charge is Centerpoint per-kWh.",
-     "Early termination fee is $99 flat, not per month remaining.",
-     "Fixed rate, unbundled; TDU charges can change during the term.",
-     "Renewable content is 6%, below state average of 18.6%."
+     "Delivery charges aren't printed on this label; they're passed through from CenterPoint."
     ]
    },
    "read": {
     "fetchedAt": "2026-11-16T05:52:33.773Z",
     "via": "direct",
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "parsedBy": "claude-haiku-5-5",
+    "parsedBy": "code (form-field reader)",
     "readMs": 4228
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
       "printed": 12.5,
-      "ours": 15.1,
-      "ok": false
+      "ours": 12.5,
+      "ok": true
      },
      {
       "kwh": 1000,
       "printed": 11.6,
-      "ours": 15.1,
-      "ok": false
+      "ours": 11.6,
+      "ok": true
      },
      {
       "kwh": 2000,
       "printed": 11.1,
-      "ours": 15.1,
-      "ok": false
+      "ours": 11.1,
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "message": "Read by code from the label's form fields; all 3 averages match.",
+    "tduFilled": true
    }
   },
   {
@@ -9966,24 +9954,18 @@
     }
    },
    "pricing": {
-    "baseChargeDollars": 0,
+    "baseChargeDollars": 4.95,
     "energyTiers": [
      {
       "fromKwh": 0,
-      "cents": 11.7
+      "cents": 4.7187
      }
     ],
-    "tduCentsPerKwh": 4.7187,
-    "tduMonthlyDollars": 4.95,
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
     "credits": [],
     "usageFees": [],
-    "amortizedFees": [
-     {
-      "dollars": 179,
-      "months": 12,
-      "label": "Early/setup fee amortized over 12 months"
-     }
-    ],
+    "amortizedFees": [],
     "touPeriods": [],
     "termMonths": 12,
     "earlyTerminationFee": {
@@ -9996,42 +9978,40 @@
      "k2000": 11.7
     },
     "notes": [
-     "Label averages include a $179 fee spread over 12 months.",
-     "Delivery charges are CenterPoint, passed through and variable.",
-     "Price can change with TDU charge changes and fees.",
-     "Renewable content is 6%, below state average 18.6%."
+     "Delivery charges aren't printed on this label; they're passed through from CenterPoint."
     ]
    },
    "read": {
     "fetchedAt": "2026-11-16T05:52:34.277Z",
     "via": "direct",
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "parsedBy": "claude-haiku-5-5",
+    "parsedBy": "code (form-field reader)",
     "readMs": 4338
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
       "printed": 13.2,
-      "ours": 20.4,
-      "ok": false
+      "ours": 13.2,
+      "ok": true
      },
      {
       "kwh": 1000,
       "printed": 12.2,
-      "ours": 18.4,
-      "ok": false
+      "ours": 12.2,
+      "ok": true
      },
      {
       "kwh": 2000,
       "printed": 11.7,
-      "ours": 17.4,
-      "ok": false
+      "ours": 11.7,
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "message": "Read by code from the label's form fields; all 3 averages match.",
+    "tduFilled": true
    }
   },
   {
@@ -10058,11 +10038,11 @@
     "energyTiers": [
      {
       "fromKwh": 0,
-      "cents": 13.8
+      "cents": 5.3312
      }
     ],
-    "tduCentsPerKwh": 5.33124,
-    "tduMonthlyDollars": 0,
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
     "credits": [],
     "usageFees": [],
     "amortizedFees": [],
@@ -10078,42 +10058,40 @@
      "k2000": 12.4
     },
     "notes": [
-     "Label energy price is 13.8¢ flat, with CenterPoint delivery charge added.",
-     "Early termination fee is $179 flat, not per remaining month.",
-     "Monthly base charge of $4.95 applies to every bill.",
-     "Renewable content is 6%, below the 18.6% state average."
+     "Delivery charges aren't printed on this label; they're passed through from CenterPoint."
     ]
    },
    "read": {
     "fetchedAt": "2026-11-16T05:52:37.552Z",
     "via": "direct",
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "parsedBy": "claude-haiku-5-5",
+    "parsedBy": "code (form-field reader)",
     "readMs": 4075
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
       "printed": 13.8,
-      "ours": 20.1,
-      "ok": false
+      "ours": 13.8,
+      "ok": true
      },
      {
       "kwh": 1000,
       "printed": 12.8,
-      "ours": 19.6,
-      "ok": false
+      "ours": 12.9,
+      "ok": true
      },
      {
       "kwh": 2000,
       "printed": 12.4,
-      "ours": 19.4,
-      "ok": false
+      "ours": 12.4,
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "message": "Read by code from the label's form fields; all 3 averages match.",
+    "tduFilled": true
    }
   },
   {
@@ -11743,22 +11721,7 @@
     ],
     "tduCentsPerKwh": 6.5333,
     "tduMonthlyDollars": 4.9,
-    "credits": [
-     {
-      "minKwh": 0,
-      "maxKwh": null,
-      "dollars": 100,
-      "label": "First $100 bill credit after claiming by phone or email",
-      "conditional": true
-     },
-     {
-      "minKwh": 0,
-      "maxKwh": null,
-      "dollars": 100,
-      "label": "Second $100 bill credit applied after 6 months with redemption form",
-      "conditional": true
-     }
-    ],
+    "credits": [],
     "usageFees": [],
     "amortizedFees": [],
     "touPeriods": [],
@@ -11773,42 +11736,41 @@
      "k2000": 13
     },
     "notes": [
-     "Total average price excludes taxes and PUC assessment.",
-     "Two $100 bill credits total $200; conditions apply.",
-     "Credits forfeited if you terminate early or switch plans.",
-     "$20 early termination fee per month remaining."
+     "Two $100 one-time rebates you must claim; not in the averages.",
+     "Rebates are lost if you leave early or switch plans.",
+     "$20 per month left if you cancel early."
     ]
    },
    "read": {
     "fetchedAt": "2026-11-16T05:53:40.908Z",
     "via": "direct",
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "parsedBy": "claude-haiku-5-5",
+    "parsedBy": "hand-read by Claude Code, Nov 15 2026",
     "readMs": 4904
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
       "printed": 14.5,
-      "ours": -25.5,
-      "ok": false
+      "ours": 14.5,
+      "ok": true
      },
      {
       "kwh": 1000,
       "printed": 13.5,
-      "ours": -6.5,
-      "ok": false
+      "ours": 13.5,
+      "ok": true
      },
      {
       "kwh": 2000,
       "printed": 13,
-      "ours": 3,
-      "ok": false
+      "ours": 13,
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "message": "Hand-read, then checked by code: all 3 averages match. The two $100 rebates are one-time and must be claimed; the label's averages leave them out, so they are not monthly credits."
    }
   },
   {
@@ -12004,22 +11966,7 @@
     ],
     "tduCentsPerKwh": 6.5333,
     "tduMonthlyDollars": 4.9,
-    "credits": [
-     {
-      "minKwh": 0,
-      "maxKwh": null,
-      "dollars": 100,
-      "label": "First $100 bill credit after claiming by phone or email",
-      "conditional": true
-     },
-     {
-      "minKwh": 0,
-      "maxKwh": null,
-      "dollars": 100,
-      "label": "Second $100 bill credit after 6 months with redemption form",
-      "conditional": true
-     }
-    ],
+    "credits": [],
     "usageFees": [],
     "amortizedFees": [],
     "touPeriods": [],
@@ -12034,42 +11981,41 @@
      "k2000": 12.3
     },
     "notes": [
-     "Total energy price is 5.3¢ plus 6.5333¢ TDU per kWh",
-     "Monthly base charges: $4.95 provider plus $4.90 delivery",
-     "Bill credits totaling $200 are conditional and can be forfeited",
-     "Early termination fee is $20 per month remaining"
+     "Two $100 one-time rebates you must claim; not in the averages.",
+     "Rebates are lost if you leave early or switch plans.",
+     "$20 per month left if you cancel early."
     ]
    },
    "read": {
     "fetchedAt": "2026-11-16T05:53:40.654Z",
     "via": "direct",
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "parsedBy": "claude-haiku-5-5",
+    "parsedBy": "hand-read by Claude Code, Nov 15 2026",
     "readMs": 5206
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
       "printed": 13.8,
-      "ours": -26.2,
-      "ok": false
+      "ours": 13.8,
+      "ok": true
      },
      {
       "kwh": 1000,
       "printed": 12.8,
-      "ours": -7.2,
-      "ok": false
+      "ours": 12.8,
+      "ok": true
      },
      {
       "kwh": 2000,
       "printed": 12.3,
-      "ours": 2.3,
-      "ok": false
+      "ours": 12.3,
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "message": "Hand-read, then checked by code: all 3 averages match. The two $100 rebates are one-time and must be claimed; the label's averages leave them out, so they are not monthly credits."
    }
   },
   {
@@ -12092,36 +12038,22 @@
     }
    },
    "pricing": {
-    "baseChargeDollars": 0,
+    "baseChargeDollars": 4.95,
     "energyTiers": [
      {
       "fromKwh": 0,
-      "cents": 6
+      "cents": 5.3312
      }
     ],
-    "tduCentsPerKwh": 5.3312,
-    "tduMonthlyDollars": 4.95,
-    "credits": [
-     {
-      "minKwh": 0,
-      "maxKwh": null,
-      "dollars": 0,
-      "label": "6% SoFed Better Rate - 360 (unclear, label text garbled)",
-      "conditional": false
-     }
-    ],
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
+    "credits": [],
     "usageFees": [],
-    "amortizedFees": [
-     {
-      "dollars": 249,
-      "months": 36,
-      "label": "Setup/other fee amortized over 36 months (label text garbled; verify)"
-     }
-    ],
+    "amortizedFees": [],
     "touPeriods": [],
     "termMonths": 36,
     "earlyTerminationFee": {
-     "dollars": 0,
+     "dollars": 249,
      "perMonthRemaining": false
     },
     "labelAvg": {
@@ -12130,42 +12062,40 @@
      "k2000": 12.4
     },
     "notes": [
-     "Label text is garbled; several values could not be read reliably.",
-     "Verify the 6% SoFed Better Rate credit terms directly with provider.",
-     "Delivery charges are passed through from CenterPoint and may change.",
-     "Early termination fee not clearly shown; check Terms of Service."
+     "Delivery charges aren't printed on this label; they're passed through from CenterPoint."
     ]
    },
    "read": {
     "fetchedAt": "2026-11-16T05:52:38.003Z",
     "via": "direct",
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "parsedBy": "claude-haiku-5-5",
+    "parsedBy": "code (form-field reader)",
     "readMs": 5059
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
       "printed": 13.8,
-      "ours": 13.7,
+      "ours": 13.8,
       "ok": true
      },
      {
       "kwh": 1000,
       "printed": 12.8,
-      "ours": 12.5,
-      "ok": false
+      "ours": 12.9,
+      "ok": true
      },
      {
       "kwh": 2000,
       "printed": 12.4,
-      "ours": 11.9,
-      "ok": false
+      "ours": 12.4,
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "message": "Read by code from the label's form fields; all 3 averages match.",
+    "tduFilled": true
    }
   },
   {
@@ -12195,59 +12125,57 @@
       "cents": 5.5272
      }
     ],
-    "tduCentsPerKwh": 0,
-    "tduMonthlyDollars": 0,
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
     "credits": [],
     "usageFees": [],
     "amortizedFees": [],
     "touPeriods": [],
     "termMonths": 12,
     "earlyTerminationFee": {
-     "dollars": 0,
+     "dollars": 99,
      "perMonthRemaining": false
     },
     "labelAvg": {
-     "k500": 12.6,
-     "k1000": 12.3,
+     "k500": 13,
+     "k1000": 12.6,
      "k2000": 12.3
     },
     "notes": [
-     "Label averages are unclear in the scanned text; verify against the paper EFL.",
-     "TDU delivery charges are passed through and vary; check the TDU site.",
-     "Early termination fee not clearly printed; confirm in Terms of Service.",
-     "Some non-recurring charges are excluded from the average prices."
+     "Delivery charges aren't printed on this label; they're passed through from CenterPoint."
     ]
    },
    "read": {
     "fetchedAt": "2026-11-16T05:52:37.810Z",
     "via": "direct",
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "parsedBy": "claude-haiku-5-5",
+    "parsedBy": "code (form-field reader)",
     "readMs": 5610
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
-      "printed": 12.6,
-      "ours": 5.5,
-      "ok": false
+      "printed": 13,
+      "ours": 13,
+      "ok": true
      },
      {
       "kwh": 1000,
-      "printed": 12.3,
-      "ours": 5.5,
-      "ok": false
+      "printed": 12.6,
+      "ours": 12.6,
+      "ok": true
      },
      {
       "kwh": 2000,
       "printed": 12.3,
-      "ours": 5.5,
-      "ok": false
+      "ours": 12.3,
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "message": "Read by code from the label's form fields; all 3 averages match.",
+    "tduFilled": true
    }
   },
   {
@@ -12270,22 +12198,22 @@
     }
    },
    "pricing": {
-    "baseChargeDollars": 0,
+    "baseChargeDollars": 4.95,
     "energyTiers": [
      {
       "fromKwh": 0,
-      "cents": 6
+      "cents": 4.0368
      }
     ],
-    "tduCentsPerKwh": 4.0368,
-    "tduMonthlyDollars": 4.95,
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
     "credits": [],
     "usageFees": [],
     "amortizedFees": [],
     "touPeriods": [],
     "termMonths": 7,
     "earlyTerminationFee": {
-     "dollars": 0,
+     "dollars": 99,
      "perMonthRemaining": false
     },
     "labelAvg": {
@@ -12294,42 +12222,40 @@
      "k2000": 11.1
     },
     "notes": [
-     "Label averages assume a 6% energy price with delivery charges included.",
-     "Energy price is 6¢ per kWh; delivery adds about 4.04¢ per kWh.",
-     "Monthly delivery charge of $4.95 applies in addition to usage.",
-     "Contract term is 7 months; early termination fee not clearly printed."
+     "Delivery charges aren't printed on this label; they're passed through from CenterPoint."
     ]
    },
    "read": {
     "fetchedAt": "2026-11-16T05:53:39.706Z",
     "via": "direct",
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "parsedBy": "claude-haiku-5-5",
+    "parsedBy": "code (form-field reader)",
     "readMs": 5873
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
       "printed": 12.5,
-      "ours": 11,
-      "ok": false
+      "ours": 12.5,
+      "ok": true
      },
      {
       "kwh": 1000,
       "printed": 11.6,
-      "ours": 10.5,
-      "ok": false
+      "ours": 11.6,
+      "ok": true
      },
      {
       "kwh": 2000,
       "printed": 11.1,
-      "ours": 10.3,
-      "ok": false
+      "ours": 11.1,
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "message": "Read by code from the label's form fields; all 3 averages match.",
+    "tduFilled": true
    }
   },
   {
@@ -12352,15 +12278,15 @@
     }
    },
    "pricing": {
-    "baseChargeDollars": 0,
+    "baseChargeDollars": 4.95,
     "energyTiers": [
      {
       "fromKwh": 0,
-      "cents": 4.2
+      "cents": 4.2047
      }
     ],
-    "tduCentsPerKwh": 0,
-    "tduMonthlyDollars": 0,
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
     "credits": [],
     "usageFees": [],
     "amortizedFees": [],
@@ -12376,42 +12302,40 @@
      "k2000": 11.2
     },
     "notes": [
-     "Label text is garbled; energy and delivery figures are uncertain.",
-     "Verify TDU delivery charges at the listed website before signing.",
-     "Price can change during the contract for TDU and fee changes.",
-     "Terms of Service list additional fees and deposit policies."
+     "Delivery charges aren't printed on this label; they're passed through from CenterPoint."
     ]
    },
    "read": {
     "fetchedAt": "2026-11-16T05:52:37.846Z",
     "via": "direct",
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "parsedBy": "claude-haiku-5-5",
+    "parsedBy": "code (form-field reader)",
     "readMs": 4022
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
       "printed": 12.7,
-      "ours": 4.2,
-      "ok": false
+      "ours": 12.7,
+      "ok": true
      },
      {
       "kwh": 1000,
       "printed": 11.7,
-      "ours": 4.2,
-      "ok": false
+      "ours": 11.7,
+      "ok": true
      },
      {
       "kwh": 2000,
       "printed": 11.2,
-      "ours": 4.2,
-      "ok": false
+      "ours": 11.2,
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "message": "Read by code from the label's form fields; all 3 averages match.",
+    "tduFilled": true
    }
   },
   {
@@ -12438,11 +12362,11 @@
     "energyTiers": [
      {
       "fromKwh": 0,
-      "cents": 6
+      "cents": 2.2312
      }
     ],
-    "tduCentsPerKwh": 2.23124,
-    "tduMonthlyDollars": 0,
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
     "credits": [],
     "usageFees": [],
     "amortizedFees": [],
@@ -12458,42 +12382,40 @@
      "k2000": 9.3
     },
     "notes": [
-     "Introductory rate; price may change monthly at provider's discretion.",
-     "Label shows 6% intro variable rate for one month only.",
-     "Base charge $4.95 per monthly bill cycle applies.",
-     "Delivery charges are passed through from CenterPoint, may change."
+     "Delivery charges aren't printed on this label; they're passed through from CenterPoint."
     ]
    },
    "read": {
     "fetchedAt": "2026-11-16T05:52:38.616Z",
     "via": "direct",
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "parsedBy": "claude-haiku-5-5",
+    "parsedBy": "code (form-field reader)",
     "readMs": 4957
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
       "printed": 10.7,
-      "ours": 9.2,
-      "ok": false
+      "ours": 10.7,
+      "ok": true
      },
      {
       "kwh": 1000,
       "printed": 9.7,
-      "ours": 8.7,
-      "ok": false
+      "ours": 9.8,
+      "ok": true
      },
      {
       "kwh": 2000,
       "printed": 9.3,
-      "ours": 8.5,
-      "ok": false
+      "ours": 9.3,
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "message": "Read by code from the label's form fields; all 3 averages match.",
+    "tduFilled": true
    }
   },
   {
@@ -12891,10 +12813,21 @@
      {
       "dollars": 49.99,
       "months": 12,
-      "label": "GoodBundle setup and carbon offset purchase (1/12 included in averages)"
+      "label": "One-time GoodBundle setup"
      }
     ],
-    "touPeriods": [],
+    "touPeriods": [
+     {
+      "label": "Day Hours 9 AM–4 PM (energy credited back)",
+      "share": 0.33,
+      "cents": 0
+     },
+     {
+      "label": "All other hours",
+      "share": 0.67,
+      "cents": 4.3
+     }
+    ],
     "termMonths": 3,
     "earlyTerminationFee": {
      "dollars": 175,
@@ -12906,42 +12839,41 @@
      "k2000": 9.9
     },
     "notes": [
-     "Day Hours (9AM-4PM) energy credit applies; it is not a fixed monthly credit.",
-     "Averages assume 33% of usage during Day Hours.",
-     "One-time $49.99 GoodBundle setup fee required; 1/12 included in averages.",
-     "Exit fee $175 per ESI ID; 3-month term; price can change."
+     "Energy used 9 AM–4 PM is credited back; label assumes 33% then.",
+     "One-time $49.99 setup fee; 1/12 is inside the averages.",
+     "$175 exit fee; only a 3-month term."
     ]
    },
    "read": {
     "fetchedAt": "2026-11-16T05:57:26.353Z",
     "via": "direct",
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "parsedBy": "claude-haiku-5-5",
+    "parsedBy": "hand-read by Claude Code, Nov 15 2026",
     "readMs": 7245
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
       "printed": 11.3,
-      "ours": 12.7,
-      "ok": false
+      "ours": 11.3,
+      "ok": true
      },
      {
       "kwh": 1000,
       "printed": 10.3,
-      "ours": 11.8,
-      "ok": false
+      "ours": 10.3,
+      "ok": true
      },
      {
       "kwh": 2000,
       "printed": 9.9,
-      "ours": 11.3,
-      "ok": false
+      "ours": 9.9,
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "message": "Hand-read, then checked by code: all 3 averages match. The reader saw the Day Hours credit but didn't model it. The label's averages assume 33% of use in Day Hours at 0¢ energy."
    }
   },
   {
@@ -13492,19 +13424,17 @@
     "energyTiers": [
      {
       "fromKwh": 0,
+      "cents": 0
+     },
+     {
+      "fromKwh": 1000,
       "cents": 14
      }
     ],
     "tduCentsPerKwh": 0,
     "tduMonthlyDollars": 0,
     "credits": [],
-    "usageFees": [
-     {
-      "belowKwh": 1000,
-      "dollars": 0,
-      "label": "Minimum Usage Fee"
-     }
-    ],
+    "usageFees": [],
     "amortizedFees": [],
     "touPeriods": [],
     "termMonths": 12,
@@ -13518,42 +13448,42 @@
      "k2000": 13.5
     },
     "notes": [
-     "Energy charge applies only to usage above 1000 kWh.",
-     "Base charge of $130 applies every bill month.",
-     "Early termination fee $200; waived on qualifying move.",
-     "Other fees: insufficient funds $30, DNP notice $9.99, disconnection $50."
+     "$130 a month even if you use almost nothing.",
+     "First 1,000 kWh have no energy charge; 14¢ after.",
+     "Delivery is bundled into the $130 and 14¢.",
+     "$200 early termination fee."
     ]
    },
    "read": {
     "fetchedAt": "2026-11-16T05:53:30.877Z",
     "via": "direct",
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "parsedBy": "claude-haiku-5-5",
+    "parsedBy": "hand-read by Claude Code, Nov 15 2026",
     "readMs": 6221
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
       "printed": 26,
-      "ours": 40,
-      "ok": false
+      "ours": 26,
+      "ok": true
      },
      {
       "kwh": 1000,
       "printed": 13,
-      "ours": 27,
-      "ok": false
+      "ours": 13,
+      "ok": true
      },
      {
       "kwh": 2000,
       "printed": 13.5,
-      "ours": 20.5,
-      "ok": false
+      "ours": 13.5,
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "message": "Hand-read, then checked by code: all 3 averages match. Energy is charged only above 1,000 kWh and delivery is bundled in; the reader added a fake $0 minimum-use fee."
    }
   },
   {
@@ -14108,21 +14038,26 @@
       "cents": 18.6
      }
     ],
-    "tduCentsPerKwh": 0,
-    "tduMonthlyDollars": 0,
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
     "credits": [],
     "usageFees": [],
     "amortizedFees": [],
     "touPeriods": [
      {
-      "label": "Free Nights Savings (9:00 p.m. to 4:59 a.m.)",
+      "label": "Free Nights 9 PM–5 AM",
       "share": 0.4313,
       "cents": 0
      },
      {
-      "label": "Daytime (all other hours)",
+      "label": "Daytime",
       "share": 0.5687,
       "cents": 18.6
+     },
+     {
+      "label": "Cool Summer Bonus (25% back on Jul–Sep nights)",
+      "share": 0.1423,
+      "cents": -4.65
      }
     ],
     "termMonths": 12,
@@ -14136,42 +14071,43 @@
      "k2000": 17.2
     },
     "notes": [
-     "Free nights 9pm-5am are free; averages assume 43% of usage.",
-     "Cool Summer Bonus adds 25% credit on night usage in Jul-Sep.",
-     "TDU delivery charges are listed as blank on this label; check txu.com/tducharges.",
-     "$150 early cancellation fee applies during the 12-month term."
+     "Nights 9 PM–5 AM are free; the label assumes 43% of use then.",
+     "Daytime energy is 18.6¢ — high if you use power by day.",
+     "Not for homes with EVs, batteries or solar.",
+     "$150 early cancellation fee."
     ]
    },
    "read": {
     "fetchedAt": "2026-11-16T05:53:44.663Z",
     "via": "direct",
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "parsedBy": "claude-haiku-5-5",
+    "parsedBy": "hand-read by Claude Code, Nov 15 2026",
     "readMs": 6100
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
       "printed": 19.4,
-      "ours": 12.6,
-      "ok": false
+      "ours": 19.4,
+      "ok": true
      },
      {
       "kwh": 1000,
       "printed": 18,
-      "ours": 11.6,
-      "ok": false
+      "ours": 17.9,
+      "ok": true
      },
      {
       "kwh": 2000,
       "printed": 17.2,
-      "ours": 11.1,
-      "ok": false
+      "ours": 17.2,
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "message": "Hand-read, then checked by code: all 3 averages match. The label's own formula also subtracts a 25% Cool Summer Bonus on 14.23% of use, and it leaves delivery charges blank (filled from other CenterPoint labels).",
+    "tduFilled": true
    }
   },
   {

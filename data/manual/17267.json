@@ -1,0 +1,54 @@
+{
+ "id": "17267",
+ "plan": "TARA ENERGY — Balanced Days Bundle - 3",
+ "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+ "readBy": "hand-read by Claude Code, Nov 15 2026",
+ "why": "The reader saw the Day Hours credit but didn't model it. The label's averages assume 33% of use in Day Hours at 0¢ energy.",
+ "pricing": {
+  "baseChargeDollars": 0,
+  "energyTiers": [
+   {
+    "fromKwh": 0,
+    "cents": 4.3
+   }
+  ],
+  "tduCentsPerKwh": 6.5611,
+  "tduMonthlyDollars": 4.9,
+  "credits": [],
+  "usageFees": [],
+  "amortizedFees": [
+   {
+    "dollars": 49.99,
+    "months": 12,
+    "label": "One-time GoodBundle setup"
+   }
+  ],
+  "touPeriods": [
+   {
+    "label": "Day Hours 9 AM–4 PM (energy credited back)",
+    "share": 0.33,
+    "cents": 0
+   },
+   {
+    "label": "All other hours",
+    "share": 0.67,
+    "cents": 4.3
+   }
+  ],
+  "termMonths": 3,
+  "earlyTerminationFee": {
+   "dollars": 175,
+   "perMonthRemaining": false
+  },
+  "labelAvg": {
+   "k500": 11.3,
+   "k1000": 10.3,
+   "k2000": 9.9
+  },
+  "notes": [
+   "Energy used 9 AM–4 PM is credited back; label assumes 33% then.",
+   "One-time $49.99 setup fee; 1/12 is inside the averages.",
+   "$175 exit fee; only a 3-month term."
+  ]
+ }
+}

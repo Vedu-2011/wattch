@@ -1,0 +1,42 @@
+{
+ "id": "35975",
+ "plan": "Texans Choice Power LLC — Texas Instant 12",
+ "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+ "readBy": "hand-read by Claude Code, Nov 15 2026",
+ "why": "Energy is charged only above 1,000 kWh and delivery is bundled in; the reader added a fake $0 minimum-use fee.",
+ "pricing": {
+  "baseChargeDollars": 130,
+  "energyTiers": [
+   {
+    "fromKwh": 0,
+    "cents": 0
+   },
+   {
+    "fromKwh": 1000,
+    "cents": 14
+   }
+  ],
+  "tduCentsPerKwh": 0,
+  "tduMonthlyDollars": 0,
+  "credits": [],
+  "usageFees": [],
+  "amortizedFees": [],
+  "touPeriods": [],
+  "termMonths": 12,
+  "earlyTerminationFee": {
+   "dollars": 200,
+   "perMonthRemaining": false
+  },
+  "labelAvg": {
+   "k500": 26,
+   "k1000": 13,
+   "k2000": 13.5
+  },
+  "notes": [
+   "$130 a month even if you use almost nothing.",
+   "First 1,000 kWh have no energy charge; 14¢ after.",
+   "Delivery is bundled into the $130 and 14¢.",
+   "$200 early termination fee."
+  ]
+ }
+}

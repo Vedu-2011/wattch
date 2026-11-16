@@ -11,9 +11,14 @@ Rules:
 - energyTiers: the provider's energy charge. Flat rate = one tier with fromKwh 0. Tiered ("first 1000 kWh 9¢, above 1000 kWh 12¢") = one tier per block, fromKwh is where the block starts.
 - tduCentsPerKwh / tduMonthlyDollars: the delivery (TDU / TDSP / CenterPoint / CNP) charges printed on the label. If the label shows several per-kWh delivery charges, add them up. If the label does NOT print delivery charge amounts (it only says they are passed through), use 0 for both. Never look them up or guess.
 - baseChargeDollars: the provider's own monthly base / customer charge (0 if none).
-- credits: ONLY credits applied on EVERY monthly bill when usage is in a range (minKwh..maxKwh, maxKwh null if no top). Autopay, paperless or other "only if you do X" monthly credits: conditional true. One-time or occasional rebates (sign-up bonus, "$100 after 6 months", gift cards) are NOT credits: mention them in notes only.
+- credits: ONLY credits applied on EVERY monthly bill when usage is in a range (minKwh..maxKwh, maxKwh null if no top). Autopay, paperless or other "only if you do X" monthly credits: conditional true. One-time or occasional rebates (sign-up bonus, "$100 after 6 months", "$200 total bill credit you must claim", gift cards) are NOT credits: mention them in notes only. Check: if the label's averages are lower than its charges add up to, a monthly credit is in them; if not, there is none.
 - usageFees: minimum usage fees ("$9.95 if usage is less than 1,000 kWh" => belowKwh 1000).
 - amortizedFees: one-time fees the label says are spread into the averages (e.g. "1/12 of this setup cost is included" => months 12).
+- labelAvg: copy ONLY from the "average price per kWh" row next to 500 / 1,000 / 2,000 kWh. Never from renewable % or any other number.
+- If the label says the energy charge applies only above some usage (e.g. "only applicable to usage above 1000 kWh"), that is two energyTiers: 0 cents from 0, the price from that usage.
+- If delivery is "bundled" into the base charge and energy price, both delivery numbers are 0.
+- "Day Hours" / "free nights" / "free weekends" credits on energy used at certain times ARE touPeriods (credited period at 0 cents), even if the label calls them a credit.
+- A bonus credit on part of the usage (e.g. "25% credit on night energy in July-September", with the share the label assumes) is one more touPeriods entry with that share and a NEGATIVE price (25% of 18.6 cents = -4.65).
 - touPeriods: ONLY for time-of-use / free nights / free weekends plans: one entry per period with the share of usage the label ASSUMES for its averages and that period's energy price in cents. Shares add up to 1. Leave empty for normal plans.
 - earlyTerminationFee: dollars; perMonthRemaining true if it is "$X per month remaining".
 - notes: up to 4 short plain-English gotchas a normal person would miss (credits that vanish below a usage level, fees, conditions). 12 words max each. No marketing.

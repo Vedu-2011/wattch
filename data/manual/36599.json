@@ -1,0 +1,54 @@
+{
+ "id": "36599",
+ "plan": "TXU ENERGY — Free Nights & Cool Summer 12",
+ "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+ "readBy": "hand-read by Claude Code, Nov 15 2026",
+ "why": "The label's own formula also subtracts a 25% Cool Summer Bonus on 14.23% of use, and it leaves delivery charges blank (filled from other CenterPoint labels).",
+ "pricing": {
+  "baseChargeDollars": 9.95,
+  "energyTiers": [
+   {
+    "fromKwh": 0,
+    "cents": 18.6
+   }
+  ],
+  "tduCentsPerKwh": 0,
+  "tduMonthlyDollars": 0,
+  "credits": [],
+  "usageFees": [],
+  "amortizedFees": [],
+  "touPeriods": [
+   {
+    "label": "Free Nights 9 PM–5 AM",
+    "share": 0.4313,
+    "cents": 0
+   },
+   {
+    "label": "Daytime",
+    "share": 0.5687,
+    "cents": 18.6
+   },
+   {
+    "label": "Cool Summer Bonus (25% back on Jul–Sep nights)",
+    "share": 0.1423,
+    "cents": -4.65
+   }
+  ],
+  "termMonths": 12,
+  "earlyTerminationFee": {
+   "dollars": 150,
+   "perMonthRemaining": false
+  },
+  "labelAvg": {
+   "k500": 19.4,
+   "k1000": 18,
+   "k2000": 17.2
+  },
+  "notes": [
+   "Nights 9 PM–5 AM are free; the label assumes 43% of use then.",
+   "Daytime energy is 18.6¢ — high if you use power by day.",
+   "Not for homes with EVs, batteries or solar.",
+   "$150 early cancellation fee."
+  ]
+ }
+}

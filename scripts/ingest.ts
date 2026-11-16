@@ -3,12 +3,12 @@
  * Usage: ANTHROPIC_API_KEY=... [ANAKIN_API_KEY=...] npx tsx scripts/ingest.ts [--limit N] [--only id,id]
  * Re-runs are cheap: a plan whose fine print hasn't changed (same sha256) is not read again.
  */
-import { readFile, writeFile, mkdir } from "node:fs/promises";
+import { readFile, readdir, writeFile, mkdir } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { houstonPlans, PTC_CSV_URL } from "../src/lib/plans/ptc";
 import { anakinRead, fetchEfl } from "../src/lib/reader/fetchEfl";
-import { fillTdu, parseEfl, READER_MODEL } from "../src/lib/reader/parse";
-import { labelCheck } from "../src/lib/bill";
+import { parseEfl, READER_MODEL } from "../src/lib/reader/parse";
+import { rescue, tduCandidates, type ManualRead } from "../src/lib/reader/rescue";
 import type { PlanRecord } from "../src/lib/plans/schema";
 
 const args = process.argv.slice(2);
@@ -72,31 +72,27 @@ async function main() {
     }
   }
   await Promise.all(Array.from({ length: 6 }, worker));
-  // labels that don't print delivery charges: try the CenterPoint charges other verified labels print
-  const pairs = new Map<string, { cents: number; monthly: number; n: number }>();
-  for (const r of [...results, ...Object.values(old)]) {
-    if (r.check.status !== "verified" || !r.pricing || r.check.tduFilled || !r.pricing.tduMonthlyDollars) continue;
-    const k = `${r.pricing.tduCentsPerKwh}|${r.pricing.tduMonthlyDollars}`;
-    const e = pairs.get(k) ?? { cents: r.pricing.tduCentsPerKwh, monthly: r.pricing.tduMonthlyDollars, n: 0 };
-    e.n++; pairs.set(k, e);
+  // second chances (no AI spend): Power to Choose averages, form-field reader, hand-reads, CenterPoint delivery fill
+  const tdu = tduCandidates([...results, ...Object.values(old)]);
+  const manual = new Map<string, ManualRead>();
+  if (existsSync("data/manual")) for (const f of await readdir("data/manual")) {
+    const mr = JSON.parse(await readFile(`data/manual/${f}`, "utf8")) as ManualRead;
+    manual.set(mr.id, mr);
   }
-  const candidates = [...pairs.values()].sort((a, b) => b.n - a.n).slice(0, 3);
   for (const r of results) {
-    if (r.check.status !== "mismatch" || !r.pricing) continue;
-    const fix = fillTdu(r.pricing, candidates);
-    if (fix) {
-      r.pricing = fix.pricing;
-      r.check = { status: "verified", rows: fix.rows, tduFilled: true,
-        message: `This label doesn't print delivery charges. With CenterPoint's charges from other labels (${fix.pricing.tduCentsPerKwh}¢/kWh + $${fix.pricing.tduMonthlyDollars.toFixed(2)}/mo), all 3 averages match.` };
-      console.log(`tdu-filled ✓ ${r.meta.provider} — ${r.meta.planName}`);
-    }
+    if (r.check.status === "verified" || !existsSync(`data/text/${r.meta.id}.txt`)) continue;
+    const fix = rescue(r, await readFile(`data/text/${r.meta.id}.txt`, "utf8"), tdu, manual.get(r.meta.id));
+    if (!fix) continue;
+    r.pricing = fix.pricing;
+    r.read = { ...r.read, parsedBy: fix.parsedBy };
+    r.check = { status: "verified", rows: fix.rows, message: fix.message, ...(fix.tduFilled ? { tduFilled: true } : {}) };
+    console.log(`rescued ✓ ${r.meta.provider} — ${r.meta.planName} (${fix.parsedBy})`);
   }
-  void labelCheck;
   // keep plans we didn't touch this run (when using --only/--limit)
   for (const [id, p] of Object.entries(old)) if (!results.find((r) => r.meta.id === id) && (only || limit !== Infinity)) results.push(p);
   results.sort((a, b) => a.meta.provider.localeCompare(b.meta.provider) || a.meta.planName.localeCompare(b.meta.planName));
   const counts = results.reduce<Record<string, number>>((c, r) => ((c[r.check.status] = (c[r.check.status] ?? 0) + 1), c), {});
   await writeFile(out, JSON.stringify({ builtAt: new Date().toISOString(), source: PTC_CSV_URL, model: READER_MODEL, counts, plans: results }, null, 1));
-  console.log("counts", counts, `tokens in ${inT} out ${outT}`);
+  console.log("counts", counts, `tokens in ${inT} out ${outT}`, `≈ $${((inT * 1 + outT * 5) / 1e6).toFixed(3)} at Haiku list price`);
 }
 main().catch((e) => { console.error(e); process.exit(1); });
