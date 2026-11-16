@@ -111,3 +111,5 @@
 - 2026-11-16 02:25 PT · M8 Lighthouse /sources?lang=es 95/100/100/100, /compare?lang=es 95/100/100/100 (CLS 0). M5 Codex review 10 (195946f..6fddf45): no findings. fb2a17c + 9ada7d2 (script guard, ics test) landed after it started — next review covers them. $0.
 - 2026-11-16 02:25 PT · M9 Spanish share text checked (clipboard path): Houston $378, Dallas $530, Dallas 600+lock $520 — all Spanish, right city, same $ as the cards, link keeps lang=es + area. No change. $0.
 - 2026-11-16 02:26 PT · M10 print shows date only · DONE (b2b35b9). $0.
+- 2026-11-16 02:28 PT · N1 Spanish loading screens · DONE (9ef598a). 202 tests. $0.
+- 2026-11-16 02:29 PT · N2 unknown plan status: still HTTP 200 (also for Googlebot) because the plan route streams behind loading.tsx; Next adds <meta name=robots content=noindex> to that page (checked; real plans have none), so search engines drop it. Real 404 would cost the loading screen or a proxy that loads every plan id — not worth it. Documented, no change. $0.
