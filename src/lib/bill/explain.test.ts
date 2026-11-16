@@ -57,7 +57,7 @@ describe("Spanish bill sentences", () => {
     const en = text("33633", 900);
     expect(Object.keys(es)).toEqual(Object.keys(en));
     expect(es.tduKwh).toBe("900 kWh × 6.5611¢ por los cables de CenterPoint hasta tu casa. El proveedor te lo pasa.");
-    expect(es["missed-0"]).toMatch(/^Te lo perdiste: el descuento de \$125.00 pide 1,000 kWh\. Son 100 kWh más que este mes\.$/);
+    expect(es["missed-0"]).toMatch(/^Te lo perdiste: el crédito de \$125.00 pide 1,000 kWh\. Son 100 kWh más que este mes\.$/);
     expect(Object.values(es).join(" ")).not.toMatch(/\b(the|you|your|month|provider)\b/);
   });
 });

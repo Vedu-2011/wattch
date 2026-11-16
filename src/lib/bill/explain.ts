@@ -54,8 +54,8 @@ export const EXPLAIN_WORDS = {
     atLeast: (k: string) => `al menos ${k} kWh`,
     between: (a: string, b: string) => `entre ${a} y ${b} kWh`,
     credit: (range: string, d: string, cond: boolean) => `Usaste ${range}, así que te descuentan ${d}${cond ? ", solo si cumples la condición extra de la etiqueta (como el pago automático)" : ""}.`,
-    missedLow: (d: string, min: string, more: string) => `Te lo perdiste: el descuento de ${d} pide ${min} kWh. Son ${more} kWh más que este mes.`,
-    missedHigh: (d: string, max: string, over: string) => `Te lo perdiste: el descuento de ${d} se acaba arriba de ${max} kWh. Usaste ${over} kWh de más.`,
+    missedLow: (d: string, min: string, more: string) => `Te lo perdiste: el crédito de ${d} pide ${min} kWh. Son ${more} kWh más que este mes.`,
+    missedHigh: (d: string, max: string, over: string) => `Te lo perdiste: el crédito de ${d} se acaba arriba de ${max} kWh. Usaste ${over} kWh de más.`,
   },
 } as const;
 
