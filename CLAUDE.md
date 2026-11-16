@@ -27,3 +27,8 @@ The rules in ~/Hackathons/CLAUDE.md apply here too. This file adds what's specif
 - Handoffs go to ~/Hackathons/_coord/handoffs/ (see root CLAUDE.md). HANDOFF.md here is history only.
 - docs/ — ARCHITECTURE.md (plan), later DESIGN.md, DEVPOST.md, SCRIPT.md, DECK.md, SOURCES.md
 - test-data/ — hand-checked EFL samples + expected numbers (the frozen test set).
+
+## OVERNIGHT RULES (survive context compaction — re-read OVERNIGHT.md whenever unsure)
+- Work loop: BACKLOG.md top item → verify (test, lint, build, screenshots) → commit → `git push origin overnight` → PROGRESS.md → next.
+- Never stop, never ask, never say "done". Never delete (mv to .trash/ + log in _coord/TO-DELETE.md).
+- Never cd+git in one command; one git command per Bash call; edit files with Edit/Write. Never touch main.
