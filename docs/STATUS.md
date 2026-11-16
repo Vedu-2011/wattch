@@ -25,6 +25,17 @@ The newest preview that built is 85e52e2 (~04:00). It is missing everything afte
 the skip link, noindex, wording fixes, unread/mismatch plan pages and previews, the phone chart labels. Options for the planner: merge now and let it go live tonight, or
 wait. For future overnight nights: push once per batch, or turn off previews for the `overnight` branch.
 
+## Day 2 (Nov 16, ~10 AM, prompts/day-2.md) — planner decisions applied
+- **Vercel:** vercel.json turns off builds for the `overnight` branch (`git.deploymentEnabled.overnight: false`).
+  Production still builds after "merge".
+- **Repo:** `.codex/` and `docs/screenshots/overnight-2/` (52 MB) are no longer tracked (still on disk, now in
+  .gitignore). Older notes below that point at docs/screenshots/overnight-2 mean the files on this computer.
+  docs/gallery/ stays in git.
+- **0 kWh:** each month in "my 12 months" needs at least 50 kWh, with a plain message (EN/ES); the kWh box already
+  starts at 100. New test: no ranked plan shows a bill below $0 at any usage people can enter, autopay counted.
+- **Data:** frozen at the Nov 16 read; the planner runs the refresh once the Anakin key is in .env.local.
+- **Local test server:** running at http://localhost:3000 (production build of `overnight`).
+
 ## Since 04:55 (BACKLOG AN–BO) — the last two hours
 
 **Fixes a user or judge can see**
@@ -65,7 +76,7 @@ wait. For future overnight nights: push once per batch, or turn off previews for
 
 **New checks that stay:** src/lib/dataSanity.test.ts, search.test.ts, tolerance.words.test.ts, sitemap duplicates,
 and scripts/link-names.mjs in check-all (same-name links, heading levels, <html lang> on 19 pages).
-**Quality:** 259 tests · lint + build clean · check-all (5 checks) PASS · Codex 28–49 clean or fixed (48 found one, fixed).
+**Quality:** 262 tests · lint + build clean · check-all (5 checks) PASS · Codex 28–49 clean or fixed (48 found one, fixed).
 
 **For the planner**
 - 09:37 free dry run: Houston 7 new / 5 gone / 7 price changes / 3 links moved (14 labels ≈ $0.09); Dallas 5 new / 5 gone /
@@ -74,8 +85,7 @@ and scripts/link-names.mjs in check-all (same-name links, heading levels, <html 
 - Power to Choose changed since the last read (free dry run 06:53): Houston +2 new plans (Varsity TOUCHDOWN 12/24),
   3 Champion prices +0.1¢; Dallas 2 Varsity price/link changes. Re-read ≈ $0.04 with `scripts/refresh.ts --area all --apply`;
   not run (Anakin is out of reads and --apply re-downloads every label). Today's numbers still match the labels Wattch read.
-- A month typed as 0 kWh, only with "Count autopay discounts" ON (off by default) → below $0 on 15 of 171 Houston plans
-  (lowest −$0.10) and 10 of 154 Dallas (lowest −$0.94). Default setting: never below $0. A $0 floor is a policy call.
+- 0 kWh months: decided (Day 2) — 50 kWh minimum per month; a test keeps every bill at $0 or more.
 - Idea, not built: search plans by name on the results page / compare. /demo stays English-only (presenter page).
 
 ## Since 04:20 (BACKLOG AA–AC) — honest about what it can't price
@@ -114,7 +124,7 @@ and scripts/link-names.mjs in check-all (same-name links, heading levels, <html 
   Houston; months URL comment had the wrong format.
 - **`node scripts/check-all.mjs`** runs axe + Spanish walk + widths (40 pages × sizes) + meta-check in ~2 min.
 - **Codex 14–17:** 3 real P2s fixed (compare test, preview settings, "cheapest" label), 17 clean.
-- **Quality now:** 259 tests · lint + build clean · axe 0 on 25 pages · check-all PASS.
+- **Quality now:** 262 tests · lint + build clean · axe 0 on 25 pages · check-all PASS.
 
 ## Since 01:57 (BACKLOG K–R) — polish, found by checking
 - **Spanish before JavaScript:** Spanish pages used to send English loading text and `lang="en"` in their first HTML

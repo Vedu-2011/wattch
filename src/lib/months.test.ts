@@ -20,6 +20,14 @@ describe("your own 12 months", () => {
     expect(parseMonths("100 200 300")).toEqual({ error: "That's 3 numbers. It takes 12, January to December." });
     expect(parseMonths("1 2 3 4 5 6 7 8 9 10 11 99999")).toHaveProperty("error");
   });
+  it("each month needs at least 50 kWh (a 0 kWh month could show a bill under $0), EN + ES, form and URL", () => {
+    const withZero = "0 700 760 880 1250 1560 1700 1850 1400 1100 780 760";
+    expect(parseMonths(withZero)).toEqual({ error: "Each month needs at least 50 kWh. If a month really was lower (an empty house, say), type 50." });
+    expect(parseMonths(withZero, "es")).toEqual({ error: "Cada mes necesita al menos 50 kWh. Si un mes de verdad fue menos (una casa vacía, por ejemplo), escribe 50." });
+    expect(parseMonths("49 700 760 880 1250 1560 1700 1850 1400 1100 780 760")).toHaveProperty("error");
+    expect(parseMonths("50 700 760 880 1250 1560 1700 1850 1400 1100 780 760")).toHaveProperty("months");
+    expect(monthsFromParam("0.700.760.880.1250.1560.1700.1850.1400.1100.780.760")).toBeNull();
+  });
   it("round-trips through the URL", () => {
     const m = [820, 700, 760, 880, 1250, 1560, 1700, 1850, 1400, 1100, 780, 760];
     expect(monthsFromParam(monthsToParam(m))).toEqual(m);

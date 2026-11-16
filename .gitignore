@@ -46,3 +46,6 @@ yarn-error.log*
 next-env.d.ts
 .trash/
 .overnight-stop
+
+# overnight screenshots stay on disk, not in git (52 MB; docs/gallery/ is the kept set)
+docs/screenshots/overnight-2/

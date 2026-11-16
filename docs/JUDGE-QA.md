@@ -13,7 +13,7 @@ shown as not verified and never ranked. Houston: 171 of 172 labels verified ⟲.
 
 **2. Then what does the AI actually decide?**
 Nothing. It copies numbers off a messy PDF. The bill, the yearly cost, the ranking, the "why" sentence and the questions on each
-plan page are all plain code with tests (259 ⟲ tests). Same inputs, same answer, every time.
+plan page are all plain code with tests (262 ⟲ tests). Same inputs, same answer, every time.
 
 **3. Why Claude Haiku and not a bigger model?**
 The job is reading, not reasoning, and the code check catches mistakes either way. Haiku is fast and cheap enough to read
@@ -90,7 +90,7 @@ Many plans roll onto a month-to-month rate if you don't pick a new one. The remi
 reminder 30 days before your end date. Nothing is saved on Wattch: no account, no email.
 
 **18. How do you catch your own mistakes?**
-Three ways: the three-price check on every label, 259 ⟲ automated tests (including one that rebuilds every verified label and
+Three ways: the three-price check on every label, 262 ⟲ automated tests (including one that rebuilds every verified label and
 one that checks every English sentence has a Spanish one), and a second AI reviewer (Codex) reading each batch of changes before
 it's merged. Example: a review caught that Dallas plans were saying their delivery charges came from CenterPoint instead of
 Oncor. The math was right; the wording was wrong, and it's fixed.
