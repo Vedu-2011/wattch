@@ -762,7 +762,19 @@
 - [x] BO4 DECK: test count + checks line
 - [x] BO5 README check-all time (~3 min)
 - [x] BO6 STATUS 'Since 04:55' section tidy (dedupe lines)
-- [ ] BO7 Handoff draft: add tonight's last fixes
-- [ ] BO8 Night-2 summary draft: final numbers placeholders filled
-- [ ] BO9 Codex if code changed
+- [x] BO7 Handoff draft: add tonight's last fixes
+- [x] BO8 Night-2 summary draft: final numbers placeholders filled
+- [x] BO9 Codex if code changed
 - [x] BO10 PROGRESS line
+
+## BP batch (added 06:27, night 2) — wrap-up checks before 7:00
+- [ ] BP1 Final full verify on a clean tree (test, lint, build, check-all)
+- [ ] BP2 git status clean; local = origin/overnight
+- [x] BP3 .trash contents + tonight's TO-DELETE lines listed for the handoff
+- [x] BP4 Nothing in the scratchpad that belongs in the repo
+- [x] BP5 PROGRESS tail reads cleanly (no cut lines)
+- [x] BP6 BOARD row text current
+- [ ] BP7 Handoff placeholders filled at 7:00
+- [ ] BP8 Night-2 summary placed at the top of tonight's PROGRESS section
+- [ ] BP9 BOARD Done line + tidy.sh
+- [ ] BP10 Keep going after the handoff (OVERNIGHT.md: never stop)
