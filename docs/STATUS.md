@@ -44,6 +44,9 @@ wait. For future overnight nights: push once per batch, or turn off previews for
   check allows ±0.11¢ because labels round to 0.1¢). DEVPOST axe count 23 → 25 pages.
   Two more spots found by a voice sweep: the results intro (EN/ES) and the /demo scene. App copy keeps product
   "we/our" (the solo-"I" rule is for scripts, Devpost and narration, which are clean).
+- **Plans Wattch couldn't read (16 Dallas)** no longer show an internal note ("Out of Anakin.io reads for now."), "read by
+  none" or an empty term; they say "Not read yet: Wattch couldn't get the prices out of this plan's fine print" (EN/ES)
+  and still link the provider's label. Spanish "not verified" note is now Spanish (its detail was stored in English).
 - README says which keys go in .env.local (none needed to run the app). A fresh clone with no keys: npm ci + 236 tests pass.
 - Checked, no change: Dallas share text, trap carousel under reduced motion, Dallas plan prints on 1 sheet, badge in
   Spanish/Dallas in a real browser, all data files tracked, biggest browser script 235 KB.

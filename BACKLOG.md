@@ -637,12 +637,12 @@
 
 ## BE batch (added 05:45, night 2) — plans that didn't check out
 - [x] BE1 Not-verified plan page (33670) EN + ES: clear why, no yearly claim, screenshot 375
-- [ ] BE2 Results wall: not-verified tile has a screen-reader name saying so
-- [ ] BE3 Traps page with area=dallas shows Dallas counts (14 usage traps)
+- [x] BE2 Results wall: not-verified tile has a screen-reader name saying so
+- [x] BE3 Traps page with area=dallas shows Dallas counts (14 usage traps)
 - [x] BE4 Unread Dallas plan page (couldn't open): friendly, links to the label
 - [x] BE5 Not-verified plan: 'Check this label again' still there
-- [ ] BE6 Compare with a not-verified plan: note shows (covered?)
+- [x] BE6 Compare with a not-verified plan: note shows (covered?)
 - [x] BE7 Fix anything found + tests
-- [ ] BE8 STATUS line
+- [x] BE8 STATUS line
 - [ ] BE9 Codex if code changed
 - [ ] BE10 PROGRESS line
