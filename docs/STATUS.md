@@ -25,48 +25,40 @@ The newest preview that built is 85e52e2 (~04:00). It is missing everything afte
 the skip link, noindex, wording fixes, unread/mismatch plan pages and previews, the phone chart labels. Options for the planner: merge now and let it go live tonight, or
 wait. For future overnight nights: push once per batch, or turn off previews for the `overnight` branch.
 
-## Since 04:55 (BACKLOG AN–AR) — small things a judge might notice
-- Plan terms read like a person wrote them: "1 month", "month to month" / "1 mes", "mes a mes" (were "1 months",
-  "0 months"); "1 month under 1,000 kWh". A sweep over every word table found no other slips.
-- The plan page's bill chart labels are readable on phones (were ~5 px).
-- "Check this label again" says plainly when a provider's label file is really gone, instead of "try again".
-- Compare with the same plan twice says so plainly (was "cheaper in 0 months, X in 0").
-- Spanish plan pages of the 6 hand-read labels say "leída a mano por Claude Code" (was English).
-- Keyboard: the home page's kWh box shows focus; the results slider tells screen readers "1,100 kWh a month".
-- Checked, no change: README AI-tools list, reduced motion, 404/error pages EN/ES, compare prints on 1 sheet,
-  longest plan names fit cards and 320 px, sitemap has Dallas, /how Dallas numbers, calendar file format.
-- "Find your current plan" search ignores accents too ("energia" finds "Energía").
-- Checked, no change: 84 internal links all open (EN/ES/Dallas); friendly errors on /remind and "my 12 months";
-  the re-check button is disabled while it runs. /demo stays English-only (presenter page, not linked).
-- Idea for the planner (not built): search plans by name on the results page / compare.
-- Number sanity (every ranked plan, both areas): yearly cost finite and $0–$10,000 at 200/1,100/3,000 kWh, real price
-  3–60¢ at 1,100, no monthly bill below $0 from 100 to 3,000 kWh. Edge for the planner: at exactly 0 kWh in a month
-  (only possible by typing a 0 in "my 12 months"), $5 autopay discounts beat the $4.90 delivery fee → −$0.10 that month
-  (Octopus / No Bull / Digital Choice; Dallas −$0.94). Left as the label's math; a $0 floor is a policy call.
-- Tonight's one-off checks are now tests (src/lib/dataSanity.test.ts, search.test.ts, sitemap no duplicates): 248 tests.
-- Weight + hygiene: pages 6–37 KB compressed (/wall is 641 KB raw because it carries all 172 plans for instant
-  re-ranking; 37 KB gzip); no image over 200 KB; build has no warnings; npm audit (app deps) 0 vulnerabilities; every dependency used.
-- Wording: "verified to a tenth of a cent" → "about a tenth" in the app (plan + /how, EN/ES), DEVPOST and SCRIPT (the
-  check allows ±0.11¢ because labels round to 0.1¢). DEVPOST axe count 23 → 25 pages.
-  Two more spots found by a voice sweep: the results intro (EN/ES) and the /demo scene. App copy keeps product
-  "we/our" (the solo-"I" rule is for scripts, Devpost and narration, which are clean).
-- **Plans Wattch couldn't read (16 Dallas)** no longer show an internal note ("Out of Anakin.io reads for now."), "read by
-  none" or an empty term; they say "Not read yet: Wattch couldn't get the prices out of this plan's fine print" (EN/ES)
-  and still link the provider's label. Spanish "not verified" note is now Spanish (its detail was stored in English).
-  Their link previews no longer say "the fine print, checked" (now "fine print not read yet"); meta-check tests it.
-  Same for the 3 plans whose labels don't add up: title "its fine print doesn't add up", description says Wattch doesn't
-  rank it (Codex 41 caught the title).
-- Results button "Open the #1 plan's fine print" opened the state site's #1 while the card also says "YOUR #1" →
-  now "Open the state site's #1 fine print" (EN/ES); gallery re-taken. Keyboard-only flow home → results → plan works
-  (skip link first). Lighthouse plan + results: 100/100/100, SEO 91 (description is streamed for browsers; bots get it).
-- Screen readers: links with the same words now say which plan (results 'Compare with #1', trap guide 'Read this
-  plan's fine print', compare 'Read its fine print'). iPhone-sized tap-through home → results → compare → plan → reminder works.
-- New check in check-all: scripts/link-names.mjs (19 pages EN/ES/Dallas) — same-name links, heading levels, <html lang>.
-- English-leak scan of all 344 Spanish plan pages (+ compare, results): clean (only plan names and a label URL).
-- README says which keys go in .env.local (none needed to run the app). A fresh clone with no keys: npm ci + 236 tests pass.
-- Checked, no change: Dallas share text, trap carousel under reduced motion, Dallas plan prints on 1 sheet, badge in
-  Spanish/Dallas in a real browser, all data files tracked, biggest browser script 235 KB.
-- Codex 28–45 clean on my code (31's only note is the swept-in .codex/ folder, see Known gaps). 255 tests (a test now keeps "about a tenth of a cent" honest).
+## Since 04:55 (BACKLOG AN–BO) — the last two hours
+
+**Fixes a user or judge can see**
+- **Plans Wattch couldn't read (16 Dallas)** used to show an internal note ("Out of Anakin.io reads for now.", English
+  even in Spanish), "read by none", an empty term and a print footer claiming the label was read. Now: "Not read yet:
+  Wattch couldn't get the prices out of this plan's fine print" (EN/ES), with the provider's label still linked.
+- **Link previews tell the truth:** unread plans say "fine print not read yet"; the 3 plans whose labels don't add up
+  say "its fine print doesn't add up" (Codex 41 caught the title). meta-check tests both.
+- **"About a tenth of a cent"** everywhere (app EN/ES, /demo, DEVPOST, SCRIPT): the check allows ±0.11¢. A test keeps it.
+- **Results button** "Open the #1 plan's fine print" → "Open the state site's #1 fine print" (the card also shows
+  "YOUR #1"). Gallery re-taken.
+- **Small wording:** "1 month" / "month to month" (were "1 months" / "0 months"); compare with the same plan twice says
+  so; Spanish hand-read note "leída a mano por Claude Code"; Spanish "not verified" note in Spanish.
+- **Phones + keyboards + screen readers:** bill chart labels readable on phones (were ~5 px); kWh box shows focus;
+  slider says "1,100 kWh a month"; links that look the same ("Compare with #1", "Read its fine print") say which plan.
+- **Search** "find your current plan" ignores accents ("energia" finds "Energía").
+- **Live re-check** says plainly when a provider's label file is really gone.
+
+**Checked, nothing to fix**
+- All 344 Spanish plan pages scanned for leftover English: clean. 84 internal links all open (EN/ES/Dallas).
+- Every ranked plan's numbers are sane at 200/1,100/3,000 kWh (now a test). Keyboard-only flow and an iPhone-sized
+  tap-through work. Lighthouse plan + results 100/100/100 (SEO 91: the description is streamed to browsers, bots get it).
+- Pages 6–37 KB compressed; no image over 200 KB; 0 npm audit issues; every dependency used; a fresh clone with no keys
+  installs and passes the tests. README says which keys go in .env.local (none needed to run the app).
+- Friendly errors on /remind, "my 12 months", unknown plans; reduced motion; printing (plan, compare, Dallas) on 1 sheet.
+
+**New checks that stay:** src/lib/dataSanity.test.ts, search.test.ts, tolerance.words.test.ts, sitemap duplicates,
+and scripts/link-names.mjs in check-all (same-name links, heading levels, <html lang> on 19 pages).
+**Quality:** 255 tests · lint + build clean · check-all (5 checks) PASS · Codex 28–45 clean or fixed.
+
+**For the planner**
+- A month typed as 0 kWh → −$0.10 (Houston) / −$0.94 (Dallas) on plans whose $5 autopay discount beats the delivery
+  fee. Left as the label's math; a $0 floor is a policy call.
+- Idea, not built: search plans by name on the results page / compare. /demo stays English-only (presenter page).
 
 ## Since 04:20 (BACKLOG AA–AC) — honest about what it can't price
 - **Variable, prepaid and not-verified plans** no longer get a firm yearly number anywhere: their plan page and any

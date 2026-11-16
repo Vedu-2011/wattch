@@ -761,7 +761,7 @@
 - [x] BO3 DEVPOST: checks list includes link-names, unread-plan honesty
 - [x] BO4 DECK: test count + checks line
 - [x] BO5 README check-all time (~3 min)
-- [ ] BO6 STATUS 'Since 04:55' section tidy (dedupe lines)
+- [x] BO6 STATUS 'Since 04:55' section tidy (dedupe lines)
 - [ ] BO7 Handoff draft: add tonight's last fixes
 - [ ] BO8 Night-2 summary draft: final numbers placeholders filled
 - [ ] BO9 Codex if code changed
