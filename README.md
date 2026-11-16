@@ -73,7 +73,8 @@ npx tsx --env-file=.env.local scripts/ingest.ts --redo-failed --force
 npx tsx scripts/recheck.ts [--area dallas]  # free: second chances for plans that didn't add up (no network, no AI)
 npx tsx scripts/top.ts          # quick look at the top plans
 npx tsx scripts/headline.ts     # the headline numbers (state site's #1 vs best, gap, rank) — use before any deck/video
-python3 scripts/houston_seasons.py   # rebuild data/seasons-houston.json from ERCOT profiles (see docs/SOURCES.md)
+python3 -I scripts/houston_seasons.py <xlsx 2023> <xlsx 2024> <xlsx 2025>   # rebuild data/seasons-houston.json from ERCOT's
+                                     # yearly profile workbooks (download: docs/SOURCES.md); stops if none are given
 python3 scripts/seasons.py data/sources/eia861m-texas.csv    # old statewide model (data/seasons.json)
 node scripts/axe.mjs            # accessibility check of every page (needs the app running on :3000)
 node scripts/meta-check.mjs     # Dallas URLs: no "Houston"; Spanish URLs: no English title/description (app on :3000)

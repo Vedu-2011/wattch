@@ -116,7 +116,7 @@
 - [x] M3 Projector check: Spanish wall + plan at 1920 — longer Spanish words do not break the big number or cards
 - [x] M4 Regenerate gallery image 8 (en-espanol) after the crédito wording fix; check caption still true
 - [ ] M5 Codex review 10 (L1–L8 + M diff)
-- [ ] M6 README "Run it" commands: run each free one, fix any that fail or are stale
+- [x] M6 README "Run it" commands: run each free one, fix any that fail or are stale
 - [ ] M7 Spanish .ics: parse the generated file (line folding, UTF-8 accents, CRLF) — test
 - [ ] M8 Lighthouse /sources?lang=es + /compare?lang=es (now with descriptions) — log
 - [ ] M9 Spanish navigator.share text: check the exact text that gets copied on Spanish Houston + Dallas results

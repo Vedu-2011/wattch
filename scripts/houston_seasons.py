@@ -15,6 +15,11 @@ from datetime import date, timedelta
 NS = "{http://schemas.openxmlformats.org/spreadsheetml/2006/main}"
 PROFILES = ("RESLOWR_COAST", "RESHIWR_COAST")
 
+# Stop before writing anything: with no workbooks it used to overwrite the committed extract with an empty file.
+if len(sys.argv) < 2:
+    raise SystemExit("Usage: python3 -I scripts/houston_seasons.py <xlsx 2023> <xlsx 2024> <xlsx 2025>\n"
+                     "(ERCOT's yearly backcasted load-profile workbooks; nothing was written.)")
+
 
 def rows(z, name, strings):
     """Each row as {column letters: value}. Empty cells are left out of the XML, so never trust positions."""

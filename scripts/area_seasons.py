@@ -13,6 +13,8 @@ import xml.etree.ElementTree as ET
 from datetime import date, timedelta
 
 NS = "{http://schemas.openxmlformats.org/spreadsheetml/2006/main}"
+if len(sys.argv) < 7:  # stop before writing anything (no workbooks would write an empty extract)
+    raise SystemExit(__doc__.split("Usage:")[1].split("\n")[0].strip().join(["Usage: ", "\n(nothing was written)"]))
 zone, counts_csv, out_json, extract_csv, label, *books = sys.argv[1:]
 PROFILES = (f"RESLOWR_{zone}", f"RESHIWR_{zone}")
 
