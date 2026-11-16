@@ -230,10 +230,22 @@
 - [x] W1 Gallery: regenerate docs/gallery images if any page they show changed tonight (compare table/chart, tiles) — compare before/after
 - [x] W2 Demo (/demo): still matches results after tonight (numbers + steps), 1920 screen
 - [x] W3 Wall: 'Compare with #1' links carry own months + filters (open one, check compare uses same months)
-- [ ] W4 Plan page at 1920: the new preview doesn't change page; screenshot for deck (Simple Saver 3)
+- [x] W4 Plan page at 1920: the new preview doesn't change page; screenshot for deck (Simple Saver 3)
 - [x] W5 Keyboard: Print button on compare reachable + has visible focus
 - [x] W6 i18n parity test covers the new card words (W.en vs W.es keys)
 - [x] W7 JUDGE-QA Q21 number check: #74/154/$378 still true after any data refresh (none tonight) — log
 - [x] W8 check-all on 1440 only? no — confirm runtime < 3 min; log
 - [x] W9 README: link-preview feature one line
-- [ ] W10 Codex review 19 after W batch
+- [x] W10 Codex review 19 after W batch
+
+## X batch (added 03:59, night 2)
+- [x] X1 Gallery: DEVPOST lists the gallery captions — still match the new images? (check text vs images)
+- [ ] X2 Plan page: 'Share' button? plan pages have no share button — decide (cheap: reuse ShareButton with plan text) + log
+- [ ] X3 Compare page: share button too? (same decision)
+- [ ] X4 /how: mention 'every number on a share card comes from the same code' only if true + short
+- [ ] X5 Card route: Dallas plan ids with ?area=houston on the card URL itself (not via page) → falls back? decide
+- [ ] X6 Remove the duplicate cache-header literal if any remains; grep 'max-age' across src
+- [ ] X7 es-walk: add a Dallas compare stop
+- [ ] X8 axe: add /compare Dallas + own-months wall pages (like widths)
+- [ ] X9 PROGRESS: tidy nothing (append-only) — instead write morning 'how to review' list for Vedhanth in STATUS (5 bullets, plain words)
+- [ ] X10 Codex review 20 after X batch

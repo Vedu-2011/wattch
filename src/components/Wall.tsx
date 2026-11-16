@@ -75,7 +75,7 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons,
   // with the 12-month filter on, compare against the state site's #1 among those same plans
   const pick = useMemo(() => ptcTopPick(plans.filter((p) => p.pricing && passesFilters(p, filterOpts))), [plans, filterOpts]);
   const notRanked = plans.filter((p) => p.status === "verified" && !p.prepaid && p.rateType.toLowerCase() === "variable").length;
-  const when = new Date(builtAt).toLocaleString(lang === "es" ? "es-US" : "en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+  const when = new Date(builtAt).toLocaleString(lang === "es" ? "es-US" : "en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit", timeZone: "America/Chicago" }) + " CT";
   // when the last tile flips, bring the answer into view (the wall is long on a phone)
   const [arrived, setArrived] = useState(false);
   useEffect(() => {
