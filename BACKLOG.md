@@ -143,7 +143,7 @@
 - [ ] O10 PROGRESS.md: one-paragraph "night 2 summary" at the top of tonight's section for the planner
 
 ## P batch (added 02:50, night 2)
-- [ ] P1 Spanish /compare: two plans side by side in Spanish at 375 + 1440, numbers match English (screens)
+- [x] P1 Spanish /compare: two plans side by side in Spanish at 375 + 1440, numbers match English (screens)
 - [ ] P2 /sitemap + /robots: add a meta-check rule (robots disallows /demo, sitemap parses, every plan id present)
 - [ ] P3 Card: Spanish card for a negative/zero gap (state #1 is already best) — wording check
 - [ ] P4 Spanish /traps?area=dallas at 320: no overflow, every trap kind has a Spanish name
