@@ -1,4 +1,4 @@
-# Wattch — STATUS (Claude Code, overnight-2, updated Nov 15 2026 ~23:30 PT)
+# Wattch — STATUS (Claude Code, overnight-2, updated Nov 16 2026 ~00:20 PT)
 
 Live: https://getwattch.vercel.app (main) · Overnight work: branch `overnight` (Vercel preview) · Repo: github.com/Vedu-2011/wattch
 
@@ -16,7 +16,8 @@ Live: https://getwattch.vercel.app (main) · Overnight work: branch `overnight` 
   home counts (ERCOT Profile Type Counts, Nov 2 2026). August ≈ 1.63× the average, February ≈ 0.63× (Aug ≈ 2.6× Feb).
   EIA's Texas average home (1,117 kWh/month) is still used for the "average home" hint.
 - **18** rankable plans have a usage trap (bill-credit cliff, minimum-use fee, or price cliff).
-- **98 tests** (vitest), lint + build clean.
+- **113 tests** (vitest), lint + build clean. axe: 0 issues on 10 pages. Lighthouse mobile: / 96/100/100/100,
+  /wall 95 perf (LCP 2.9 s, JS+data 224 KiB), /plan 95/100/100/90 (perf/a11y/best/SEO).
 - Paid API tonight: ≈ $0.87 (Haiku re-reads), well under the $3 cap.
 
 ## What works (new tonight marked ★)
@@ -29,7 +30,12 @@ Live: https://getwattch.vercel.app (main) · Overnight work: branch `overnight` 
 - ★ /compare?a=&b=: two plans over your year — saving, months each wins, paired bars + table, cliffs, exit fees.
 - /plan/[id]: label check, bill lines, your year + bars, cliff chart, ★ fine-print highlighter (the label text the AI
   read with every number the math used marked; hover a bill line and its number glows), ★ "Check this label again now".
-- /api/card, /how, /sources, /api/live.
+- ★ /traps (every kind of catch, a real example priced at 3 usages), ★ /demo (7 auto-advancing scenes for the video,
+  ←/→/space), /api/card (★ carries filters, own months and autopay setting), /how, /sources, /api/live (★ tested).
+- ★ Reveal: count-up $ number, wall walk animation (answer in ~10 s, reduced-motion respected), Kapi poses.
+- ★ 404 / error / global-error (data file fails its zod check → "no prices rather than wrong prices"), loading skeletons,
+  favicon/app icon, per-page titles + OG images, sticky "Find my best plan" on phones.
+- ★ "Count autopay discounts" off now carries into plan + compare pages (codex review 4 fix).
 - Pipeline: ingest.ts (AI read → code check → rescue; ★ Anakin retry, ★ --workers, ★ code slip-fixes,
   ★ Vistra/Octopus label URL fixes, ★ Pronto template), recheck.ts (free), houston_seasons.py, headline.ts.
 
@@ -38,4 +44,12 @@ Live: https://getwattch.vercel.app (main) · Overnight work: branch `overnight` 
 - One-time rebates aren't in yearly cost (notes only). Taxes not included.
 - Hand-reads are pinned to the label text they were made from; if a label changes, that plan falls back to "not verified".
 - Outside stats (docs/SOURCES.md): EnergyBot 98% VERIFIED (2024 survey, commercial source); Peltier/Lieber $480 NOT found — do not use; ERCOT 8M unchecked.
-- Not done yet: wall animation polish, reveal count-up, /traps, /demo, a11y/Lighthouse pass, Devpost/script/deck.
+- /plan/<unknown id> shows the 404 page but with HTTP 200 (Next streams it). Harmless for people.
+
+## Submission docs (★ tonight, drafts for the planner)
+docs/DEVPOST.md (every field + gallery captions) · docs/SCRIPT.md (12 scenes, ~4:35 + pauses) · docs/DECK.md (15 slides,
+[CHECK] marks on unsourced items) · docs/gallery/ (6 × 1920×1080) · README (AI tools for STEM2Connect/GenHacks).
+
+## Next (BACKLOG F + G)
+Spanish core flow · Dallas/other areas · renewal reminder · /how diagram · bill-line explainer · refresh script ·
+one headline source · usage hint · print view · projector pass · edge states · "questions to ask" · JUDGE-QA.md.
