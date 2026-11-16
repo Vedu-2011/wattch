@@ -38,7 +38,7 @@
 - [x] Verify the planner's candidate headline stats (Dallas Morning News Watchdog on a June 2026 Peltier study: ~$480/family/yr; EnergyBot "98% couldn't pick the cheapest plan"); open the real pages; only use quotes you can link — SOURCES.md updated or "not verified" logged
 ## F. Stretch
 - [x] Spanish version of the core flow (Houston is ~45% Hispanic — only state that number with a source) — toggle works
-- [ ] Oncor/Dallas, AEP, TNMP support (same pipeline, TDU filter) behind a city picker — at least one more area verified
+- [x] Oncor/Dallas, AEP, TNMP support (same pipeline, TDU filter) behind a city picker — at least one more area verified
 - [ ] "Renewal alarm" page: enter your contract end date → reminder .ics download 30 days before — .ics opens in Calendar
 ## G. Added overnight-2 (Nov 16, 00:10) — judges + submission strength
 - [ ] /how page: one clear diagram of the pipeline (Power to Choose CSV → label → AI reads → code rebuilds 3 prices → verified/ranked) built in plain HTML/SVG, not an image — renders at 375 + 1920, numbers from data

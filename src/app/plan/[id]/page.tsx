@@ -10,7 +10,7 @@ import { annualCost, billLines, monthlyBill } from "@/lib/bill";
 import { whyLine, yearFor } from "@/lib/rank";
 import { belongs, labelSegments } from "@/lib/finePrint";
 import { monthsFromParam } from "@/lib/months";
-import { billQs } from "@/lib/params";
+import { billQs, parseWallParams } from "@/lib/params";
 import { areaOf, labelText, planById } from "@/lib/plans/data";
 import { AREAS } from "@/lib/plans/ptc";
 
@@ -47,7 +47,8 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
   const year = p ? annualCost(p, months, opts) : 0;
   const why = p ? whyLine(p, months) : null;
   const line = p?.credits.filter((c) => !c.conditional && c.minKwh > 0).sort((a, b) => b.dollars - a.dollars)[0]?.minKwh;
-  const back = billQs({ kwh, seasons, months: mine, withConditional, area });
+  const { filters, lang } = parseWallParams((k) => { const v = sp[k]; return Array.isArray(v) ? v[0] : v; });
+  const back = billQs({ kwh, seasons, months: mine, withConditional, area, filters, lang });
   const text = p ? labelText(id) : null;
   const fp = p && text ? labelSegments(text, p, { tduFilled: rec.check.tduFilled }) : null;
   const marks = fp ? fp.segments.filter((x) => x.key).length : 0;
@@ -135,7 +136,7 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
               : seasons
               ? `Averaging ${kwh.toLocaleString()} kWh, shaped like a real ${AREAS[area].city} year (${area === "dallas" ? "most in summer, more in winter too, least in spring and fall" : "more in summer, less in winter and spring"}).`
               : `${kwh.toLocaleString()} kWh every month.`}{" "}
-            <Link className="underline underline-offset-4" href={`/plan/${id}?${billQs({ kwh, seasons: !seasons, withConditional, area })}`}>{seasons ? "Show same usage every month" : `Use ${AREAS[area].city} seasons`}</Link>
+            <Link className="underline underline-offset-4" href={`/plan/${id}?${billQs({ kwh, seasons: !seasons, withConditional, area, filters, lang })}`}>{seasons ? "Show same usage every month" : `Use ${AREAS[area].city} seasons`}</Link>
           </p>
           {why && <p className="mt-3 text-lg font-semibold"><span className="text-volt">Why?</span> {why}</p>}
           <div className="mt-4"><YearBars months={months} line={line} lineLabel={line ? `credit needs ${line.toLocaleString()} kWh` : undefined} dark /></div>

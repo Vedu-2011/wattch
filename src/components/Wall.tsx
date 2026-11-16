@@ -54,9 +54,9 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons,
   // your own 12 months, when you've typed them in; otherwise an average spread by Houston seasons
   const [mine, setMine] = useState<number[] | null>(initialMonths);
   const [withConditional, setWithConditional] = useState(initialConditional);
-  // carried into every plan / compare link so those pages price bills the same way as this ranking
-  const qs = billQs({ kwh, seasons, months: mine, withConditional, area });
   const [f, setF] = useState<WallFilters>(initialFilters);
+  // carried into every plan / compare link so those pages price bills the same way as this ranking (and keep the filters)
+  const qs = billQs({ kwh, seasons, months: mine, withConditional, area, filters: f, lang });
   const filterOpts = useMemo(() => toOpts(f), [f]);
   const filtered = anyFilter(f);
   // keep the address bar shareable: usage, your months, and every filter

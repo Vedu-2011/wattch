@@ -82,6 +82,11 @@ export function CurrentPlan({ plans, best, includeConditional, kwh, seasons, qs,
                 plan&apos;s label: {f!.dollars ? `$${f!.dollars}${f!.perMonthRemaining ? " × months left" : ""}` : "none listed"}.{" "}
                 Best plan: <Link className="underline" href={`/plan/${best.plan.id}?${qs}`}>{best.plan.planName}</Link>.
               </p>
+              {m.verdict === "wait" && (
+                <Link href={`/remind?plan=${encodeURIComponent(cur!.planName)}`} className="mt-3 inline-block rounded-full bg-ink px-4 py-2 text-sm font-bold text-paper">
+                  Remind me before it ends
+                </Link>
+              )}
             </div>
           )}
         </div>

@@ -45,6 +45,14 @@ describe("area in links and words", () => {
     const q = new URLSearchParams(billQs({ kwh: 1100, seasons: true, area: "dallas" }));
     expect(parseWallParams((k) => q.get(k)).area).toBe("dallas");
   });
+  it("billQs carries filters and Spanish so 'All plans' comes back to the same list (codex review 5)", () => {
+    const filters = { locked: true, noCliffs: false, green: true, rated: false };
+    const q = new URLSearchParams(billQs({ kwh: 900, seasons: true, filters, lang: "es" }));
+    const back = parseWallParams((k) => q.get(k));
+    expect(back.filters).toEqual(filters);
+    expect(back.lang).toBe("es");
+    expect(billQs({ kwh: 900, seasons: true, filters: { locked: false, noCliffs: false, green: false, rated: false } })).toBe("kwh=900");
+  });
   it("Dallas words never say Houston", () => {
     const w = words("en", "dallas");
     const all = [w.wallIntro("Nov 16"), w.atUsage(1100, true, false), w.tSeasons, w.tSeasonsHint, w.shareBest, w.shareGap("$1")].join(" ");

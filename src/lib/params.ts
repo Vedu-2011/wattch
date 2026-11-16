@@ -1,4 +1,4 @@
-import { asLang } from "@/lib/i18n";
+import { type Lang, asLang } from "@/lib/i18n";
 import { type Area, asArea } from "@/lib/plans/ptc";
 import { monthsFromParam, monthsToParam } from "@/lib/months";
 import type { RankOpts } from "@/lib/rank";
@@ -32,8 +32,10 @@ export function parseWallParams(get: (key: string) => string | null | undefined)
  * The query string that carries a result's bill settings to the plan, compare and wall pages
  * (usage, seasons, your own months, autopay discounts). One builder so no page drops a setting.
  */
-export function billQs(o: { kwh: number; seasons: boolean; months?: number[] | null; withConditional?: boolean; area?: Area }): string {
-  return `kwh=${o.kwh}${o.seasons ? "" : "&flat=1"}${o.months ? `&m=${monthsToParam(o.months)}` : ""}${o.withConditional === false ? "&noauto=1" : ""}${o.area && o.area !== "houston" ? `&area=${o.area}` : ""}`;
+export function billQs(o: { kwh: number; seasons: boolean; months?: number[] | null; withConditional?: boolean; area?: Area; filters?: WallFilters; lang?: Lang }): string {
+  // filters and language don't change a bill, but they ride along so "All plans" returns to the same list
+  const f = o.filters ? (Object.keys(FILTER_KEYS) as (keyof WallFilters)[]).filter((k) => o.filters![k]).map((k) => `&${FILTER_KEYS[k]}=1`).join("") : "";
+  return `kwh=${o.kwh}${o.seasons ? "" : "&flat=1"}${o.months ? `&m=${monthsToParam(o.months)}` : ""}${o.withConditional === false ? "&noauto=1" : ""}${o.area && o.area !== "houston" ? `&area=${o.area}` : ""}${f}${o.lang === "es" ? "&lang=es" : ""}`;
 }
 
 /** Every URL key a shared result depends on (share link, share card, og:image). */

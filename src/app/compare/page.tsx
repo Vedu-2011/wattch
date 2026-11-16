@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { compareYear } from "@/lib/compare";
 import { monthsFromParam } from "@/lib/months";
-import { billQs } from "@/lib/params";
+import { billQs, parseWallParams } from "@/lib/params";
 import { areaOf, planById } from "@/lib/plans/data";
 import { AREAS } from "@/lib/plans/ptc";
 import type { PlanRecord } from "@/lib/plans/schema";
@@ -27,7 +27,8 @@ export default async function Compare({ searchParams }: PageProps<"/compare">) {
   const area = areaOf(a?.meta.id ?? "") ?? "houston";
   const months = mine ?? yearFor(kwh, seasons, area);
   const withConditional = one(sp.noauto) !== "1";
-  const qs = billQs({ kwh, seasons, months: mine, withConditional, area });
+  const { filters, lang } = parseWallParams((k) => one(sp[k]));
+  const qs = billQs({ kwh, seasons, months: mine, withConditional, area, filters, lang });
 
   if (!a?.pricing || !b?.pricing) {
     return (
