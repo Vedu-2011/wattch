@@ -75,14 +75,16 @@ export function Demo({ d }: { d: DemoData }) {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "ArrowRight") go(i + 1);
       else if (e.key === "ArrowLeft") go(i - 1);
+      else if (e.key === "Home") go(0);
+      else if (e.key === "End") go(n - 1);
       else if (e.key === " ") { e.preventDefault(); setPlaying((p) => !p); }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [i, go]);
+  }, [i, go, n]);
 
   return (
-    <div className="mx-auto mt-4 max-w-6xl px-4 sm:px-5">
+    <div className="demo-fit mx-auto mt-4 max-w-6xl px-4 sm:px-5">
       <div className="relative flex min-h-[70vh] flex-col justify-center overflow-hidden rounded-[2rem] bg-ink p-6 text-paper shadow-[var(--shadow-lift)] sm:p-12">
         <div aria-live="polite">{scenes[i]}</div>
         <div className="absolute inset-x-0 bottom-0 h-1.5 bg-paper/10">

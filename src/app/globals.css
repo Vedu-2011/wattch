@@ -87,3 +87,6 @@ input[type="range"] { accent-color: var(--ink); }
   .print-plain * { color: #000 !important; }
   section { break-inside: avoid; }
 }
+
+/* /demo on a short projector (1280×720, 1366×768): shrink the whole stage evenly so the buttons stay on screen */
+@media (min-width: 640px) and (max-height: 800px) { .demo-fit { zoom: 0.8; } }

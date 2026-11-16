@@ -24,6 +24,8 @@ wait. For future overnight nights: push once per batch, or turn off previews for
   compare page show a plain note ("only a rough guide — that's why it isn't in the ranking"), the link description
   drops "really costs $X a year", and the share card falls back to the general one. Found by opening those plans on purpose.
 - **Skip-to-content link** (EN/ES) for keyboard users, hidden until Tab.
+- **Demo day:** /demo now fits a 1280×720 or 1366×768 projector (the stage shrinks evenly; 1920 unchanged), and
+  Home/End jump to the first/last scene. If the Wi-Fi dies, docs/gallery/ has 8 full-screen images in demo order.
 - **Privacy, checked (04:50):** 9 pages, no cookies, nothing in browser storage, no requests to any outside site.
   No API keys anywhere in the repo or its history. "Check this label again" answers are shared by the CDN for 1 minute.
 - **Bad-input sweep (04:40):** 21 odd URLs (kWh 0 / -5 / 99999 / abc, bad months, bad plan ids, bad dates, huge

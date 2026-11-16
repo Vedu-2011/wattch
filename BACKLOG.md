@@ -404,4 +404,16 @@
 - [x] AK7 .env.local not committed (git check-ignore) + no key strings in repo (grep sk-ant)
 - [x] AK8 Headers: X-Robots for /demo? robots.txt covers — log
 - [x] AK9 STATUS: privacy line
-- [ ] AK10 Codex review 28 after AK batch
+- [x] AK10 Codex review 28 after AK batch
+
+## AL batch (added 04:45, night 2) — demo day
+- [x] AL1 /demo at 1280×720 (common projector): every scene fits, no scroll
+- [x] AL2 /demo keyboard: ←/→, Home/End? log what works
+- [x] AL3 Results page at 1280×720: big number visible without scrolling
+- [x] AL4 QR on results/plan page points to the current URL (if QR exists)
+- [x] AL5 Zoom share: 1920 with browser zoom 125% — nothing cut
+- [x] AL6 Dark room: contrast of yellow on cream (volt on paper) ≥ 3:1 for big text
+- [x] AL7 SCRIPT scene timing still ≈ 5:30 (no new scenes) — log
+- [x] AL8 Backup: docs/gallery images can stand in if Wi-Fi dies — note in STATUS
+- [x] AL9 STATUS demo-day line
+- [ ] AL10 Codex review 29 if code changed
