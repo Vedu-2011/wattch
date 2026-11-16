@@ -42,6 +42,7 @@ for (const width of [375, 1440]) {
   { const said = await pg.getByRole("button", { name: "Enlace copiado" }).count(); console.log(said ? "ok     " : "ENGLISH", width, "3b-share  'Enlace copiado'"); bad += said ? 0 : 1; }
   await pg.goto(`${BASE}/compare?a=37797&b=33633&kwh=1100&lang=es`); await check("4-compare");
   await pg.goto(`${BASE}/compare?a=17283&b=33631&kwh=1100&lang=es`); await check("4b-compare-dallas");
+  await pg.goto(`${BASE}/plan/24977?kwh=1100&lang=es`); await check("4c-plan-variable"); // its "rough guide" note
   await pg.goto(`${BASE}/traps?lang=es`); await check("5-traps");
   await pg.goto(`${BASE}/remind?lang=es`); await check("6-remind");
   await pg.goto(`${BASE}/how?lang=es`); await check("7-how");

@@ -62,7 +62,8 @@ In a 2024 EnergyBot survey of Dallas and Houston shoppers, 98% didn't pick the c
 mattered most. (EnergyBot is a commercial comparison site; the survey size isn't on its page.)
 
 **13. What doesn't it do yet?**
-Variable-rate and prepaid plans aren't ranked (their price can change, so a yearly cost would be a guess). Taxes aren't
+Variable-rate and prepaid plans aren't ranked (their price can change, so a yearly cost would be a guess). Their plan pages still show
+today's-price math, with a note that it's only a rough guide. Taxes aren't
 included. Areas other than CenterPoint and Oncor (AEP, TNMP) aren't read yet. In Dallas, 16 labels ⟲ weren't read (15 because
 the scraping service's quota ran out or it was rate-limited mid-run, 1 with unreadable prices); they show as "not read" and
 aren't ranked.

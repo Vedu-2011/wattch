@@ -10,6 +10,7 @@ import { PrintButton } from "@/components/PrintButton";
 import { ShareLink } from "@/components/ShareLink";
 import { YearBars } from "@/components/YearBars";
 import { annualCost, billLines, monthlyBill } from "@/lib/bill";
+import { notFirm } from "@/lib/compare";
 import { explainBill } from "@/lib/bill/explain";
 import { asLang } from "@/lib/i18n";
 import { PLAN_WORDS, lineLabel } from "@/lib/planWords";
@@ -37,7 +38,8 @@ export async function generateMetadata({ params, searchParams }: PageProps<"/pla
   const area = areaOf(rec.meta.id) ?? "houston";
   const city = AREAS[area].city;
   const yr = rec.pricing ? Math.round(annualCost(rec.pricing, yearFor(1100, true, area))).toLocaleString("en-US") : "";
-  const description = rec.pricing
+  // a firm "really costs $X a year" only for plans Wattch ranks
+  const description = rec.pricing && !notFirm(rec)
     ? es
       ? `${rec.meta.planName} (${who}) se anuncia a ${rec.meta.ptc.k1000}¢. Con 1,100 kWh al mes durante un año en ${city}, en realidad cuesta $${yr} al año.`
       : `${rec.meta.planName} (${who}) is advertised at ${rec.meta.ptc.k1000}¢. At 1,100 kWh a month through a ${city} year it really costs $${yr} a year.`
@@ -74,6 +76,7 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
   const lineWhy = new Map(whyAll.map((w) => [w.key, w.text]));
   const missed = whyAll.filter((w) => w.key.startsWith("missed-"));
   const year = p ? annualCost(p, months, opts) : 0;
+  const loose = notFirm(rec); // variable / prepaid / not verified: the yearly number is only a rough guide
   const why = p ? whyLine(p, months, lang) : null;
   const line = p?.credits.filter((c) => !c.conditional && c.minKwh > 0).sort((a, b) => b.dollars - a.dollars)[0]?.minKwh;
   const back = billQs({ kwh, seasons, months: mine, withConditional, area, filters, lang });
@@ -164,6 +167,7 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
             <h2 className="text-lg font-bold">{t.yearTitle}</h2>
             <p className="num text-3xl font-semibold text-volt">${Math.round(year).toLocaleString("en-US")}<span className="text-sm text-paper/70">{t.perYr}</span></p>
           </div>
+          {loose && <p role="note" className="mt-2 rounded-2xl bg-volt-2 px-3 py-2 text-sm font-medium text-ink">{t.notFirm(loose)}</p>}
           <p className="mt-1 text-sm text-paper/70">
             {mine ? t.mine : seasons ? t.shaped(k(kwh), city, area === "dallas") : t.flat(k(kwh))}{" "}
             <Link className="no-print underline underline-offset-4" href={`/plan/${id}?${billQs({ kwh, seasons: !seasons, withConditional, area, filters, lang })}`}>{seasons ? t.toFlat : t.toSeasons(city)}</Link>

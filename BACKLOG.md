@@ -284,4 +284,16 @@
 - [ ] AA7 PROGRESS: Anakin probe result (N8) feeds the Dallas re-read decision
 - [x] AA8 STATUS 'Known gaps' refresh (Dallas 16 unread, Vercel limit)
 - [x] AA9 tidy: docs/screenshots/overnight-2 size check (repo weight) — log MB
-- [ ] AA10 Codex review 22 after AA batch
+- [x] AA10 Codex review 22 after AA batch
+
+## AB batch (added 04:20, night 2)
+- [x] AB1 Plan page for a variable plan: does it show a firm yearly cost anywhere? (same honesty rule as compare)
+- [x] AB2 Plan page for the not-verified plan (33670): bill shown? labelled as not checked?
+- [x] AB3 /wall unranked list: variable plans shown with a firm number anywhere?
+- [x] AB4 Traps page: any trap example uses a variable plan's yearly cost?
+- [x] AB5 Remind page for variable-plan users: copy mentions month-to-month? (check only)
+- [x] AB6 notFirm used by plan page too if AB1 finds a gap
+- [x] AB7 JUDGE-QA Q13 mentions compare note for variable plans? (only if AB1–4 changed things)
+- [x] AB8 es-walk stop on variable compare page (note in Spanish)
+- [x] AB9 meta-check: variable compare link's og:image (fine either way) — log
+- [ ] AB10 Codex review 23 after AB batch
