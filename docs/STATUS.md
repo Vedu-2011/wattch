@@ -66,7 +66,7 @@ wait. For future overnight nights: push once per batch, or turn off previews for
 - README says which keys go in .env.local (none needed to run the app). A fresh clone with no keys: npm ci + 236 tests pass.
 - Checked, no change: Dallas share text, trap carousel under reduced motion, Dallas plan prints on 1 sheet, badge in
   Spanish/Dallas in a real browser, all data files tracked, biggest browser script 235 KB.
-- Codex 28–37 clean on my code (31's only note is the swept-in .codex/ folder, see Known gaps). 254 tests (a test now keeps "about a tenth of a cent" honest).
+- Codex 28–45 clean on my code (31's only note is the swept-in .codex/ folder, see Known gaps). 255 tests (a test now keeps "about a tenth of a cent" honest).
 
 ## Since 04:20 (BACKLOG AA–AC) — honest about what it can't price
 - **Variable, prepaid and not-verified plans** no longer get a firm yearly number anywhere: their plan page and any
@@ -104,7 +104,7 @@ wait. For future overnight nights: push once per batch, or turn off previews for
   Houston; months URL comment had the wrong format.
 - **`node scripts/check-all.mjs`** runs axe + Spanish walk + widths (40 pages × sizes) + meta-check in ~2 min.
 - **Codex 14–17:** 3 real P2s fixed (compare test, preview settings, "cheapest" label), 17 clean.
-- **Quality now:** 254 tests · lint + build clean · axe 0 on 25 pages · check-all PASS.
+- **Quality now:** 255 tests · lint + build clean · axe 0 on 25 pages · check-all PASS.
 
 ## Since 01:57 (BACKLOG K–R) — polish, found by checking
 - **Spanish before JavaScript:** Spanish pages used to send English loading text and `lang="en"` in their first HTML

@@ -754,3 +754,15 @@
 - [x] BN8 STATUS line
 - [ ] BN9 Codex review
 - [x] BN10 PROGRESS line
+
+## BO batch (added 06:26, night 2) — docs catch up with the last hour
+- [x] BO1 Test count in docs = npm test (255?)
+- [x] BO2 JUDGE-QA Q20: screen readers hear which plan each link opens; link-names check
+- [x] BO3 DEVPOST: checks list includes link-names, unread-plan honesty
+- [x] BO4 DECK: test count + checks line
+- [x] BO5 README check-all time (~3 min)
+- [ ] BO6 STATUS 'Since 04:55' section tidy (dedupe lines)
+- [ ] BO7 Handoff draft: add tonight's last fixes
+- [ ] BO8 Night-2 summary draft: final numbers placeholders filled
+- [ ] BO9 Codex if code changed
+- [x] BO10 PROGRESS line
