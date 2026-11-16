@@ -8,7 +8,7 @@ type L = "en" | "es";
 export function useUiLang(): L {
   const path = usePathname();
   const sp = useSearchParams();
-  return path === "/es" || sp.get("lang") === "es" ? "es" : "en";
+  return path === "/es" || path.startsWith("/es/") || sp.get("lang") === "es" ? "es" : "en";
 }
 
 export const NAV = {

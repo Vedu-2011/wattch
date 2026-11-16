@@ -78,3 +78,4 @@
 - 2026-11-16 01:46 PT · I10 Lighthouse ES plan + compare · DONE (a1fa2ee). Found + fixed CLS 0.177 on Spanish plan page (badge wrap). Scores: plan ES 96/100, plan EN 99/100, compare EN/ES 95/100, traps ES 95/100, wall ES 92/100. $0.
 - 2026-11-16 01:50 PT · J1+J2 Spanish CurrentPlan + MyMonths · DONE (925aabd). Real gap found: Spanish wall had both widgets in English. Also fixed 'I need 12' wording. 188 tests, axe 0. $0.
 - 2026-11-16 01:50 PT · Codex review 8 · DONE (0f897c9). 1 P2, false positive (share text already per-area, tested); hardened ShareButton anyway. $0.
+- 2026-11-16 01:52 PT · J4 Spanish /how · DONE (3a7f485). Also: last-read box was Houston-only without saying so → per area. /how now dynamic (was static). 189 tests, axe 0 on 22. $0.
