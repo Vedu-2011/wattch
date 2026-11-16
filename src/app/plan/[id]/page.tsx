@@ -2,11 +2,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CliffChart } from "@/components/CliffChart";
 import { Fresh } from "@/components/Fresh";
+import { HighlightScope, HoverKey, LabelText } from "@/components/Highlight";
 import { LiveCheck } from "@/components/LiveCheck";
 import { YearBars } from "@/components/YearBars";
 import { annualCost, billLines, monthlyBill } from "@/lib/bill";
 import { whyLine, yearFor } from "@/lib/rank";
-import { planById } from "@/lib/plans/data";
+import { belongs, labelSegments } from "@/lib/finePrint";
+import { labelText, planById } from "@/lib/plans/data";
 
 /** Reads ?kwh= from the URL, so it renders per request. */
 export const instant = false;
@@ -25,8 +27,13 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
   const why = p ? whyLine(p, months) : null;
   const line = p?.credits.filter((c) => !c.conditional && c.minKwh > 0).sort((a, b) => b.dollars - a.dollars)[0]?.minKwh;
   const back = `kwh=${kwh}${seasons ? "" : "&flat=1"}`;
+  const text = p ? labelText(id) : null;
+  const fp = p && text ? labelSegments(text, p, { tduFilled: rec.check.tduFilled }) : null;
+  const marks = fp ? fp.segments.filter((x) => x.key).length : 0;
+  const found = (key: string) => !!fp && Object.entries(fp.found).some(([k, n]) => n > 0 && belongs(k, key));
   const read = new Date(rec.read.fetchedAt).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit", timeZone: "America/Chicago" });
   return (
+    <HighlightScope>
     <div className="mx-auto max-w-4xl px-5 pt-6">
       <Link href={`/wall?${back}`} className="text-sm font-medium text-ink-2 hover:text-ink">← All plans</Link>
       <h1 className="display mt-3 text-4xl font-extrabold leading-tight">{rec.meta.planName}</h1>
@@ -40,10 +47,10 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
               <thead className="text-sm text-ink-2"><tr><th className="py-1 font-medium">Usage</th><th className="font-medium">Label says</th><th className="font-medium">We get</th><th /></tr></thead>
               <tbody className="num">
                 {rec.check.rows.map((r) => (
-                  <tr key={r.kwh}>
-                    <td className="py-1">{r.kwh.toLocaleString()} kWh</td><td>{r.printed.toFixed(1)}¢</td><td>{r.ours.toFixed(1)}¢</td>
+                  <HoverKey as="tr" k={`avg-${r.kwh}`} found={found(`avg-${r.kwh}`)} key={r.kwh}>
+                    <td className="py-1 pl-1">{r.kwh.toLocaleString()} kWh</td><td>{r.printed.toFixed(1)}¢</td><td>{r.ours.toFixed(1)}¢</td>
                     <td className={r.ok ? "text-good" : "text-over"}>{r.ok ? "✓" : "✕"}</td>
-                  </tr>
+                  </HoverKey>
                 ))}
               </tbody>
             </table>
@@ -66,13 +73,34 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
             <h2 className="text-lg font-bold">Your bill at <span className="num">{kwh.toLocaleString()}</span> kWh</h2>
             <ul className="num mt-3 space-y-1 text-sm">
               {billLines(p, kwh).map((l, i) => (
-                <li key={i} className="flex justify-between gap-3"><span className="font-sans">{l.label}</span><span className={l.dollars < 0 ? "text-good" : ""}>{l.dollars < 0 ? "−" : ""}${Math.abs(l.dollars).toFixed(2)}</span></li>
+                <HoverKey key={i} k={l.key} found={found(l.key)} className="-mx-1.5 flex justify-between gap-3 px-1.5 py-0.5">
+                  <span className="font-sans">{l.label}{found(l.key) ? <span aria-hidden className="ml-1.5 inline-block h-1.5 w-1.5 -translate-y-0.5 rounded-full bg-volt" /> : null}</span>
+                  <span className={`whitespace-nowrap ${l.dollars < 0 ? "text-good" : ""}`}>{l.dollars < 0 ? "−" : ""}${Math.abs(l.dollars).toFixed(2)}</span>
+                </HoverKey>
               ))}
               <li className="mt-2 flex justify-between rounded-xl bg-paper px-2 py-1.5 text-base font-semibold"><span className="font-sans">Total</span><span>${monthlyBill(p, kwh).toFixed(2)}</span></li>
             </ul>
           </section>
         )}
       </div>
+
+      {fp && text && (
+        <section className="mt-4 rounded-3xl bg-card p-5 shadow-[var(--shadow-soft)]">
+          <div className="flex flex-wrap items-baseline justify-between gap-2">
+            <h2 className="text-lg font-bold">The fine print, with every number we used</h2>
+            <p className="text-sm text-ink-2"><span className="num">{marks}</span> numbers found on the label</p>
+          </div>
+          <p className="mt-1 text-sm text-ink-2">
+            <mark className="rounded bg-volt-2 px-1 text-ink">Yellow</mark> = a number the bill math uses.{" "}
+            <mark className="rounded bg-good-2 px-1 text-ink">Green</mark> = the 3 averages our check rebuilds.{" "}
+            Hover or tap a bill line or a check row to find its number here.
+          </p>
+          {rec.check.tduFilled && <p className="mt-1 text-sm text-ink-2">This label doesn&apos;t print delivery charges, so those come from CenterPoint&apos;s and don&apos;t light up.</p>}
+          {marks < 3 && <p className="mt-1 text-sm text-ink-2">This label keeps its prices in PDF form fields, so the text below runs them together and few can be marked.</p>}
+          <div className="mt-3"><LabelText segments={fp.segments} /></div>
+          <p className="mt-2 text-xs text-ink-2">The text exactly as Wattch read it from the label ({rec.read.via === "anakin" ? "opened through Anakin.io" : "the provider's PDF"}). Marks are found by code, not by AI.</p>
+        </section>
+      )}
 
       {p && (
         <section className="mt-4 rounded-3xl bg-ink p-5 text-paper shadow-[var(--shadow-lift)] sm:p-6">
@@ -107,5 +135,6 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
         </section>
       )}
     </div>
+    </HighlightScope>
   );
 }

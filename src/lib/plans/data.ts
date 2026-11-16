@@ -1,4 +1,6 @@
 import "server-only";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import raw from "../../../data/plans.json";
 import type { PlanRecord } from "./schema";
 import type { ClientPlan } from "@/lib/rank";
@@ -16,6 +18,16 @@ export function clientPlans(): ClientPlan[] {
     status: r.check.status, via: r.read.via, fetchedAt: r.read.fetchedAt, readMs: r.read.readMs,
     message: r.check.message, rows: r.check.rows, pricing: r.pricing,
   }));
+}
+
+/** The label text exactly as the reader saw it (data/text/<id>.txt), or null if we don't have it. */
+export function labelText(id: string): string | null {
+  if (!/^[A-Za-z0-9_-]+$/.test(id)) return null;
+  try {
+    return readFileSync(join(process.cwd(), "data", "text", `${id}.txt`), "utf8");
+  } catch {
+    return null;
+  }
 }
 
 export function planById(id: string): PlanRecord | undefined {

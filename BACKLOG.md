@@ -4,7 +4,7 @@
 - [x] The 8 unread (Express/Veteran/TriEagle blob-iframe EFLs): try Anakin.io browser options from its docs (anakin.io/docs/api-reference/url-scraper — wait/render/PDF options) or the provider's direct PDF endpoint; if truly impossible, show them honestly as "couldn't open" with the reason — each of the 8 either verified or has a clear reason in the UI
 - [x] The 3 remaining mismatches: read each label by hand, find the exact cause, fix code (not data) if it's a pattern — each one verified or explained on its plan page
 - [x] Freshness: a "prices checked <time ago>" badge on every page + /api/live used on the plan page ("Check this label again now" button shows same/changed in plain words) — button works on a real plan
-- [ ] Houston-only seasons if a real source exists (ERCOT residential load profile for the COAST weather zone); otherwise keep Texas seasons and say why in /sources — source quoted in docs/SOURCES.md or decision logged
+- [x] Houston-only seasons if a real source exists (ERCOT residential load profile for the COAST weather zone); otherwise keep Texas seasons and say why in /sources — source quoted in docs/SOURCES.md or decision logged
 ## B. The "insane" demo features (judges must SEE these)
 - [ ] FINE-PRINT HIGHLIGHTER on /plan/[id]: show the label text the AI read, with every number it used highlighted and linked to the bill line that uses it (hover a bill line → its number glows in the label). This proves "AI reads, code decides" visually — works on 3 different plans incl. a TOU plan
 - [ ] "Your current plan" picker: search your current plan → "You're paying $X/yr more than your best plan" + early-termination-fee math ("switching costs $150, pays back in N months") — correct numbers on 3 test cases with tests
