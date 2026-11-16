@@ -7,6 +7,7 @@ import { MONTHS_BY_LANG, TRAP_LABELS, WORDS } from "@/lib/i18n";
 import { PlanRecord } from "@/lib/plans/schema";
 import { traps } from "@/lib/rank";
 import { ICS_WORDS, PROBLEMS } from "@/lib/ics";
+import { COMPARE_WORDS } from "@/lib/compareWords";
 import { PLAN_WORDS } from "@/lib/planWords";
 import { QUESTION_WORDS } from "@/lib/questions";
 import { REMIND_WORDS } from "@/lib/remindWords";
@@ -18,7 +19,7 @@ const shape = (o: object) =>
 const TABLES: [string, { en: object; es: object }][] = [
   ["words()", WORDS], ["plan page", PLAN_WORDS], ["bill sentences", EXPLAIN_WORDS],
   ["questions", QUESTION_WORDS], ["calendar file", ICS_WORDS], ["date errors", PROBLEMS], ["reminder page", REMIND_WORDS],
-  ["live re-check", LIVE_WORDS], ["header", NAV], ["footer", { en: { t: FOOT.en }, es: { t: FOOT.es } }],
+  ["live re-check", LIVE_WORDS], ["compare page", COMPARE_WORDS], ["header", NAV], ["footer", { en: { t: FOOT.en }, es: { t: FOOT.es } }],
 ];
 
 /** names that are the same in both languages */

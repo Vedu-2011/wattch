@@ -13,7 +13,7 @@ export function LangSwitch() {
   let es = false;
   if (path === "/") href = "/es";
   else if (path === "/es") { href = "/"; es = true; }
-  else if (path === "/wall" || path === "/remind" || path.startsWith("/plan/")) {
+  else if (path === "/wall" || path === "/remind" || path === "/compare" || path.startsWith("/plan/")) {
     es = sp.get("lang") === "es";
     const q = new URLSearchParams(sp.toString());
     if (es) q.delete("lang"); else q.set("lang", "es");

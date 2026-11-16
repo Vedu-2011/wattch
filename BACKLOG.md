@@ -70,7 +70,7 @@
 
 ## I. Added overnight-2 (Nov 16, 01:30) — Spanish everywhere + submission polish
 - [x] i18n parity test: words("es") has every key words("en") has (and PLAN_WORDS, ICS, remind T) — test fails if a key is missing
-- [ ] Spanish /compare (?lang=es): headings, table, verdict, area guard text — axe 0, no English outside lang=en
+- [x] Spanish /compare (?lang=es): headings, table, verdict, area guard text — axe 0, no English outside lang=en
 - [ ] Spanish /traps (?lang=es): kind names, explanations, examples — axe 0
 - [ ] Share card in Spanish: /api/card?lang=es draws Spanish text; the Spanish wall share button uses it — screenshot of both cards
 - [ ] /how per area (?area=dallas): pipeline counts from the Oncor file; area switch on the page — Houston unchanged (test)
