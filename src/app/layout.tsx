@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Badge, type BadgeCounts, FreshBadge as AreaBadge } from "@/components/FreshBadge";
 import { Kapi } from "@/components/Kapi";
 import { LangSwitch } from "@/components/LangSwitch";
+import { Footer, FooterView, Nav, NavView } from "@/components/SiteChrome";
 import { Suspense } from "react";
 import { areaInfo } from "@/lib/plans/data";
 import "./globals.css";
@@ -35,26 +36,21 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable} antialiased`}>
       <body className="min-h-dvh flex flex-col bg-paper text-ink">
-        <header className="no-print mx-auto w-full max-w-6xl px-5 pt-5 flex items-center justify-between">
+        <header className="no-print mx-auto w-full max-w-6xl px-4 pt-5 flex items-center justify-between gap-2 sm:px-5">
           <Link href="/" className="flex items-center gap-2" aria-label="Wattch home">
-            <Kapi className="h-9 w-9" />
-            <span className="display text-2xl font-extrabold">Wattch</span>
+            <Kapi className="h-8 w-8 sm:h-9 sm:w-9" />
+            <span className="display text-xl font-extrabold sm:text-2xl">Wattch</span>
           </Link>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 sm:gap-2">
             <span className="hidden md:block"><FreshBadge /></span>
             <Suspense fallback={null}><LangSwitch /></Suspense>
-            <nav className="flex gap-0.5 whitespace-nowrap text-sm font-medium sm:gap-1">
-              <Link className="rounded-full px-2 py-1.5 hover:bg-paper-2 sm:px-3" href="/traps">Traps</Link>
-              <Link className="rounded-full px-2 py-1.5 hover:bg-paper-2 sm:px-3" href="/how"><span className="sm:hidden">How</span><span className="hidden sm:inline">How it works</span></Link>
-              <Link className="rounded-full px-2 py-1.5 hover:bg-paper-2 sm:px-3" href="/sources">Sources</Link>
-            </nav>
+            <Suspense fallback={<NavView lang="en" />}><Nav /></Suspense>
           </div>
         </header>
         <aside aria-label="How fresh the data is" className="no-print mx-auto mt-2 w-full max-w-6xl px-5 md:hidden"><FreshBadge /></aside>
         <main className="flex-1">{children}</main>
         <footer className="no-print mx-auto w-full max-w-6xl px-5 py-10 text-sm text-ink-2">
-          Wattch shows the math. Always open the plan&apos;s fine print before you switch. Prices before taxes.
-          Plan list from the state&apos;s Power to Choose site.
+          <Suspense fallback={<FooterView lang="en" />}><Footer /></Suspense>
         </footer>
       </body>
     </html>

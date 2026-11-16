@@ -66,4 +66,16 @@
 - [x] Spanish plan page (?lang=es): headings, label check, bill lines + explainBill sentences in Spanish, questions, year card; links from the Spanish wall carry lang — axe 0, no mixed-language section
 - [x] Header freshness badge per area: on ?area=dallas pages show Dallas counts (154 of 172) — test + screenshot
 - [x] Codex review 7 (codex review --base main) — fix real findings
-- [ ] Header + freshness badge in Spanish on ?lang=es pages (nav: Trampas/Cómo funciona/Fuentes; "171 de 172 etiquetas cuadran · leídas hace 2 horas") — client reads ?lang like the area badge; axe 0
+- [x] Header + freshness badge in Spanish on ?lang=es pages (nav: Trampas/Cómo funciona/Fuentes; "171 de 172 etiquetas cuadran · leídas hace 2 horas") — client reads ?lang like the area badge; axe 0
+
+## I. Added overnight-2 (Nov 16, 01:30) — Spanish everywhere + submission polish
+- [ ] i18n parity test: words("es") has every key words("en") has (and PLAN_WORDS, ICS, remind T) — test fails if a key is missing
+- [ ] Spanish /compare (?lang=es): headings, table, verdict, area guard text — axe 0, no English outside lang=en
+- [ ] Spanish /traps (?lang=es): kind names, explanations, examples — axe 0
+- [ ] Share card in Spanish: /api/card?lang=es draws Spanish text; the Spanish wall share button uses it — screenshot of both cards
+- [ ] /how per area (?area=dallas): pipeline counts from the Oncor file; area switch on the page — Houston unchanged (test)
+- [ ] Plan links always carry ?area=dallas for Oncor plans (compare, current-plan, traps, carousel) so the header badge is right — grep + live check
+- [ ] README refresh: Dallas, Spanish, /remind, refresh script, meta-check, all scripts listed and run once — every command in it works
+- [ ] docs/JUDGE-QA.md update: Dallas, Spanish, reminder, explainer, codex findings — every number re-checked
+- [ ] Gallery: 2 more 1920×1080 shots (Dallas reveal, Spanish plan page) + captions in DEVPOST.md — files exist
+- [ ] Lighthouse mobile on /plan/33633?lang=es and /compare: a11y 100, perf ≥ 90 — logged

@@ -3,8 +3,8 @@ import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 
 /**
- * "Español" / "English" in the header, on the pages that have Spanish (home and the wall).
- * Home is / and /es; the wall keeps every setting and flips ?lang=es.
+ * "Español" / "English" in the header, on the pages that have Spanish (home, the wall, plan pages, reminders).
+ * Home is / and /es; the others keep every setting and flip ?lang=es.
  */
 export function LangSwitch() {
   const path = usePathname();
@@ -13,11 +13,11 @@ export function LangSwitch() {
   let es = false;
   if (path === "/") href = "/es";
   else if (path === "/es") { href = "/"; es = true; }
-  else if (path === "/wall") {
+  else if (path === "/wall" || path === "/remind" || path.startsWith("/plan/")) {
     es = sp.get("lang") === "es";
     const q = new URLSearchParams(sp.toString());
     if (es) q.delete("lang"); else q.set("lang", "es");
-    href = `/wall?${q.toString()}`;
+    href = `${path}?${q.toString()}`;
   }
   if (!href) return null;
   return (
