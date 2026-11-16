@@ -104,3 +104,4 @@
 - 2026-11-16 02:17 PT · L7 Spanish self-review · DONE (64530da). $0.
 - 2026-11-16 02:18 PT · L8 JS weight (Lighthouse transfer): /wall script 164 → 180 KiB since 00:02 (+16 KiB: client widgets ship both EN + ES word tables), document 39 KiB unchanged; /wall?lang=es same; /plan script 159 KiB. Perf 91–92 /wall, 95 /plan (≥ 90 ✓). Decision: no change — sending one language per page would touch every widget for 16 KiB; not worth the risk before the demo. Noted in STATUS as a later option. $0.
 - 2026-11-16 02:19 PT · M1 number-parity test · DONE (1b959df). 200 tests. $0.
+- 2026-11-16 02:23 PT · M2+M3 320px header + wall chips fix · DONE (ac85cab). $0.
