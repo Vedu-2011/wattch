@@ -13,8 +13,8 @@ export function useUiLang(): L {
 }
 
 export const NAV = {
-  en: { traps: "Traps", howShort: "How", how: "How it works", sources: "Sources" },
-  es: { traps: "Trampas", howShort: "Cómo", how: "Cómo funciona", sources: "Fuentes" },
+  en: { skip: "Skip to the content", traps: "Traps", howShort: "How", how: "How it works", sources: "Sources" },
+  es: { skip: "Saltar al contenido", traps: "Trampas", howShort: "Cómo", how: "Cómo funciona", sources: "Fuentes" },
 } as const;
 
 const item = "rounded-full px-1.5 py-1.5 hover:bg-paper-2 sm:px-3";
@@ -51,3 +51,12 @@ export function HtmlLang() {
   useEffect(() => { document.documentElement.lang = lang; }, [lang]);
   return null;
 }
+
+/** First thing a keyboard reaches: jumps past the header to the page itself (hidden until focused). */
+export const SkipView = ({ lang }: { lang: L }) => (
+  <a href="#main" lang={lang} className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-50 focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-paper">
+    {NAV[lang].skip}
+  </a>
+);
+const SkipByQuery = () => <SkipView lang={useUiLang()} />;
+export const SkipLink = () => (esPath(usePathname()) ? <SkipView lang="es" /> : <SkipByQuery />);

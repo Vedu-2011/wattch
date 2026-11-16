@@ -308,4 +308,16 @@
 - [x] AC7 Dallas variable plan page check (area words)
 - [x] AC8 widths: add a variable plan page at 320
 - [x] AC9 Lighthouse /plan/24977 a11y (note contrast on dark card)
-- [ ] AC10 Codex review 24 after AC batch
+- [x] AC10 Codex review 24 after AC batch
+
+## AD batch (added 04:26, night 2)
+- [x] AD1 Results page: unranked note (rankNote) still says the right count for Dallas ES
+- [ ] AD2 Plan page 'Check this label again now' on variable plan: works / friendly (no paid call — just the UI state)
+- [x] AD3 404 for /plan/<unknown>?lang=es&area=dallas: links keep area+lang
+- [x] AD4 Home trap carousel: each card links to a ranked plan? (variable plan in carousel would contradict)
+- [x] AD5 Trap guide examples: any plan not ranked? (same rule)
+- [ ] AD6 /how mentions the rough-guide rule? one sentence if missing
+- [ ] AD7 Remind page ics file name for EN (wattch-reminder-<date>.ics) sanity
+- [x] AD8 Footer links on every page keep lang (spot check 3 pages)
+- [x] AD9 Keyboard skip link (if any) works in ES
+- [ ] AD10 Codex review 25 after AD batch

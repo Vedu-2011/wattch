@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Badge, type BadgeCounts, FreshBadge as AreaBadge } from "@/components/FreshBadge";
 import { Kapi } from "@/components/Kapi";
 import { LangSwitch } from "@/components/LangSwitch";
-import { Footer, FooterView, HtmlLang, Nav, NavView } from "@/components/SiteChrome";
+import { Footer, FooterView, HtmlLang, Nav, NavView, SkipLink, SkipView } from "@/components/SiteChrome";
 import { Suspense } from "react";
 import { areaInfo } from "@/lib/plans/data";
 import "./globals.css";
@@ -40,6 +40,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <script dangerouslySetInnerHTML={{ __html: `(function(){var p=location.pathname;if(p==="/es"||p.indexOf("/es/")===0||new URLSearchParams(location.search).get("lang")==="es")document.documentElement.lang="es"})()` }} />
       </head>
       <body className="min-h-dvh flex flex-col bg-paper text-ink">
+        <Suspense fallback={<SkipView lang="en" />}><SkipLink /></Suspense>
         <header className="no-print mx-auto w-full max-w-6xl px-4 pt-5 flex items-center justify-between gap-2 sm:px-5">
           <Link href="/" className="flex items-center gap-2" aria-label="Wattch">
             <Kapi className="h-8 w-8 max-[359px]:hidden sm:h-9 sm:w-9" />
@@ -52,7 +53,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </div>
         </header>
         <div className="no-print mx-auto mt-2 w-full max-w-6xl px-5 md:hidden"><FreshBadge /></div>
-        <main className="flex-1">{children}</main>
+        <main id="main" tabIndex={-1} className="flex-1 outline-none">{children}</main>
         <footer className="no-print mx-auto w-full max-w-6xl px-5 py-10 text-sm text-ink-2">
           <Suspense fallback={<FooterView lang="en" />}><Footer /></Suspense>
           <Suspense fallback={null}><HtmlLang /></Suspense>
