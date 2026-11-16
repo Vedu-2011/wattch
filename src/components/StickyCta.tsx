@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 
 /** Phones only: while the usage picker is off screen, a button at the bottom brings you to it. */
-export function StickyCta() {
+export function StickyCta({ label = "Find my best plan" }: { label?: string }) {
   const [show, setShow] = useState(false);
   useEffect(() => {
     const el = document.getElementById("picker");
@@ -20,7 +20,7 @@ export function StickyCta() {
   return (
     <div className="fixed inset-x-0 bottom-0 z-30 px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-3 sm:hidden">
       <button type="button" onClick={go} className="pop w-full rounded-full bg-volt py-3.5 text-lg font-bold text-ink shadow-[var(--shadow-lift)]">
-        Find my best plan
+        {label}
       </button>
     </div>
   );

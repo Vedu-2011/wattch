@@ -1,14 +1,16 @@
-import { MONTHS } from "@/lib/seasons";
+import { type Lang, MONTHS_BY_LANG, words } from "@/lib/i18n";
 
 /**
  * Your 12 months as bars. With a credit line, months that miss the credit turn red, so the "why" is visible
  * at a glance: summer clears the line, spring and fall don't.
  */
-export function YearBars({ months, line, lineLabel, dark = false }: { months: number[]; line?: number; lineLabel?: string; dark?: boolean }) {
+export function YearBars({ months, line, lineLabel, dark = false, lang = "en" }: { months: number[]; line?: number; lineLabel?: string; dark?: boolean; lang?: Lang }) {
   const max = Math.max(...months, line ?? 0) * 1.12;
   const below = (m: number) => line !== undefined && m < line;
+  const w = words(lang);
+  const MONTHS = MONTHS_BY_LANG[lang];
   return (
-    <figure aria-label={`Your usage by month${line ? `; ${months.filter(below).length} months under ${line.toLocaleString()} kWh` : ""}`}>
+    <figure aria-label={`${w.usageByMonth}${line ? `; ${w.monthsUnder(months.filter(below).length, line)}` : ""}`}>
       <div className="relative h-32 sm:h-40">
         {line !== undefined && (
           <div className="absolute inset-x-0 z-10 flex translate-y-1/2 items-center gap-2" style={{ bottom: `${(line / max) * 100}%` }}>

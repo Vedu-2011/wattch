@@ -5,7 +5,8 @@ const from = (q: string) => { const u = new URLSearchParams(q); return parseWall
 
 describe("reading a shared result from the URL", () => {
   it("defaults: 1,100 kWh, Houston seasons, no months, no filters", () => {
-    expect(from("")).toEqual({ kwh: 1100, seasons: true, months: null, filters: { locked: false, noCliffs: false, green: false, rated: false }, withConditional: true });
+    expect(from("")).toEqual({ kwh: 1100, seasons: true, months: null, filters: { locked: false, noCliffs: false, green: false, rated: false }, withConditional: true, lang: "en" });
+    expect(from("kwh=1100&lang=es").lang).toBe("es");
   });
   it("reads usage, flat, months and every filter", () => {
     const p = from("kwh=1130&flat=1&m=820.700.760.880.1250.1560.1700.1850.1400.1100.780.760&lock=1&nocliff=1&green=1&rated=1");

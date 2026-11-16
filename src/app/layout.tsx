@@ -3,6 +3,8 @@ import { Bricolage_Grotesque, Inter, JetBrains_Mono } from "next/font/google";
 import Link from "next/link";
 import { Fresh } from "@/components/Fresh";
 import { Kapi } from "@/components/Kapi";
+import { LangSwitch } from "@/components/LangSwitch";
+import { Suspense } from "react";
 import { snapshotInfo } from "@/lib/plans/data";
 import "./globals.css";
 
@@ -41,6 +43,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </Link>
           <div className="flex items-center gap-2">
             <span className="hidden md:block"><FreshBadge /></span>
+            <Suspense fallback={null}><LangSwitch /></Suspense>
             <nav className="flex gap-0.5 whitespace-nowrap text-sm font-medium sm:gap-1">
               <Link className="rounded-full px-2 py-1.5 hover:bg-paper-2 sm:px-3" href="/traps">Traps</Link>
               <Link className="rounded-full px-2 py-1.5 hover:bg-paper-2 sm:px-3" href="/how"><span className="sm:hidden">How</span><span className="hidden sm:inline">How it works</span></Link>

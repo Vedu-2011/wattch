@@ -1,3 +1,4 @@
+import { asLang } from "@/lib/i18n";
 import { monthsFromParam, monthsToParam } from "@/lib/months";
 import type { RankOpts } from "@/lib/rank";
 
@@ -19,6 +20,8 @@ export function parseWallParams(get: (key: string) => string | null | undefined)
     filters,
     /** "Count autopay discounts" — on unless ?noauto=1 */
     withConditional: get("noauto") !== "1",
+    /** ?lang=es shows the wall in Spanish */
+    lang: asLang(get("lang")),
   };
 }
 
@@ -31,7 +34,7 @@ export function billQs(o: { kwh: number; seasons: boolean; months?: number[] | n
 }
 
 /** Every URL key a shared result depends on (share link, share card, og:image). */
-export const RESULT_KEYS = ["kwh", "flat", "m", "noauto", ...Object.values(FILTER_KEYS)] as const;
+export const RESULT_KEYS = ["kwh", "flat", "m", "noauto", "lang", ...Object.values(FILTER_KEYS)] as const;
 
 export const filterOpts = (f: WallFilters): RankOpts => ({
   minTermMonths: f.locked ? 12 : 0, noCliffs: f.noCliffs, minRenewable: f.green ? 50 : 0, minRating: f.rated ? 4 : 0,

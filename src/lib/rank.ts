@@ -1,4 +1,5 @@
 import { annualCost, findCliffs, flatYear } from "@/lib/bill";
+import type { Lang } from "@/lib/i18n";
 import type { PlanPricing } from "@/lib/plans/schema";
 import { seasonalYear } from "@/lib/seasons";
 
@@ -110,7 +111,8 @@ const times = (n: number) => (n === 1 ? "1 month" : `${n} months`);
  * One plain-English line on why a plan costs what it does over YOUR year. Every number comes from the parsed
  * label and the bill math, never from the AI's notes. Returns null when there's nothing surprising to say.
  */
-export function whyLine(p: PlanPricing, months: number[]): string | null {
+export function whyLine(p: PlanPricing, months: number[], lang: Lang = "en"): string | null {
+  if (lang === "es") return whyLineEs(p, months);
   const credit = p.credits.filter((c) => !c.conditional && c.minKwh > 0).sort((a, b) => b.dollars - a.dollars)[0];
   if (credit) {
     const missed = months.filter((m) => m < credit.minKwh || (credit.maxKwh !== null && m > credit.maxKwh));
@@ -135,6 +137,38 @@ export function whyLine(p: PlanPricing, months: number[]): string | null {
   if (p.touPeriods.length) {
     const free = p.touPeriods.filter((t) => t.cents === 0).reduce((s, t) => s + t.share, 0);
     if (free > 0) return `Its price assumes ${Math.round(free * 100)}% of your power is used in its free hours. Use less then and you pay more.`;
+  }
+  return null;
+}
+
+const timesEs = (n: number) => (n === 1 ? "1 mes" : `${n} meses`);
+
+/** Same rules and numbers as whyLine, in Spanish. */
+function whyLineEs(p: PlanPricing, months: number[]): string | null {
+  const credit = p.credits.filter((c) => !c.conditional && c.minKwh > 0).sort((a, b) => b.dollars - a.dollars)[0];
+  if (credit) {
+    const missed = months.filter((m) => m < credit.minKwh || (credit.maxKwh !== null && m > credit.maxKwh));
+    const lost = missed.length * credit.dollars;
+    if (missed.length === 0) return `Su crédito de ${usd(credit.dollars)} pide ${kwhs(credit.minKwh)} al mes — lo recibirías todos los meses.`;
+    if (missed.length === 12) return `Su crédito de ${usd(credit.dollars)} pide ${kwhs(credit.minKwh)} al mes. Nunca lo recibirías.`;
+    const range = credit.maxKwh !== null && months.some((m) => m > credit.maxKwh!) ? `entre ${kwhs(credit.minKwh)} y ${kwhs(credit.maxKwh)}` : `${kwhs(credit.minKwh)}`;
+    return `Su crédito de ${usd(credit.dollars)} solo llega a partir de ${range}. Te lo perderías ${timesEs(missed.length)} al año — ${usd(lost)} perdidos.`;
+  }
+  const fee = [...p.usageFees].sort((a, b) => b.dollars - a.dollars)[0];
+  if (fee) {
+    const hit = months.filter((m) => m < fee.belowKwh).length;
+    if (hit) return `Cobra ${usd(fee.dollars)} cualquier mes con menos de ${kwhs(fee.belowKwh)}. Para ti ${hit === 1 ? "es" : "son"} ${timesEs(hit)} al año.`;
+  }
+  if (p.energyTiers.length > 1) {
+    const tiers = [...p.energyTiers].sort((a, b) => a.fromKwh - b.fromKwh);
+    const top = tiers[tiers.length - 1];
+    const prev = tiers[tiers.length - 2];
+    const hit = months.filter((m) => m > top.fromKwh).length;
+    if (hit && top.cents > prev.cents) return `La luz después de ${kwhs(top.fromKwh)} cuesta ${top.cents.toFixed(1)}¢ en vez de ${prev.cents.toFixed(1)}¢. Te pasarías ${timesEs(hit)} al año.`;
+  }
+  if (p.touPeriods.length) {
+    const free = p.touPeriods.filter((t) => t.cents === 0).reduce((s, t) => s + t.share, 0);
+    if (free > 0) return `Su precio supone que usas el ${Math.round(free * 100)}% de tu luz en sus horas gratis. Si usas menos en esas horas, pagas más.`;
   }
   return null;
 }

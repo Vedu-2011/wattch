@@ -8,6 +8,7 @@ import { MyMonths } from "@/components/MyMonths";
 import { average, monthsToParam } from "@/lib/months";
 import { FILTER_KEYS, NO_FILTERS, type WallFilters, anyFilter, billQs, filterOpts as toOpts } from "@/lib/params";
 import { CountUp } from "@/components/CountUp";
+import { type Lang, TRAP_LABELS, type Words, words } from "@/lib/i18n";
 import { ShareButton } from "@/components/ShareButton";
 import { YearBars } from "@/components/YearBars";
 import { type ClientPlan, type Ranked, passesFilters, ptcTopPick, rank, traps, whyLine, yearFor } from "@/lib/rank";
@@ -44,7 +45,8 @@ function useReveal(plans: ClientPlan[], totalMs = 9000) {
 }
 
 
-export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons, months: initialMonths = null, filters: initialFilters = NO_FILTERS, withConditional: initialConditional = true }: { plans: ClientPlan[]; kwh: number; builtAt: string; seasons: boolean; months?: number[] | null; filters?: WallFilters; withConditional?: boolean }) {
+export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons, months: initialMonths = null, filters: initialFilters = NO_FILTERS, withConditional: initialConditional = true, lang = "en" }: { plans: ClientPlan[]; kwh: number; builtAt: string; seasons: boolean; months?: number[] | null; filters?: WallFilters; withConditional?: boolean; lang?: Lang }) {
+  const w = words(lang);
   const { readIds, done, skip } = useReveal(plans);
   const [kwh, setKwh] = useState(initialKwh);
   const [seasons, setSeasons] = useState(initialSeasons);
@@ -73,7 +75,7 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons,
   // with the 12-month filter on, compare against the state site's #1 among those same plans
   const pick = useMemo(() => ptcTopPick(plans.filter((p) => p.pricing && passesFilters(p, filterOpts))), [plans, filterOpts]);
   const notRanked = plans.filter((p) => p.status === "verified" && !p.prepaid && p.rateType.toLowerCase() === "variable").length;
-  const when = new Date(builtAt).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+  const when = new Date(builtAt).toLocaleString(lang === "es" ? "es-US" : "en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
   // when the last tile flips, bring the answer into view (the wall is long on a phone)
   const [arrived, setArrived] = useState(false);
   useEffect(() => {
@@ -89,52 +91,49 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons,
         <div className="flex items-end gap-3">
           <Kapi pose={done ? "celebrating" : "reading"} className="h-14 w-14 shrink-0" />
           <div>
-            <h1 className="display text-3xl font-extrabold sm:text-4xl">{done ? "Every plan, read." : "Reading the fine print…"}</h1>
-            <p className="mt-1 max-w-2xl text-sm text-ink-2">
-              Each tile is one real Houston plan&apos;s fine-print label, read on {when}. ✓ means our math rebuilt the label&apos;s own
-              prices to the tenth of a cent.
-            </p>
+            <h1 className="display text-3xl font-extrabold sm:text-4xl">{done ? w.wallDone : w.wallReading}</h1>
+            <p className="mt-1 max-w-2xl text-sm text-ink-2">{w.wallIntro(when)}</p>
           </div>
         </div>
         <div className="flex items-center gap-2 sm:gap-3">
-          <Counter label="read" value={readIds.size} of={plans.length} />
-          <Counter label="checked ✓" value={verifiedRead} tone="good" />
-          {!done && <button onClick={skip} className="rounded-full bg-ink px-4 py-2 text-sm font-semibold text-paper">Skip</button>}
+          <Counter label={w.counterRead} value={readIds.size} of={plans.length} />
+          <Counter label={w.counterChecked} value={verifiedRead} tone="good" />
+          {!done && <button onClick={skip} className="rounded-full bg-ink px-4 py-2 text-sm font-semibold text-paper">{w.skip}</button>}
         </div>
       </div>
 
       <Walker progress={readIds.size / Math.max(plans.length, 1)} done={done} />
 
       <div className="mt-4 grid grid-cols-10 gap-1 sm:grid-cols-8 sm:gap-2 lg:grid-cols-12">
-        {plans.map((p) => <Tile key={p.id} p={p} read={readIds.has(p.id)} />)}
+        {plans.map((p) => <Tile key={p.id} p={p} read={readIds.has(p.id)} w={w} />)}
       </div>
 
       {done && (
         <section id="answer" className="pop mt-8 scroll-mt-4 space-y-6">
           {ranked.length > 0 ? (
-            <Reveal kwh={kwh} seasons={seasons} ranked={ranked} pick={pick} locked={filtered} mine={!!mine} qs={qs} />
+            <Reveal kwh={kwh} seasons={seasons} ranked={ranked} pick={pick} locked={filtered} mine={!!mine} qs={qs} lang={lang} />
           ) : (
             <div className="flex items-center gap-4 rounded-3xl bg-over-2 p-5 shadow-[var(--shadow-soft)]">
               <Kapi pose="thinking" className="h-16 w-16 shrink-0" />
               <div>
-                <p className="text-lg font-bold">No plan passes all your filters.</p>
-                <p className="mt-1 text-ink-2">Turn one of them off below and the list comes back.</p>
+                <p className="text-lg font-bold">{w.noneTitle}</p>
+                <p className="mt-1 text-ink-2">{w.noneBody}</p>
               </div>
             </div>
           )}
 
           <div className="rounded-3xl bg-card p-5 shadow-[var(--shadow-soft)]">
             <label htmlFor="slide" className="block text-base font-semibold">
-              You average <span className="num">{kwh.toLocaleString()} kWh</span> a month{mine ? " (your own 12 months)" : ""}
+              {w.youAverage(kwh, !!mine)}
             </label>
             <input id="slide" type="range" min={200} max={3000} step={10} value={kwh} onChange={(e) => { setMine(null); setKwh(Number(e.target.value)); }} className="mt-3 w-full" />
             <div className="mt-3 flex flex-wrap gap-2">
-              {!mine && <Toggle on={seasons} set={setSeasons} label="Houston seasons" hint="August ≈ 2.6× February" />}
-              <Toggle on={f.locked} set={(v) => setF({ ...f, locked: v })} label="Price locked 12+ months" />
-              <Toggle on={f.noCliffs} set={(v) => setF({ ...f, noCliffs: v })} label="No bill-credit traps" />
-              <Toggle on={f.green} set={(v) => setF({ ...f, green: v })} label="50%+ renewable" />
-              <Toggle on={f.rated} set={(v) => setF({ ...f, rated: v })} label="4+ stars" hint="Power to Choose rating" />
-              <Toggle on={withConditional} set={setWithConditional} label="Count autopay discounts" />
+              {!mine && <Toggle on={seasons} set={setSeasons} label={w.tSeasons} hint={w.tSeasonsHint} />}
+              <Toggle on={f.locked} set={(v) => setF({ ...f, locked: v })} label={w.tLocked} />
+              <Toggle on={f.noCliffs} set={(v) => setF({ ...f, noCliffs: v })} label={w.tNoCliffs} />
+              <Toggle on={f.green} set={(v) => setF({ ...f, green: v })} label={w.tGreen} />
+              <Toggle on={f.rated} set={(v) => setF({ ...f, rated: v })} label={w.tRated} hint={w.tRatedHint} />
+              <Toggle on={withConditional} set={setWithConditional} label={w.tAutopay} />
             </div>
             <div className="mt-3">
               <MyMonths start={mine ?? yearFor(kwh, seasons)} active={!!mine}
@@ -148,26 +147,23 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons,
                     <span className="min-w-0 flex-1">
                       <span className="block truncate font-semibold">{r.plan.planName}</span>
                       <span className="block truncate text-sm text-ink-2">{title(r.plan.provider)}
-                        {r.plan.pricing!.termMonths <= 3 && <Chip tone="sky">{r.plan.pricing!.termMonths}-month price</Chip>}
-                        {traps(r.plan.pricing!).slice(0, 2).map((t) => <Chip key={t.key} tone={t.tone}>{t.label}</Chip>)}</span>
+                        {r.plan.pricing!.termMonths <= 3 && <Chip tone="sky">{w.monthPrice(r.plan.pricing!.termMonths)}</Chip>}
+                        {traps(r.plan.pricing!).slice(0, 2).map((t) => <Chip key={t.key} tone={t.tone}>{TRAP_LABELS[lang][t.key] ?? t.label}</Chip>)}</span>
                     </span>
                     <span className="text-right">
-                      <span className="num block text-lg font-semibold">{money(r.annual)}<span className="text-sm text-ink-2">/yr</span></span>
+                      <span className="num block text-lg font-semibold">{money(r.annual)}<span className="text-sm text-ink-2">{w.perYear}</span></span>
                       <span className="num block text-xs text-ink-2">{cents(r.avgCents)}/kWh</span>
                     </span>
                   </Link>
                   {i > 0 && (
                     <Link href={`/compare?a=${ranked[0].plan.id}&b=${r.plan.id}&${qs}`} className="ml-11 mt-1 inline-block rounded-full px-2 py-0.5 text-xs font-semibold text-ink-2 hover:bg-paper hover:text-ink">
-                      Compare with #1 →
+                      {w.compareWith1}
                     </Link>
                   )}
                 </li>
               ))}
             </ol>
-            <p className="mt-3 text-xs text-ink-2">
-              Yearly cost at today&apos;s prices, before taxes. {notRanked} variable-rate plans aren&apos;t ranked: their price can change every
-              month, so a yearly number would be a guess. Prepaid plans and plans we couldn&apos;t verify aren&apos;t ranked either.
-            </p>
+            <p className="mt-3 text-xs text-ink-2">{w.rankNote(notRanked)}</p>
           </div>
 
           {ranked.length > 0 && <CurrentPlan plans={plans} best={ranked[0]} includeConditional={withConditional} kwh={kwh} seasons={seasons} qs={qs} mine={!!mine} />}
@@ -215,7 +211,7 @@ function Walker({ progress, done }: { progress: number; done: boolean }) {
   );
 }
 
-function Tile({ p, read }: { p: ClientPlan; read: boolean }) {
+function Tile({ p, read, w }: { p: ClientPlan; read: boolean; w: Words }) {
   const ok = p.status === "verified";
   const back = ok ? "bg-good-2" : p.status === "mismatch" ? "bg-volt-2" : "bg-paper-2";
   return (
@@ -232,11 +228,11 @@ function Tile({ p, read }: { p: ClientPlan; read: boolean }) {
           <p className="hidden text-[0.6875rem] font-semibold leading-tight sm:line-clamp-2">{p.planName}</p>
           {ok && p.pricing ? (
             <p className="num mt-1 hidden text-[0.6875rem] leading-tight sm:block">
-              {p.pricing.touPeriods.length ? "time-of-use" : `${p.pricing.energyTiers[p.pricing.energyTiers.length - 1].cents.toFixed(1)}¢/kWh`}
-              {p.pricing.credits.some((c) => !c.conditional && c.minKwh > 0) ? <span className="text-over"> · cliff</span> : <span className="text-good"> · ✓</span>}
+              {p.pricing.touPeriods.length ? w.tileTou : `${p.pricing.energyTiers[p.pricing.energyTiers.length - 1].cents.toFixed(1)}¢/kWh`}
+              {p.pricing.credits.some((c) => !c.conditional && c.minKwh > 0) ? <span className="text-over"> · {w.tileCliff}</span> : <span className="text-good"> · ✓</span>}
             </p>
           ) : (
-            <p className="mt-1 hidden text-[0.6875rem] leading-tight text-ink-2 sm:block">{p.status === "mismatch" ? "Didn't add up" : "Couldn't open"}</p>
+            <p className="mt-1 hidden text-[0.6875rem] leading-tight text-ink-2 sm:block">{p.status === "mismatch" ? w.tileMismatch : w.tileUnread}</p>
           )}
         </div>
       </div>
@@ -254,26 +250,27 @@ function creditLine(r: Ranked): number | undefined {
   return c?.minKwh;
 }
 
-function Reveal({ kwh, seasons, ranked, pick, locked, mine, qs }: { kwh: number; seasons: boolean; ranked: Ranked[]; pick: ClientPlan | null; locked: boolean; mine: boolean; qs: string }) {
+function Reveal({ kwh, seasons, ranked, pick, locked, mine, qs, lang }: { kwh: number; seasons: boolean; ranked: Ranked[]; pick: ClientPlan | null; locked: boolean; mine: boolean; qs: string; lang: Lang }) {
+  const w = words(lang);
   const best = ranked[0];
   const pickRow = pick ? ranked.find((r) => r.plan.id === pick.id) : undefined;
   const pickRank = pickRow ? ranked.indexOf(pickRow) + 1 : 0;
   const gap = pickRow ? pickRow.annual - best.annual : 0;
-  const why = pickRow ? whyLine(pickRow.plan.pricing!, pickRow.months) : null;
+  const why = pickRow ? whyLine(pickRow.plan.pricing!, pickRow.months, lang) : null;
   const line = pickRow ? creditLine(pickRow) : undefined;
   // the plan whose real yearly price is furthest above what its 1,000 kWh sticker price suggests
   const used = best.months.reduce((s, m) => s + m, 0);
   const surprise = [...ranked].map((r) => ({ r, over: r.annual - (r.plan.ptc.k1000 / 100) * used })).sort((a, b) => b.over - a.over)[0];
-  const shareText = pickRow && gap >= 1
-    ? `The state site's #1 power plan would cost me ${money(gap)} more a year than my best plan. Wattch read the fine print on every Houston plan:`
-    : `Wattch read the fine print on every Houston power plan and found my best one:`;
+  const shareText = pickRow && gap >= 1 ? w.shareGap(money(gap)) : w.shareBest;
+  const surpriseWhy = surprise ? whyLine(surprise.r.plan.pricing!, surprise.r.months, lang) : null;
+  const sb = surprise ? w.surpriseBody(cents(surprise.r.plan.ptc.k1000), cents(surprise.r.avgCents), money(surprise.over)) : null;
 
   return (
     <div className="space-y-4">
       <div className="relative overflow-hidden rounded-[2rem] bg-ink p-5 text-paper shadow-[var(--shadow-lift)] sm:p-8">
         <Kapi pose={pickRow && gap >= 1 ? "surprised" : "celebrating"} className="absolute right-4 top-4 h-14 w-14 sm:right-6 sm:top-6 sm:h-24 sm:w-24" />
         <p className="pr-16 text-sm font-semibold text-volt sm:pr-28">
-          {mine ? `With your own 12 months (about ${kwh.toLocaleString()} kWh a month)` : `At ${kwh.toLocaleString()} kWh a month${seasons ? ", with real Houston seasons" : ", same every month"}`}
+          {w.atUsage(kwh, seasons, mine)}
         </p>
         {pickRow && gap >= 1 ? (
           <>
@@ -281,61 +278,57 @@ function Reveal({ kwh, seasons, ranked, pick, locked, mine, qs }: { kwh: number;
               <span className="num tracking-tight"><CountUp value={gap} format={money} /></span>
             </p>
             <h2 className="display mt-3 text-2xl font-extrabold leading-tight sm:text-4xl">
-              more a year — if you pick the plan the state site lists first{locked ? " (among plans that pass your filters)" : ""}.
+              {w.moreAYear(locked)}
             </h2>
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
-              <PlanCard tone="bad" eyebrow={`State site's #1 · #${pickRank} for you`} r={pickRow} sticker={pickRow.plan.ptc.k1000} />
-              <PlanCard tone="good" eyebrow="Your #1" r={best} sticker={best.plan.ptc.k1000} />
+              <PlanCard tone="bad" eyebrow={w.stateFirst(pickRank)} r={pickRow} sticker={pickRow.plan.ptc.k1000} w={w} />
+              <PlanCard tone="good" eyebrow={w.yourFirst} r={best} sticker={best.plan.ptc.k1000} w={w} />
             </div>
             {why && (
               <div className="mt-6 rounded-3xl bg-paper/10 p-4 sm:p-5">
-                <p className="text-lg font-semibold leading-snug sm:text-xl"><span className="text-volt">Why?</span> {why}</p>
-                {(seasons || mine) && <div className="mt-4"><YearBars months={pickRow.months} line={line} lineLabel={line ? `credit needs ${line.toLocaleString()} kWh` : undefined} dark /></div>}
+                <p className="text-lg font-semibold leading-snug sm:text-xl"><span className="text-volt">{w.why}</span> {why}</p>
+                {(seasons || mine) && <div className="mt-4"><YearBars months={pickRow.months} line={line} lineLabel={line ? w.creditNeeds(line) : undefined} dark lang={lang} /></div>}
               </div>
             )}
           </>
         ) : (
           <>
-            <h2 className="display mt-3 text-4xl font-extrabold leading-tight sm:text-6xl">Your best plan: <span className="text-volt">{best.plan.planName}</span></h2>
-            <p className="mt-3 text-lg text-paper/80">
-              {title(best.plan.provider)} · <span className="num">{money(best.annual)}</span> a year. Here it matches the state site&apos;s
-              first pick — drag the slider to see where that stops being true.
-            </p>
+            <h2 className="display mt-3 text-4xl font-extrabold leading-tight sm:text-6xl">{w.bestTitle}<span className="text-volt">{best.plan.planName}</span></h2>
+            <p className="mt-3 text-lg text-paper/80">{w.bestBody(title(best.plan.provider), money(best.annual))}</p>
           </>
         )}
         <div className="mt-6 flex flex-wrap gap-2">
-          <Link href={`/plan/${best.plan.id}?${qs}`} className="rounded-full bg-volt px-5 py-2.5 font-bold text-ink">See the math</Link>
-          {pickRow && gap >= 1 && <Link href={`/plan/${pickRow.plan.id}?${qs}`} className="rounded-full bg-paper/15 px-5 py-2.5 font-bold">Open the #1 plan&apos;s fine print</Link>}
-          {pickRow && gap >= 1 && <Link href={`/compare?a=${best.plan.id}&b=${pickRow.plan.id}&${qs}`} className="rounded-full bg-paper/15 px-5 py-2.5 font-bold">Side by side</Link>}
-          <ShareButton text={shareText} />
+          <Link href={`/plan/${best.plan.id}?${qs}`} className="rounded-full bg-volt px-5 py-2.5 font-bold text-ink">{w.seeMath}</Link>
+          {pickRow && gap >= 1 && <Link href={`/plan/${pickRow.plan.id}?${qs}`} className="rounded-full bg-paper/15 px-5 py-2.5 font-bold">{w.openFirst}</Link>}
+          {pickRow && gap >= 1 && <Link href={`/compare?a=${best.plan.id}&b=${pickRow.plan.id}&${qs}`} className="rounded-full bg-paper/15 px-5 py-2.5 font-bold">{w.sideBySide}</Link>}
+          <ShareButton text={shareText} lang={lang} />
         </div>
       </div>
 
-      {surprise && surprise.over >= 25 && surprise.r.plan.id !== pickRow?.plan.id && (
+      {surprise && sb && surprise.over >= 25 && surprise.r.plan.id !== pickRow?.plan.id && (
         <div className="rounded-3xl bg-over-2 p-5 shadow-[var(--shadow-soft)] sm:p-6">
-          <p className="text-sm font-semibold text-over">Biggest gap between sticker and real price</p>
+          <p className="text-sm font-semibold text-over">{w.surpriseEyebrow}</p>
           <h3 className="display mt-2 text-2xl font-extrabold leading-tight">{surprise.r.plan.planName} <span className="text-base font-semibold text-ink-2">· {title(surprise.r.plan.provider)}</span></h3>
           <p className="mt-2">
-            Advertised at <b className="num">{cents(surprise.r.plan.ptc.k1000)}</b> per kWh. Over your year you&apos;d really pay{" "}
-            <b className="num text-over">{cents(surprise.r.avgCents)}</b> — <b className="num">{money(surprise.over)}</b> more than the sticker price suggests.
+            {sb[0]}<b className="num">{sb[1]}</b>{sb[2]}<b className="num text-over">{sb[3]}</b>{sb[4]}<b className="num">{sb[5]}</b>{sb[6]}
           </p>
-          {whyLine(surprise.r.plan.pricing!, surprise.r.months) && <p className="mt-2 font-medium">{whyLine(surprise.r.plan.pricing!, surprise.r.months)}</p>}
-          <Link href={`/plan/${surprise.r.plan.id}?${qs}`} className="mt-4 inline-block rounded-full bg-ink px-4 py-2 font-bold text-paper">Show me why</Link>
+          {surpriseWhy && <p className="mt-2 font-medium">{surpriseWhy}</p>}
+          <Link href={`/plan/${surprise.r.plan.id}?${qs}`} className="mt-4 inline-block rounded-full bg-ink px-4 py-2 font-bold text-paper">{w.showWhy}</Link>
         </div>
       )}
     </div>
   );
 }
 
-function PlanCard({ tone, eyebrow, r, sticker }: { tone: "good" | "bad"; eyebrow: string; r: Ranked; sticker: number }) {
+function PlanCard({ tone, eyebrow, r, sticker, w }: { tone: "good" | "bad"; eyebrow: string; r: Ranked; sticker: number; w: Words }) {
   return (
     <div className={`rounded-3xl p-4 sm:p-5 ${tone === "good" ? "bg-good-2 text-ink" : "bg-paper/10"}`}>
       <p className={`text-xs font-bold uppercase tracking-wide ${tone === "good" ? "text-good" : "text-volt"}`}>{eyebrow}</p>
       <p className="mt-1 text-lg font-bold leading-tight">{r.plan.planName}</p>
       <p className={`text-sm ${tone === "good" ? "text-ink-2" : "text-paper/70"}`}>{title(r.plan.provider)}</p>
       <div className="num mt-3 flex items-end justify-between gap-2">
-        <span className="text-3xl font-semibold">{money(r.annual)}<span className="text-sm opacity-70">/yr</span></span>
-        <span className="text-right text-sm leading-tight opacity-80 lg:text-base">sticker {cents(sticker)}<br />real {cents(r.avgCents)}</span>
+        <span className="text-3xl font-semibold">{money(r.annual)}<span className="text-sm opacity-70">{w.perYear}</span></span>
+        <span className="text-right text-sm leading-tight opacity-80 lg:text-base">{w.sticker} {cents(sticker)}<br />{w.real} {cents(r.avgCents)}</span>
       </div>
     </div>
   );
