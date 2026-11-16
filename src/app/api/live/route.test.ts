@@ -51,7 +51,17 @@ describe("/api/live — check one label again", () => {
   it("new file that still prints the same three prices → not same, pricesSame", async () => {
     fetchEfl.mockResolvedValue({ sha256: "new", text: "Average price per kWh 19.2¢ 6.2¢ 12.2¢ printed today", via: "anakin", ms: 900 });
     const r = await call("p1");
-    expect(r.body).toMatchObject({ ok: true, same: false, pricesSame: true });
+    expect(r.body).toMatchObject({ ok: true, same: false, pricesSame: true, fileKnown: true });
+  });
+
+  it("hand-read label with no stored fingerprint → fileKnown false (can't call the file new), prices still compared", async () => {
+    const before = plan.read.sha256;
+    plan.read.sha256 = "";
+    try {
+      fetchEfl.mockResolvedValue({ sha256: "x", text: "Average price per kWh 19.2¢ 6.2¢ 12.2¢", via: "direct", ms: 300 });
+      const r = await call("p1");
+      expect(r.body).toMatchObject({ ok: true, same: false, pricesSame: true, fileKnown: false });
+    } finally { plan.read.sha256 = before; }
   });
 
   it("new file with different prices → pricesSame false", async () => {

@@ -33,7 +33,8 @@ export async function GET(req: Request) {
     const same = f.sha256 === rec.read.sha256;
     const pricesSame = same || (rec.pricing ? ptcAveragesOnLabel(f.text, rec.pricing.labelAvg) : false);
     // one minute at the CDN: repeat clicks (or a crowd at a demo) don't re-download the provider's file every time
-    return NextResponse.json({ ok: true, via: f.via, ms: f.ms, same, pricesSame, readAt: rec.read.fetchedAt },
+    // hand-read labels without a stored fingerprint: we can't say whether the file is new, only whether the prices match
+    return NextResponse.json({ ok: true, via: f.via, ms: f.ms, same, pricesSame, readAt: rec.read.fetchedAt, fileKnown: Boolean(rec.read.sha256) },
       { headers: { "Cache-Control": "public, s-maxage=60" } });
   } catch {
     // plain words only — never a raw error from the provider's site. A file that's gone (404/410) isn't "try again later".

@@ -844,7 +844,7 @@
 - [x] BV2 Plan page and /api/live both use it
 - [x] BV3 Test: every unread plan in both areas → false; every verified → true
 - [x] BV4 Full verify
-- [ ] BV5 Codex review
+- [x] BV5 Codex review
 - [x] BV6 PROGRESS line
 - [x] BV7 STATUS line
 - [x] BV8 Handoff test count

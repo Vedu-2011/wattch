@@ -3,7 +3,7 @@ import { useState } from "react";
 import type { Lang } from "@/lib/i18n";
 import { timeAgo } from "@/lib/timeAgo";
 
-type Live = { ok: true; via: "direct" | "anakin"; ms: number; same: boolean; pricesSame: boolean; readAt: string } | { ok: false; message: string };
+type Live = { ok: true; via: "direct" | "anakin"; ms: number; same: boolean; pricesSame: boolean; readAt: string; fileKnown?: boolean } | { ok: false; message: string };
 
 export const LIVE_WORDS = {
   en: {
@@ -12,6 +12,7 @@ export const LIVE_WORDS = {
     go: "Check this label again now",
     same: (ago: string, s: string) => `✓ Same label, word for word, as when Wattch read it ${ago}. Opened in ${s}s.`,
     newFile: "✓ The file is new (often just a new print date), but it still prints the same 3 prices we checked.",
+    samePrices: "✓ It still prints the same 3 prices we checked.",
     changed: (ago: string) => `This label changed since Wattch read it ${ago}. The numbers here may be out of date until the next read.`,
     failed: (m: string) => m,
   },
@@ -21,6 +22,7 @@ export const LIVE_WORDS = {
     go: "Revisar esta etiqueta otra vez ahora",
     same: (ago: string, s: string) => `✓ La misma etiqueta, palabra por palabra, que Wattch leyó (${ago}). Se abrió en ${s} s.`,
     newFile: "✓ El archivo es nuevo (muchas veces solo cambia la fecha), pero sigue mostrando los mismos 3 precios que revisamos.",
+    samePrices: "✓ Sigue mostrando los mismos 3 precios que revisamos.",
     changed: (ago: string) => `Esta etiqueta cambió desde que Wattch la leyó (${ago}). Los números aquí pueden estar viejos hasta la próxima lectura.`,
     failed: (m: string) => m,
   },
@@ -52,7 +54,7 @@ export function LiveCheck({ id, lang = "en" }: { id: string; lang?: Lang }) {
       </button>
       <div aria-live="polite" className="mt-2 text-sm [&>span]:block [&>span]:rounded-2xl [&>span]:px-3 [&>span]:py-2">
         {res && res.ok && res.same && <span className="rounded-xl bg-good-2 px-2 py-1">{t.same(timeAgo(res.readAt, undefined, lang), (res.ms / 1000).toFixed(1))}</span>}
-        {res && res.ok && !res.same && res.pricesSame && <span className="rounded-xl bg-good-2 px-2 py-1">{t.newFile}</span>}
+        {res && res.ok && !res.same && res.pricesSame && <span className="rounded-xl bg-good-2 px-2 py-1">{res.fileKnown === false ? t.samePrices : t.newFile}</span>}
         {res && res.ok && !res.same && !res.pricesSame && <span className="rounded-xl bg-volt-2 px-2 py-1">{t.changed(timeAgo(res.readAt, undefined, lang))}</span>}
         {res && !res.ok && <span className="rounded-xl bg-volt-2 px-2 py-1">{t.failed(res.message)}</span>}
       </div>
