@@ -267,3 +267,4 @@ Shared links now preview the right thing on every page (plan card, compare card,
 - 2026-11-16 06:28 PT · BN9 Codex 46: no findings (link-names check + docs). $0.
 - 2026-11-16 06:31 PT · BP1 final verify: tsc clean, 43 files / 255 tests, lint 0, build OK, check-all 5/5 PASS. $0.
 - 2026-11-16 06:31 PT · L9 STATUS header refreshed (~06:35, 215 commits ahead of main). $0.
+- 2026-11-16 06:32 PT · BQ re-read every Spanish string added since main (i18n, planWords, compareWords, trapsWords…): natural, consistent tú (grep for usted/elija/escoja/su factura: none), no missing accents (grep pagina/energia/numero/ano: none). No change needed; STATUS line added. $0.

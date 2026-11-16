@@ -259,7 +259,7 @@
 - [x] Y6 SCRIPT: no change unless a scene shows the old header row (check scene list)
 - [x] Y7 Lighthouse /compare EN after Share button (CLS)
 - [x] Y8 Demo /demo unaffected by date change (it shows read date?)
-- [ ] Y9 Final STATUS refresh before handoff (counts, commits)
+- [x] Y9 Final STATUS refresh before handoff (counts, commits)
 - [x] Y10 Codex review 21 after Y batch
 
 ## Z batch (added 04:12, night 2)
@@ -778,3 +778,15 @@
 - [ ] BP8 Night-2 summary placed at the top of tonight's PROGRESS section
 - [ ] BP9 BOARD Done line + tidy.sh
 - [ ] BP10 Keep going after the handoff (OVERNIGHT.md: never stop)
+
+## BQ batch (added 06:32, night 2) — re-read tonight's new Spanish
+- [x] BQ1 List every Spanish string added/changed since 22:00 (git diff main..overnight on word tables)
+- [x] BQ2 Read each for plain, natural Spanish (no word-for-word English)
+- [x] BQ3 Same tú/usted form everywhere
+- [x] BQ4 Accents present (é, í, ó, ú, ñ, ¿ ¡)
+- [x] BQ5 Fix slips (EN + ES numbers unchanged)
+- [x] BQ6 i18n tests still pass
+- [x] BQ7 es-walk passes
+- [x] BQ8 STATUS line
+- [x] BQ9 Codex review if changed
+- [x] BQ10 PROGRESS line

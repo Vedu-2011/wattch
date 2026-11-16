@@ -49,6 +49,8 @@ wait. For future overnight nights: push once per batch, or turn off previews for
   tap-through work. Lighthouse plan + results 100/100/100 (SEO 91: the description is streamed to browsers, bots get it).
 - Pages 6–37 KB compressed; no image over 200 KB; 0 npm audit issues; every dependency used; a fresh clone with no keys
   installs and passes the tests. README says which keys go in .env.local (none needed to run the app).
+- Tonight's new Spanish re-read (results, plan, compare, traps, home): natural wording, "tú" everywhere (no "usted"
+  forms), no missing accents (grep for pagina/energia/numero/ano: none).
 - Friendly errors on /remind, "my 12 months", unknown plans; reduced motion; printing (plan, compare, Dallas) on 1 sheet.
 
 **New checks that stay:** src/lib/dataSanity.test.ts, search.test.ts, tolerance.words.test.ts, sitemap duplicates,
