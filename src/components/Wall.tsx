@@ -164,7 +164,7 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons,
                   </Link>
                   {i > 0 && (
                     <Link href={`/compare?a=${ranked[0].plan.id}&b=${r.plan.id}&${qs}`} className="ml-11 mt-1 inline-block rounded-full px-2 py-0.5 text-xs font-semibold text-ink-2 hover:bg-paper hover:text-ink">
-                      {w.compareWith1}
+                      {w.compareWith1}<span className="sr-only">: {r.plan.planName}</span>
                     </Link>
                   )}
                 </li>

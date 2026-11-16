@@ -86,7 +86,7 @@ export default async function Traps({ searchParams }: PageProps<"/traps">) {
                     </Link>
                   ))}
                 </div>
-                <Link href={`/plan/${e.example.id}?kwh=1100${q}`} className="mt-3 inline-block text-sm font-semibold underline underline-offset-4">{t.read}</Link>
+                <Link href={`/plan/${e.example.id}?kwh=1100${q}`} className="mt-3 inline-block text-sm font-semibold underline underline-offset-4">{t.read}<span className="sr-only">: {e.example.planName}</span></Link>
               </div>
             ) : (
               <p className="mt-4 text-sm text-ink-2">{t.none}</p>

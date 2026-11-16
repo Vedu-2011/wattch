@@ -711,7 +711,7 @@
 - [x] BK1 Lighthouse on the plan page again (after tonight's changes)
 - [x] BK2 Lighthouse on the results page
 - [x] BK3 Keyboard-only flow: home → pick usage → results → open a plan, Tab/Enter only
-- [ ] BK4 iPhone-sized flow in Chrome (touch): home → results → plan → compare, screenshots
+- [x] BK4 iPhone-sized flow in Chrome (touch): home → results → plan → compare, screenshots
 - [x] BK5 Gallery images still match the app (docs/gallery)
 - [x] BK6 Fix anything found
 - [x] BK7 Tests
@@ -729,4 +729,16 @@
 - [x] BL7 Tests + check-all
 - [x] BL8 Gallery if a visible label changed
 - [x] BL9 STATUS line
-- [ ] BL10 Codex review if code changed
+- [x] BL10 Codex review if code changed
+
+## BM batch (added 06:17, night 2) — links with the same words going to different places
+- [x] BM1 Find repeated link texts with different targets on every main page (EN)
+- [x] BM2 Results list 'Compare with #1 →' (×150): name the plan for screen readers
+- [x] BM3 Trap guide example links: name the plan
+- [x] BM4 Same in Spanish
+- [x] BM5 axe stays clean (spoken name contains the visible words)
+- [x] BM6 Tests + check-all
+- [x] BM7 BK4 iPhone-sized touch flow screenshots
+- [x] BM8 STATUS line
+- [ ] BM9 Codex review
+- [x] BM10 PROGRESS line
