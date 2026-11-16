@@ -179,3 +179,4 @@ Dallas–Fort Worth works everywhere; every page has Spanish (incl. loading scre
 - 2026-11-16 03:57 PT · W2 /demo stepped through with → keys at 1920: shows $378, #74, 154, 171, 172, $1,712, $1,334 (= live results). No change. $0.
 - 2026-11-16 03:58 PT · V10 Codex review 18: no findings. W6 card words moved to src/lib/cardWords.ts (a route file may only export handlers) and added to the EN/ES parity test. 224 tests. $0.
 - 2026-11-16 03:58 PT · W8 check-all runtime ≈ 2 min (axe 50 s, walk 19 s, widths 44 s, meta <1 s) — fine. W9 README 'Share card' line covers the per-page previews. Docs test counts 225. $0.
+- 2026-11-16 03:59 PT · W1 docs/gallery regenerated (all 8, 1920×1080): the committed set was stale — no Español switch, no Print button, no per-line bill explanations; tiles/compare changes too. Before-copies kept in scratchpad; pixel diff logged (3-the-reveal unchanged). $0.

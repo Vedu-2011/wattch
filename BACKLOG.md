@@ -227,7 +227,7 @@
 - [x] V10 Codex review 18 after V batch
 
 ## W batch (added 03:56, night 2)
-- [ ] W1 Gallery: regenerate docs/gallery images if any page they show changed tonight (compare table/chart, tiles) — compare before/after
+- [x] W1 Gallery: regenerate docs/gallery images if any page they show changed tonight (compare table/chart, tiles) — compare before/after
 - [x] W2 Demo (/demo): still matches results after tonight (numbers + steps), 1920 screen
 - [x] W3 Wall: 'Compare with #1' links carry own months + filters (open one, check compare uses same months)
 - [ ] W4 Plan page at 1920: the new preview doesn't change page; screenshot for deck (Simple Saver 3)
