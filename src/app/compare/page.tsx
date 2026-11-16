@@ -72,7 +72,7 @@ export default async function Compare({ searchParams }: PageProps<"/compare">) {
   const cheaper = c.diff > 0 ? a : c.diff < 0 ? b : null;
   return (
     <div lang={lang} className="mx-auto max-w-4xl px-5 pt-6">
-      <div className="no-print flex flex-wrap items-center justify-between gap-3"><Link href={`/wall?${qs}`} className="whitespace-nowrap text-sm font-medium text-ink-2 hover:text-ink">{t.all}</Link><span className="flex items-center gap-2"><ShareLink title={"Wattch"} lang={lang} /><PrintButton lang={lang} /></span></div>
+      <div className="no-print flex flex-wrap items-center justify-between gap-3"><Link href={`/wall?${qs}`} className="whitespace-nowrap text-sm font-medium text-ink-2 hover:text-ink">{t.all}</Link><span className="flex items-center gap-2"><ShareLink title={`${a.meta.planName} vs ${b.meta.planName} · Wattch`} lang={lang} /><PrintButton lang={lang} /></span></div>
       <h1 className="display mt-3 text-3xl font-extrabold leading-tight sm:text-4xl">{t.h1}</h1>
       <p className="mt-1 text-ink-2">
         {mine ? t.mine : t.avg(kwh.toLocaleString("en-US"), AREAS[area].city, seasons)}. {t.today}

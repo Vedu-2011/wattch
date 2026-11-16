@@ -248,7 +248,7 @@
 - [x] X7 es-walk: add a Dallas compare stop
 - [x] X8 axe: add /compare Dallas + own-months wall pages (like widths)
 - [x] X9 PROGRESS: tidy nothing (append-only) — instead write morning 'how to review' list for Vedhanth in STATUS (5 bullets, plain words)
-- [ ] X10 Codex review 20 after X batch
+- [x] X10 Codex review 20 after X batch
 
 ## Y batch (added 04:11, night 2)
 - [x] Y1 Share button: hidden when printing? (print preview check on plan page)
@@ -261,3 +261,15 @@
 - [x] Y8 Demo /demo unaffected by date change (it shows read date?)
 - [ ] Y9 Final STATUS refresh before handoff (counts, commits)
 - [ ] Y10 Codex review 21 after Y batch
+
+## Z batch (added 04:12, night 2)
+- [ ] Z1 ShareLink unit-ish test: label EN/ES (render to string) — or skip if no React test setup; decide
+- [x] Z2 Plan page Share title includes plan name — confirm share sheet text on phone emulation (navigator.share args)
+- [x] Z3 Compare share title: 'A vs B · Wattch' instead of plain 'Wattch'
+- [x] Z4 sitemap: no change needed for share (log)
+- [x] Z5 README 'Share card' line mentions Share buttons
+- [x] Z6 es-walk: click Compartir on plan page, check Spanish confirmation
+- [x] Z7 check-all comment says 25 pages (done?) — verify header text
+- [ ] Z8 PROGRESS night-2 summary draft: add W–Z lines
+- [ ] Z9 BOARD row: update task text (still overnight)
+- [ ] Z10 Codex review 22 after Z batch

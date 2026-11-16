@@ -36,6 +36,10 @@ for (const width of [375, 1440]) {
   await pg.goto(`${BASE}/es`); await check("1-home");
   await pg.goto(`${BASE}/wall?kwh=1100&lang=es`); await check("2-wall");
   await pg.locator('main a[href^="/plan/"]').first().click(); await pg.waitForURL(/\/plan\//); await check("3-plan");
+  // the Share button answers in Spanish (no share sheet in a headless browser → it copies the link)
+  await pg.evaluate(() => { navigator.share = undefined; navigator.clipboard.writeText = async () => {}; });
+  await pg.getByRole("button", { name: "Compartir" }).click(); await pg.waitForTimeout(200);
+  { const said = await pg.getByRole("button", { name: "Enlace copiado" }).count(); console.log(said ? "ok     " : "ENGLISH", width, "3b-share  'Enlace copiado'"); bad += said ? 0 : 1; }
   await pg.goto(`${BASE}/compare?a=37797&b=33633&kwh=1100&lang=es`); await check("4-compare");
   await pg.goto(`${BASE}/compare?a=17283&b=33631&kwh=1100&lang=es`); await check("4b-compare-dallas");
   await pg.goto(`${BASE}/traps?lang=es`); await check("5-traps");
