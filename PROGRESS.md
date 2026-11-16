@@ -71,3 +71,4 @@
 - 2026-11-16 01:37 PT · I3 Spanish /traps · DONE (e6e2192). 184 tests, axe 0 on 21 pages. $0.
 - 2026-11-16 01:38 PT · I4 Spanish share card · DONE (db62a0d). Also fixed: Spanish wall's <title>/description were English. $0.
 - 2026-11-16 01:38 PT · I5 /how per area · ALREADY DONE in G1 (/how renders a pipeline for each area from its own file). No change.
+- 2026-11-16 01:39 PT · I6 Dallas plan links carry area · DONE (96f82ec). Bare Dallas plan URL redirects (client-side, Next streams → HTTP 200 then redirect; fine for people). $0.
