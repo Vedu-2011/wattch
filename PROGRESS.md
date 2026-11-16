@@ -126,3 +126,8 @@
 - 2026-11-16 02:50 PT · O5 + O6 · DONE (73b0cee). 206 tests. $0.
 - 2026-11-16 02:50 PT · O7 /api/card with 10 bad/odd inputs: all 200 image/png; kwh clamps to 100–5,000, unknown area→Houston, lang=fr→English, all-filters Spanish Dallas → 'Mi mejor plan' card. Saved in docs/screenshots/overnight-2/card-bad/. No change. $0.
 - 2026-11-16 02:52 PT · O8 Lighthouse: /plan/39314?area=dallas&lang=es perf 94 a11y 100 bp 100 seo 91 (LCP 3.1 s, CLS 0.010); /remind?lang=es 96/100/100/100. SEO 91 = 'no meta description' — it exists, but Next 16 streams metadata into the body on dynamic pages for browsers + Googlebot (Google runs JS); Bing/Facebook/link-preview bots get it in <head> (checked with curl UAs). Same on English plan pages. Decision: no change (forcing blocking metadata for everyone would slow every plan page). $0.
+- 2026-11-16 02:52 PT · P10 headline.ts re-run: Houston 171 verified/154 ranked, #74, $378, 6 months; Dallas 137 ranked, #91, $530 — all match SCRIPT ⟲ numbers (data unchanged since 07:03/08:32 UTC). $0.
+- 2026-11-16 02:53 PT · P8 JS weight after the header/Suspense changes (gzip over the wire, Chrome): / 161.7 KiB, /es 155.1 KiB, /wall 182.4 KiB (L8 was 180) → ≈ +2 KiB, fine. No change. $0.
+- 2026-11-16 02:53 PT · P6 JUDGE-QA Q19 now names the all-plans numbers test; test counts 202→206 in DECK + JUDGE-QA. $0.
+- 2026-11-16 02:53 PT · P7 DEVPOST: sitemap/hreflang left out on purpose (not judged, DEVPOST already long). Fixed there: 164→206 tests, axe 17→23 pages. $0.
+- 2026-11-16 02:55 PT · O9 Codex review 12 (base 6fddf45 → Codex 11 fixes, sitemap/robots, remind file name): no findings. $0.

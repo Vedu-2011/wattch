@@ -139,7 +139,7 @@
 - [x] O6 Spanish /remind end-to-end in Chrome: type a date, get the .ics (Spanish file name? Spanish text), friendly Spanish errors
 - [x] O7 /api/card with bad or missing params (kwh=abc, area=xx, lang=fr): still a valid image, never a stack trace
 - [x] O8 Lighthouse: Dallas Spanish plan page + /remind?lang=es — log
-- [ ] O9 Codex review 12 after O batch
+- [x] O9 Codex review 12 after O batch
 - [ ] O10 PROGRESS.md: one-paragraph "night 2 summary" at the top of tonight's section for the planner
 
 ## P batch (added 02:50, night 2)
@@ -148,8 +148,8 @@
 - [ ] P3 Card: Spanish card for a negative/zero gap (state #1 is already best) — wording check
 - [ ] P4 Spanish /traps?area=dallas at 320: no overflow, every trap kind has a Spanish name
 - [ ] P5 Error states in Spanish: /plan/does-not-exist?lang=es + /api/live failure copy, screen
-- [ ] P6 JUDGE-QA: add Q on 'how do you keep Spanish numbers identical' (point at i18n.numbers.test.ts)
-- [ ] P7 DEVPOST: mention sitemap/hreflang only if it fits in one line; verify claims vs code
-- [ ] P8 Bundle check: did the header Suspense changes add JS to / ? (build output First Load JS before/after)
+- [x] P6 JUDGE-QA: add Q on 'how do you keep Spanish numbers identical' (point at i18n.numbers.test.ts)
+- [x] P7 DEVPOST: mention sitemap/hreflang only if it fits in one line; verify claims vs code
+- [x] P8 Bundle check: did the header Suspense changes add JS to / ? (build output First Load JS before/after)
 - [ ] P9 axe on /remind?lang=es with an error showing (role=alert, lang)
-- [ ] P10 Re-run headline.ts + compare to SCRIPT ⟲ numbers (data unchanged? log)
+- [x] P10 Re-run headline.ts + compare to SCRIPT ⟲ numbers (data unchanged? log)
