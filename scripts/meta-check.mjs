@@ -29,4 +29,11 @@ for (const u of spanish) {
   console.log(hits.length ? "ENGLISH" : "ok     ", u, hits.length ? "\n   " + hits.join("\n   ") : "");
   bad += hits.length;
 }
+// both home pages must name both areas (the app covers Houston and Dallas–Fort Worth)
+for (const u of ["/", "/es"]) {
+  const d = ((await page(u)).match(/<meta name="description" content="[^"]*"/) ?? [""])[0];
+  const ok = /Houston/.test(d) && /Dallas/.test(d);
+  console.log(ok ? "ok     " : "ONE AREA", u, ok ? "" : "\n   " + d);
+  bad += ok ? 0 : 1;
+}
 process.exit(bad ? 1 : 0);

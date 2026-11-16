@@ -118,3 +118,4 @@
 - 2026-11-16 02:35 PT · N5 keyboard pass: Spanish plan 20 stops (Imprimir, 3 check rows, Revisar esta etiqueta, bill lines, label text, reminder) + compare 9 stops — all visible focus, all Spanish. No change. $0.
 - 2026-11-16 02:36 PT · N5+N6 · DONE (97f9b02). Codex review 11 started (since 6fddf45). $0.
 - 2026-11-16 02:37 PT · N9 numbers re-verified + headline.ts arg guard · DONE (5a90148). $0.
+- 2026-11-16 02:37 PT · N10 SCRIPT scene 9 exact clicks · DONE (43ecf95). $0.

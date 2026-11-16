@@ -131,3 +131,4 @@
 - [ ] N8 Anakin quota probe again (~05:00); if back, run the Dallas re-read under PAID-API LOCK (≤ $0.30)
 - [x] N9 docs/JUDGE-QA + DEVPOST ⟲ numbers re-verified against scripts/headline.ts (both areas)
 - [x] N10 SCRIPT.md scene 9: the "Already on a plan?" answer + top-8 chip layout changed tonight — re-check the clicks and words still match the screen
+- [x] O1 Spanish social tags (og/twitter) checked on 4 pages — all Spanish. /es description named only Houston → both areas; meta-check now requires both home descriptions to name both areas
