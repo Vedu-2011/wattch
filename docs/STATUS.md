@@ -43,7 +43,7 @@ main, NOT merged — waits for Vedhanth's "merge") · Repo: github.com/Vedu-2011
   /how 96/100/100/100, Dallas wall 93/100/100/90, Dallas traps 94/100/100/100.
 - **Paid API tonight: ≈ $2.06 of the $3 cap.** PAID-API LOCK released.
 
-## Known gaps (new)
+## Known gaps at 01:25 (all fixed since, except the Dallas re-read)
 - Header freshness badge shows Houston counts on Dallas pages.
 - Plan, compare and traps pages are English only (Spanish: home, wall, reveal, /remind). Backlog item queued.
 - Dallas: 16 labels unread (Anakin quota) — shown honestly as "couldn't open".
