@@ -702,7 +702,19 @@
 - [x] BJ4 Final open-questions list (merge timing, .codex/, Anakin, 0-kWh floor, .env.example, name search)
 - [x] BJ5 Handoff draft updated with all of the above
 - [x] BJ6 Night-2 summary draft updated
-- [ ] BJ7 BOARD Done line drafted
+- [x] BJ7 BOARD Done line drafted
 - [x] BJ8 Check nothing uncommitted / stray files in the folder
 - [x] BJ9 Codex review if code changed
-- [ ] BJ10 PROGRESS line
+- [x] BJ10 PROGRESS line
+
+## BK batch (added 06:05, night 2) — last full-flow checks
+- [x] BK1 Lighthouse on the plan page again (after tonight's changes)
+- [x] BK2 Lighthouse on the results page
+- [x] BK3 Keyboard-only flow: home → pick usage → results → open a plan, Tab/Enter only
+- [ ] BK4 iPhone-sized flow in Chrome (touch): home → results → plan → compare, screenshots
+- [x] BK5 Gallery images still match the app (docs/gallery)
+- [x] BK6 Fix anything found
+- [x] BK7 Tests
+- [x] BK8 STATUS line
+- [ ] BK9 Codex if code changed
+- [x] BK10 PROGRESS line

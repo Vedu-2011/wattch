@@ -56,6 +56,9 @@ wait. For future overnight nights: push once per batch, or turn off previews for
   Their link previews no longer say "the fine print, checked" (now "fine print not read yet"); meta-check tests it.
   Same for the 3 plans whose labels don't add up: title "its fine print doesn't add up", description says Wattch doesn't
   rank it (Codex 41 caught the title).
+- Results button "Open the #1 plan's fine print" opened the state site's #1 while the card also says "YOUR #1" →
+  now "Open the state site's #1 fine print" (EN/ES); gallery re-taken. Keyboard-only flow home → results → plan works
+  (skip link first). Lighthouse plan + results: 100/100/100, SEO 91 (description is streamed for browsers; bots get it).
 - English-leak scan of all 344 Spanish plan pages (+ compare, results): clean (only plan names and a label URL).
 - README says which keys go in .env.local (none needed to run the app). A fresh clone with no keys: npm ci + 236 tests pass.
 - Checked, no change: Dallas share text, trap carousel under reduced motion, Dallas plan prints on 1 sheet, badge in
