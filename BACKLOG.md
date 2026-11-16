@@ -429,3 +429,16 @@
 - [x] AM8 Error messages all say what to do next
 - [x] AM9 STATUS wording line
 - [x] AM10 Codex review 30 if code changed
+
+## AN batch (added 04:50, night 2) — links
+- [x] AN1 Every outside link on /sources answers (2xx/3xx)
+- [x] AN2 Every link in docs/SOURCES.md answers
+- [x] AN3 Plan pages 'Open the original label' links: sample 10 Houston + 10 Dallas answer
+- [ ] AN4 Enroll links (if shown): sample 5
+- [x] AN5 Fix or note broken ones (no invented replacements)
+- [x] AN6 /how links
+- [x] AN7 README links (repo, live, video)
+- [x] AN8 DEVPOST links
+- [x] AN9 STATUS links line
+- [ ] AN10 Codex review 30 if code changed
+- [ ] AN11 Re-check the 36 Infuse/Revolution label links at ~06:45 (still 404?) → note in handoff

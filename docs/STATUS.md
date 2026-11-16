@@ -96,6 +96,11 @@ wait. For future overnight nights: push once per batch, or turn off previews for
 - Dallas: 16 labels unread until Anakin quota returns (≤ $0.30 to re-read).
 - The error page (not the 404) can't be triggered on demand, so its Spanish is checked by types + lint only.
 - Vercel previews paused by the free plan's build limit after ~04:10 (see the top). Not a code problem.
+- **Provider links down (found 04:52):** Infuse Energy and Revolution Energy (18 plans per city, ranked #22 and lower,
+  none in the headline) now answer 404 for their label files — in real Chrome too, and the state's own site links to
+  the same files. Wattch read them fine at midnight, so its numbers stand, but "Open the original label" on those 36
+  pages goes to a dead link right now. Re-checked before the handoff (see PROGRESS). If it lasts, the planner can
+  decide whether to hide those plans or add a note.
 - Repo weight: tonight's screenshots are 49 MB (309 files in docs/screenshots/overnight-2). Fine for GitHub; the
   planner can decide whether to keep them all.
 - Fixed tonight, worth knowing: a hand-typed compare link with a variable-rate plan used to promise a firm yearly
