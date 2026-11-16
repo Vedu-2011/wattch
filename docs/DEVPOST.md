@@ -43,6 +43,16 @@ for a number that was never real.
   says switch or wait; a trap guide with a real example of each of the 7 kinds of catch; "Check this label again now"
   re-opens a label live and says whether anything changed.
 - **Share it.** Every result is a link; it unfurls into a card with your own number.
+- **Every bill line in plain words.** Under each line of your bill, one sentence says where it comes from ("1,100 kWh ×
+  6.5611¢ for CenterPoint's wires to your home"), and a red box says when you just missed a credit and by how much.
+- **Ask yourself before you sign.** Each plan page writes up to 4 questions from that plan's own label and your months:
+  "Will I use 1,000 kWh or more every single month? With your usage you'd miss it 6 months a year, $750 in all."
+- **Dallas–Fort Worth too.** The same pipeline read all 172 ⟲ Oncor plans (154 ⟲ verified) with its own seasons from
+  ERCOT's North Central zone. The same "6.2¢" plan ranks #91 ⟲ there and costs $530 ⟲ more a year.
+- **En español.** The home page, the wall and the reveal work in Spanish, with the "why" sentences written by the
+  same code.
+- **Don't get rolled over.** Enter your contract's end date and get a calendar reminder 30 days before (no account,
+  nothing saved). Plan pages also print on one page to take to the kitchen table.
 
 ## How I built it
 **AI reads. Code decides.** The AI never makes a decision or produces a number on its own.
@@ -59,10 +69,13 @@ for a number that was never real.
 - **Seasons:** ERCOT's 15-minute residential load profiles for the Coast weather zone (2023–2025), mixed by how many
   CenterPoint homes are in each profile type. That gives the monthly shape; your average sets the size.
 - **Deciding:** the bill math, yearly cost, ranking, price cliffs, filters, switching math and every "why" sentence
-  are plain code with 111 tests ⟲, including a test that every verified plan still rebuilds its own label.
+  are plain code with 164 tests ⟲, including a test that every verified plan still rebuilds its own label.
+- **Staying fresh:** `npm run refresh` downloads the state's list for free and shows what changed; `--apply`
+  re-downloads every label and only sends the ones whose text changed to the AI. The Dallas read cost $1.15 for 172
+  labels, about 0.67¢ each.
 - **Stack:** Next.js 16 + React 19 + TypeScript, Tailwind CSS, zod (validates the AI's output and the data file),
-  unpdf (PDF text), Vercel. Accessibility checked with axe (0 issues) and Lighthouse (100 accessibility on the main
-  pages).
+  unpdf (PDF text), Vercel. Accessibility checked with axe (0 issues on 17 pages, phone and desktop) and Lighthouse
+  (100 accessibility on every page I tested).
 
 ## Challenges I ran into
 - **Labels that hide.** Some providers show the label in a viewer that only works in a browser. I watched the
@@ -88,10 +101,9 @@ How Texas electricity labels work, how to make an AI useful without trusting it 
 the work in code), and that the honest answer is often "it depends on your months" — so the tool should ask for them.
 
 ## What's next for Wattch
-- Spanish version of the main flow.
-- Dallas (Oncor) and the other Texas utility areas — the pipeline is the same.
-- A reminder before your contract ends, so you don't roll onto an expensive rate.
-- Re-reading every label automatically each night.
+- The other Texas utility areas (AEP, TNMP) — the pipeline is the same; Dallas took one command and $1.15.
+- Spanish for every page (the plan page is still English).
+- Re-reading every label automatically each night (the refresh script is ready; it needs a scheduler).
 
 ## Built with
 next.js · react · typescript · tailwind-css · zod · unpdf · anthropic-claude-api (claude-haiku-5-5) · anakin.io ·
@@ -121,5 +133,9 @@ Retake with `node scripts/gallery.mjs` against a local prod build on :3000 if th
 ## Checked against the code (Claude Code, Nov 16)
 172 plans / 171 verified / 154 ranked / #74 / $378 / 6 months / $125 / 1,000 kWh / 6.2¢: scripts/headline.ts.
 158 direct / 14 Anakin / median 3,707 ms: data/plans.json. 7 trap kinds: src/lib/trapGuide.ts. 2.6× Aug/Feb: docs/SOURCES.md.
-111 tests: `npm test`. axe 0: scripts/axe.mjs. Lighthouse a11y 100 on /, /wall, /plan: PROGRESS.md (D2).
+164 tests: `npm test`. axe 0 on 17 pages: scripts/axe.mjs. Lighthouse a11y 100 on /, /wall, /plan (D2) and /remind, /how,
+Dallas wall, Dallas traps (H7): PROGRESS.md.
+Dallas (added later Nov 16): 172 plans / 154 verified / 137 ranked / #91 / $530: scripts/headline.ts; $1.149 read cost:
+PROGRESS.md (F2). Bill sentence "1,100 kWh × 6.5611¢": src/lib/bill/explain.ts on plan 33633. Questions "6 months, $750":
+src/lib/questions.test.ts.
 EnergyBot quote: docs/SOURCES.md (verified). NOT used: Peltier/Lieber $480 (couldn't find it).

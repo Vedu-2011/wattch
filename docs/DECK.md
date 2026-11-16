@@ -43,7 +43,10 @@ counts are bigger because they include softer catches (autopay credit, 3-month p
 - **2,519,376** residential homes in the CenterPoint (Houston) area on ERCOT's load profiles (1,868,817 low-winter +
   650,559 high-winter), Profile Type Counts, Nov 2 2026. Source: ERCOT (SOURCES.md).
 - Average Texas home uses about **1,117 kWh a month** (EIA-861M 2023–2025). Source: SOURCES.md.
-- The same pipeline works for the rest of Texas's competitive market (Dallas/Oncor, AEP, TNMP): **[CHECK]** total
+- **2,693,274** Oncor homes in the North Central weather zone (Dallas–Fort Worth; 947,346 low-winter + 1,745,928
+  high-winter), same ERCOT file. Wattch already covers them: 172 ⟲ plans read, 154 ⟲ verified. Together ≈ 5.2 million
+  homes in the two areas Wattch reads today. Source: ERCOT (SOURCES.md).
+- The same pipeline works for the rest of Texas's competitive market (AEP, TNMP): **[CHECK]** total
   competitive-market homes from an ERCOT/PUCT page before using any statewide number. ("8 million premises" is
   unverified — don't use.)
 - Illustration only, our math: if 1% of CenterPoint homes (≈25,000) switched off a plan that costs them $378 more,
@@ -78,13 +81,18 @@ wording before the slide). Claude Haiku reads the label; plain code rebuilds tho
 Fill the [CHECK] cells only after opening each site and trying it; screenshot what you saw.
 
 **11 · Traction / proof**
-- 172 ⟲ labels read, 171 verified, 154 ranked — all public and re-checkable live.
-- Accessibility: 0 axe issues; Lighthouse accessibility 100 on the main pages.
+- Houston: 172 ⟲ labels read, 171 verified, 154 ranked. Dallas–Fort Worth: 172 ⟲ read, 154 verified, 137 ranked
+  (same "6.2¢" plan ranks #91 ⟲ there, $530 ⟲ more a year). All public and re-checkable live.
+- Reading a whole area costs about $1.15 in AI (0.67¢ a label); unchanged labels cost $0 to re-check.
+- English + Spanish; contract-end calendar reminders; 164 ⟲ automated tests.
+- Accessibility: 0 axe issues on 17 pages; Lighthouse accessibility 100 on every page tested.
 - Built and shipped solo in one week.
 (No users yet — say so honestly if asked.)
 
 **12 · Roadmap**
-Spanish version · Dallas and the rest of Texas · contract-end reminders · nightly automatic re-reads.
+Done this week: Houston · Dallas–Fort Worth · Spanish (main flow) · contract-end reminders.
+Next: AEP + TNMP areas (rest of Texas's competitive market) · Spanish everywhere · nightly automatic re-reads
+(`npm run refresh` is ready; needs a scheduler) · a pilot with one Houston nonprofit.
 
 **13 · Team**
 Vedhanth M. — founder, built everything (solo). AI tools used: Claude Code, Codex, Claude chat; in the product: Claude

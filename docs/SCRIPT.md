@@ -23,10 +23,16 @@ was refreshed, swap the numbers marked ⟲.
 | 8 | 3:15–3:35 | Click **Check this label again now**. Wait for the answer. | "Prices change, so any plan can be re-checked live. Wattch downloads the label again right now and tells me if anything changed." |
 | 9 | 3:35–4:05 | Back to results → **Already on a plan?** → search and pick the Simple Saver 3 plan. Show the switch/wait answer. | "If you're already on a plan, Wattch does the switching math with your real exit fee and tells you plainly: switch now, or wait until your contract ends." |
 | 10 | 4:05–4:25 | Header → **Traps**. Scroll slowly through 2–3 trap kinds. | "I also built a guide to the seven ⟲ kinds of traps I found, each with a real plan and what it costs at three usages." |
+| 10b *(optional, +15 s)* | — | Home → in the form, tap **Dallas–Fort Worth (Oncor)**; the stats and trap card change. Click **Read every plan**, skip to the reveal. | "And it's not just Houston. The same code read every Dallas–Fort Worth plan too. There, that same 6.2-cent plan costs 530 dollars ⟲ more a year." |
 | 11 | 4:25–4:40 | Back to results → **Share my result** → show the card image. | "And every result is a link you can send someone, with your own number on it." |
 | 12 | 4:40–5:00 | Home page, still. | "Texas gave people the power to choose, but not the time to read 172 ⟲ labels. Wattch reads them, checks its own work, and shows what your plan really costs. AI reads, code decides. Thanks for watching." |
 
 Word count ≈ 640 → about 4:35 at 140 wpm, leaving ~25 s for pauses and the wall animation. Hard stop 5:30.
+
+**Optional line for scene 7 (+10 s)** — scroll to "Ask yourself before you sign": "Under every bill line there's a
+sentence saying where it comes from, and the page writes questions from the plan's own fine print, like: will I use
+1,000 kilowatt-hours every single month? For this home, no — six months a year, 750 dollars."
+With both optional bits the video is about 5:15. Drop them first if you run long.
 
 **If something breaks while recording**
 - /wall is slow → use /demo (same numbers, auto-plays, ← → keys) for scenes 4–6, and say "here's the walk-through".
