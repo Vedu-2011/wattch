@@ -451,6 +451,6 @@
 - [ ] AO5 Handoff draft in scratchpad (fill at 7:00)
 - [ ] AO6 Night-2 summary final text drafted (O10)
 - [ ] AO7 STATUS: final counts (Y9/AG9) — prepare
-- [ ] AO8 tidy.sh dry look (what it moves) before running at handoff
+- [x] AO8 tidy.sh dry look (what it moves) before running at handoff
 - [ ] AO9 BOARD Done line drafted
 - [ ] AO10 Codex review if code changed

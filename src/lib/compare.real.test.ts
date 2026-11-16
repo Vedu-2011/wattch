@@ -47,3 +47,15 @@ describe("notFirm (compare pages and cards only promise a yearly number for rank
     expect(notFirm(planById("33633")!)).toBeNull();
   });
 });
+
+describe("notFirm and the ranking use the same rule", () => {
+  it("every plan in both areas: no reason ⇔ ranked", async () => {
+    const { planById } = await import("@/lib/plans/data");
+    const { notFirm } = await import("@/lib/compare");
+    const { rankable } = await import("./rank");
+    for (const area of ["houston", "dallas"] as const) {
+      const ranked = new Set(rankable(clientPlans(area)).map((p) => p.id));
+      for (const p of clientPlans(area)) expect(notFirm(planById(p.id)!) === null, `${area} ${p.id}`).toBe(ranked.has(p.id));
+    }
+  });
+});
