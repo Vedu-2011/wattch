@@ -64,5 +64,5 @@
 - [x] docs/STATUS.md refresh for the planner (tests, pages, Dallas, spend, Anakin quota, what is next)
 - [ ] When Anakin quota is back (check first, $0 if not): re-read the 26 Dallas unread with --redo-failed (paid ≤ $0.30, PAID-API LOCK) — stay under the $3 night cap
 - [ ] Spanish plan page (?lang=es): headings, label check, bill lines + explainBill sentences in Spanish, questions, year card; links from the Spanish wall carry lang — axe 0, no mixed-language section
-- [ ] Header freshness badge per area: on ?area=dallas pages show Dallas counts (154 of 172) — test + screenshot
+- [x] Header freshness badge per area: on ?area=dallas pages show Dallas counts (154 of 172) — test + screenshot
 - [ ] Codex review 7 (codex review --base main) — fix real findings

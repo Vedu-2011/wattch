@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Inter, JetBrains_Mono } from "next/font/google";
 import Link from "next/link";
-import { Fresh } from "@/components/Fresh";
+import { Badge, type BadgeCounts, FreshBadge as AreaBadge } from "@/components/FreshBadge";
 import { Kapi } from "@/components/Kapi";
 import { LangSwitch } from "@/components/LangSwitch";
 import { Suspense } from "react";
-import { snapshotInfo } from "@/lib/plans/data";
+import { areaInfo } from "@/lib/plans/data";
 import "./globals.css";
 
 const display = Bricolage_Grotesque({ variable: "--font-display", subsets: ["latin"], weight: ["600", "700", "800"] });
@@ -21,15 +21,14 @@ export const metadata: Metadata = {
 };
 export const viewport: Viewport = { themeColor: "#f5efe3" };
 
-/** When the plan list was last read, and how many labels add up. From data/plans.json, never typed by hand. */
+/** When the plan list was last read, and how many labels add up — per area. From the data files, never typed by hand. */
+const counts = (a: "houston" | "dallas"): BadgeCounts => {
+  const i = areaInfo(a);
+  return { verified: i.counts.verified ?? 0, total: i.total, builtAt: i.builtAt };
+};
 function FreshBadge() {
-  const verified = snapshotInfo.counts.verified ?? 0;
-  return (
-    <Link href="/how" className={`inline-flex items-center gap-2 rounded-full bg-good-2 px-3 py-1 text-xs font-medium text-ink hover:brightness-95`}>
-      <span aria-hidden className="h-2 w-2 rounded-full bg-good" />
-      <span><span className="num">{verified}</span> of <span className="num">{snapshotInfo.total}</span> labels check out · <Fresh at={snapshotInfo.builtAt} prefix="read" /></span>
-    </Link>
-  );
+  const c = { houston: counts("houston"), dallas: counts("dallas") };
+  return <Suspense fallback={<Badge c={c.houston} />}><AreaBadge counts={c} /></Suspense>;
 }
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

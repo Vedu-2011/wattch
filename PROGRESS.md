@@ -60,3 +60,5 @@
 - 2026-11-16 01:16 PT · H6 Spanish /remind · DONE (6cd6ada). Page + errors + .ics in Spanish. DECISION: bill-line sentences NOT translated alone (plan page is English; a half-Spanish card would be worse) → new backlog item 'Spanish plan page'. axe 0 on 17 pages. 164 tests. $0.
 - 2026-11-16 01:17 PT · H7 Lighthouse · DONE (no code change). lighthouse@12.6.1 mobile, local prod: /remind 96/100/100/100 · /how 96/100/100/100 · /wall?area=dallas 93/100/100/90 (SEO 90 = streamed metadata, accepted in D2) · /traps?area=dallas 94/100/100/100. LCP 2.8–3.2 s, CLS ≤0.001. $0.
 - 2026-11-16 01:19 PT · H8 docs truth pass · DONE (ab97996). DEVPOST/DECK/SCRIPT updated with tonight's features; all numbers re-run (378/#74, 530/#91, 208 locked, 2,693,274 Oncor homes). [CHECK] marks kept (competitors, referral fee, statewide size, the ask). $0.
+- 2026-11-16 01:19 PT · H9 STATUS.md refresh · DONE (c259a9d). Added 2 backlog items (header badge per area, codex review 7). $0.
+- 2026-11-16 01:19 PT · H Anakin re-read · SKIPPED for now: probe returned 402 'Out of Anakin.io reads' ($0). Item stays open; re-probe later.
