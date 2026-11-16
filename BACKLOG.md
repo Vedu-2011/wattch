@@ -312,12 +312,24 @@
 
 ## AD batch (added 04:26, night 2)
 - [x] AD1 Results page: unranked note (rankNote) still says the right count for Dallas ES
-- [ ] AD2 Plan page 'Check this label again now' on variable plan: works / friendly (no paid call — just the UI state)
+- [x] AD2 Plan page 'Check this label again now' on variable plan: works / friendly (no paid call — just the UI state)
 - [x] AD3 404 for /plan/<unknown>?lang=es&area=dallas: links keep area+lang
 - [x] AD4 Home trap carousel: each card links to a ranked plan? (variable plan in carousel would contradict)
 - [x] AD5 Trap guide examples: any plan not ranked? (same rule)
-- [ ] AD6 /how mentions the rough-guide rule? one sentence if missing
-- [ ] AD7 Remind page ics file name for EN (wattch-reminder-<date>.ics) sanity
+- [x] AD6 /how mentions the rough-guide rule? one sentence if missing
+- [x] AD7 Remind page ics file name for EN (wattch-reminder-<date>.ics) sanity
 - [x] AD8 Footer links on every page keep lang (spot check 3 pages)
 - [x] AD9 Keyboard skip link (if any) works in ES
-- [ ] AD10 Codex review 25 after AD batch
+- [x] AD10 Codex review 25 after AD batch
+
+## AE batch (added 04:30, night 2)
+- [x] AE1 es-walk: Tab once on /es and expect 'Saltar al contenido'
+- [x] AE2 Skip link on /demo (projector walk-through) — hidden, doesn't interfere with arrow keys
+- [x] AE3 Print: skip link never prints
+- [x] AE4 JUDGE-QA Q20 'keyboard-only use' mention skip link (few words)
+- [x] AE5 STATUS: skip link line
+- [x] AE6 Results page focus after 'Read every plan' (home form) — lands somewhere sensible?
+- [x] AE7 Compare page h1 focus after Compare link? (log only)
+- [x] AE8 Lighthouse / and /es after skip link (a11y 100)
+- [ ] AE9 Wall filters: keyboard order sensible at 375 (Tab through 10 stops, log)
+- [ ] AE10 Codex review 26 after AE batch

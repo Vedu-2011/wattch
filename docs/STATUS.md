@@ -20,6 +20,7 @@ so production can build.
 - **Variable, prepaid and not-verified plans** no longer get a firm yearly number anywhere: their plan page and any
   compare page show a plain note ("only a rough guide — that's why it isn't in the ranking"), the link description
   drops "really costs $X a year", and the share card falls back to the general one. Found by opening those plans on purpose.
+- **Skip-to-content link** (EN/ES) for keyboard users, hidden until Tab.
 - **Texas time in one helper** with a test for the midnight edge. Codex 21–23 clean. 230 tests, check-all PASS.
 
 ## Since 04:00 (BACKLOG W + X)

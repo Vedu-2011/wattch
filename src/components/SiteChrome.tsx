@@ -54,7 +54,7 @@ export function HtmlLang() {
 
 /** First thing a keyboard reaches: jumps past the header to the page itself (hidden until focused). */
 export const SkipView = ({ lang }: { lang: L }) => (
-  <a href="#main" lang={lang} className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-50 focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-paper">
+  <a href="#main" lang={lang} className="no-print sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-50 focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-paper">
     {NAV[lang].skip}
   </a>
 );

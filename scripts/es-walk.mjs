@@ -34,6 +34,9 @@ for (const width of [375, 1440]) {
     bad += hits.length;
   }
   await pg.goto(`${BASE}/es`); await check("1-home");
+  // keyboard users first meet the skip link, in Spanish
+  await pg.keyboard.press("Tab");
+  { const t = await pg.evaluate(() => document.activeElement?.textContent?.trim()); console.log(t === "Saltar al contenido" ? "ok     " : "ENGLISH", width, "1b-skip   " + t); bad += t === "Saltar al contenido" ? 0 : 1; }
   await pg.goto(`${BASE}/wall?kwh=1100&lang=es`); await check("2-wall");
   await pg.locator('main a[href^="/plan/"]').first().click(); await pg.waitForURL(/\/plan\//); await check("3-plan");
   // the Share button answers in Spanish (no share sheet in a headless browser → it copies the link)
