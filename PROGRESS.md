@@ -289,3 +289,14 @@ Shared links now preview the right thing on every page (plan card, compare card,
 - 2026-11-16 06:52 PT · Anakin probe (PAID-API lock taken + released): still 'Out of Anakin.io reads for now.' $0. Dallas re-read stays blocked. $0.
 - 2026-11-16 06:53 PT · Free dry run 'npm run refresh -- --area all': Houston 169 unchanged, 2 new (Varsity TOUCHDOWN 12/24), 3 Champion price changes (+0.1¢); Dallas 170 unchanged, 2 Varsity price + link changes. ~7 labels ≈ $0.04 to re-read. NOT applied (Anakin out of reads; --apply re-downloads every label; risky right before the handoff) → planner question. $0.
 - 2026-11-16 06:57 PT · Last full verify before the handoff: tsc clean, 44 files / 259 tests, lint 0, build OK, check-all 5/5 PASS. $0.
+
+### NIGHT 2 SUMMARY — final, 7:01 AM PT (handoff: _coord/handoffs/2026-11-16-0701--triple-h--claude--overnight-2.md)
+**Night 2 summary (Claude Code, 10:50 PM Nov 15 → 7:01 AM Nov 16, branch `overnight`, not merged).**
+Start: 161/172 Houston labels verified, 62 tests, Houston only. End: Houston 171/172 verified (154 ranked), Dallas–Fort
+Worth added (154 verified, 137 ranked, 16 unread because Anakin.io ran out), 259 tests, every page in English and Spanish,
+axe 0 issues on 25 pages, phone (320) and projector (1920) checks, link-preview share cards, a 7-kind trap guide, a
+bill reminder (.ics), a click-through /demo, and honest "rough guide" notes on variable/prepaid/unverified plans.
+Codex reviewed every batch (reviews 11–49; the real findings were fixed). Paid API ≈ $2.06 of $3. Two things need a
+person: Vercel's free build limit was hit at ~04:10 (production after "merge" likely waits until ~10 PM Nov 16), and
+`.codex/` got swept into a commit (untracking it is the planner's call). Full detail: docs/STATUS.md.
+- 2026-11-16 07:02 PT · L10/O10/BP7–9: handoff saved (_coord/handoffs/2026-11-16-0701--triple-h--claude--overnight-2.md), final night-2 summary above, BOARD row moved to Done, tidy.sh run. Loop continues (BP10). $0.

@@ -110,7 +110,7 @@
 - [x] L7 Spanish copy self-review: read every ES table once for tú/usted consistency, accents, and "plan de luz" wording
 - [x] L8 Wall JS weight check (first-load JS for /wall, /plan) vs. last night — note any growth from the word tables
 - [x] L9 docs/STATUS.md refresh before morning handoff
-- [ ] L10 Morning handoff file at >= 7:00 AM PT (OVERNIGHT.md) + BOARD row Done + tidy.sh
+- [x] L10 Morning handoff file at >= 7:00 AM PT (OVERNIGHT.md) + BOARD row Done + tidy.sh
 - [x] M1 Test: for EVERY plan in both areas, the Spanish why-line / bill notes / questions carry exactly the same numbers as the English ones (digits extracted and compared)
 - [x] M2 Spanish pages at 320px (small phones): no sideways scroll on /es, wall, plan, compare, traps, remind, how, sources
 - [x] M3 Projector check: Spanish wall + plan at 1920 — longer Spanish words do not break the big number or cards
@@ -140,7 +140,7 @@
 - [x] O7 /api/card with bad or missing params (kwh=abc, area=xx, lang=fr): still a valid image, never a stack trace
 - [x] O8 Lighthouse: Dallas Spanish plan page + /remind?lang=es — log
 - [x] O9 Codex review 12 after O batch
-- [ ] O10 PROGRESS.md: one-paragraph "night 2 summary" at the top of tonight's section for the planner
+- [x] O10 PROGRESS.md: one-paragraph "night 2 summary" at the top of tonight's section for the planner
 
 ## P batch (added 02:50, night 2)
 - [x] P1 Spanish /compare: two plans side by side in Spanish at 375 + 1440, numbers match English (screens)
@@ -774,9 +774,9 @@
 - [x] BP4 Nothing in the scratchpad that belongs in the repo
 - [x] BP5 PROGRESS tail reads cleanly (no cut lines)
 - [x] BP6 BOARD row text current
-- [ ] BP7 Handoff placeholders filled at 7:00
-- [ ] BP8 Night-2 summary placed at the top of tonight's PROGRESS section
-- [ ] BP9 BOARD Done line + tidy.sh
+- [x] BP7 Handoff placeholders filled at 7:00
+- [x] BP8 Night-2 summary placed at the top of tonight's PROGRESS section
+- [x] BP9 BOARD Done line + tidy.sh
 - [ ] BP10 Keep going after the handoff (OVERNIGHT.md: never stop)
 
 ## BQ batch (added 06:32, night 2) — re-read tonight's new Spanish
@@ -909,4 +909,4 @@
 - [x] CA7 Handoff TESTS line uses these results
 - [x] CA8 Commit + push
 - [x] CA9 BOARD row current
-- [ ] CA10 Then the 7:00 handoff
+- [x] CA10 Then the 7:00 handoff
