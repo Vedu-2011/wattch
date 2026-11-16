@@ -1,6 +1,6 @@
-# Wattch — STATUS (Claude Code, overnight-2, updated Nov 16 2026 ~04:25 PT)
+# Wattch — STATUS (Claude Code, overnight-2, updated Nov 16 2026 ~05:15 PT)
 
-Live: https://getwattch.vercel.app (main) · Overnight work: branch `overnight` (Vercel preview, 154 commits ahead of
+Live: https://getwattch.vercel.app (main) · Overnight work: branch `overnight` (Vercel preview, 184 commits ahead of
 main, NOT merged — waits for Vedhanth's "merge") · Repo: github.com/Vedu-2011/wattch
 
 ## How to check it this morning (5 minutes, on the overnight preview)
@@ -18,6 +18,13 @@ new builds — **including production after a merge** — will probably be refus
 The newest preview that built is 85e52e2 (has every visible change except the compare share title, notes for
 variable plans, the skip link and the noindex fix). Options for the planner: merge now and let it go live tonight, or
 wait. For future overnight nights: push once per batch, or turn off previews for the `overnight` branch.
+
+## Since 04:55 (BACKLOG AN–AR) — small things a judge might notice
+- Plan terms read like a person wrote them: "1 month", "month to month" / "1 mes", "mes a mes" (were "1 months",
+  "0 months"); "1 month under 1,000 kWh". A sweep over every word table found no other slips.
+- The plan page's bill chart labels are readable on phones (were ~5 px).
+- "Check this label again" says plainly when a provider's label file is really gone, instead of "try again".
+- Codex 28–31 clean on my code (31's only note is the swept-in .codex/ folder, see Known gaps). 236 tests.
 
 ## Since 04:20 (BACKLOG AA–AC) — honest about what it can't price
 - **Variable, prepaid and not-verified plans** no longer get a firm yearly number anywhere: their plan page and any
@@ -55,7 +62,7 @@ wait. For future overnight nights: push once per batch, or turn off previews for
   Houston; months URL comment had the wrong format.
 - **`node scripts/check-all.mjs`** runs axe + Spanish walk + widths (40 pages × sizes) + meta-check in ~2 min.
 - **Codex 14–17:** 3 real P2s fixed (compare test, preview settings, "cheapest" label), 17 clean.
-- **Quality now:** 230 tests · lint + build clean · axe 0 on 25 pages · check-all PASS.
+- **Quality now:** 236 tests · lint + build clean · axe 0 on 25 pages · check-all PASS.
 
 ## Since 01:57 (BACKLOG K–R) — polish, found by checking
 - **Spanish before JavaScript:** Spanish pages used to send English loading text and `lang="en"` in their first HTML
@@ -96,6 +103,9 @@ wait. For future overnight nights: push once per batch, or turn off previews for
 - Dallas: 16 labels unread until Anakin quota returns (≤ $0.30 to re-read).
 - The error page (not the 404) can't be triggered on demand, so its Spanish is checked by types + lint only.
 - Vercel previews paused by the free plan's build limit after ~04:10 (see the top). Not a code problem.
+- `.codex/` (someone's Codex setup, 4 files) was swept into commit 6cd891f by my `git add -A`; no secrets, but
+  hooks.json has home-folder paths. Now in .gitignore; untracking it needs git's remove-from-index command, which
+  tonight's rules leave to the planner.
 - Repo weight: tonight's screenshots are 49 MB (309 files in docs/screenshots/overnight-2). Fine for GitHub; the
   planner can decide whether to keep them all.
 - Fixed tonight, worth knowing: a hand-typed compare link with a variable-rate plan used to promise a firm yearly

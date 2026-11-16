@@ -59,7 +59,7 @@ One line each: Read every plan · Your real year · Proof for every number · Sw
 **8 · Why you can trust it: AI reads, code decides**
 Texas requires each label to print its average price at 500, 1,000 and 2,000 kWh (16 TAC §25.475 — **[CHECK]** exact
 wording before the slide). Claude Haiku reads the label; plain code rebuilds those three prices; all three must match to
-about a tenth of a cent (±0.11¢; labels round to 0.1¢) or the plan isn't ranked. Median read 3.7 s ⟲. 230 ⟲ automated tests.
+about a tenth of a cent (±0.11¢; labels round to 0.1¢) or the plan isn't ranked. Median read 3.7 s ⟲. 236 ⟲ automated tests.
 
 **9 · Business model**
 - Free for families, always. No account needed.
@@ -84,7 +84,7 @@ Fill the [CHECK] cells only after opening each site and trying it; screenshot wh
 - Houston: 172 ⟲ labels read, 171 verified, 154 ranked. Dallas–Fort Worth: 172 ⟲ read, 154 verified, 137 ranked
   (same "6.2¢" plan ranks #91 ⟲ there, $530 ⟲ more a year). All public and re-checkable live.
 - Reading a whole area costs about $1.15 in AI (0.67¢ a label); unchanged labels cost $0 to re-check.
-- English + Spanish on every page (same math, only the words change); contract-end calendar reminders; 230 ⟲ automated tests.
+- English + Spanish on every page (same math, only the words change); contract-end calendar reminders; 236 ⟲ automated tests.
 - Accessibility: 0 axe issues on 23 pages (English + Spanish); Lighthouse accessibility 100 on every page tested.
 - Built and shipped solo in one week.
 (No users yet — say so honestly if asked.)

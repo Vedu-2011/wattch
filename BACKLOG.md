@@ -355,7 +355,7 @@
 - [x] AG6 Plan page questions in ES for a trap plan (spot check one)
 - [x] AG7 Wall 'Show me why' bars ES labels (months)
 - [x] AG8 /traps print: one or two sheets? log
-- [ ] AG9 STATUS final counts
+- [x] AG9 STATUS final counts
 - [x] AG10 Codex review 27 after AG batch
 
 ## AH batch (added 04:35, night 2) — speed
@@ -450,7 +450,7 @@
 - [x] AO4 Tests + check-all after data change
 - [x] AO5 Handoff draft in scratchpad (fill at 7:00)
 - [ ] AO6 Night-2 summary final text drafted (O10)
-- [ ] AO7 STATUS: final counts (Y9/AG9) — prepare
+- [x] AO7 STATUS: final counts (Y9/AG9) — prepare
 - [x] AO8 tidy.sh dry look (what it moves) before running at handoff
 - [x] AO9 BOARD Done line drafted
 - [x] AO10 Codex review if code changed
@@ -476,7 +476,7 @@
 - [x] AQ6 Compare 'cheaper in 1 months'
 - [x] AQ7 Results 'N variable-rate plans aren't ranked' with N=1
 - [x] AQ8 Remind 'in 1 days'
-- [ ] AQ9 STATUS line
+- [x] AQ9 STATUS line
 - [ ] AQ10 Codex review 32 after AQ batch
 
 ## AR batch (added 05:10, night 2) — eyes-on phone review
@@ -485,8 +485,8 @@
 - [x] AR3 Compare EN 375 (Share/Print row, note, table)
 - [x] AR4 Plan EN 375 bill section
 - [x] AR5 Fix anything found
-- [ ] AR6 Same at 1920 for results
+- [x] AR6 Same at 1920 for results
 - [x] AR7 Dallas home EN 375
-- [ ] AR8 Traps ES 375
-- [ ] AR9 STATUS line
+- [x] AR8 Traps ES 375
+- [x] AR9 STATUS line
 - [ ] AR10 Codex if code changed
