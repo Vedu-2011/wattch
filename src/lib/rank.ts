@@ -186,3 +186,13 @@ export function reveal(plans: ClientPlan[], kwh: number, opts: RankOpts = {}) {
   const gap = best && pick ? Math.round((pick.annual - best.annual) * 100) / 100 : 0;
   return { ranked, best, pick, pickRank: pick ? ranked.indexOf(pick) + 1 : 0, gap, why: pick ? whyLine(pick.plan.pricing!, pick.months) : null };
 }
+
+/** One plan's place among the ranked plans (share cards for plan links): position (1 = cheapest), out of how many,
+ *  its yearly cost and how much more than the best. null when the plan isn't ranked (variable, prepaid, unverified). */
+export function standing(plans: ClientPlan[], id: string, kwh: number, opts: RankOpts = {}) {
+  const ranked = rank(plans, kwh, opts);
+  const at = ranked.findIndex((r) => r.plan.id === id);
+  if (at < 0) return null;
+  const me = ranked[at];
+  return { me, position: at + 1, of: ranked.length, annual: me.annual, gap: Math.round((me.annual - ranked[0].annual) * 100) / 100 };
+}

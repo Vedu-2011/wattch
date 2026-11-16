@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { clientPlans } from "@/lib/plans/data";
 import { anyFilter, filterOpts, parseWallParams } from "@/lib/params";
 import { AREAS } from "@/lib/plans/ptc";
-import { rank, reveal, whyLine } from "@/lib/rank";
+import { reveal, standing, whyLine } from "@/lib/rank";
 import { providerTitle } from "@/lib/names";
 
 const W = {
@@ -25,9 +25,8 @@ export async function GET(req: Request) {
   // ?plan=<id> (plan pages): that plan's real cost and rank, when it's ranked; otherwise the general card below
   const opts = { seasons, months, area, includeConditional: withConditional, ...filterOpts(filters) };
   const planId = sp.get("plan");
-  const ranked = planId ? rank(clientPlans(area), kwh, opts) : [];
-  const at = ranked.findIndex((x) => x.plan.id === planId);
-  if (at >= 0) return planCard(ranked, at, t, `${months ? t.mine : t.perMonth(kwh.toLocaleString("en-US"))} · ${AREAS[area].city}${anyFilter(filters) ? t.filtered : ""}`);
+  const st = planId ? standing(clientPlans(area), planId, kwh, opts) : null;
+  if (st) return planCard(st, t, `${months ? t.mine : t.perMonth(kwh.toLocaleString("en-US"))} · ${AREAS[area].city}${anyFilter(filters) ? t.filtered : ""}`);
   return new ImageResponse(
     (
       <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", background: "#1b1611", color: "#f5efe3", padding: "56px 64px", fontFamily: "sans-serif" }}>
@@ -60,8 +59,8 @@ export async function GET(req: Request) {
 const SIZE = { width: 1200, height: 630, headers: { "Cache-Control": "public, max-age=3600" } };
 
 /** One plan's card: what it's advertised at, what it really costs this home, and where it ranks. */
-function planCard(ranked: ReturnType<typeof rank>, at: number, t: (typeof W)["en" | "es"], top: string) {
-  const me = ranked[at], gap = Math.round(me.annual - ranked[0].annual);
+function planCard(st: NonNullable<ReturnType<typeof standing>>, t: (typeof W)["en" | "es"], top: string) {
+  const { me, position, of } = st, gap = Math.round(st.gap);
   return new ImageResponse(
     (
       <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", background: "#1b1611", color: "#f5efe3", padding: "56px 64px", fontFamily: "sans-serif" }}>
@@ -76,7 +75,7 @@ function planCard(ranked: ReturnType<typeof rank>, at: number, t: (typeof W)["en
             <div style={{ display: "flex", fontSize: 96, fontWeight: 800, color: "#ffcf2e", marginLeft: 18, lineHeight: 1 }}>{money(me.annual)}</div>
             <div style={{ display: "flex", fontSize: 36, color: "#d9cfbf" }}>{t.perYear}</div>
           </div>
-          <div style={{ display: "flex", fontSize: 32, marginTop: 18 }}>{at === 0 ? t.isBest : `${t.rankOf(at + 1, ranked.length)} · ${gap >= 1 ? t.vsBest(money(gap)) : t.nearBest}`}</div>
+          <div style={{ display: "flex", fontSize: 32, marginTop: 18 }}>{position === 1 ? t.isBest : `${t.rankOf(position, of)} · ${gap >= 1 ? t.vsBest(money(gap)) : t.nearBest}`}</div>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", fontSize: 26, color: "#d9cfbf" }}>
           <div style={{ display: "flex" }}>{providerTitle(me.plan.provider)}</div>

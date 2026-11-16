@@ -203,7 +203,7 @@
 - [x] T10 Codex review 16 after T batch
 
 ## U batch (added 03:38, night 2)
-- [ ] U1 Plan card: test that the card's rank/gap equal the plan page's (shared function, both areas, 3 plans)
+- [x] U1 Plan card: test that the card's rank/gap equal the plan page's (shared function, both areas, 3 plans)
 - [ ] U2 Compare preview card: show the two plans + who saves what (like T1), EN/ES
 - [ ] U3 DEVPOST/DECK: one line about link previews per plan (only if it fits; verify)
 - [ ] U4 /wall?m=…(own months) Spanish at 375: months editor + chips fit
