@@ -37,6 +37,7 @@ wait. For future overnight nights: push once per batch, or turn off previews for
   3–60¢ at 1,100, no monthly bill below $0 from 100 to 3,000 kWh. Edge for the planner: at exactly 0 kWh in a month
   (only possible by typing a 0 in "my 12 months"), $5 autopay discounts beat the $4.90 delivery fee → −$0.10 that month
   (Octopus / No Bull / Digital Choice; Dallas −$0.94). Left as the label's math; a $0 floor is a policy call.
+- Tonight's one-off checks are now tests (src/lib/dataSanity.test.ts, search.test.ts, sitemap no duplicates): 248 tests.
 - README says which keys go in .env.local (none needed to run the app). A fresh clone with no keys: npm ci + 236 tests pass.
 - Checked, no change: Dallas share text, trap carousel under reduced motion, Dallas plan prints on 1 sheet, badge in
   Spanish/Dallas in a real browser, all data files tracked, biggest browser script 235 KB.
@@ -78,7 +79,7 @@ wait. For future overnight nights: push once per batch, or turn off previews for
   Houston; months URL comment had the wrong format.
 - **`node scripts/check-all.mjs`** runs axe + Spanish walk + widths (40 pages × sizes) + meta-check in ~2 min.
 - **Codex 14–17:** 3 real P2s fixed (compare test, preview settings, "cheapest" label), 17 clean.
-- **Quality now:** 236 tests · lint + build clean · axe 0 on 25 pages · check-all PASS.
+- **Quality now:** 248 tests · lint + build clean · axe 0 on 25 pages · check-all PASS.
 
 ## Since 01:57 (BACKLOG K–R) — polish, found by checking
 - **Spanish before JavaScript:** Spanish pages used to send English loading text and `lang="en"` in their first HTML

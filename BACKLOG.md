@@ -586,3 +586,15 @@
 - [x] AZ8 Look at the 3 most extreme plans by hand if anything looks odd
 - [x] AZ9 STATUS line
 - [x] AZ10 Codex review if code changed
+
+## BA batch (added 05:32, night 2) — keep tonight's probes as tests
+- [x] BA1 Test: every ranked plan, both areas: yearly cost finite $0–$10k at 200/1,100/3,000; no bill < $0 from 100–3,000
+- [x] BA2 Move the search fold() into src/lib and test it (accents, case, provider)
+- [x] BA3 Test: every hand-read parsedBy in data turns into Spanish (matches the date pattern)
+- [x] BA4 Test: every plan's label link is https
+- [x] BA5 Test: every plan has a non-empty provider + plan name
+- [x] BA6 Test: sitemap has no duplicate URLs
+- [x] BA7 Full verify (test, lint, build, check-all)
+- [x] BA8 STATUS line
+- [ ] BA9 Codex review 37
+- [x] BA10 Docs test counts
