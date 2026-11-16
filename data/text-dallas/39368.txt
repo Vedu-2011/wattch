@@ -1,0 +1,51 @@
+Electricity Facts Label (EFL)
+True Power
+Oncor
+True Value 24
+November 12, 2026
+Average Price per kWh
+Average Monthly Use 500 kWh 1000 kWh 2000 kWh
+Average Price per kWh 13.2 ¢ 12.8 ¢ 12.6 ¢
+The above price disclosure is based on the following price components
+Energy Charge 5.51¢ per kWh
+Electricity Price Base Charge $0 per billing cycle
+ONC Delivery Charges $4.06 per month
+ONC Delivery Charges 6.8673¢ per kWh
+The average prices above are an example based on average monthly kWh usages as indicated. The
+actual price will vary based on actual usage and is calculated based on the price defined above. The
+average prices reflect all recurring charges, excluding state and local sales taxes. Some areas subject to
+TDU Underground Facilities and Cost Recovery Charge authorized by the city that is not included in the
+price indicated. See TDU tariff for a list of cities and authorized charges.
+Other Key Terms &
+Questions See Terms of Service statement for a full listing of fees, deposit policy, and other terms.
+Type of Product FIXED
+Contract Term 24 months
+Do I have a termination fee or any fees
+associated with terminating service? $300.00
+Can my Price change during the
+contract period? YES
+Disclosure Chart If the price can change, how will it
+change and by how much?
+The price applied in the first billing cycle may be different
+from the price in this EFL if there are changes in TDSP
+charges; changes to the Electric Reliability Council of Texas
+or Texas Regional Entity administrative fees charged to
+loads; or changes resulting from federal, state or local laws
+or regulatory actions that impose new or modified fees or
+costs that are outside our control. Please review the
+historical price of this product available at
+www.truepower.com or call 1-888-642-8783.
+What other fees may I be charged? See Terms of Service
+Is this a pre-pay or pay in advance
+product? NO
+Does True Power purchase excess
+distributed renewable generation NO
+Renewable Content This product is 15% Renewable
+Statewide average for Renewable
+Content 37.2%
+2900 Wilcrest Dr., Houston, Texas 77042
+Web: www.truepower.com Email: customerservice@truepower.com
+Toll-Free: 888-642-8783
+Monday to Friday 9 am – 6 pm CST
+Saturday Closed
+PUCT # 10287 Version: ONC_ONC_E_RES_FIX_TV_24M_0.05510_0_300-2

@@ -1,4 +1,5 @@
 import { asLang } from "@/lib/i18n";
+import { type Area, asArea } from "@/lib/plans/ptc";
 import { monthsFromParam, monthsToParam } from "@/lib/months";
 import type { RankOpts } from "@/lib/rank";
 
@@ -22,6 +23,8 @@ export function parseWallParams(get: (key: string) => string | null | undefined)
     withConditional: get("noauto") !== "1",
     /** ?lang=es shows the wall in Spanish */
     lang: asLang(get("lang")),
+    /** ?area=dallas reads Dallas–Fort Worth (Oncor) plans with that area's seasons */
+    area: asArea(get("area")),
   };
 }
 
@@ -29,12 +32,12 @@ export function parseWallParams(get: (key: string) => string | null | undefined)
  * The query string that carries a result's bill settings to the plan, compare and wall pages
  * (usage, seasons, your own months, autopay discounts). One builder so no page drops a setting.
  */
-export function billQs(o: { kwh: number; seasons: boolean; months?: number[] | null; withConditional?: boolean }): string {
-  return `kwh=${o.kwh}${o.seasons ? "" : "&flat=1"}${o.months ? `&m=${monthsToParam(o.months)}` : ""}${o.withConditional === false ? "&noauto=1" : ""}`;
+export function billQs(o: { kwh: number; seasons: boolean; months?: number[] | null; withConditional?: boolean; area?: Area }): string {
+  return `kwh=${o.kwh}${o.seasons ? "" : "&flat=1"}${o.months ? `&m=${monthsToParam(o.months)}` : ""}${o.withConditional === false ? "&noauto=1" : ""}${o.area && o.area !== "houston" ? `&area=${o.area}` : ""}`;
 }
 
 /** Every URL key a shared result depends on (share link, share card, og:image). */
-export const RESULT_KEYS = ["kwh", "flat", "m", "noauto", "lang", ...Object.values(FILTER_KEYS)] as const;
+export const RESULT_KEYS = ["kwh", "flat", "m", "noauto", "lang", "area", ...Object.values(FILTER_KEYS)] as const;
 
 export const filterOpts = (f: WallFilters): RankOpts => ({
   minTermMonths: f.locked ? 12 : 0, noCliffs: f.noCliffs, minRenewable: f.green ? 50 : 0, minRating: f.rated ? 4 : 0,

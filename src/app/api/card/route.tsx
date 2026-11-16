@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
 import { clientPlans } from "@/lib/plans/data";
 import { anyFilter, filterOpts, parseWallParams } from "@/lib/params";
+import { AREAS } from "@/lib/plans/ptc";
 import { reveal } from "@/lib/rank";
 
 const money = (n: number) => n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
@@ -8,15 +9,15 @@ const money = (n: number) => n.toLocaleString("en-US", { style: "currency", curr
 /** Share card for one result (1200×630). Every number is computed here by the same code as the page. */
 export async function GET(req: Request) {
   const sp = new URL(req.url).searchParams;
-  const { kwh, seasons, months, filters, withConditional } = parseWallParams((k) => sp.get(k));
-  const r = reveal(clientPlans(), kwh, { seasons, months, includeConditional: withConditional, ...filterOpts(filters) });
+  const { kwh, seasons, months, filters, withConditional, area } = parseWallParams((k) => sp.get(k));
+  const r = reveal(clientPlans(area), kwh, { seasons, months, area, includeConditional: withConditional, ...filterOpts(filters) });
   const big = r.pick && r.gap >= 1;
   return new ImageResponse(
     (
       <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", background: "#1b1611", color: "#f5efe3", padding: "56px 64px", fontFamily: "sans-serif" }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <div style={{ display: "flex", fontSize: 40, fontWeight: 800 }}>⚡ Wattch</div>
-          <div style={{ display: "flex", fontSize: 26, color: "#ffcf2e" }}>{months ? "My own 12 months" : `${kwh.toLocaleString()} kWh a month`} · Houston{anyFilter(filters) ? " · filtered" : ""}</div>
+          <div style={{ display: "flex", fontSize: 26, color: "#ffcf2e" }}>{months ? "My own 12 months" : `${kwh.toLocaleString()} kWh a month`} · {AREAS[area].city}{anyFilter(filters) ? " · filtered" : ""}</div>
         </div>
         {big ? (
           <div style={{ display: "flex", flexDirection: "column" }}>

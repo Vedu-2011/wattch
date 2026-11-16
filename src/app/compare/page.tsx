@@ -3,7 +3,8 @@ import Link from "next/link";
 import { compareYear } from "@/lib/compare";
 import { monthsFromParam } from "@/lib/months";
 import { billQs } from "@/lib/params";
-import { planById } from "@/lib/plans/data";
+import { areaOf, planById } from "@/lib/plans/data";
+import { AREAS } from "@/lib/plans/ptc";
 import type { PlanRecord } from "@/lib/plans/schema";
 import { whyLine, yearFor } from "@/lib/rank";
 import { MONTHS } from "@/lib/seasons";
@@ -23,9 +24,10 @@ export default async function Compare({ searchParams }: PageProps<"/compare">) {
   const kwh = Number.isFinite(k) && k >= 100 && k <= 5000 ? k : 1100;
   const seasons = one(sp.flat) !== "1";
   const mine = monthsFromParam(one(sp.m));
-  const months = mine ?? yearFor(kwh, seasons);
+  const area = areaOf(a?.meta.id ?? "") ?? "houston";
+  const months = mine ?? yearFor(kwh, seasons, area);
   const withConditional = one(sp.noauto) !== "1";
-  const qs = billQs({ kwh, seasons, months: mine, withConditional });
+  const qs = billQs({ kwh, seasons, months: mine, withConditional, area });
 
   if (!a?.pricing || !b?.pricing) {
     return (
@@ -44,7 +46,7 @@ export default async function Compare({ searchParams }: PageProps<"/compare">) {
       <Link href={`/wall?${qs}`} className="text-sm font-medium text-ink-2 hover:text-ink">← All plans</Link>
       <h1 className="display mt-3 text-3xl font-extrabold leading-tight sm:text-4xl">Side by side</h1>
       <p className="mt-1 text-ink-2">
-        {mine ? "Your own 12 months" : `${kwh.toLocaleString()} kWh a month on average${seasons ? ", with Houston seasons" : ", same every month"}`}. Today&apos;s prices, before taxes.
+        {mine ? "Your own 12 months" : `${kwh.toLocaleString()} kWh a month on average${seasons ? `, with ${AREAS[area].city} seasons` : ", same every month"}`}. Today&apos;s prices, before taxes.
       </p>
 
       <section className="mt-5 rounded-3xl bg-ink p-5 text-paper shadow-[var(--shadow-lift)] sm:p-6">

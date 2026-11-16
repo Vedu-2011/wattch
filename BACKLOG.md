@@ -37,7 +37,7 @@
 - [x] Gallery images: 6 clean 1920×1080 screenshots for Devpost in docs/gallery/ — 6 files
 - [x] Verify the planner's candidate headline stats (Dallas Morning News Watchdog on a June 2026 Peltier study: ~$480/family/yr; EnergyBot "98% couldn't pick the cheapest plan"); open the real pages; only use quotes you can link — SOURCES.md updated or "not verified" logged
 ## F. Stretch
-- [ ] Spanish version of the core flow (Houston is ~45% Hispanic — only state that number with a source) — toggle works
+- [x] Spanish version of the core flow (Houston is ~45% Hispanic — only state that number with a source) — toggle works
 - [ ] Oncor/Dallas, AEP, TNMP support (same pipeline, TDU filter) behind a city picker — at least one more area verified
 - [ ] "Renewal alarm" page: enter your contract end date → reminder .ics download 30 days before — .ics opens in Calendar
 ## G. Added overnight-2 (Nov 16, 00:10) — judges + submission strength

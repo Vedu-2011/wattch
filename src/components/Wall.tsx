@@ -9,6 +9,7 @@ import { average, monthsToParam } from "@/lib/months";
 import { FILTER_KEYS, NO_FILTERS, type WallFilters, anyFilter, billQs, filterOpts as toOpts } from "@/lib/params";
 import { CountUp } from "@/components/CountUp";
 import { type Lang, TRAP_LABELS, type Words, words } from "@/lib/i18n";
+import { AREAS, type Area } from "@/lib/plans/ptc";
 import { ShareButton } from "@/components/ShareButton";
 import { YearBars } from "@/components/YearBars";
 import { type ClientPlan, type Ranked, passesFilters, ptcTopPick, rank, traps, whyLine, yearFor } from "@/lib/rank";
@@ -45,8 +46,8 @@ function useReveal(plans: ClientPlan[], totalMs = 9000) {
 }
 
 
-export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons, months: initialMonths = null, filters: initialFilters = NO_FILTERS, withConditional: initialConditional = true, lang = "en" }: { plans: ClientPlan[]; kwh: number; builtAt: string; seasons: boolean; months?: number[] | null; filters?: WallFilters; withConditional?: boolean; lang?: Lang }) {
-  const w = words(lang);
+export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons, months: initialMonths = null, filters: initialFilters = NO_FILTERS, withConditional: initialConditional = true, lang = "en", area = "houston" }: { plans: ClientPlan[]; kwh: number; builtAt: string; seasons: boolean; months?: number[] | null; filters?: WallFilters; withConditional?: boolean; lang?: Lang; area?: Area }) {
+  const w = words(lang, area);
   const { readIds, done, skip } = useReveal(plans);
   const [kwh, setKwh] = useState(initialKwh);
   const [seasons, setSeasons] = useState(initialSeasons);
@@ -54,7 +55,7 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons,
   const [mine, setMine] = useState<number[] | null>(initialMonths);
   const [withConditional, setWithConditional] = useState(initialConditional);
   // carried into every plan / compare link so those pages price bills the same way as this ranking
-  const qs = billQs({ kwh, seasons, months: mine, withConditional });
+  const qs = billQs({ kwh, seasons, months: mine, withConditional, area });
   const [f, setF] = useState<WallFilters>(initialFilters);
   const filterOpts = useMemo(() => toOpts(f), [f]);
   const filtered = anyFilter(f);
@@ -71,7 +72,7 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons,
     window.history.replaceState(null, "", u);
   }, [kwh, mine, seasons, f, withConditional]);
   const verifiedRead = plans.filter((p) => readIds.has(p.id) && p.status === "verified").length;
-  const ranked = useMemo(() => rank(plans, kwh, { includeConditional: withConditional, seasons, months: mine, ...filterOpts }), [plans, kwh, withConditional, seasons, mine, filterOpts]);
+  const ranked = useMemo(() => rank(plans, kwh, { includeConditional: withConditional, seasons, months: mine, area, ...filterOpts }), [plans, kwh, withConditional, seasons, mine, filterOpts, area]);
   // with the 12-month filter on, compare against the state site's #1 among those same plans
   const pick = useMemo(() => ptcTopPick(plans.filter((p) => p.pricing && passesFilters(p, filterOpts))), [plans, filterOpts]);
   const notRanked = plans.filter((p) => p.status === "verified" && !p.prepaid && p.rateType.toLowerCase() === "variable").length;
@@ -111,7 +112,7 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons,
       {done && (
         <section id="answer" className="pop mt-8 scroll-mt-4 space-y-6">
           {ranked.length > 0 ? (
-            <Reveal kwh={kwh} seasons={seasons} ranked={ranked} pick={pick} locked={filtered} mine={!!mine} qs={qs} lang={lang} />
+            <Reveal kwh={kwh} seasons={seasons} ranked={ranked} pick={pick} locked={filtered} mine={!!mine} qs={qs} lang={lang} area={area} />
           ) : (
             <div className="flex items-center gap-4 rounded-3xl bg-over-2 p-5 shadow-[var(--shadow-soft)]">
               <Kapi pose="thinking" className="h-16 w-16 shrink-0" />
@@ -136,7 +137,7 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons,
               <Toggle on={withConditional} set={setWithConditional} label={w.tAutopay} />
             </div>
             <div className="mt-3">
-              <MyMonths start={mine ?? yearFor(kwh, seasons)} active={!!mine}
+              <MyMonths start={mine ?? yearFor(kwh, seasons, area)} active={!!mine}
                 onUse={(m) => { setMine(m); setKwh(Math.max(200, Math.min(3000, average(m)))); }} onClear={() => setMine(null)} />
             </div>
             <ol className="mt-4 space-y-2">
@@ -166,7 +167,7 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons,
             <p className="mt-3 text-xs text-ink-2">{w.rankNote(notRanked)}</p>
           </div>
 
-          {ranked.length > 0 && <CurrentPlan plans={plans} best={ranked[0]} includeConditional={withConditional} kwh={kwh} seasons={seasons} qs={qs} mine={!!mine} />}
+          {ranked.length > 0 && <CurrentPlan plans={plans} best={ranked[0]} includeConditional={withConditional} kwh={kwh} seasons={seasons} qs={qs} mine={!!mine} city={AREAS[area].city} />}
 
           <JudgeQr />
         </section>
@@ -250,8 +251,8 @@ function creditLine(r: Ranked): number | undefined {
   return c?.minKwh;
 }
 
-function Reveal({ kwh, seasons, ranked, pick, locked, mine, qs, lang }: { kwh: number; seasons: boolean; ranked: Ranked[]; pick: ClientPlan | null; locked: boolean; mine: boolean; qs: string; lang: Lang }) {
-  const w = words(lang);
+function Reveal({ kwh, seasons, ranked, pick, locked, mine, qs, lang, area }: { kwh: number; seasons: boolean; ranked: Ranked[]; pick: ClientPlan | null; locked: boolean; mine: boolean; qs: string; lang: Lang; area: Area }) {
+  const w = words(lang, area);
   const best = ranked[0];
   const pickRow = pick ? ranked.find((r) => r.plan.id === pick.id) : undefined;
   const pickRank = pickRow ? ranked.indexOf(pickRow) + 1 : 0;

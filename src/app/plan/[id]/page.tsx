@@ -11,7 +11,8 @@ import { whyLine, yearFor } from "@/lib/rank";
 import { belongs, labelSegments } from "@/lib/finePrint";
 import { monthsFromParam } from "@/lib/months";
 import { billQs } from "@/lib/params";
-import { labelText, planById } from "@/lib/plans/data";
+import { areaOf, labelText, planById } from "@/lib/plans/data";
+import { AREAS } from "@/lib/plans/ptc";
 
 /** Reads ?kwh= from the URL, so it renders per request. */
 export const instant = false;
@@ -22,8 +23,9 @@ export async function generateMetadata({ params }: PageProps<"/plan/[id]">): Pro
   const rec = planById((await params).id);
   if (!rec) return { title: "Wattch — plan not found" };
   const who = tidyName(rec.meta.provider);
+  const area = areaOf(rec.meta.id) ?? "houston";
   const description = rec.pricing
-    ? `${rec.meta.planName} (${who}) is advertised at ${rec.meta.ptc.k1000}¢. At 1,100 kWh a month through a Houston year it really costs $${Math.round(annualCost(rec.pricing, yearFor(1100, true))).toLocaleString("en-US")} a year.`
+    ? `${rec.meta.planName} (${who}) is advertised at ${rec.meta.ptc.k1000}¢. At 1,100 kWh a month through a ${AREAS[area].city} year it really costs $${Math.round(annualCost(rec.pricing, yearFor(1100, true, area))).toLocaleString("en-US")} a year.`
     : `${rec.meta.planName} from ${who}: the fine print, read and checked.`;
   return { title: `${rec.meta.planName} — the fine print, checked · Wattch`, description };
 }
@@ -38,13 +40,14 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
   const seasons = (Array.isArray(sp.flat) ? sp.flat[0] : sp.flat) !== "1";
   const p = rec.pricing;
   const mine = monthsFromParam(Array.isArray(sp.m) ? sp.m[0] : sp.m);
-  const months = mine ?? yearFor(kwh, seasons);
+  const area = areaOf(id) ?? "houston";
+  const months = mine ?? yearFor(kwh, seasons, area);
   const withConditional = (Array.isArray(sp.noauto) ? sp.noauto[0] : sp.noauto) !== "1";
   const opts = { includeConditional: withConditional };
   const year = p ? annualCost(p, months, opts) : 0;
   const why = p ? whyLine(p, months) : null;
   const line = p?.credits.filter((c) => !c.conditional && c.minKwh > 0).sort((a, b) => b.dollars - a.dollars)[0]?.minKwh;
-  const back = billQs({ kwh, seasons, months: mine, withConditional });
+  const back = billQs({ kwh, seasons, months: mine, withConditional, area });
   const text = p ? labelText(id) : null;
   const fp = p && text ? labelSegments(text, p, { tduFilled: rec.check.tduFilled }) : null;
   const marks = fp ? fp.segments.filter((x) => x.key).length : 0;
@@ -130,9 +133,9 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
             {mine
               ? "Your own 12 months, as you typed them."
               : seasons
-              ? `Averaging ${kwh.toLocaleString()} kWh, shaped like a real Houston year (more in summer, less in winter and spring).`
+              ? `Averaging ${kwh.toLocaleString()} kWh, shaped like a real ${AREAS[area].city} year (${area === "dallas" ? "most in summer, more in winter too, least in spring and fall" : "more in summer, less in winter and spring"}).`
               : `${kwh.toLocaleString()} kWh every month.`}{" "}
-            <Link className="underline underline-offset-4" href={`/plan/${id}?${billQs({ kwh, seasons: !seasons, withConditional })}`}>{seasons ? "Show same usage every month" : "Use Houston seasons"}</Link>
+            <Link className="underline underline-offset-4" href={`/plan/${id}?${billQs({ kwh, seasons: !seasons, withConditional, area })}`}>{seasons ? "Show same usage every month" : `Use ${AREAS[area].city} seasons`}</Link>
           </p>
           {why && <p className="mt-3 text-lg font-semibold"><span className="text-volt">Why?</span> {why}</p>}
           <div className="mt-4"><YearBars months={months} line={line} lineLabel={line ? `credit needs ${line.toLocaleString()} kWh` : undefined} dark /></div>

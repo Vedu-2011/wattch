@@ -1,0 +1,74 @@
+{
+ "source": "ERCOT Backcasted (Actual) Load Profiles, residential profiles for the North Central weather zone (Dallas\u2013Fort Worth), Oncor homes, mixed by ERCOT's count of homes in each",
+ "url": "https://www.ercot.com/mktinfo/loadprofile/alp",
+ "countsUrl": "https://www.ercot.com/mktinfo/loadprofile",
+ "years": [
+  2023,
+  2024,
+  2025
+ ],
+ "weights": {
+  "RESLOWR_NCENT": 947346,
+  "RESHIWR_NCENT": 1745928,
+  "countsDate": "20261102"
+ },
+ "note": "By calendar month. A profile is ERCOT's modeled average home in that class, not a meter reading of any one home.",
+ "kwhPerHome": [
+  1519.0,
+  1157.5,
+  913.2,
+  917.7,
+  1208.4,
+  1705.0,
+  1924.4,
+  2074.0,
+  1569.7,
+  1154.2,
+  940.0,
+  1193.2
+ ],
+ "shape": [
+  1.1215,
+  0.8532,
+  0.6732,
+  0.677,
+  0.8913,
+  1.2571,
+  1.4179,
+  1.5282,
+  1.1565,
+  0.8514,
+  0.6929,
+  0.8798
+ ],
+ "compare": {
+  "RESLOWR_NCENT": [
+   0.6743,
+   0.5859,
+   0.6207,
+   0.6957,
+   0.9935,
+   1.4559,
+   1.6561,
+   1.7999,
+   1.3349,
+   0.9316,
+   0.6188,
+   0.6327
+  ],
+  "RESHIWR_NCENT": [
+   1.3652,
+   0.9987,
+   0.7021,
+   0.6669,
+   0.8356,
+   1.1487,
+   1.2879,
+   1.3798,
+   1.0592,
+   0.8078,
+   0.7335,
+   1.0146
+  ]
+ }
+}

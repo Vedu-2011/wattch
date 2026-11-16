@@ -44,6 +44,7 @@ const en = {
   presets: ["Small apartment", "Average home", "Big house, hot summer"],
   readEvery: "Read every plan",
   pickerBad: "Pick a number between 100 and 5,000.",
+  areaQ: "Where do you live?", areaHouston: "Houston (CenterPoint)", areaDallas: "Dallas–Fort Worth (Oncor)",
   // wall
   wallReading: "Reading the fine print…",
   wallDone: "Every plan, read.",
@@ -111,6 +112,7 @@ const es: Words = {
   presets: ["Apartamento pequeño", "Casa promedio", "Casa grande, verano caluroso"],
   readEvery: "Leer todos los planes",
   pickerBad: "Escoge un número entre 100 y 5,000.",
+  areaQ: "¿Dónde vives?", areaHouston: "Houston (CenterPoint)", areaDallas: "Dallas–Fort Worth (Oncor)",
   wallReading: "Leyendo la letra pequeña…",
   wallDone: "Todos los planes, leídos.",
   wallIntro: (when) => `Cada cuadro es la etiqueta de un plan real de Houston, leída el ${when}. ✓ quiere decir que nuestras cuentas reconstruyeron los precios de la propia etiqueta, al décimo de centavo.`,
@@ -158,4 +160,23 @@ const es: Words = {
 };
 
 export const WORDS: Record<Lang, Words> = { en, es };
-export const words = (lang: Lang): Words => WORDS[lang];
+
+/**
+ * Words for one area. Every "Houston" in the dictionary means the place, so other areas swap the city name in;
+ * the season hint is the one number that differs (Dallas: Aug 1.53 ÷ Feb 0.85 ≈ 1.8×, and winter is high too —
+ * data/seasons-dallas.json).
+ */
+export function words(lang: Lang, area: "houston" | "dallas" = "houston"): Words {
+  const w = WORDS[lang];
+  if (area === "houston") return w;
+  const city = "Dallas–Fort Worth";
+  const swap = (s: string) => s.replaceAll("Houston", city);
+  const out: Record<string, unknown> = {};
+  for (const [k, v] of Object.entries(w)) {
+    if (typeof v === "string") out[k] = swap(v);
+    else if (typeof v === "function") out[k] = (...a: unknown[]) => { const r = (v as (...x: unknown[]) => unknown)(...a); return typeof r === "string" ? swap(r) : Array.isArray(r) ? r.map((x) => (typeof x === "string" ? swap(x) : x)) : r; };
+    else if (Array.isArray(v)) out[k] = v.map((x) => (typeof x === "string" ? swap(x) : x));
+  }
+  out.tSeasonsHint = lang === "es" ? "agosto ≈ 1.8× febrero; enero también alto" : "August ≈ 1.8× February; January runs high too";
+  return out as Words;
+}

@@ -1,7 +1,8 @@
 import { annualCost, findCliffs, flatYear } from "@/lib/bill";
 import type { Lang } from "@/lib/i18n";
 import type { PlanPricing } from "@/lib/plans/schema";
-import { seasonalYear } from "@/lib/seasons";
+import type { Area } from "@/lib/plans/ptc";
+import { seasonalYear, shapeFor } from "@/lib/seasons";
 
 export type ClientPlan = {
   id: string;
@@ -32,6 +33,8 @@ export type RankOpts = {
   includeConditional?: boolean; seasons?: boolean; minTermMonths?: number; months?: number[] | null;
   /** filters: no bill-credit or minimum-use traps · at least this % renewable · at least this many stars */
   noCliffs?: boolean; minRenewable?: number; minRating?: number;
+  /** which area's seasons shape the year (Houston by default) */
+  area?: Area;
 };
 
 /** A plan with a bill credit that needs a usage level, or a fee under a usage level — the "cliff" plans. */
@@ -70,12 +73,12 @@ export function traps(p: PlanPricing): Trap[] {
 export const rankable = (plans: ClientPlan[]) =>
   plans.filter((p) => p.status === "verified" && p.pricing && !p.prepaid && p.rateType.toLowerCase() !== "variable");
 
-/** The 12 months we price: flat, or shaped like a real Houston year. */
-export const yearFor = (kwh: number, seasons = true) => (seasons ? seasonalYear(kwh) : flatYear(kwh));
+/** The 12 months we price: flat, or shaped like a real year in that area (Houston by default). */
+export const yearFor = (kwh: number, seasons = true, area: Area = "houston") => (seasons ? seasonalYear(kwh, shapeFor(area)) : flatYear(kwh));
 
 export function rank(plans: ClientPlan[], kwh: number, opts: RankOpts = {}): Ranked[] {
   const includeConditional = opts.includeConditional ?? true;
-  const months = opts.months?.length === 12 ? opts.months : yearFor(kwh, opts.seasons ?? true);
+  const months = opts.months?.length === 12 ? opts.months : yearFor(kwh, opts.seasons ?? true, opts.area);
   const used = months.reduce((s, m) => s + m, 0);
   return rankable(plans)
     .filter((plan) => passesFilters(plan, opts))

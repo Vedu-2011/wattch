@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { type Lang, words } from "@/lib/i18n";
+import type { Area } from "@/lib/plans/ptc";
 import { TEXAS_AVG_KWH } from "@/lib/seasons";
 
 const PRESET_KWH = [600, 1100, 2100];
@@ -10,13 +11,25 @@ export function UsagePicker({ initial = 1100, lang = "en" }: { initial?: number;
   const w = words(lang);
   const router = useRouter();
   const [kwh, setKwh] = useState(String(initial));
+  const [area, setArea] = useState<Area>("houston");
   const n = Math.round(Number(kwh));
   const valid = Number.isFinite(n) && n >= 100 && n <= 5000;
   return (
     <form id="picker"
       className="scroll-mt-24 rounded-3xl bg-card p-5 sm:p-6 shadow-[var(--shadow-lift)]"
-      onSubmit={(e) => { e.preventDefault(); if (valid) router.push(`/wall?kwh=${n}${lang === "es" ? "&lang=es" : ""}`); }}
+      onSubmit={(e) => { e.preventDefault(); if (valid) router.push(`/wall?kwh=${n}${area === "dallas" ? "&area=dallas" : ""}${lang === "es" ? "&lang=es" : ""}`); }}
     >
+      <fieldset className="mb-4">
+        <legend className="text-sm font-semibold text-ink-2">{w.areaQ}</legend>
+        <div role="radiogroup" aria-label={w.areaQ} className="mt-2 flex flex-wrap gap-2">
+          {(["houston", "dallas"] as const).map((a) => (
+            <button key={a} type="button" role="radio" aria-checked={area === a} onClick={() => setArea(a)}
+              className={`rounded-full px-3.5 py-1.5 text-sm font-medium transition ${area === a ? "bg-ink text-paper" : "bg-paper-2 hover:bg-volt-2"}`}>
+              {a === "houston" ? w.areaHouston : w.areaDallas}
+            </button>
+          ))}
+        </div>
+      </fieldset>
       <label htmlFor="kwh" className="block text-base font-semibold">{w.pickerQ}</label>
       <p className="mt-1 text-sm text-ink-2">{w.pickerHint(TEXAS_AVG_KWH)}</p>
       <div className="mt-4 flex flex-wrap gap-2">

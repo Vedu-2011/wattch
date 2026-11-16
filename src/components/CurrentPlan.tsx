@@ -9,8 +9,8 @@ const money = (n: number) => n.toLocaleString("en-US", { style: "currency", curr
 const tidy = (s: string) => s.replace(/\b(LLC|INC|LP|L\.P\.|CO)\b\.?/gi, "").replace(/\(TX\)/gi, "").replace(/\s+/g, " ").trim();
 
 /** "Already on a plan?" Find yours, say how many months are left, and get a plain switch / wait answer. */
-export function CurrentPlan({ plans, best, includeConditional, kwh, seasons, qs, mine = false }: {
-  plans: ClientPlan[]; best: Ranked; includeConditional: boolean; kwh: number; seasons: boolean; qs: string; mine?: boolean;
+export function CurrentPlan({ plans, best, includeConditional, kwh, seasons, qs, mine = false, city = "Houston" }: {
+  plans: ClientPlan[]; best: Ranked; includeConditional: boolean; kwh: number; seasons: boolean; qs: string; mine?: boolean; city?: string;
 }) {
   const choices = useMemo(() => plans.filter((p) => p.status === "verified" && p.pricing), [plans]);
   const [q, setQ] = useState("");
@@ -48,7 +48,7 @@ export function CurrentPlan({ plans, best, includeConditional, kwh, seasons, qs,
               ))}
             </ul>
           )}
-          {words.length > 0 && matches.length === 0 && <p className="mt-2 text-sm text-ink-2">No Houston plan we verified matches that. Try just the provider&apos;s name.</p>}
+          {words.length > 0 && matches.length === 0 && <p className="mt-2 text-sm text-ink-2">No {city} plan we verified matches that. Try just the provider&apos;s name.</p>}
         </>
       ) : (
         <div className="mt-3 space-y-3">
@@ -78,7 +78,7 @@ export function CurrentPlan({ plans, best, includeConditional, kwh, seasons, qs,
                 <div><dt className="font-sans text-ink-2">Pays back in</dt><dd>{m.paybackMonths === null ? "—" : `${m.paybackMonths} mo`}</dd></div>
               </dl>
               <p className="mt-2 text-xs text-ink-2">
-                {mine ? "Your own 12 months" : `Same ${kwh.toLocaleString()} kWh average${seasons ? " with Houston seasons" : ""}`}, today&apos;s prices, before taxes. Exit fee from your
+                {mine ? "Your own 12 months" : `Same ${kwh.toLocaleString()} kWh average${seasons ? ` with ${city} seasons` : ""}`}, today&apos;s prices, before taxes. Exit fee from your
                 plan&apos;s label: {f!.dollars ? `$${f!.dollars}${f!.perMonthRemaining ? " × months left" : ""}` : "none listed"}.{" "}
                 Best plan: <Link className="underline" href={`/plan/${best.plan.id}?${qs}`}>{best.plan.planName}</Link>.
               </p>
