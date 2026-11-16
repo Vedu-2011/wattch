@@ -139,7 +139,7 @@ function Side({ rec, total, tone, months, qs, cliffs, lang }: { rec: PlanRecord;
         {cliffs.length ? t.cliffs(cliffs.length, cliffs.map((x) => t.cliff(x.kwh.toLocaleString("en-US"), Math.abs(x.below - x.at).toFixed(0))).join(", ")) : t.noCliffs}
         {p.earlyTerminationFee.dollars ? t.exit(p.earlyTerminationFee.dollars, p.earlyTerminationFee.perMonthRemaining) : ""}
       </p>
-      <Link href={`/plan/${rec.meta.id}?${qs}`} className="mt-3 inline-block text-sm font-semibold underline underline-offset-4">{t.finePrint}</Link>
+      <Link href={`/plan/${rec.meta.id}?${qs}`} aria-label={t.finePrintOf(rec.meta.planName)} className="mt-3 inline-block text-sm font-semibold underline underline-offset-4">{t.finePrint}</Link>
     </div>
   );
 }

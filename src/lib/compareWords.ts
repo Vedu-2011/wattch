@@ -37,6 +37,7 @@ export const COMPARE_WORDS = {
     noCliffs: "No price cliffs between 100 and 3,000 kWh.",
     exit: (d: number, perMonth: boolean) => ` Exit fee $${d}${perMonth ? " × months left" : ""}.`,
     finePrint: "Read its fine print",
+    finePrintOf: (plan: string) => `Read its fine print: ${plan}`, // starts with the visible words (voice control)
   },
   es: {
     title: "Wattch — compara dos planes",
@@ -73,5 +74,6 @@ export const COMPARE_WORDS = {
     noCliffs: "No hay saltos de precio entre 100 y 3,000 kWh.",
     exit: (d: number, perMonth: boolean) => ` Cargo por salida $${d}${perMonth ? " × meses que falten" : ""}.`,
     finePrint: "Leer su letra pequeña",
+    finePrintOf: (plan: string) => `Leer su letra pequeña: ${plan}`,
   },
 } as const;

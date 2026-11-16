@@ -716,5 +716,17 @@
 - [x] BK6 Fix anything found
 - [x] BK7 Tests
 - [x] BK8 STATUS line
-- [ ] BK9 Codex if code changed
+- [x] BK9 Codex if code changed
 - [x] BK10 PROGRESS line
+
+## BL batch (added 06:11, night 2) — does every button say where it goes?
+- [x] BL1 List every button/link text on results, plan, compare (EN) and what it opens
+- [x] BL2 'Compare with #1' in the list: which #1? (Wattch's) — clear in context?
+- [x] BL3 'Side by side' on the reveal card: says which two plans?
+- [x] BL4 'Share card' next to 'Share my result': clear difference?
+- [x] BL5 Plan page 'All plans' back link keeps usage/area/lang
+- [x] BL6 Fix unclear ones (EN + ES), keep them short
+- [x] BL7 Tests + check-all
+- [x] BL8 Gallery if a visible label changed
+- [x] BL9 STATUS line
+- [ ] BL10 Codex review if code changed
