@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { texasDay } from "@/lib/when";
 import { type AreaHero, HomeHero, HomeHeroFromUrl } from "@/components/HomeHero";
 import { StickyCta } from "@/components/StickyCta";
 import { HEADLINE_KWH } from "@/lib/headline";
@@ -15,7 +16,7 @@ export function HomeView({ lang }: { lang: Lang }) {
     const hero = heroStats(clientPlans(area), HEADLINE_KWH, 5, lang, area);
     return {
       total: info.total, read: hero.read, verified: info.counts.verified ?? 0, withTrap: hero.withTrap, cards: hero.cards,
-      date: new Date(info.builtAt).toLocaleDateString(lang === "es" ? "es-US" : "en-US", { month: "short", day: "numeric", timeZone: "America/Chicago" }), // Texas date, not the server's
+      date: texasDay(info.builtAt, lang),
     };
   };
   const heroes = { houston: heroFor("houston"), dallas: heroFor("dallas") };
