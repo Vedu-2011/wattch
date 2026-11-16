@@ -149,3 +149,4 @@
 - 2026-11-16 03:12 PT · R2 compare table: no longer scrolls at 320+ → dropped tabIndex (was a pointless Tab stop); labelled region kept. axe 0, es-walk ok. $0.
 - 2026-11-16 03:14 PT · R4 compare had no Print button (plan page does) → added the same PrintButton next to 'All plans' (Imprimir in Spanish, hidden in print). Prints 1 Letter page EN + ES. axe 0, widths ok. $0.
 - 2026-11-16 03:17 PT · R5 Dallas reveal at 1920 EN + ES (video-1920/dallas-reveal-*.png): $530, #91, 7 months/$875, reads well. Found: one-word plan names (Dallas 'TOUCHDOWN 12') ran under the tile's ✓ badge → names/providers may break mid-word; 0 tiles overflow in both areas at 640/1440/1920. $0.
+- 2026-11-16 03:17 PT · R9 docs/STATUS.md: new 'Since 01:57' section (Spanish-before-JS fixes, sitemap, compare on phones, tiles, reminder name, money tests, checks with no change, Codex 11–13, quality numbers); 133 commits ahead of main. $0.

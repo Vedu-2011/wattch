@@ -175,5 +175,5 @@
 - [x] R6 /es home at 320 + 1920 after the static-header change: no layout shift from the switch (CLS)
 - [x] R7 meta-check: /compare?lang=es title/description Spanish (add to spanish list if missing)
 - [x] R8 scripts/es-walk.mjs: add /compare stop if missing
-- [ ] R9 STATUS.md: add tonight's fixes list (Codex 11, sitemap, compare phone table/chart)
+- [x] R9 STATUS.md: add tonight's fixes list (Codex 11, sitemap, compare phone table/chart)
 - [ ] R10 Codex review 14 after R batch

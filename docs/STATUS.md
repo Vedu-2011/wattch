@@ -1,7 +1,25 @@
-# Wattch — STATUS (Claude Code, overnight-2, updated Nov 16 2026 ~01:57 PT)
+# Wattch — STATUS (Claude Code, overnight-2, updated Nov 16 2026 ~03:25 PT)
 
-Live: https://getwattch.vercel.app (main) · Overnight work: branch `overnight` (Vercel preview, 78 commits ahead of
+Live: https://getwattch.vercel.app (main) · Overnight work: branch `overnight` (Vercel preview, 133 commits ahead of
 main, NOT merged — waits for Vedhanth's "merge") · Repo: github.com/Vedu-2011/wattch
+
+## Since 01:57 (BACKLOG K–R) — polish, found by checking
+- **Spanish before JavaScript:** Spanish pages used to send English loading text and `lang="en"` in their first HTML
+  (Codex 11) → wordless loading screens + `lang` set before paint; static /es now ships a Spanish header + footer + switch.
+- **New:** sitemap.xml (352 URLs, each with its Spanish twin) + robots.txt (keeps /demo and /api out). Caught: Next
+  wrote "&" raw into the XML, which made the whole file invalid → escaped, test + meta-check rule.
+- **Compare page on phones:** the month table hid the second plan off to the side, and the chart cut off December at
+  320px → both plans + all 12 months fit from 320px up; table no longer an empty Tab stop; Print button added.
+- **Tiles:** one-word plan names (Dallas "TOUCHDOWN 12") ran under the check badge → they wrap now.
+- **Reminder file** is named in Spanish for Spanish users (wattch-recordatorio-<date>.ics), built from the parsed date.
+- **Tests that guard the money:** compare totals = results-page totals on real plans (both areas); Spanish numbers =
+  English numbers for every plan.
+- **Checked, no change needed:** reduced motion, Spanish error states, Spanish /remind download, share card with bad
+  inputs (always an image), Dallas share text, print = 1 page (plan + compare, EN + ES), keyboard order, 1920 framing.
+- **Codex 11/12/13:** 11 = 2 real P2s (above), 12 + 13 = no findings.
+- **Quality now:** 209 tests · lint + build clean · axe 0 on 23 pages · Lighthouse mobile: compare ES 95, remind ES 96,
+  Dallas plan ES 94 (SEO 91 is Next's streamed metadata — the description is there; Bing/Facebook get it in <head>).
+- **Paid API: still ≈ $2.06 of $3.** Anakin.io still 402.
 
 ## Since 01:25 (BACKLOG I + J) — Spanish everywhere
 - **Every page a visitor can reach now has Spanish** (?lang=es, or /es): home, wall (incl. "Already on a plan?" and
@@ -20,7 +38,7 @@ main, NOT merged — waits for Vedhanth's "merge") · Repo: github.com/Vedu-2011
   compare 95, traps ES 95, wall ES 92 (perf).
 - **Paid API: still ≈ $2.06 of $3.** Anakin.io still out of reads (402) → 16 Dallas labels stay "couldn't open".
 
-## Known gaps (updated 01:57)
+## Known gaps (updated 03:25)
 - Dallas: 16 labels unread until Anakin quota returns (≤ $0.30 to re-read).
 - The error page (not the 404) can't be triggered on demand, so its Spanish is checked by types + lint only.
 
