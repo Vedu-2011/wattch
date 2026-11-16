@@ -14,7 +14,7 @@ export async function GET(req: Request) {
   return new Response(ics, {
     headers: {
       "content-type": "text/calendar; charset=utf-8",
-      "content-disposition": `attachment; filename="wattch-reminder-${sp.get("end")}.ics"`,
+      "content-disposition": `attachment; filename="wattch-${lang === "es" ? "recordatorio" : "reminder"}-${end.toISOString().slice(0, 10)}.ics"`,
       "cache-control": "no-store",
     },
   });
