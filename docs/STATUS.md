@@ -69,9 +69,14 @@ so production can build.
   compare 95, traps ES 95, wall ES 92 (perf).
 - **Paid API: still ≈ $2.06 of $3.** Anakin.io still out of reads (402) → 16 Dallas labels stay "couldn't open".
 
-## Known gaps (updated 03:25)
+## Known gaps (updated 04:20)
 - Dallas: 16 labels unread until Anakin quota returns (≤ $0.30 to re-read).
 - The error page (not the 404) can't be triggered on demand, so its Spanish is checked by types + lint only.
+- Vercel previews paused by the free plan's build limit after ~04:10 (see the top). Not a code problem.
+- Repo weight: tonight's screenshots are 49 MB (309 files in docs/screenshots/overnight-2). Fine for GitHub; the
+  planner can decide whether to keep them all.
+- Fixed tonight, worth knowing: a hand-typed compare link with a variable-rate plan used to promise a firm yearly
+  saving; now the page says it's only a rough guide and the share card doesn't show it.
 
 ## Since 00:20 (BACKLOG F + G + H) — the short version
 - **Dallas–Fort Worth (Oncor)** works everywhere: city picker on home (stats + trap card switch with no reload), wall,

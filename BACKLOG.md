@@ -282,6 +282,6 @@
 - [x] AA5 Home badge date at midnight CT edge: builtAt 05:30 UTC shows previous Texas day — test for the formatter
 - [x] AA6 JUDGE-QA: date honesty line? (no — log)
 - [ ] AA7 PROGRESS: Anakin probe result (N8) feeds the Dallas re-read decision
-- [ ] AA8 STATUS 'Known gaps' refresh (Dallas 16 unread, Vercel limit)
-- [ ] AA9 tidy: docs/screenshots/overnight-2 size check (repo weight) — log MB
+- [x] AA8 STATUS 'Known gaps' refresh (Dallas 16 unread, Vercel limit)
+- [x] AA9 tidy: docs/screenshots/overnight-2 size check (repo weight) — log MB
 - [ ] AA10 Codex review 22 after AA batch
