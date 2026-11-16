@@ -123,7 +123,9 @@ vercel · vitest · playwright · axe-core · power-to-choose · ercot-load-prof
 4. `4-fine-print-proof.png` — Every number traced back to the label: hover the $125 credit and it lights up in the fine print.
 5. `5-side-by-side.png` — The best plan vs the state site's #1, month by month.
 6. `6-trap-guide.png` — Every kind of catch Wattch found, each with a real plan.
-Retake with `node scripts/gallery.mjs` against a local prod build on :3000 if the data changes.
+7. `7-dallas-fort-worth.png` — Dallas–Fort Worth too: the same "6.2¢" plan costs $530 ⟲ more a year there.
+8. `8-en-espanol.png` — En español: every bill line explained in plain words, next to the label check.
+Retake with `node scripts/gallery.mjs` (or `node scripts/gallery.mjs 7,8` for just the new two) against a local prod build on :3000 if the data changes.
 
 ## Links
 - Live app: https://getwattch.vercel.app ⟲ (main — merge the overnight branch first if the planner approves)

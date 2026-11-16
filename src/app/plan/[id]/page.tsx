@@ -122,7 +122,7 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
               {billLines(p, kwh, opts).map((l, i) => (
                 <HoverKey key={i} k={l.key} found={found(l.key)} className="-mx-1.5 block px-1.5 py-0.5">
                   <span className="flex justify-between gap-3">
-                    <span className="font-sans">{lineLabel(l, lang)}{found(l.key) ? <span aria-hidden className="ml-1.5 inline-block h-1.5 w-1.5 -translate-y-0.5 rounded-full bg-volt" /> : null}</span>
+                    <span className="font-sans" lang={es && lineLabel(l, lang) === l.label && !/^(energy|base|tdu)/.test(l.key) ? "en" : undefined}>{lineLabel(l, lang)}{found(l.key) ? <span aria-hidden className="ml-1.5 inline-block h-1.5 w-1.5 -translate-y-0.5 rounded-full bg-volt" /> : null}</span>
                     <span className={`whitespace-nowrap ${l.dollars < 0 ? "text-good" : ""}`}>{l.dollars < 0 ? "−" : ""}${Math.abs(l.dollars).toFixed(2)}</span>
                   </span>
                   {lineWhy.get(l.key) && <span className="mt-0.5 block font-sans text-xs leading-snug text-ink-2">{lineWhy.get(l.key)}</span>}

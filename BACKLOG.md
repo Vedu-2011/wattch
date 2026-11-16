@@ -77,5 +77,5 @@
 - [x] Plan links always carry ?area=dallas for Oncor plans (compare, current-plan, traps, carousel) so the header badge is right — grep + live check
 - [x] README refresh: Dallas, Spanish, /remind, refresh script, meta-check, all scripts listed and run once — every command in it works
 - [x] docs/JUDGE-QA.md update: Dallas, Spanish, reminder, explainer, codex findings — every number re-checked
-- [ ] Gallery: 2 more 1920×1080 shots (Dallas reveal, Spanish plan page) + captions in DEVPOST.md — files exist
+- [x] Gallery: 2 more 1920×1080 shots (Dallas reveal, Spanish plan page) + captions in DEVPOST.md — files exist
 - [ ] Lighthouse mobile on /plan/33633?lang=es and /compare: a11y 100, perf ≥ 90 — logged
