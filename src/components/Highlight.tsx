@@ -56,7 +56,7 @@ export function LabelText({ segments }: { segments: Segment[] }) {
     if (sticky && (r.top > window.innerHeight - 120 || r.bottom < 120)) b.scrollIntoView({ block: "center", behavior });
   }, [active, sticky]);
   return (
-    <div ref={box} className="relative max-h-[28rem] overflow-auto rounded-2xl bg-paper p-4 font-mono text-[13px] leading-relaxed whitespace-pre-wrap break-words" tabIndex={0} aria-label="The plan's fine-print label text">
+    <div ref={box} className="relative max-h-[28rem] overflow-auto rounded-2xl bg-paper p-4 font-mono text-[0.8125rem] leading-relaxed whitespace-pre-wrap break-words" tabIndex={0} aria-label="The plan's fine-print label text">
       {segments.map((s, i) => {
         if (!s.key) return <span key={i}>{s.text}</span>;
         const on = active !== null && belongs(s.key, active);

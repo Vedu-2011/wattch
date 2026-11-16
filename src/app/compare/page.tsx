@@ -70,7 +70,7 @@ export default async function Compare({ searchParams }: PageProps<"/compare">) {
                 <div className="flex-1 rounded-t bg-ink" style={{ height: `${(r.a / max) * 100}%` }} title={`${MONTHS[i]}: ${money(r.a)}`} />
                 <div className="flex-1 rounded-t bg-volt" style={{ height: `${(r.b / max) * 100}%` }} title={`${MONTHS[i]}: ${money(r.b)}`} />
               </div>
-              <p className="mt-1 text-center text-[10px] text-ink-2 sm:text-xs">{MONTHS[i]}</p>
+              <p className="mt-1 text-center text-[0.625rem] text-ink-2 sm:text-xs">{MONTHS[i]}</p>
             </div>
           ))}
         </div>

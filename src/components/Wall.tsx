@@ -222,19 +222,19 @@ function Tile({ p, read }: { p: ClientPlan; read: boolean }) {
         <div className="flip-face relative flex h-full items-center justify-center overflow-hidden rounded-md bg-card shadow-[var(--shadow-soft)] sm:block sm:rounded-xl sm:p-2">
           <div className="scanline pointer-events-none absolute inset-x-0 h-1/2 bg-gradient-to-b from-transparent via-volt-2 to-transparent opacity-70" />
           <Kapi reading className="relative h-5 w-5 sm:h-6 sm:w-6" />
-          <p className="relative mt-1 hidden text-[11px] leading-tight text-ink-2 sm:line-clamp-2">{title(p.provider)}</p>
+          <p className="relative mt-1 hidden text-[0.6875rem] leading-tight text-ink-2 sm:line-clamp-2">{title(p.provider)}</p>
         </div>
         <div className={`flip-face flip-back flex h-full items-center justify-center rounded-md shadow-[var(--shadow-soft)] sm:block sm:rounded-xl sm:p-2 sm:pr-7 ${back}`}>
           <span aria-hidden className={`text-sm font-bold sm:hidden ${ok ? "text-good" : "text-ink-2"}`}>{ok ? "✓" : p.status === "mismatch" ? "?" : "–"}</span>
-          {ok && read && <span aria-hidden className="stamp absolute right-1.5 top-1.5 hidden h-5 w-5 items-center justify-center rounded-full bg-good text-[11px] font-bold text-paper sm:flex">✓</span>}
-          <p className="hidden text-[11px] font-semibold leading-tight sm:line-clamp-2">{p.planName}</p>
+          {ok && read && <span aria-hidden className="stamp absolute right-1.5 top-1.5 hidden h-5 w-5 items-center justify-center rounded-full bg-good text-[0.6875rem] font-bold text-paper sm:flex">✓</span>}
+          <p className="hidden text-[0.6875rem] font-semibold leading-tight sm:line-clamp-2">{p.planName}</p>
           {ok && p.pricing ? (
-            <p className="num mt-1 hidden text-[11px] leading-tight sm:block">
+            <p className="num mt-1 hidden text-[0.6875rem] leading-tight sm:block">
               {p.pricing.touPeriods.length ? "time-of-use" : `${p.pricing.energyTiers[p.pricing.energyTiers.length - 1].cents.toFixed(1)}¢/kWh`}
               {p.pricing.credits.some((c) => !c.conditional && c.minKwh > 0) ? <span className="text-over"> · cliff</span> : <span className="text-good"> · ✓</span>}
             </p>
           ) : (
-            <p className="mt-1 hidden text-[11px] leading-tight text-ink-2 sm:block">{p.status === "mismatch" ? "Didn't add up" : "Couldn't open"}</p>
+            <p className="mt-1 hidden text-[0.6875rem] leading-tight text-ink-2 sm:block">{p.status === "mismatch" ? "Didn't add up" : "Couldn't open"}</p>
           )}
         </div>
       </div>
@@ -244,7 +244,7 @@ function Tile({ p, read }: { p: ClientPlan; read: boolean }) {
 
 function Chip({ tone, children }: { tone: string; children: React.ReactNode }) {
   const c = tone === "over" ? "bg-over-2 text-over" : tone === "sky" ? "bg-[#e1e9fb] text-sky" : "bg-volt-2 text-ink";
-  return <span className={`ml-2 inline-block rounded-full px-2 py-0.5 text-[11px] font-semibold ${c}`}>{children}</span>;
+  return <span className={`ml-2 inline-block rounded-full px-2 py-0.5 text-[0.6875rem] font-semibold ${c}`}>{children}</span>;
 }
 
 function creditLine(r: Ranked): number | undefined {
@@ -333,7 +333,7 @@ function PlanCard({ tone, eyebrow, r, sticker }: { tone: "good" | "bad"; eyebrow
       <p className={`text-sm ${tone === "good" ? "text-ink-2" : "text-paper/70"}`}>{title(r.plan.provider)}</p>
       <div className="num mt-3 flex items-end justify-between gap-2">
         <span className="text-3xl font-semibold">{money(r.annual)}<span className="text-sm opacity-70">/yr</span></span>
-        <span className="text-right text-xs leading-tight opacity-80">sticker {cents(sticker)}<br />real {cents(r.avgCents)}</span>
+        <span className="text-right text-sm leading-tight opacity-80 lg:text-base">sticker {cents(sticker)}<br />real {cents(r.avgCents)}</span>
       </div>
     </div>
   );

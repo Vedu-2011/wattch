@@ -13,7 +13,7 @@ export function YearBars({ months, line, lineLabel, dark = false }: { months: nu
         {line !== undefined && (
           <div className="absolute inset-x-0 z-10 flex translate-y-1/2 items-center gap-2" style={{ bottom: `${(line / max) * 100}%` }}>
             <div className={`h-0 flex-1 border-t-2 border-dashed ${dark ? "border-volt" : "border-ink"}`} />
-            {lineLabel && <span className={`num shrink-0 rounded-full px-2 py-0.5 text-[11px] font-semibold ${dark ? "bg-volt text-ink" : "bg-ink text-paper"}`}>{lineLabel}</span>}
+            {lineLabel && <span className={`num shrink-0 rounded-full px-2 py-0.5 text-[0.6875rem] font-semibold ${dark ? "bg-volt text-ink" : "bg-ink text-paper"}`}>{lineLabel}</span>}
           </div>
         )}
         <div className="flex h-full items-end gap-1 sm:gap-1.5">
@@ -30,7 +30,7 @@ export function YearBars({ months, line, lineLabel, dark = false }: { months: nu
       </div>
       <div className="mt-1 flex gap-1 sm:gap-1.5">
         {MONTHS.map((m) => (
-          <span key={m} className={`flex-1 text-center text-[10px] sm:text-xs ${dark ? "text-paper/60" : "text-ink-2"}`}>{m[0]}<span className="hidden sm:inline">{m.slice(1)}</span></span>
+          <span key={m} className={`flex-1 text-center text-[0.625rem] sm:text-xs ${dark ? "text-paper/60" : "text-ink-2"}`}>{m[0]}<span className="hidden sm:inline">{m.slice(1)}</span></span>
         ))}
       </div>
     </figure>
