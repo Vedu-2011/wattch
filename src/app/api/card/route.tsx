@@ -7,9 +7,9 @@ import { providerTitle } from "@/lib/names";
 
 const W = {
   en: { mine: "My own 12 months", perMonth: (k: string) => `${k} kWh a month`, filtered: " · filtered", more: "more a year on the plan the state site lists first.", best: "My best plan", my1: (n: string, d: string) => `My #1: ${n} · ${d}/yr`,
-    advertised: (c: number) => `Advertised at ${c}¢ — really`, perYear: "/yr", rankOf: (i: number, n: number) => `#${i} of ${n} plans for this home`, vsBest: (d: string) => `${d} a year more than the best plan`, isBest: "The cheapest plan for this home" },
+    advertised: (c: number) => `Advertised at ${c}¢ — really`, perYear: "/yr", rankOf: (i: number, n: number) => `#${i} of ${n} plans for this home`, vsBest: (d: string) => `${d} a year more than the best plan`, isBest: "The cheapest plan for this home", nearBest: "about the same as the best plan" },
   es: { mine: "Mis propios 12 meses", perMonth: (k: string) => `${k} kWh al mes`, filtered: " · con filtros", more: "más al año con el plan que el sitio del estado pone primero.", best: "Mi mejor plan", my1: (n: string, d: string) => `Mi #1: ${n} · ${d}/año`,
-    advertised: (c: number) => `Anunciado a ${c}¢ — en realidad`, perYear: "/año", rankOf: (i: number, n: number) => `#${i} de ${n} planes para este hogar`, vsBest: (d: string) => `${d} al año más que el mejor plan`, isBest: "El plan más barato para este hogar" },
+    advertised: (c: number) => `Anunciado a ${c}¢ — en realidad`, perYear: "/año", rankOf: (i: number, n: number) => `#${i} de ${n} planes para este hogar`, vsBest: (d: string) => `${d} al año más que el mejor plan`, isBest: "El plan más barato para este hogar", nearBest: "casi lo mismo que el mejor plan" },
 } as const;
 
 const money = (n: number) => n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
@@ -76,7 +76,7 @@ function planCard(ranked: ReturnType<typeof rank>, at: number, t: (typeof W)["en
             <div style={{ display: "flex", fontSize: 96, fontWeight: 800, color: "#ffcf2e", marginLeft: 18, lineHeight: 1 }}>{money(me.annual)}</div>
             <div style={{ display: "flex", fontSize: 36, color: "#d9cfbf" }}>{t.perYear}</div>
           </div>
-          <div style={{ display: "flex", fontSize: 32, marginTop: 18 }}>{gap >= 1 ? `${t.rankOf(at + 1, ranked.length)} · ${t.vsBest(money(gap))}` : t.isBest}</div>
+          <div style={{ display: "flex", fontSize: 32, marginTop: 18 }}>{at === 0 ? t.isBest : `${t.rankOf(at + 1, ranked.length)} · ${gap >= 1 ? t.vsBest(money(gap)) : t.nearBest}`}</div>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", fontSize: 26, color: "#d9cfbf" }}>
           <div style={{ display: "flex" }}>{providerTitle(me.plan.provider)}</div>

@@ -199,5 +199,17 @@
 - [x] T6 Plan page 'Check this label again' button at 320 Spanish: text fits
 - [x] T7 Remove dead code: grep for exported-but-unused helpers after tonight (ts-prune style via grep), log only unless trivial
 - [x] T8 Lighthouse / and /es once more after header + Kapi changes
-- [ ] T9 PROGRESS night-2 summary draft (feeds O10)
-- [ ] T10 Codex review 16 after T batch
+- [x] T9 PROGRESS night-2 summary draft (feeds O10)
+- [x] T10 Codex review 16 after T batch
+
+## U batch (added 03:38, night 2)
+- [ ] U1 Plan card: test that the card's rank/gap equal the plan page's (shared function, both areas, 3 plans)
+- [ ] U2 Compare preview card: show the two plans + who saves what (like T1), EN/ES
+- [ ] U3 DEVPOST/DECK: one line about link previews per plan (only if it fits; verify)
+- [ ] U4 /wall?m=…(own months) Spanish at 375: months editor + chips fit
+- [x] U5 SCRIPT scene 11: the share card now shows the result card; check wording still true
+- [x] U6 axe on /api-backed error page /plan/xyz?area=dallas&lang=es
+- [ ] U7 Re-run es-walk + widths + meta-check + axe as one 'all checks' script (scripts/check-all.mjs) for the morning
+- [ ] U8 README: 'How to check' section lists check-all
+- [ ] U9 Lighthouse /plan/33633 EN after card change (no perf hit)
+- [ ] U10 Codex review 17 after U batch
