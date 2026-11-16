@@ -168,7 +168,7 @@
 
 ## R batch (added 03:07, night 2)
 - [x] R1 Docs test counts 206→209 (DEVPOST, DECK, JUDGE-QA) + re-count axe pages
-- [ ] R2 Compare table region: drop tabIndex when the table no longer scrolls? (axe/keyboard rules — decide + log)
+- [x] R2 Compare table region: drop tabIndex when the table no longer scrolls? (axe/keyboard rules — decide + log)
 - [x] R3 Compare at 1920 (projector): chart + table readable, screenshot for the deck
 - [ ] R4 Spanish /compare share/print: does Imprimir exist there? if not, log; print 1 page check
 - [ ] R5 Wall Dallas Spanish at 1920: reveal + top-8 screenshot for the deck (Dallas beat 10b)

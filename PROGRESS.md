@@ -146,3 +146,4 @@
 - 2026-11-16 03:08 PT · R7 + R8: /compare?lang=es already in meta-check's Spanish list and es-walk stop 4-compare. No change. $0.
 - 2026-11-16 03:08 PT · R3 compare at 1920: readable for projector/deck (smallest text 13.5px); screens video-1920/compare-top.png + compare-months.png. Spotted: 'Month' header 4px higher than the others (only it has py-1) → fix after Codex 13. $0.
 - 2026-11-16 03:10 PT · Q10 Codex review 13 (base 2873706): no findings. Compare table headers aligned (py-1 on all). R1 docs test counts 206→209 (DEVPOST, DECK, JUDGE-QA); axe still 23 pages. R6 /es, /, /es?area=dallas at 320 + 1920: CLS 0.000. $0.
+- 2026-11-16 03:12 PT · R2 compare table: no longer scrolls at 320+ → dropped tabIndex (was a pointless Tab stop); labelled region kept. axe 0, es-walk ok. $0.

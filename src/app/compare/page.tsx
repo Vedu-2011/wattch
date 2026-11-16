@@ -103,7 +103,7 @@ export default async function Compare({ searchParams }: PageProps<"/compare">) {
             </div>
           ))}
         </div>
-        <div className="mt-4 overflow-x-auto" tabIndex={0} role="region" aria-label={t.tableName}>
+        <div className="mt-4 overflow-x-auto" role="region" aria-label={t.tableName}>{/* fits without scrolling from 320px up, so it's not a Tab stop */}
           <table className="num w-full min-w-[15rem] text-sm max-[359px]:text-xs">
             <thead className="font-sans text-ink-2"><tr><th className="py-1 pl-2 text-left align-bottom font-medium">{t.month}</th><th className="py-1 pl-2 text-right align-bottom font-medium">kWh</th><th className="py-1 pl-2 text-right align-bottom font-medium leading-tight">{a.meta.planName}</th><th className="py-1 pl-2 pr-2 text-right align-bottom font-medium leading-tight">{b.meta.planName}</th></tr></thead>
             <tbody>
