@@ -204,7 +204,7 @@
 
 ## U batch (added 03:38, night 2)
 - [x] U1 Plan card: test that the card's rank/gap equal the plan page's (shared function, both areas, 3 plans)
-- [ ] U2 Compare preview card: show the two plans + who saves what (like T1), EN/ES
+- [x] U2 Compare preview card: show the two plans + who saves what (like T1), EN/ES
 - [ ] U3 DEVPOST/DECK: one line about link previews per plan (only if it fits; verify)
 - [ ] U4 /wall?m=…(own months) Spanish at 375: months editor + chips fit
 - [x] U5 SCRIPT scene 11: the share card now shows the result card; check wording still true

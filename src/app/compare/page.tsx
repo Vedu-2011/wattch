@@ -18,7 +18,7 @@ const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
 export async function generateMetadata({ searchParams }: PageProps<"/compare">): Promise<Metadata> {
   const sp = await searchParams;
   const t = COMPARE_WORDS[asLang(one(sp.lang))];
-  return { title: t.title, description: t.desc, alternates: langPair("/compare", sp), ...shareMeta(cardUrl(sp)) };
+  return { title: t.title, description: t.desc, alternates: langPair("/compare", sp), ...shareMeta(`${cardUrl(sp)}&a=${encodeURIComponent(one(sp.a) ?? "")}&b=${encodeURIComponent(one(sp.b) ?? "")}`) };
 }
 /** Reads ?a= &b= &kwh= from the URL, so it renders per request. */
 export const instant = false;
