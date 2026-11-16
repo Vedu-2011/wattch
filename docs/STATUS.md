@@ -68,6 +68,9 @@ and scripts/link-names.mjs in check-all (same-name links, heading levels, <html 
 **Quality:** 259 tests · lint + build clean · check-all (5 checks) PASS · Codex 28–49 clean or fixed (48 found one, fixed).
 
 **For the planner**
+- 09:37 free dry run: Houston 7 new / 5 gone / 7 price changes / 3 links moved (14 labels ≈ $0.09); Dallas 5 new / 5 gone /
+  6 price changes / 4 links moved (11 labels ≈ $0.07). Gone in both: 5 Abundance Energy plans (Confident Renter 6/12,
+  Straight Forward 12/24/36) — Wattch still lists them until a refresh. Headline plans unchanged. Anakin still out (09:37).
 - Power to Choose changed since the last read (free dry run 06:53): Houston +2 new plans (Varsity TOUCHDOWN 12/24),
   3 Champion prices +0.1¢; Dallas 2 Varsity price/link changes. Re-read ≈ $0.04 with `scripts/refresh.ts --area all --apply`;
   not run (Anakin is out of reads and --apply re-downloads every label). Today's numbers still match the labels Wattch read.

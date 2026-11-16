@@ -946,3 +946,15 @@
 - [x] CD8 STATUS line
 - [x] CD9 Commit (push only with a code change)
 - [x] CD10 Codex if code changed
+
+## CE batch (added 07:04, after the handoff) — scheduled checks while waiting for the planner
+- [x] CE1 08:00 Anakin probe + free refresh dry run
+- [ ] CE2 09:00 Anakin probe + free refresh dry run
+- [ ] CE3 10:00 Anakin probe + free refresh dry run
+- [ ] CE4 11:00 Anakin probe + free refresh dry run
+- [ ] CE5 12:00 Anakin probe + free refresh dry run
+- [x] CE6 Each time: look for a new prompts/*.md or planner handoff
+- [x] CE7 Each time: npm test still green
+- [ ] CE8 If Anakin is back: handoff addendum asking OK to re-read (≈ $0.15 for 15 Dallas + 7 changed)
+- [x] CE9 Log each check in one PROGRESS line
+- [ ] CE10 No pushes unless code changes
