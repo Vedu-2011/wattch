@@ -227,12 +227,12 @@ function Tile({ p, read, w }: { p: ClientPlan; read: boolean; w: Words }) {
         <div className="flip-face relative flex h-full items-center justify-center overflow-hidden rounded-md bg-card shadow-[var(--shadow-soft)] sm:block sm:rounded-xl sm:p-2">
           <div className="scanline pointer-events-none absolute inset-x-0 h-1/2 bg-gradient-to-b from-transparent via-volt-2 to-transparent opacity-70" />
           <Kapi reading className="relative h-5 w-5 sm:h-6 sm:w-6" />
-          <p className="relative mt-1 hidden text-[0.6875rem] leading-tight text-ink-2 sm:line-clamp-2">{title(p.provider)}</p>
+          <p className="relative mt-1 hidden text-[0.6875rem] leading-tight text-ink-2 [overflow-wrap:anywhere] sm:line-clamp-2">{title(p.provider)}</p>
         </div>
         <div className={`flip-face flip-back flex h-full items-center justify-center rounded-md shadow-[var(--shadow-soft)] sm:block sm:rounded-xl sm:p-2 sm:pr-7 ${back}`}>
           <span aria-hidden className={`text-sm font-bold sm:hidden ${ok ? "text-good" : "text-ink-2"}`}>{ok ? "✓" : p.status === "mismatch" ? "?" : "–"}</span>
           {ok && read && <span aria-hidden className="stamp absolute right-1.5 top-1.5 hidden h-5 w-5 items-center justify-center rounded-full bg-good text-[0.6875rem] font-bold text-paper sm:flex">✓</span>}
-          <p className="hidden text-[0.6875rem] font-semibold leading-tight sm:line-clamp-2">{p.planName}</p>
+          <p className="hidden text-[0.6875rem] font-semibold leading-tight [overflow-wrap:anywhere] sm:line-clamp-2">{p.planName}</p>
           {ok && p.pricing ? (
             <p className="num mt-1 hidden text-[0.6875rem] leading-tight sm:block">
               {p.pricing.touPeriods.length ? w.tileTou : `${p.pricing.energyTiers[p.pricing.energyTiers.length - 1].cents.toFixed(1)}¢/kWh`}
