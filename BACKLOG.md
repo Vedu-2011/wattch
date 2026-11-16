@@ -356,7 +356,7 @@
 - [x] AG7 Wall 'Show me why' bars ES labels (months)
 - [x] AG8 /traps print: one or two sheets? log
 - [ ] AG9 STATUS final counts
-- [ ] AG10 Codex review 27 after AG batch
+- [x] AG10 Codex review 27 after AG batch
 
 ## AH batch (added 04:35, night 2) — speed
 - [x] AH1 Lighthouse mobile /wall?kwh=1100 + /plan/33633: LCP element + what delays it
@@ -380,4 +380,16 @@
 - [x] AI7 /api/remind bad input → 400 friendly text, not a stack
 - [x] AI8 ?lang=xx and ?area=xx everywhere → English/Houston defaults
 - [x] AI9 Fix any crash found; test for it
-- [ ] AI10 Codex review 27 after AI batch
+- [x] AI10 Codex review 27 after AI batch
+
+## AJ batch (added 04:41, night 2)
+- [x] AJ1 Compare with invalid pair: noindex too? (same reason) — decide
+- [x] AJ2 /wall with kwh clamp: does the usage box show the clamped value (100/5000) so people see why?
+- [x] AJ3 Home kWh input: typing 0 or 99999 → friendly hint?
+- [x] AJ4 Remind 1900 date: says 'already passed'? (check text)
+- [x] AJ5 Remind 2099: ok or 'too far'? decide
+- [x] AJ6 sitemap excludes unknown plans (sanity)
+- [x] AJ7 JUDGE-QA: 'what if I type something weird' — skip (log)
+- [x] AJ8 README: meta-check line mentions noindex check
+- [x] AJ9 STATUS: bad-input sweep line
+- [ ] AJ10 Codex review 28 after AJ batch

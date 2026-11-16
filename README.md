@@ -79,7 +79,7 @@ python3 -I scripts/houston_seasons.py <xlsx 2023> <xlsx 2024> <xlsx 2025>   # re
 python3 scripts/seasons.py data/sources/eia861m-texas.csv    # old statewide model (data/seasons.json)
 node scripts/check-all.mjs      # ALL page checks below in one go (axe, es-walk, widths, meta-check), ~2 min, app on :3000
 node scripts/axe.mjs            # accessibility check of every page (needs the app running on :3000)
-node scripts/meta-check.mjs     # titles/descriptions per area + language, preview cards, sitemap + robots (app on :3000)
+node scripts/meta-check.mjs     # titles/descriptions per area + language, preview cards, sitemap + robots, noindex on unknown plans (app on :3000)
 node scripts/es-walk.mjs        # clicks through the Spanish site at 375 + 1440, flags English text + labels (app on :3000)
 node scripts/widths.mjs         # every page EN + ES at 320 + 1920: no sideways scroll or cut-off text (app on :3000)
 node scripts/shots.mjs <folder> # screenshots at 375 / 1440 / 1920 (needs the dev server and Google Chrome)
