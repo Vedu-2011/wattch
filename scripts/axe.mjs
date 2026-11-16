@@ -7,7 +7,7 @@ import { chromium } from "playwright-core";
 const require = createRequire(import.meta.url);
 const axeSrc = readFileSync(require.resolve("axe-core/axe.min.js"), "utf8");
 const base = process.argv[2] ?? "http://localhost:3000";
-const pages = ["/", "/es", "/wall?kwh=1100", "/wall?kwh=1100&lang=es", "/plan/33633?kwh=1100", "/plan/36599?kwh=1100", "/compare?a=37797&b=33633&kwh=1100", "/traps", "/demo", "/how", "/sources", "/wall?kwh=1100&area=dallas", "/remind?end=2027-03-14", "/remind?end=2020-01-01", "/remind?end=2027-03-14&lang=es", "/traps?area=dallas", "/plan/33633?kwh=1100&lang=es", "/plan/17283?kwh=1100&area=dallas&lang=es", "/compare?a=37797&b=33633&kwh=1100&lang=es", "/no-such-page"];
+const pages = ["/", "/es", "/wall?kwh=1100", "/wall?kwh=1100&lang=es", "/plan/33633?kwh=1100", "/plan/36599?kwh=1100", "/compare?a=37797&b=33633&kwh=1100", "/traps", "/demo", "/how", "/sources", "/wall?kwh=1100&area=dallas", "/remind?end=2027-03-14", "/remind?end=2020-01-01", "/remind?end=2027-03-14&lang=es", "/traps?area=dallas", "/plan/33633?kwh=1100&lang=es", "/plan/17283?kwh=1100&area=dallas&lang=es", "/compare?a=37797&b=33633&kwh=1100&lang=es", "/traps?lang=es", "/no-such-page"];
 const browser = await chromium.launch({ executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" });
 let bad = 0;
 for (const w of [375, 1440]) {

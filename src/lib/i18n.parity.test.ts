@@ -8,6 +8,8 @@ import { PlanRecord } from "@/lib/plans/schema";
 import { traps } from "@/lib/rank";
 import { ICS_WORDS, PROBLEMS } from "@/lib/ics";
 import { COMPARE_WORDS } from "@/lib/compareWords";
+import { TRAP_KINDS } from "@/lib/trapGuide";
+import { TRAPS_WORDS, TRAP_KINDS_ES } from "@/lib/trapsWords";
 import { PLAN_WORDS } from "@/lib/planWords";
 import { QUESTION_WORDS } from "@/lib/questions";
 import { REMIND_WORDS } from "@/lib/remindWords";
@@ -19,7 +21,7 @@ const shape = (o: object) =>
 const TABLES: [string, { en: object; es: object }][] = [
   ["words()", WORDS], ["plan page", PLAN_WORDS], ["bill sentences", EXPLAIN_WORDS],
   ["questions", QUESTION_WORDS], ["calendar file", ICS_WORDS], ["date errors", PROBLEMS], ["reminder page", REMIND_WORDS],
-  ["live re-check", LIVE_WORDS], ["compare page", COMPARE_WORDS], ["header", NAV], ["footer", { en: { t: FOOT.en }, es: { t: FOOT.es } }],
+  ["live re-check", LIVE_WORDS], ["compare page", COMPARE_WORDS], ["trap guide page", TRAPS_WORDS], ["header", NAV], ["footer", { en: { t: FOOT.en }, es: { t: FOOT.es } }],
 ];
 
 /** names that are the same in both languages */
@@ -38,6 +40,13 @@ describe("every English string has a Spanish one", () => {
       for (const [k, v] of Object.entries(t.es)) if (typeof v === "string" && k !== "langNote") expect(v.trim(), `${name}.${k}`).not.toBe("");
     });
   }
+  it("every trap guide kind has a Spanish name, what and bite", () => {
+    for (const k of TRAP_KINDS) {
+      const es = TRAP_KINDS_ES[k.key];
+      expect(es?.name && es.what && es.bite, k.key).toBeTruthy();
+      expect(es.what).not.toBe(k.what);
+    }
+  });
   it("12 month names each", () => {
     expect(MONTHS_BY_LANG.es).toHaveLength(12);
     expect(MONTHS_BY_LANG.en).toHaveLength(12);
