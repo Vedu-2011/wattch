@@ -22,7 +22,7 @@ Unchanged labels aren't re-read at all, because the label text's fingerprint (sh
 
 **4. What if a provider changes its label tomorrow?**
 `npm run refresh` downloads the state's plan list (free) and shows what's new, gone, re-priced or moved. `--apply` re-reads only
-the labels whose text changed. The plan page also has "Check this label again now", which re-downloads one label live and
+the labels whose text changed. Every plan Wattch has read also has "Check this label again now", which re-downloads its label live and
 re-runs the check.
 
 **5. What's the headline, exactly?**

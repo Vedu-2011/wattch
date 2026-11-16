@@ -886,3 +886,15 @@
 - [x] BY8 Handoff points to it
 - [x] BY9 Plain words
 - [x] BY10 No dev jargon
+
+## BZ batch (added 06:50, night 2) — write-ups describe the re-check button exactly
+- [x] BZ1 Find every mention of 'Check this label again' in docs
+- [x] BZ2 Say it's on every plan Wattch has read (not the never-read ones)
+- [x] BZ3 SCRIPT: still true if shown in the video
+- [x] BZ4 DEVPOST wording
+- [x] BZ5 JUDGE-QA Q4
+- [x] BZ6 Plain words
+- [x] BZ7 PROGRESS line
+- [x] BZ8 Commit + push
+- [x] BZ9 No code change → no Codex
+- [x] BZ10 STATUS unchanged

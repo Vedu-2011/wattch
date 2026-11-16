@@ -22,7 +22,7 @@ match within about a tenth of a cent (±0.11¢, since labels round to 0.1¢). Bi
 - **Filters** — price locked 12+ months, no bill-credit cliffs, 50%+ renewable, 4+ stars; autopay discounts on/off. Every setting lives in the URL.
 - **Already on a plan?** — switch-or-wait math with your plan's real early-exit fee.
 - **/compare** — two plans month by month. **/traps** — every kind of catch, each with a real plan. **/demo** — a click-free walk-through for presenting.
-- **Check this label again now** — re-downloads a label live and says whether the prices changed.
+- **Check this label again now** — re-downloads a label live and says whether the prices changed (on every plan Wattch has read).
 - **Share card + QR** for trying it on your own phone. Every link previews in its own language and city: a results link
   shows the gap, a plan link that plan's real yearly cost and rank, a compare link who saves how much (`/api/card`). Plan and compare pages have a Share button.
 - **Every bill line explained** — one plain sentence per line, plus a warning when you just miss a credit; **questions
