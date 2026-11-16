@@ -2,6 +2,7 @@ import { Kapi } from "@/components/Kapi";
 import { UsagePicker } from "@/components/UsagePicker";
 import { StickyCta } from "@/components/StickyCta";
 import { TrapCarousel } from "@/components/TrapCarousel";
+import { HEADLINE_KWH } from "@/lib/headline";
 import { heroStats } from "@/lib/hero";
 import { type Lang, words } from "@/lib/i18n";
 import { clientPlans, snapshotInfo } from "@/lib/plans/data";
@@ -10,7 +11,7 @@ import { clientPlans, snapshotInfo } from "@/lib/plans/data";
 export function HomeView({ lang }: { lang: Lang }) {
   const w = words(lang);
   const verified = snapshotInfo.counts.verified ?? 0;
-  const hero = heroStats(clientPlans(), 1100, 5, lang);
+  const hero = heroStats(clientPlans(), HEADLINE_KWH, 5, lang);
   const date = new Date(snapshotInfo.builtAt).toLocaleDateString(lang === "es" ? "es-US" : "en-US", { month: "short", day: "numeric" });
   return (
     <div lang={lang} className="mx-auto max-w-6xl px-5 pt-10 sm:pt-16">

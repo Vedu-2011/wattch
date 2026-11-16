@@ -2,17 +2,15 @@ import type { Metadata } from "next";
 import { Demo, type DemoData } from "@/components/Demo";
 import { heroStats } from "@/lib/hero";
 import { clientPlans, snapshotInfo } from "@/lib/plans/data";
-import { reveal } from "@/lib/rank";
+import { HEADLINE_KWH as KWH, headline } from "@/lib/headline";
 
 export const metadata: Metadata = { title: "Wattch — demo", robots: { index: false } };
-
-const KWH = 1100;
 
 /** A scripted walk-through for the video and the live pitch. Every number is computed here from data/plans.json. */
 export default function DemoPage() {
   const plans = clientPlans();
-  const r = reveal(plans, KWH, { seasons: true });
-  const hero = heroStats(plans);
+  const r = headline(plans);
+  const hero = heroStats(plans, KWH);
   const pick = r.pick!, best = r.best!;
   const credit = pick.plan.pricing!.credits.filter((c) => !c.conditional && c.minKwh > 0).sort((a, b) => b.dollars - a.dollars)[0];
   const data: DemoData = {

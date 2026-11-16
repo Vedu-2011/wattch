@@ -1,25 +1,27 @@
 /**
- * Prints the reveal numbers the demo, deck and Devpost quote, straight from the code + data/plans.json.
+ * Prints the reveal numbers the demo, deck and Devpost quote, straight from the code + the data files.
+ * The headline itself (1,100 kWh, real seasons, autopay counted) comes from src/lib/headline.ts — the same function
+ * the demo page uses. Other usages are printed for reference.
  * Usage: npx tsx scripts/headline.ts [kWh]   (default 1,100)
  */
 import { readFileSync } from "node:fs";
+import { HEADLINE_KWH, headline, toClientPlan } from "../src/lib/headline";
+import { AREAS, type Area } from "../src/lib/plans/ptc";
 import type { PlanRecord } from "../src/lib/plans/schema";
-import { reveal, type ClientPlan } from "../src/lib/rank";
+import { reveal } from "../src/lib/rank";
 
-const kwh = Number(process.argv[2] ?? 1100);
-const snap = JSON.parse(readFileSync("data/plans.json", "utf8")) as { plans: PlanRecord[]; counts: Record<string, number>; builtAt: string };
-const plans: ClientPlan[] = snap.plans.map((r) => ({
-  id: r.meta.id, provider: r.meta.provider, planName: r.meta.planName, rateType: r.meta.rateType,
-  renewablePct: r.meta.renewablePct, prepaid: r.meta.prepaid, timeOfUse: r.meta.timeOfUse,
-  eflUrl: r.meta.eflUrl, enrollUrl: r.meta.enrollUrl, ptc: r.meta.ptc,
-  status: r.check.status, via: r.read.via, fetchedAt: r.read.fetchedAt, readMs: r.read.readMs,
-  message: r.check.message, rows: r.check.rows, pricing: r.pricing,
-}));
-console.log(`data built ${snap.builtAt} · counts`, snap.counts);
-for (const opts of [{ seasons: true }, { seasons: false }]) {
-  const r = reveal(plans, kwh, opts);
-  console.log(`\n${kwh} kWh ${JSON.stringify(opts)} · ${r.ranked.length} ranked`);
-  console.log(`  best: ${r.best?.plan.provider} — ${r.best?.plan.planName} $${r.best?.annual}/yr`);
-  console.log(`  state site's #1: ${r.pick?.plan.provider} — ${r.pick?.plan.planName} ranks #${r.pickRank}, $${r.pick?.annual}/yr, gap $${Math.round(r.gap)}/yr`);
-  console.log(`  why: ${r.why}`);
+const kwh = Number(process.argv[2] ?? HEADLINE_KWH);
+for (const area of Object.keys(AREAS) as Area[]) {
+  const snap = JSON.parse(readFileSync(AREAS[area].dataFile, "utf8")) as { plans: PlanRecord[]; counts: Record<string, number>; builtAt: string };
+  const plans = snap.plans.map(toClientPlan);
+  console.log(`\n=== ${AREAS[area].city} · data built ${snap.builtAt} · counts`, snap.counts);
+  const runs = kwh === HEADLINE_KWH
+    ? [{ name: "HEADLINE (src/lib/headline.ts)", r: headline(plans, area) }, { name: "same usage every month", r: reveal(plans, kwh, { seasons: false, area }) }]
+    : [{ name: "with seasons", r: reveal(plans, kwh, { seasons: true, area }) }, { name: "same usage every month", r: reveal(plans, kwh, { seasons: false, area }) }];
+  for (const { name, r } of runs) {
+    console.log(`\n${kwh} kWh · ${name} · ${r.ranked.length} ranked`);
+    console.log(`  best: ${r.best?.plan.provider} — ${r.best?.plan.planName} $${r.best?.annual}/yr`);
+    console.log(`  state site's #1: ${r.pick?.plan.provider} — ${r.pick?.plan.planName} ranks #${r.pickRank}, $${r.pick?.annual}/yr, gap $${Math.round(r.gap)}/yr`);
+    console.log(`  why: ${r.why}`);
+  }
 }

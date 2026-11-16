@@ -6,6 +6,7 @@ import rawDallas from "../../../data/plans-dallas.json";
 import { AREAS, type Area } from "./ptc";
 import type { PlanRecord } from "./schema";
 import { parseSnapshot } from "./snapshot";
+import { toClientPlan } from "@/lib/headline";
 import { type ClientPlan, rankable } from "@/lib/rank";
 
 // zod-checked once per server start; a broken file throws here and the visitor sees app/global-error.tsx
@@ -29,12 +30,7 @@ export function pipelineCounts(area: Area) {
  * or AI notes; the plan page reads those on the server). Keeps /wall's HTML small.
  */
 export function clientPlans(area: Area = "houston"): ClientPlan[] {
-  return snaps[area].plans.map((r) => ({
-    id: r.meta.id, provider: r.meta.provider, planName: r.meta.planName, rateType: r.meta.rateType,
-    renewablePct: r.meta.renewablePct, rating: r.meta.rating, prepaid: r.meta.prepaid, ptc: r.meta.ptc,
-    status: r.check.status, readMs: r.read.readMs,
-    pricing: r.pricing ? { ...r.pricing, notes: [] } : null,
-  }));
+  return snaps[area].plans.map(toClientPlan);
 }
 
 /** Which area a plan id belongs to (ids are Power to Choose's, unique across areas). */
