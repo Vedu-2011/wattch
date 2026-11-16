@@ -8,7 +8,7 @@ import { MyMonths } from "@/components/MyMonths";
 import { average, monthsToParam } from "@/lib/months";
 import { ShareButton } from "@/components/ShareButton";
 import { YearBars } from "@/components/YearBars";
-import { type ClientPlan, type Ranked, ptcTopPick, rank, traps, whyLine, yearFor } from "@/lib/rank";
+import { type ClientPlan, type Ranked, passesFilters, ptcTopPick, rank, traps, whyLine, yearFor } from "@/lib/rank";
 
 const money = (n: number) => n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
 const cents = (n: number) => `${n.toFixed(1)}¢`;
@@ -37,26 +37,37 @@ function useReveal(plans: ClientPlan[], totalMs = 9000) {
   return { readIds, done: skip || now >= totalMs, skip: () => setSkip(true) };
 }
 
-export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons, months: initialMonths = null }: { plans: ClientPlan[]; kwh: number; builtAt: string; seasons: boolean; months?: number[] | null }) {
+export type WallFilters = { locked: boolean; noCliffs: boolean; green: boolean; rated: boolean };
+const NO_FILTERS: WallFilters = { locked: false, noCliffs: false, green: false, rated: false };
+
+export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons, months: initialMonths = null, filters: initialFilters = NO_FILTERS }: { plans: ClientPlan[]; kwh: number; builtAt: string; seasons: boolean; months?: number[] | null; filters?: WallFilters }) {
   const { readIds, done, skip } = useReveal(plans);
   const [kwh, setKwh] = useState(initialKwh);
   const [seasons, setSeasons] = useState(initialSeasons);
   // your own 12 months, when you've typed them in; otherwise an average spread by Houston seasons
   const [mine, setMine] = useState<number[] | null>(initialMonths);
   const qs = `kwh=${kwh}${seasons ? "" : "&flat=1"}${mine ? `&m=${monthsToParam(mine)}` : ""}`;
+  const [withConditional, setWithConditional] = useState(true);
+  const [f, setF] = useState<WallFilters>(initialFilters);
+  const lockedYear = f.locked;
+  const minTermMonths = lockedYear ? 12 : 0;
+  const filterOpts = useMemo(() => ({ minTermMonths, noCliffs: f.noCliffs, minRenewable: f.green ? 50 : 0, minRating: f.rated ? 4 : 0 }), [minTermMonths, f]);
+  const filtered = f.locked || f.noCliffs || f.green || f.rated;
+  // keep the address bar shareable: usage, your months, and every filter
   useEffect(() => {
     const u = new URL(window.location.href);
     u.searchParams.set("kwh", String(kwh));
     if (mine) u.searchParams.set("m", monthsToParam(mine)); else u.searchParams.delete("m");
+    if (seasons) u.searchParams.delete("flat"); else u.searchParams.set("flat", "1");
+    for (const [k, on] of [["lock", f.locked], ["nocliff", f.noCliffs], ["green", f.green], ["rated", f.rated]] as const) {
+      if (on) u.searchParams.set(k, "1"); else u.searchParams.delete(k);
+    }
     window.history.replaceState(null, "", u);
-  }, [kwh, mine]);
-  const [withConditional, setWithConditional] = useState(true);
-  const [lockedYear, setLockedYear] = useState(false);
-  const minTermMonths = lockedYear ? 12 : 0;
+  }, [kwh, mine, seasons, f]);
   const verifiedRead = plans.filter((p) => readIds.has(p.id) && p.status === "verified").length;
-  const ranked = useMemo(() => rank(plans, kwh, { includeConditional: withConditional, seasons, minTermMonths, months: mine }), [plans, kwh, withConditional, seasons, minTermMonths, mine]);
+  const ranked = useMemo(() => rank(plans, kwh, { includeConditional: withConditional, seasons, months: mine, ...filterOpts }), [plans, kwh, withConditional, seasons, mine, filterOpts]);
   // with the 12-month filter on, compare against the state site's #1 among those same plans
-  const pick = useMemo(() => ptcTopPick(plans.filter((p) => (p.pricing?.termMonths ?? 0) >= minTermMonths)), [plans, minTermMonths]);
+  const pick = useMemo(() => ptcTopPick(plans.filter((p) => p.pricing && passesFilters(p, filterOpts))), [plans, filterOpts]);
   const notRanked = plans.filter((p) => p.status === "verified" && !p.prepaid && p.rateType.toLowerCase() === "variable").length;
   const when = new Date(builtAt).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
   // when the last tile flips, bring the answer into view (the wall is long on a phone)
@@ -92,9 +103,16 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons,
         {plans.map((p) => <Tile key={p.id} p={p} read={readIds.has(p.id)} />)}
       </div>
 
-      {done && ranked.length > 0 && (
+      {done && (
         <section id="answer" className="pop mt-8 scroll-mt-4 space-y-6">
-          <Reveal kwh={kwh} seasons={seasons} ranked={ranked} pick={pick} locked={lockedYear} mine={!!mine} qs={qs} />
+          {ranked.length > 0 ? (
+            <Reveal kwh={kwh} seasons={seasons} ranked={ranked} pick={pick} locked={filtered} mine={!!mine} qs={qs} />
+          ) : (
+            <div className="rounded-3xl bg-over-2 p-5 shadow-[var(--shadow-soft)]">
+              <p className="text-lg font-bold">No plan passes all your filters.</p>
+              <p className="mt-1 text-ink-2">Turn one of them off below and the list comes back.</p>
+            </div>
+          )}
 
           <div className="rounded-3xl bg-card p-5 shadow-[var(--shadow-soft)]">
             <label htmlFor="slide" className="block text-base font-semibold">
@@ -103,7 +121,10 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons,
             <input id="slide" type="range" min={200} max={3000} step={10} value={kwh} onChange={(e) => { setMine(null); setKwh(Number(e.target.value)); }} className="mt-3 w-full" />
             <div className="mt-3 flex flex-wrap gap-2">
               {!mine && <Toggle on={seasons} set={setSeasons} label="Houston seasons" hint="August ≈ 2.6× February" />}
-              <Toggle on={lockedYear} set={setLockedYear} label="Price locked 12+ months" />
+              <Toggle on={f.locked} set={(v) => setF({ ...f, locked: v })} label="Price locked 12+ months" />
+              <Toggle on={f.noCliffs} set={(v) => setF({ ...f, noCliffs: v })} label="No bill-credit traps" />
+              <Toggle on={f.green} set={(v) => setF({ ...f, green: v })} label="50%+ renewable" />
+              <Toggle on={f.rated} set={(v) => setF({ ...f, rated: v })} label="4+ stars" hint="Power to Choose rating" />
               <Toggle on={withConditional} set={setWithConditional} label="Count autopay discounts" />
             </div>
             <div className="mt-3">
@@ -140,7 +161,7 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons,
             </p>
           </div>
 
-          <CurrentPlan plans={plans} best={ranked[0]} includeConditional={withConditional} kwh={kwh} seasons={seasons} />
+          {ranked.length > 0 && <CurrentPlan plans={plans} best={ranked[0]} includeConditional={withConditional} kwh={kwh} seasons={seasons} />}
 
           <JudgeQr />
         </section>
@@ -234,7 +255,7 @@ function Reveal({ kwh, seasons, ranked, pick, locked, mine, qs }: { kwh: number;
               <span className="num tracking-tight">{money(gap)}</span>
             </p>
             <h2 className="display mt-3 text-2xl font-extrabold leading-tight sm:text-4xl">
-              more a year — if you pick the plan the state site lists first{locked ? " (12+ month plans)" : ""}.
+              more a year — if you pick the plan the state site lists first{locked ? " (among plans that pass your filters)" : ""}.
             </h2>
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
               <PlanCard tone="bad" eyebrow={`State site's #1 · #${pickRank} for you`} r={pickRow} sticker={pickRow.plan.ptc.k1000} />

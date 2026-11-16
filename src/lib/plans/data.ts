@@ -13,7 +13,7 @@ export const snapshotInfo = { builtAt: snap.builtAt, source: snap.source, model:
 export function clientPlans(): ClientPlan[] {
   return snap.plans.map((r) => ({
     id: r.meta.id, provider: r.meta.provider, planName: r.meta.planName, rateType: r.meta.rateType,
-    renewablePct: r.meta.renewablePct, prepaid: r.meta.prepaid, timeOfUse: r.meta.timeOfUse,
+    renewablePct: r.meta.renewablePct, rating: r.meta.rating, prepaid: r.meta.prepaid, timeOfUse: r.meta.timeOfUse,
     eflUrl: r.meta.eflUrl, enrollUrl: r.meta.enrollUrl, ptc: r.meta.ptc,
     status: r.check.status, via: r.read.via, fetchedAt: r.read.fetchedAt, readMs: r.read.readMs,
     message: r.check.message, rows: r.check.rows, pricing: r.pricing,

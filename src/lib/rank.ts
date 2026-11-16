@@ -8,6 +8,8 @@ export type ClientPlan = {
   planName: string;
   rateType: string;
   renewablePct: number;
+  /** Power to Choose's star rating for the provider (1–5), null/0 when not rated */
+  rating?: number | null;
   prepaid: boolean;
   timeOfUse: boolean;
   eflUrl: string;
@@ -24,7 +26,23 @@ export type ClientPlan = {
 
 /** minTermMonths: only plans whose price is locked at least this long (a 3-month price doesn't last a year). */
 /** months: your own 12 months (January → December); when given, it replaces the average + seasons. */
-export type RankOpts = { includeConditional?: boolean; seasons?: boolean; minTermMonths?: number; months?: number[] | null };
+export type RankOpts = {
+  includeConditional?: boolean; seasons?: boolean; minTermMonths?: number; months?: number[] | null;
+  /** filters: no bill-credit or minimum-use traps · at least this % renewable · at least this many stars */
+  noCliffs?: boolean; minRenewable?: number; minRating?: number;
+};
+
+/** A plan with a bill credit that needs a usage level, or a fee under a usage level — the "cliff" plans. */
+export const hasCliff = (p: PlanPricing) => p.credits.some((c) => !c.conditional && c.minKwh > 0) || p.usageFees.some((f) => f.dollars > 0);
+
+export function passesFilters(plan: ClientPlan, opts: RankOpts): boolean {
+  const p = plan.pricing!;
+  if (p.termMonths < (opts.minTermMonths ?? 0)) return false;
+  if (opts.noCliffs && hasCliff(p)) return false;
+  if (plan.renewablePct < (opts.minRenewable ?? 0)) return false;
+  if (opts.minRating && (plan.rating ?? 0) < opts.minRating) return false;
+  return true;
+}
 /** monthly = the average month; avgCents = what you really pay per kWh over the year. */
 export type Ranked = { plan: ClientPlan; months: number[]; monthly: number; annual: number; avgCents: number };
 
@@ -58,7 +76,7 @@ export function rank(plans: ClientPlan[], kwh: number, opts: RankOpts = {}): Ran
   const months = opts.months?.length === 12 ? opts.months : yearFor(kwh, opts.seasons ?? true);
   const used = months.reduce((s, m) => s + m, 0);
   return rankable(plans)
-    .filter((plan) => plan.pricing!.termMonths >= (opts.minTermMonths ?? 0))
+    .filter((plan) => passesFilters(plan, opts))
     .map((plan) => {
       const annual = annualCost(plan.pricing!, months, { includeConditional });
       return { plan, months, annual, monthly: Math.round((annual / 12) * 100) / 100, avgCents: Math.round((annual / used) * 1000) / 10 };

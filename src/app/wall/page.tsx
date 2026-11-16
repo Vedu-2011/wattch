@@ -10,7 +10,11 @@ type SP = Record<string, string | string[] | undefined>;
 const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
 function parse(sp: SP) {
   const k = Math.round(Number(one(sp.kwh)));
-  return { kwh: Number.isFinite(k) && k >= 100 && k <= 5000 ? k : 1100, seasons: one(sp.flat) !== "1", months: monthsFromParam(one(sp.m)) };
+  const on = (key: string) => one(sp[key]) === "1";
+  return {
+    kwh: Number.isFinite(k) && k >= 100 && k <= 5000 ? k : 1100, seasons: one(sp.flat) !== "1", months: monthsFromParam(one(sp.m)),
+    filters: { locked: on("lock"), noCliffs: on("nocliff"), green: on("green"), rated: on("rated") },
+  };
 }
 
 export async function generateMetadata({ searchParams }: PageProps<"/wall">): Promise<Metadata> {
@@ -24,6 +28,6 @@ export async function generateMetadata({ searchParams }: PageProps<"/wall">): Pr
 }
 
 export default async function WallPage({ searchParams }: PageProps<"/wall">) {
-  const { kwh, seasons, months } = parse(await searchParams);
-  return <Wall plans={clientPlans()} kwh={kwh} seasons={seasons} months={months} builtAt={snapshotInfo.builtAt} />;
+  const { kwh, seasons, months, filters } = parse(await searchParams);
+  return <Wall plans={clientPlans()} kwh={kwh} seasons={seasons} months={months} filters={filters} builtAt={snapshotInfo.builtAt} />;
 }
