@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 
 type L = "en" | "es";
 
@@ -38,3 +39,10 @@ export const FOOT = {
 
 export const FooterView = ({ lang }: { lang: L }) => <span lang={lang}>{FOOT[lang]}</span>;
 export const Footer = () => <FooterView lang={useUiLang()} />;
+
+/** Sets <html lang> to the page's language after load (the root layout is shared, so it ships as "en"). */
+export function HtmlLang() {
+  const lang = useUiLang();
+  useEffect(() => { document.documentElement.lang = lang; }, [lang]);
+  return null;
+}

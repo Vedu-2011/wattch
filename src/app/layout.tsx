@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Badge, type BadgeCounts, FreshBadge as AreaBadge } from "@/components/FreshBadge";
 import { Kapi } from "@/components/Kapi";
 import { LangSwitch } from "@/components/LangSwitch";
-import { Footer, FooterView, Nav, NavView } from "@/components/SiteChrome";
+import { Footer, FooterView, HtmlLang, Nav, NavView } from "@/components/SiteChrome";
 import { Suspense } from "react";
 import { areaInfo } from "@/lib/plans/data";
 import "./globals.css";
@@ -51,6 +51,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main className="flex-1">{children}</main>
         <footer className="no-print mx-auto w-full max-w-6xl px-5 py-10 text-sm text-ink-2">
           <Suspense fallback={<FooterView lang="en" />}><Footer /></Suspense>
+          <Suspense fallback={null}><HtmlLang /></Suspense>
         </footer>
       </body>
     </html>

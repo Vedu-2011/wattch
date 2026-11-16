@@ -125,8 +125,8 @@
 - [x] N2 /plan/<unknown id> answers HTTP 200 with the 404 page (known limit) — check if Next 16 can send a real 404 cheaply; fix or document
 - [x] N3 Reader-replay tiles clip long plan names — make sure the full name is still available (title / accessible name)
 - [x] N4 Commit the width checker as scripts/widths.mjs (320 + 1920, EN + ES) so the 320px fix stays fixed; run it on English pages too
-- [ ] N5 Keyboard-only pass on the Spanish plan page + compare page (focus visible, LiveCheck + Print reachable)
-- [ ] N6 <html lang> is "en" on Spanish pages (pages set lang on their own wrapper) — check what screen readers/SEO see; fix only if cheap and safe, else document
+- [x] N5 Keyboard-only pass on the Spanish plan page + compare page (focus visible, LiveCheck + Print reachable)
+- [x] N6 <html lang> is "en" on Spanish pages (pages set lang on their own wrapper) — check what screen readers/SEO see; fix only if cheap and safe, else document
 - [ ] N7 Codex review 11 (fb2a17c..HEAD)
 - [ ] N8 Anakin quota probe again (~05:00); if back, run the Dallas re-read under PAID-API LOCK (≤ $0.30)
 - [ ] N9 docs/JUDGE-QA + DEVPOST ⟲ numbers re-verified against scripts/headline.ts (both areas)
