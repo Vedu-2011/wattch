@@ -6,7 +6,7 @@ import rawDallas from "../../../data/plans-dallas.json";
 import { AREAS, type Area } from "./ptc";
 import type { PlanRecord } from "./schema";
 import { parseSnapshot } from "./snapshot";
-import type { ClientPlan } from "@/lib/rank";
+import { type ClientPlan, rankable } from "@/lib/rank";
 
 // zod-checked once per server start; a broken file throws here and the visitor sees app/global-error.tsx
 const snaps: Record<Area, ReturnType<typeof parseSnapshot>> = { houston: parseSnapshot(raw), dallas: parseSnapshot(rawDallas) };
@@ -16,6 +16,13 @@ const info = (s: ReturnType<typeof parseSnapshot>) => ({ builtAt: s.builtAt, sou
 /** Houston (the main area): when it was read and how many labels add up. */
 export const snapshotInfo = info(snap);
 export const areaInfo = (area: Area) => info(snaps[area]);
+
+/** The /how diagram's numbers for one area, straight from its snapshot. */
+export function pipelineCounts(area: Area) {
+  const s = snaps[area];
+  const n = (k: string) => s.counts[k] ?? 0;
+  return { total: s.plans.length, read: s.plans.length - n("unread"), verified: n("verified"), mismatch: n("mismatch"), unread: n("unread"), ranked: rankable(clientPlans(area)).length };
+}
 
 /**
  * What the browser needs to rank and price every plan in one area — nothing more (no label text, check rows, links
