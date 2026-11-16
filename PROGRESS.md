@@ -139,3 +139,4 @@
 - 2026-11-16 03:04 PT · Q1 compare chart at 320 cut off December (12 month columns refused to shrink below their labels) → columns can shrink, tighter gap + 9px labels under 360px; all 12 fit (last label 20px inside the card). Other charts (wall tiles, plan, demo) checked at 320: nothing clipped. $0.
 - 2026-11-16 03:04 PT · Q2 wall at 320 with all 4 filters, EN + ES: no overflow, no fixed/sticky element over the answer, answer reads well (filtered #1 = state #1 case). Screens filters-320/. No change. $0.
 - 2026-11-16 03:05 PT · Q6 /how?area=dallas&lang=es: shows both areas by design; Dallas line = 154 of 172 verified, 2 mismatch, 16 unread (matches headline.ts), Spanish. No change. $0.
+- 2026-11-16 03:05 PT · Q7 src/lib/compare.real.test.ts: on real plans in both areas, compare totals = results-page annualCost, the 12 rounded rows add up to the shown total (≤ 7¢), wins add to 12; demo pair = $1,334 vs $1,712, $378. 209 tests. $0.
