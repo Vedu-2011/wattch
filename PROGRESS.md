@@ -84,3 +84,5 @@
 - 2026-11-16 01:55 PT · J7 meta-check Spanish sweep · DONE (7921659). Found + fixed: Spanish /compare had English description. 17 URLs clean. Added K1–K10 to BACKLOG. $0.
 - 2026-11-16 01:56 PT · J8 Spanish walk-through script · DONE (f055aff, fix 4408b5b: screenshots path; stray folder → .trash, logged). 16/16 clean. $0.
 - 2026-11-16 01:57 PT · J9 STATUS.md refresh · DONE (2454a16, 916c3a2). $0.
+- 2026-11-16 01:57 PT · J10 SCRIPT.md Spanish beat · DONE (fc690b3). $0.
+- 2026-11-16 01:57 PT · Anakin probe: still 402 out of reads. Dallas re-read stays blocked. $0.

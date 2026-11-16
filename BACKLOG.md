@@ -91,7 +91,7 @@
 - [x] Full-flow Spanish walk-through in Chrome: /es → wall → plan → compare → traps → remind, no English outside lang=en — script + screenshots
 - [x] docs/STATUS.md refresh (Spanish everywhere, Dallas fixes, scores, spend) for the planner
 - [x] SCRIPT.md: optional 10-second Spanish beat (tap Español on the results, one line) — timed, total ≤ 5:30
-- [ ] K1 Spanish share card check: /api/card?lang=es&area=dallas renders, no English, no Houston (screenshot the PNG)
+- [x] K1 Spanish share card check: /api/card?lang=es&area=dallas renders, no English, no Houston (screenshot the PNG)
 - [ ] K2 Spanish print view of a plan page (PrintButton → print CSS): emulate print media, no English chrome, fits 1 page
 - [ ] K3 Keyboard-only pass on Spanish wall: Tab through LangSwitch, area switch, CurrentPlan search, MyMonths — focus visible everywhere
 - [ ] K4 Spanish /es home: hero numbers match the English home for both areas (same math, test)
