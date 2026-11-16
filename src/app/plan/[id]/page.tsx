@@ -7,6 +7,7 @@ import { HighlightScope, HoverKey, LabelText } from "@/components/Highlight";
 import { LiveCheck } from "@/components/LiveCheck";
 import { YearBars } from "@/components/YearBars";
 import { annualCost, billLines, monthlyBill } from "@/lib/bill";
+import { explainBill } from "@/lib/bill/explain";
 import { whyLine, yearFor } from "@/lib/rank";
 import { belongs, labelSegments } from "@/lib/finePrint";
 import { monthsFromParam } from "@/lib/months";
@@ -44,6 +45,9 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
   const months = mine ?? yearFor(kwh, seasons, area);
   const withConditional = (Array.isArray(sp.noauto) ? sp.noauto[0] : sp.noauto) !== "1";
   const opts = { includeConditional: withConditional };
+  const whyAll = p ? explainBill(p, kwh, { ...opts, utility: AREAS[area].utility }) : [];
+  const lineWhy = new Map(whyAll.map((w) => [w.key, w.text]));
+  const missed = whyAll.filter((w) => w.key.startsWith("missed-"));
   const year = p ? annualCost(p, months, opts) : 0;
   const why = p ? whyLine(p, months) : null;
   const line = p?.credits.filter((c) => !c.conditional && c.minKwh > 0).sort((a, b) => b.dollars - a.dollars)[0]?.minKwh;
@@ -95,13 +99,17 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
             <h2 className="text-lg font-bold">Your bill at <span className="num">{kwh.toLocaleString()}</span> kWh</h2>
             <ul className="num mt-3 space-y-1 text-sm">
               {billLines(p, kwh, opts).map((l, i) => (
-                <HoverKey key={i} k={l.key} found={found(l.key)} className="-mx-1.5 flex justify-between gap-3 px-1.5 py-0.5">
-                  <span className="font-sans">{l.label}{found(l.key) ? <span aria-hidden className="ml-1.5 inline-block h-1.5 w-1.5 -translate-y-0.5 rounded-full bg-volt" /> : null}</span>
-                  <span className={`whitespace-nowrap ${l.dollars < 0 ? "text-good" : ""}`}>{l.dollars < 0 ? "−" : ""}${Math.abs(l.dollars).toFixed(2)}</span>
+                <HoverKey key={i} k={l.key} found={found(l.key)} className="-mx-1.5 block px-1.5 py-0.5">
+                  <span className="flex justify-between gap-3">
+                    <span className="font-sans">{l.label}{found(l.key) ? <span aria-hidden className="ml-1.5 inline-block h-1.5 w-1.5 -translate-y-0.5 rounded-full bg-volt" /> : null}</span>
+                    <span className={`whitespace-nowrap ${l.dollars < 0 ? "text-good" : ""}`}>{l.dollars < 0 ? "−" : ""}${Math.abs(l.dollars).toFixed(2)}</span>
+                  </span>
+                  {lineWhy.get(l.key) && <span className="mt-0.5 block font-sans text-xs leading-snug text-ink-2">{lineWhy.get(l.key)}</span>}
                 </HoverKey>
               ))}
               <li className="mt-2 flex justify-between rounded-xl bg-paper px-2 py-1.5 text-base font-semibold"><span className="font-sans">Total</span><span>${monthlyBill(p, kwh, opts).toFixed(2)}</span></li>
             </ul>
+            {missed.map((m) => <p key={m.key} className="mt-2 rounded-xl bg-over-2 px-3 py-2 text-sm font-medium">{m.text}</p>)}
           </section>
         )}
       </div>
