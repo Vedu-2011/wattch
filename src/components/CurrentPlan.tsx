@@ -18,8 +18,10 @@ export function CurrentPlan({ plans, best, includeConditional, kwh, seasons, qs,
   const [q, setQ] = useState("");
   const [id, setId] = useState<string | null>(null);
   const [left, setLeft] = useState(6);
-  const words = q.toLowerCase().split(/\s+/).filter(Boolean);
-  const matches = words.length ? choices.filter((p) => words.every((w) => `${p.provider} ${p.planName}`.toLowerCase().includes(w))).slice(0, 6) : [];
+  // case- and accent-blind: "energia" finds "Energía"
+  const fold = (x: string) => x.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  const words = fold(q).split(/\s+/).filter(Boolean);
+  const matches = words.length ? choices.filter((p) => words.every((w) => fold(`${p.provider} ${p.planName}`).includes(w))).slice(0, 6) : [];
   const cur = choices.find((p) => p.id === id) ?? null;
   // variable-rate and prepaid plans aren't ranked: their price can change, so a yearly number would be a guess
   const unsure = cur ? cur.prepaid || cur.rateType.toLowerCase() === "variable" : false;

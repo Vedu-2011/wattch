@@ -538,3 +538,15 @@
 - [x] AV8 Fix anything found + tests
 - [ ] AV9 STATUS line
 - [x] AV10 Codex review 35 if code changed
+
+## AW batch (added 05:25, night 2)
+- [x] AW1 'Find your current plan' search: case- and accent-insensitive, finds by provider too
+- [x] AW2 Same search: no-results message in EN + ES
+- [x] AW3 Results list: #1 doesn't show 'Compare with #1' to itself
+- [x] AW4 Dallas plan page in Spanish: delivery line says Oncor
+- [x] AW5 /demo?lang=es: every scene in Spanish
+- [x] AW6 Results page link preview title/description for Dallas + ES
+- [x] AW7 Plan page for a prepaid plan: note reads right EN + ES
+- [x] AW8 Fix anything found + tests
+- [ ] AW9 STATUS line
+- [ ] AW10 Codex review 36 if code changed
