@@ -898,3 +898,15 @@
 - [x] BZ8 Commit + push
 - [x] BZ9 No code change → no Codex
 - [x] BZ10 STATUS unchanged
+
+## CA batch (added 06:50, night 2) — last checks before the handoff
+- [x] CA1 Fresh clone of origin/overnight with no keys: npm ci + npm test
+- [x] CA2 Its test count = local (259)
+- [x] CA3 Its build passes
+- [x] CA4 git status clean locally; local = origin
+- [x] CA5 No server left running on :3000
+- [x] CA6 PROGRESS line
+- [x] CA7 Handoff TESTS line uses these results
+- [x] CA8 Commit + push
+- [x] CA9 BOARD row current
+- [ ] CA10 Then the 7:00 handoff
