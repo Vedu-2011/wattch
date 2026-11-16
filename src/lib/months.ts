@@ -5,12 +5,28 @@
  */
 export type MonthsResult = { months: number[] } | { error: string };
 
-export function parseMonths(input: string): MonthsResult {
+export const MONTHS_ERRORS = {
+  en: {
+    none: "Type 12 numbers, one for each month's kWh.",
+    count: (n: number) => `That's ${n} number${n === 1 ? "" : "s"}. It takes 12, January to December.`,
+    big: "One month is over 10,000 kWh. Check for a typo.",
+    zero: "All 12 months are 0.",
+  },
+  es: {
+    none: "Escribe 12 números, uno con los kWh de cada mes.",
+    count: (n: number) => `${n === 1 ? "Es 1 número" : `Son ${n} números`}. Hacen falta 12, de enero a diciembre.`,
+    big: "Un mes pasa de 10,000 kWh. Revisa si hay un error.",
+    zero: "Los 12 meses están en 0.",
+  },
+} as const;
+
+export function parseMonths(input: string, lang: "en" | "es" = "en"): MonthsResult {
+  const E = MONTHS_ERRORS[lang];
   const nums = (input.match(/\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+(?:\.\d+)?/g) ?? []).map((s) => Math.round(Number(s.replace(/,/g, ""))));
-  if (nums.length === 0) return { error: "Type 12 numbers, one for each month's kWh." };
-  if (nums.length !== 12) return { error: `That's ${nums.length} number${nums.length === 1 ? "" : "s"}. I need 12, January to December.` };
-  if (nums.some((n) => n > 10000)) return { error: "One month is over 10,000 kWh. Check for a typo." };
-  if (nums.every((n) => n === 0)) return { error: "All 12 months are 0." };
+  if (nums.length === 0) return { error: E.none };
+  if (nums.length !== 12) return { error: E.count(nums.length) };
+  if (nums.some((n) => n > 10000)) return { error: E.big };
+  if (nums.every((n) => n === 0)) return { error: E.zero };
   return { months: nums };
 }
 

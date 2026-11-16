@@ -75,3 +75,4 @@
 - 2026-11-16 01:39 PT · I7 README refresh · DONE (c1dccac). Ran top/headline/refresh dry run/axe/meta-check. NOT run (by design): ingest (paid), recheck/rehash (rewrite data files), python seasons/profile scripts (need ERCOT downloads). $0.
 - 2026-11-16 01:40 PT · I8 JUDGE-QA · DONE (ab26665). +3 answers (Spanish, reminder, catching mistakes). $0.
 - 2026-11-16 01:42 PT · I9 gallery 7+8 · DONE (57f9027). $0.
+- 2026-11-16 01:46 PT · I10 Lighthouse ES plan + compare · DONE (a1fa2ee). Found + fixed CLS 0.177 on Spanish plan page (badge wrap). Scores: plan ES 96/100, plan EN 99/100, compare EN/ES 95/100, traps ES 95/100, wall ES 92/100. $0.

@@ -79,3 +79,15 @@
 - [x] docs/JUDGE-QA.md update: Dallas, Spanish, reminder, explainer, codex findings — every number re-checked
 - [x] Gallery: 2 more 1920×1080 shots (Dallas reveal, Spanish plan page) + captions in DEVPOST.md — files exist
 - [x] Lighthouse mobile on /plan/33633?lang=es and /compare: a11y 100, perf ≥ 90 — logged
+
+## J. Added overnight-2 (Nov 16, 01:47) — finish Spanish + review
+- [x] Spanish "Already on a plan?" (CurrentPlan) on the Spanish wall: search, verdict, exit-fee math, reminder link — no English on /wall?lang=es (live check), parity test
+- [x] Spanish "Use my real 12 months" (MyMonths) on the Spanish wall: labels, paste help, errors — parity test
+- [ ] Codex review 8 (running) — fix real findings
+- [ ] Spanish /how (?lang=es): steps, pipeline diagram labels; header "Cómo funciona" links to it — axe 0
+- [ ] 404 + error pages in Spanish when the URL has lang=es or starts with /es — screenshot
+- [ ] /api/live error messages in Spanish (?lang=es from LiveCheck) instead of the generic sentence — test
+- [ ] scripts/meta-check.mjs: also sweep Spanish URLs for English titles/descriptions — all clean
+- [ ] Full-flow Spanish walk-through in Chrome: /es → wall → plan → compare → traps → remind, no English outside lang=en — script + screenshots
+- [ ] docs/STATUS.md refresh (Spanish everywhere, Dallas fixes, scores, spend) for the planner
+- [ ] SCRIPT.md: optional 10-second Spanish beat (tap Español on the results, one line) — timed, total ≤ 5:30

@@ -139,7 +139,7 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons,
             </div>
             <div className="mt-3">
               <MyMonths start={mine ?? yearFor(kwh, seasons, area)} active={!!mine}
-                onUse={(m) => { setMine(m); setKwh(Math.max(200, Math.min(3000, average(m)))); }} onClear={() => setMine(null)} />
+                onUse={(m) => { setMine(m); setKwh(Math.max(200, Math.min(3000, average(m)))); }} onClear={() => setMine(null)} lang={lang} />
             </div>
             <ol className="mt-4 space-y-2">
               {ranked.slice(0, 8).map((r, i) => (
@@ -168,7 +168,7 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons,
             <p className="mt-3 text-xs text-ink-2">{w.rankNote(notRanked)}</p>
           </div>
 
-          {ranked.length > 0 && <CurrentPlan plans={plans} best={ranked[0]} includeConditional={withConditional} kwh={kwh} seasons={seasons} qs={qs} mine={!!mine} city={AREAS[area].city} />}
+          {ranked.length > 0 && <CurrentPlan plans={plans} best={ranked[0]} includeConditional={withConditional} kwh={kwh} seasons={seasons} qs={qs} mine={!!mine} city={AREAS[area].city} lang={lang} />}
 
           <JudgeQr />
         </section>

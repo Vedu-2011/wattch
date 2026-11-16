@@ -33,3 +33,12 @@ describe("should I switch? (early termination fee math)", () => {
     expect(switchLine(m, 0)).toContain("leaving costs nothing");
   });
 });
+
+describe("Spanish switch answer", () => {
+  it("same verdicts, same numbers, in Spanish", async () => {
+    const { switchLine } = await import("./switching");
+    const m = { verdict: "switch", fee: 150, extraPerYear: 378, perMonth: 31.5, paybackMonths: 5 } as Parameters<typeof switchLine>[0];
+    expect(switchLine(m, 8, "es")).toBe("Estás pagando $378 más al año. Salirte cuesta $150, y el ahorro lo paga en 5 meses, antes de los 8 meses que te quedan. Cámbiate ya.");
+    expect(switchLine({ ...m, verdict: "wait" }, 3, "es")).toContain("Espera a que termine tu contrato");
+  });
+});

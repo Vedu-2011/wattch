@@ -17,7 +17,7 @@ describe("your own 12 months", () => {
   });
   it("says what's wrong in plain words", () => {
     expect(parseMonths("")).toEqual({ error: "Type 12 numbers, one for each month's kWh." });
-    expect(parseMonths("100 200 300")).toEqual({ error: "That's 3 numbers. I need 12, January to December." });
+    expect(parseMonths("100 200 300")).toEqual({ error: "That's 3 numbers. It takes 12, January to December." });
     expect(parseMonths("1 2 3 4 5 6 7 8 9 10 11 99999")).toHaveProperty("error");
   });
   it("round-trips through the URL", () => {

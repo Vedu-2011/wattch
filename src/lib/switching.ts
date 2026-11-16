@@ -32,8 +32,16 @@ export function switchMath(currentAnnual: number, bestAnnual: number, current: P
 }
 
 /** One plain sentence for the result. */
-export function switchLine(m: SwitchMath, monthsLeft: number): string {
+export function switchLine(m: SwitchMath, monthsLeft: number, lang: "en" | "es" = "en"): string {
   const usd = (n: number) => `$${Math.round(n).toLocaleString("en-US")}`;
+  if (lang === "es") {
+    const mes = (n: number) => (n === 1 ? "1 mes" : `${n} meses`);
+    if (m.verdict === "stay") return "Tu plan ya cuesta lo mismo o menos que el mejor que encontramos con tu consumo. Quédate como estás.";
+    if (m.fee === 0) return `Estás pagando ${usd(m.extraPerYear)} más al año que con tu mejor plan, y salirte no cuesta nada. Cámbiate.`;
+    if (m.verdict === "switch")
+      return `Estás pagando ${usd(m.extraPerYear)} más al año. Salirte cuesta ${usd(m.fee)}, y el ahorro lo paga en ${mes(m.paybackMonths!)}, antes de los ${mes(monthsLeft)} que te quedan. Cámbiate ya.`;
+    return `Estás pagando ${usd(m.extraPerYear)} más al año, pero salirte cuesta ${usd(m.fee)}, más que los ${usd(m.perMonth * monthsLeft)} que ahorrarías en tus últimos ${mes(monthsLeft)}. Espera a que termine tu contrato y luego cámbiate.`;
+  }
   const mo = (n: number) => (n === 1 ? "1 month" : `${n} months`);
   if (m.verdict === "stay") return "Your plan already costs the same or less than the best one we found at your usage. Stay put.";
   if (m.fee === 0) return `You're paying ${usd(m.extraPerYear)} a year more than your best plan, and leaving costs nothing. Switch.`;
