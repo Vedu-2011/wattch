@@ -80,3 +80,4 @@
 - 2026-11-16 01:50 PT · Codex review 8 · DONE (0f897c9). 1 P2, false positive (share text already per-area, tested); hardened ShareButton anyway. $0.
 - 2026-11-16 01:52 PT · J4 Spanish /how · DONE (3a7f485). Also: last-read box was Houston-only without saying so → per area. /how now dynamic (was static). 189 tests, axe 0 on 22. $0.
 - 2026-11-16 01:54 PT · J5 Spanish 404/error · DONE (d31be4b). 190 tests. $0.
+- 2026-11-16 01:54 PT · J6 /api/live Spanish · DONE (6b7f31b). 191 tests. $0.

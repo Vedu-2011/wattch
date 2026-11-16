@@ -4,6 +4,7 @@ const plural = (n: number, one: string, many: string) => (n === 1 ? one : many);
 export const COMPARE_WORDS = {
   en: {
     title: "Wattch — compare two plans",
+    desc: "Two electricity plans side by side: what each really costs at your usage, month by month, from their own fine print.",
     pickTitle: "Pick two plans to compare",
     pickBody: "One of these plans isn't in Wattch's list, or its fine print couldn't be read. Pick plans from the ranking.",
     back: "Back to all plans",
@@ -37,6 +38,7 @@ export const COMPARE_WORDS = {
   },
   es: {
     title: "Wattch — compara dos planes",
+    desc: "Dos planes de luz lado a lado: lo que de verdad cuesta cada uno con tu consumo, mes por mes, según su letra pequeña.",
     pickTitle: "Escoge dos planes para comparar",
     pickBody: "Uno de estos planes no está en la lista de Wattch, o no se pudo leer su letra pequeña. Escoge planes de la lista.",
     back: "Volver a todos los planes",

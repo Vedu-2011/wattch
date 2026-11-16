@@ -13,7 +13,8 @@ import { whyLine, yearFor } from "@/lib/rank";
 const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
 
 export async function generateMetadata({ searchParams }: PageProps<"/compare">): Promise<Metadata> {
-  return { title: COMPARE_WORDS[asLang(one((await searchParams).lang))].title };
+  const t = COMPARE_WORDS[asLang(one((await searchParams).lang))];
+  return { title: t.title, description: t.desc };
 }
 /** Reads ?a= &b= &kwh= from the URL, so it renders per request. */
 export const instant = false;
