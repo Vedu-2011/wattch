@@ -36,4 +36,17 @@ for (const u of ["/", "/es"]) {
   console.log(ok ? "ok     " : "ONE AREA", u, ok ? "" : "\n   " + d);
   bad += ok ? 0 : 1;
 }
+// robots keeps the scripted walk-through and the APIs out; the sitemap must be valid XML (a raw "&" breaks the whole file)
+{
+  const robots = await page("/robots.txt");
+  const ok = /Disallow: \/demo\b/.test(robots) && /Disallow: \/api\//.test(robots) && /Sitemap: https:\/\//.test(robots);
+  console.log(ok ? "ok     " : "ROBOTS ", "/robots.txt");
+  bad += ok ? 0 : 1;
+  const xml = await page("/sitemap.xml");
+  const raw = xml.match(/&(?!amp;|lt;|gt;|quot;|apos;)/g)?.length ?? 0;
+  const urls = xml.match(/<url>/g)?.length ?? 0, es = xml.match(/hreflang="es"/g)?.length ?? 0;
+  const ok2 = raw === 0 && urls > 300 && es === urls && /area=dallas/.test(xml);
+  console.log(ok2 ? "ok     " : "SITEMAP", `/sitemap.xml (${urls} urls, ${es} Spanish twins, ${raw} raw &)`);
+  bad += ok2 ? 0 : 1;
+}
 process.exit(bad ? 1 : 0);

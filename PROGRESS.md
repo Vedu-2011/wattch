@@ -131,3 +131,5 @@
 - 2026-11-16 02:53 PT · P6 JUDGE-QA Q19 now names the all-plans numbers test; test counts 202→206 in DECK + JUDGE-QA. $0.
 - 2026-11-16 02:53 PT · P7 DEVPOST: sitemap/hreflang left out on purpose (not judged, DEVPOST already long). Fixed there: 164→206 tests, axe 17→23 pages. $0.
 - 2026-11-16 02:55 PT · O9 Codex review 12 (base 6fddf45 → Codex 11 fixes, sitemap/robots, remind file name): no findings. $0.
+- 2026-11-16 02:59 PT · P1 Spanish compare + phone table fix · DONE (1d9e486). $0.
+- 2026-11-16 02:59 PT · P2 meta-check now also checks robots.txt (disallows /demo + /api, has sitemap) and sitemap.xml (no raw &, >300 urls, every url has a Spanish twin, Dallas present). Passes; regex flags the old bug. $0.
