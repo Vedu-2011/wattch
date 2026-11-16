@@ -224,4 +224,16 @@
 - [x] V7 SCRIPT scene 11 optional line: 'a plan link shows that plan' (+5 s) — only if under cap
 - [x] V8 STATUS.md: add U batch (previews, check-all, standing test)
 - [x] V9 widths.mjs: add /compare Dallas pair + own-months URL
-- [ ] V10 Codex review 18 after V batch
+- [x] V10 Codex review 18 after V batch
+
+## W batch (added 03:56, night 2)
+- [ ] W1 Gallery: regenerate docs/gallery images if any page they show changed tonight (compare table/chart, tiles) — compare before/after
+- [x] W2 Demo (/demo): still matches results after tonight (numbers + steps), 1920 screen
+- [x] W3 Wall: 'Compare with #1' links carry own months + filters (open one, check compare uses same months)
+- [ ] W4 Plan page at 1920: the new preview doesn't change page; screenshot for deck (Simple Saver 3)
+- [x] W5 Keyboard: Print button on compare reachable + has visible focus
+- [x] W6 i18n parity test covers the new card words (W.en vs W.es keys)
+- [x] W7 JUDGE-QA Q21 number check: #74/154/$378 still true after any data refresh (none tonight) — log
+- [ ] W8 check-all on 1440 only? no — confirm runtime < 3 min; log
+- [ ] W9 README: link-preview feature one line
+- [ ] W10 Codex review 19 after W batch

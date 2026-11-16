@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { CARD_WORDS as W } from "@/lib/cardWords";
 import { compareYear } from "@/lib/compare";
 import { areaOf, clientPlans, planById } from "@/lib/plans/data";
 import { anyFilter, filterOpts, parseWallParams } from "@/lib/params";
@@ -6,14 +7,6 @@ import { AREAS } from "@/lib/plans/ptc";
 import { reveal, standing, whyLine, yearFor } from "@/lib/rank";
 import { providerTitle } from "@/lib/names";
 
-const W = {
-  en: { mine: "My own 12 months", perMonth: (k: string) => `${k} kWh a month`, filtered: " · filtered", more: "more a year on the plan the state site lists first.", best: "My best plan", my1: (n: string, d: string) => `My #1: ${n} · ${d}/yr`,
-    advertised: (c: number) => `Advertised at ${c}¢ — really`, perYear: "/yr", rankOf: (i: number, n: number) => `#${i} of ${n} plans for this home`, vsBest: (d: string) => `${d} a year more than the best plan`, isBest: "The cheapest plan for this home", nearBest: "about the same as the best plan",
-    saves: (d: string) => `saves ${d} a year`, sameCost: "Same yearly cost", over: (n: string) => `over ${n}` },
-  es: { mine: "Mis propios 12 meses", perMonth: (k: string) => `${k} kWh al mes`, filtered: " · con filtros", more: "más al año con el plan que el sitio del estado pone primero.", best: "Mi mejor plan", my1: (n: string, d: string) => `Mi #1: ${n} · ${d}/año`,
-    advertised: (c: number) => `Anunciado a ${c}¢ — en realidad`, perYear: "/año", rankOf: (i: number, n: number) => `#${i} de ${n} planes para este hogar`, vsBest: (d: string) => `${d} al año más que el mejor plan`, isBest: "El plan más barato para este hogar", nearBest: "casi lo mismo que el mejor plan",
-    saves: (d: string) => `ahorra ${d} al año`, sameCost: "El mismo costo al año", over: (n: string) => `frente a ${n}` },
-} as const;
 
 const money = (n: number) => n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
 
