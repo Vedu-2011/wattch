@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { RESULT_KEYS, filterOpts, parseWallParams } from "./params";
+import { RESULT_KEYS, billQs, filterOpts, parseWallParams } from "./params";
 
 const from = (q: string) => { const u = new URLSearchParams(q); return parseWallParams((k) => u.get(k)); };
 
@@ -25,5 +25,24 @@ describe("reading a shared result from the URL", () => {
     expect(p.kwh).toBe(1100);
     expect(p.months).toBeNull();
     expect(p.filters.locked).toBe(false);
+  });
+});
+
+describe("billQs carries every bill setting between pages", () => {
+  it("round-trips through parseWallParams", () => {
+    const months = [900, 800, 850, 900, 1100, 1400, 1500, 1600, 1300, 1000, 850, 800];
+    for (const o of [
+      { kwh: 1100, seasons: true, months: null, withConditional: true },
+      { kwh: 700, seasons: false, months: null, withConditional: false },
+      { kwh: 1100, seasons: true, months, withConditional: false },
+    ]) {
+      const u = new URLSearchParams(billQs(o));
+      const back = parseWallParams((k) => u.get(k));
+      expect({ kwh: back.kwh, seasons: back.seasons, months: back.months, withConditional: back.withConditional }).toEqual(o);
+    }
+  });
+  it("only adds noauto when discounts are off", () => {
+    expect(billQs({ kwh: 1100, seasons: true })).toBe("kwh=1100");
+    expect(billQs({ kwh: 1100, seasons: true, withConditional: false })).toBe("kwh=1100&noauto=1");
   });
 });

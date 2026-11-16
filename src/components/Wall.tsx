@@ -6,7 +6,7 @@ import { CurrentPlan } from "@/components/CurrentPlan";
 import { JudgeQr } from "@/components/JudgeQr";
 import { MyMonths } from "@/components/MyMonths";
 import { average, monthsToParam } from "@/lib/months";
-import { FILTER_KEYS, NO_FILTERS, type WallFilters, anyFilter, filterOpts as toOpts } from "@/lib/params";
+import { FILTER_KEYS, NO_FILTERS, type WallFilters, anyFilter, billQs, filterOpts as toOpts } from "@/lib/params";
 import { CountUp } from "@/components/CountUp";
 import { ShareButton } from "@/components/ShareButton";
 import { YearBars } from "@/components/YearBars";
@@ -50,8 +50,9 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons,
   const [seasons, setSeasons] = useState(initialSeasons);
   // your own 12 months, when you've typed them in; otherwise an average spread by Houston seasons
   const [mine, setMine] = useState<number[] | null>(initialMonths);
-  const qs = `kwh=${kwh}${seasons ? "" : "&flat=1"}${mine ? `&m=${monthsToParam(mine)}` : ""}`;
   const [withConditional, setWithConditional] = useState(initialConditional);
+  // carried into every plan / compare link so those pages price bills the same way as this ranking
+  const qs = billQs({ kwh, seasons, months: mine, withConditional });
   const [f, setF] = useState<WallFilters>(initialFilters);
   const filterOpts = useMemo(() => toOpts(f), [f]);
   const filtered = anyFilter(f);

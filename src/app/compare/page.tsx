@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { compareYear } from "@/lib/compare";
-import { monthsFromParam, monthsToParam } from "@/lib/months";
+import { monthsFromParam } from "@/lib/months";
+import { billQs } from "@/lib/params";
 import { planById } from "@/lib/plans/data";
 import type { PlanRecord } from "@/lib/plans/schema";
 import { whyLine, yearFor } from "@/lib/rank";
@@ -23,7 +24,8 @@ export default async function Compare({ searchParams }: PageProps<"/compare">) {
   const seasons = one(sp.flat) !== "1";
   const mine = monthsFromParam(one(sp.m));
   const months = mine ?? yearFor(kwh, seasons);
-  const qs = `kwh=${kwh}${seasons ? "" : "&flat=1"}${mine ? `&m=${monthsToParam(mine)}` : ""}`;
+  const withConditional = one(sp.noauto) !== "1";
+  const qs = billQs({ kwh, seasons, months: mine, withConditional });
 
   if (!a?.pricing || !b?.pricing) {
     return (
@@ -34,7 +36,7 @@ export default async function Compare({ searchParams }: PageProps<"/compare">) {
       </div>
     );
   }
-  const c = compareYear(a.pricing, b.pricing, months);
+  const c = compareYear(a.pricing, b.pricing, months, { includeConditional: withConditional });
   const max = Math.max(...c.rows.flatMap((r) => [r.a, r.b]), 1);
   const cheaper = c.diff > 0 ? a : c.diff < 0 ? b : null;
   return (

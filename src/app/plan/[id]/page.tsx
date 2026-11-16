@@ -9,7 +9,8 @@ import { YearBars } from "@/components/YearBars";
 import { annualCost, billLines, monthlyBill } from "@/lib/bill";
 import { whyLine, yearFor } from "@/lib/rank";
 import { belongs, labelSegments } from "@/lib/finePrint";
-import { monthsFromParam, monthsToParam } from "@/lib/months";
+import { monthsFromParam } from "@/lib/months";
+import { billQs } from "@/lib/params";
 import { labelText, planById } from "@/lib/plans/data";
 
 /** Reads ?kwh= from the URL, so it renders per request. */
@@ -38,10 +39,12 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
   const p = rec.pricing;
   const mine = monthsFromParam(Array.isArray(sp.m) ? sp.m[0] : sp.m);
   const months = mine ?? yearFor(kwh, seasons);
-  const year = p ? annualCost(p, months) : 0;
+  const withConditional = (Array.isArray(sp.noauto) ? sp.noauto[0] : sp.noauto) !== "1";
+  const opts = { includeConditional: withConditional };
+  const year = p ? annualCost(p, months, opts) : 0;
   const why = p ? whyLine(p, months) : null;
   const line = p?.credits.filter((c) => !c.conditional && c.minKwh > 0).sort((a, b) => b.dollars - a.dollars)[0]?.minKwh;
-  const back = `kwh=${kwh}${seasons ? "" : "&flat=1"}${mine ? `&m=${monthsToParam(mine)}` : ""}`;
+  const back = billQs({ kwh, seasons, months: mine, withConditional });
   const text = p ? labelText(id) : null;
   const fp = p && text ? labelSegments(text, p, { tduFilled: rec.check.tduFilled }) : null;
   const marks = fp ? fp.segments.filter((x) => x.key).length : 0;
@@ -87,13 +90,13 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
           <section className="rounded-3xl bg-card p-5 shadow-[var(--shadow-soft)]">
             <h2 className="text-lg font-bold">Your bill at <span className="num">{kwh.toLocaleString()}</span> kWh</h2>
             <ul className="num mt-3 space-y-1 text-sm">
-              {billLines(p, kwh).map((l, i) => (
+              {billLines(p, kwh, opts).map((l, i) => (
                 <HoverKey key={i} k={l.key} found={found(l.key)} className="-mx-1.5 flex justify-between gap-3 px-1.5 py-0.5">
                   <span className="font-sans">{l.label}{found(l.key) ? <span aria-hidden className="ml-1.5 inline-block h-1.5 w-1.5 -translate-y-0.5 rounded-full bg-volt" /> : null}</span>
                   <span className={`whitespace-nowrap ${l.dollars < 0 ? "text-good" : ""}`}>{l.dollars < 0 ? "−" : ""}${Math.abs(l.dollars).toFixed(2)}</span>
                 </HoverKey>
               ))}
-              <li className="mt-2 flex justify-between rounded-xl bg-paper px-2 py-1.5 text-base font-semibold"><span className="font-sans">Total</span><span>${monthlyBill(p, kwh).toFixed(2)}</span></li>
+              <li className="mt-2 flex justify-between rounded-xl bg-paper px-2 py-1.5 text-base font-semibold"><span className="font-sans">Total</span><span>${monthlyBill(p, kwh, opts).toFixed(2)}</span></li>
             </ul>
           </section>
         )}
@@ -129,7 +132,7 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
               : seasons
               ? `Averaging ${kwh.toLocaleString()} kWh, shaped like a real Houston year (more in summer, less in winter and spring).`
               : `${kwh.toLocaleString()} kWh every month.`}{" "}
-            <Link className="underline underline-offset-4" href={`/plan/${id}?kwh=${kwh}${seasons ? "&flat=1" : ""}`}>{seasons ? "Show same usage every month" : "Use Houston seasons"}</Link>
+            <Link className="underline underline-offset-4" href={`/plan/${id}?${billQs({ kwh, seasons: !seasons, withConditional })}`}>{seasons ? "Show same usage every month" : "Use Houston seasons"}</Link>
           </p>
           {why && <p className="mt-3 text-lg font-semibold"><span className="text-volt">Why?</span> {why}</p>}
           <div className="mt-4"><YearBars months={months} line={line} lineLabel={line ? `credit needs ${line.toLocaleString()} kWh` : undefined} dark /></div>

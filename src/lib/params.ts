@@ -1,4 +1,4 @@
-import { monthsFromParam } from "@/lib/months";
+import { monthsFromParam, monthsToParam } from "@/lib/months";
 import type { RankOpts } from "@/lib/rank";
 
 export type WallFilters = { locked: boolean; noCliffs: boolean; green: boolean; rated: boolean };
@@ -20,6 +20,14 @@ export function parseWallParams(get: (key: string) => string | null | undefined)
     /** "Count autopay discounts" — on unless ?noauto=1 */
     withConditional: get("noauto") !== "1",
   };
+}
+
+/**
+ * The query string that carries a result's bill settings to the plan, compare and wall pages
+ * (usage, seasons, your own months, autopay discounts). One builder so no page drops a setting.
+ */
+export function billQs(o: { kwh: number; seasons: boolean; months?: number[] | null; withConditional?: boolean }): string {
+  return `kwh=${o.kwh}${o.seasons ? "" : "&flat=1"}${o.months ? `&m=${monthsToParam(o.months)}` : ""}${o.withConditional === false ? "&noauto=1" : ""}`;
 }
 
 /** Every URL key a shared result depends on (share link, share card, og:image). */
