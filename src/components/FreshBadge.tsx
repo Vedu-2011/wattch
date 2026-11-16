@@ -16,9 +16,10 @@ export function FreshBadge({ counts }: { counts: { houston: BadgeCounts; dallas:
 export function Badge({ c, lang = "en" }: { c: BadgeCounts; lang?: "en" | "es" }) {
   const es = lang === "es";
   return (
-    <Link href="/how" lang={lang} className="inline-flex max-w-full items-center gap-2 rounded-full bg-good-2 px-3 py-1 text-xs font-medium text-ink hover:brightness-95">
+    <Link href="/how" lang={lang} className="inline-flex max-w-full items-center gap-2 rounded-full bg-good-2 px-3 py-1 text-xs font-medium text-ink hover:brightness-95 max-[359px]:min-h-10 max-[359px]:rounded-2xl">
       <span aria-hidden className="h-2 w-2 shrink-0 rounded-full bg-good" />
-      <span className="truncate">
+      {/* one line, cut with … — except on the smallest phones, where it wraps so "read 3 hours ago" isn't lost */}
+      <span className="truncate max-[359px]:whitespace-normal">
         <span className="num">{c.verified}</span> {es ? "de" : "of"} <span className="num">{c.total}</span> {es ? "etiquetas cuadran" : "labels check out"} ·{" "}
         <Fresh at={c.builtAt} prefix={es ? "leídas" : "read"} lang={lang} dateOnly />
       </span>

@@ -113,3 +113,4 @@
 - 2026-11-16 02:26 PT · M10 print shows date only · DONE (b2b35b9). $0.
 - 2026-11-16 02:28 PT · N1 Spanish loading screens · DONE (9ef598a). 202 tests. $0.
 - 2026-11-16 02:29 PT · N2 unknown plan status: still HTTP 200 (also for Googlebot) because the plan route streams behind loading.tsx; Next adds <meta name=robots content=noindex> to that page (checked; real plans have none), so search engines drop it. Real 404 would cost the loading screen or a proxy that loads every plan id — not worth it. Documented, no change. $0.
+- 2026-11-16 02:29 PT · N3 replay tiles: names clamp to 2 lines by design (line-clamp-2, visual only); each tile has title='Provider — Plan' and the full text stays in the DOM for screen readers. No change. $0.

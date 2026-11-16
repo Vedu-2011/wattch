@@ -79,6 +79,7 @@ python3 scripts/seasons.py data/sources/eia861m-texas.csv    # old statewide mod
 node scripts/axe.mjs            # accessibility check of every page (needs the app running on :3000)
 node scripts/meta-check.mjs     # Dallas URLs: no "Houston"; Spanish URLs: no English title/description (app on :3000)
 node scripts/es-walk.mjs        # clicks through the Spanish site at 375 + 1440, flags English lines (app on :3000)
+node scripts/widths.mjs         # every page EN + ES at 320 + 1920: no sideways scroll or cut-off text (app on :3000)
 node scripts/shots.mjs <folder> # screenshots at 375 / 1440 / 1920 (needs the dev server and Google Chrome)
 node scripts/gallery.mjs        # the 6 Devpost gallery images, 1920×1080, into docs/gallery (app on :3000)
 npx tsx scripts/rehash.ts       # free: re-download labels and fix stored hashes (no AI); lists labels that changed
