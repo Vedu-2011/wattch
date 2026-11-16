@@ -1,4 +1,5 @@
-import { type AreaHero, HomeHero } from "@/components/HomeHero";
+import { Suspense } from "react";
+import { type AreaHero, HomeHero, HomeHeroFromUrl } from "@/components/HomeHero";
 import { StickyCta } from "@/components/StickyCta";
 import { HEADLINE_KWH } from "@/lib/headline";
 import { heroStats } from "@/lib/hero";
@@ -17,9 +18,10 @@ export function HomeView({ lang }: { lang: Lang }) {
       date: new Date(info.builtAt).toLocaleDateString(lang === "es" ? "es-US" : "en-US", { month: "short", day: "numeric" }),
     };
   };
+  const heroes = { houston: heroFor("houston"), dallas: heroFor("dallas") };
   return (
     <div lang={lang} className="mx-auto max-w-6xl px-5 pt-10 sm:pt-16">
-      <HomeHero lang={lang} heroes={{ houston: heroFor("houston"), dallas: heroFor("dallas") }} />
+      <Suspense fallback={<HomeHero lang={lang} heroes={heroes} />}><HomeHeroFromUrl lang={lang} heroes={heroes} /></Suspense>
       <StickyCta label={w.stickyCta} />
     </div>
   );

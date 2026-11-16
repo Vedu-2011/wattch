@@ -102,7 +102,7 @@
 - [x] K9 JUDGE-QA: add Q on Spanish (why, how checked, what stays English and why: label text + AI notes)
 - [x] K10 docs/DEVPOST.md: one Spanish line in "what it does", verified against the live pages
 - [x] L1 Spanish /sources (?lang=es): headings + explanations translated, source titles/quotes stay as published (lang=en); nav "Fuentes" links with lang; add to es-walk + axe + meta-check
-- [ ] L2 LangSwitch keeps every result param (kwh, area, m, filters, a/b, autopay) when switching — test + live check
+- [x] L2 LangSwitch keeps every result param (kwh, area, m, filters, a/b, autopay) when switching — test + live check
 - [ ] L3 hreflang: each page declares its other-language twin (alternates.languages) so search engines pair them
 - [ ] L4 global-error.tsx (data file broken) in Spanish when the URL is Spanish — or document why it cannot (no hooks there)
 - [ ] L5 docs/DECK.md truth pass: Spanish + test counts + Lighthouse numbers vs. the code

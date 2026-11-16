@@ -11,13 +11,14 @@ export function LangSwitch() {
   const sp = useSearchParams();
   let href: string | null = null;
   let es = false;
-  if (path === "/") href = "/es";
-  else if (path === "/es") { href = "/"; es = true; }
+  const keep = sp.toString() ? `?${sp.toString()}` : ""; // home keeps ?area=dallas
+  if (path === "/") href = `/es${keep}`;
+  else if (path === "/es") { href = `/${keep}`; es = true; }
   else if (path === "/wall" || path === "/remind" || path === "/compare" || path === "/traps" || path === "/how" || path === "/sources" || path.startsWith("/plan/")) {
     es = sp.get("lang") === "es";
     const q = new URLSearchParams(sp.toString());
     if (es) q.delete("lang"); else q.set("lang", "es");
-    href = `${path}?${q.toString()}`;
+    href = q.size ? `${path}?${q.toString()}` : path;
   }
   if (!href) return null;
   return (

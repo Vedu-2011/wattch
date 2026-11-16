@@ -1,4 +1,5 @@
 "use client";
+import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { Kapi } from "@/components/Kapi";
 import { TrapCarousel } from "@/components/TrapCarousel";
@@ -11,8 +12,15 @@ import type { Area } from "@/lib/plans/ptc";
 export type AreaHero = { total: number; read: number; verified: number; withTrap: number; date: string; cards: TrapCard[] };
 
 /** Home hero: picking Dallas–Fort Worth in the form switches the badge, stats and trap examples too — no reload. */
-export function HomeHero({ lang, heroes }: { lang: Lang; heroes: Record<Area, AreaHero> }) {
-  const [area, setArea] = useState<Area>("houston");
+export function HomeHero({ lang, heroes, initial = "houston" }: { lang: Lang; heroes: Record<Area, AreaHero>; initial?: Area }) {
+  const [area, setAreaState] = useState<Area>(initial);
+  // keep the choice in the URL (?area=dallas), so the Español/English switch and a shared link keep it too
+  const setArea = (a: Area) => {
+    setAreaState(a);
+    const q = new URLSearchParams(window.location.search);
+    if (a === "dallas") q.set("area", "dallas"); else q.delete("area");
+    window.history.replaceState(null, "", `${window.location.pathname}${q.size ? `?${q}` : ""}`);
+  };
   const w = words(lang, area);
   const h = heroes[area];
   return (
@@ -36,6 +44,12 @@ export function HomeHero({ lang, heroes }: { lang: Lang; heroes: Record<Area, Ar
       </div>
     </div>
   );
+}
+
+/** Starts on the area in the URL (needs a Suspense boundary; HomeView gives it one with a Houston fallback). */
+export function HomeHeroFromUrl(props: { lang: Lang; heroes: Record<Area, AreaHero> }) {
+  const sp = useSearchParams();
+  return <HomeHero {...props} initial={sp.get("area") === "dallas" ? "dallas" : "houston"} />;
 }
 
 function Stat({ n, label, hot = false }: { n: number; label: string; hot?: boolean }) {
