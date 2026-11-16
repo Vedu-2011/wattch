@@ -24,7 +24,12 @@ wait. For future overnight nights: push once per batch, or turn off previews for
   "0 months"); "1 month under 1,000 kWh". A sweep over every word table found no other slips.
 - The plan page's bill chart labels are readable on phones (were ~5 px).
 - "Check this label again" says plainly when a provider's label file is really gone, instead of "try again".
-- Codex 28–31 clean on my code (31's only note is the swept-in .codex/ folder, see Known gaps). 236 tests.
+- Compare with the same plan twice says so plainly (was "cheaper in 0 months, X in 0").
+- Spanish plan pages of the 6 hand-read labels say "leída a mano por Claude Code" (was English).
+- Keyboard: the home page's kWh box shows focus; the results slider tells screen readers "1,100 kWh a month".
+- Checked, no change: README AI-tools list, reduced motion, 404/error pages EN/ES, compare prints on 1 sheet,
+  longest plan names fit cards and 320 px, sitemap has Dallas, /how Dallas numbers, calendar file format.
+- Codex 28–33 clean on my code (31's only note is the swept-in .codex/ folder, see Known gaps). 236 tests.
 
 ## Since 04:20 (BACKLOG AA–AC) — honest about what it can't price
 - **Variable, prepaid and not-verified plans** no longer get a firm yearly number anywhere: their plan page and any

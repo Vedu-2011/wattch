@@ -500,7 +500,7 @@
 - [x] AS6 Compare page still prints on 1 sheet (Share button row)
 - [x] AS7 Lint-like grep: no console.log left in src/
 - [x] AS8 No TODO/FIXME in src/ that a judge could see
-- [ ] AS9 STATUS line
+- [x] AS9 STATUS line
 - [x] AS10 Codex review 33 if code changed
 
 ## AT batch (added 05:14, night 2)
@@ -512,7 +512,7 @@
 - [x] AT6 Longest plan name page at 320: no overflow
 - [x] AT7 scripts/headline.ts matches the demo numbers ($378/#74, $530/#91)
 - [x] AT8 Fix anything found + tests
-- [ ] AT9 STATUS line
+- [x] AT9 STATUS line
 - [x] AT10 Codex review 33 if code changed
 
 ## AU batch (added 05:19, night 2)
@@ -524,5 +524,17 @@
 - [x] AU6 Keyboard focus ring visible on Share/Print buttons
 - [x] AU7 Long Spanish sentences (> 35 words) in word tables: split if any
 - [x] AU8 Fix anything found + tests
-- [ ] AU9 STATUS line
-- [ ] AU10 Codex review 34 if code changed
+- [x] AU9 STATUS line
+- [x] AU10 Codex review 34 if code changed
+
+## AV batch (added 05:24, night 2)
+- [x] AV1 Crawl: every internal link from home, /wall, /how, /sources, /traps, /remind, /demo (EN + ES, Houston + Dallas) answers 200
+- [x] AV2 'Check this label again': button disabled + 'Checking…' while it runs (EN/ES)
+- [x] AV3 My 12 months form: all blanks / zeros → friendly message, no NaN
+- [x] AV4 Remind: a date in the past → friendly message
+- [x] AV5 Trap guide example links all open the right plan
+- [x] AV6 Plan page at 1920: heading and bill box line lengths sane
+- [x] AV7 Compare picker on phones: can find a plan by name
+- [x] AV8 Fix anything found + tests
+- [ ] AV9 STATUS line
+- [x] AV10 Codex review 35 if code changed
