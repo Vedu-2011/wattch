@@ -243,9 +243,9 @@
 - [ ] X2 Plan page: 'Share' button? plan pages have no share button — decide (cheap: reuse ShareButton with plan text) + log
 - [ ] X3 Compare page: share button too? (same decision)
 - [ ] X4 /how: mention 'every number on a share card comes from the same code' only if true + short
-- [ ] X5 Card route: Dallas plan ids with ?area=houston on the card URL itself (not via page) → falls back? decide
-- [ ] X6 Remove the duplicate cache-header literal if any remains; grep 'max-age' across src
-- [ ] X7 es-walk: add a Dallas compare stop
-- [ ] X8 axe: add /compare Dallas + own-months wall pages (like widths)
+- [x] X5 Card route: Dallas plan ids with ?area=houston on the card URL itself (not via page) → falls back? decide
+- [x] X6 Remove the duplicate cache-header literal if any remains; grep 'max-age' across src
+- [x] X7 es-walk: add a Dallas compare stop
+- [x] X8 axe: add /compare Dallas + own-months wall pages (like widths)
 - [ ] X9 PROGRESS: tidy nothing (append-only) — instead write morning 'how to review' list for Vedhanth in STATUS (5 bullets, plain words)
 - [ ] X10 Codex review 20 after X batch

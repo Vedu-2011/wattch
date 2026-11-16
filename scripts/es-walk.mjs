@@ -37,6 +37,7 @@ for (const width of [375, 1440]) {
   await pg.goto(`${BASE}/wall?kwh=1100&lang=es`); await check("2-wall");
   await pg.locator('main a[href^="/plan/"]').first().click(); await pg.waitForURL(/\/plan\//); await check("3-plan");
   await pg.goto(`${BASE}/compare?a=37797&b=33633&kwh=1100&lang=es`); await check("4-compare");
+  await pg.goto(`${BASE}/compare?a=17283&b=33631&kwh=1100&lang=es`); await check("4b-compare-dallas");
   await pg.goto(`${BASE}/traps?lang=es`); await check("5-traps");
   await pg.goto(`${BASE}/remind?lang=es`); await check("6-remind");
   await pg.goto(`${BASE}/how?lang=es`); await check("7-how");

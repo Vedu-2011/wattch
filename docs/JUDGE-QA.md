@@ -104,7 +104,7 @@ actually printed. Honest limit: an AI tool wrote the translations and a native s
 
 **20. What did you check that a normal user never sees?**
 Every page at a 320-pixel phone and a 1920 projector (a script fails if anything sticks out), keyboard-only use, screen
-readers (axe finds 0 issues on 23 pages, and Spanish pages don't read English labels aloud), printing (plan and compare
+readers (axe finds 0 issues on 25 pages, and Spanish pages don't read English labels aloud), printing (plan and compare
 pages fit one sheet), and shared links (each page's preview card is in its own language and city). Checking these
 found real bugs, for example the compare table hiding the second plan on phones and the sitemap being invalid XML.
 

@@ -1,5 +1,5 @@
 // Every page check in one go (needs the app running: `npm run build && npx next start -p 3000`).
-// axe (accessibility, 23 pages), es-walk (Spanish click-through + screen-reader labels), widths (320 + 1920 overflow),
+// axe (accessibility, 25 pages), es-walk (Spanish click-through + screen-reader labels), widths (320 + 1920 overflow),
 // meta-check (titles, descriptions, preview cards, sitemap, robots). Prints one line per check; exits 1 if any fails.
 // Usage: node scripts/check-all.mjs   (BASE=https://… to check a deployed copy)
 import { spawnSync } from "node:child_process";
