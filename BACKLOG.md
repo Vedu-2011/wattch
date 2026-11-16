@@ -838,3 +838,15 @@
 - [x] BU8 STATUS line
 - [x] BU9 PROGRESS line
 - [x] BU10 Codex if code changed
+
+## BV batch (added 06:39, night 2) — one rule for 'can this label be re-checked?'
+- [x] BV1 canRecheck(rec) helper in src/lib (read + has a fingerprint)
+- [x] BV2 Plan page and /api/live both use it
+- [x] BV3 Test: every unread plan in both areas → false; every verified → true
+- [x] BV4 Full verify
+- [ ] BV5 Codex review
+- [x] BV6 PROGRESS line
+- [x] BV7 STATUS line
+- [x] BV8 Handoff test count
+- [x] BV9 Docs test count
+- [x] BV10 check-all

@@ -43,7 +43,9 @@ wait. For future overnight nights: push once per batch, or turn off previews for
 - **Search** "find your current plan" ignores accents ("energia" finds "Energía").
 - **Live re-check** says plainly when a provider's label file is really gone.
 - **Plans Wattch never read** no longer show "Check this label again now" (it would have said "this label changed since
-  Wattch read it", which is false, and could spend a paid read); /api/live answers plainly for them too. Test added.
+  Wattch read it", which is false, and could spend a paid read); /api/live answers plainly for them too. One rule
+  (src/lib/plans/recheck.ts) for both, tested on every plan. Its test caught my first version also hiding the button on 2
+  hand-read Houston labels (no stored fingerprint, e.g. 17330) for ~5 minutes; fixed.
 
 **Checked, nothing to fix**
 - All 344 Spanish plan pages scanned for leftover English: clean. 84 internal links all open (EN/ES/Dallas).
@@ -61,7 +63,7 @@ wait. For future overnight nights: push once per batch, or turn off previews for
 
 **New checks that stay:** src/lib/dataSanity.test.ts, search.test.ts, tolerance.words.test.ts, sitemap duplicates,
 and scripts/link-names.mjs in check-all (same-name links, heading levels, <html lang> on 19 pages).
-**Quality:** 256 tests · lint + build clean · check-all (5 checks) PASS · Codex 28–45 clean or fixed.
+**Quality:** 258 tests · lint + build clean · check-all (5 checks) PASS · Codex 28–45 clean or fixed.
 
 **For the planner**
 - A month typed as 0 kWh → −$0.10 (Houston) / −$0.94 (Dallas) on plans whose $5 autopay discount beats the delivery
@@ -104,7 +106,7 @@ and scripts/link-names.mjs in check-all (same-name links, heading levels, <html 
   Houston; months URL comment had the wrong format.
 - **`node scripts/check-all.mjs`** runs axe + Spanish walk + widths (40 pages × sizes) + meta-check in ~2 min.
 - **Codex 14–17:** 3 real P2s fixed (compare test, preview settings, "cheapest" label), 17 clean.
-- **Quality now:** 256 tests · lint + build clean · axe 0 on 25 pages · check-all PASS.
+- **Quality now:** 258 tests · lint + build clean · axe 0 on 25 pages · check-all PASS.
 
 ## Since 01:57 (BACKLOG K–R) — polish, found by checking
 - **Spanish before JavaScript:** Spanish pages used to send English loading text and `lang="en"` in their first HTML

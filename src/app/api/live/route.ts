@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { planById } from "@/lib/plans/data";
 import { fetchEfl, plainLabelUrl } from "@/lib/reader/fetchEfl";
 import { ptcAveragesOnLabel } from "@/lib/reader/templates";
+import { canRecheck } from "@/lib/plans/recheck";
 
 export const maxDuration = 60;
 
@@ -25,8 +26,8 @@ export async function GET(req: Request) {
   const m = MSG[sp.get("lang") === "es" ? "es" : "en"];
   const rec = planById(id);
   if (!rec) return NextResponse.json({ ok: false, message: m.unknown }, { status: 404 });
-  // never read (no fingerprint): "it changed since Wattch read it" would be false, and opening it can cost a paid read
-  if (rec.check.status === "unread" || !rec.read.sha256) return NextResponse.json({ ok: false, message: m.unread });
+  // never read: "it changed since Wattch read it" would be false, and opening it can cost a paid read
+  if (!canRecheck(rec)) return NextResponse.json({ ok: false, message: m.unread });
   try {
     const f = await fetchEfl(rec.meta.eflUrl, { anakinKey: process.env.ANAKIN_API_KEY, timeoutMs: 15000 });
     const same = f.sha256 === rec.read.sha256;
