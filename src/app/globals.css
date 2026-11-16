@@ -60,13 +60,15 @@ body { font-family: var(--font-body), system-ui, sans-serif; }
 .walk { animation: walk 360ms ease-in-out infinite; transform-origin: 50% 90%; }
 /* the ✓ stamp lands on a tile just after it flips */
 @keyframes stamp { 0% { transform: scale(2.2) rotate(-18deg); opacity: 0 } 60% { transform: scale(.9) rotate(4deg); opacity: 1 } 100% { transform: scale(1) rotate(0); opacity: 1 } }
+@keyframes shimmer { 0%,100% { opacity: 1 } 50% { opacity: .55 } }
+.skeleton { animation: shimmer 1.4s ease-in-out infinite; }
 @keyframes demo-bar { from { width: 0 } to { width: 100% } }
 .demo-bar { animation: demo-bar linear both; }
 .stamp { animation: stamp 380ms 420ms cubic-bezier(.2,.8,.2,1) both; }
 
 @media (prefers-reduced-motion: reduce) {
   .flip-inner { transition: none; }
-  .scanline, .pop, .fade-in, .walk, .stamp { animation: none; }
+  .scanline, .pop, .fade-in, .walk, .stamp, .skeleton { animation: none; }
 }
 
 input[type="range"] { accent-color: var(--ink); }
