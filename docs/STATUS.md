@@ -10,6 +10,12 @@ main, NOT merged — waits for Vedhanth's "merge") · Repo: github.com/Vedu-2011
 4. Pick **Dallas–Fort Worth** on the home page → the numbers say Dallas, never Houston.
 5. Say **"merge"** to the planner only after this list looks right.
 
+Preview link: https://wattch-git-overnight-vedhanth.vercel.app (sign in to Vercel first; it's protected). **Heads-up:**
+Vercel stopped building previews after ~04:10 PT ("build rate limit" — too many pushes tonight on the free plan). The
+newest preview that built is commit 85e52e2, which already has everything in steps 1–4. Newer commits only add small
+checks and docs. The limit resets on its own; the next push after that builds the latest. Leave space before "merge"
+so production can build.
+
 ## Since 04:00 (BACKLOG W + X)
 - **Share button** on plan and compare pages (next to Print). The button itself says "Link copied".
 - **Dates in Texas time:** the home badge and the results "read on" time no longer follow the viewer's own clock.
