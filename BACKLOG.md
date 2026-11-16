@@ -157,9 +157,9 @@
 ## Q batch (added 03:01, night 2)
 - [x] Q1 Compare page: on the Spanish compare, check the bar chart month labels + legend at 320 (screens)
 - [x] Q2 Wall at 320 with every filter on, EN + ES: chips + sticky CTA don't cover the answer
-- [ ] Q3 Plan page print in Spanish after the compare-table change (still 1 page?)
-- [ ] Q4 Keyboard: Spanish /compare — tab order reaches both 'Leer su letra pequeña' links + the table region
-- [ ] Q5 Share text (Web Share / copy) for Dallas Spanish: names Dallas–Fort Worth, Spanish words
+- [x] Q3 Plan page print in Spanish after the compare-table change (still 1 page?)
+- [x] Q4 Keyboard: Spanish /compare — tab order reaches both 'Leer su letra pequeña' links + the table region
+- [x] Q5 Share text (Web Share / copy) for Dallas Spanish: names Dallas–Fort Worth, Spanish words
 - [x] Q6 /how?area=dallas&lang=es: the 'last read' box shows Dallas numbers (154 verified), not Houston
 - [x] Q7 tests: compare table — a test that both plans' monthly totals add up to the yearly totals shown
 - [x] Q8 README: AI tools list still complete (Claude Code, Codex, Claude Haiku, Anakin) — check vs code
