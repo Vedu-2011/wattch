@@ -57,9 +57,10 @@
 - [x] Free second chances for Dallas: make scripts/recheck.ts take --area and run it on the 2 Dallas mismatches + 26 unread ($0, no network) — counts before/after in PROGRESS
 - [x] /traps trap guide per area (?area=dallas): counts and examples from Oncor plans, Houston unchanged — screenshots
 - [x] Home: after picking Dallas–Fort Worth, the hero stats + trap carousel switch to Dallas numbers (no reload) — test that Houston home is unchanged
-- [ ] Metadata check: every page with ?area=dallas has no "Houston" in title/description/og text — test over all routes
+- [x] Metadata check: every page with ?area=dallas has no "Houston" in title/description/og text — test over all routes
 - [ ] Spanish for /remind and the bill-line sentences (es) — same code, axe 0 on the new Spanish pages
 - [ ] Lighthouse (mobile) on /remind, /how, /wall?area=dallas: a11y 100, perf ≥ 90 — fix anything under
 - [ ] Submission docs truth pass: DEVPOST/DECK/SCRIPT mention Dallas ($530, #84), reminder, bill explainer, refresh — every new number checked against scripts/headline.ts, [CHECK] marks kept
 - [ ] docs/STATUS.md refresh for the planner (tests, pages, Dallas, spend, Anakin quota, what is next)
 - [ ] When Anakin quota is back (check first, $0 if not): re-read the 26 Dallas unread with --redo-failed (paid ≤ $0.30, PAID-API LOCK) — stay under the $3 night cap
+- [ ] Spanish plan page (?lang=es): headings, label check, bill lines + explainBill sentences in Spanish, questions, year card; links from the Spanish wall carry lang — axe 0, no mixed-language section

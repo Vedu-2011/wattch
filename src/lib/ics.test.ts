@@ -45,3 +45,14 @@ describe("reminderIcs", () => {
     expect(soon).toContain("DTSTART;VALUE=DATE:20261117");
   });
 });
+
+describe("Spanish reminder", () => {
+  it("the calendar text and the error messages are in Spanish with ?lang=es", () => {
+    const ics = reminderIcs({ end: parseDay("2027-03-14")!, now, planName: "Simple Saver 3", lang: "es" }).replace(/\r\n /g, "");
+    expect(ics).toContain("SUMMARY:Busca un nuevo plan de luz — el tuyo termina el 14 de marzo de 2027");
+    expect(ics).toContain("Tu plan de luz (Simple Saver 3) termina el 14 de marzo de 2027");
+    expect(ics).toContain("DTSTART;VALUE=DATE:20270212");
+    expect(endDateProblem(parseDay("2020-01-01"), now, "es")).toMatch(/Ese día ya pasó/);
+    expect(endDateProblem(null, now, "es")).toMatch(/no parece una fecha/);
+  });
+});
