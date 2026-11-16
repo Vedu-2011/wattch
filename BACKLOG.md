@@ -332,7 +332,7 @@
 - [x] AE7 Compare page h1 focus after Compare link? (log only)
 - [x] AE8 Lighthouse / and /es after skip link (a11y 100)
 - [x] AE9 Wall filters: keyboard order sensible at 375 (Tab through 10 stops, log)
-- [ ] AE10 Codex review 26 after AE batch
+- [x] AE10 Codex review 26 after AE batch
 
 ## AF batch (added 04:33, night 2) — claim audit
 - [x] AF1 DEVPOST: every number (172/171/154/$378/#74/$530/#91/137/18 traps/7 kinds/$1.15/230 tests) vs headline.ts + app
@@ -344,7 +344,7 @@
 - [x] AF7 'seven kinds of traps' = trapGuide count both areas?
 - [x] AF8 '18 with a usage trap' (home) = hero withTrap Houston; Dallas value logged
 - [x] AF9 STATUS: claim audit result line
-- [ ] AF10 Codex review 26 (covers AE + AF)
+- [x] AF10 Codex review 26 (covers AE + AF)
 
 ## AG batch (added 04:34, night 2)
 - [x] AG1 Home page in Dallas mode: '14 with a usage trap' shown (matches audit)?
@@ -352,8 +352,20 @@
 - [x] AG3 DEVPOST mentions Dallas trap count? (only if a line already lists Houston's 18)
 - [x] AG4 Home carousel Dallas: 5 cards, no Houston plan names
 - [x] AG5 JUDGE-QA: 'what are the traps' question exists? add short Q22 if not
-- [ ] AG6 Plan page questions in ES for a trap plan (spot check one)
-- [ ] AG7 Wall 'Show me why' bars ES labels (months)
-- [ ] AG8 /traps print: one or two sheets? log
+- [x] AG6 Plan page questions in ES for a trap plan (spot check one)
+- [x] AG7 Wall 'Show me why' bars ES labels (months)
+- [x] AG8 /traps print: one or two sheets? log
 - [ ] AG9 STATUS final counts
 - [ ] AG10 Codex review 27 after AG batch
+
+## AH batch (added 04:35, night 2) — speed
+- [x] AH1 Lighthouse mobile /wall?kwh=1100 + /plan/33633: LCP element + what delays it
+- [x] AH2 Plan page JS size: what ships (label text in RSC payload twice?)
+- [x] AH3 If the label text is sent twice (HTML + RSC), see if one copy can go (no behavior change)
+- [x] AH4 Fonts: preloaded? count of font files on first load
+- [x] AH5 Images: Kapi svg inline vs file; any big image on home
+- [x] AH6 /wall initial HTML size (172 tiles) — log
+- [x] AH7 Any fix from AH1–AH6 → re-run Lighthouse, log before/after
+- [x] AH8 STATUS speed line
+- [x] AH9 Don't change animations/demo timing (log)
+- [x] AH10 Codex review 27 after AH batch
