@@ -33,7 +33,7 @@ export function TrapCarousel({ cards, lang = "en", area = "houston" }: { cards: 
         {c.why && <p className="mt-1 text-sm text-ink-2">{c.why}</p>}
       </div>
       <div className="mt-3 flex items-center justify-between gap-3">
-        <Link href={`/plan/${c.id}`} className="text-sm font-semibold underline underline-offset-4">{w.seeFinePrint}</Link>
+        <Link href={`/plan/${c.id}${area === "dallas" || lang === "es" ? `?${[area === "dallas" ? "area=dallas" : "", lang === "es" ? "lang=es" : ""].filter(Boolean).join("&")}` : ""}`} className="text-sm font-semibold underline underline-offset-4">{w.seeFinePrint}</Link>
         <div className="flex">
           {cards.map((x, j) => (
             // 24px tap area around a small dot

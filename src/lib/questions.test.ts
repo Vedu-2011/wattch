@@ -40,3 +40,14 @@ describe("questions to ask before you sign", () => {
     }
   });
 });
+
+describe("Spanish questions", () => {
+  it("same questions, same numbers, in Spanish", () => {
+    const en = questions(pricing("33633"), year);
+    const es = questions(pricing("33633"), year, 4, "es");
+    expect(es.map((q) => q.key)).toEqual(en.map((q) => q.key));
+    expect(es[0].q).toBe("¿Voy a usar 1,000 kWh o más todos los meses, sin falta?");
+    expect(es[0].why).toContain("6 meses al año, $750 en total");
+    expect(es.map((q) => q.q + q.why).join(" ")).not.toMatch(/\b(the|you|month|every|costs)\b/);
+  });
+});

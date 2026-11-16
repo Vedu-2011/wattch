@@ -1,10 +1,12 @@
 "use client";
 import { useMemo, useState } from "react";
 import { findCliffs, monthlyBill } from "@/lib/bill";
+import type { Lang } from "@/lib/i18n";
 import type { PlanPricing } from "@/lib/plans/schema";
 
 /** Monthly bill vs. usage. A bill-credit plan shows a cliff: use one kWh less and the bill jumps up. */
-export function CliffChart({ pricing, kwh }: { pricing: PlanPricing; kwh: number }) {
+export function CliffChart({ pricing, kwh, lang = "en" }: { pricing: PlanPricing; kwh: number; lang?: Lang }) {
+  const es = lang === "es";
   const W = 640, H = 260, pad = { l: 52, r: 16, t: 16, b: 36 };
   const [hover, setHover] = useState<number | null>(null);
   const pts = useMemo(() => {
@@ -28,7 +30,7 @@ export function CliffChart({ pricing, kwh }: { pricing: PlanPricing; kwh: number
   return (
     <figure>
       <svg viewBox={`0 0 ${W} ${H}`} className="w-full" role="img"
-        aria-label={`Monthly bill from 200 to 2,600 kWh.${cliffs.length ? ` Price cliff at ${cliffs.map((c) => c.kwh).join(" and ")} kWh.` : ""}`}
+        aria-label={es ? `Factura mensual de 200 a 2,600 kWh.${cliffs.length ? ` Salto de precio en ${cliffs.map((c) => c.kwh).join(" y ")} kWh.` : ""}` : `Monthly bill from 200 to 2,600 kWh.${cliffs.length ? ` Price cliff at ${cliffs.map((c) => c.kwh).join(" and ")} kWh.` : ""}`}
         onMouseMove={(e) => {
           const r = (e.currentTarget as SVGSVGElement).getBoundingClientRect();
           const k = 200 + (((e.clientX - r.left) / r.width) * W - pad.l) / (W - pad.l - pad.r) * 2400;
@@ -47,7 +49,7 @@ export function CliffChart({ pricing, kwh }: { pricing: PlanPricing; kwh: number
         {cliffs.map((c) => (
           <g key={c.kwh}>
             <rect x={x(c.kwh) - 14} y={pad.t} width={28} height={H - pad.t - pad.b} fill="#d6402b" opacity={0.08} rx={6} />
-            <text x={x(c.kwh)} y={pad.t + 12} textAnchor="middle" fontSize="11" fontWeight="700" fill="#d6402b">cliff</text>
+            <text x={x(c.kwh)} y={pad.t + 12} textAnchor="middle" fontSize="11" fontWeight="700" fill="#d6402b">{es ? "salto" : "cliff"}</text>
           </g>
         ))}
         <path d={d} fill="none" stroke="#1b1611" strokeWidth={2.5} strokeLinejoin="round" />
@@ -55,11 +57,15 @@ export function CliffChart({ pricing, kwh }: { pricing: PlanPricing; kwh: number
         <circle cx={x(h)} cy={y(hb)} r={5} fill="#ffcf2e" stroke="#1b1611" strokeWidth={2} />
       </svg>
       <figcaption className="mt-2 text-sm text-ink-2">
-        At <b className="num text-ink">{h.toLocaleString()} kWh</b> this plan bills <b className="num text-ink">${hb.toFixed(2)}</b> before taxes.
+        {es
+          ? <>Con <b className="num text-ink">{h.toLocaleString("en-US")} kWh</b> este plan cobra <b className="num text-ink">${hb.toFixed(2)}</b> antes de impuestos.</>
+          : <>At <b className="num text-ink">{h.toLocaleString("en-US")} kWh</b> this plan bills <b className="num text-ink">${hb.toFixed(2)}</b> before taxes.</>}
         {cliffs.map((c) => (
           <span key={c.kwh} className="block text-over">
-            Use {(c.kwh - 1).toLocaleString()} kWh instead of {c.kwh.toLocaleString()} and the bill goes {c.below > c.at ? "up" : "down"} from
-            <b className="num"> ${c.at.toFixed(2)}</b> to <b className="num">${c.below.toFixed(2)}</b>.
+            {es
+              ? <>Usa {(c.kwh - 1).toLocaleString("en-US")} kWh en vez de {c.kwh.toLocaleString("en-US")} y la factura {c.below > c.at ? "sube" : "baja"} de</>
+              : <>Use {(c.kwh - 1).toLocaleString("en-US")} kWh instead of {c.kwh.toLocaleString("en-US")} and the bill goes {c.below > c.at ? "up" : "down"} from</>}
+            <b className="num"> ${c.at.toFixed(2)}</b> {es ? "a" : "to"} <b className="num">${c.below.toFixed(2)}</b>.
           </span>
         ))}
       </figcaption>
