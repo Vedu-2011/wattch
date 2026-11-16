@@ -345,3 +345,15 @@
 - [x] AF8 '18 with a usage trap' (home) = hero withTrap Houston; Dallas value logged
 - [x] AF9 STATUS: claim audit result line
 - [ ] AF10 Codex review 26 (covers AE + AF)
+
+## AG batch (added 04:34, night 2)
+- [x] AG1 Home page in Dallas mode: '14 with a usage trap' shown (matches audit)?
+- [x] AG2 Dallas trap guide shows 7 kinds with Dallas examples
+- [x] AG3 DEVPOST mentions Dallas trap count? (only if a line already lists Houston's 18)
+- [x] AG4 Home carousel Dallas: 5 cards, no Houston plan names
+- [x] AG5 JUDGE-QA: 'what are the traps' question exists? add short Q22 if not
+- [ ] AG6 Plan page questions in ES for a trap plan (spot check one)
+- [ ] AG7 Wall 'Show me why' bars ES labels (months)
+- [ ] AG8 /traps print: one or two sheets? log
+- [ ] AG9 STATUS final counts
+- [ ] AG10 Codex review 27 after AG batch
