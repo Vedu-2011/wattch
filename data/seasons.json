@@ -1,0 +1,244 @@
+{
+ "source": "U.S. Energy Information Administration, Form EIA-861M (Monthly Electric Power Industry Report), sales_revenue.xlsx, Texas residential sales (MWh) and customers",
+ "url": "https://www.eia.gov/electricity/data/eia861m/",
+ "years": [
+  2023,
+  2024,
+  2025
+ ],
+ "note": "Statewide Texas, not Houston only. Utilities report sales by billing month, so each month partly reflects the month before.",
+ "kwhPerCustomer": [
+  1139.6,
+  974.1,
+  824.7,
+  798.0,
+  992.4,
+  1315.9,
+  1548.3,
+  1633.6,
+  1378.4,
+  1070.6,
+  821.1,
+  904.8
+ ],
+ "shape": [
+  1.0204,
+  0.8723,
+  0.7385,
+  0.7145,
+  0.8886,
+  1.1783,
+  1.3864,
+  1.4627,
+  1.2343,
+  0.9587,
+  0.7352,
+  0.8102
+ ],
+ "raw": {
+  "1": {
+   "2023": {
+    "mwh": 12993366.0,
+    "customers": 12176944,
+    "kwhPerCustomer": 1067.0
+   },
+   "2024": {
+    "mwh": 14427079.0,
+    "customers": 12376052,
+    "kwhPerCustomer": 1165.7
+   },
+   "2025": {
+    "mwh": 15033229.0,
+    "customers": 12673375,
+    "kwhPerCustomer": 1186.2
+   }
+  },
+  "2": {
+   "2023": {
+    "mwh": 11690349.0,
+    "customers": 12207679,
+    "kwhPerCustomer": 957.6
+   },
+   "2024": {
+    "mwh": 11404460.0,
+    "customers": 12369297,
+    "kwhPerCustomer": 922.0
+   },
+   "2025": {
+    "mwh": 13172092.0,
+    "customers": 12630920,
+    "kwhPerCustomer": 1042.8
+   }
+  },
+  "3": {
+   "2023": {
+    "mwh": 10512638.0,
+    "customers": 12233524,
+    "kwhPerCustomer": 859.3
+   },
+   "2024": {
+    "mwh": 9450324.0,
+    "customers": 12407521,
+    "kwhPerCustomer": 761.7
+   },
+   "2025": {
+    "mwh": 10909109.0,
+    "customers": 12786172,
+    "kwhPerCustomer": 853.2
+   }
+  },
+  "4": {
+   "2023": {
+    "mwh": 9579895.6,
+    "customers": 12178259,
+    "kwhPerCustomer": 786.6
+   },
+   "2024": {
+    "mwh": 9754682.9,
+    "customers": 12485426,
+    "kwhPerCustomer": 781.3
+   },
+   "2025": {
+    "mwh": 10529132.0,
+    "customers": 12745219,
+    "kwhPerCustomer": 826.1
+   }
+  },
+  "5": {
+   "2023": {
+    "mwh": 11490172.0,
+    "customers": 12238206,
+    "kwhPerCustomer": 938.9
+   },
+   "2024": {
+    "mwh": 12784104.0,
+    "customers": 12534929,
+    "kwhPerCustomer": 1019.9
+   },
+   "2025": {
+    "mwh": 12982916.0,
+    "customers": 12747124,
+    "kwhPerCustomer": 1018.5
+   }
+  },
+  "6": {
+   "2023": {
+    "mwh": 15989221.0,
+    "customers": 12278460,
+    "kwhPerCustomer": 1302.2
+   },
+   "2024": {
+    "mwh": 17114451.0,
+    "customers": 12574017,
+    "kwhPerCustomer": 1361.1
+   },
+   "2025": {
+    "mwh": 16439214.0,
+    "customers": 12799475,
+    "kwhPerCustomer": 1284.4
+   }
+  },
+  "7": {
+   "2023": {
+    "mwh": 20557605.0,
+    "customers": 12290446,
+    "kwhPerCustomer": 1672.6
+   },
+   "2024": {
+    "mwh": 18865604.0,
+    "customers": 12636608,
+    "kwhPerCustomer": 1492.9
+   },
+   "2025": {
+    "mwh": 18983818.0,
+    "customers": 12832226,
+    "kwhPerCustomer": 1479.4
+   }
+  },
+  "8": {
+   "2023": {
+    "mwh": 22481421.0,
+    "customers": 12337105,
+    "kwhPerCustomer": 1822.3
+   },
+   "2024": {
+    "mwh": 19878284.0,
+    "customers": 12658469,
+    "kwhPerCustomer": 1570.4
+   },
+   "2025": {
+    "mwh": 19378368.0,
+    "customers": 12850422,
+    "kwhPerCustomer": 1508.0
+   }
+  },
+  "9": {
+   "2023": {
+    "mwh": 18996593.0,
+    "customers": 12291779,
+    "kwhPerCustomer": 1545.5
+   },
+   "2024": {
+    "mwh": 16336670.0,
+    "customers": 12637695,
+    "kwhPerCustomer": 1292.7
+   },
+   "2025": {
+    "mwh": 16683104.0,
+    "customers": 12861438,
+    "kwhPerCustomer": 1297.1
+   }
+  },
+  "10": {
+   "2023": {
+    "mwh": 13099635.0,
+    "customers": 12347746,
+    "kwhPerCustomer": 1060.9
+   },
+   "2024": {
+    "mwh": 13543100.0,
+    "customers": 12649326,
+    "kwhPerCustomer": 1070.7
+   },
+   "2025": {
+    "mwh": 13957719.0,
+    "customers": 12920516,
+    "kwhPerCustomer": 1080.3
+   }
+  },
+  "11": {
+   "2023": {
+    "mwh": 10148357.0,
+    "customers": 12257011,
+    "kwhPerCustomer": 828.0
+   },
+   "2024": {
+    "mwh": 10425468.0,
+    "customers": 12586383,
+    "kwhPerCustomer": 828.3
+   },
+   "2025": {
+    "mwh": 10320767.0,
+    "customers": 12790947,
+    "kwhPerCustomer": 806.9
+   }
+  },
+  "12": {
+   "2023": {
+    "mwh": 11071623.0,
+    "customers": 12246929,
+    "kwhPerCustomer": 904.0
+   },
+   "2024": {
+    "mwh": 11067517.0,
+    "customers": 12658594,
+    "kwhPerCustomer": 874.3
+   },
+   "2025": {
+    "mwh": 12068659.0,
+    "customers": 12891970,
+    "kwhPerCustomer": 936.1
+   }
+  }
+ }
+}

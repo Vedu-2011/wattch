@@ -9,6 +9,7 @@ const body = Inter({ variable: "--font-body", subsets: ["latin"] });
 const mono = JetBrains_Mono({ variable: "--font-mono", subsets: ["latin"], weight: ["400", "600"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://getwattch.vercel.app"),
   title: "Wattch — your power plan, read for real",
   description: "Wattch reads the fine print on every Houston electricity plan and shows what each one really costs at your usage.",
 };

@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CliffChart } from "@/components/CliffChart";
-import { billLines, monthlyBill } from "@/lib/bill";
+import { YearBars } from "@/components/YearBars";
+import { annualCost, billLines, monthlyBill } from "@/lib/bill";
+import { whyLine, yearFor } from "@/lib/rank";
 import { planById } from "@/lib/plans/data";
 
 /** Reads ?kwh= from the URL, so it renders per request. */
@@ -14,11 +16,17 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
   if (!rec) notFound();
   const k = Math.round(Number(Array.isArray(sp.kwh) ? sp.kwh[0] : sp.kwh));
   const kwh = Number.isFinite(k) && k >= 100 && k <= 5000 ? k : 1000;
+  const seasons = (Array.isArray(sp.flat) ? sp.flat[0] : sp.flat) !== "1";
   const p = rec.pricing;
+  const months = yearFor(kwh, seasons);
+  const year = p ? annualCost(p, months) : 0;
+  const why = p ? whyLine(p, months) : null;
+  const line = p?.credits.filter((c) => !c.conditional && c.minKwh > 0).sort((a, b) => b.dollars - a.dollars)[0]?.minKwh;
+  const back = `kwh=${kwh}${seasons ? "" : "&flat=1"}`;
   const read = new Date(rec.read.fetchedAt).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
   return (
     <div className="mx-auto max-w-4xl px-5 pt-6">
-      <Link href={`/wall?kwh=${kwh}`} className="text-sm font-medium text-ink-2 hover:text-ink">← All plans</Link>
+      <Link href={`/wall?${back}`} className="text-sm font-medium text-ink-2 hover:text-ink">← All plans</Link>
       <h1 className="display mt-3 text-4xl font-extrabold leading-tight">{rec.meta.planName}</h1>
       <p className="mt-1 text-ink-2">{rec.meta.provider} · {rec.meta.rateType} · {p ? `${p.termMonths} months` : ""} · {rec.meta.renewablePct}% renewable</p>
 
@@ -58,6 +66,23 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
           </section>
         )}
       </div>
+
+      {p && (
+        <section className="mt-4 rounded-3xl bg-ink p-5 text-paper shadow-[var(--shadow-lift)] sm:p-6">
+          <div className="flex flex-wrap items-end justify-between gap-2">
+            <h2 className="text-lg font-bold">Your year on this plan</h2>
+            <p className="num text-3xl font-semibold text-volt">${Math.round(year).toLocaleString("en-US")}<span className="text-sm text-paper/70">/yr</span></p>
+          </div>
+          <p className="mt-1 text-sm text-paper/70">
+            {seasons
+              ? `Averaging ${kwh.toLocaleString()} kWh, shaped like a real Texas year (more in summer, less in spring and fall).`
+              : `${kwh.toLocaleString()} kWh every month.`}{" "}
+            <Link className="underline underline-offset-4" href={`/plan/${id}?kwh=${kwh}${seasons ? "&flat=1" : ""}`}>{seasons ? "Show same usage every month" : "Use Texas seasons"}</Link>
+          </p>
+          {why && <p className="mt-3 text-lg font-semibold"><span className="text-volt">Why?</span> {why}</p>}
+          <div className="mt-4"><YearBars months={months} line={line} lineLabel={line ? `credit needs ${line.toLocaleString()} kWh` : undefined} dark /></div>
+        </section>
+      )}
 
       {p && (
         <section className="mt-4 rounded-3xl bg-card p-5 shadow-[var(--shadow-soft)]">
