@@ -502,3 +502,15 @@
 - [x] AS8 No TODO/FIXME in src/ that a judge could see
 - [ ] AS9 STATUS line
 - [x] AS10 Codex review 33 if code changed
+
+## AT batch (added 05:14, night 2)
+- [x] AT1 Results slider: aria-valuetext says the kWh (EN/ES)
+- [x] AT2 Compare with the same plan twice: friendly message, no crash
+- [x] AT3 /remind calendar file: valid ICS (CRLF lines, folded at 75 octets)
+- [x] AT4 Sitemap has Dallas plan pages too
+- [x] AT5 Share card with the longest plan name (EN/ES): text fits
+- [x] AT6 Longest plan name page at 320: no overflow
+- [x] AT7 scripts/headline.ts matches the demo numbers ($378/#74, $530/#91)
+- [x] AT8 Fix anything found + tests
+- [ ] AT9 STATUS line
+- [ ] AT10 Codex review 33 if code changed

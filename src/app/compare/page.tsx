@@ -81,11 +81,11 @@ export default async function Compare({ searchParams }: PageProps<"/compare">) {
 
       <section className="mt-5 rounded-3xl bg-ink p-5 text-paper shadow-[var(--shadow-lift)] sm:p-6">
         <p className="display text-2xl font-extrabold leading-tight sm:text-3xl">
-          {cheaper
+          {a.meta.id === b.meta.id ? t.samePlan : cheaper
             ? <><span className="text-volt">{cheaper.meta.planName}</span> {t.saves} <span className="num text-volt">{money(Math.abs(c.diff))}</span> {t.aYear}</>
             : t.same}
         </p>
-        <p className="mt-2 text-paper/80">{t.wins(a.meta.planName, c.winsA, b.meta.planName, c.winsB)}</p>
+        {a.meta.id !== b.meta.id && <p className="mt-2 text-paper/80">{t.wins(a.meta.planName, c.winsA, b.meta.planName, c.winsB)}</p>}
         <div className="mt-5 grid gap-3 sm:grid-cols-2">
           <Side rec={a} total={c.totalA} tone="a" months={months} qs={qs} cliffs={c.cliffsA} lang={lang} />
           <Side rec={b} total={c.totalB} tone="b" months={months} qs={qs} cliffs={c.cliffsB} lang={lang} />

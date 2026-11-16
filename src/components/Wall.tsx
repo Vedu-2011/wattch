@@ -128,7 +128,7 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons,
             <label htmlFor="slide" className="block text-base font-semibold">
               {w.youAverage(kwh, !!mine)}
             </label>
-            <input id="slide" type="range" min={200} max={3000} step={10} value={kwh} onChange={(e) => { setMine(null); setKwh(Number(e.target.value)); }} className="mt-3 w-full" />
+            <input id="slide" type="range" min={200} max={3000} step={10} value={kwh} aria-valuetext={`${kwh.toLocaleString("en-US")} kWh ${lang === "es" ? "al mes" : "a month"}`} onChange={(e) => { setMine(null); setKwh(Number(e.target.value)); }} className="mt-3 w-full" />
             <div className="mt-3 flex flex-wrap gap-2">
               {!mine && <Toggle on={seasons} set={setSeasons} label={w.tSeasons} hint={w.tSeasonsHint} />}
               <Toggle on={f.locked} set={(v) => setF({ ...f, locked: v })} label={w.tLocked} />
