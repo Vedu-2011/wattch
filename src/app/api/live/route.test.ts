@@ -55,4 +55,13 @@ describe("/api/live — check one label again", () => {
     expect(r.body.message).not.toMatch(/ECONNRESET|socket/);
     expect(r.body.message).toMatch(/Try again/);
   });
+
+  it("?lang=es → the same plain messages in Spanish", async () => {
+    const unknown = await (await GET(new Request("http://x/api/live?id=nope&lang=es"))).json();
+    expect(unknown.message).toBe("No conocemos ese plan.");
+    siteDown = true;
+    const down = await (await GET(new Request("http://x/api/live?id=p1&lang=es"))).json();
+    siteDown = false;
+    expect(down.message).toMatch(/^No pudimos abrir la etiqueta del proveedor ahora/);
+  });
 });

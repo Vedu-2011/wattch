@@ -22,8 +22,7 @@ export const LIVE_WORDS = {
     same: (ago: string, s: string) => `✓ La misma etiqueta, palabra por palabra, que Wattch leyó (${ago}). Se abrió en ${s} s.`,
     newFile: "✓ El archivo es nuevo (muchas veces solo cambia la fecha), pero sigue mostrando los mismos 3 precios que revisamos.",
     changed: (ago: string) => `Esta etiqueta cambió desde que Wattch la leyó (${ago}). Los números aquí pueden estar viejos hasta la próxima lectura.`,
-    // the server explains failures in English; Spanish shows one plain sentence instead
-    failed: (english: string) => (english ? "No pudimos abrir la etiqueta del proveedor ahora. Intenta de nuevo en un minuto." : ""),
+    failed: (m: string) => m,
   },
 } as const;
 
@@ -34,7 +33,7 @@ export function LiveCheck({ id, lang = "en" }: { id: string; lang?: Lang }) {
   async function run() {
     setState("busy");
     try {
-      const r = await fetch(`/api/live?id=${encodeURIComponent(id)}`, { cache: "no-store" });
+      const r = await fetch(`/api/live?id=${encodeURIComponent(id)}${lang === "es" ? "&lang=es" : ""}`, { cache: "no-store" });
       setState((await r.json()) as Live);
     } catch {
       setState({ ok: false, message: t.offline });

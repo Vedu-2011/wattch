@@ -10,10 +10,17 @@ export const maxDuration = 60;
  * same: the file is byte-for-byte the one we read. pricesSame: the file differs (often just a new print date),
  * but the three average prices we checked are still printed in its price row.
  */
+const MSG = {
+  en: { unknown: "We don't know that plan.", down: "Couldn't open the provider's label right now. Try again in a minute." },
+  es: { unknown: "No conocemos ese plan.", down: "No pudimos abrir la etiqueta del proveedor ahora. Intenta de nuevo en un minuto." },
+} as const;
+
 export async function GET(req: Request) {
-  const id = new URL(req.url).searchParams.get("id") ?? "";
+  const sp = new URL(req.url).searchParams;
+  const id = sp.get("id") ?? "";
+  const m = MSG[sp.get("lang") === "es" ? "es" : "en"];
   const rec = planById(id);
-  if (!rec) return NextResponse.json({ ok: false, message: "We don't know that plan." }, { status: 404 });
+  if (!rec) return NextResponse.json({ ok: false, message: m.unknown }, { status: 404 });
   try {
     const f = await fetchEfl(rec.meta.eflUrl, { anakinKey: process.env.ANAKIN_API_KEY, timeoutMs: 15000 });
     const same = f.sha256 === rec.read.sha256;
@@ -21,6 +28,6 @@ export async function GET(req: Request) {
     return NextResponse.json({ ok: true, via: f.via, ms: f.ms, same, pricesSame, readAt: rec.read.fetchedAt });
   } catch {
     // plain words only — never a raw error from the provider's site
-    return NextResponse.json({ ok: false, message: "Couldn't open the provider's label right now. Try again in a minute." }, { status: 200 });
+    return NextResponse.json({ ok: false, message: m.down }, { status: 200 });
   }
 }
