@@ -752,7 +752,7 @@
 - [x] BN6 README checks list mentions it
 - [x] BN7 Full verify
 - [x] BN8 STATUS line
-- [ ] BN9 Codex review
+- [x] BN9 Codex review
 - [x] BN10 PROGRESS line
 
 ## BO batch (added 06:26, night 2) — docs catch up with the last hour
@@ -768,8 +768,8 @@
 - [x] BO10 PROGRESS line
 
 ## BP batch (added 06:27, night 2) — wrap-up checks before 7:00
-- [ ] BP1 Final full verify on a clean tree (test, lint, build, check-all)
-- [ ] BP2 git status clean; local = origin/overnight
+- [x] BP1 Final full verify on a clean tree (test, lint, build, check-all)
+- [x] BP2 git status clean; local = origin/overnight
 - [x] BP3 .trash contents + tonight's TO-DELETE lines listed for the handoff
 - [x] BP4 Nothing in the scratchpad that belongs in the repo
 - [x] BP5 PROGRESS tail reads cleanly (no cut lines)

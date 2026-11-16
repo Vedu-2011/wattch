@@ -264,3 +264,5 @@ Shared links now preview the right thing on every page (plan card, compare card,
 - 2026-11-16 06:27 PT · BO docs catch-up: test count 254 → 255 (DECK, DEVPOST ×2, JUDGE-QA ×2, STATUS); JUDGE-QA Q20 adds 'links that look the same say which plan they open' and the unread-preview bug as an example; DEVPOST sources list adds link-names.mjs + check-all; STATUS Codex 28–45. $0.
 - 2026-11-16 06:27 PT · BO6 STATUS 'Since 04:55' section regrouped (fixes users see / checked, nothing to fix / new checks / for the planner) instead of a running list. $0.
 - 2026-11-16 06:27 PT · BO7/BO8 handoff draft + summary updated (highlights, files, checks). BP wrap-up: .trash holds 14 one-off probes/strays, all logged in _coord/TO-DELETE.md; nothing in the scratchpad belongs in the repo (handoff drafts only); PROGRESS tail clean; BOARD row says 'at BACKLOG BP, ~06:30'. $0.
+- 2026-11-16 06:28 PT · BN9 Codex 46: no findings (link-names check + docs). $0.
+- 2026-11-16 06:31 PT · BP1 final verify: tsc clean, 43 files / 255 tests, lint 0, build OK, check-all 5/5 PASS. $0.
