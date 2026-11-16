@@ -11,6 +11,7 @@ import { areaOf, planById } from "@/lib/plans/data";
 import { AREAS } from "@/lib/plans/ptc";
 import type { PlanRecord } from "@/lib/plans/schema";
 import { whyLine, yearFor } from "@/lib/rank";
+import { shortProvider as tidy } from "@/lib/names";
 
 const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
 
@@ -23,7 +24,6 @@ export async function generateMetadata({ searchParams }: PageProps<"/compare">):
 export const instant = false;
 
 const money = (n: number) => n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
-const tidy = (s: string) => s.replace(/\b(LLC|INC|LP|L\.P\.|CO)\b\.?/gi, "").replace(/\(TX\)/gi, "").replace(/\s+/g, " ").trim();
 
 export default async function Compare({ searchParams }: PageProps<"/compare">) {
   const sp = await searchParams;

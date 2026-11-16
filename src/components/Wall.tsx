@@ -13,11 +13,10 @@ import { AREAS, type Area } from "@/lib/plans/ptc";
 import { ShareButton } from "@/components/ShareButton";
 import { YearBars } from "@/components/YearBars";
 import { type ClientPlan, type Ranked, passesFilters, ptcTopPick, rank, traps, whyLine, yearFor } from "@/lib/rank";
+import { providerTitle as title } from "@/lib/names";
 
 const money = (n: number) => n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
 const cents = (n: number) => `${n.toFixed(1)}¢`;
-const short = (s: string) => s.replace(/\b(LLC|INC|LP|L\.P\.|CO)\b\.?/gi, "").replace(/\(TX\)/gi, "").replace(/\s+/g, " ").trim();
-const title = (s: string) => short(s).toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase());
 
 /**
  * The wall replays real reads: faster reads finish first. Pace is by order (not raw time), so one very slow label

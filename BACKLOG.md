@@ -191,7 +191,7 @@
 - [x] S10 Codex review 15 after S batch
 
 ## T batch (added 03:30, night 2)
-- [ ] T1 Share-card preview for a /plan link: should it show that plan (not the generic card)? decide + log (no build if big)
+- [x] T1 Share-card preview for a /plan link: should it show that plan (not the generic card)? decide + log (no build if big)
 - [x] T2 /api/card?lang=es&area=dallas default card: Spanish city line reads naturally (screen)
 - [x] T3 English pages: same label sweep as S1 (no Spanish leaking into English aria-labels)
 - [x] T4 Wall progress bar: aria-valuetext ('84 of 172') in both languages

@@ -19,11 +19,11 @@ import { monthsFromParam } from "@/lib/months";
 import { billQs, parseWallParams, readKwh } from "@/lib/params";
 import { areaOf, labelText, planById } from "@/lib/plans/data";
 import { AREAS } from "@/lib/plans/ptc";
+import { shortProvider as tidyName } from "@/lib/names";
 
 /** Reads ?kwh= from the URL, so it renders per request. */
 export const instant = false;
 
-const tidyName = (s: string) => s.replace(/\b(LLC|INC|LP|L\.P\.|CO)\b\.?/gi, "").replace(/\(TX\)/gi, "").replace(/\s+/g, " ").trim();
 const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
 
 export async function generateMetadata({ params, searchParams }: PageProps<"/plan/[id]">): Promise<Metadata> {
@@ -41,7 +41,7 @@ export async function generateMetadata({ params, searchParams }: PageProps<"/pla
       ? `${rec.meta.planName} (${who}) se anuncia a ${rec.meta.ptc.k1000}¢. Con 1,100 kWh al mes durante un año en ${city}, en realidad cuesta $${yr} al año.`
       : `${rec.meta.planName} (${who}) is advertised at ${rec.meta.ptc.k1000}¢. At 1,100 kWh a month through a ${city} year it really costs $${yr} a year.`
     : es ? `${rec.meta.planName} de ${who}: la letra pequeña, leída y revisada.` : `${rec.meta.planName} from ${who}: the fine print, read and checked.`;
-  return { title: `${rec.meta.planName} — ${es ? "la letra pequeña, revisada" : "the fine print, checked"} · Wattch`, description, alternates: langPair(`/plan/${id}`, sp), ...shareMeta(cardUrl(sp, { area })) };
+  return { title: `${rec.meta.planName} — ${es ? "la letra pequeña, revisada" : "the fine print, checked"} · Wattch`, description, alternates: langPair(`/plan/${id}`, sp), ...shareMeta(`${cardUrl(sp, { area })}&plan=${encodeURIComponent(id)}`) };
 }
 
 export default async function PlanPage({ params, searchParams }: PageProps<"/plan/[id]">) {
