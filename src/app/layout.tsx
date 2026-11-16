@@ -36,7 +36,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable} antialiased`}>
       <body className="min-h-dvh flex flex-col bg-paper text-ink">
-        <header className="mx-auto w-full max-w-6xl px-5 pt-5 flex items-center justify-between">
+        <header className="no-print mx-auto w-full max-w-6xl px-5 pt-5 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2" aria-label="Wattch home">
             <Kapi className="h-9 w-9" />
             <span className="display text-2xl font-extrabold">Wattch</span>
@@ -51,9 +51,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             </nav>
           </div>
         </header>
-        <aside aria-label="How fresh the data is" className="mx-auto mt-2 w-full max-w-6xl px-5 md:hidden"><FreshBadge /></aside>
+        <aside aria-label="How fresh the data is" className="no-print mx-auto mt-2 w-full max-w-6xl px-5 md:hidden"><FreshBadge /></aside>
         <main className="flex-1">{children}</main>
-        <footer className="mx-auto w-full max-w-6xl px-5 py-10 text-sm text-ink-2">
+        <footer className="no-print mx-auto w-full max-w-6xl px-5 py-10 text-sm text-ink-2">
           Wattch shows the math. Always open the plan&apos;s fine print before you switch. Prices before taxes.
           Plan list from the state&apos;s Power to Choose site.
         </footer>

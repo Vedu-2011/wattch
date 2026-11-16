@@ -5,6 +5,7 @@ import { CliffChart } from "@/components/CliffChart";
 import { Fresh } from "@/components/Fresh";
 import { HighlightScope, HoverKey, LabelText } from "@/components/Highlight";
 import { LiveCheck } from "@/components/LiveCheck";
+import { PrintButton } from "@/components/PrintButton";
 import { YearBars } from "@/components/YearBars";
 import { annualCost, billLines, monthlyBill } from "@/lib/bill";
 import { explainBill } from "@/lib/bill/explain";
@@ -61,7 +62,7 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
   return (
     <HighlightScope>
     <div className="mx-auto max-w-4xl px-5 pt-6">
-      <Link href={`/wall?${back}`} className="text-sm font-medium text-ink-2 hover:text-ink">← All plans</Link>
+      <div className="no-print flex items-center justify-between gap-3"><Link href={`/wall?${back}`} className="text-sm font-medium text-ink-2 hover:text-ink">← All plans</Link><PrintButton /></div>
       <h1 className="display mt-3 text-4xl font-extrabold leading-tight">{rec.meta.planName}</h1>
       <p className="mt-1 text-ink-2">{rec.meta.provider} · {rec.meta.rateType} · {p ? `${p.termMonths} months` : ""} · {rec.meta.renewablePct}% renewable</p>
 
@@ -87,7 +88,7 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
           {rec.check.status === "verified" && (rec.check.tduFilled || !rec.read.parsedBy.startsWith("claude")) && (
             <p className="mt-2 text-sm text-ink-2">{rec.check.message}</p>
           )}
-          <LiveCheck id={id} />
+          <div className="no-print"><LiveCheck id={id} /></div>
           <p className="mt-3 text-xs text-ink-2">
             Fine print fetched {read} CT (<Fresh at={rec.read.fetchedAt} prefix="" />) {rec.read.via === "anakin" ? "through Anakin.io (the page needed a real browser)" : "straight from the provider"} ·{" "}
             {rec.read.parsedBy.startsWith("hand-read") ? rec.read.parsedBy : `read by ${rec.read.parsedBy}`}.{" "}
@@ -115,7 +116,7 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
       </div>
 
       {fp && text && (
-        <section className="mt-4 rounded-3xl bg-card p-5 shadow-[var(--shadow-soft)]">
+        <section className="no-print mt-4 rounded-3xl bg-card p-5 shadow-[var(--shadow-soft)]">
           <div className="flex flex-wrap items-baseline justify-between gap-2">
             <h2 className="text-lg font-bold">The fine print, with every number we used</h2>
             <p className="text-sm text-ink-2"><span className="num">{marks}</span> numbers found on the label</p>
@@ -133,7 +134,7 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
       )}
 
       {p && (
-        <section className="mt-4 rounded-3xl bg-ink p-5 text-paper shadow-[var(--shadow-lift)] sm:p-6">
+        <section className="print-plain mt-4 rounded-3xl bg-ink p-5 text-paper shadow-[var(--shadow-lift)] sm:p-6">
           <div className="flex flex-wrap items-end justify-between gap-2">
             <h2 className="text-lg font-bold">Your year on this plan</h2>
             <p className="num text-3xl font-semibold text-volt">${Math.round(year).toLocaleString("en-US")}<span className="text-sm text-paper/70">/yr</span></p>
@@ -144,15 +145,15 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
               : seasons
               ? `Averaging ${kwh.toLocaleString()} kWh, shaped like a real ${AREAS[area].city} year (${area === "dallas" ? "most in summer, more in winter too, least in spring and fall" : "more in summer, less in winter and spring"}).`
               : `${kwh.toLocaleString()} kWh every month.`}{" "}
-            <Link className="underline underline-offset-4" href={`/plan/${id}?${billQs({ kwh, seasons: !seasons, withConditional, area, filters, lang })}`}>{seasons ? "Show same usage every month" : `Use ${AREAS[area].city} seasons`}</Link>
+            <Link className="no-print underline underline-offset-4" href={`/plan/${id}?${billQs({ kwh, seasons: !seasons, withConditional, area, filters, lang })}`}>{seasons ? "Show same usage every month" : `Use ${AREAS[area].city} seasons`}</Link>
           </p>
           {why && <p className="mt-3 text-lg font-semibold"><span className="text-volt">Why?</span> {why}</p>}
-          <div className="mt-4"><YearBars months={months} line={line} lineLabel={line ? `credit needs ${line.toLocaleString()} kWh` : undefined} dark /></div>
+          <div className="no-print mt-4"><YearBars months={months} line={line} lineLabel={line ? `credit needs ${line.toLocaleString()} kWh` : undefined} dark /></div>
         </section>
       )}
 
       {p && (
-        <section className="mt-4 rounded-3xl bg-card p-5 shadow-[var(--shadow-soft)]">
+        <section className="no-print mt-4 rounded-3xl bg-card p-5 shadow-[var(--shadow-soft)]">
           <h2 className="text-lg font-bold">Bill at every usage</h2>
           <p className="text-sm text-ink-2">Hover or tap the chart. Red bands are price cliffs.</p>
           <div className="mt-3"><CliffChart pricing={p} kwh={kwh} /></div>
@@ -166,6 +167,10 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
           <p className="mt-2 text-xs text-ink-2">Written by the AI reader. The math above never uses these notes.</p>
         </section>
       )}
+      <p className="mt-4 hidden text-xs print:block">
+        Printed from Wattch (getwattch.vercel.app/plan/{id}). Prices before taxes, from the plan&apos;s own fine-print label read {read} CT.
+        Original label: {rec.meta.eflUrl}
+      </p>
     </div>
     </HighlightScope>
   );
