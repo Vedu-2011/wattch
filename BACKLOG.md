@@ -598,3 +598,15 @@
 - [x] BA8 STATUS line
 - [ ] BA9 Codex review 37
 - [x] BA10 Docs test counts
+
+## BB batch (added 05:36, night 2) — weight + hygiene
+- [x] BB1 HTML size of /, /wall, /plan, /compare (flag > 300 KB)
+- [x] BB2 public/ images: any > 200 KB?
+- [x] BB3 next build: any warnings?
+- [x] BB4 npm audit (prod deps): high/critical? (read-only, no installs)
+- [x] BB5 package.json deps all imported somewhere
+- [x] BB6 Fonts: only the weights used are loaded
+- [x] BB7 Fix anything small found
+- [x] BB8 Note bigger ones for the planner
+- [ ] BB9 STATUS line
+- [x] BB10 Codex review if code changed

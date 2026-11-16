@@ -38,6 +38,8 @@ wait. For future overnight nights: push once per batch, or turn off previews for
   (only possible by typing a 0 in "my 12 months"), $5 autopay discounts beat the $4.90 delivery fee → −$0.10 that month
   (Octopus / No Bull / Digital Choice; Dallas −$0.94). Left as the label's math; a $0 floor is a policy call.
 - Tonight's one-off checks are now tests (src/lib/dataSanity.test.ts, search.test.ts, sitemap no duplicates): 248 tests.
+- Weight + hygiene: pages 6–37 KB compressed (/wall is 641 KB raw because it carries all 172 plans for instant
+  re-ranking; 37 KB gzip); no image over 200 KB; build has no warnings; npm audit (app deps) 0 vulnerabilities; every dependency used.
 - README says which keys go in .env.local (none needed to run the app). A fresh clone with no keys: npm ci + 236 tests pass.
 - Checked, no change: Dallas share text, trap carousel under reduced motion, Dallas plan prints on 1 sheet, badge in
   Spanish/Dallas in a real browser, all data files tracked, biggest browser script 235 KB.
