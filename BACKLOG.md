@@ -31,7 +31,7 @@
 - [x] Type-safety pass: no `any`, zod-parse data/plans.json at load with a friendly error page if broken
 ## E. Submission readiness (Triple H + STEM2Connect + GenHacks)
 - [x] docs/DEVPOST.md draft: inspiration, what it does, how I built it (AI reads, code decides, the check), challenges, accomplishments, what's next, built with — every claim checked against code/data; solo "I" voice
-- [ ] docs/SCRIPT.md: ~5 min demo video script (fits STEM2Connect ≤6 min), scenes + exact clicks + narration in "I" voice — timed to ≤5:30
+- [x] docs/SCRIPT.md: ~5 min demo video script (fits STEM2Connect ≤6 min), scenes + exact clicks + narration in "I" voice — timed to ≤5:30
 - [ ] docs/DECK.md: business-track deck ≤15 slides (exec summary, problem, market w/ cited numbers, product, business model, competitors table with real prices, traction/proof = our data, team, the ask) — every number has a source link in docs/SOURCES.md
 - [ ] README: STEM2Connect needs every AI tool listed (Claude Code, Codex, Claude chat, Anthropic Claude API haiku-5-5, Anakin.io) + how to run + data refresh — complete
 - [ ] Gallery images: 6 clean 1920×1080 screenshots for Devpost in docs/gallery/ — 6 files
