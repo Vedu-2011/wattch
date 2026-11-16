@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { langPair } from "@/lib/alternates";
 import Link from "next/link";
 import { compareYear } from "@/lib/compare";
 import { COMPARE_WORDS } from "@/lib/compareWords";
@@ -13,8 +14,9 @@ import { whyLine, yearFor } from "@/lib/rank";
 const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
 
 export async function generateMetadata({ searchParams }: PageProps<"/compare">): Promise<Metadata> {
-  const t = COMPARE_WORDS[asLang(one((await searchParams).lang))];
-  return { title: t.title, description: t.desc };
+  const sp = await searchParams;
+  const t = COMPARE_WORDS[asLang(one(sp.lang))];
+  return { title: t.title, description: t.desc, alternates: langPair("/compare", sp) };
 }
 /** Reads ?a= &b= &kwh= from the URL, so it renders per request. */
 export const instant = false;

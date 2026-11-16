@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { langPair } from "@/lib/alternates";
 import Link from "next/link";
 import { asLang } from "@/lib/i18n";
 import { clientPlans } from "@/lib/plans/data";
@@ -17,7 +18,7 @@ export async function generateMetadata({ searchParams }: PageProps<"/traps">): P
   const sp = await searchParams;
   const city = AREAS[areaFrom(sp)].city;
   const t = TRAPS_WORDS[asLang(one(sp.lang))];
-  return { title: t.title(city), description: t.desc(city) };
+  return { title: t.title(city), description: t.desc(city), alternates: langPair("/traps", sp) };
 }
 
 const money = (n: number) => n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });

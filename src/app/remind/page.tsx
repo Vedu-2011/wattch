@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { langPair } from "@/lib/alternates";
 import Link from "next/link";
 import { Kapi } from "@/components/Kapi";
 import { asLang } from "@/lib/i18n";
@@ -11,8 +12,9 @@ const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
 const T = REMIND_WORDS;
 
 export async function generateMetadata({ searchParams }: PageProps<"/remind">): Promise<Metadata> {
-  const t = T[asLang(one((await searchParams as SP).lang))];
-  return { title: t.title, description: t.desc };
+  const sp = (await searchParams) as SP;
+  const t = T[asLang(one(sp.lang))];
+  return { title: t.title, description: t.desc, alternates: langPair("/remind", sp) };
 }
 /** Reads ?end= from the URL, so it renders per request. */
 export const instant = false;

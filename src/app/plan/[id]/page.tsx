@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { langPair } from "@/lib/alternates";
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { CliffChart } from "@/components/CliffChart";
@@ -26,8 +27,10 @@ const tidyName = (s: string) => s.replace(/\b(LLC|INC|LP|L\.P\.|CO)\b\.?/gi, "")
 const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
 
 export async function generateMetadata({ params, searchParams }: PageProps<"/plan/[id]">): Promise<Metadata> {
-  const rec = planById((await params).id);
-  const es = asLang(one((await searchParams).lang)) === "es";
+  const { id } = await params;
+  const sp = await searchParams;
+  const rec = planById(id);
+  const es = asLang(one(sp.lang)) === "es";
   if (!rec) return { title: es ? "Wattch — plan no encontrado" : "Wattch — plan not found" };
   const who = tidyName(rec.meta.provider);
   const area = areaOf(rec.meta.id) ?? "houston";
@@ -38,7 +41,7 @@ export async function generateMetadata({ params, searchParams }: PageProps<"/pla
       ? `${rec.meta.planName} (${who}) se anuncia a ${rec.meta.ptc.k1000}¢. Con 1,100 kWh al mes durante un año en ${city}, en realidad cuesta $${yr} al año.`
       : `${rec.meta.planName} (${who}) is advertised at ${rec.meta.ptc.k1000}¢. At 1,100 kWh a month through a ${city} year it really costs $${yr} a year.`
     : es ? `${rec.meta.planName} de ${who}: la letra pequeña, leída y revisada.` : `${rec.meta.planName} from ${who}: the fine print, read and checked.`;
-  return { title: `${rec.meta.planName} — ${es ? "la letra pequeña, revisada" : "the fine print, checked"} · Wattch`, description };
+  return { title: `${rec.meta.planName} — ${es ? "la letra pequeña, revisada" : "the fine print, checked"} · Wattch`, description, alternates: langPair(`/plan/${id}`, sp) };
 }
 
 export default async function PlanPage({ params, searchParams }: PageProps<"/plan/[id]">) {

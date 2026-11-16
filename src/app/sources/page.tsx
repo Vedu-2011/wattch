@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
+import { langPair } from "@/lib/alternates";
 import { asLang } from "@/lib/i18n";
 import { SOURCE_LINKS, SOURCES_WORDS } from "@/lib/sourcesWords";
 
 const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
 
 export async function generateMetadata({ searchParams }: PageProps<"/sources">): Promise<Metadata> {
-  const t = SOURCES_WORDS[asLang(one((await searchParams).lang))];
-  return { title: t.title, description: t.desc };
+  const sp = await searchParams;
+  const t = SOURCES_WORDS[asLang(one(sp.lang))];
+  return { title: t.title, description: t.desc, alternates: langPair("/sources", sp) };
 }
 /** Reads ?lang= from the URL, so it renders per request. */
 export const instant = false;
