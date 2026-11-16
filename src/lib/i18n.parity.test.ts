@@ -9,6 +9,7 @@ import { traps } from "@/lib/rank";
 import { ICS_WORDS, PROBLEMS } from "@/lib/ics";
 import { COMPARE_WORDS } from "@/lib/compareWords";
 import { ERROR_WORDS } from "@/components/ErrorViews";
+import { LOADING_WORDS } from "@/components/Skeleton";
 import { HOW_WORDS } from "@/lib/howWords";
 import { SOURCES_WORDS } from "@/lib/sourcesWords";
 import { MONTHS_ERRORS } from "@/lib/months";
@@ -26,7 +27,7 @@ const shape = (o: object) =>
 const TABLES: [string, { en: object; es: object }][] = [
   ["words()", WORDS], ["plan page", PLAN_WORDS], ["bill sentences", EXPLAIN_WORDS],
   ["questions", QUESTION_WORDS], ["calendar file", ICS_WORDS], ["date errors", PROBLEMS], ["reminder page", REMIND_WORDS],
-  ["live re-check", LIVE_WORDS], ["compare page", COMPARE_WORDS], ["trap guide page", TRAPS_WORDS], ["already on a plan", CURRENT_WORDS], ["my 12 months", MYMONTHS_WORDS], ["month errors", MONTHS_ERRORS], ["how it works", HOW_WORDS], ["sources", SOURCES_WORDS], ["404 + error", ERROR_WORDS], ["header", NAV], ["footer", { en: { t: FOOT.en }, es: { t: FOOT.es } }],
+  ["live re-check", LIVE_WORDS], ["compare page", COMPARE_WORDS], ["trap guide page", TRAPS_WORDS], ["already on a plan", CURRENT_WORDS], ["my 12 months", MYMONTHS_WORDS], ["month errors", MONTHS_ERRORS], ["how it works", HOW_WORDS], ["sources", SOURCES_WORDS], ["404 + error", ERROR_WORDS], ["loading", LOADING_WORDS], ["header", NAV], ["footer", { en: { t: FOOT.en }, es: { t: FOOT.es } }],
 ];
 
 /** names that are the same in both languages */

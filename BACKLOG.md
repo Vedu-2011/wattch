@@ -121,3 +121,13 @@
 - [x] M8 Lighthouse /sources?lang=es + /compare?lang=es (now with descriptions) — log
 - [x] M9 Spanish navigator.share text: check the exact text that gets copied on Spanish Houston + Dallas results
 - [x] M10 Print view: the "(hace 1 hora)" relative time is stale on paper — show the date only in print, both languages
+- [x] N1 Loading skeletons (loading.tsx): any visible English text while a Spanish page loads? Fix or confirm text-free
+- [ ] N2 /plan/<unknown id> answers HTTP 200 with the 404 page (known limit) — check if Next 16 can send a real 404 cheaply; fix or document
+- [ ] N3 Reader-replay tiles clip long plan names — make sure the full name is still available (title / accessible name)
+- [ ] N4 Commit the width checker as scripts/widths.mjs (320 + 1920, EN + ES) so the 320px fix stays fixed; run it on English pages too
+- [ ] N5 Keyboard-only pass on the Spanish plan page + compare page (focus visible, LiveCheck + Print reachable)
+- [ ] N6 <html lang> is "en" on Spanish pages (pages set lang on their own wrapper) — check what screen readers/SEO see; fix only if cheap and safe, else document
+- [ ] N7 Codex review 11 (fb2a17c..HEAD)
+- [ ] N8 Anakin quota probe again (~05:00); if back, run the Dallas re-read under PAID-API LOCK (≤ $0.30)
+- [ ] N9 docs/JUDGE-QA + DEVPOST ⟲ numbers re-verified against scripts/headline.ts (both areas)
+- [ ] N10 SCRIPT.md scene 9: the "Already on a plan?" answer + top-8 chip layout changed tonight — re-check the clicks and words still match the screen
