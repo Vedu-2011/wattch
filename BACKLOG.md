@@ -441,7 +441,7 @@
 - [x] AN8 DEVPOST links
 - [x] AN9 STATUS links line
 - [x] AN10 Codex review 30 if code changed
-- [ ] AN11 Re-check the 36 Infuse/Revolution label links at ~06:45 (still 404?) → note in handoff
+- [x] AN11 Re-check the 36 Infuse/Revolution label links at ~06:45 (still 404?) → note in handoff
 
 ## AO batch (added 04:53, night 2)
 - [x] AO1 Try a direct (free) download of the 16 unread Dallas labels — which work without Anakin?

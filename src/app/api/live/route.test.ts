@@ -20,7 +20,9 @@ const { GET } = await import("./route");
 const call = async (id: string) => { const r = await GET(new Request(`http://x/api/live?id=${id}`)); return { status: r.status, body: await r.json() }; };
 
 describe("/api/live — check one label again", () => {
-  beforeEach(() => fetchEfl.mockReset());
+  // the "is the file gone?" look after a failure: by default the provider answers 503 (just down)
+  let linkStatus = 503;
+  beforeEach(() => { fetchEfl.mockReset(); linkStatus = 503; vi.stubGlobal("fetch", vi.fn(async () => new Response(null, { status: linkStatus }))); });
 
   it("unknown plan → 404 with a plain message", async () => {
     const r = await call("nope");
@@ -54,6 +56,17 @@ describe("/api/live — check one label again", () => {
     expect(r.body.ok).toBe(false);
     expect(r.body.message).not.toMatch(/ECONNRESET|socket/);
     expect(r.body.message).toMatch(/Try again/);
+  });
+
+  it("label file gone (404) → says the link is broken, not 'try again' (EN + ES)", async () => {
+    siteDown = true; linkStatus = 404;
+    const en = await call("p1");
+    const es = await (await GET(new Request("http://x/api/live?id=p1&lang=es"))).json();
+    siteDown = false;
+    expect(en.body).toMatchObject({ ok: false, gone: true });
+    expect(en.body.message).toMatch(/link to this label is broken/);
+    expect(en.body.message).not.toMatch(/Try again/);
+    expect(es.message).toMatch(/^El enlace del proveedor a esta etiqueta no funciona/);
   });
 
   it("a good answer is shared by the CDN for a minute; a failure never is", async () => {
