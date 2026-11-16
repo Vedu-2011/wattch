@@ -826,3 +826,15 @@
 - [x] BT8 PROGRESS line
 - [x] BT9 Codex if code changed
 - [x] BT10 Handoff draft mentions the re-check fix
+
+## BU batch (added 06:39, night 2) — code hygiene before the handoff
+- [x] BU1 No console.log left in src (except scripts)
+- [x] BU2 No it.only / describe.only / it.skip in tests
+- [x] BU3 No TODO/FIXME/XXX added tonight
+- [x] BU4 npm audit (app deps) still 0
+- [x] BU5 package.json unchanged since main (no surprise deps)
+- [x] BU6 No secrets-looking strings in tracked files (sk-ant, api key patterns)
+- [x] BU7 Fix anything found
+- [x] BU8 STATUS line
+- [x] BU9 PROGRESS line
+- [x] BU10 Codex if code changed
