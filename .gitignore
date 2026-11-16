@@ -32,6 +32,8 @@ yarn-error.log*
 
 # local Claude Code preview config
 .claude/
+# local Codex setup (hooks use home-folder paths)
+.codex/
 
 # env files (can opt-in for committing if needed)
 .env*
