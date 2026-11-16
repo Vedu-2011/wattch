@@ -126,6 +126,11 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons,
                       <span className="num block text-xs text-ink-2">{cents(r.avgCents)}/kWh</span>
                     </span>
                   </Link>
+                  {i > 0 && (
+                    <Link href={`/compare?a=${ranked[0].plan.id}&b=${r.plan.id}&${qs}`} className="ml-11 mt-1 inline-block rounded-full px-2 py-0.5 text-xs font-semibold text-ink-2 hover:bg-paper hover:text-ink">
+                      Compare with #1 →
+                    </Link>
+                  )}
                 </li>
               ))}
             </ol>
@@ -254,6 +259,7 @@ function Reveal({ kwh, seasons, ranked, pick, locked, mine, qs }: { kwh: number;
         <div className="mt-6 flex flex-wrap gap-2">
           <Link href={`/plan/${best.plan.id}?${qs}`} className="rounded-full bg-volt px-5 py-2.5 font-bold text-ink">See the math</Link>
           {pickRow && gap >= 1 && <Link href={`/plan/${pickRow.plan.id}?${qs}`} className="rounded-full bg-paper/15 px-5 py-2.5 font-bold">Open the #1 plan&apos;s fine print</Link>}
+          {pickRow && gap >= 1 && <Link href={`/compare?a=${best.plan.id}&b=${pickRow.plan.id}&${qs}`} className="rounded-full bg-paper/15 px-5 py-2.5 font-bold">Side by side</Link>}
           <ShareButton kwh={kwh} text={shareText} flat={!seasons} />
         </div>
       </div>
