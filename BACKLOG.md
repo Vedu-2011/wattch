@@ -48,7 +48,7 @@
 - [x] Usage hint: "Not sure? Most Houston homes use about N kWh" from EIA number in SOURCES, shown in the picker — sourced
 - [x] Print-friendly plan page (@media print): label proof + bill table on one page — prints on Letter in Chrome's print preview screenshot
 - [x] 1920 projector pass of /demo + /wall reveal: biggest numbers readable at 1920 from "the back of the room" (≥64px for the $ number) — screenshots
-- [ ] Empty/edge states: usage 0, 50, 5000 kWh; 12 months all zero; every filter on at once — friendly text, no NaN/Infinity anywhere — tests + screenshots
+- [x] Empty/edge states: usage 0, 50, 5000 kWh; 12 months all zero; every filter on at once — friendly text, no NaN/Infinity anywhere — tests + screenshots
 - [ ] Plan page "Questions to ask before you sign" (from the plan's own traps: credit cliff → "Will I use 1,000 kWh every month?") — code-generated, 3 plans checked
 - [ ] docs/JUDGE-QA.md: 15 likely judge questions with honest short answers (accuracy, why Haiku, cost per read, what if a label changes, business model, competitors) — every number sourced
 

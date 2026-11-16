@@ -9,6 +9,7 @@ import { PrintButton } from "@/components/PrintButton";
 import { YearBars } from "@/components/YearBars";
 import { annualCost, billLines, monthlyBill } from "@/lib/bill";
 import { explainBill } from "@/lib/bill/explain";
+import { questions } from "@/lib/questions";
 import { whyLine, yearFor } from "@/lib/rank";
 import { belongs, labelSegments } from "@/lib/finePrint";
 import { monthsFromParam } from "@/lib/months";
@@ -43,6 +44,7 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
   const mine = monthsFromParam(Array.isArray(sp.m) ? sp.m[0] : sp.m);
   const area = areaOf(id) ?? "houston";
   const months = mine ?? yearFor(kwh, seasons, area);
+  const asks = p ? questions(p, months) : [];
   const withConditional = (Array.isArray(sp.noauto) ? sp.noauto[0] : sp.noauto) !== "1";
   const opts = { includeConditional: withConditional };
   const whyAll = p ? explainBill(p, kwh, { ...opts, utility: AREAS[area].utility }) : [];
@@ -151,6 +153,24 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
         </section>
       )}
 
+      {asks.length > 0 && (
+        <section className="mt-4 rounded-3xl bg-card p-5 shadow-[var(--shadow-soft)]">
+          <h2 className="text-lg font-bold">Ask yourself before you sign</h2>
+          <ol className="mt-3 space-y-3">
+            {asks.map((a, i) => (
+              <li key={a.key} className="flex gap-3">
+                <span className="num flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-volt-2 text-sm font-bold">{i + 1}</span>
+                <div>
+                  <p className="font-semibold">{a.q}</p>
+                  <p className="text-sm text-ink-2">{a.why}{a.key === "short" && <> <Link href={`/remind?plan=${encodeURIComponent(rec.meta.planName)}`} className="no-print font-medium underline underline-offset-4">Set a reminder</Link></>}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+          <p className="mt-3 text-xs text-ink-2">Written by code from this plan&apos;s label and your 12 months.</p>
+        </section>
+      )}
+
       {p && (
         <section className="no-print mt-4 rounded-3xl bg-card p-5 shadow-[var(--shadow-soft)]">
           <h2 className="text-lg font-bold">Bill at every usage</h2>
@@ -160,7 +180,7 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
       )}
 
       {p && p.notes.length > 0 && (
-        <section className="mt-4 rounded-3xl bg-volt-2 p-5">
+        <section className="no-print mt-4 rounded-3xl bg-volt-2 p-5">
           <h2 className="text-lg font-bold">Things the fine print says</h2>
           <ul className="mt-2 list-disc space-y-1 pl-5">{p.notes.map((n, i) => <li key={i}>{n}</li>)}</ul>
           <p className="mt-2 text-xs text-ink-2">Written by the AI reader. The math above never uses these notes.</p>
