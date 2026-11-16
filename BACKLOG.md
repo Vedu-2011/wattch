@@ -260,7 +260,7 @@
 - [x] Y7 Lighthouse /compare EN after Share button (CLS)
 - [x] Y8 Demo /demo unaffected by date change (it shows read date?)
 - [ ] Y9 Final STATUS refresh before handoff (counts, commits)
-- [ ] Y10 Codex review 21 after Y batch
+- [x] Y10 Codex review 21 after Y batch
 
 ## Z batch (added 04:12, night 2)
 - [x] Z1 ShareLink unit-ish test: label EN/ES (render to string) — or skip if no React test setup; decide
@@ -272,4 +272,16 @@
 - [x] Z7 check-all comment says 25 pages (done?) — verify header text
 - [x] Z8 PROGRESS night-2 summary draft: add W–Z lines
 - [x] Z9 BOARD row: update task text (still overnight)
-- [ ] Z10 Codex review 22 after Z batch
+- [x] Z10 Codex review 22 after Z batch
+
+## AA batch (added 04:14, night 2)
+- [x] AA1 Plan page on a plan with no rank (variable): card falls back + Share still shown? check /plan/<variable id>
+- [x] AA2 Compare with one unverified plan: page + card behave (friendly message, general card)
+- [x] AA3 /api/card?plan=<variable> returns general card (route test case)
+- [x] AA4 Spanish Share title: 'Simple Saver 3 · Wattch' ok in ES (proper noun) — log
+- [ ] AA5 Home badge date at midnight CT edge: builtAt 05:30 UTC shows previous Texas day — test for the formatter
+- [ ] AA6 JUDGE-QA: date honesty line? (no — log)
+- [ ] AA7 PROGRESS: Anakin probe result (N8) feeds the Dallas re-read decision
+- [ ] AA8 STATUS 'Known gaps' refresh (Dallas 16 unread, Vercel limit)
+- [ ] AA9 tidy: docs/screenshots/overnight-2 size check (repo weight) — log MB
+- [ ] AA10 Codex review 22 after AA batch

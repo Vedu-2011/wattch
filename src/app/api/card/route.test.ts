@@ -16,6 +16,7 @@ describe("/api/card", () => {
     "kwh=1100&plan=33633", "kwh=1100&plan=nope", // plan card / unknown plan → general
     "kwh=1100&a=37797&b=33633&lang=es", "kwh=1100&a=37797&b=17283", // compare / mixed areas → general
     "kwh=abc&area=xx&lang=fr&a=1&b=2&plan=", // nonsense
+    "kwh=1100&a=24977&b=37797", "kwh=1100&a=33670&b=37797", // variable / not-verified plan → general card
   ]) {
     it(q, async () => {
       const r = await png(q);

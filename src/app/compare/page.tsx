@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { cardUrl, langPair, shareMeta } from "@/lib/alternates";
 import Link from "next/link";
-import { compareYear } from "@/lib/compare";
+import { compareYear, notFirm } from "@/lib/compare";
 import { PrintButton } from "@/components/PrintButton";
 import { ShareLink } from "@/components/ShareLink";
 import { COMPARE_WORDS } from "@/lib/compareWords";
@@ -77,6 +77,7 @@ export default async function Compare({ searchParams }: PageProps<"/compare">) {
       <p className="mt-1 text-ink-2">
         {mine ? t.mine : t.avg(kwh.toLocaleString("en-US"), AREAS[area].city, seasons)}. {t.today}
       </p>
+      {[a, b].map((r) => { const why = notFirm(r); return why && <p key={r.meta.id} role="note" className="mt-3 rounded-2xl bg-volt-2 px-4 py-3 text-sm font-medium">{t.notFirm(r.meta.planName, why)}</p>; })}
 
       <section className="mt-5 rounded-3xl bg-ink p-5 text-paper shadow-[var(--shadow-lift)] sm:p-6">
         <p className="display text-2xl font-extrabold leading-tight sm:text-3xl">

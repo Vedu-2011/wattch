@@ -37,3 +37,13 @@ describe("compare page numbers on real plans", () => {
     expect(Math.round(c.diff)).toBe(378);
   });
 });
+
+describe("notFirm (compare pages and cards only promise a yearly number for ranked plans)", () => {
+  it("variable, not-verified and normal plans", async () => {
+    const { planById } = await import("@/lib/plans/data");
+    const { notFirm } = await import("@/lib/compare");
+    expect(notFirm(planById("24977")!)).toBe("variable");
+    expect(notFirm(planById("33670")!)).toBe("unverified");
+    expect(notFirm(planById("33633")!)).toBeNull();
+  });
+});

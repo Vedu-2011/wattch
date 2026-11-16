@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 import { CARD_WORDS as W } from "@/lib/cardWords";
-import { compareYear } from "@/lib/compare";
+import { compareYear, notFirm } from "@/lib/compare";
 import { areaOf, clientPlans, planById } from "@/lib/plans/data";
 import { anyFilter, filterOpts, parseWallParams } from "@/lib/params";
 import { AREAS } from "@/lib/plans/ptc";
@@ -19,9 +19,10 @@ export async function GET(req: Request) {
   // ?plan=<id> (plan pages): that plan's real cost and rank, when it's ranked; otherwise the general card below
   const planId = sp.get("plan");
   const st = planId ? standing(clientPlans(area), planId, kwh, opts) : null;
-  // ?a=&b= (compare pages): the same yearly totals the compare page shows, when both plans exist in the same area
+  // ?a=&b= (compare pages): the same yearly totals the compare page shows, when both plans are ranked ones in the same area
+  // (a variable/prepaid/unverified plan has no firm yearly number, so the card falls back to the general one)
   const pa = planById(sp.get("a") ?? ""), pb = planById(sp.get("b") ?? "");
-  if (!planId && pa?.pricing && pb?.pricing && areaOf(pa.meta.id) === areaOf(pb.meta.id)) {
+  if (!planId && pa?.pricing && pb?.pricing && !notFirm(pa) && !notFirm(pb) && areaOf(pa.meta.id) === areaOf(pb.meta.id)) {
     const ar = areaOf(pa.meta.id) ?? "houston";
     const c = compareYear(pa.pricing, pb.pricing, months ?? yearFor(kwh, seasons, ar), { includeConditional: withConditional });
     return compareCard(c, pa.meta.planName, pb.meta.planName, t, `${months ? t.mine : t.perMonth(kwh.toLocaleString("en-US"))} · ${AREAS[ar].city}`);

@@ -1,5 +1,13 @@
 import { findCliffs, monthlyBill } from "@/lib/bill";
-import type { PlanPricing } from "@/lib/plans/schema";
+import type { PlanPricing, PlanRecord } from "@/lib/plans/schema";
+
+/** Why a plan's yearly number isn't firm (same rule as the ranking in rank.ts), or null when it is. */
+export function notFirm(r: PlanRecord): "variable" | "prepaid" | "unverified" | null {
+  if (r.check.status !== "verified" || !r.pricing) return "unverified";
+  if (r.meta.prepaid) return "prepaid";
+  if (r.meta.rateType.toLowerCase() === "variable") return "variable";
+  return null;
+}
 
 /** Two plans over the same 12 months: each month's bill, the yearly totals, and who wins which months. Code only. */
 export function compareYear(a: PlanPricing, b: PlanPricing, months: number[], opts: { includeConditional?: boolean } = {}) {
