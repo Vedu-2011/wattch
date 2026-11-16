@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Kapi } from "@/components/Kapi";
 import { snapshotInfo } from "@/lib/plans/data";
 
@@ -9,6 +10,11 @@ const steps = [
   { t: "Real Houston seasons", d: "Nobody uses the same power every month. Wattch spreads your average over 12 months the way Houston homes really use power: ERCOT's grid data for the Coast weather zone, 2023–2025, mixed by how many CenterPoint homes are in each of its two home types. August comes out at about 2.6× February. That's where bill-credit plans hurt: you miss the credit in the mild months." },
   { t: "Code decides", d: "Your bill at your usage, the ranking, the yearly cost, the price cliffs and every \"why\" line are plain math with tests. Same inputs, same answer, every time. Variable-rate plans aren't ranked, because their price can change every month." },
 ];
+
+export const metadata: Metadata = {
+  title: "How Wattch works — AI reads, code checks",
+  description: "How Wattch reads each plan's fine-print label with AI, then rebuilds the label's own prices in code to prove the reading is right.",
+};
 
 export default function How() {
   return (

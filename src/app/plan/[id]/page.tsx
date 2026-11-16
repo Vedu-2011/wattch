@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CliffChart } from "@/components/CliffChart";
@@ -13,6 +14,18 @@ import { labelText, planById } from "@/lib/plans/data";
 
 /** Reads ?kwh= from the URL, so it renders per request. */
 export const instant = false;
+
+const tidyName = (s: string) => s.replace(/\b(LLC|INC|LP|L\.P\.|CO)\b\.?/gi, "").replace(/\(TX\)/gi, "").replace(/\s+/g, " ").trim();
+
+export async function generateMetadata({ params }: PageProps<"/plan/[id]">): Promise<Metadata> {
+  const rec = planById((await params).id);
+  if (!rec) return { title: "Wattch — plan not found" };
+  const who = tidyName(rec.meta.provider);
+  const description = rec.pricing
+    ? `${rec.meta.planName} (${who}) is advertised at ${rec.meta.ptc.k1000}¢. At 1,100 kWh a month through a Houston year it really costs $${Math.round(annualCost(rec.pricing, yearFor(1100, true))).toLocaleString("en-US")} a year.`
+    : `${rec.meta.planName} from ${who}: the fine print, read and checked.`;
+  return { title: `${rec.meta.planName} — the fine print, checked · Wattch`, description };
+}
 
 export default async function PlanPage({ params, searchParams }: PageProps<"/plan/[id]">) {
   const { id } = await params;

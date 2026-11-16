@@ -22,7 +22,7 @@
 - [x] Accessibility: labels, focus rings, contrast ≥ AA, keyboard through the whole flow, chart has text alternative — axe (via Playwright) shows 0 serious issues
 - [x] Mobile nav (menu) + sticky "Read every plan" button on home for phones
 - [x] Kapi: 3 more poses (thinking, surprised, celebrating) as original SVG; use them in reveal/empty/error states
-- [ ] Typography + spacing consistency pass; projector check at 1920 (text readable from the back of a room)
+- [x] Typography + spacing consistency pass; projector check at 1920 (text readable from the back of a room)
 - [ ] Favicon + app icon from Kapi; proper <title>/description per page; Open Graph images
 ## D. Quality
 - [ ] Tests to 100+: rescue/templates edge cases, compare math, current-plan/ETF math, 12-month input parsing, filters, API routes (mocked) — `npm test` ≥100 passing

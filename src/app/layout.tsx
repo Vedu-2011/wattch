@@ -14,6 +14,8 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://getwattch.vercel.app"),
   title: "Wattch — your power plan, read for real",
   description: "Wattch reads the fine print on every Houston electricity plan and shows what each one really costs at your usage.",
+  openGraph: { siteName: "Wattch", type: "website", images: [{ url: "/api/card?kwh=1100", width: 1200, height: 630 }] },
+  twitter: { card: "summary_large_image", images: ["/api/card?kwh=1100"] },
 };
 export const viewport: Viewport = { themeColor: "#f5efe3" };
 
