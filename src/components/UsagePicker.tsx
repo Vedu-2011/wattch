@@ -15,8 +15,8 @@ export function UsagePicker({ initial = 1100 }: { initial?: number }) {
   const n = Math.round(Number(kwh));
   const valid = Number.isFinite(n) && n >= 100 && n <= 5000;
   return (
-    <form
-      className="rounded-3xl bg-card p-5 sm:p-6 shadow-[var(--shadow-lift)]"
+    <form id="picker"
+      className="scroll-mt-24 rounded-3xl bg-card p-5 sm:p-6 shadow-[var(--shadow-lift)]"
       onSubmit={(e) => { e.preventDefault(); if (valid) router.push(`/wall?kwh=${n}`); }}
     >
       <label htmlFor="kwh" className="block text-base font-semibold">How much power do you use in a month?</label>

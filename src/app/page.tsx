@@ -1,5 +1,6 @@
 import { Kapi } from "@/components/Kapi";
 import { UsagePicker } from "@/components/UsagePicker";
+import { StickyCta } from "@/components/StickyCta";
 import { TrapCarousel } from "@/components/TrapCarousel";
 import { heroStats } from "@/lib/hero";
 import { clientPlans, snapshotInfo } from "@/lib/plans/data";
@@ -22,7 +23,7 @@ export default function Home() {
             Texas lets you pick your electricity plan, then hides the real price in a PDF. Wattch reads every Houston
             plan&apos;s fine print, checks its own work against the label, and does the honest math at <em>your</em> usage.
           </p>
-          <dl className="mt-6 flex flex-wrap gap-3">
+          <dl className="mt-6 grid grid-cols-3 gap-2 sm:flex sm:flex-wrap sm:gap-3">
             <Stat n={hero.read} label="Houston plans read" />
             <Stat n={verified} label="checked against their label" />
             <Stat n={hero.withTrap} label="with a usage trap" hot />
@@ -34,15 +35,16 @@ export default function Home() {
           <UsagePicker />
         </div>
       </div>
+      <StickyCta />
     </div>
   );
 }
 
 function Stat({ n, label, hot = false }: { n: number; label: string; hot?: boolean }) {
   return (
-    <div className={`rounded-2xl px-4 py-3 ${hot ? "bg-ink text-paper" : "bg-card shadow-[var(--shadow-soft)]"}`}>
+    <div className={`rounded-2xl px-3 py-3 sm:px-4 ${hot ? "bg-ink text-paper" : "bg-card shadow-[var(--shadow-soft)]"}`}>
       <dt className="sr-only">{label}</dt>
-      <dd className={`num text-3xl font-semibold leading-none ${hot ? "text-volt" : ""}`}>{n}</dd>
+      <dd className={`num text-2xl font-semibold sm:text-3xl leading-none ${hot ? "text-volt" : ""}`}>{n}</dd>
       <dd className={`mt-1 text-xs font-medium ${hot ? "text-paper/70" : "text-ink-2"}`}>{label}</dd>
     </div>
   );
