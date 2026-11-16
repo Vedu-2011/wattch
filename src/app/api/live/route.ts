@@ -19,7 +19,8 @@ export async function GET(req: Request) {
     const same = f.sha256 === rec.read.sha256;
     const pricesSame = same || (rec.pricing ? ptcAveragesOnLabel(f.text, rec.pricing.labelAvg) : false);
     return NextResponse.json({ ok: true, via: f.via, ms: f.ms, same, pricesSame, readAt: rec.read.fetchedAt });
-  } catch (e) {
-    return NextResponse.json({ ok: false, message: e instanceof Error ? e.message : "Couldn't open it right now." }, { status: 200 });
+  } catch {
+    // plain words only — never a raw error from the provider's site
+    return NextResponse.json({ ok: false, message: "Couldn't open the provider's label right now. Try again in a minute." }, { status: 200 });
   }
 }

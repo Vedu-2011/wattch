@@ -23,7 +23,7 @@
 - [x] Mobile nav (menu) + sticky "Read every plan" button on home for phones
 - [x] Kapi: 3 more poses (thinking, surprised, celebrating) as original SVG; use them in reveal/empty/error states
 - [x] Typography + spacing consistency pass; projector check at 1920 (text readable from the back of a room)
-- [ ] Favicon + app icon from Kapi; proper <title>/description per page; Open Graph images
+- [x] Favicon + app icon from Kapi; proper <title>/description per page; Open Graph images
 ## D. Quality
 - [ ] Tests to 100+: rescue/templates edge cases, compare math, current-plan/ETF math, 12-month input parsing, filters, API routes (mocked) — `npm test` ≥100 passing
 - [ ] Lighthouse (Playwright + lighthouse npm) on /, /wall, /plan: performance ≥90 mobile, accessibility ≥95 — scores logged in PROGRESS.md
