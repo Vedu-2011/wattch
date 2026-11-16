@@ -20,7 +20,9 @@ describe("compare page numbers on real plans", () => {
         expect(c.totalA, `${a.id} total`).toBeCloseTo(annualCost(a.pricing!, months), 2);
         expect(c.totalB, `${b.id} total`).toBeCloseTo(annualCost(b.pricing!, months), 2);
         const shownA = c.rows.reduce((s, r) => s + Number(r.a.toFixed(2)), 0);
+        const shownB = c.rows.reduce((s, r) => s + Number(r.b.toFixed(2)), 0);
         expect(Math.abs(shownA - c.totalA), `${a.id} rows add up`).toBeLessThan(0.07); // 12 roundings of ≤ half a cent
+        expect(Math.abs(shownB - c.totalB), `${b.id} rows add up`).toBeLessThan(0.07);
         expect(c.winsA + c.winsB + c.rows.filter((r) => r.cheaper === "tie").length).toBe(12);
       }
     });
