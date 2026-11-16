@@ -69,3 +69,5 @@
 - 2026-11-16 01:33 PT · I1 i18n parity test · DONE (118d033). Caught: LiveCheck ES 'failed' took different args (fixed). DECISION: English trap labels come from traps() itself, so the test checks every trap kind in both data files has a Spanish name instead. 181 tests. $0.
 - 2026-11-16 01:35 PT · I2 Spanish /compare · DONE (d9617de). 4 cases × 2 widths checked live, no English lines, axe 0 on 20 pages. 182 tests. $0.
 - 2026-11-16 01:37 PT · I3 Spanish /traps · DONE (e6e2192). 184 tests, axe 0 on 21 pages. $0.
+- 2026-11-16 01:38 PT · I4 Spanish share card · DONE (db62a0d). Also fixed: Spanish wall's <title>/description were English. $0.
+- 2026-11-16 01:38 PT · I5 /how per area · ALREADY DONE in G1 (/how renders a pipeline for each area from its own file). No change.

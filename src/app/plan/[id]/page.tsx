@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { CliffChart } from "@/components/CliffChart";
 import { Fresh } from "@/components/Fresh";
 import { HighlightScope, HoverKey, LabelText } from "@/components/Highlight";
@@ -51,6 +51,13 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
   const p = rec.pricing;
   const mine = monthsFromParam(one(sp.m));
   const area = areaOf(id) ?? "houston";
+  if (area !== "houston" && one(sp.area) !== area) {
+    // a bare link to a Dallas plan: add ?area= so the header, the back link and every other link agree on the area
+    const q = new URLSearchParams();
+    for (const [k, v] of Object.entries(sp)) if (typeof v === "string") q.set(k, v);
+    q.set("area", area);
+    redirect(`/plan/${id}?${q.toString()}`);
+  }
   const { city, utility } = AREAS[area];
   const { filters, lang } = parseWallParams((k) => one(sp[k]));
   const es = lang === "es";
