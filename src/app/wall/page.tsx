@@ -12,14 +12,17 @@ const parse = (sp: SP) => parseWallParams((k) => { const v = sp[k]; return Array
 
 export async function generateMetadata({ searchParams }: PageProps<"/wall">): Promise<Metadata> {
   const sp = await searchParams;
-  const { kwh, area } = parse(sp);
+  const { kwh, area, lang } = parse(sp);
+  const city = AREAS[area].city, k = kwh.toLocaleString("en-US");
   // the card reads the same params, so a shared link unfurls into that exact result
   const q = new URLSearchParams();
   for (const k of RESULT_KEYS) { const v = sp[k]; if (typeof v === "string") q.set(k, v); }
   const card = `/api/card?${q.toString()}`;
   return {
-    title: `Wattch — every ${AREAS[area].city} plan at ${kwh.toLocaleString()} kWh`,
-    description: `Every ${AREAS[area].city} electricity plan, priced at ${kwh.toLocaleString()} kWh a month through a real ${AREAS[area].city} year, with the fine print checked.`,
+    title: lang === "es" ? `Wattch — todos los planes de ${city} con ${k} kWh` : `Wattch — every ${city} plan at ${k} kWh`,
+    description: lang === "es"
+      ? `Cada plan de luz de ${city}, con el precio de ${k} kWh al mes durante un año real en ${city}, con la letra pequeña revisada.`
+      : `Every ${city} electricity plan, priced at ${k} kWh a month through a real ${city} year, with the fine print checked.`,
     openGraph: { images: [{ url: card, width: 1200, height: 630 }] },
     twitter: { card: "summary_large_image", images: [card] },
   };

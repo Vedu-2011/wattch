@@ -68,3 +68,4 @@
 - 2026-11-16 01:32 PT · I0 Spanish header/badge/footer · DONE (d84b4a9). SiteChrome.tsx (useUiLang, Nav, Footer); LangSwitch on /plan + /remind. Found + fixed: English header was 8px too wide at 360px. 168 tests, axe 0. $0.
 - 2026-11-16 01:33 PT · I1 i18n parity test · DONE (118d033). Caught: LiveCheck ES 'failed' took different args (fixed). DECISION: English trap labels come from traps() itself, so the test checks every trap kind in both data files has a Spanish name instead. 181 tests. $0.
 - 2026-11-16 01:35 PT · I2 Spanish /compare · DONE (d9617de). 4 cases × 2 widths checked live, no English lines, axe 0 on 20 pages. 182 tests. $0.
+- 2026-11-16 01:37 PT · I3 Spanish /traps · DONE (e6e2192). 184 tests, axe 0 on 21 pages. $0.
