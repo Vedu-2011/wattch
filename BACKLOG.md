@@ -95,7 +95,7 @@
 - [x] K2 Spanish print view of a plan page (PrintButton → print CSS): emulate print media, no English chrome, fits 1 page
 - [x] K3 Keyboard-only pass on Spanish wall: Tab through LangSwitch, area switch, CurrentPlan search, MyMonths — focus visible everywhere
 - [x] K4 Spanish /es home: hero numbers match the English home for both areas (same math, test)
-- [ ] K5 i18n: number/date formats on Spanish pages consistent (es-US dates, $ amounts unchanged) — grep + fix strays
+- [x] K5 i18n: number/date formats on Spanish pages consistent (es-US dates, $ amounts unchanged) — grep + fix strays
 - [ ] K6 README: list Spanish + Dallas coverage and every AI tool used (STEM2Connect rule) — verify against code
 - [ ] K7 Codex review 9 (J1–J7 diff)
 - [ ] K8 Lighthouse on /how?lang=es and /es (now dynamic) — perf ≥ 90, CLS < 0.1

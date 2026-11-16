@@ -37,7 +37,7 @@ export function Demo({ d }: { d: DemoData }) {
       </div>
       <p className="mt-6 max-w-3xl text-xl text-paper/80 sm:text-3xl">AI read every plan&apos;s fine-print label. Then plain code rebuilt the label&apos;s own prices to the tenth of a cent — so I know the reading is right.</p>
     </Scene>,
-    <Scene key="d" eyebrow={`A Houston home using ${d.kwh.toLocaleString()} kWh a month`}>
+    <Scene key="d" eyebrow={`A Houston home using ${d.kwh.toLocaleString("en-US")} kWh a month`}>
       <Kapi pose="surprised" className="float-right h-20 w-20 sm:h-36 sm:w-36" />
       <p className="display text-[5rem] font-extrabold leading-[0.85] text-volt sm:text-[11rem]"><span className="num"><CountUp value={d.gap} format={money} /></span></p>
       <h2 className="display mt-4 text-3xl font-extrabold leading-tight sm:text-6xl">more a year on the state site&apos;s #1.</h2>
@@ -45,7 +45,7 @@ export function Demo({ d }: { d: DemoData }) {
     </Scene>,
     <Scene key="e" eyebrow="Why?">
       <h2 className="display text-3xl font-extrabold leading-tight sm:text-6xl">{d.why}</h2>
-      <div className="mt-8 max-w-4xl"><YearBars months={d.pick.months} line={d.creditLine ?? undefined} lineLabel={d.creditLine ? `credit needs ${d.creditLine.toLocaleString()} kWh` : undefined} dark /></div>
+      <div className="mt-8 max-w-4xl"><YearBars months={d.pick.months} line={d.creditLine ?? undefined} lineLabel={d.creditLine ? `credit needs ${d.creditLine.toLocaleString("en-US")} kWh` : undefined} dark /></div>
       <p className="mt-4 text-lg text-paper/70 sm:text-2xl">Houston summers clear the line. Spring, fall and winter don&apos;t.</p>
     </Scene>,
     <Scene key="f" eyebrow="The plan that's really cheapest for this home">

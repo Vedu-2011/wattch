@@ -44,7 +44,7 @@ export function CliffChart({ pricing, kwh, lang = "en" }: { pricing: PlanPricing
           </g>
         ))}
         {[500, 1000, 1500, 2000, 2500].map((k) => (
-          <text key={k} x={x(k)} y={H - 12} textAnchor="middle" className="num" fontSize="11" fill="#5b5145">{k.toLocaleString()}</text>
+          <text key={k} x={x(k)} y={H - 12} textAnchor="middle" className="num" fontSize="11" fill="#5b5145">{k.toLocaleString("en-US")}</text>
         ))}
         {cliffs.map((c) => (
           <g key={c.kwh}>

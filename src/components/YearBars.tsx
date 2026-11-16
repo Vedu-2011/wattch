@@ -24,7 +24,7 @@ export function YearBars({ months, line, lineLabel, dark = false, lang = "en" }:
               <div
                 className={`rounded-t-md transition-[height] duration-500 ${below(m) ? "bg-over" : dark ? "bg-paper/85" : "bg-ink/80"}`}
                 style={{ height: `${(m / max) * 100}%` }}
-                title={`${MONTHS[i]}: ${m.toLocaleString()} kWh`}
+                title={`${MONTHS[i]}: ${m.toLocaleString("en-US")} kWh`}
               />
             </div>
           ))}

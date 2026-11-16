@@ -38,7 +38,7 @@ function centsPatterns(c: number): RegExp[] {
 export function targets(p: PlanPricing, opts: { tduFilled?: boolean } = {}): (Target & { patterns: RegExp[] })[] {
   const t: (Target & { patterns: RegExp[] })[] = [];
   const avg = [[500, p.labelAvg.k500], [1000, p.labelAvg.k1000], [2000, p.labelAvg.k2000]] as const;
-  for (const [k, v] of avg) t.push({ key: `avg-${k}`, label: `Average at ${k.toLocaleString()} kWh`, patterns: centsPatterns(v) });
+  for (const [k, v] of avg) t.push({ key: `avg-${k}`, label: `Average at ${k.toLocaleString("en-US")} kWh`, patterns: centsPatterns(v) });
   p.energyTiers.forEach((e, i) => t.push({ key: `energy-tier-${i}`, label: "Energy price", patterns: centsPatterns(e.cents) }));
   p.touPeriods.forEach((e, i) => t.push({ key: `energy-tou-${i}`, label: e.label, patterns: centsPatterns(Math.abs(e.cents)) }));
   if (!opts.tduFilled) {
