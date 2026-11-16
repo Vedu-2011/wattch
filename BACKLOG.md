@@ -27,7 +27,7 @@
 ## D. Quality
 - [x] Tests to 100+: rescue/templates edge cases, compare math, current-plan/ETF math, 12-month input parsing, filters, API routes (mocked) — `npm test` ≥100 passing
 - [x] Lighthouse (Playwright + lighthouse npm) on /, /wall, /plan: performance ≥90 mobile, accessibility ≥95 — scores logged in PROGRESS.md
-- [ ] Shrink what the browser downloads: don't ship full label text to /wall; per-plan data only on /plan — /wall JS+data < 300 KB
+- [x] Shrink what the browser downloads: don't ship full label text to /wall; per-plan data only on /plan — /wall JS+data < 300 KB
 - [ ] Type-safety pass: no `any`, zod-parse data/plans.json at load with a friendly error page if broken
 ## E. Submission readiness (Triple H + STEM2Connect + GenHacks)
 - [ ] docs/DEVPOST.md draft: inspiration, what it does, how I built it (AI reads, code decides, the check), challenges, accomplishments, what's next, built with — every claim checked against code/data; solo "I" voice

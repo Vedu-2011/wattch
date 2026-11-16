@@ -3,10 +3,11 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import raw from "../../../data/plans.json";
 import type { PlanRecord } from "./schema";
+import { parseSnapshot } from "./snapshot";
 import type { ClientPlan } from "@/lib/rank";
 
-type Snapshot = { builtAt: string; source: string; model: string; counts: Record<string, number>; plans: PlanRecord[] };
-const snap = raw as unknown as Snapshot;
+// zod-checked once per server start; a broken file throws here and the visitor sees app/global-error.tsx
+const snap = parseSnapshot(raw);
 
 export const snapshotInfo = { builtAt: snap.builtAt, source: snap.source, model: snap.model, counts: snap.counts, total: snap.plans.length };
 
