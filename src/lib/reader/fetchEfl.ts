@@ -32,8 +32,10 @@ export async function fetchEfl(rawUrl: string, opts: { anakinKey?: string; timeo
     const buf = new Uint8Array(await res.arrayBuffer());
     const isPdf = buf[0] === 0x25 && buf[1] === 0x50 && buf[2] === 0x44 && buf[3] === 0x46;
     if (res.ok && isPdf) {
+      // hash first: the PDF reader takes over the buffer, and hashing it afterwards hashes nothing
+      const digest = sha(buf);
       const text = await pdfText(buf);
-      if (looksLikeEfl(text)) return { text, via: "direct", sha256: sha(buf), ms: Date.now() - t0, finalUrl: res.url };
+      if (looksLikeEfl(text)) return { text, via: "direct", sha256: digest, ms: Date.now() - t0, finalUrl: res.url };
     }
   } catch {
     /* fall through to Anakin */
@@ -54,6 +56,6 @@ export async function anakinRead(url: string, t0 = Date.now(), key?: string): Pr
   return { text, via: "anakin", sha256: sha(new TextEncoder().encode(text)), ms: Date.now() - t0, finalUrl: data.finalUrl ?? url };
 }
 
-function sha(b: Uint8Array) {
+export function sha(b: Uint8Array) {
   return createHash("sha256").update(b).digest("hex");
 }

@@ -1,7 +1,7 @@
 {
  "id": "35975",
  "plan": "Texans Choice Power LLC — Texas Instant 12",
- "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+ "textSha256": "980ca8f182a150a3e6cb53de210ee1fb67d31e214d925023f1b9c8a6aa2504d1",
  "readBy": "hand-read by Claude Code, Nov 15 2026",
  "why": "Energy is charged only above 1,000 kWh and delivery is bundled in; the reader added a fake $0 minimum-use fee.",
  "pricing": {

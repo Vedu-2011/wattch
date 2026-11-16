@@ -1,7 +1,7 @@
 {
  "id": "17267",
  "plan": "TARA ENERGY — Balanced Days Bundle - 3",
- "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+ "textSha256": "cf05ff884680775ba1bac3795f3212e6b678e0b225ecae9d276b243e7ece1206",
  "readBy": "hand-read by Claude Code, Nov 15 2026",
  "why": "The reader saw the Day Hours credit but didn't model it. The label's averages assume 33% of use in Day Hours at 0¢ energy.",
  "pricing": {

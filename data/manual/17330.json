@@ -1,7 +1,7 @@
 {
  "id": "17330",
  "plan": "AMIGO ENERGY — Sustainable Simply Days - 3",
- "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+ "textSha256": "cd4ea03f90e06df0bce74126a3ff3e3c3f8825171d9ff65febe50e3b9136d540",
  "readBy": "hand-read by Claude Code, Nov 15 2026",
  "why": "The reader saw the Day Hours credit but didn't model it. The label's averages assume 33% of use in Day Hours at 0¢ energy.",
  "pricing": {

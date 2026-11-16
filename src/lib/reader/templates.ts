@@ -44,9 +44,13 @@ export function readSoFedForm(text: string, ptc: Avg): PlanPricing | null {
  * label in the right order, trust them over the reader's copy.
  */
 export function ptcAveragesOnLabel(text: string, ptc: Avg): boolean {
+  if (!(ptc.k500 > 0 && ptc.k1000 > 0 && ptc.k2000 > 0)) return false;
   const flat = text.replace(/\s+/g, " ");
-  const forms = (v: number) => [v.toFixed(1), String(v)].map((f) => f.replace(".", "\\."));
-  const any = (v: number) => `(?:${[...new Set(forms(v))].join("|")})`;
-  const re = new RegExp(`(^|[^0-9.])${any(ptc.k500)}\\s?¢[\\s\\S]*?(^|[^0-9.])${any(ptc.k1000)}\\s?¢[\\s\\S]*?(^|[^0-9.])${any(ptc.k2000)}\\s?¢`);
-  return ptc.k500 > 0 && re.test(flat);
+  const forms = (v: number) => [...new Set([v.toFixed(1), String(v)])].map((f) => f.replace(".", "\\."));
+  const num = (v: number) => `(?<![0-9.])(?:${forms(v).join("|")})(?![0-9])`;
+  // a row of three prices in a row: "19.4¢ 18.0¢ 17.2¢"
+  const row = new RegExp(`${num(ptc.k500)} ?¢ ?${num(ptc.k1000)} ?¢ ?${num(ptc.k2000)} ?¢`);
+  // or each price right next to its usage: "500 kWh19.2 ¢ … 1,000 kWh6.2 ¢ … 2,000 kWh12.2 ¢"
+  const at = (kwh: string, v: number) => new RegExp(`${kwh} ?kWh ?${num(v)} ?¢`, "i");
+  return row.test(flat) || (at("500", ptc.k500).test(flat) && at("1,?000", ptc.k1000).test(flat) && at("2,?000", ptc.k2000).test(flat));
 }

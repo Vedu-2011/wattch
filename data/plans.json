@@ -61,7 +61,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:54:06.686Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "4ec5411f6e44d232277bc187b4e9d1a479f342c75d1eb3b0579843eaec9d9285",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2578
    },
@@ -143,7 +143,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:54:05.293Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "6d8fcb330bae2221a25ac137efddee562f15a89b214b3ad5e8c36271c48fb9d8",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2961
    },
@@ -225,7 +225,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:54:07.309Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "57cdc81d7d0be86c1f1dafc0324e674d903ad9e7fe8045e4dcc9ea3bbe2be069",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2451
    },
@@ -307,7 +307,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:54:07.390Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "2cbf6a88f84c2b687663738c29c2f609d596fac25a813c33d06472e1a3da22c3",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2573
    },
@@ -389,7 +389,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:54:08.255Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "69e71167dba16a544b69a0619f2d9c3944face6b1893b5d6689d8d9dd4837294",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2168
    },
@@ -1671,7 +1671,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:41.628Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "829c356c02c86880f49ae4e00f46c72356abd3914420c19be1eba571163ff6ac",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3608
    },
@@ -1753,7 +1753,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:41.871Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "37b48fdfc159ec1954734fd8e562870f0fee94a972a74bbf494a00d3afe50f67",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 4486
    },
@@ -1835,7 +1835,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:54.545Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "ab4c0280dd5d60e432a78506aaf944460bd84390fc785fdcd095dd8fb79bfe2f",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3514
    },
@@ -1917,7 +1917,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:17.881Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "0f7254c877d6f349494764c37ffabd34dd77cb773bc9d6b5accff15dd6864a0f",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3268
    },
@@ -1999,7 +1999,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:43.063Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "43e0fccf5b20398cc9b517ffa861448e67713eaa937e1d21d817a4b1caf076ec",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3639
    },
@@ -2081,7 +2081,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:06.264Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "44052fde913d04a789a55d50e8a6954b2243baebe3546f819623a28802ec13aa",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3152
    },
@@ -2163,7 +2163,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:07.833Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "047c42636974f98c0b0c914b653264b63fa9eb85e37ca0aab16c5da1b29995a2",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3580
    },
@@ -2245,7 +2245,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:06.413Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "6baa6a6ab79408dbb84d9066c2e464c285da5899083be64948ce8185ba34735a",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2839
    },
@@ -2327,7 +2327,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:06.911Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "6ebd568b626f342c6906bb25066b2a12af6eff79f5eef4ddcbfa45893adb9014",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2755
    },
@@ -2417,7 +2417,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:40.349Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "a72aa784837cf0d0ce075a04b2e64dfe376d38254989336756f289985f4c999e",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3169
    },
@@ -2849,7 +2849,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:11.414Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "be267b745ca5c2af202bd38935bba94942ff165fbce691b9e896ada77f6b8fc8",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3408
    },
@@ -2942,7 +2942,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:14.240Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "3c8f8619e71896c80710fea5fb0f209598872f6a500ff21802d5a675f262c5f6",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3596
    },
@@ -3035,7 +3035,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:14.823Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "1510552445c1cafb9f1525f3837a627973052b10f226f82a732a00387894671e",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 4499
    },
@@ -3128,7 +3128,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:21.150Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "e28d5ce16f5a31a6f40933efa203e5a09058d205119f323f9a048016afa3dd2f",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3662
    },
@@ -3210,7 +3210,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:17.419Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "ae79cd1df3f8d7a5aaee086fd32e818bdba8cbb196ea442a1b065b0389fbc4ce",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3151
    },
@@ -3300,7 +3300,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:35.927Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "0376b04205716929cd65a8791114e45c6b254723634c5bf1ef3cd87452cb1952",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3776
    },
@@ -3382,7 +3382,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:09.667Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "e19c93a39cc1b7c5f80c8323dad32b18dc4bf35e899fe266b1de931928e5ae8c",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 5366
    },
@@ -3465,7 +3465,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:51:48.378Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "90965bfc1967dc7c1c91878b2d9f0d1c9a140057fbba9ffb51c0c4d9f03111df",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 6696
    },
@@ -3548,7 +3548,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:51:55.080Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "69a627d518aca131c0e51b6cbd6b14b4a7f6fd6b8cae9ccc8520cdf87b2332cb",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 7361
    },
@@ -3631,7 +3631,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:51:48.376Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "3dc1fd485078b0eb83b4fe9fa836588dfe8706d0744a4c07cee9b11a84e79f6f",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 5352
    },
@@ -3714,7 +3714,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:48.787Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "f9c0a9a40fe9482194f39dea093f2f8f181449c37ca796f9c6991f1bbd518423",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 5754
    },
@@ -3797,7 +3797,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:24.670Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "911c0d3bbbd3aa849e954b048dca0e989f08af13262e7a3292606748260b2d36",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3499
    },
@@ -3879,7 +3879,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:25.393Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "f92edbb8e1026a47da98761cb2d88be80b99b8b8530daefc1e52a7428a6f0695",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3161
    },
@@ -3961,7 +3961,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:58.958Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "9840bdc0bd1cd743a3fc40ee0e22b4971d21b200840a4da25503f6e44d9ce9a6",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2955
    },
@@ -4043,7 +4043,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:23.932Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "bb7efc4d0c08b3a2db8a575a7e4886109df622b7e04b9ba2b0bfed7831a7ff44",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2563
    },
@@ -4125,7 +4125,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:28.605Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "836cdd3344d8612e58804dd4c900e4684332b39069d7c84b84cca9c37f5967cb",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3103
    },
@@ -4207,7 +4207,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:53.541Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "0ba64db7a0835abffc3bb682e6f6eb4ad392b0fcf1289ddced15df3d66df281d",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3364
    },
@@ -4310,7 +4310,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:51:53.729Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "98e5e41909f2746b1d8909cb0ced21c08f486a41058198c3f9112f1cc99c9a10",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 4489
    },
@@ -4413,7 +4413,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:18.092Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "2e96d2ad31c30a096176a77029be6aaa1815429c10be2bb18290f4b2df82ffcf",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 4746
    },
@@ -4510,7 +4510,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:32.247Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "6f0700b08aac275c18e3c98b7b595779a441bbfcfa2c02657e49ca7665c35337",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3679
    },
@@ -4598,7 +4598,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:11.671Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "531515d6f5211d087e07a1015139d0f4bbc1de8b63fd58010fb109ccb8c1dd78",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 5745
    },
@@ -4687,7 +4687,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:21.666Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "3f6b0fb83db6d70d5d1c47549dc3f81f793d4918ee6cf7bfc11536917993a15b",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 5871
    },
@@ -4770,7 +4770,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:59.403Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "fdd376f0697f74020c7928de3d8e5a33dc4206e73e052f48fc9d593e0f0dde60",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3519
    },
@@ -4852,7 +4852,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:22.738Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "db8b9adfbe6131442692ae22d425645b6bfddbc3c951b01b48d2c57c11e3b7e3",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2654
    },
@@ -4934,7 +4934,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:54:00.892Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "aa848ce775defdd59c0f53ecd887f9cf84dcd756aad0f235b6205f5c71cb8232",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2762
    },
@@ -5016,7 +5016,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:21.292Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "6058196469cd848c854365f885b122f440102d3f5b6cd0c5c778a199d25b1868",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3377
    },
@@ -5098,7 +5098,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:47.851Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "c75462dcddb7138e8c242e23c6e6035123bdbb602a0f62a6d73378ab1d138dc2",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2733
    },
@@ -5180,7 +5180,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:45.863Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "c5e11a386dff4569c7ce3e4b7feb6f861aa0ce7d619c339f72d08f6363c2af01",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 5390
    },
@@ -5263,7 +5263,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:51:48.380Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "d611c18484bf3badd537ad116f6eeb042ff74a864587ba110aa7917b3857bcf3",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 5258
    },
@@ -5346,7 +5346,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:17.813Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "c3a9df15f33b673f541b93a4c79f3e7dea9aad944ed6523f8d2e8d16300511f3",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 4920
    },
@@ -5429,7 +5429,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:51:59.690Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "0f9648a49ca68bc9c56ae8d1b1c04fdf08cc78c5f727776aed8442a21fbad46a",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 7260
    },
@@ -5512,7 +5512,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:48.200Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "fd2781044df383579a3510f014c67bed5476f7d687d1836c8f6a848cfcdce015",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 5132
    },
@@ -5603,7 +5603,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:15.035Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "5b87c808ba4d42d464bbed0a405ea9d4b6d4d5d7f98bf92c34883c95aa5930a0",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3056
    },
@@ -5693,7 +5693,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:17.465Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "b0be578216c3239a3c74f09ec186981f9a52532ba97a0524d9a2c2e38870f72d",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2662
    },
@@ -5783,7 +5783,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:56.907Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "5f02735ee85fda08f23b9961f011e806b534fcd11fe90f4d2d3394e30ed15b25",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2495
    },
@@ -5873,7 +5873,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:16.783Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "0f36817ec4a901559eede3eb39c38d027b7883201c20ae0bbb3af733f1b95cfb",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2759
    },
@@ -5963,7 +5963,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:58.468Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "f5f78a06666bf9055bafb4c2d35d1bb70271ab37ef0050dadfdfec0347a6f6f9",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2423
    },
@@ -6177,7 +6177,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:25.739Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "b0b1e8effdf064d14e2a73044c78432ebed4114344bace7c65ffd82a94a4f4b7",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2645
    },
@@ -6259,7 +6259,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:53.863Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "693047a4ce854f40ea4c0c7c6c8801981ae9bbd9652385533f5454eb36aedb2c",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 4601
    },
@@ -6341,7 +6341,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:26.497Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "3bc14637bfb4f65f18c8c5e120b0db44f66fb13d162c19f474923b7c1df3fa57",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2107
    },
@@ -6505,7 +6505,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:28.170Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "08a2526e396e5de459cbdaff72d408a468d47f0c5c0b96150bb5376d567014a1",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2372
    },
@@ -6669,7 +6669,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:30.248Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "68cf338dfceac55af4cba7920eb624da5467409b910d321b78b9ca2b74aa08c9",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3522
    },
@@ -6751,7 +6751,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:30.543Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "8b1bbc330875e508647964ae41c46db54b819683bea125c77bf7b5880a88d248",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2579
    },
@@ -6833,7 +6833,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:31.110Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "8a644cf5b6443f7182094572ac6f0900f619075bc3272eacedef12bed6c0ea12",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3166
    },
@@ -6915,7 +6915,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:01.142Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "5c4c4ca00eaa4a75f5f5f022f1e2ec93dd01e6c2b6bec06b8f99f832a6bf6c95",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3246
    },
@@ -6997,7 +6997,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:07.221Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "3febe70e7aff523727cae2ef5fd3d6cb5785a3e0e942e71de2aa67237b81a6c8",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3642
    },
@@ -7079,7 +7079,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:27.070Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "2bca3bd55f78e54c49bccd0ec1d0ac6d13f221e528f43876d6ddcf0c565122c0",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3176
    },
@@ -7161,7 +7161,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:49.753Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "a4550de2174b8be0f6e81fa8c7a0d1d563a172a9859d4088ae103e1403a0f1f7",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3062
    },
@@ -7242,7 +7242,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:02.445Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "db2e8f071d67fb3fbc221520ca625fb35976a8adda1f5d003989751bfc636b3a",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2416
    },
@@ -7324,7 +7324,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:04.163Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "730ba81227f31f007bbfb2ab7bca0f1e5a9e4ea6974488d88b376b285b45bcf5",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2100
    },
@@ -7406,7 +7406,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:05.027Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "a76e27ec4d6e5c74e3f1b5b86a937f6e3250e84d8ed23115f1ca2ed0f2215733",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 1883
    },
@@ -7489,7 +7489,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:03.301Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "fc33b88e09ccb1bf4fc06819b08eb3ebdda70a21fb6b36b04e2e4826f585d8de",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2614
    },
@@ -7571,7 +7571,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:05.916Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "40a28922768c9c5563ace5c483e7c6e47670f7530e6a689bad3e8cf1eed3bf91",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 1916
    },
@@ -7653,7 +7653,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:04.163Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "23860d5c6ce707ce553e0f34a2b3191268aeeb250b84d3027045ef6257854529",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2249
    },
@@ -7735,7 +7735,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:00.910Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "f2aef8db78cee25c7fabe27c8dd4b498a5c8792cebea03b17a5a6ae328384fba",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2390
    },
@@ -7817,7 +7817,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:01.003Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "17448f18b72ce0ef3bd5a5bea90ad6cd7dcedca3607dde06836383a49860dd8a",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2255
    },
@@ -7899,7 +7899,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:02.695Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "ca91700fb9a65cdce9b7e4a19cafbbce063399d80631f58d1b97f936e4c3d96f",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2330
    },
@@ -7981,7 +7981,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:03.259Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "26b78d41d5ce8ced05ba7996dfa536b834a7776954eb6f94e99bd9993502db7d",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 4691
    },
@@ -8063,7 +8063,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:59.391Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "4736a25f1bb5d7095e1d98814633e736ba42e4c83174d51b173393941016bd96",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3300
    },
@@ -8145,7 +8145,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:53.334Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "e4217153b83fd7569697afecd54534c1aec6a22c3271c9ad9d589a7293c49899",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3270
    },
@@ -8241,7 +8241,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:10.864Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "7fcb67d50ca6215d38a91c85c9ac71871cb5f70d119bfb7e4716ac335d67d9e0",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3641
    },
@@ -8348,7 +8348,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:09.964Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "57b29ee6f5f55a4deaf99a8d74eebf47b7b1aedf5bd46ddd4524b1ff2ce84fd4",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 6447
    },
@@ -8436,7 +8436,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:51:54.153Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "e14b6268b3f1eb9e3e5ca53e72194ed996ff3aa94bf0e8903c897277b2146912",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 5533
    },
@@ -8518,7 +8518,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:51:48.373Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "53353f08bffbf35e97af37f386667c44a7fb448103237b490a8748a9287860d3",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3317
    },
@@ -8993,7 +8993,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:50.585Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "a82c8a72390b76822f7da33be8dde8a15b14a2080feecf4da84d2e2e9fbd2501",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2891
    },
@@ -9075,7 +9075,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:51:58.224Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "accfa2d3fb70fd23b97100645b234f4cdfa34a8f5b419a68c8ee504bd366a6e0",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2452
    },
@@ -9157,7 +9157,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:52.816Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "e55335a1f4c23b78f61845f15f0f1e42e35b368e2282f6b1ea0fc2d844a7cd46",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3639
    },
@@ -9239,7 +9239,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:51.639Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "3fd20c66e949245cab1a53fa35979e086cca7f6ec2ba349ad7f6db191a34e0c2",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2291
    },
@@ -9321,7 +9321,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:51:55.091Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "c8e837f458ec02db2b89540dd050baec929b7b913b8944ff10630403271bc87f",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3275
    },
@@ -9409,7 +9409,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:59.661Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "7ed2000bc8ec92abdd0cc7e659ea85d780119485788f5633780aa74f44ccd9f2",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 4501
    },
@@ -9497,7 +9497,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:45.814Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "0be98e95824b58df84b5fc8add9bd911da3bf4c54f5e12926204b95e5c288378",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 4882
    },
@@ -9585,7 +9585,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:43.519Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "20d87932f0f16583be6a40163bd6d2bec8142be57b8ff9121002dfce0eef8d34",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 10017
    },
@@ -9664,7 +9664,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:37.737Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "720b594ddc8d1bcfc356e91f97255f99bcca8106cbd3872c7737ca7791d90291",
     "parsedBy": "code (form-field reader)",
     "readMs": 5839
    },
@@ -9744,7 +9744,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:33.124Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "53bad79dbdd08f3be5905f13493752d8daf64f2b5f3cac68882d41407a6e1a62",
     "parsedBy": "code (form-field reader)",
     "readMs": 4424
    },
@@ -9824,7 +9824,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:32.490Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "4b77955b9c190ff7ea42189f262c98cf205b3b4a5d0b33b69f50f8dbcccfdf79",
     "parsedBy": "code (form-field reader)",
     "readMs": 5246
    },
@@ -9904,7 +9904,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:33.773Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "0d86ffc900d1ae0908fb4156c6af83fba6e96a969e7cc555f85973ad95c4d180",
     "parsedBy": "code (form-field reader)",
     "readMs": 4228
    },
@@ -9984,7 +9984,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:34.277Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "252d595bed99cdeed094494243b36ca3a2ea5dc1e7b912812a0cdd3fb1d94df4",
     "parsedBy": "code (form-field reader)",
     "readMs": 4338
    },
@@ -10064,7 +10064,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:37.552Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "4a5c05dba282bbaa1a3bef12e4debdaf5c30c9f9a60e523df6d35ae3b7ba990c",
     "parsedBy": "code (form-field reader)",
     "readMs": 4075
    },
@@ -10147,7 +10147,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:14.662Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "340ca4d7675944166d7e334620077ed6c8b4d356e8846c2efee08c27fd05f0ce",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3145
    },
@@ -10229,7 +10229,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:54:01.915Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "25ce863a42c02c9fe19ce2851fe89fd6fbc5750f55f65a9bca5e6fa58c66b7ff",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3377
    },
@@ -10311,7 +10311,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:28.557Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "a5be3580eaa1729d3d26a66b68b993a4f025e20e261944e02cf1f4f2031d1042",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2549
    },
@@ -10393,7 +10393,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:14.506Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "95bd767bffb6e46f63928d3d5f24abbc689db3bbbc81195d295ffaf839bc31ac",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2612
    },
@@ -10475,7 +10475,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:49.096Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "6449a9f09c2f29c93c9e379113ae9414457bd2282a35e061c2309c041cc77c5d",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2542
    },
@@ -10557,7 +10557,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:46.703Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "63159bbc5e6762f1d8da021cd4ebf37fb84bc53fbf3252a128918b7d00fff9d4",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2083
    },
@@ -10639,7 +10639,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:47.054Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "c45f2b3fc2768f4569b2bc447572593715a6805493ed321e6d084a9af9c8c027",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2041
    },
@@ -10721,7 +10721,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:45.239Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "be5b6341c2b158b5743a79983af5ddc4286aa76b3c4a932885936379dad68c44",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2358
    },
@@ -10803,7 +10803,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:45.743Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "adbec71cadff2236b8d22edd634b73ad38c61d241f731d4e29a906bca06f0da3",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 1856
    },
@@ -10885,7 +10885,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:45.913Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "0ca79b4446012e9236c5746ca2c0d25431c3cbf801f7bc1c535672aab555caae",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 1938
    },
@@ -10967,7 +10967,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:46.359Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "4933bb3ecdb870fbd3dc2f309ae27a17c0dc8b3e33f16df469b767b4c520b01b",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 1838
    },
@@ -11049,7 +11049,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:43.579Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "a1b70a38209292270fa2685e4f277885ca44b37302fd39aa518e7a1c26c15063",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2161
    },
@@ -11131,7 +11131,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:43.424Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "ad2c50f6b084218974490f3e9360d396e262691f26aec75b0f0141b9e8925cb7",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2485
    },
@@ -11213,7 +11213,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:43.573Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "8424f5363dd5fd29cdf4991d1312f279d2d701d1af66ccd1374857f96f48e2ec",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3479
    },
@@ -11303,7 +11303,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:17.844Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "3fefed21b6aeb90b7265fd104e38c9e0589a7e448cb02cab9efeb96522d97571",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 6087
    },
@@ -11393,7 +11393,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:22.862Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "5ed95af1be7f9ca56b0af7ea035ba64e5e5b1f509d36e57b4a9d0c9f27d778ed",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2873
    },
@@ -11483,7 +11483,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:54.130Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "237d2aae50c818fcd84a22218b9eba7762b78aa72be0fa15a6f399f09896789b",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2493
    },
@@ -11573,7 +11573,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:24.813Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "4e2c5420f44b3caaf634a8aa41512e07a33c69ba5c09b9fd82dcd3e3e8be9fed",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 3834
    },
@@ -11663,7 +11663,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:56.627Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "54802f74d606af0004dc3db680d2569cff60e5fad4cfb7cc143399ed4284e5a8",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2329
    },
@@ -11744,7 +11744,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:40.908Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "7f20c6f9d8741f5492b2ca83481f8f92e6da809a475f9cc328cdb11e53eb9c8c",
     "parsedBy": "hand-read by Claude Code, Nov 15 2026",
     "readMs": 4904
    },
@@ -11826,7 +11826,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:41.608Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "09bf8f4c111cc59d06cd61aceec49cd64dfba7de14dd920c86a444b64d385684",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2051
    },
@@ -11908,7 +11908,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:51.254Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "60aa28279471c42e5bcfd72486fceacc3b5af2c67f87941d4e5f35bbd7a4cebb",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2607
    },
@@ -11989,7 +11989,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:40.654Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "585f0a5d77cb4e990e82143275e889e9d6ffb6ef0bb6d948830da6090c0488c2",
     "parsedBy": "hand-read by Claude Code, Nov 15 2026",
     "readMs": 5206
    },
@@ -12068,7 +12068,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:38.003Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "3d610f3af00cf55dea15c2fb232d4f4a3093c72a204ae9a07fdc61954e396e04",
     "parsedBy": "code (form-field reader)",
     "readMs": 5059
    },
@@ -12148,7 +12148,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:37.810Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "394d4feb9cb781440612be687fbc62f53b0dd8aafff741dc78ab841ffb859bcd",
     "parsedBy": "code (form-field reader)",
     "readMs": 5610
    },
@@ -12228,7 +12228,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:39.706Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "21cb282e2cf130f28403d482864ff8fec0784fc2b174acf8e59258d97e7b20f1",
     "parsedBy": "code (form-field reader)",
     "readMs": 5873
    },
@@ -12308,7 +12308,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:37.846Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "8b232de879abcf922386ce91b81ce53739499d141a3ca4c20fe5e32a9fdfa3d2",
     "parsedBy": "code (form-field reader)",
     "readMs": 4022
    },
@@ -12388,7 +12388,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:52:38.616Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "ab56af56ea45de828642acf5ac6b7b8d8d69585a3178513b141ed8da054a1b42",
     "parsedBy": "code (form-field reader)",
     "readMs": 4957
    },
@@ -13539,7 +13539,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:08.225Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "1c647f19dd7e7b04add373a81ae0bf4b84d160ac16bc190a175b2d8e90e4f983",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 9236
    },
@@ -13621,7 +13621,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:07.951Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "7a7520e36608dc95083d88b2e15bef10fa7746ef39277d509ca2cb7ab1a6cdd6",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 8831
    },
@@ -13703,7 +13703,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:53:09.419Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "2e162d8a47a9218874fe6b91a509e7e20a4f80d406cc02e2aadf202d07367379",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 8461
    },
@@ -13818,7 +13818,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:54:09.782Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "dbe9b341f618f3f342ae5c97a93dc93dffc566a21afac4fe4006067b0857606d",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2138
    },
@@ -13900,7 +13900,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:54:10.430Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "6ed336c98080be66dac71cb9ac512d15ee842ed817a30f1f2bc80cc32fc40af4",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2068
    },
@@ -13982,7 +13982,7 @@
    "read": {
     "fetchedAt": "2026-11-16T05:54:09.964Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "feaead2f31e41ad91ed95d9b66edb5335bb89c79f74368157c3537e2f4d2fe83",
     "parsedBy": "claude-haiku-5-5",
     "readMs": 2841
    },

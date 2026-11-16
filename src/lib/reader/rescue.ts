@@ -1,10 +1,14 @@
+import { createHash } from "node:crypto";
 import { labelCheck, type CheckRow } from "@/lib/bill";
 import { PlanPricing, type PlanRecord } from "@/lib/plans/schema";
 import { fillTdu, grounded } from "./parse";
 import { ptcAveragesOnLabel, readSoFedForm } from "./templates";
 
 export type TduCandidate = { cents: number; monthly: number };
-export type ManualRead = { id: string; plan: string; sha256: string; readBy: string; why: string; pricing: PlanPricing };
+/** A hand-read pinned to the exact label text it was read from (sha256 of data/text/<id>.txt). */
+export type ManualRead = { id: string; plan: string; textSha256: string; readBy: string; why: string; pricing: PlanPricing };
+
+export const textSha = (text: string) => createHash("sha256").update(text).digest("hex");
 
 type Fix = { pricing: PlanPricing; rows: CheckRow[]; tduFilled: boolean; parsedBy: string; message: string };
 
@@ -21,7 +25,7 @@ function check(p: PlanPricing, tdu: TduCandidate[]): { pricing: PlanPricing; row
  * code check: the three printed averages must be on the label and must rebuild to ±0.1¢.
  * 1. The reader's prices were fine but it copied a wrong average → use Power to Choose's, if the label prints them.
  * 2. Ranchero / Southern Federal form-field labels → read by code (templates.ts).
- * 3. A hand-read of this exact file (same sha256) in data/manual/.
+ * 3. A hand-read of this exact label text (same sha256) in data/manual/.
  */
 export function rescue(rec: PlanRecord, text: string, tdu: TduCandidate[], manual?: ManualRead): Fix | null {
   const ptc = rec.meta.ptc;
@@ -35,7 +39,7 @@ export function rescue(rec: PlanRecord, text: string, tdu: TduCandidate[], manua
     const c = check(form, tdu);
     if (c) return { ...c, parsedBy: "code (form-field reader)", message: "Read by code from the label's form fields; all 3 averages match." };
   }
-  if (manual && manual.sha256 === rec.read.sha256) {
+  if (manual && manual.textSha256 === textSha(text)) {
     const parsed = PlanPricing.safeParse(manual.pricing);
     if (parsed.success && grounded(text, parsed.data)) {
       const c = check(parsed.data, tdu);

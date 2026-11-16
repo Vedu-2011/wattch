@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import { labelCheck, monthlyBill } from "@/lib/bill";
 import type { PlanRecord } from "@/lib/plans/schema";
 import { fillTdu, grounded } from "./parse";
-import { rescue, tduCandidates, type ManualRead } from "./rescue";
+import { rescue, tduCandidates, textSha, type ManualRead } from "./rescue";
 import { ptcAveragesOnLabel, readSoFedForm } from "./templates";
 
 const text = (id: string) => readFileSync(`data/text/${id}.txt`, "utf8");
@@ -79,12 +79,26 @@ describe("hand-reads in data/manual are still checked by code", () => {
   it("Tara Balanced Days: 33% of use in Day Hours at 0¢ energy", () => {
     expect(monthlyBill(manual("17267").pricing, 1000)).toBe(103.49);
   });
-  it("a hand-read of a different file (sha changed) is ignored", () => {
+  it("a hand-read only applies to the exact label text it was read from", () => {
     const m = manual("35975");
-    const rec = { meta: { ptc: { k500: 26, k1000: 13, k2000: 13.5 } }, read: { parsedBy: "x", sha256: "other" }, pricing: null,
+    const rec = { meta: { ptc: { k500: 26, k1000: 13, k2000: 13.5 } }, read: { parsedBy: "x", sha256: "x" }, pricing: null,
       check: { status: "mismatch", rows: [], message: "" } } as unknown as PlanRecord;
-    expect(rescue(rec, text("35975"), CNP, m)).toBeNull();
-    expect(rescue({ ...rec, read: { ...rec.read, sha256: m.sha256 } }, text("35975"), CNP, m)).not.toBeNull();
+    expect(m.textSha256).toBe(textSha(text("35975")));
+    expect(rescue(rec, text("35975"), CNP, m)).not.toBeNull();
+    expect(rescue(rec, text("35975") + "\nUpdated label: energy charge 15.00¢", CNP, m)).toBeNull();
+  });
+});
+
+describe("averages must sit in the price row", () => {
+  const ptc = { k500: 19.2, k1000: 6.2, k2000: 12.2 };
+  it("accepts a row of three prices", () => {
+    expect(ptcAveragesOnLabel("Average price per kWh 19.2¢ 6.2¢ 12.2¢", ptc)).toBe(true);
+  });
+  it("rejects the same numbers scattered around the label", () => {
+    expect(ptcAveragesOnLabel("Renewable 19.2 ¢ … deposit 6.2 ¢ … late fee 12.2 ¢", ptc)).toBe(false);
+  });
+  it("rejects a number that's only part of a bigger one", () => {
+    expect(ptcAveragesOnLabel("119.2¢ 6.2¢ 12.2¢", ptc)).toBe(false);
   });
 });
 
