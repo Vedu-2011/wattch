@@ -4,9 +4,11 @@ import { useEffect, useMemo, useState } from "react";
 import { Kapi } from "@/components/Kapi";
 import { CurrentPlan } from "@/components/CurrentPlan";
 import { JudgeQr } from "@/components/JudgeQr";
+import { MyMonths } from "@/components/MyMonths";
+import { average, monthsToParam } from "@/lib/months";
 import { ShareButton } from "@/components/ShareButton";
 import { YearBars } from "@/components/YearBars";
-import { type ClientPlan, type Ranked, ptcTopPick, rank, traps, whyLine } from "@/lib/rank";
+import { type ClientPlan, type Ranked, ptcTopPick, rank, traps, whyLine, yearFor } from "@/lib/rank";
 
 const money = (n: number) => n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
 const cents = (n: number) => `${n.toFixed(1)}¢`;
@@ -35,15 +37,24 @@ function useReveal(plans: ClientPlan[], totalMs = 9000) {
   return { readIds, done: skip || now >= totalMs, skip: () => setSkip(true) };
 }
 
-export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons }: { plans: ClientPlan[]; kwh: number; builtAt: string; seasons: boolean }) {
+export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons, months: initialMonths = null }: { plans: ClientPlan[]; kwh: number; builtAt: string; seasons: boolean; months?: number[] | null }) {
   const { readIds, done, skip } = useReveal(plans);
   const [kwh, setKwh] = useState(initialKwh);
   const [seasons, setSeasons] = useState(initialSeasons);
+  // your own 12 months, when you've typed them in; otherwise an average spread by Houston seasons
+  const [mine, setMine] = useState<number[] | null>(initialMonths);
+  const qs = `kwh=${kwh}${seasons ? "" : "&flat=1"}${mine ? `&m=${monthsToParam(mine)}` : ""}`;
+  useEffect(() => {
+    const u = new URL(window.location.href);
+    u.searchParams.set("kwh", String(kwh));
+    if (mine) u.searchParams.set("m", monthsToParam(mine)); else u.searchParams.delete("m");
+    window.history.replaceState(null, "", u);
+  }, [kwh, mine]);
   const [withConditional, setWithConditional] = useState(true);
   const [lockedYear, setLockedYear] = useState(false);
   const minTermMonths = lockedYear ? 12 : 0;
   const verifiedRead = plans.filter((p) => readIds.has(p.id) && p.status === "verified").length;
-  const ranked = useMemo(() => rank(plans, kwh, { includeConditional: withConditional, seasons, minTermMonths }), [plans, kwh, withConditional, seasons, minTermMonths]);
+  const ranked = useMemo(() => rank(plans, kwh, { includeConditional: withConditional, seasons, minTermMonths, months: mine }), [plans, kwh, withConditional, seasons, minTermMonths, mine]);
   // with the 12-month filter on, compare against the state site's #1 among those same plans
   const pick = useMemo(() => ptcTopPick(plans.filter((p) => (p.pricing?.termMonths ?? 0) >= minTermMonths)), [plans, minTermMonths]);
   const notRanked = plans.filter((p) => p.status === "verified" && !p.prepaid && p.rateType.toLowerCase() === "variable").length;
@@ -83,22 +94,26 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons 
 
       {done && ranked.length > 0 && (
         <section id="answer" className="pop mt-8 scroll-mt-4 space-y-6">
-          <Reveal kwh={kwh} seasons={seasons} ranked={ranked} pick={pick} locked={lockedYear} />
+          <Reveal kwh={kwh} seasons={seasons} ranked={ranked} pick={pick} locked={lockedYear} mine={!!mine} qs={qs} />
 
           <div className="rounded-3xl bg-card p-5 shadow-[var(--shadow-soft)]">
             <label htmlFor="slide" className="block text-base font-semibold">
-              You average <span className="num">{kwh.toLocaleString()} kWh</span> a month
+              You average <span className="num">{kwh.toLocaleString()} kWh</span> a month{mine ? " (your own 12 months)" : ""}
             </label>
-            <input id="slide" type="range" min={200} max={3000} step={10} value={kwh} onChange={(e) => setKwh(Number(e.target.value))} className="mt-3 w-full" />
+            <input id="slide" type="range" min={200} max={3000} step={10} value={kwh} onChange={(e) => { setMine(null); setKwh(Number(e.target.value)); }} className="mt-3 w-full" />
             <div className="mt-3 flex flex-wrap gap-2">
-              <Toggle on={seasons} set={setSeasons} label="Houston seasons" hint="August ≈ 2.6× February" />
+              {!mine && <Toggle on={seasons} set={setSeasons} label="Houston seasons" hint="August ≈ 2.6× February" />}
               <Toggle on={lockedYear} set={setLockedYear} label="Price locked 12+ months" />
               <Toggle on={withConditional} set={setWithConditional} label="Count autopay discounts" />
+            </div>
+            <div className="mt-3">
+              <MyMonths start={mine ?? yearFor(kwh, seasons)} active={!!mine}
+                onUse={(m) => { setMine(m); setKwh(Math.max(200, Math.min(3000, average(m)))); }} onClear={() => setMine(null)} />
             </div>
             <ol className="mt-4 space-y-2">
               {ranked.slice(0, 8).map((r, i) => (
                 <li key={r.plan.id}>
-                  <Link href={`/plan/${r.plan.id}?kwh=${kwh}${seasons ? "" : "&flat=1"}`} className="flex items-center gap-3 rounded-2xl bg-paper px-3 py-3 transition hover:bg-volt-2 sm:px-4">
+                  <Link href={`/plan/${r.plan.id}?${qs}`} className="flex items-center gap-3 rounded-2xl bg-paper px-3 py-3 transition hover:bg-volt-2 sm:px-4">
                     <span className="num w-5 text-right text-ink-2">{i + 1}</span>
                     <span className="min-w-0 flex-1">
                       <span className="block truncate font-semibold">{r.plan.planName}</span>
@@ -188,7 +203,7 @@ function creditLine(r: Ranked): number | undefined {
   return c?.minKwh;
 }
 
-function Reveal({ kwh, seasons, ranked, pick, locked }: { kwh: number; seasons: boolean; ranked: Ranked[]; pick: ClientPlan | null; locked: boolean }) {
+function Reveal({ kwh, seasons, ranked, pick, locked, mine, qs }: { kwh: number; seasons: boolean; ranked: Ranked[]; pick: ClientPlan | null; locked: boolean; mine: boolean; qs: string }) {
   const best = ranked[0];
   const pickRow = pick ? ranked.find((r) => r.plan.id === pick.id) : undefined;
   const pickRank = pickRow ? ranked.indexOf(pickRow) + 1 : 0;
@@ -206,7 +221,7 @@ function Reveal({ kwh, seasons, ranked, pick, locked }: { kwh: number; seasons: 
     <div className="space-y-4">
       <div className="overflow-hidden rounded-[2rem] bg-ink p-5 text-paper shadow-[var(--shadow-lift)] sm:p-8">
         <p className="text-sm font-semibold text-volt">
-          At {kwh.toLocaleString()} kWh a month{seasons ? ", with real Houston seasons" : ", same every month"}
+          {mine ? `With your own 12 months (about ${kwh.toLocaleString()} kWh a month)` : `At ${kwh.toLocaleString()} kWh a month${seasons ? ", with real Houston seasons" : ", same every month"}`}
         </p>
         {pickRow && gap >= 1 ? (
           <>
@@ -223,7 +238,7 @@ function Reveal({ kwh, seasons, ranked, pick, locked }: { kwh: number; seasons: 
             {why && (
               <div className="mt-6 rounded-3xl bg-paper/10 p-4 sm:p-5">
                 <p className="text-lg font-semibold leading-snug sm:text-xl"><span className="text-volt">Why?</span> {why}</p>
-                {seasons && <div className="mt-4"><YearBars months={pickRow.months} line={line} lineLabel={line ? `credit needs ${line.toLocaleString()} kWh` : undefined} dark /></div>}
+                {(seasons || mine) && <div className="mt-4"><YearBars months={pickRow.months} line={line} lineLabel={line ? `credit needs ${line.toLocaleString()} kWh` : undefined} dark /></div>}
               </div>
             )}
           </>
@@ -237,8 +252,8 @@ function Reveal({ kwh, seasons, ranked, pick, locked }: { kwh: number; seasons: 
           </>
         )}
         <div className="mt-6 flex flex-wrap gap-2">
-          <Link href={`/plan/${best.plan.id}?kwh=${kwh}${seasons ? "" : "&flat=1"}`} className="rounded-full bg-volt px-5 py-2.5 font-bold text-ink">See the math</Link>
-          {pickRow && gap >= 1 && <Link href={`/plan/${pickRow.plan.id}?kwh=${kwh}${seasons ? "" : "&flat=1"}`} className="rounded-full bg-paper/15 px-5 py-2.5 font-bold">Open the #1 plan&apos;s fine print</Link>}
+          <Link href={`/plan/${best.plan.id}?${qs}`} className="rounded-full bg-volt px-5 py-2.5 font-bold text-ink">See the math</Link>
+          {pickRow && gap >= 1 && <Link href={`/plan/${pickRow.plan.id}?${qs}`} className="rounded-full bg-paper/15 px-5 py-2.5 font-bold">Open the #1 plan&apos;s fine print</Link>}
           <ShareButton kwh={kwh} text={shareText} flat={!seasons} />
         </div>
       </div>
@@ -252,7 +267,7 @@ function Reveal({ kwh, seasons, ranked, pick, locked }: { kwh: number; seasons: 
             <b className="num text-over">{cents(surprise.r.avgCents)}</b> — <b className="num">{money(surprise.over)}</b> more than the sticker price suggests.
           </p>
           {whyLine(surprise.r.plan.pricing!, surprise.r.months) && <p className="mt-2 font-medium">{whyLine(surprise.r.plan.pricing!, surprise.r.months)}</p>}
-          <Link href={`/plan/${surprise.r.plan.id}?kwh=${kwh}${seasons ? "" : "&flat=1"}`} className="mt-4 inline-block rounded-full bg-ink px-4 py-2 font-bold text-paper">Show me why</Link>
+          <Link href={`/plan/${surprise.r.plan.id}?${qs}`} className="mt-4 inline-block rounded-full bg-ink px-4 py-2 font-bold text-paper">Show me why</Link>
         </div>
       )}
     </div>

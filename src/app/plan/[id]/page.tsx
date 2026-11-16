@@ -8,6 +8,7 @@ import { YearBars } from "@/components/YearBars";
 import { annualCost, billLines, monthlyBill } from "@/lib/bill";
 import { whyLine, yearFor } from "@/lib/rank";
 import { belongs, labelSegments } from "@/lib/finePrint";
+import { monthsFromParam, monthsToParam } from "@/lib/months";
 import { labelText, planById } from "@/lib/plans/data";
 
 /** Reads ?kwh= from the URL, so it renders per request. */
@@ -22,11 +23,12 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
   const kwh = Number.isFinite(k) && k >= 100 && k <= 5000 ? k : 1000;
   const seasons = (Array.isArray(sp.flat) ? sp.flat[0] : sp.flat) !== "1";
   const p = rec.pricing;
-  const months = yearFor(kwh, seasons);
+  const mine = monthsFromParam(Array.isArray(sp.m) ? sp.m[0] : sp.m);
+  const months = mine ?? yearFor(kwh, seasons);
   const year = p ? annualCost(p, months) : 0;
   const why = p ? whyLine(p, months) : null;
   const line = p?.credits.filter((c) => !c.conditional && c.minKwh > 0).sort((a, b) => b.dollars - a.dollars)[0]?.minKwh;
-  const back = `kwh=${kwh}${seasons ? "" : "&flat=1"}`;
+  const back = `kwh=${kwh}${seasons ? "" : "&flat=1"}${mine ? `&m=${monthsToParam(mine)}` : ""}`;
   const text = p ? labelText(id) : null;
   const fp = p && text ? labelSegments(text, p, { tduFilled: rec.check.tduFilled }) : null;
   const marks = fp ? fp.segments.filter((x) => x.key).length : 0;
@@ -109,7 +111,9 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
             <p className="num text-3xl font-semibold text-volt">${Math.round(year).toLocaleString("en-US")}<span className="text-sm text-paper/70">/yr</span></p>
           </div>
           <p className="mt-1 text-sm text-paper/70">
-            {seasons
+            {mine
+              ? "Your own 12 months, as you typed them."
+              : seasons
               ? `Averaging ${kwh.toLocaleString()} kWh, shaped like a real Houston year (more in summer, less in winter and spring).`
               : `${kwh.toLocaleString()} kWh every month.`}{" "}
             <Link className="underline underline-offset-4" href={`/plan/${id}?kwh=${kwh}${seasons ? "&flat=1" : ""}`}>{seasons ? "Show same usage every month" : "Use Houston seasons"}</Link>

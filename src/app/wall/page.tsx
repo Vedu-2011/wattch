@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Wall } from "@/components/Wall";
+import { monthsFromParam } from "@/lib/months";
 import { clientPlans, snapshotInfo } from "@/lib/plans/data";
 
 /** Reads ?kwh= from the URL, so it renders per request. */
@@ -9,7 +10,7 @@ type SP = Record<string, string | string[] | undefined>;
 const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
 function parse(sp: SP) {
   const k = Math.round(Number(one(sp.kwh)));
-  return { kwh: Number.isFinite(k) && k >= 100 && k <= 5000 ? k : 1100, seasons: one(sp.flat) !== "1" };
+  return { kwh: Number.isFinite(k) && k >= 100 && k <= 5000 ? k : 1100, seasons: one(sp.flat) !== "1", months: monthsFromParam(one(sp.m)) };
 }
 
 export async function generateMetadata({ searchParams }: PageProps<"/wall">): Promise<Metadata> {
@@ -23,6 +24,6 @@ export async function generateMetadata({ searchParams }: PageProps<"/wall">): Pr
 }
 
 export default async function WallPage({ searchParams }: PageProps<"/wall">) {
-  const { kwh, seasons } = parse(await searchParams);
-  return <Wall plans={clientPlans()} kwh={kwh} seasons={seasons} builtAt={snapshotInfo.builtAt} />;
+  const { kwh, seasons, months } = parse(await searchParams);
+  return <Wall plans={clientPlans()} kwh={kwh} seasons={seasons} months={months} builtAt={snapshotInfo.builtAt} />;
 }
