@@ -89,7 +89,7 @@
 - [x] /api/live error messages in Spanish (?lang=es from LiveCheck) instead of the generic sentence — test
 - [x] scripts/meta-check.mjs: also sweep Spanish URLs for English titles/descriptions — all clean
 - [x] Full-flow Spanish walk-through in Chrome: /es → wall → plan → compare → traps → remind, no English outside lang=en — script + screenshots
-- [ ] docs/STATUS.md refresh (Spanish everywhere, Dallas fixes, scores, spend) for the planner
+- [x] docs/STATUS.md refresh (Spanish everywhere, Dallas fixes, scores, spend) for the planner
 - [ ] SCRIPT.md: optional 10-second Spanish beat (tap Español on the results, one line) — timed, total ≤ 5:30
 - [ ] K1 Spanish share card check: /api/card?lang=es&area=dallas renders, no English, no Houston (screenshot the PNG)
 - [ ] K2 Spanish print view of a plan page (PrintButton → print CSS): emulate print media, no English chrome, fits 1 page

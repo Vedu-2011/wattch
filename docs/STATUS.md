@@ -1,7 +1,28 @@
-# Wattch — STATUS (Claude Code, overnight-2, updated Nov 16 2026 ~01:25 PT)
+# Wattch — STATUS (Claude Code, overnight-2, updated Nov 16 2026 ~01:57 PT)
 
-Live: https://getwattch.vercel.app (main) · Overnight work: branch `overnight` (Vercel preview, 56 commits ahead of
+Live: https://getwattch.vercel.app (main) · Overnight work: branch `overnight` (Vercel preview, 78 commits ahead of
 main, NOT merged — waits for Vedhanth's "merge") · Repo: github.com/Vedu-2011/wattch
+
+## Since 01:25 (BACKLOG I + J) — Spanish everywhere
+- **Every page a visitor can reach now has Spanish** (?lang=es, or /es): home, wall (incl. "Already on a plan?" and
+  "Use my real 12 months" — both were still English), plan, compare, traps, /how, /remind + .ics, 404 + error page,
+  share card, /api/live messages. Header/footer + Español/English switch on every page.
+  What stays English on purpose: the label text itself and the AI's notes (marked lang="en"), plan + provider names.
+- **Checks:** every EN/ES word table has a shape-parity test; scripts/es-walk.mjs clicks /es → wall → plan → compare →
+  traps → remind → how → Dallas at 375 + 1440 and flags English lines (16/16 clean); scripts/meta-check.mjs now also
+  checks Spanish titles/descriptions (17 URLs clean — it caught Spanish /compare using the English description, fixed).
+- **Fixes found on the way:** header freshness badge is per area now; /how "last read" box showed Houston counts with
+  no city → per area; bare Dallas /plan/<id> adds area=dallas; Spanish plan page CLS 0.177 → 0.005; an error said
+  "I need 12" (the app doesn't speak as "I") → "It takes 12".
+- **Codex reviews 7 + 8:** 7 = 1 real P2 (Dallas rescue messages said CenterPoint) fixed; 8 = 1 P2, checked: false
+  positive (share text was already per area, tested), hardened anyway.
+- **Quality now:** 191 tests · lint + build clean · axe 0 on 22 pages · Lighthouse mobile: plan ES 96, plan EN 99,
+  compare 95, traps ES 95, wall ES 92 (perf).
+- **Paid API: still ≈ $2.06 of $3.** Anakin.io still out of reads (402) → 16 Dallas labels stay "couldn't open".
+
+## Known gaps (updated 01:57)
+- Dallas: 16 labels unread until Anakin quota returns (≤ $0.30 to re-read).
+- The error page (not the 404) can't be triggered on demand, so its Spanish is checked by types + lint only.
 
 ## Since 00:20 (BACKLOG F + G + H) — the short version
 - **Dallas–Fort Worth (Oncor)** works everywhere: city picker on home (stats + trap card switch with no reload), wall,
