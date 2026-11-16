@@ -178,3 +178,4 @@ Dallas–Fort Worth works everywhere; every page has Spanish (incl. loading scre
 - 2026-11-16 03:57 PT · W3 'Compare with #1' from a Spanish own-months + locked wall: link keeps m, lock, lang; compare page says own months and shows the same $1,516. W5 compare 'Imprimir' reached by Tab (8th stop), visible focus ring. W7 no data refresh tonight → Q21 numbers (#74/154/$378) unchanged (headline.ts P10). No changes. $0.
 - 2026-11-16 03:57 PT · W2 /demo stepped through with → keys at 1920: shows $378, #74, 154, 171, 172, $1,712, $1,334 (= live results). No change. $0.
 - 2026-11-16 03:58 PT · V10 Codex review 18: no findings. W6 card words moved to src/lib/cardWords.ts (a route file may only export handlers) and added to the EN/ES parity test. 224 tests. $0.
+- 2026-11-16 03:58 PT · W8 check-all runtime ≈ 2 min (axe 50 s, walk 19 s, widths 44 s, meta <1 s) — fine. W9 README 'Share card' line covers the per-page previews. Docs test counts 225. $0.

@@ -234,6 +234,6 @@
 - [x] W5 Keyboard: Print button on compare reachable + has visible focus
 - [x] W6 i18n parity test covers the new card words (W.en vs W.es keys)
 - [x] W7 JUDGE-QA Q21 number check: #74/154/$378 still true after any data refresh (none tonight) — log
-- [ ] W8 check-all on 1440 only? no — confirm runtime < 3 min; log
-- [ ] W9 README: link-preview feature one line
+- [x] W8 check-all on 1440 only? no — confirm runtime < 3 min; log
+- [x] W9 README: link-preview feature one line
 - [ ] W10 Codex review 19 after W batch

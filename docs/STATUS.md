@@ -13,7 +13,7 @@ main, NOT merged — waits for Vedhanth's "merge") · Repo: github.com/Vedu-2011
   Houston; months URL comment had the wrong format.
 - **`node scripts/check-all.mjs`** runs axe + Spanish walk + widths (40 pages × sizes) + meta-check in ~2 min.
 - **Codex 14–17:** 3 real P2s fixed (compare test, preview settings, "cheapest" label), 17 clean.
-- **Quality now:** 224 tests · lint + build clean · axe 0 on 23 pages · check-all PASS.
+- **Quality now:** 225 tests · lint + build clean · axe 0 on 23 pages · check-all PASS.
 
 ## Since 01:57 (BACKLOG K–R) — polish, found by checking
 - **Spanish before JavaScript:** Spanish pages used to send English loading text and `lang="en"` in their first HTML

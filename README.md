@@ -23,7 +23,8 @@ match within 0.1¢. Bills, yearly cost, ranking, cliffs and every "why" line are
 - **Already on a plan?** — switch-or-wait math with your plan's real early-exit fee.
 - **/compare** — two plans month by month. **/traps** — every kind of catch, each with a real plan. **/demo** — a click-free walk-through for presenting.
 - **Check this label again now** — re-downloads a label live and says whether the prices changed.
-- **Share card + QR** for trying it on your own phone.
+- **Share card + QR** for trying it on your own phone. Every link previews in its own language and city: a results link
+  shows the gap, a plan link that plan's real yearly cost and rank, a compare link who saves how much (`/api/card`).
 - **Every bill line explained** — one plain sentence per line, plus a warning when you just miss a credit; **questions
   to ask before you sign**, written from the plan's own label; plan pages **print** on one page.
 - **Two areas** — Houston (CenterPoint) and Dallas–Fort Worth (Oncor), each with its own plans and seasons; the
