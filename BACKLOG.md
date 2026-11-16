@@ -562,3 +562,15 @@
 - [x] AX8 Fix anything found + tests
 - [ ] AX9 STATUS line
 - [x] AX10 Codex review 37 if code changed
+
+## AY batch (added 05:30, night 2) — does the repo work for someone else?
+- [x] AY1 Fresh clone of the overnight branch (scratchpad): npm ci + npm test pass with no .env
+- [x] AY2 Every npm script named in README exists in package.json
+- [x] AY3 README lists every key the code reads (no .env.example: env files are blocked for me)
+- [x] AY4 Every data file the app imports is tracked in git
+- [x] AY5 Biggest client JS chunk size (flag if > 300 KB) — 235 KB
+- [x] AY6 sitemap/robots/preview links use the production address
+- [ ] AY7 Anakin quota check at >= 06:00 (PAID-API LOCK, $0 if still out)
+- [x] AY8 Fix anything found
+- [ ] AY9 STATUS line
+- [x] AY10 Codex review if code changed
