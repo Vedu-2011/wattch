@@ -1,69 +1,31 @@
-import Image from "next/image";
+import { Kapi } from "@/components/Kapi";
+import { UsagePicker } from "@/components/UsagePicker";
+import { snapshotInfo } from "@/lib/plans/data";
 
 export default function Home() {
+  const verified = snapshotInfo.counts.verified ?? 0;
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="mx-auto max-w-6xl px-5 pt-10 sm:pt-16">
+      <div className="grid items-center gap-10 lg:grid-cols-[1.15fr_1fr]">
+        <div>
+          <p className="inline-flex items-center gap-2 rounded-full bg-volt-2 px-3 py-1 text-sm font-semibold">
+            <span className="h-2 w-2 rounded-full bg-good" /> {snapshotInfo.total} Houston plans · fine print read{" "}
+            {new Date(snapshotInfo.builtAt).toLocaleDateString("en-US", { month: "short", day: "numeric" })}
           </p>
+          <h1 className="display mt-5 text-5xl font-extrabold leading-[0.95] sm:text-7xl">
+            Your power plan&apos;s real price is in the fine print.
+          </h1>
+          <p className="mt-5 max-w-xl text-lg text-ink-2">
+            Texas lets you pick your electricity plan, then hides the real price in a PDF. Wattch reads every Houston
+            plan&apos;s fine print, checks its own work against the label, and does the honest math at <em>your</em> usage.
+          </p>
+          <p className="mt-3 text-sm text-ink-2">{verified} plans checked to the cent so far.</p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="relative">
+          <Kapi reading className="absolute -top-14 right-4 h-24 w-24 drop-shadow-md" />
+          <UsagePicker />
         </div>
-      </main>
+      </div>
     </div>
   );
 }
