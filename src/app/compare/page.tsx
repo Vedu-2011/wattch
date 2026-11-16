@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { langPair } from "@/lib/alternates";
 import Link from "next/link";
 import { compareYear } from "@/lib/compare";
+import { PrintButton } from "@/components/PrintButton";
 import { COMPARE_WORDS } from "@/lib/compareWords";
 import { type Lang, MONTHS_BY_LANG, asLang } from "@/lib/i18n";
 import { monthsFromParam } from "@/lib/months";
@@ -70,7 +71,7 @@ export default async function Compare({ searchParams }: PageProps<"/compare">) {
   const cheaper = c.diff > 0 ? a : c.diff < 0 ? b : null;
   return (
     <div lang={lang} className="mx-auto max-w-4xl px-5 pt-6">
-      <Link href={`/wall?${qs}`} className="text-sm font-medium text-ink-2 hover:text-ink">{t.all}</Link>
+      <div className="no-print flex items-center justify-between gap-3"><Link href={`/wall?${qs}`} className="text-sm font-medium text-ink-2 hover:text-ink">{t.all}</Link><PrintButton lang={lang} /></div>
       <h1 className="display mt-3 text-3xl font-extrabold leading-tight sm:text-4xl">{t.h1}</h1>
       <p className="mt-1 text-ink-2">
         {mine ? t.mine : t.avg(kwh.toLocaleString("en-US"), AREAS[area].city, seasons)}. {t.today}

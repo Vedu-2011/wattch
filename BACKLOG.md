@@ -170,7 +170,7 @@
 - [x] R1 Docs test counts 206→209 (DEVPOST, DECK, JUDGE-QA) + re-count axe pages
 - [x] R2 Compare table region: drop tabIndex when the table no longer scrolls? (axe/keyboard rules — decide + log)
 - [x] R3 Compare at 1920 (projector): chart + table readable, screenshot for the deck
-- [ ] R4 Spanish /compare share/print: does Imprimir exist there? if not, log; print 1 page check
+- [x] R4 Spanish /compare share/print: does Imprimir exist there? if not, log; print 1 page check
 - [ ] R5 Wall Dallas Spanish at 1920: reveal + top-8 screenshot for the deck (Dallas beat 10b)
 - [x] R6 /es home at 320 + 1920 after the static-header change: no layout shift from the switch (CLS)
 - [x] R7 meta-check: /compare?lang=es title/description Spanish (add to spanish list if missing)
