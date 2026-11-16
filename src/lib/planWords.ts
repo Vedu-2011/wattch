@@ -59,7 +59,13 @@ export const PLAN_WORDS = {
     fetched: (when: string) => `Letra pequeña descargada el ${when} CT`,
     viaAnakin: "con Anakin.io (la página necesitaba un navegador real)",
     viaDirect: "directo del proveedor",
-    readBy: (who: string) => (who.startsWith("hand-read") ? who : `leída por ${who}`),
+    // data says "hand-read by Claude Code, Nov 15 2026" — say it in Spanish
+    readBy: (who: string) => {
+      const m = /^hand-read by (.+?), (\w{3}) (\d{1,2}) (\d{4})$/.exec(who);
+      if (!m) return who.startsWith("hand-read") ? who.replace(/^hand-read by/, "leída a mano por") : `leída por ${who}`;
+      const mes = { Jan: "ene", Feb: "feb", Mar: "mar", Apr: "abr", May: "may", Jun: "jun", Jul: "jul", Aug: "ago", Sep: "sep", Oct: "oct", Nov: "nov", Dec: "dic" }[m[2]] ?? m[2];
+      return `leída a mano por ${m[1]}, ${m[3]} ${mes} ${m[4]}`;
+    },
     original: "Abrir la etiqueta original",
     billAt: "Tu factura con",
     total: "Total",

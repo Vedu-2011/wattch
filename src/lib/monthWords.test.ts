@@ -19,5 +19,8 @@ describe("month wording", () => {
     expect(WORDS.en.monthsUnder(1, 1000)).toBe("1 month under 1,000 kWh");
     expect(WORDS.es.monthsUnder(1, 1000)).toBe("1 mes por debajo de 1,000 kWh");
     expect(WORDS.en.monthsUnder(6, 1000)).toBe("6 months under 1,000 kWh");
+    expect(PLAN_WORDS.es.readBy("hand-read by Claude Code, Nov 15 2026")).toBe("leída a mano por Claude Code, 15 nov 2026");
+    expect(PLAN_WORDS.es.readBy("claude-haiku-5-5")).toBe("leída por claude-haiku-5-5");
+    expect(PLAN_WORDS.en.readBy("hand-read by Claude Code, Nov 15 2026")).toBe("hand-read by Claude Code, Nov 15 2026");
   });
 });

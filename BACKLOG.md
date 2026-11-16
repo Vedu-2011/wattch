@@ -449,7 +449,7 @@
 - [x] AO3 After any re-read: headline unchanged? Dallas counts updated in docs
 - [x] AO4 Tests + check-all after data change
 - [x] AO5 Handoff draft in scratchpad (fill at 7:00)
-- [ ] AO6 Night-2 summary final text drafted (O10)
+- [x] AO6 Night-2 summary final text drafted (O10)
 - [x] AO7 STATUS: final counts (Y9/AG9) — prepare
 - [x] AO8 tidy.sh dry look (what it moves) before running at handoff
 - [x] AO9 BOARD Done line drafted
@@ -513,4 +513,16 @@
 - [x] AT7 scripts/headline.ts matches the demo numbers ($378/#74, $530/#91)
 - [x] AT8 Fix anything found + tests
 - [ ] AT9 STATUS line
-- [ ] AT10 Codex review 33 if code changed
+- [x] AT10 Codex review 33 if code changed
+
+## AU batch (added 05:19, night 2)
+- [x] AU1 /how page: Dallas numbers current (154 verified, 16 unread) in EN + ES
+- [x] AU2 Results empty state (filters exclude every plan): screenshot EN + ES, reads well
+- [x] AU3 Plan page 'hand-read' note shows in Spanish too
+- [x] AU4 Error page (error.tsx) friendly in EN + ES, has a way back
+- [x] AU5 /api/live with a bad id: friendly JSON, right status
+- [x] AU6 Keyboard focus ring visible on Share/Print buttons
+- [x] AU7 Long Spanish sentences (> 35 words) in word tables: split if any
+- [x] AU8 Fix anything found + tests
+- [ ] AU9 STATUS line
+- [ ] AU10 Codex review 34 if code changed

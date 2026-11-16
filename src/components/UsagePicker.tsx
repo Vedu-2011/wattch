@@ -44,7 +44,7 @@ export function UsagePicker({ initial = 1100, lang = "en", area: areaProp, onAre
         ))}
       </div>
       <div className="mt-4 flex flex-col items-stretch gap-3 sm:flex-row">
-        <div className="flex min-w-0 flex-1 items-center rounded-2xl bg-paper px-4">
+        <div className="flex min-w-0 flex-1 items-center rounded-2xl bg-paper px-4 focus-within:ring-2 focus-within:ring-ink">
           <input id="kwh" inputMode="numeric" value={kwh} onChange={(e) => setKwh(e.target.value.replace(/[^0-9]/g, ""))}
             className="num w-full min-w-0 bg-transparent py-3 text-2xl font-semibold outline-none" aria-describedby="kwh-unit" />
           <span id="kwh-unit" className="text-ink-2">kWh</span>
