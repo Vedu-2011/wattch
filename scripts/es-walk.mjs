@@ -1,10 +1,11 @@
 // Spanish walk-through: follows the links a Spanish speaker would click, from /es to the reminder page,
 // and flags lines that look English (outside lang="en" blocks, which hold label text and AI notes on purpose).
 // Needs the app on :3000. Screenshots → docs/screenshots/overnight-2/es-walk/. Exits 1 on any English-looking line.
+import { fileURLToPath } from "node:url";
 import { chromium } from "playwright-core";
 
 const BASE = process.env.BASE ?? "http://localhost:3000";
-const OUT = new URL("../docs/screenshots/overnight-2/es-walk/", import.meta.url).pathname;
+const OUT = fileURLToPath(new URL("../docs/screenshots/overnight-2/es-walk/", import.meta.url));
 const CHROME = process.env.CHROME_PATH ?? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 // common English words that never belong in our Spanish copy
 const EN = /\b(the|your|you|every|month|months|bill|costs|price|Already|Change|Close|Search|Switch|Wait|Share|Remind|Home|plans? we)\b/;
