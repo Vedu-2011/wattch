@@ -40,10 +40,12 @@ wait. For future overnight nights: push once per batch, or turn off previews for
 - Tonight's one-off checks are now tests (src/lib/dataSanity.test.ts, search.test.ts, sitemap no duplicates): 248 tests.
 - Weight + hygiene: pages 6–37 KB compressed (/wall is 641 KB raw because it carries all 172 plans for instant
   re-ranking; 37 KB gzip); no image over 200 KB; build has no warnings; npm audit (app deps) 0 vulnerabilities; every dependency used.
+- Wording: "verified to a tenth of a cent" → "about a tenth" in the app (plan + /how, EN/ES), DEVPOST and SCRIPT (the
+  check allows ±0.11¢ because labels round to 0.1¢). DEVPOST axe count 23 → 25 pages.
 - README says which keys go in .env.local (none needed to run the app). A fresh clone with no keys: npm ci + 236 tests pass.
 - Checked, no change: Dallas share text, trap carousel under reduced motion, Dallas plan prints on 1 sheet, badge in
   Spanish/Dallas in a real browser, all data files tracked, biggest browser script 235 KB.
-- Codex 28–36 clean on my code (31's only note is the swept-in .codex/ folder, see Known gaps). 236 tests.
+- Codex 28–37 clean on my code (31's only note is the swept-in .codex/ folder, see Known gaps). 248 tests.
 
 ## Since 04:20 (BACKLOG AA–AC) — honest about what it can't price
 - **Variable, prepaid and not-verified plans** no longer get a firm yearly number anywhere: their plan page and any

@@ -596,7 +596,7 @@
 - [x] BA6 Test: sitemap has no duplicate URLs
 - [x] BA7 Full verify (test, lint, build, check-all)
 - [x] BA8 STATUS line
-- [ ] BA9 Codex review 37
+- [x] BA9 Codex review 37
 - [x] BA10 Docs test counts
 
 ## BB batch (added 05:36, night 2) — weight + hygiene
@@ -608,5 +608,17 @@
 - [x] BB6 Fonts: only the weights used are loaded
 - [x] BB7 Fix anything small found
 - [x] BB8 Note bigger ones for the planner
-- [ ] BB9 STATUS line
+- [x] BB9 STATUS line
 - [x] BB10 Codex review if code changed
+
+## BC batch (added 05:37, night 2) — docs match the app
+- [x] BC1 SCRIPT.md: every button/label it names exists in the app (EN)
+- [x] BC2 DEVPOST: every feature named exists; nothing overclaimed
+- [x] BC3 DECK numbers marked ⟲ = scripts/headline.ts output
+- [x] BC4 README feature list current
+- [x] BC5 Test count 248 consistent across docs
+- [x] BC6 STATUS morning check list still accurate
+- [x] BC7 Fix anything found
+- [x] BC8 STATUS line
+- [ ] BC9 Codex if code changed
+- [x] BC10 PROGRESS line

@@ -63,7 +63,7 @@ for a number that was never real.
 - **Reading:** Anthropic's Claude Haiku 5.5 reads each label's text into a strict JSON shape (prices, tiers, delivery
   charges, credits, minimum-use fees, time-of-use hours, exit fee). A median label takes about 3.7 seconds ⟲.
 - **Checking:** Texas requires every label to print its average price at 500, 1,000 and 2,000 kWh. Plain TypeScript
-  rebuilds those three prices from what the AI read. All three must match to a tenth of a cent, or the plan is not
+  rebuilds those three prices from what the AI read. All three must match to about a tenth of a cent, or the plan is not
   verified and never ranked. When it fails, the AI gets one retry with the exact mismatch; after that come code-only
   second chances (some labels keep prices in PDF form fields; one prepaid provider has its own layout) — and every one
   still has to pass the same three-price check.
@@ -92,7 +92,7 @@ for a number that was never real.
   plan page says exactly what doesn't match.
 
 ## Accomplishments that I'm proud of
-- 171 of 172 ⟲ Houston plans verified against their own label, to a tenth of a cent.
+- 171 of 172 ⟲ Houston plans verified against their own label, to about a tenth of a cent.
 - Finding that the cheapest-looking plan ranks #74 ⟲ for a typical home, and being able to show why with a bar chart
   anyone understands.
 - Every number on screen can be traced back to a line of fine print.
@@ -137,7 +137,7 @@ Retake with `node scripts/gallery.mjs` (or `node scripts/gallery.mjs 7,8` for ju
 ## Checked against the code (Claude Code, Nov 16)
 172 plans / 171 verified / 154 ranked / #74 / $378 / 6 months / $125 / 1,000 kWh / 6.2¢: scripts/headline.ts.
 158 direct / 14 Anakin / median 3,707 ms: data/plans.json. 7 trap kinds: src/lib/trapGuide.ts. 2.6× Aug/Feb: docs/SOURCES.md.
-248 tests: `npm test`. axe 0 on 23 pages: scripts/axe.mjs. Lighthouse a11y 100 on /, /wall, /plan (D2) and /remind, /how,
+248 tests: `npm test`. axe 0 on 25 pages: scripts/axe.mjs. Lighthouse a11y 100 on /, /wall, /plan (D2) and /remind, /how,
 Dallas wall, Dallas traps (H7): PROGRESS.md.
 Dallas (added later Nov 16): 172 plans / 154 verified / 137 ranked / #91 / $530: scripts/headline.ts; $1.149 read cost:
 PROGRESS.md (F2). Bill sentence "1,100 kWh × 6.5611¢": src/lib/bill/explain.ts on plan 33633. Questions "6 months, $750":
