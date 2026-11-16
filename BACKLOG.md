@@ -570,7 +570,7 @@
 - [x] AY4 Every data file the app imports is tracked in git
 - [x] AY5 Biggest client JS chunk size (flag if > 300 KB) — 235 KB
 - [x] AY6 sitemap/robots/preview links use the production address
-- [ ] AY7 Anakin quota check at >= 06:00 (PAID-API LOCK, $0 if still out)
+- [x] AY7 Anakin quota check at >= 06:00 (PAID-API LOCK, $0 if still out)
 - [x] AY8 Fix anything found
 - [x] AY9 STATUS line
 - [x] AY10 Codex review if code changed
