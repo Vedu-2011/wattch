@@ -536,7 +536,7 @@
 - [x] AV6 Plan page at 1920: heading and bill box line lengths sane
 - [x] AV7 Compare picker on phones: can find a plan by name
 - [x] AV8 Fix anything found + tests
-- [ ] AV9 STATUS line
+- [x] AV9 STATUS line
 - [x] AV10 Codex review 35 if code changed
 
 ## AW batch (added 05:25, night 2)
@@ -548,5 +548,17 @@
 - [x] AW6 Results page link preview title/description for Dallas + ES
 - [x] AW7 Plan page for a prepaid plan: note reads right EN + ES
 - [x] AW8 Fix anything found + tests
-- [ ] AW9 STATUS line
-- [ ] AW10 Codex review 36 if code changed
+- [x] AW9 STATUS line
+- [x] AW10 Codex review 36 if code changed
+
+## AX batch (added 05:29, night 2)
+- [x] AX1 Results 'Share my result': shared text names the kWh + city, EN/ES
+- [x] AX2 Home trap carousel: stops auto-advancing under reduced motion and while focused
+- [x] AX3 Home trap carousel: dots reachable by keyboard with names
+- [x] AX4 Dallas plan page prints on 1 sheet (EN + ES)
+- [x] AX5 Freshness badge in a real browser: 'hace N horas' in ES, Dallas counts on Dallas
+- [x] AX6 Results 'Use my real 12 months' button: keyboard + screen-reader name
+- [x] AX7 Plan page 'Show same usage every month' link keeps lang + area
+- [x] AX8 Fix anything found + tests
+- [ ] AX9 STATUS line
+- [x] AX10 Codex review 37 if code changed

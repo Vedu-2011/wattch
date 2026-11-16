@@ -29,7 +29,11 @@ wait. For future overnight nights: push once per batch, or turn off previews for
 - Keyboard: the home page's kWh box shows focus; the results slider tells screen readers "1,100 kWh a month".
 - Checked, no change: README AI-tools list, reduced motion, 404/error pages EN/ES, compare prints on 1 sheet,
   longest plan names fit cards and 320 px, sitemap has Dallas, /how Dallas numbers, calendar file format.
-- Codex 28–33 clean on my code (31's only note is the swept-in .codex/ folder, see Known gaps). 236 tests.
+- "Find your current plan" search ignores accents too ("energia" finds "Energía").
+- Checked, no change: 84 internal links all open (EN/ES/Dallas); friendly errors on /remind and "my 12 months";
+  the re-check button is disabled while it runs. /demo stays English-only (presenter page, not linked).
+- Idea for the planner (not built): search plans by name on the results page / compare.
+- Codex 28–34 clean on my code (31's only note is the swept-in .codex/ folder, see Known gaps). 236 tests.
 
 ## Since 04:20 (BACKLOG AA–AC) — honest about what it can't price
 - **Variable, prepaid and not-verified plans** no longer get a firm yearly number anywhere: their plan page and any
