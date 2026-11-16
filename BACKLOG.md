@@ -392,4 +392,4 @@
 - [x] AJ7 JUDGE-QA: 'what if I type something weird' — skip (log)
 - [x] AJ8 README: meta-check line mentions noindex check
 - [x] AJ9 STATUS: bad-input sweep line
-- [ ] AJ10 Codex review 28 after AJ batch
+- [x] AJ10 Codex review 28 after AJ batch

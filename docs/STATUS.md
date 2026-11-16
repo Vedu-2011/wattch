@@ -10,11 +10,14 @@ main, NOT merged — waits for Vedhanth's "merge") · Repo: github.com/Vedu-2011
 4. Pick **Dallas–Fort Worth** on the home page → the numbers say Dallas, never Houston.
 5. Say **"merge"** to the planner only after this list looks right.
 
-Preview link: https://wattch-git-overnight-vedhanth.vercel.app (sign in to Vercel first; it's protected). **Heads-up:**
-Vercel stopped building previews after ~04:10 PT ("build rate limit" — too many pushes tonight on the free plan). The
-newest preview that built is commit 85e52e2, which already has everything in steps 1–4. Newer commits only add small
-checks and docs. The limit resets on its own; the next push after that builds the latest. Leave space before "merge"
-so production can build.
+Preview link: https://wattch-git-overnight-vedhanth.vercel.app (sign in to Vercel first; it's protected).
+
+**⚠ Vercel build limit (important for "merge"):** the free plan allows 100 builds per 24 hours. I pushed ~170 times
+since 10 PM, so Vercel stopped building at ~04:10 ("retry in 24 hours"). The first 100 builds were 10 PM–2:30 AM, so
+new builds — **including production after a merge** — will probably be refused until about **10 PM tonight (Nov 16)**.
+The newest preview that built is 85e52e2 (has every visible change except the compare share title, notes for
+variable plans, the skip link and the noindex fix). Options for the planner: merge now and let it go live tonight, or
+wait. For future overnight nights: push once per batch, or turn off previews for the `overnight` branch.
 
 ## Since 04:20 (BACKLOG AA–AC) — honest about what it can't price
 - **Variable, prepaid and not-verified plans** no longer get a firm yearly number anywhere: their plan page and any
