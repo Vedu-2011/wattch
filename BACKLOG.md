@@ -799,6 +799,6 @@
 - [x] BR5 Test for the chosen behavior
 - [x] BR6 Full verify
 - [x] BR7 STATUS line
-- [ ] BR8 Codex review if changed
+- [x] BR8 Codex review if changed
 - [x] BR9 PROGRESS line
 - [x] BR10 Gallery if visible change
