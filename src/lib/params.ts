@@ -17,8 +17,13 @@ export function parseWallParams(get: (key: string) => string | null | undefined)
     seasons: get("flat") !== "1",
     months: monthsFromParam(get("m") ?? undefined),
     filters,
+    /** "Count autopay discounts" — on unless ?noauto=1 */
+    withConditional: get("noauto") !== "1",
   };
 }
+
+/** Every URL key a shared result depends on (share link, share card, og:image). */
+export const RESULT_KEYS = ["kwh", "flat", "m", "noauto", ...Object.values(FILTER_KEYS)] as const;
 
 export const filterOpts = (f: WallFilters): RankOpts => ({
   minTermMonths: f.locked ? 12 : 0, noCliffs: f.noCliffs, minRenewable: f.green ? 50 : 0, minRating: f.rated ? 4 : 0,

@@ -1,11 +1,12 @@
 "use client";
 import { useState } from "react";
+import { RESULT_KEYS } from "@/lib/params";
 
 /** Keeps only the params a result depends on, so a shared link (and its card) shows exactly this result. */
 function resultQuery(): string {
   const now = new URLSearchParams(window.location.search);
   const q = new URLSearchParams();
-  for (const k of ["kwh", "flat", "m", "lock", "nocliff", "green", "rated"]) { const v = now.get(k); if (v) q.set(k, v); }
+  for (const k of RESULT_KEYS) { const v = now.get(k); if (v) q.set(k, v); }
   return q.toString();
 }
 

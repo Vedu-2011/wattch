@@ -44,14 +44,14 @@ function useReveal(plans: ClientPlan[], totalMs = 9000) {
 }
 
 
-export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons, months: initialMonths = null, filters: initialFilters = NO_FILTERS }: { plans: ClientPlan[]; kwh: number; builtAt: string; seasons: boolean; months?: number[] | null; filters?: WallFilters }) {
+export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons, months: initialMonths = null, filters: initialFilters = NO_FILTERS, withConditional: initialConditional = true }: { plans: ClientPlan[]; kwh: number; builtAt: string; seasons: boolean; months?: number[] | null; filters?: WallFilters; withConditional?: boolean }) {
   const { readIds, done, skip } = useReveal(plans);
   const [kwh, setKwh] = useState(initialKwh);
   const [seasons, setSeasons] = useState(initialSeasons);
   // your own 12 months, when you've typed them in; otherwise an average spread by Houston seasons
   const [mine, setMine] = useState<number[] | null>(initialMonths);
   const qs = `kwh=${kwh}${seasons ? "" : "&flat=1"}${mine ? `&m=${monthsToParam(mine)}` : ""}`;
-  const [withConditional, setWithConditional] = useState(true);
+  const [withConditional, setWithConditional] = useState(initialConditional);
   const [f, setF] = useState<WallFilters>(initialFilters);
   const filterOpts = useMemo(() => toOpts(f), [f]);
   const filtered = anyFilter(f);
@@ -61,11 +61,12 @@ export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons,
     u.searchParams.set("kwh", String(kwh));
     if (mine) u.searchParams.set("m", monthsToParam(mine)); else u.searchParams.delete("m");
     if (seasons) u.searchParams.delete("flat"); else u.searchParams.set("flat", "1");
+    if (withConditional) u.searchParams.delete("noauto"); else u.searchParams.set("noauto", "1");
     for (const key of Object.keys(FILTER_KEYS) as (keyof WallFilters)[]) {
       if (f[key]) u.searchParams.set(FILTER_KEYS[key], "1"); else u.searchParams.delete(FILTER_KEYS[key]);
     }
     window.history.replaceState(null, "", u);
-  }, [kwh, mine, seasons, f]);
+  }, [kwh, mine, seasons, f, withConditional]);
   const verifiedRead = plans.filter((p) => readIds.has(p.id) && p.status === "verified").length;
   const ranked = useMemo(() => rank(plans, kwh, { includeConditional: withConditional, seasons, months: mine, ...filterOpts }), [plans, kwh, withConditional, seasons, mine, filterOpts]);
   // with the 12-month filter on, compare against the state site's #1 among those same plans

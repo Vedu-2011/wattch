@@ -8,8 +8,8 @@ const money = (n: number) => n.toLocaleString("en-US", { style: "currency", curr
 /** Share card for one result (1200×630). Every number is computed here by the same code as the page. */
 export async function GET(req: Request) {
   const sp = new URL(req.url).searchParams;
-  const { kwh, seasons, months, filters } = parseWallParams((k) => sp.get(k));
-  const r = reveal(clientPlans(), kwh, { seasons, months, ...filterOpts(filters) });
+  const { kwh, seasons, months, filters, withConditional } = parseWallParams((k) => sp.get(k));
+  const r = reveal(clientPlans(), kwh, { seasons, months, includeConditional: withConditional, ...filterOpts(filters) });
   const big = r.pick && r.gap >= 1;
   return new ImageResponse(
     (
