@@ -9,6 +9,8 @@ const pages = [
   "/", "/es", "/wall?kwh=1100", "/wall?kwh=1100&lang=es", "/wall?kwh=1100&area=dallas&lang=es",
   "/plan/33633?kwh=1100", "/plan/33633?kwh=1100&lang=es", "/compare?a=37797&b=33633&kwh=1100", "/compare?a=37797&b=33633&kwh=1100&lang=es",
   "/traps", "/traps?lang=es", "/remind", "/remind?lang=es", "/how", "/how?lang=es", "/sources", "/sources?lang=es", "/no-such-page?lang=es",
+  // Dallas pair (best vs the state site's #1) and a visitor's own 12 months
+  "/compare?a=17283&b=33631&kwh=1100&lang=es", "/wall?kwh=1100&m=700.650.700.850.1200.1500.1700.1800.1400.1000.750.700&lang=es",
 ];
 
 const b = await chromium.launch({ executablePath: CHROME });

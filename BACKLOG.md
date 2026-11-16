@@ -212,4 +212,16 @@
 - [x] U7 Re-run es-walk + widths + meta-check + axe as one 'all checks' script (scripts/check-all.mjs) for the morning
 - [x] U8 README: 'How to check' section lists check-all
 - [x] U9 Lighthouse /plan/33633 EN after card change (no perf hit)
-- [ ] U10 Codex review 17 after U batch
+- [x] U10 Codex review 17 after U batch
+
+## V batch (added 03:53, night 2)
+- [x] V1 Card route: skip the general reveal() when a plan/compare card is returned (wasted work per preview)
+- [x] V2 Card cache header: plan/compare cards same max-age; confirm Vercel caches by full query (doc only)
+- [x] V3 Plan + compare cards: footer line (getwattch.vercel.app) on compare card like the others
+- [x] V4 Test: card route returns image/png for plan=, a=&b=, bad ids (route test, no pixel check)
+- [x] V5 /remind preview card: generic card ok? (decide, log)
+- [ ] V6 JUDGE-QA: 'what does a shared link show?' — only if Q list < 22
+- [ ] V7 SCRIPT scene 11 optional line: 'a plan link shows that plan' (+5 s) — only if under cap
+- [ ] V8 STATUS.md: add U batch (previews, check-all, standing test)
+- [x] V9 widths.mjs: add /compare Dallas pair + own-months URL
+- [ ] V10 Codex review 18 after V batch

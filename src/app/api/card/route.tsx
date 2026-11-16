@@ -21,12 +21,9 @@ const money = (n: number) => n.toLocaleString("en-US", { style: "currency", curr
 export async function GET(req: Request) {
   const sp = new URL(req.url).searchParams;
   const { kwh, seasons, months, filters, withConditional, area, lang } = parseWallParams((k) => sp.get(k));
-  const r = reveal(clientPlans(area), kwh, { seasons, months, area, includeConditional: withConditional, ...filterOpts(filters) });
-  const big = r.pick && r.gap >= 1;
   const t = W[lang];
-  const why = r.pick ? whyLine(r.pick.plan.pricing!, r.pick.months, lang) : null;
-  // ?plan=<id> (plan pages): that plan's real cost and rank, when it's ranked; otherwise the general card below
   const opts = { seasons, months, area, includeConditional: withConditional, ...filterOpts(filters) };
+  // ?plan=<id> (plan pages): that plan's real cost and rank, when it's ranked; otherwise the general card below
   const planId = sp.get("plan");
   const st = planId ? standing(clientPlans(area), planId, kwh, opts) : null;
   // ?a=&b= (compare pages): the same yearly totals the compare page shows, when both plans exist in the same area
@@ -37,6 +34,10 @@ export async function GET(req: Request) {
     return compareCard(c, pa.meta.planName, pb.meta.planName, t, `${months ? t.mine : t.perMonth(kwh.toLocaleString("en-US"))} · ${AREAS[ar].city}`);
   }
   if (st) return planCard(st, t, `${months ? t.mine : t.perMonth(kwh.toLocaleString("en-US"))} · ${AREAS[area].city}${anyFilter(filters) ? t.filtered : ""}`);
+  // the general card: the state site's #1 vs your best (only computed when no plan/compare card was returned)
+  const r = reveal(clientPlans(area), kwh, opts);
+  const big = r.pick && r.gap >= 1;
+  const why = r.pick ? whyLine(r.pick.plan.pricing!, r.pick.months, lang) : null;
   return new ImageResponse(
     (
       <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", background: "#1b1611", color: "#f5efe3", padding: "56px 64px", fontFamily: "sans-serif" }}>
@@ -62,7 +63,7 @@ export async function GET(req: Request) {
         </div>
       </div>
     ),
-    { width: 1200, height: 630, headers: { "Cache-Control": "public, max-age=3600" } },
+    SIZE,
   );
 }
 
@@ -120,9 +121,12 @@ function compareCard(c: ReturnType<typeof compareYear>, nameA: string, nameB: st
             : <div style={{ display: "flex", fontSize: 52, fontWeight: 800 }}>{t.sameCost}</div>}
           {d >= 1 && <div style={{ display: "flex", fontSize: 30, color: "#d9cfbf", marginTop: 8 }}>{t.over(lose)}</div>}
         </div>
-        <div style={{ display: "flex", gap: 20 }}>
-          {box(nameA, c.totalA, c.diff > 0)}
-          {box(nameB, c.totalB, c.diff < 0)}
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <div style={{ display: "flex", gap: 20 }}>
+            {box(nameA, c.totalA, c.diff > 0)}
+            {box(nameB, c.totalB, c.diff < 0)}
+          </div>
+          <div style={{ display: "flex", justifyContent: "flex-end", fontSize: 26, color: "#d9cfbf", marginTop: 18 }}>getwattch.vercel.app</div>
         </div>
       </div>
     ),
