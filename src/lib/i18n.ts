@@ -40,7 +40,7 @@ const en = {
   exampleOf: (i: number, total: number) => `Example ${i} of ${total}`,
   // picker
   pickerQ: "How much power do you use in a month?",
-  pickerHint: (avg: number) => `It's on your bill as "kWh used." Not sure? The average Texas home uses about ${n(avg, "en")} kWh a month.`,
+  pickerHint: (avg: number) => `It's on your bill as "kWh used." For the best answer, add up the last 12 months from your bill's usage chart and divide by 12. Not sure? The average Texas home uses about ${n(avg, "en")} kWh a month.`,
   presets: ["Small apartment", "Average home", "Big house, hot summer"],
   readEvery: "Read every plan",
   pickerBad: "Pick a number between 100 and 5,000.",
@@ -108,7 +108,7 @@ const es: Words = {
   seeFinePrint: "Ver la letra pequeña",
   exampleOf: (i, total) => `Ejemplo ${i} de ${total}`,
   pickerQ: "¿Cuánta luz usas al mes?",
-  pickerHint: (avg) => `Aparece en tu factura como "kWh usados". ¿No sabes? Un hogar promedio en Texas usa unos ${n(avg, "es")} kWh al mes.`,
+  pickerHint: (avg) => `Aparece en tu factura como "kWh usados". Para la mejor respuesta, suma los últimos 12 meses de la gráfica de consumo de tu factura y divide entre 12. ¿No sabes? Un hogar promedio en Texas usa unos ${n(avg, "es")} kWh al mes.`,
   presets: ["Apartamento pequeño", "Casa promedio", "Casa grande, verano caluroso"],
   readEvery: "Leer todos los planes",
   pickerBad: "Escoge un número entre 100 y 5,000.",

@@ -27,6 +27,11 @@ Shape: Jan 1.122 · Feb 0.853 · Mar 0.673 · Apr 0.677 · May 0.891 · Jun 1.25
 → August ÷ February ≈ 1.8; January is above average (65% of Oncor's North Central homes are in the high-winter class, vs 26% of
 CenterPoint's). Same caveats as Houston.
 
+## Not used: "Most Houston homes use about N kWh" (checked Nov 16)
+Mixing ERCOT's COAST profiles by CenterPoint's home counts gives ≈ 1,335 kWh/month (NCENT/Oncor ≈ 1,355), but I have not
+confirmed that ERCOT's backcasted profile values are real per-home kWh rather than a scaled shape, so they are used for
+SHAPE only. The usage hint keeps the EIA statewide average (computed in src/lib/seasons.ts from data/seasons.json).
+
 ## Texas seasons (old model, replaced) — the numbers (EIA-861M, kWh per residential customer, 3-year average)
 Jan 1,140 · Feb 974 · Mar 825 · Apr 798 · May 992 · Jun 1,316 · Jul 1,548 · Aug 1,634 · Sep 1,378 · Oct 1,071 · Nov 821 · Dec 905
 → average 1,117 kWh/month. August ÷ April = 2.05 ("summer uses about twice what spring does").
