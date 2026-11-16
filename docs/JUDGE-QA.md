@@ -13,7 +13,7 @@ shown as not verified and never ranked. Houston: 171 of 172 labels verified ⟲.
 
 **2. Then what does the AI actually decide?**
 Nothing. It copies numbers off a messy PDF. The bill, the yearly cost, the ranking, the "why" sentence and the questions on each
-plan page are all plain code with tests (159 ⟲ tests). Same inputs, same answer, every time.
+plan page are all plain code with tests (184 ⟲ tests). Same inputs, same answer, every time.
 
 **3. Why Claude Haiku and not a bigger model?**
 The job is reading, not reasoning, and the code check catches mistakes either way. Haiku is fast and cheap enough to read
@@ -76,6 +76,23 @@ Claude (claude.ai) for planning and architecture; Claude Code wrote and tested m
 second coding assistant and reviewer before each push; Claude Haiku reads the labels inside the app; Anakin.io opens labels
 that need a real browser. Full list in README.md.
 
+**16. Why Spanish?**
+Many Texas families shop in Spanish, and the fine print is hardest to read in a second language. Every page people use works
+in Spanish (home, results, plan pages, compare, the trap guide, the reminder, the share card). The numbers and "why"
+sentences come from the same code in both languages, and a test fails if any English sentence is missing its Spanish one.
+The label itself stays in English, because that's the document the provider publishes, and the page says so.
+(Don't quote a percentage of Spanish speakers unless it's in docs/SOURCES.md.)
+
+**17. What happens when my contract ends?**
+Many plans roll onto a month-to-month rate if you don't pick a new one. The reminder page makes a calendar file with a
+reminder 30 days before your end date. Nothing is saved on Wattch: no account, no email.
+
+**18. How do you catch your own mistakes?**
+Three ways: the three-price check on every label, 184 ⟲ automated tests (including one that rebuilds every verified label and
+one that checks every English sentence has a Spanish one), and a second AI reviewer (Codex) reading each batch of changes before
+it's merged. Example: a review caught that Dallas plans were saying their delivery charges came from CenterPoint instead of
+Oncor. The math was right; the wording was wrong, and it's fixed.
+
 ---
 
-Before the pitch: run `npx tsx scripts/headline.ts` and update every ⟲ number above.
+Before the pitch: run `npx tsx scripts/headline.ts` and update every ⟲ number above. Test count: `npm test`.

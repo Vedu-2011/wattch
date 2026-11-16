@@ -72,3 +72,4 @@
 - 2026-11-16 01:38 PT · I4 Spanish share card · DONE (db62a0d). Also fixed: Spanish wall's <title>/description were English. $0.
 - 2026-11-16 01:38 PT · I5 /how per area · ALREADY DONE in G1 (/how renders a pipeline for each area from its own file). No change.
 - 2026-11-16 01:39 PT · I6 Dallas plan links carry area · DONE (96f82ec). Bare Dallas plan URL redirects (client-side, Next streams → HTTP 200 then redirect; fine for people). $0.
+- 2026-11-16 01:39 PT · I7 README refresh · DONE (c1dccac). Ran top/headline/refresh dry run/axe/meta-check. NOT run (by design): ingest (paid), recheck/rehash (rewrite data files), python seasons/profile scripts (need ERCOT downloads). $0.
