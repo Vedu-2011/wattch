@@ -104,6 +104,15 @@ vercel · vitest · playwright · axe-core · power-to-choose · ercot-load-prof
 - **Claude (claude.ai chat)** — planning, architecture and writing help.
 - **Anakin.io** — opens labels that need a real browser (scraping service, sponsor).
 
+## Gallery (docs/gallery/, 1920×1080, upload in this order; captions ≤ 1 line)
+1. `1-home.png` — Pick your usage. Wattch has read all 172 ⟲ Houston plans.
+2. `2-reading-every-plan.png` — Every tile is a real plan's fine print being read and checked.
+3. `3-the-reveal.png` — The state site's #1 plan costs an average home $378 ⟲ more a year, and the bars show why.
+4. `4-fine-print-proof.png` — Every number traced back to the label: hover the $125 credit and it lights up in the fine print.
+5. `5-side-by-side.png` — The best plan vs the state site's #1, month by month.
+6. `6-trap-guide.png` — Every kind of catch Wattch found, each with a real plan.
+Retake with `node scripts/gallery.mjs` against a local prod build on :3000 if the data changes.
+
 ## Links
 - Live app: https://getwattch.vercel.app ⟲ (main — merge the overnight branch first if the planner approves)
 - Code: https://github.com/Vedu-2011/wattch
