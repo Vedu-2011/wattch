@@ -682,3 +682,15 @@
 - [x] BH8 STATUS line
 - [ ] BH9 Codex review
 - [x] BH10 PROGRESS line
+
+## BI batch (added 06:04, night 2) — previews for edge pages
+- [x] BI1 Compare preview with a variable or not-verified plan: no firm 'saves $X' claim (EN/ES)
+- [x] BI2 Compare preview with an unread plan / unknown id: generic, honest
+- [x] BI3 Results preview when filters exclude every plan
+- [x] BI4 /remind preview with a past date
+- [x] BI5 Fix anything found
+- [x] BI6 meta-check covers what was fixed
+- [x] BI7 Full verify
+- [x] BI8 STATUS line
+- [x] BI9 Codex review
+- [x] BI10 PROGRESS line
