@@ -96,7 +96,7 @@
 - [x] K3 Keyboard-only pass on Spanish wall: Tab through LangSwitch, area switch, CurrentPlan search, MyMonths — focus visible everywhere
 - [x] K4 Spanish /es home: hero numbers match the English home for both areas (same math, test)
 - [x] K5 i18n: number/date formats on Spanish pages consistent (es-US dates, $ amounts unchanged) — grep + fix strays
-- [ ] K6 README: list Spanish + Dallas coverage and every AI tool used (STEM2Connect rule) — verify against code
+- [x] K6 README: list Spanish + Dallas coverage and every AI tool used (STEM2Connect rule) — verify against code
 - [ ] K7 Codex review 9 (J1–J7 diff)
 - [ ] K8 Lighthouse on /how?lang=es and /es (now dynamic) — perf ≥ 90, CLS < 0.1
 - [ ] K9 JUDGE-QA: add Q on Spanish (why, how checked, what stays English and why: label text + AI notes)

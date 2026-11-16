@@ -89,3 +89,4 @@
 - 2026-11-16 01:58 PT · K1 cards + K2 print · DONE (f6dc695, 826661b). $0.
 - 2026-11-16 01:59 PT · K3 keyboard pass on Spanish wall · DONE: 30 tab stops (header, English switch, nav, reveal links, share, slider, 6 toggles, Usar mis 12 meses reales, top 8, compare, plan search), every one has visible focus, all labels Spanish. No change needed. $0.
 - 2026-11-16 01:59 PT · K4 /es = / numbers test · DONE (9adbe9f). 193 tests. $0.
+- 2026-11-16 02:00 PT · K5 locale-free toLocaleString fixed (daaacc6). $0.

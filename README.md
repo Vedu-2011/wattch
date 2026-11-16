@@ -28,14 +28,16 @@ match within 0.1¢. Bills, yearly cost, ranking, cliffs and every "why" line are
   to ask before you sign**, written from the plan's own label; plan pages **print** on one page.
 - **Two areas** — Houston (CenterPoint) and Dallas–Fort Worth (Oncor), each with its own plans and seasons; the
   `/how` page shows both pipelines with live counts.
-- **Spanish** — every page people use (home, wall, plan, compare, traps, reminder, share card).
+- **Spanish** — every page people use (home, wall incl. "Already on a plan?" and "Use my real 12 months", plan,
+  compare, traps, /how, reminder + .ics, 404 and error pages, share card, live re-check messages). Label text and the
+  AI's notes stay in English on purpose (marked `lang="en"`); plan and provider names stay as the label prints them.
 - **/remind** — a calendar reminder (.ics) 30 days before your contract ends; nothing is stored.
 
 ## AI tools used
 | Tool | What for |
 |---|---|
 | **Anthropic Claude API — `claude-haiku-5-5`** | Inside the app's data pipeline: reads each plan's EFL text into JSON (`src/lib/reader/parse.ts`). Its output is never trusted until code rebuilds the label's prices. |
-| **Claude Code** (Anthropic) | Coding assistant: wrote and tested much of the code, the data fixes, and the UI. |
+| **Claude Code** (Anthropic) | Coding assistant: wrote and tested much of the code, the data fixes, and the UI. Also wrote the Spanish translations of the app's text (checked by parity tests and `scripts/es-walk.mjs`, not by a native speaker yet). |
 | **Codex** (OpenAI) | Coding assistant and code reviewer before each push. |
 | **Claude** (claude.ai chat) | Planning, architecture, and writing prompts/docs. |
 | *(not AI)* Playwright, axe-core, Lighthouse | Screenshots, accessibility and performance checks. |
@@ -74,7 +76,8 @@ npx tsx scripts/headline.ts     # the headline numbers (state site's #1 vs best,
 python3 scripts/houston_seasons.py   # rebuild data/seasons-houston.json from ERCOT profiles (see docs/SOURCES.md)
 python3 scripts/seasons.py data/sources/eia861m-texas.csv    # old statewide model (data/seasons.json)
 node scripts/axe.mjs            # accessibility check of every page (needs the app running on :3000)
-node scripts/meta-check.mjs     # Dallas URLs: no "Houston" in title/description/social card text (app on :3000)
+node scripts/meta-check.mjs     # Dallas URLs: no "Houston"; Spanish URLs: no English title/description (app on :3000)
+node scripts/es-walk.mjs        # clicks through the Spanish site at 375 + 1440, flags English lines (app on :3000)
 node scripts/shots.mjs <folder> # screenshots at 375 / 1440 / 1920 (needs the dev server and Google Chrome)
 node scripts/gallery.mjs        # the 6 Devpost gallery images, 1920×1080, into docs/gallery (app on :3000)
 npx tsx scripts/rehash.ts       # free: re-download labels and fix stored hashes (no AI); lists labels that changed
