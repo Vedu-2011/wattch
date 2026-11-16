@@ -644,5 +644,17 @@
 - [x] BE6 Compare with a not-verified plan: note shows (covered?)
 - [x] BE7 Fix anything found + tests
 - [x] BE8 STATUS line
-- [ ] BE9 Codex if code changed
-- [ ] BE10 PROGRESS line
+- [x] BE9 Codex if code changed
+- [x] BE10 PROGRESS line
+
+## BF batch (added 05:51, night 2) — English leaking into Spanish pages
+- [x] BF1 Every Spanish plan page (both areas, all 344): text outside lang="en" parts has no English sentences
+- [x] BF2 Spanish compare pages for a sample of pairs (incl. variable, unverified)
+- [x] BF3 Spanish results pages with each filter on
+- [x] BF4 Fix anything found
+- [x] BF5 Add the scan to es-walk if cheap
+- [x] BF6 Tests
+- [x] BF7 Screenshot one fixed page
+- [x] BF8 STATUS line
+- [x] BF9 Codex review
+- [x] BF10 PROGRESS line
