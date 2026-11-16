@@ -13,7 +13,7 @@ shown as not verified and never ranked. Houston: 171 of 172 labels verified ⟲.
 
 **2. Then what does the AI actually decide?**
 Nothing. It copies numbers off a messy PDF. The bill, the yearly cost, the ranking, the "why" sentence and the questions on each
-plan page are all plain code with tests (209 ⟲ tests). Same inputs, same answer, every time.
+plan page are all plain code with tests (211 ⟲ tests). Same inputs, same answer, every time.
 
 **3. Why Claude Haiku and not a bigger model?**
 The job is reading, not reasoning, and the code check catches mistakes either way. Haiku is fast and cheap enough to read
@@ -88,7 +88,7 @@ Many plans roll onto a month-to-month rate if you don't pick a new one. The remi
 reminder 30 days before your end date. Nothing is saved on Wattch: no account, no email.
 
 **18. How do you catch your own mistakes?**
-Three ways: the three-price check on every label, 209 ⟲ automated tests (including one that rebuilds every verified label and
+Three ways: the three-price check on every label, 211 ⟲ automated tests (including one that rebuilds every verified label and
 one that checks every English sentence has a Spanish one), and a second AI reviewer (Codex) reading each batch of changes before
 it's merged. Example: a review caught that Dallas plans were saying their delivery charges came from CenterPoint instead of
 Oncor. The math was right; the wording was wrong, and it's fixed.
@@ -101,6 +101,12 @@ why line, every bill line, every question) carries exactly the same numbers as t
 Other tests check every English sentence has a Spanish one, and a script clicks through the whole Spanish site looking for
 leftover English. What stays English on purpose: the label's own text and the AI's notes, because that's what the provider
 actually printed. Honest limit: an AI tool wrote the translations and a native speaker hasn't reviewed them yet.
+
+**20. What did you check that a normal user never sees?**
+Every page at a 320-pixel phone and a 1920 projector (a script fails if anything sticks out), keyboard-only use, screen
+readers (axe finds 0 issues on 23 pages, and Spanish pages don't read English labels aloud), printing (plan and compare
+pages fit one sheet), and shared links (each page's preview card is in its own language and city). Checking these
+found real bugs, for example the compare table hiding the second plan on phones and the sitemap being invalid XML.
 
 ---
 

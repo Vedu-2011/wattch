@@ -181,11 +181,11 @@
 ## S batch (added 03:18, night 2)
 - [x] S1 Tiles at 375 (phone wall): the short ✓/?/– tiles — any with no accessible name? (axe passes; check title/aria)
 - [x] S2 Plan page at 320 Spanish: bill lines + highlight table no overflow (widths covers page; check inner tables)
-- [ ] S3 /traps 1920 screenshot per trap kind for the deck (Houston EN)
+- [x] S3 /traps 1920 screenshot per trap kind for the deck (Houston EN)
 - [x] S4 Long provider names on plan page header at 320 (longest provider in data) — wraps cleanly?
 - [x] S5 Wall 'notRanked' variable plans note in Spanish — wording check
 - [x] S6 /remind at 320 Spanish with a long plan name in ?plan= (80 chars) — no overflow
 - [x] S7 Home trap card rotation in Spanish: every trap card text Spanish, numbers match English
-- [ ] S8 JUDGE-QA: add Q 'What did you check that a user never sees?' (sitemap, print, keyboard, 320px) — short
+- [x] S8 JUDGE-QA: add Q 'What did you check that a user never sees?' (sitemap, print, keyboard, 320px) — short
 - [x] S9 OG image for /compare (if it uses the default card, log; else check Spanish)
 - [ ] S10 Codex review 15 after S batch

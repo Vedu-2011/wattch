@@ -17,7 +17,7 @@ main, NOT merged — waits for Vedhanth's "merge") · Repo: github.com/Vedu-2011
 - **Checked, no change needed:** reduced motion, Spanish error states, Spanish /remind download, share card with bad
   inputs (always an image), Dallas share text, print = 1 page (plan + compare, EN + ES), keyboard order, 1920 framing.
 - **Codex 11/12/13:** 11 = 2 real P2s (above), 12 + 13 = no findings.
-- **Quality now:** 209 tests · lint + build clean · axe 0 on 23 pages · Lighthouse mobile: compare ES 95, remind ES 96,
+- **Quality now:** 211 tests · lint + build clean · axe 0 on 23 pages · Lighthouse mobile: compare ES 95, remind ES 96,
   Dallas plan ES 94 (SEO 91 is Next's streamed metadata — the description is there; Bing/Facebook get it in <head>).
 - **Paid API: still ≈ $2.06 of $3.** Anakin.io still 402.
 
