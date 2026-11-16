@@ -9,7 +9,7 @@ the honest math at **your** usage — with real local seasons, because a Houston
 
 **AI reads. Code checks. Code decides.** The AI only copies numbers off each label. Plain, tested code rebuilds the
 label's three printed prices (500 / 1,000 / 2,000 kWh) from what was read; a plan is "verified" only if all three
-match within 0.1¢. Bills, yearly cost, ranking, cliffs and every "why" line are computed by code, never written by AI.
+match within about a tenth of a cent (±0.11¢, since labels round to 0.1¢). Bills, yearly cost, ranking, cliffs and every "why" line are computed by code, never written by AI.
 
 ## What it shows
 - **The reader wall** — one tile per plan flipping from "reading…" to ✓ (replays the real reads and their timing).

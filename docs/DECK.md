@@ -59,7 +59,7 @@ One line each: Read every plan · Your real year · Proof for every number · Sw
 **8 · Why you can trust it: AI reads, code decides**
 Texas requires each label to print its average price at 500, 1,000 and 2,000 kWh (16 TAC §25.475 — **[CHECK]** exact
 wording before the slide). Claude Haiku reads the label; plain code rebuilds those three prices; all three must match to
-0.1¢ or the plan isn't ranked. Median read 3.7 s ⟲. 230 ⟲ automated tests.
+about a tenth of a cent (±0.11¢; labels round to 0.1¢) or the plan isn't ranked. Median read 3.7 s ⟲. 230 ⟲ automated tests.
 
 **9 · Business model**
 - Free for families, always. No account needed.

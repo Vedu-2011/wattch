@@ -331,5 +331,17 @@
 - [x] AE6 Results page focus after 'Read every plan' (home form) — lands somewhere sensible?
 - [x] AE7 Compare page h1 focus after Compare link? (log only)
 - [x] AE8 Lighthouse / and /es after skip link (a11y 100)
-- [ ] AE9 Wall filters: keyboard order sensible at 375 (Tab through 10 stops, log)
+- [x] AE9 Wall filters: keyboard order sensible at 375 (Tab through 10 stops, log)
 - [ ] AE10 Codex review 26 after AE batch
+
+## AF batch (added 04:33, night 2) — claim audit
+- [x] AF1 DEVPOST: every number (172/171/154/$378/#74/$530/#91/137/18 traps/7 kinds/$1.15/230 tests) vs headline.ts + app
+- [x] AF2 DECK.md: same audit
+- [x] AF3 JUDGE-QA: same audit (⟲ numbers)
+- [x] AF4 SCRIPT.md numbers vs app
+- [x] AF5 README numbers vs app
+- [x] AF6 Fix any stale number found (log old → new)
+- [x] AF7 'seven kinds of traps' = trapGuide count both areas?
+- [x] AF8 '18 with a usage trap' (home) = hero withTrap Houston; Dallas value logged
+- [x] AF9 STATUS: claim audit result line
+- [ ] AF10 Codex review 26 (covers AE + AF)

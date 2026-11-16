@@ -21,6 +21,9 @@ so production can build.
   compare page show a plain note ("only a rough guide — that's why it isn't in the ranking"), the link description
   drops "really costs $X a year", and the share card falls back to the general one. Found by opening those plans on purpose.
 - **Skip-to-content link** (EN/ES) for keyboard users, hidden until Tab.
+- **Claim audit (04:35):** every number in DEVPOST, DECK, SCRIPT, JUDGE-QA and README re-checked against the code
+  (headline, trap counts and kinds, $150 fee / 5-month payback, $208 locked, 6.5611¢). All matched; only the check
+  tolerance was written as "0.1¢" where the code allows ±0.11¢ — README and DECK now say so.
 - **Texas time in one helper** with a test for the midnight edge. Codex 21–23 clean. 230 tests, check-all PASS.
 
 ## Since 04:00 (BACKLOG W + X)
