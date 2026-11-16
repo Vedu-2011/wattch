@@ -814,3 +814,15 @@
 - [x] BS8 STATUS line
 - [x] BS9 PROGRESS line
 - [x] BS10 Codex if code changed
+
+## BT batch (added 06:38, night 2) — tonight's fixes in Spanish + Dallas
+- [x] BT1 Never-read Dallas plan in Spanish: note, no button, print footer in Spanish
+- [x] BT2 /api/live?lang=es for a never-read plan
+- [x] BT3 Dallas results 'Comparar con el #1' names its plan for screen readers
+- [x] BT4 Dallas compare 'Leer su letra pequeña: …'
+- [x] BT5 Fix any English left
+- [x] BT6 Tests + check-all if code changed
+- [x] BT7 STATUS line
+- [x] BT8 PROGRESS line
+- [x] BT9 Codex if code changed
+- [x] BT10 Handoff draft mentions the re-check fix
