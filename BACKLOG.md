@@ -134,7 +134,7 @@
 - [x] O1 Spanish social tags (og/twitter) checked on 4 pages — all Spanish. /es description named only Houston → both areas; meta-check now requires both home descriptions to name both areas
 - [x] O2 SCRIPT 10c live at 1920: on results click Español → big number + "más al año" visible without scrolling; English click returns
 - [x] O3 Top-8 at 1920 after the chip-row change: rows still fit the video framing for scenes 5–6 (screenshot, compare with gallery)
-- [ ] O4 sitemap.xml + robots.txt (none exist): main pages in both languages, both areas; /demo stays noindex
+- [x] O4 sitemap.xml + robots.txt (none exist): main pages in both languages, both areas; /demo stays noindex
 - [ ] O5 Reduced motion on the Spanish results: count-up and wall walk skip animation (prefers-reduced-motion)
 - [ ] O6 Spanish /remind end-to-end in Chrome: type a date, get the .ics (Spanish file name? Spanish text), friendly Spanish errors
 - [ ] O7 /api/card with bad or missing params (kwh=abc, area=xx, lang=fr): still a valid image, never a stack trace
