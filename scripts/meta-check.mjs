@@ -50,6 +50,13 @@ for (const u of ["/plan/99999999", "/plan/nope?lang=es"]) {
   console.log(ok ? "ok     " : "INDEX  ", u, ok ? "" : "(missing noindex)");
   bad += ok ? 0 : 1;
 }
+// a plan Wattch couldn't read must not preview as "checked"
+for (const u of ["/plan/31967?area=dallas", "/plan/31967?area=dallas&lang=es"]) {
+  const tags = ((await page(u)).match(OWN) ?? []).join(" ");
+  const ok = !/checked|revisada/.test(tags) && /not read|couldn't read|sin leer|no pudo leer/.test(tags);
+  console.log(ok ? "ok     " : "UNREAD ", u, ok ? "" : "\n   " + tags);
+  bad += ok ? 0 : 1;
+}
 // robots keeps the scripted walk-through and the APIs out; the sitemap must be valid XML (a raw "&" breaks the whole file)
 {
   const robots = await page("/robots.txt");

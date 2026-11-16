@@ -44,8 +44,12 @@ export async function generateMetadata({ params, searchParams }: PageProps<"/pla
     ? es
       ? `${rec.meta.planName} (${who}) se anuncia a ${rec.meta.ptc.k1000}¢. Con 1,100 kWh al mes durante un año en ${city}, en realidad cuesta $${yr} al año.`
       : `${rec.meta.planName} (${who}) is advertised at ${rec.meta.ptc.k1000}¢. At 1,100 kWh a month through a ${city} year it really costs $${yr} a year.`
-    : es ? `${rec.meta.planName} de ${who}: la letra pequeña, leída y revisada.` : `${rec.meta.planName} from ${who}: the fine print, read and checked.`;
-  return { title: `${rec.meta.planName} — ${es ? "la letra pequeña, revisada" : "the fine print, checked"} · Wattch`, description, alternates: langPair(`/plan/${id}`, sp), ...shareMeta(`${cardUrl(sp, { area })}&plan=${encodeURIComponent(id)}`) };
+    : rec.check.status === "unread"
+      ? es ? `${rec.meta.planName} de ${who}: Wattch todavía no pudo leer su letra pequeña.` : `${rec.meta.planName} from ${who}: Wattch couldn't read its fine print yet.`
+      : es ? `${rec.meta.planName} de ${who}: la letra pequeña, leída y revisada.` : `${rec.meta.planName} from ${who}: the fine print, read and checked.`;
+  // "checked" only once Wattch has actually read the label
+  const tag = rec.check.status === "unread" ? (es ? "letra pequeña sin leer" : "fine print not read yet") : (es ? "la letra pequeña, revisada" : "the fine print, checked");
+  return { title: `${rec.meta.planName} — ${tag} · Wattch`, description, alternates: langPair(`/plan/${id}`, sp), ...shareMeta(`${cardUrl(sp, { area })}&plan=${encodeURIComponent(id)}`) };
 }
 
 export default async function PlanPage({ params, searchParams }: PageProps<"/plan/[id]">) {

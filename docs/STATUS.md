@@ -47,6 +47,7 @@ wait. For future overnight nights: push once per batch, or turn off previews for
 - **Plans Wattch couldn't read (16 Dallas)** no longer show an internal note ("Out of Anakin.io reads for now."), "read by
   none" or an empty term; they say "Not read yet: Wattch couldn't get the prices out of this plan's fine print" (EN/ES)
   and still link the provider's label. Spanish "not verified" note is now Spanish (its detail was stored in English).
+  Their link previews no longer say "the fine print, checked" (now "fine print not read yet"); meta-check tests it.
 - English-leak scan of all 344 Spanish plan pages (+ compare, results): clean (only plan names and a label URL).
 - README says which keys go in .env.local (none needed to run the app). A fresh clone with no keys: npm ci + 236 tests pass.
 - Checked, no change: Dallas share text, trap carousel under reduced motion, Dallas plan prints on 1 sheet, badge in

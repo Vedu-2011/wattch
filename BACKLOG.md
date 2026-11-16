@@ -658,3 +658,15 @@
 - [x] BF8 STATUS line
 - [x] BF9 Codex review
 - [x] BF10 PROGRESS line
+
+## BG batch (added 05:53, night 2) — unread plans everywhere else
+- [x] BG1 Unread plan: link preview title/description honest (no price claim), EN + ES
+- [x] BG2 Unread plan: share card falls back to the general card
+- [x] BG3 Compare with an unread plan: friendly page (EN + ES)
+- [x] BG4 Unread plan page: 'Ask yourself' / bill sections hidden, nothing says $0
+- [x] BG5 Unread plans in the sitemap: fine to list? (decide, log)
+- [x] BG6 Live re-check on an unread plan: message makes sense
+- [x] BG7 Fix anything found + tests
+- [x] BG8 STATUS line
+- [ ] BG9 Codex if code changed
+- [x] BG10 PROGRESS line
