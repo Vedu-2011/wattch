@@ -1,7 +1,20 @@
-# Wattch — STATUS (Claude Code, overnight-2, updated Nov 16 2026 ~04:05 PT)
+# Wattch — STATUS (Claude Code, overnight-2, updated Nov 16 2026 ~04:25 PT)
 
-Live: https://getwattch.vercel.app (main) · Overnight work: branch `overnight` (Vercel preview, 147 commits ahead of
+Live: https://getwattch.vercel.app (main) · Overnight work: branch `overnight` (Vercel preview, 154 commits ahead of
 main, NOT merged — waits for Vedhanth's "merge") · Repo: github.com/Vedu-2011/wattch
+
+## How to check it this morning (5 minutes, on the overnight preview)
+1. Open a plan page and press **Share** → paste the link in a chat with yourself: it should show that plan's card.
+2. Open **Compare** for the #1 and the best plan → **Share** → the card says who saves how much.
+3. Press **Español** on any page → everything changes, including the link preview.
+4. Pick **Dallas–Fort Worth** on the home page → the numbers say Dallas, never Houston.
+5. Say **"merge"** to the planner only after this list looks right.
+
+## Since 04:00 (BACKLOG W + X)
+- **Share button** on plan and compare pages (next to Print). The button itself says "Link copied".
+- **Dates in Texas time:** the home badge and the results "read on" time no longer follow the viewer's own clock.
+- **Devpost gallery re-taken** (the old images were missing the Español button, Print and the bill-line notes).
+- **Checks grew:** axe now 25 pages, Spanish walk + width check include the Dallas compare page. Codex 18 + 19 clean.
 
 ## Since 03:25 (BACKLOG S–V) — link previews + checks
 - **Shared links preview the right thing:** every page's preview card is in its own language and city (before: only
