@@ -50,7 +50,7 @@
 - [x] 1920 projector pass of /demo + /wall reveal: biggest numbers readable at 1920 from "the back of the room" (≥64px for the $ number) — screenshots
 - [x] Empty/edge states: usage 0, 50, 5000 kWh; 12 months all zero; every filter on at once — friendly text, no NaN/Infinity anywhere — tests + screenshots
 - [x] Plan page "Questions to ask before you sign" (from the plan's own traps: credit cliff → "Will I use 1,000 kWh every month?") — code-generated, 3 plans checked
-- [ ] docs/JUDGE-QA.md: 15 likely judge questions with honest short answers (accuracy, why Haiku, cost per read, what if a label changes, business model, competitors) — every number sourced
+- [x] docs/JUDGE-QA.md: 15 likely judge questions with honest short answers (accuracy, why Haiku, cost per read, what if a label changes, business model, competitors) — every number sourced
 
 ## H. Added overnight-2 (Nov 16, 00:55) — second area polish + submission truth
 - [ ] Compare guard: /compare with one Houston and one Dallas plan id → friendly "these plans are in different areas" message, not a mixed bill — test

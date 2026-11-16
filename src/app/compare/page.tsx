@@ -38,6 +38,26 @@ export default async function Compare({ searchParams }: PageProps<"/compare">) {
       </div>
     );
   }
+  const areaB = areaOf(b.meta.id) ?? "houston";
+  if (areaB !== area) {
+    // different delivery utilities: one home can't be on both, and the delivery charges differ — don't mix them
+    return (
+      <div className="mx-auto max-w-3xl px-5 pt-10">
+        <h1 className="display text-3xl font-extrabold">These plans are in different areas</h1>
+        <p className="mt-2 text-ink-2">
+          {a.meta.planName} is for {AREAS[area].city} ({AREAS[area].utility}) homes and {b.meta.planName} is for {AREAS[areaB].city} ({AREAS[areaB].utility}) homes.
+          A home can only pick plans from its own area, so pick two plans from the same list.
+        </p>
+        <div className="mt-5 flex flex-wrap gap-2">
+          {[area, areaB].map((x) => (
+            <Link key={x} href={`/wall?${billQs({ kwh, seasons, months: mine, withConditional, area: x, filters, lang })}`} className="rounded-full bg-ink px-5 py-2.5 font-bold text-paper">
+              {AREAS[x].city} plans
+            </Link>
+          ))}
+        </div>
+      </div>
+    );
+  }
   const c = compareYear(a.pricing, b.pricing, months, { includeConditional: withConditional });
   const max = Math.max(...c.rows.flatMap((r) => [r.a, r.b]), 1);
   const cheaper = c.diff > 0 ? a : c.diff < 0 ? b : null;

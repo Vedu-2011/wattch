@@ -1,7 +1,16 @@
 import { describe, expect, it, vi } from "vitest";
 
 vi.mock("server-only", () => ({}));
-const { pipelineCounts } = await import("./data");
+const { pipelineCounts, areaOf, clientPlans } = await import("./data");
+
+describe("which area a plan belongs to (compare refuses to mix areas)", () => {
+  it("every plan id maps back to its own area; unknown ids map to nothing", () => {
+    for (const area of ["houston", "dallas"] as const) for (const p of clientPlans(area)) expect(areaOf(p.id)).toBe(area);
+    expect(areaOf("no-such-plan")).toBeUndefined();
+    expect(areaOf("33633")).toBe("houston");
+    expect(areaOf("17283")).toBe("dallas");
+  });
+});
 
 describe("/how diagram numbers", () => {
   for (const area of ["houston", "dallas"] as const) {
