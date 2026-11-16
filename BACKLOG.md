@@ -680,7 +680,7 @@
 - [x] BH6 Tests
 - [x] BH7 Full verify
 - [x] BH8 STATUS line
-- [ ] BH9 Codex review
+- [x] BH9 Codex review
 - [x] BH10 PROGRESS line
 
 ## BI batch (added 06:04, night 2) — previews for edge pages
@@ -694,3 +694,15 @@
 - [x] BI8 STATUS line
 - [x] BI9 Codex review
 - [x] BI10 PROGRESS line
+
+## BJ batch (added 06:04, night 2) — morning handoff prep
+- [x] BJ1 Final numbers: commits tonight, tests start → now, Codex reviews run + real findings, paid $
+- [x] BJ2 STATUS: 'How to test' list includes the latest fixes (unread pages, previews, same-plan compare)
+- [x] BJ3 Screenshot folder weight tonight (MB) for the open question
+- [x] BJ4 Final open-questions list (merge timing, .codex/, Anakin, 0-kWh floor, .env.example, name search)
+- [x] BJ5 Handoff draft updated with all of the above
+- [x] BJ6 Night-2 summary draft updated
+- [ ] BJ7 BOARD Done line drafted
+- [x] BJ8 Check nothing uncommitted / stray files in the folder
+- [x] BJ9 Codex review if code changed
+- [ ] BJ10 PROGRESS line

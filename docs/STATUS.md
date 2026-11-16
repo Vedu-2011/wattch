@@ -1,6 +1,6 @@
-# Wattch — STATUS (Claude Code, overnight-2, updated Nov 16 2026 ~05:15 PT)
+# Wattch — STATUS (Claude Code, overnight-2, updated Nov 16 2026 ~06:05 PT)
 
-Live: https://getwattch.vercel.app (main) · Overnight work: branch `overnight` (Vercel preview, 184 commits ahead of
+Live: https://getwattch.vercel.app (main) · Overnight work: branch `overnight` (Vercel preview, 206 commits ahead of
 main, NOT merged — waits for Vedhanth's "merge") · Repo: github.com/Vedu-2011/wattch
 
 ## How to check it this morning (5 minutes, on the overnight preview)
@@ -8,15 +8,21 @@ main, NOT merged — waits for Vedhanth's "merge") · Repo: github.com/Vedu-2011
 2. Open **Compare** for the #1 and the best plan → **Share** → the card says who saves how much.
 3. Press **Español** on any page → everything changes, including the link preview.
 4. Pick **Dallas–Fort Worth** on the home page → the numbers say Dallas, never Houston.
-5. Say **"merge"** to the planner only after this list looks right.
+5. Open a Dallas plan Wattch couldn't read (e.g. /plan/31967?area=dallas) → it says "Not read yet", no odd notes.
+6. Compare a plan with itself → it says "That's the same plan twice".
+7. Say **"merge"** to the planner only after this list looks right.
+
+The preview below stopped updating at ~04:10 (Vercel limit), so it doesn't have items 5–6 or the other fixes since.
+To see the newest version, ask the builder to run it on your computer (`npm run build && npx next start`, then open
+http://localhost:3000) — that's free and has everything.
 
 Preview link: https://wattch-git-overnight-vedhanth.vercel.app (sign in to Vercel first; it's protected).
 
 **⚠ Vercel build limit (important for "merge"):** the free plan allows 100 builds per 24 hours. I pushed ~170 times
 since 10 PM, so Vercel stopped building at ~04:10 ("retry in 24 hours"). The first 100 builds were 10 PM–2:30 AM, so
 new builds — **including production after a merge** — will probably be refused until about **10 PM tonight (Nov 16)**.
-The newest preview that built is 85e52e2 (has every visible change except the compare share title, notes for
-variable plans, the skip link and the noindex fix). Options for the planner: merge now and let it go live tonight, or
+The newest preview that built is 85e52e2 (~04:00). It is missing everything after that: notes for variable plans,
+the skip link, noindex, wording fixes, unread/mismatch plan pages and previews, the phone chart labels. Options for the planner: merge now and let it go live tonight, or
 wait. For future overnight nights: push once per batch, or turn off previews for the `overnight` branch.
 
 ## Since 04:55 (BACKLOG AN–AR) — small things a judge might notice
