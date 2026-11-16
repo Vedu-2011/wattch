@@ -147,9 +147,9 @@
 - [x] P2 /sitemap + /robots: add a meta-check rule (robots disallows /demo, sitemap parses, every plan id present)
 - [x] P3 Card: Spanish card for a negative/zero gap (state #1 is already best) — wording check
 - [x] P4 Spanish /traps?area=dallas at 320: no overflow, every trap kind has a Spanish name
-- [ ] P5 Error states in Spanish: /plan/does-not-exist?lang=es + /api/live failure copy, screen
+- [x] P5 Error states in Spanish: /plan/does-not-exist?lang=es + /api/live failure copy, screen
 - [x] P6 JUDGE-QA: add Q on 'how do you keep Spanish numbers identical' (point at i18n.numbers.test.ts)
 - [x] P7 DEVPOST: mention sitemap/hreflang only if it fits in one line; verify claims vs code
 - [x] P8 Bundle check: did the header Suspense changes add JS to / ? (build output First Load JS before/after)
-- [ ] P9 axe on /remind?lang=es with an error showing (role=alert, lang)
+- [x] P9 axe on /remind?lang=es with an error showing (role=alert, lang)
 - [x] P10 Re-run headline.ts + compare to SCRIPT ⟲ numbers (data unchanged? log)

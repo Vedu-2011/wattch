@@ -135,3 +135,4 @@
 - 2026-11-16 02:59 PT · P2 meta-check now also checks robots.txt (disallows /demo + /api, has sitemap) and sitemap.xml (no raw &, >300 urls, every url has a Spanish twin, Dallas present). Passes; regex flags the old bug. $0.
 - 2026-11-16 03:00 PT · P3 no-gap share card (flat 1,100 kWh: state #1 = best) EN + ES + Dallas ES: 'My best plan / Mi mejor plan', same $963, no odd '$0 more' wording. Saved card-nogap/. No change. $0.
 - 2026-11-16 03:00 PT · P4 /traps?area=dallas&lang=es at 320: no overflow, all 7 trap kinds have Spanish names; the only 'Houston/CenterPoint' text is the area toggle. No change. $0.
+- 2026-11-16 03:01 PT · P5 + P9 Spanish error states at 375, axe 0 each: unknown plan → Spanish not-found + html lang es; /remind bad date → Spanish role=alert inside lang=es; live re-check with network cut → Spanish 'No pudimos abrir el sitio…' in an aria-live box; /api/live unknown id ?lang=es → 'No conocemos ese plan.' Screens errors-es/. No change. $0.
