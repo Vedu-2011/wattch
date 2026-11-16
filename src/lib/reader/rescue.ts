@@ -12,7 +12,7 @@ export const textSha = (text: string) => createHash("sha256").update(text).diges
 
 type Fix = { pricing: PlanPricing; rows: CheckRow[]; tduFilled: boolean; parsedBy: string; message: string };
 
-/** Label check, and if the label doesn't print delivery charges, try CenterPoint's from other labels. */
+/** Label check, and if the label doesn't print delivery charges, try the area utility's (from other labels). */
 function check(p: PlanPricing, tdu: TduCandidate[]): { pricing: PlanPricing; rows: CheckRow[]; tduFilled: boolean } | null {
   const c = labelCheck(p);
   if (c.ok) return { pricing: p, rows: c.rows, tduFilled: false };
@@ -27,14 +27,14 @@ function check(p: PlanPricing, tdu: TduCandidate[]): { pricing: PlanPricing; row
  * 2. Ranchero / Southern Federal form-field labels → read by code (templates.ts).
  * 3. A hand-read of this exact label text (same sha256) in data/manual/.
  */
-export function rescue(rec: PlanRecord, text: string, tdu: TduCandidate[], manual?: ManualRead, draft?: PlanPricing | null): Fix | null {
+export function rescue(rec: PlanRecord, text: string, tdu: TduCandidate[], manual?: ManualRead, draft?: PlanPricing | null, utility = "CenterPoint"): Fix | null {
   const ptc = rec.meta.ptc;
   // the reader's read, or (when its averages weren't on the label) its draft — code re-checks either way
   const read = rec.pricing ?? draft ?? null;
   if (read && rec.pricing && grounded(text, read)) {
     // the read was right; the label just doesn't print delivery charges ("passed through as billed")
     const c = check(read, tdu);
-    if (c) return { ...c, parsedBy: rec.read.parsedBy, message: "The label doesn't print delivery charges; with CenterPoint's, all 3 averages match." };
+    if (c) return { ...c, parsedBy: rec.read.parsedBy, message: `The label doesn't print delivery charges; with ${utility}'s, all 3 averages match.` };
   }
   if (read) {
     for (const s of slipFixes(read)) {

@@ -26,7 +26,7 @@ async function main() {
     const tf = `${textDir}/${r.meta.id}.txt`;
     if (!existsSync(tf)) continue;
     const text = await readFile(tf, "utf8");
-    const fix = rescue(r, text, tdu, manual.get(r.meta.id));
+    const fix = rescue(r, text, tdu, manual.get(r.meta.id), undefined, AREAS[area].utility);
     if (!fix) {
       if (r.check.status === "mismatch") Object.assign(r, explainMismatch(text, r));
       console.log(`still ${r.check.status.padEnd(8)} ${r.meta.provider} — ${r.meta.planName}`);

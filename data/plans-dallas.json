@@ -3007,7 +3007,7 @@
       "ok": true
      }
     ],
-    "message": "The label doesn't print delivery charges; with CenterPoint's, all 3 averages match.",
+    "message": "The label doesn't print delivery charges; with Oncor's, all 3 averages match.",
     "tduFilled": true
    }
   },
@@ -3090,7 +3090,7 @@
       "ok": true
      }
     ],
-    "message": "The label doesn't print delivery charges; with CenterPoint's, all 3 averages match.",
+    "message": "The label doesn't print delivery charges; with Oncor's, all 3 averages match.",
     "tduFilled": true
    }
   },
@@ -3173,7 +3173,7 @@
       "ok": true
      }
     ],
-    "message": "The label doesn't print delivery charges; with CenterPoint's, all 3 averages match.",
+    "message": "The label doesn't print delivery charges; with Oncor's, all 3 averages match.",
     "tduFilled": true
    }
   },
@@ -3256,7 +3256,7 @@
       "ok": true
      }
     ],
-    "message": "The label doesn't print delivery charges; with CenterPoint's, all 3 averages match.",
+    "message": "The label doesn't print delivery charges; with Oncor's, all 3 averages match.",
     "tduFilled": true
    }
   },
@@ -3339,7 +3339,7 @@
       "ok": true
      }
     ],
-    "message": "The label doesn't print delivery charges; with CenterPoint's, all 3 averages match.",
+    "message": "The label doesn't print delivery charges; with Oncor's, all 3 averages match.",
     "tduFilled": true
    }
   },
@@ -4115,7 +4115,7 @@
       "ok": true
      }
     ],
-    "message": "The label doesn't print delivery charges; with CenterPoint's, all 3 averages match.",
+    "message": "The label doesn't print delivery charges; with Oncor's, all 3 averages match.",
     "tduFilled": true
    }
   },
@@ -4608,7 +4608,7 @@
       "ok": true
      }
     ],
-    "message": "The label doesn't print delivery charges; with CenterPoint's, all 3 averages match.",
+    "message": "The label doesn't print delivery charges; with Oncor's, all 3 averages match.",
     "tduFilled": true
    }
   },
@@ -4691,7 +4691,7 @@
       "ok": true
      }
     ],
-    "message": "The label doesn't print delivery charges; with CenterPoint's, all 3 averages match.",
+    "message": "The label doesn't print delivery charges; with Oncor's, all 3 averages match.",
     "tduFilled": true
    }
   },
@@ -4774,7 +4774,7 @@
       "ok": true
      }
     ],
-    "message": "The label doesn't print delivery charges; with CenterPoint's, all 3 averages match.",
+    "message": "The label doesn't print delivery charges; with Oncor's, all 3 averages match.",
     "tduFilled": true
    }
   },
@@ -4857,7 +4857,7 @@
       "ok": true
      }
     ],
-    "message": "The label doesn't print delivery charges; with CenterPoint's, all 3 averages match.",
+    "message": "The label doesn't print delivery charges; with Oncor's, all 3 averages match.",
     "tduFilled": true
    }
   },
@@ -4940,7 +4940,7 @@
       "ok": true
      }
     ],
-    "message": "The label doesn't print delivery charges; with CenterPoint's, all 3 averages match.",
+    "message": "The label doesn't print delivery charges; with Oncor's, all 3 averages match.",
     "tduFilled": true
    }
   },
@@ -5482,7 +5482,7 @@
       "ok": true
      }
     ],
-    "message": "The label doesn't print delivery charges; with CenterPoint's, all 3 averages match.",
+    "message": "The label doesn't print delivery charges; with Oncor's, all 3 averages match.",
     "tduFilled": true
    }
   },
@@ -5565,7 +5565,7 @@
       "ok": true
      }
     ],
-    "message": "The label doesn't print delivery charges; with CenterPoint's, all 3 averages match.",
+    "message": "The label doesn't print delivery charges; with Oncor's, all 3 averages match.",
     "tduFilled": true
    }
   },
@@ -5648,7 +5648,7 @@
       "ok": true
      }
     ],
-    "message": "The label doesn't print delivery charges; with CenterPoint's, all 3 averages match.",
+    "message": "The label doesn't print delivery charges; with Oncor's, all 3 averages match.",
     "tduFilled": true
    }
   },
@@ -5731,7 +5731,7 @@
       "ok": true
      }
     ],
-    "message": "The label doesn't print delivery charges; with CenterPoint's, all 3 averages match.",
+    "message": "The label doesn't print delivery charges; with Oncor's, all 3 averages match.",
     "tduFilled": true
    }
   },
@@ -9030,7 +9030,7 @@
      "k2000": 9.5
     },
     "notes": [
-     "Delivery charges aren't printed on this label; they're passed through from CenterPoint."
+     "Delivery charges aren't printed on this label; they're passed through from Oncor."
     ]
    },
    "read": {
@@ -9110,7 +9110,7 @@
      "k2000": 12.1
     },
     "notes": [
-     "Delivery charges aren't printed on this label; they're passed through from CenterPoint."
+     "Delivery charges aren't printed on this label; they're passed through from Oncor."
     ]
    },
    "read": {
@@ -9190,7 +9190,7 @@
      "k2000": 13.9
     },
     "notes": [
-     "Delivery charges aren't printed on this label; they're passed through from CenterPoint."
+     "Delivery charges aren't printed on this label; they're passed through from Oncor."
     ]
    },
    "read": {
@@ -9270,7 +9270,7 @@
      "k2000": 11.3
     },
     "notes": [
-     "Delivery charges aren't printed on this label; they're passed through from CenterPoint."
+     "Delivery charges aren't printed on this label; they're passed through from Oncor."
     ]
    },
    "read": {
@@ -9350,7 +9350,7 @@
      "k2000": 12
     },
     "notes": [
-     "Delivery charges aren't printed on this label; they're passed through from CenterPoint."
+     "Delivery charges aren't printed on this label; they're passed through from Oncor."
     ]
    },
    "read": {
@@ -9430,7 +9430,7 @@
      "k2000": 12.6
     },
     "notes": [
-     "Delivery charges aren't printed on this label; they're passed through from CenterPoint."
+     "Delivery charges aren't printed on this label; they're passed through from Oncor."
     ]
    },
    "read": {
@@ -11438,7 +11438,7 @@
      "k2000": 12.6
     },
     "notes": [
-     "Delivery charges aren't printed on this label; they're passed through from CenterPoint."
+     "Delivery charges aren't printed on this label; they're passed through from Oncor."
     ]
    },
    "read": {
@@ -11551,7 +11551,7 @@
      "k2000": 11.3
     },
     "notes": [
-     "Delivery charges aren't printed on this label; they're passed through from CenterPoint."
+     "Delivery charges aren't printed on this label; they're passed through from Oncor."
     ]
    },
    "read": {
@@ -11631,7 +11631,7 @@
      "k2000": 12.1
     },
     "notes": [
-     "Delivery charges aren't printed on this label; they're passed through from CenterPoint."
+     "Delivery charges aren't printed on this label; they're passed through from Oncor."
     ]
    },
    "read": {
@@ -11711,7 +11711,7 @@
      "k2000": 9.5
     },
     "notes": [
-     "Delivery charges aren't printed on this label; they're passed through from CenterPoint."
+     "Delivery charges aren't printed on this label; they're passed through from Oncor."
     ]
    },
    "read": {
@@ -13521,7 +13521,7 @@
       "ok": true
      }
     ],
-    "message": "The label doesn't print delivery charges; with CenterPoint's, all 3 averages match.",
+    "message": "The label doesn't print delivery charges; with Oncor's, all 3 averages match.",
     "tduFilled": true
    }
   },
@@ -13605,7 +13605,7 @@
       "ok": true
      }
     ],
-    "message": "The label doesn't print delivery charges; with CenterPoint's, all 3 averages match.",
+    "message": "The label doesn't print delivery charges; with Oncor's, all 3 averages match.",
     "tduFilled": true
    }
   }

@@ -65,5 +65,5 @@
 - [ ] When Anakin quota is back (check first, $0 if not): re-read the 26 Dallas unread with --redo-failed (paid ≤ $0.30, PAID-API LOCK) — stay under the $3 night cap
 - [x] Spanish plan page (?lang=es): headings, label check, bill lines + explainBill sentences in Spanish, questions, year card; links from the Spanish wall carry lang — axe 0, no mixed-language section
 - [x] Header freshness badge per area: on ?area=dallas pages show Dallas counts (154 of 172) — test + screenshot
-- [ ] Codex review 7 (codex review --base main) — fix real findings
+- [x] Codex review 7 (codex review --base main) — fix real findings
 - [ ] Header + freshness badge in Spanish on ?lang=es pages (nav: Trampas/Cómo funciona/Fuentes; "171 de 172 etiquetas cuadran · leídas hace 2 horas") — client reads ?lang like the area badge; axe 0

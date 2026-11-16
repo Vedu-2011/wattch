@@ -87,7 +87,7 @@ async function main() {
   for (const r of results) {
     if (r.check.status === "verified" || !existsSync(`${textDir}/${r.meta.id}.txt`)) continue;
     const text = await readFile(`${textDir}/${r.meta.id}.txt`, "utf8");
-    const fix = rescue(r, text, tdu, manual.get(r.meta.id), drafts.get(r.meta.id));
+    const fix = rescue(r, text, tdu, manual.get(r.meta.id), drafts.get(r.meta.id), AREAS[area].utility);
     if (!fix) {
       if (r.check.status === "mismatch") Object.assign(r, explainMismatch(text, r));
       continue;

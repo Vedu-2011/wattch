@@ -74,3 +74,13 @@ describe("home numbers per area", () => {
     for (const c of d.cards) expect(plans.some((p) => p.meta.id === c.id)).toBe(true);
   });
 });
+
+describe("Dallas records name the right utility", () => {
+  it("no Dallas plan message or note says CenterPoint (codex review 7)", () => {
+    for (const p of plans) {
+      expect(p.check.message).not.toMatch(/CenterPoint/);
+      for (const n of p.pricing?.notes ?? []) expect(n).not.toMatch(/CenterPoint/);
+    }
+    expect(plans.some((p) => /with Oncor.s, all 3 averages match/.test(p.check.message))).toBe(true);
+  });
+});

@@ -63,3 +63,4 @@
 - 2026-11-16 01:19 PT · H9 STATUS.md refresh · DONE (c259a9d). Added 2 backlog items (header badge per area, codex review 7). $0.
 - 2026-11-16 01:19 PT · H Anakin re-read · SKIPPED for now: probe returned 402 'Out of Anakin.io reads' ($0). Item stays open; re-probe later.
 - 2026-11-16 01:21 PT · H10 header badge per area · DONE (46437bf). Known: a Dallas plan URL without ?area= still shows Houston counts in the badge (the plan page itself is right). No unit test (UI-only; checked live 10 views). $0.
+- 2026-11-16 01:27 PT · H11 Spanish plan page · DONE (6ccd972). New src/lib/planWords.ts; explainBill/questions/timeAgo/LiveCheck/CliffChart/PrintButton/Highlight/Fresh take lang. DECISION: label text + AI notes stay English (original document), marked lang=en with a note. Found: site header/badge still English on Spanish pages → new backlog item. 167 tests, axe 0 on 19 pages. $0.

@@ -17,14 +17,15 @@ export function readSoFedForm(text: string, ptc: Avg): PlanPricing | null {
   const avgs = `${field(ptc.k500)}${field(ptc.k1000)}${field(ptc.k2000)}`;
   const re = new RegExp(
     // the delivery utility's name sits between the averages and the energy charge (CenterPoint or Oncor so far)
-    `\\d{4}${avgs.replace(/\./g, "\\.")}(?:Centerpoint|Oncor)+(0\\.\\d{6})(\\d+\\.\\d{2}|0)(\\d{1,2}) Months?\\.\\s?(Yes\\. \\$(\\d+?)(?=(?:0[1-9]|1[0-2])\\d{2}20\\d{2}|\\D|$)|No)`,
+    `\\d{4}${avgs.replace(/\./g, "\\.")}((?:Centerpoint|Oncor)+)(0\\.\\d{6})(\\d+\\.\\d{2}|0)(\\d{1,2}) Months?\\.\\s?(Yes\\. \\$(\\d+?)(?=(?:0[1-9]|1[0-2])\\d{2}20\\d{2}|\\D|$)|No)`,
     "i",
   );
   const m = text.replace(/\s+/g, " ").match(re);
   if (!m) return null;
-  const energyCents = Math.round(Number(m[1]) * 100 * 10000) / 10000;
+  const utility = /oncor/i.test(m[1]) ? "Oncor" : "CenterPoint";
+  const energyCents = Math.round(Number(m[2]) * 100 * 10000) / 10000;
   return {
-    baseChargeDollars: Number(m[2]),
+    baseChargeDollars: Number(m[3]),
     energyTiers: [{ fromKwh: 0, cents: energyCents }],
     tduCentsPerKwh: 0,
     tduMonthlyDollars: 0,
@@ -32,10 +33,10 @@ export function readSoFedForm(text: string, ptc: Avg): PlanPricing | null {
     usageFees: [],
     amortizedFees: [],
     touPeriods: [],
-    termMonths: Number(m[3]),
-    earlyTerminationFee: { dollars: m[5] ? Number(m[5]) : 0, perMonthRemaining: false },
+    termMonths: Number(m[4]),
+    earlyTerminationFee: { dollars: m[6] ? Number(m[6]) : 0, perMonthRemaining: false },
     labelAvg: { ...ptc },
-    notes: ["Delivery charges aren't printed on this label; they're passed through from CenterPoint."],
+    notes: [`Delivery charges aren't printed on this label; they're passed through from ${utility}.`],
   };
 }
 
