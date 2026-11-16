@@ -790,3 +790,15 @@
 - [x] BQ8 STATUS line
 - [x] BQ9 Codex review if changed
 - [x] BQ10 PROGRESS line
+
+## BR batch (added 06:32, night 2) — the re-check button on odd plans
+- [x] BR1 Unread Dallas plan (31967): is 'Check this label again now' shown, and what does it say?
+- [x] BR2 Mismatch plan (33670): re-check result wording EN/ES
+- [x] BR3 /api/live response for an unread plan is friendly (no paid call: free PDF fetch only, or skip)
+- [x] BR4 Fix wording if it claims 'checked' for a plan with no numbers
+- [x] BR5 Test for the chosen behavior
+- [x] BR6 Full verify
+- [x] BR7 STATUS line
+- [ ] BR8 Codex review if changed
+- [x] BR9 PROGRESS line
+- [x] BR10 Gallery if visible change

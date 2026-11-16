@@ -12,9 +12,11 @@ export const maxDuration = 60;
  */
 const MSG = {
   en: { unknown: "We don't know that plan.", down: "Couldn't open the provider's label right now. Try again in a minute.",
-    gone: "The provider's label file isn't there right now (its link answers \"not found\"). Wattch's numbers come from the copy it read earlier." },
+    gone: "The provider's label file isn't there right now (its link answers \"not found\"). Wattch's numbers come from the copy it read earlier.",
+    unread: "Wattch hasn't read this label's prices yet, so there's nothing to compare it with." },
   es: { unknown: "No conocemos ese plan.", down: "No pudimos abrir la etiqueta del proveedor ahora. Intenta de nuevo en un minuto.",
-    gone: "El archivo de la etiqueta del proveedor no está ahora (su enlace dice \"no encontrado\"). Los números de Wattch salen de la copia que leyó antes." },
+    gone: "El archivo de la etiqueta del proveedor no está ahora (su enlace dice \"no encontrado\"). Los números de Wattch salen de la copia que leyó antes.",
+    unread: "Wattch todavía no ha leído los precios de esta etiqueta, así que no hay nada con qué compararla." },
 } as const;
 
 export async function GET(req: Request) {
@@ -23,6 +25,8 @@ export async function GET(req: Request) {
   const m = MSG[sp.get("lang") === "es" ? "es" : "en"];
   const rec = planById(id);
   if (!rec) return NextResponse.json({ ok: false, message: m.unknown }, { status: 404 });
+  // never read (no fingerprint): "it changed since Wattch read it" would be false, and opening it can cost a paid read
+  if (rec.check.status === "unread" || !rec.read.sha256) return NextResponse.json({ ok: false, message: m.unread });
   try {
     const f = await fetchEfl(rec.meta.eflUrl, { anakinKey: process.env.ANAKIN_API_KEY, timeoutMs: 15000 });
     const same = f.sha256 === rec.read.sha256;

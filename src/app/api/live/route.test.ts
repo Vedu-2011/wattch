@@ -5,8 +5,11 @@ const plan = {
   meta: { id: "p1", eflUrl: "https://example.test/efl.pdf" },
   read: { sha256: "abc", fetchedAt: "2026-11-15T07:00:00Z" },
   pricing: { labelAvg: { k500: 19.2, k1000: 6.2, k2000: 12.2 } },
+  check: { status: "verified" },
 };
-vi.mock("@/lib/plans/data", () => ({ planById: (id: string) => (id === "p1" ? plan : undefined) }));
+// a plan Wattch never managed to read (no fingerprint, no prices)
+const unreadPlan = { meta: { id: "p2", eflUrl: "https://example.test/u.pdf" }, read: { sha256: "", fetchedAt: "2026-11-16T08:30:00Z" }, pricing: null, check: { status: "unread" } };
+vi.mock("@/lib/plans/data", () => ({ planById: (id: string) => (id === "p1" ? plan : id === "p2" ? unreadPlan : undefined) }));
 const fetchEfl = vi.fn();
 let siteDown = false;
 vi.mock("@/lib/reader/fetchEfl", () => ({
@@ -28,6 +31,14 @@ describe("/api/live — check one label again", () => {
     const r = await call("nope");
     expect(r.status).toBe(404);
     expect(r.body).toEqual({ ok: false, message: "We don't know that plan." });
+    expect(fetchEfl).not.toHaveBeenCalled();
+  });
+
+  it("never-read plan → says there's nothing to compare yet, and doesn't open the label (EN + ES)", async () => {
+    const r = await call("p2");
+    expect(r.body).toEqual({ ok: false, message: "Wattch hasn't read this label's prices yet, so there's nothing to compare it with." });
+    const es = await (await GET(new Request("http://x/api/live?id=p2&lang=es"))).json();
+    expect(es.message).toMatch(/todavía no ha leído/);
     expect(fetchEfl).not.toHaveBeenCalled();
   });
 

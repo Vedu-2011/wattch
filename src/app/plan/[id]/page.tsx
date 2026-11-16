@@ -124,7 +124,7 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
           {rec.check.status === "verified" && (rec.check.tduFilled || !rec.read.parsedBy.startsWith("claude")) && (
             <p className="mt-2 text-sm text-ink-2" lang="en">{rec.check.message}</p>
           )}
-          <div className="no-print"><LiveCheck id={id} lang={lang} /></div>
+          {rec.check.status !== "unread" && <div className="no-print"><LiveCheck id={id} lang={lang} /></div>}
           <p className="mt-3 text-xs text-ink-2">
             {rec.check.status !== "unread" && <>
             {t.fetched(read)}{/* "3 hours ago" is wrong on paper, so print shows the date only */}<span className="no-print"> (<Fresh at={rec.read.fetchedAt} prefix="" lang={lang} />)</span> {rec.read.via === "anakin" ? t.viaAnakin : t.viaDirect} ·{" "}
