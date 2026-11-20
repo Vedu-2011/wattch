@@ -25,6 +25,12 @@ for (const [tag, ctxOpts] of [["iphone", { ...devices["iPhone 13"] }], ["1920", 
   await tap(pg.getByRole("radio", { name: /Dallas/ }).first()); await pg.waitForTimeout(500); await shot("7-dallas-home");
   await tap(pg.getByRole("button", { name: /Average home/ })); await tap(pg.getByRole("button", { name: /Read every plan/ }));
   await pg.waitForURL(/area=dallas/); await pg.waitForFunction(() => /\$530/.test(document.body.innerText), null, { timeout: 30000 }); await pg.waitForTimeout(1500); await shot("8-dallas-reveal");
+  // a plan that left Power to Choose says so on its page (data/delisted.json), in both languages
+  for (const [q, re] of [["", /No longer on Power to Choose/], ["&lang=es", /Ya no está en Power to Choose/]]) {
+    await pg.goto(`http://localhost:3000/plan/39294?kwh=1100${q}`, { waitUntil: "networkidle" });
+    if (!re.test(await pg.locator("main").innerText())) errs.push(`delisted note missing${q}`);
+  }
+  await shot("9-left-the-list");
   console.log(tag, "errors:", errs.length ? errs.slice(0, 3).join(" | ") : "none");
   failed += errs.length;
   await ctx.close();

@@ -90,7 +90,7 @@ for a number that was never real.
 - **Seasons.** My first model used statewide Texas data. I replaced it with Houston-area grid data, which made the
   summer/spring gap bigger — and that's exactly where bill-credit plans hurt.
 - **The list moves.** Between Nov 16 and Nov 19, 12 Houston plans left Power to Choose and about 70 changed their
-  advertised price. A plan you can't sign up for shouldn't be anyone's #1, so Wattch now checks the list for free and
+  advertised price. A plan you can't sign up for shouldn't be anyone's #1, so a free script now checks the state's list (run by hand; last on Nov 19) and
   marks those plans instead of quietly ranking them.
 - **Being honest.** One prepaid plan's label prints prices its own charges don't add up to. Instead of forcing it, the
   plan page says exactly what doesn't match.
