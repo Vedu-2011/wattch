@@ -85,7 +85,7 @@ Fill the [CHECK] cells only after opening each site and trying it; screenshot wh
   (same "6.2¢" plan ranks #82 ⟲ there, $530 ⟲ more a year). All public and re-checkable live.
 - Reading a whole area costs about $1.15 in AI (0.67¢ a label); unchanged labels cost $0 to re-check.
 - English + Spanish on every page (same math, only the words change); contract-end calendar reminders; 265 ⟲ automated tests.
-- Accessibility: 0 axe issues on 25 pages (English + Spanish); Lighthouse accessibility 100 on every page tested.
+- Accessibility: 0 axe issues on 27 pages (English + Spanish); Lighthouse accessibility 100 on every page tested.
 - Stays honest as the list changes: a free check of the state's list (one command, run by hand; last run Nov 19) marks
   plans that have left it (12 in Houston between Nov 16 and Nov 19) so they're never ranked.
 - Built and shipped solo in one week.

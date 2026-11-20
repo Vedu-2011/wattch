@@ -328,3 +328,4 @@ person: Vercel's free build limit was hit at ~04:10 (production after "merge" li
 - 2026-11-20 00:25 PT · FI2 /demo keys: Space pauses (stays put 7 s), → ← Home End all move correctly. FI3 1366×768: /demo 7 scenes + /wall reveal fit, no sideways scroll; scene 4 count-up lands on $378. No change.
 - 2026-11-20 00:31 PT · FI4 every clip now holds still 1.5 s at start + end (cut handles). FI5 new optional clip 05b-compare. FI7/FI9 SHOTS.md: new lengths, optional-line → clip map. All 16 clips re-recorded, 0 errors.
 - 2026-11-20 00:33 PT · FI6 demo-flow now also runs on an iPad mini (768 wide): 0 errors; reveal + compare look right. 27 shots in docs/gallery-final.
+- 2026-11-20 00:37 PT · FJ1/2/8/9: axe, widths, link-names and es-walk now include a delisted plan page (EN+ES) and /compare with one. check-all 5/5 PASS. axe count 25 → 27 pages in DECK/DEVPOST/JUDGE-QA.
