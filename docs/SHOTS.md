@@ -1,5 +1,10 @@
 # Video shots — raw 1920×1080 clips
 
+## Codex picture cut (Nov 20)
+
+`video/out/wattch-demo.mp4` is a 5:00 timed picture cut following script rows 1–12. The source clips are held on genuine frames to fill the scripted scene lengths. It currently carries silent AAC and an end-card notice, **VOICE PENDING**. It is not the submission master. Add Vedhanth's voiceover first; then transcribe the actual recording locally, check each caption word, burn 52 px captions, normalize to about −16 LUFS with a true peak below −1 dBFS, and run the final verification. The picture cut and contact sheet stay local and are not uploaded.
+
+
 One clip per row of docs/SCRIPT.md, recorded by `scripts/video-shots.mjs` against a local production build.
 They're in `video/raw/` (not in git — too big). Each is `.webm` + `.mp4` (H.264, opens in iMovie / CapCut).
 
