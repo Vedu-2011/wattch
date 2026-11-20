@@ -2,7 +2,7 @@
 
 Final v2 by Claude Code (Nov 19 2026, prompts/final-1.md). For Vedhanth to record in his own voice (ask before any AI voice).
 Fits all three: Triple H (3–8 min, must demo the product, clear audio), STEM2Connect (≤6 min), GenHacks.
-Numbers are from `npx tsx scripts/headline.ts` (labels read Nov 16; plans that left Power to Choose by Nov 19 are marked
+Numbers are from `npx tsx scripts/headline.ts` (labels read Nov 16; plans that left Power to Choose by Nov 20 are marked
 and not ranked). Re-run it before recording; if the data was refreshed, swap the numbers marked ⟲.
 Backup clips for every row: docs/SHOTS.md (video/raw/, 1920×1080).
 

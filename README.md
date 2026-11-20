@@ -96,6 +96,9 @@ node scripts/gallery.mjs        # the 8 Devpost gallery images, 1920×1080, into
 node scripts/demo-flow.mjs      # the demo flow on iPhone + 1920 (home → reveal → plan → compare → Español → Dallas), docs/gallery-final
 node scripts/video-shots.mjs    # raw 1920×1080 clips for the demo video into video/raw (list: docs/SHOTS.md)
 npx tsx scripts/delisted.ts     # free: which read plans have left Power to Choose → data/delisted.json
+npx tsx scripts/delisted.ts --dry   # same check, only prints what changed
+# Before recording or presenting: run the --dry check; if plans left, run it without --dry, then `npm test` —
+# src/lib/docs.numbers.test.ts names every line in the deck / Devpost / script whose rank or $ is now out of date.
 npx tsx scripts/rehash.ts       # free: re-download labels and fix stored hashes (no AI); lists labels that changed
 python3 -I scripts/profile_counts.py <xlsx> "<TDSP>" <zone> <out.csv>   # one utility's home counts from ERCOT's workbook
 ```

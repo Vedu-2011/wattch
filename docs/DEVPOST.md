@@ -2,7 +2,7 @@
 
 Paste each section into the matching Devpost field. Final v2 by Claude Code (Nov 19 2026, prompts/final-1.md) — for the
 planner and Vedhanth to edit. Solo "I" voice. Every number below comes from the repo (`npx tsx scripts/headline.ts`,
-labels read Nov 16 2026; plans that left Power to Choose by Nov 19 are marked and not ranked) or a source quoted in docs/SOURCES.md. If the data is re-read before
+labels read Nov 16 2026; plans that left Power to Choose by Nov 20 are marked and not ranked) or a source quoted in docs/SOURCES.md. If the data is re-read before
 submitting, re-run headline.ts and update the numbers marked ⟲.
 
 ## Project name
@@ -70,7 +70,7 @@ for a number that was never real.
 - **Seasons:** ERCOT's 15-minute residential load profiles for the Coast weather zone (2023–2025), mixed by how many
   CenterPoint homes are in each profile type. That gives the monthly shape; your average sets the size.
 - **Deciding:** the bill math, yearly cost, ranking, price cliffs, filters, switching math and every "why" sentence
-  are plain code with 269 tests ⟲, including a test that every verified plan still rebuilds its own label.
+  are plain code with 276 tests ⟲, including a test that every verified plan still rebuilds its own label.
 - **Staying fresh:** `npm run refresh` downloads the state's list for free and shows what changed; `--apply`
   re-downloads every label and only sends the ones whose text changed to the AI. The Dallas read cost $1.15 for 172
   labels, about 0.67¢ each. A free check (`scripts/delisted.ts`) marks plans that have left the state's list since
@@ -141,7 +141,7 @@ Retake with `node scripts/gallery.mjs` (or `node scripts/gallery.mjs 7,8` for ju
 ## Checked against the code (Claude Code, Nov 20; labels read Nov 16, departures checked Nov 20)
 172 plans / 171 verified / 139 ranked / #69 / $378 / 6 months / $125 / 1,000 kWh / 6.2¢: scripts/headline.ts.
 158 direct / 14 Anakin / median 3,707 ms: data/plans.json. 7 trap kinds: src/lib/trapGuide.ts. 2.6× Aug/Feb: docs/SOURCES.md.
-269 tests: `npm test`. axe 0 on 27 pages: scripts/axe.mjs. Lighthouse a11y 100 on /, /wall, /plan (D2) and /remind, /how,
+276 tests: `npm test`. axe 0 on 27 pages: scripts/axe.mjs. Lighthouse a11y 100 on /, /wall, /plan (D2) and /remind, /how,
 Dallas wall, Dallas traps (H7): PROGRESS.md.
 Screen-reader links, heading levels and page language on 19 pages: scripts/link-names.mjs. All page checks: scripts/check-all.mjs.
 Dallas (added later Nov 16): 172 plans / 154 verified / 125 ranked / #82 / $530: scripts/headline.ts; $1.149 read cost:
