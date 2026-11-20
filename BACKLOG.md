@@ -964,9 +964,9 @@
 - [ ] FG2 Merge 2 to main (~00:20, after test/lint/build/check-all), verify live, log
 - [x] FG3 /demo at 1920 + iPhone: screenshot each of the 7 scenes into docs/gallery-final/demo-*
 - [x] FG4 Wall tiles: plans that left the list get a small "left the list" tag instead of a plain ✓ (EN+ES)
-- [ ] FG5 Plan page for a delisted plan: hide "Check this label again" enroll-style actions that imply you can sign up? (check what shows; only change if misleading)
+- [x] FG5 Plan page for a delisted plan: hide "Check this label again" enroll-style actions that imply you can sign up? (check what shows; only change if misleading)
 - [x] FG6 demo-flow.mjs: also open a delisted plan page and check the note shows (EN+ES)
 - [x] FG7 Spanish flow at iPhone size: home ES → reveal ES → plan ES, screenshots into docs/gallery-final/es-*
-- [ ] FG8 Re-run Lighthouse on /, /wall, /plan/33633 after today's changes; log scores
+- [x] FG8 Re-run Lighthouse on /, /wall, /plan/33633 after today's changes; log scores
 - [x] FG9 Fresh clone of origin/overnight with no keys: npm ci, test, build (proves the repo stands alone)
 - [ ] FG10 Morning handoff (7:00 AM or at stop) with the SimpleSaver 12 question at the top
