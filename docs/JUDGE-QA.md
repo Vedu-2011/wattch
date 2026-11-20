@@ -13,7 +13,7 @@ shown as not verified and never ranked. Houston: 171 of 172 labels verified ⟲.
 
 **2. Then what does the AI actually decide?**
 Nothing. It copies numbers off a messy PDF. The bill, the yearly cost, the ranking, the "why" sentence and the questions on each
-plan page are all plain code with tests (269 ⟲ tests). Same inputs, same answer, every time.
+plan page are all plain code with tests (276 ⟲ tests). Same inputs, same answer, every time.
 
 **3. Why Claude Haiku and not a bigger model?**
 The job is reading, not reasoning, and the code check catches mistakes either way. Haiku is fast and cheap enough to read
@@ -27,7 +27,7 @@ re-runs the check.
 
 **5. What's the headline, exactly?**
 An average home (1,100 kWh a month), with Houston's real seasons from ERCOT grid data: the plan Power to Choose listed first when Wattch
-read it (Nov 16), Simple Saver 3 at "6.2¢", ranks #69 of 139 ⟲ and costs $378 a year more ⟲ than the best plan. Its $125 credit only applies in
+read it (Nov 16), Simple Saver 3 at "6.2¢", ranks #69 of 143 ⟲ and costs $378 a year more ⟲ than the best plan. Its $125 credit only applies in
 months at 1,000 kWh or more, so a normal home misses it 6 months a year. Dallas–Fort Worth: the same plan ranks #82 of 125 ⟲ and costs
 $530 more ⟲.
 
@@ -90,7 +90,7 @@ Many plans roll onto a month-to-month rate if you don't pick a new one. The remi
 reminder 30 days before your end date. Nothing is saved on Wattch: no account, no email.
 
 **18. How do you catch your own mistakes?**
-Three ways: the three-price check on every label, 269 ⟲ automated tests (including one that rebuilds every verified label and
+Three ways: the three-price check on every label, 276 ⟲ automated tests (including one that rebuilds every verified label and
 one that checks every English sentence has a Spanish one), and a second AI reviewer (Codex) reading each batch of changes before
 it's merged. Example: a review caught that Dallas plans were saying their delivery charges came from CenterPoint instead of
 Oncor. The math was right; the wording was wrong, and it's fixed.
@@ -115,13 +115,13 @@ plans Wattch couldn't read previewing as "the fine print, checked".
 **21. What does someone see when I send them a Wattch link?**
 A preview card made from the same code as the page, in the page's language and city. A results link shows the gap
 between the state site's #1 and your best plan; a plan link shows that plan's advertised price, its real yearly cost
-and its rank (Simple Saver 3: 6.2¢ advertised, $1,712 a year, #69 of 139 ⟲); a compare link shows which plan saves how
+and its rank (Simple Saver 3: 6.2¢ advertised, $1,712 a year, #69 of 143 ⟲); a compare link shows which plan saves how
 much. A test checks the card's rank and gap match the results page.
 
 **22. What kinds of traps did you find?**
 Seven, each found by code from the label's own numbers (src/lib/rank.ts `traps`): bill-credit cliffs (a credit only at
 1,000 kWh or more), minimum-use fees, credits that need autopay or an extra, 3-month teaser prices, time-of-use pricing,
-tiered prices and setup fees. In Houston, 13 ⟲ of the 139 ranked plans have a usage trap (a credit cliff or minimum-use fee; Dallas:
+tiered prices and setup fees. In Houston, 17 ⟲ of the 143 ranked plans have a usage trap (a credit cliff or minimum-use fee; Dallas:
 13 ⟲ of 125), the home page's count. The trap guide (/traps) shows a real plan for each kind and what it costs at three usages.
 
 **23. Is Simple Saver 3 still the state site's #1 today?**
