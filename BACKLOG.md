@@ -1018,7 +1018,7 @@
 - [x] FL1 src/lib/docs.numbers.test.ts: every "#N of M" / "N out of M" in DECK/DEVPOST/SCRIPT/JUDGE-QA/SOURCES/README must match the computed headline; $378/$530 must appear in deck, Devpost, script (proved: a planted "#69 of 143" fails)
 - [x] FL2 SCRIPT/DEVPOST header: "left by Nov 19" → "by Nov 20"
 - [x] FL3 README: one line on how to refresh numbers before recording (delisted --dry → write → npm test shows stale doc lines)
-- [ ] FL4 SHOTS.md: re-measure clip lengths after the 02:10 re-record (ffprobe)
+- [x] FL4 SHOTS.md: re-measure clip lengths after the 02:10 re-record (ffprobe)
 - [ ] FL5 Hourly free list check 03:00, 04:00, 05:00 (--dry; apply only if 2 checks in a row agree)
 - [ ] FL6 FK7 at ~06:30: demo-flow against production
 - [ ] FL7 FK8 at 07:00: handoff addendum 3

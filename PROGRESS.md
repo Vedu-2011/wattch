@@ -338,3 +338,4 @@ person: Vercel's free build limit was hit at ~04:10 (production after "merge" li
 - 2026-11-20 02:35 PT · Codex 56 (357f71d..): app changes clean; P2 SCRIPT checklist still said 'Share my result' → 'Share card'; P3 DECK/DEVPOST/SCRIPT check dates → Nov 20 (labels read Nov 16, departures checked Nov 20). Pre-merge: 269 tests, lint 0, build, check-all 5/5, demo-flow OK.
 - 2026-11-20 02:38 PT · MERGE 3: main = 3d8cf03 (lock taken + released). Live in ~30 s: 12 pages 200, newly delisted Simple Switch 11 shows its note (EN/ES), demo-flow on production iPhone + iPad + 1920 0 errors. Next merge ≥ ~04:40 and only if needed.
 - 2026-11-20 02:39 PT · FL1 new docs.numbers.test.ts: rank claims and dollar gaps in the presenter docs must match the computed headline (planted '#69 of 143' → fails, restored). FL2 headers say 'by Nov 20'. 276 tests (docs updated), lint 0.
+- 2026-11-20 02:39 PT · FL4 SHOTS.md lengths re-measured after the 02:10 re-record (5 rows off by 1 s).
