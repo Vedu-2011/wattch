@@ -52,6 +52,8 @@ Switch now": seen in clip 09-current-plan. Dallas $530 / #82 of 125: headline.ts
 "More than 150": Power to Choose listed 172 Houston plans on Nov 16 and 157 on Nov 19 (scripts/delisted.ts, free).
 "Listed first when I read them": on Nov 19 the live site shows SimpleSaver 12 at 6.1¢ just ahead of Simple Saver 3 —
 so don't say "puts first" (present tense) unless the data is re-read. Dallas: Simple Saver 3 is still first live.
+Scene 8 on Simple Saver 3 (live, Nov 20 00:40): the re-check answered in 1.5 s — the provider re-issued the file but it
+still prints the same 3 prices, so the page says so. That's a good moment: "the file changed, the prices didn't".
 Clicks (all found in the code): "Average home" (UsagePicker), "Read every plan" (UsagePicker), "Price locked 12+ months"
 (Wall), "Check this label again now" (LiveCheck), "Already on a plan" (CurrentPlan), "Share my result" (ShareButton),
 header "Traps" (layout). Still do one dry run on the live site before recording.

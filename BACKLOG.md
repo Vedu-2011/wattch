@@ -993,11 +993,11 @@
 ## FJ — make the checks cover tonight's new pages (Nov 20 00:35)
 - [x] FJ1 axe: add a delisted plan page (EN + ES) to the page list
 - [x] FJ2 widths (320 + 1920): add a delisted plan page + /compare with one
-- [ ] FJ3 Reduced motion: /wall and /demo with prefers-reduced-motion — answer shows at once, nothing stuck
-- [ ] FJ4 Print a delisted plan page: still one sheet, note printed
-- [ ] FJ5 Live: "Check this label again now" on production for 33633 answers (the video's scene 8)
-- [ ] FJ6 Live share cards: Dallas + Spanish results card render (200, image)
-- [ ] FJ7 Wall "Skip" button works by keyboard (Tab → Enter) on a fresh tab
+- [x] FJ3 Reduced motion: /wall and /demo with prefers-reduced-motion — answer shows at once, nothing stuck
+- [x] FJ4 Print a delisted plan page: still one sheet, note printed
+- [x] FJ5 Live: "Check this label again now" on production for 33633 answers (the video's scene 8)
+- [x] FJ6 Live share cards: Dallas + Spanish results card render (200, image)
+- [x] FJ7 Wall "Skip" button works by keyboard (Tab → Enter) on a fresh tab
 - [x] FJ8 link-names: add a delisted plan page
 - [x] FJ9 es-walk: include the delisted plan page (no English leaking in the note)
-- [ ] FJ10 Run check-all + demo-flow after FJ1–9; commit
+- [x] FJ10 Run check-all + demo-flow after FJ1–9; commit
