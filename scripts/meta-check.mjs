@@ -64,6 +64,13 @@ for (const u of ["/plan/33670", "/plan/33670?lang=es"]) {
   console.log(ok ? "ok     " : "MISMATCH", u, ok ? "" : "\n   " + d);
   bad += ok ? 0 : 1;
 }
+// a plan that left Power to Choose (data/delisted.json) says so in its preview
+for (const u of ["/plan/39294", "/plan/39294?lang=es"]) {
+  const d = ((await page(u)).match(OWN) ?? []).join(" ");
+  const ok = /No longer on Power to Choose|Ya no está en Power to Choose/.test(d);
+  console.log(ok ? "ok     " : "DELISTED", u, ok ? "" : "\n   " + d);
+  bad += ok ? 0 : 1;
+}
 // robots keeps the scripted walk-through and the APIs out; the sitemap must be valid XML (a raw "&" breaks the whole file)
 {
   const robots = await page("/robots.txt");

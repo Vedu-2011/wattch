@@ -1,4 +1,5 @@
 import type { Area } from "@/lib/plans/ptc";
+import { isListed } from "@/lib/plans/delisted";
 import type { PlanRecord } from "@/lib/plans/schema";
 import { type ClientPlan, reveal } from "@/lib/rank";
 
@@ -19,6 +20,6 @@ export function headline(plans: ClientPlan[], area: Area = "houston") {
 export const toClientPlan = (r: PlanRecord): ClientPlan => ({
   id: r.meta.id, provider: r.meta.provider, planName: r.meta.planName, rateType: r.meta.rateType,
   renewablePct: r.meta.renewablePct, rating: r.meta.rating, prepaid: r.meta.prepaid, ptc: r.meta.ptc,
-  status: r.check.status, readMs: r.read.readMs,
+  status: r.check.status, listed: isListed(r.meta.id), readMs: r.read.readMs,
   pricing: r.pricing ? { ...r.pricing, notes: [] } : null,
 });

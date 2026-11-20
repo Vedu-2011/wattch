@@ -65,4 +65,4 @@ month partly reflects the month before; real homes vary (a home with gas heat ha
 
 ### Our own numbers are the headline anyway
 The strongest stat is ours and is reproducible from the repo (`npx tsx scripts/headline.ts`): at 1,100 kWh/month with Houston seasons,
-the plan Power to Choose lists first ranks #74 of 154 and costs $378/yr more than the best plan.
+the plan Power to Choose lists first ranks #69 of 143 and costs $378/yr more than the best plan.

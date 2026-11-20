@@ -33,7 +33,7 @@ for a number that was never real.
   across a real Houston year using ERCOT's grid data — an August bill is about 2.6× a February one — and prices every
   plan month by month.
 - **The reveal.** For an average 1,100 kWh home, the plan with the lowest advertised price on Power to Choose (Simple
-  Saver 3, "6.2¢") ranks **#74 of 154** ⟲ and costs **$378 a year more** ⟲ than the best plan. Why: its $125 credit
+  Saver 3, "6.2¢") ranks **#69 of 143** ⟲ and costs **$378 a year more** ⟲ than the best plan. Why: its $125 credit
   needs 1,000 kWh, and that home is under 1,000 kWh six months a year. A bar chart shows exactly which months miss.
 - **Proof for every number.** Each plan page shows the label text the AI read with every number the math used
   highlighted. Hover a bill line and its number lights up in the fine print. A table shows the label's own three
@@ -49,7 +49,7 @@ for a number that was never real.
 - **Ask yourself before you sign.** Each plan page writes up to 4 questions from that plan's own label and your months:
   "Will I use 1,000 kWh or more every single month? With your usage you'd miss it 6 months a year, $750 in all."
 - **Dallas–Fort Worth too.** The same pipeline read all 172 ⟲ Oncor plans (154 ⟲ verified) with its own seasons from
-  ERCOT's North Central zone. The same "6.2¢" plan ranks #91 ⟲ there and costs $530 ⟲ more a year.
+  ERCOT's North Central zone. The same "6.2¢" plan ranks #82 ⟲ there and costs $530 ⟲ more a year.
 - **En español.** Every page works in Spanish (tap Español, or add `?lang=es`): the results, the plan page, compare,
   the trap guide, reminders and the share card. Same math, only the words change; the label's own text stays as printed.
 - **Don't get rolled over.** Enter your contract's end date and get a calendar reminder 30 days before (no account,
@@ -70,7 +70,7 @@ for a number that was never real.
 - **Seasons:** ERCOT's 15-minute residential load profiles for the Coast weather zone (2023–2025), mixed by how many
   CenterPoint homes are in each profile type. That gives the monthly shape; your average sets the size.
 - **Deciding:** the bill math, yearly cost, ranking, price cliffs, filters, switching math and every "why" sentence
-  are plain code with 262 tests ⟲, including a test that every verified plan still rebuilds its own label.
+  are plain code with 265 tests ⟲, including a test that every verified plan still rebuilds its own label.
 - **Staying fresh:** `npm run refresh` downloads the state's list for free and shows what changed; `--apply`
   re-downloads every label and only sends the ones whose text changed to the AI. The Dallas read cost $1.15 for 172
   labels, about 0.67¢ each.
@@ -93,7 +93,7 @@ for a number that was never real.
 
 ## Accomplishments that I'm proud of
 - 171 of 172 ⟲ Houston plans verified against their own label, to about a tenth of a cent.
-- Finding that the cheapest-looking plan ranks #74 ⟲ for a typical home, and being able to show why with a bar chart
+- Finding that the cheapest-looking plan ranks #69 ⟲ for a typical home, and being able to show why with a bar chart
   anyone understands.
 - Every number on screen can be traced back to a line of fine print.
 
@@ -135,12 +135,12 @@ Retake with `node scripts/gallery.mjs` (or `node scripts/gallery.mjs 7,8` for ju
 - Demo video: (add)
 
 ## Checked against the code (Claude Code, Nov 16)
-172 plans / 171 verified / 154 ranked / #74 / $378 / 6 months / $125 / 1,000 kWh / 6.2¢: scripts/headline.ts.
+172 plans / 171 verified / 143 ranked / #69 / $378 / 6 months / $125 / 1,000 kWh / 6.2¢: scripts/headline.ts.
 158 direct / 14 Anakin / median 3,707 ms: data/plans.json. 7 trap kinds: src/lib/trapGuide.ts. 2.6× Aug/Feb: docs/SOURCES.md.
-262 tests: `npm test`. axe 0 on 25 pages: scripts/axe.mjs. Lighthouse a11y 100 on /, /wall, /plan (D2) and /remind, /how,
+265 tests: `npm test`. axe 0 on 25 pages: scripts/axe.mjs. Lighthouse a11y 100 on /, /wall, /plan (D2) and /remind, /how,
 Dallas wall, Dallas traps (H7): PROGRESS.md.
 Screen-reader links, heading levels and page language on 19 pages: scripts/link-names.mjs. All page checks: scripts/check-all.mjs.
-Dallas (added later Nov 16): 172 plans / 154 verified / 137 ranked / #91 / $530: scripts/headline.ts; $1.149 read cost:
+Dallas (added later Nov 16): 172 plans / 154 verified / 125 ranked / #82 / $530: scripts/headline.ts; $1.149 read cost:
 PROGRESS.md (F2). Bill sentence "1,100 kWh × 6.5611¢": src/lib/bill/explain.ts on plan 33633. Questions "6 months, $750":
 src/lib/questions.test.ts.
 EnergyBot quote: docs/SOURCES.md (verified). NOT used: Peltier/Lieber $480 (couldn't find it).

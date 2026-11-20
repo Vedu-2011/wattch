@@ -20,12 +20,12 @@ describe("standing = what the results page says", () => {
       }
     });
   }
-  it("the demo numbers: #74 of 154, $378 (Houston), #91 of 137, $530 (Dallas)", () => {
+  it("the demo numbers: #69 of 143, $378 (Houston), #82 of 125, $530 (Dallas)", () => {
     const h = reveal(clientPlans("houston"), 1100, { area: "houston" }), d = reveal(clientPlans("dallas"), 1100, { area: "dallas" });
     const hs = standing(clientPlans("houston"), h.pick!.plan.id, 1100, { area: "houston" })!;
     const ds = standing(clientPlans("dallas"), d.pick!.plan.id, 1100, { area: "dallas" })!;
-    expect([hs.position, hs.of, Math.round(hs.gap)]).toEqual([74, 154, 378]);
-    expect([ds.position, ds.of, Math.round(ds.gap)]).toEqual([91, 137, 530]);
+    expect([hs.position, hs.of, Math.round(hs.gap)]).toEqual([69, 143, 378]);
+    expect([ds.position, ds.of, Math.round(ds.gap)]).toEqual([82, 125, 530]);
   });
   it("unranked or unknown plans → null (the card falls back to the general one)", () => {
     expect(standing(clientPlans("houston"), "nope", 1100)).toBeNull();
