@@ -1,3 +1,4 @@
+import { LIST_DATE } from "./listDate";
 /** Every fixed string on /compare, in English and Spanish. Plan and provider names stay as the label prints them. */
 const plural = (n: number, one: string, many: string) => (n === 1 ? one : many);
 
@@ -16,7 +17,7 @@ export const COMPARE_WORDS = {
     h1: "Side by side",
     mine: "Your own 12 months",
     avg: (k: string, city: string, seasons: boolean) => `${k} kWh a month on average${seasons ? `, with ${city} seasons` : ", same every month"}`,
-    today: "Today's prices, before taxes.",
+    today: `Prices as of ${LIST_DATE.en}, before taxes.`,
     delisted: (name: string) => `${name} is no longer on Power to Choose, so you probably can't sign up for it now. Its numbers are from the label Wattch read.`,
     notFirm: (name: string, why: "variable" | "prepaid" | "unverified") => `${name} isn't in Wattch's ranking (${{ variable: "its price can change every month", prepaid: "it's a prepaid plan", unverified: "its label didn't pass the price check" }[why]}), so its yearly number is only a rough guide.`,
     saves: "saves you",
@@ -54,7 +55,7 @@ export const COMPARE_WORDS = {
     h1: "Lado a lado",
     mine: "Tus propios 12 meses",
     avg: (k: string, city: string, seasons: boolean) => `${k} kWh al mes en promedio${seasons ? `, con las temporadas de ${city}` : ", igual cada mes"}`,
-    today: "Precios de hoy, antes de impuestos.",
+    today: `Precios del ${LIST_DATE.es}, antes de impuestos.`,
     delisted: (name: string) => `${name} ya no está en Power to Choose, así que probablemente ya no puedes contratarlo. Sus números salen de la etiqueta que Wattch leyó.`,
     notFirm: (name: string, why: "variable" | "prepaid" | "unverified") => `${name} no está en la lista de Wattch (${{ variable: "su precio puede cambiar cada mes", prepaid: "es un plan prepagado", unverified: "su etiqueta no pasó la revisión de precios" }[why]}), así que su número anual es solo una guía aproximada.`,
     saves: "te ahorra",

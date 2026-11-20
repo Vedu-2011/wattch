@@ -31,7 +31,7 @@ export const PLAN_WORDS = {
     exact: (anakin: boolean) => `The text exactly as Wattch read it from the label (${anakin ? "opened through Anakin.io" : "the provider's PDF"}). Marks are found by code, not by AI.`,
     yearTitle: "Your year on this plan",
     perYr: "/yr",
-    notFirm: (why: "variable" | "prepaid" | "unverified") => ({ variable: "This plan's price can change every month, so this yearly number uses today's price and is only a rough guide. That's why it isn't in the ranking.", prepaid: "Prepaid plans work differently, so this yearly number is only a rough guide. That's why it isn't in the ranking.", unverified: "This label didn't pass the price check, so this yearly number is only a rough guide. That's why it isn't in the ranking." })[why],
+    notFirm: (why: "variable" | "prepaid" | "unverified") => ({ variable: "This plan's price can change every month, so this yearly number uses the price on its label and is only a rough guide. That's why it isn't in the ranking.", prepaid: "Prepaid plans work differently, so this yearly number is only a rough guide. That's why it isn't in the ranking.", unverified: "This label didn't pass the price check, so this yearly number is only a rough guide. That's why it isn't in the ranking." })[why],
     mine: "Your own 12 months, as you typed them.",
     shaped: (k: string, city: string, dallas: boolean) =>
       `Averaging ${k} kWh, shaped like a real ${city} year (${dallas ? "most in summer, more in winter too, least in spring and fall" : "more in summer, less in winter and spring"}).`,
@@ -87,7 +87,7 @@ export const PLAN_WORDS = {
     exact: (anakin: boolean) => `El texto tal como Wattch lo leyó de la etiqueta (${anakin ? "abierta con Anakin.io" : "el PDF del proveedor"}). Las marcas las pone el código, no la IA.`,
     yearTitle: "Tu año con este plan",
     perYr: "/año",
-    notFirm: (why: "variable" | "prepaid" | "unverified") => ({ variable: "El precio de este plan puede cambiar cada mes, así que este número anual usa el precio de hoy y es solo una guía aproximada. Por eso no está en la lista.", prepaid: "Los planes prepagados funcionan distinto, así que este número anual es solo una guía aproximada. Por eso no está en la lista.", unverified: "Esta etiqueta no pasó la revisión de precios, así que este número anual es solo una guía aproximada. Por eso no está en la lista." })[why],
+    notFirm: (why: "variable" | "prepaid" | "unverified") => ({ variable: "El precio de este plan puede cambiar cada mes, así que este número anual usa el precio de su etiqueta y es solo una guía aproximada. Por eso no está en la lista.", prepaid: "Los planes prepagados funcionan distinto, así que este número anual es solo una guía aproximada. Por eso no está en la lista.", unverified: "Esta etiqueta no pasó la revisión de precios, así que este número anual es solo una guía aproximada. Por eso no está en la lista." })[why],
     mine: "Tus propios 12 meses, como los escribiste.",
     shaped: (k: string, city: string, dallas: boolean) =>
       `Un promedio de ${k} kWh, repartido como un año real en ${city} (${dallas ? "más en verano, también más en invierno, menos en primavera y otoño" : "más en verano, menos en invierno y primavera"}).`,

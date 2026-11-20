@@ -1010,7 +1010,7 @@
 - [x] FK5 Docs: say "checked Nov 19 (PT) / Nov 20 (Texas time)" once in SOURCES so the plan-page date and docs agree
 - [ ] FK6 ~06:00 free list check: npx tsx scripts/delisted.ts --dry (add a --dry flag: print only, don't write) — note any new departures
 - [x] FK7 ~06:30 demo-flow against the LIVE site again (catch overnight provider/Vercel issues)
-- [ ] FK8 07:00 handoff addendum (final-1 asks for a 7 AM handoff)
+- [x] FK8 07:00 handoff addendum (final-1 asks for a 7 AM handoff)
 - [x] FK9 If FK6 finds new departures: write delisted.json, tests, merge (≥ 2 h since 00:20), verify live
 - [ ] FK10 After 07:00 keep polishing items 1–3 (re-record any clip whose page changed)
 
@@ -1021,7 +1021,14 @@
 - [x] FL4 SHOTS.md: re-measure clip lengths after the 02:10 re-record (ffprobe)
 - [x] FL5 Hourly free list check 03:00, 04:00, 05:00 (--dry; apply only if 2 checks in a row agree)
 - [x] FL6 FK7 at ~06:30: demo-flow against production
-- [ ] FL7 FK8 at 07:00: handoff addendum 3
+- [x] FL7 FK8 at 07:00: handoff addendum 3
 - [x] FL8 Spanish: check the new "Nov 20" date reads "20 nov" on a live delisted plan page
 - [x] FL9 gallery-final: retake after any data change (only if FL5 applies something)
-- [ ] FL10 Merge 4 only if FL5 applies a change (≥ 04:40)
+- [x] FL10 Merge 4 only if FL5 applies a change (≥ 04:40)
+
+## FM — prompts/final-2.md (Fri Nov 20)
+- [x] FM1 "lists first" → dated wording everywhere (EN+ES): results, card, share text, /demo, trap guide "today's list"; src/lib/listDate.ts + listDate.test.ts (tied to builtAt)
+- [ ] FM2 Data freeze: last list check 6 PM PT, logged; hourly free live checks until then
+- [x] FM3 DECK [CHECK]s via WebFetch: EnergyBot, ComparePower, Power to Choose, ElectricityPlans, Rocket Money; 16 TAC §25.475 (LII); ERCOT market size; [DECIDE] recommendations
+- [x] FM4 Polish anything ugly in docs/gallery-final at 375/1920
+- [ ] FM5 Verify → Codex → one merge → demo-flow on production; handoff + BOARD Done
