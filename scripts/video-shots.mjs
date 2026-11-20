@@ -48,7 +48,12 @@ async function glide(pg, px, ms = 2500) {
   const steps = Math.max(1, Math.round(ms / 40));
   for (let i = 0; i < steps; i++) { await pg.mouse.wheel(0, px / steps); await wait(pg, 40); }
 }
-const goto = (pg, path) => pg.goto(BASE + path, { waitUntil: "networkidle" });
+// the first page of each clip holds still 1.5 s (an editing handle); so does the end of every clip
+const HOLD = 1500;
+async function goto(pg, path) {
+  await pg.goto(BASE + path, { waitUntil: "networkidle" });
+  if (!pg.__held) { pg.__held = true; await wait(pg, HOLD); }
+}
 const answer = (pg, text) => pg.waitForFunction((t) => document.body.innerText.includes(t), text, { timeout: 30000 });
 
 const SHOTS = {
@@ -65,6 +70,7 @@ const SHOTS = {
   "10b-dallas": { what: "Home → Dallas–Fort Worth → Read every plan → $530", run: async (pg) => { await goto(pg, "/"); await wait(pg, 1200); await point(pg, pg.getByRole("radio", { name: /Dallas/ })); await wait(pg, 2000); await point(pg, pg.getByRole("button", { name: /Read every plan/ })); await answer(pg, "$530"); await wait(pg, 5000); } },
   "10c-espanol": { what: "Results → Español in the header → the same answer in Spanish", run: async (pg) => { await goto(pg, "/wall?kwh=1100"); await answer(pg, "$378"); await pg.evaluate(() => scrollTo({ top: 0, behavior: "smooth" })); await wait(pg, 1500); await point(pg, pg.getByRole("link", { name: /^Español$/ }).first()); await pg.waitForURL(/lang=es/); await answer(pg, "$378"); await wait(pg, 5000); } },
   "11-share": { what: "Share card image for the result (opens in a new tab; the clip follows it)", run: async (pg) => { await goto(pg, "/wall?kwh=1100"); await answer(pg, "$378"); await wait(pg, 1000); const [card] = await Promise.all([pg.context().waitForEvent("page"), point(pg, pg.getByRole("button", { name: /^Share card$/ }))]); await card.waitForLoadState(); await pg.goto(card.url()); await card.close(); await wait(pg, 5000); } },
+  "05b-compare": { what: "Side by side: the best plan vs the state site's #1, scroll the month-by-month table", run: async (pg) => { await goto(pg, "/compare?a=37797&b=33633&kwh=1100"); await wait(pg, 2500); await glide(pg, 600, 4000); await wait(pg, 2500); await glide(pg, 600, 4000); await wait(pg, 2000); } },
   "12-home-end": { what: "Home page, still (closing line)", run: async (pg) => { await goto(pg, "/"); await pg.mouse.move(1600, 200); await wait(pg, 9000); } },
   "demo-slow": { what: "/demo?speed=slow, all 7 scenes on their own (≈70 s)", run: async (pg) => { await goto(pg, "/demo?speed=slow"); await pg.mouse.move(1900, 1070); await wait(pg, 72000); } },
 };
@@ -86,7 +92,7 @@ for (const id of ids) {
   pg.on("pageerror", (e) => errs.push(e.message));
   pg.on("response", (r) => r.status() >= 400 && errs.push(`HTTP ${r.status()} ${r.url()}`));
   const t0 = Date.now();
-  try { await shot.run(pg); } catch (e) { errs.push(e instanceof Error ? e.message.split("\n")[0] : String(e)); }
+  try { await shot.run(pg); await wait(pg, HOLD); } catch (e) { errs.push(e instanceof Error ? e.message.split("\n")[0] : String(e)); }
   const video = pg.video();
   await ctx.close();
   const src = await video.path();
