@@ -316,3 +316,4 @@ person: Vercel's free build limit was hit at ~04:10 (production after "merge" li
 - 2026-11-19 23:31 PT · FG8 Lighthouse (local prod): / 95/100/100/100; /wall 91/100/100/91; /plan/33633 92/100/100/91. The SEO 91 = 'no meta description' because Next 16 streams page metadata into <body> for normal browsers; link-preview bots (Slackbot UA) get description + og:image in <head> (checked), Google runs JS. No change.
 - 2026-11-19 23:31 PT · FG5 delisted plan page (39294): no sign-up button, no rank shown; its share card falls back to the results card (same as other unranked plans). No change needed.
 - 2026-11-19 23:35 PT · /how 'ranked for you' caption and /sources Power to Choose line now say plans that left the state's list aren't ranked (checked free Nov 19), EN + ES. tests/lint/build/check-all green.
+- 2026-11-19 23:36 PT · meta-check now also checks redirects: /?lang=es → /es (area kept), /favicon.ico → /icon.svg. All ok.

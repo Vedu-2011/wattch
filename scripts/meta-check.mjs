@@ -64,6 +64,14 @@ for (const u of ["/plan/33670", "/plan/33670?lang=es"]) {
   console.log(ok ? "ok     " : "MISMATCH", u, ok ? "" : "\n   " + d);
   bad += ok ? 0 : 1;
 }
+// redirects: the Spanish home by query, and the browser's automatic /favicon.ico
+for (const [u, to] of [["/?lang=es", "/es"], ["/?lang=es&area=dallas", "/es?lang=es&area=dallas"], ["/favicon.ico", "/icon.svg"]]) {
+  const r = await fetch(BASE + u, { redirect: "manual" });
+  const loc = new URL(r.headers.get("location") ?? "", BASE);
+  const ok = r.status >= 300 && r.status < 400 && (loc.pathname + loc.search).startsWith(to);
+  console.log(ok ? "ok     " : "REDIRECT", u, ok ? "" : `→ ${r.status} ${loc.pathname}${loc.search}`);
+  bad += ok ? 0 : 1;
+}
 // a plan that left Power to Choose (data/delisted.json) says so in its preview
 for (const u of ["/plan/39294", "/plan/39294?lang=es"]) {
   const d = ((await page(u)).match(OWN) ?? []).join(" ");
