@@ -983,7 +983,7 @@
 - [x] FI3 /demo + reveal at 1366×768 (common laptop/projector): nothing cut off, no sideways scroll
 - [x] FI4 video-shots: hold 1.5 s still at the start and end of every clip (editing handles)
 - [x] FI5 video-shots: optional clip for /compare (side by side, scroll the month table)
-- [ ] FI6 demo-flow at 768 (tablet) too
+- [x] FI6 demo-flow at 768 (tablet) too
 - [x] FI7 SHOTS.md: say which clip to use for each optional line (scene-7 extra, 10b, 10c)
 - [x] FI8 Check every SCRIPT click label still matches the UI text exactly (grep each bolded label in src)
 - [x] FI9 Re-record any clip whose steps change; recheck lengths in SHOTS.md

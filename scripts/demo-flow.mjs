@@ -1,5 +1,5 @@
 /**
- * The demo flow, start to finish, on an iPhone and a 1920 projector: home → usage → reveal → plan page → compare →
+ * The demo flow, start to finish, on an iPhone, an iPad mini and a 1920 projector: home → usage → reveal → plan page → compare →
  * Español → Dallas. Saves screenshots to docs/gallery-final/ and fails on any console error or 4xx/5xx.
  *   npm run build && npx next start -p 3000   then   node scripts/demo-flow.mjs
  */
@@ -7,11 +7,11 @@ import { chromium, devices } from "playwright-core";
 const D = "docs/gallery-final";
 let failed = 0;
 const b = await chromium.launch({ executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" });
-for (const [tag, ctxOpts] of [["iphone", { ...devices["iPhone 13"] }], ["1920", { viewport: { width: 1920, height: 1080 } }]]) {
+for (const [tag, ctxOpts] of [["iphone", { ...devices["iPhone 13"] }], ["ipad", { ...devices["iPad Mini"] }], ["1920", { viewport: { width: 1920, height: 1080 } }]]) {
   const ctx = await b.newContext(ctxOpts); const pg = await ctx.newPage();
   const errs = []; pg.on("pageerror", (e) => errs.push(e.message)); pg.on("console", (m) => m.type() === "error" && errs.push(m.text() + " @ " + m.location().url + " on " + pg.url()));
   const t0 = Date.now(); pg.on("response", (r) => r.status() >= 400 && errs.push(`HTTP ${r.status()} ${r.url()}`)); const shot = async (n) => { await pg.screenshot({ path: `${D}/${tag}-${n}.png` }); console.log(tag, n, `${((Date.now() - t0) / 1000).toFixed(1)}s`); };
-  const tap = (l) => (tag === "iphone" ? l.tap() : l.click());
+  const tap = (l) => (tag === "1920" ? l.click() : l.tap());
   await pg.goto("http://localhost:3000/", { waitUntil: "networkidle" }); await shot("1-home");
   await tap(pg.getByRole("button", { name: /Average home/ }));
   await tap(pg.getByRole("button", { name: /Read every plan/ }));
