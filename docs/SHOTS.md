@@ -1,8 +1,8 @@
 # Video shots — raw 1920×1080 clips
 
-## Codex picture cut (Nov 20)
+## Codex final cut (Nov 20)
 
-`video/out/wattch-demo.mp4` is a 5:00 timed picture cut following script rows 1–12. The source clips are held on genuine frames to fill the scripted scene lengths. It currently carries silent AAC and an end-card notice, **VOICE PENDING**. It is not the submission master. Add Vedhanth's voiceover first; then transcribe the actual recording locally, check each caption word, burn 52 px captions, normalize to about −16 LUFS with a true peak below −1 dBFS, and run the final verification. The picture cut and contact sheet stay local and are not uploaded.
+`video/out/wattch-demo.mp4` is now a 5:37 cut with Vedhanth's real voice and script rows 10b Dallas and 10c Español included. It has 69 burned 52 px captions from his actual recording. The QR decodes from the encoded end frame; loudness and peak are measured in `video/out/verification.json`. The earlier 5:00 silent cut is superseded. Video and contact sheet stay local and are not uploaded.
 
 
 One clip per row of docs/SCRIPT.md, recorded by `scripts/video-shots.mjs` against a local production build.
