@@ -1,8 +1,8 @@
 # Devpost submission — Wattch (Triple H · also STEM2Connect + GenHacks)
 
-Paste each section into the matching Devpost field. Draft v1 by Claude Code (overnight-2, Nov 16 2026) — for the planner
-and Vedhanth to edit. Solo "I" voice. Every number below comes from the repo (`npx tsx scripts/headline.ts`,
-data/plans.json built Nov 16 2026 07:03 UTC) or a source quoted in docs/SOURCES.md. If the data is re-read before
+Paste each section into the matching Devpost field. Final v2 by Claude Code (Nov 19 2026, prompts/final-1.md) — for the
+planner and Vedhanth to edit. Solo "I" voice. Every number below comes from the repo (`npx tsx scripts/headline.ts`,
+labels read Nov 16 2026; plans that left Power to Choose by Nov 19 are marked and not ranked) or a source quoted in docs/SOURCES.md. If the data is re-read before
 submitting, re-run headline.ts and update the numbers marked ⟲.
 
 ## Project name
@@ -12,8 +12,8 @@ Wattch
 Texas lets you pick your power plan, then hides the real price in the fine print. Wattch reads every Houston plan's label, checks its own work, and shows what each one really costs you.
 
 ## Inspiration
-In Houston you have to pick your own electricity plan. The state's site, Power to Choose, lists 172 ⟲ of them and shows
-one big number for each: the price if you use exactly 1,000 kWh. The catch is in a PDF called the Electricity Facts
+In Houston you have to pick your own electricity plan. The state's site, Power to Choose, listed 172 ⟲ of them when I read them and
+shows one big number for each: the price if you use exactly 1,000 kWh. The catch is in a PDF called the Electricity Facts
 Label. Many plans give a $100–$125 bill credit only in months you use more than 1,000 kWh. That makes the advertised
 price look amazing, and real homes don't use 1,000 kWh every month. Houston summers blow past it; spring and winter
 don't.
@@ -32,8 +32,8 @@ for a number that was never real.
 - **Your real year, not one number.** Pick your usage (or type your own 12 months from your bill). Wattch spreads it
   across a real Houston year using ERCOT's grid data — an August bill is about 2.6× a February one — and prices every
   plan month by month.
-- **The reveal.** For an average 1,100 kWh home, the plan with the lowest advertised price on Power to Choose (Simple
-  Saver 3, "6.2¢") ranks **#69 of 143** ⟲ and costs **$378 a year more** ⟲ than the best plan. Why: its $125 credit
+- **The reveal.** For an average 1,100 kWh home, the plan with the lowest advertised price on Power to Choose when Wattch
+  read the list (Simple Saver 3, "6.2¢") ranks **#69 of 143** ⟲ and costs **$378 a year more** ⟲ than the best plan. Why: its $125 credit
   needs 1,000 kWh, and that home is under 1,000 kWh six months a year. A bar chart shows exactly which months miss.
 - **Proof for every number.** Each plan page shows the label text the AI read with every number the math used
   highlighted. Hover a bill line and its number lights up in the fine print. A table shows the label's own three
@@ -73,9 +73,10 @@ for a number that was never real.
   are plain code with 265 tests ⟲, including a test that every verified plan still rebuilds its own label.
 - **Staying fresh:** `npm run refresh` downloads the state's list for free and shows what changed; `--apply`
   re-downloads every label and only sends the ones whose text changed to the AI. The Dallas read cost $1.15 for 172
-  labels, about 0.67¢ each.
+  labels, about 0.67¢ each. A free check (`scripts/delisted.ts`) marks plans that have left the state's list since
+  they were read: their page says so, and they're never ranked.
 - **Stack:** Next.js 16 + React 19 + TypeScript, Tailwind CSS, zod (validates the AI's output and the data file),
-  unpdf (PDF text), Vercel. Accessibility checked with axe (0 issues on 17 pages, phone and desktop) and Lighthouse
+  unpdf (PDF text), Vercel. Accessibility checked with axe (0 issues on 25 pages, phone and desktop) and Lighthouse
   (100 accessibility on every page I tested).
 
 ## Challenges I ran into
@@ -88,6 +89,9 @@ for a number that was never real.
   separates "new file" from "new prices".
 - **Seasons.** My first model used statewide Texas data. I replaced it with Houston-area grid data, which made the
   summer/spring gap bigger — and that's exactly where bill-credit plans hurt.
+- **The list moves.** Between Nov 16 and Nov 19, 12 Houston plans left Power to Choose and about 70 changed their
+  advertised price. A plan you can't sign up for shouldn't be anyone's #1, so Wattch now checks the list for free and
+  marks those plans instead of quietly ranking them.
 - **Being honest.** One prepaid plan's label prints prices its own charges don't add up to. Instead of forcing it, the
   plan page says exactly what doesn't match.
 
@@ -130,11 +134,11 @@ vercel · vitest · playwright · axe-core · power-to-choose · ercot-load-prof
 Retake with `node scripts/gallery.mjs` (or `node scripts/gallery.mjs 7,8` for just the new two) against a local prod build on :3000 if the data changes.
 
 ## Links
-- Live app: https://getwattch.vercel.app ⟲ (main — merge the overnight branch first if the planner approves)
+- Live app: https://getwattch.vercel.app
 - Code: https://github.com/Vedu-2011/wattch
 - Demo video: (add)
 
-## Checked against the code (Claude Code, Nov 16)
+## Checked against the code (Claude Code, Nov 19)
 172 plans / 171 verified / 143 ranked / #69 / $378 / 6 months / $125 / 1,000 kWh / 6.2¢: scripts/headline.ts.
 158 direct / 14 Anakin / median 3,707 ms: data/plans.json. 7 trap kinds: src/lib/trapGuide.ts. 2.6× Aug/Feb: docs/SOURCES.md.
 265 tests: `npm test`. axe 0 on 25 pages: scripts/axe.mjs. Lighthouse a11y 100 on /, /wall, /plan (D2) and /remind, /how,
@@ -143,4 +147,5 @@ Screen-reader links, heading levels and page language on 19 pages: scripts/link-
 Dallas (added later Nov 16): 172 plans / 154 verified / 125 ranked / #82 / $530: scripts/headline.ts; $1.149 read cost:
 PROGRESS.md (F2). Bill sentence "1,100 kWh × 6.5611¢": src/lib/bill/explain.ts on plan 33633. Questions "6 months, $750":
 src/lib/questions.test.ts.
-EnergyBot quote: docs/SOURCES.md (verified). NOT used: Peltier/Lieber $480 (couldn't find it).
+"12 left / about 70 re-priced": scripts/delisted.ts + `npx tsx scripts/refresh.ts` dry run, Nov 19 (Houston 12 gone, 76
+price changes; Dallas 13 gone, 68). EnergyBot quote: docs/SOURCES.md (verified). NOT used: Peltier/Lieber $480 (couldn't find it).
