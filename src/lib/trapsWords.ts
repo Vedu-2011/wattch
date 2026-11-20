@@ -20,7 +20,7 @@ export const TRAP_KINDS_ES: Record<string, { name: string; what: string; bite: s
     bite: "Si te sales antes, puede que todavía debas el resto, además del cargo por salida." },
   teaser: { name: "Precio de 3 meses",
     what: "Un precio bajo que solo dura unos meses antes de que el plan termine o pase a otra tarifa.",
-    bite: "Un costo anual con el precio de hoy es el mejor caso. Después de 3 meses tendrás que cambiarte otra vez o pagar lo que siga." },
+    bite: "Un costo anual con el precio inicial es el mejor caso. Después de 3 meses tendrás que cambiarte otra vez o pagar lo que siga." },
 };
 
 export const TRAPS_WORDS = {
@@ -32,7 +32,7 @@ export const TRAPS_WORDS = {
     intro: (city: string) =>
       `Every kind of catch Wattch found while reading ${city}'s plans. Each one has a real plan from the list Wattch read, priced over a ${city} year at three sizes of home. “More than the best” means more than the cheapest plan for that same home.`,
     kinds: "Trap types",
-    count: (n: number) => `${n} of today's ranked plans`,
+    count: (n: number) => `${n} of the plans Wattch ranks`,
     example: "Real example",
     sticker: (c: string) => `sticker ${c}`,
     perMonth: (k: string) => `${k} kWh a month`,
@@ -52,7 +52,7 @@ export const TRAPS_WORDS = {
     intro: (city: string) =>
       `Cada tipo de trampa que Wattch encontró al leer los planes de ${city}. Cada uno tiene un plan real de la lista que Wattch leyó, con el precio de un año en ${city} para tres tamaños de casa. “Más que el mejor” quiere decir más que el plan más barato para esa misma casa.`,
     kinds: "Tipos de trampa",
-    count: (n: number) => `${n} de los planes de hoy en la lista`,
+    count: (n: number) => `${n} de los planes que Wattch pone en la lista`,
     example: "Ejemplo real",
     sticker: (c: string) => `anunciado a ${c}`,
     perMonth: (k: string) => `${k} kWh al mes`,

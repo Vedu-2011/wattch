@@ -26,7 +26,7 @@ export const TRAP_KINDS: TrapKind[] = [
     bite: "Leave early and the rest may still be due, on top of the exit fee." },
   { key: "teaser", name: "3-month price", test: (p) => p.termMonths <= 3,
     what: "A low price that only lasts a few months before the plan ends or rolls onto another rate.",
-    bite: "A yearly cost at today's price is a best case. After 3 months you'll need to switch again or pay what comes next." },
+    bite: "A yearly cost at the starting price is a best case. After 3 months you'll need to switch again or pay what comes next." },
 ];
 
 export const GUIDE_USAGES = [600, 1100, 2100] as const;

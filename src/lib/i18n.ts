@@ -73,7 +73,7 @@ const en = {
   monthPrice: (m: number) => `${m}-month price`,
   perYear: "/yr",
   compareWith1: "Compare with #1 →",
-  rankNote: (notRanked: number) => `Yearly cost at today's prices, before taxes. ${notRanked} variable-rate plans aren't ranked: their price can change every month, so a yearly number would be a guess. Prepaid plans, plans we couldn't verify, and plans that have left Power to Choose since Wattch read them aren't ranked either.`,
+  rankNote: (notRanked: number) => `Yearly cost at prices as of ${LIST_DATE.en}, before taxes. ${notRanked} variable-rate plans aren't ranked: their price can change every month, so a yearly number would be a guess. Prepaid plans, plans we couldn't verify, and plans that have left Power to Choose since Wattch read them aren't ranked either.`,
   // reveal
   atUsage: (kwh: number, seasons: boolean, mine: boolean) => mine
     ? `With your own 12 months (about ${n(kwh, "en")} kWh a month)`
@@ -147,7 +147,7 @@ const es: Words = {
   monthPrice: (m) => (m === 1 ? "precio por 1 mes" : `precio por ${m} meses`),
   perYear: "/año",
   compareWith1: "Comparar con el #1 →",
-  rankNote: (notRanked) => `Costo anual a precios de hoy, sin impuestos. ${notRanked} planes de tarifa variable no están en la lista: su precio puede cambiar cada mes, así que un número anual sería adivinar. Los planes prepagados, los que no pudimos verificar y los que ya salieron de Power to Choose después de que Wattch los leyó tampoco.`,
+  rankNote: (notRanked) => `Costo anual con precios del ${LIST_DATE.es}, sin impuestos. ${notRanked} planes de tarifa variable no están en la lista: su precio puede cambiar cada mes, así que un número anual sería adivinar. Los planes prepagados, los que no pudimos verificar y los que ya salieron de Power to Choose después de que Wattch los leyó tampoco.`,
   atUsage: (kwh, seasons, mine) => mine
     ? `Con tus propios 12 meses (unos ${n(kwh, "es")} kWh al mes)`
     : `Con ${n(kwh, "es")} kWh al mes${seasons ? ", con las temporadas reales de Houston" : ", igual cada mes"}`,
