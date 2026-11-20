@@ -1,3 +1,4 @@
+import { LIST_DATE } from "./listDate";
 /**
  * English + Spanish words for the core flow (home → pick usage → the wall → the answer).
  * Numbers never live here: every number is still computed by code and dropped into these sentences.
@@ -77,13 +78,13 @@ const en = {
   atUsage: (kwh: number, seasons: boolean, mine: boolean) => mine
     ? `With your own 12 months (about ${n(kwh, "en")} kWh a month)`
     : `At ${n(kwh, "en")} kWh a month${seasons ? ", with real Houston seasons" : ", same every month"}`,
-  moreAYear: (filtered: boolean) => `more a year — if you pick the plan the state site lists first${filtered ? " (among plans that pass your filters)" : ""}.`,
-  stateFirst: (rank: number) => `State site's #1 · #${rank} for you`,
+  moreAYear: (filtered: boolean) => `more a year — if you pick the plan the state site listed first on ${LIST_DATE.en}${filtered ? " (among plans that pass your filters)" : ""}.`,
+  stateFirst: (rank: number) => `State site's #1, ${LIST_DATE.en} · #${rank}\u00a0for\u00a0you`,
   yourFirst: "Your #1",
   why: "Why?",
   creditNeeds: (kwh: number) => `credit needs ${n(kwh, "en")} kWh`,
   bestTitle: "Your best plan: ",
-  bestBody: (provider: string, annual: string) => `${provider} · ${annual} a year. Here it matches the state site's first pick — drag the slider to see where that stops being true.`,
+  bestBody: (provider: string, annual: string) => `${provider} · ${annual} a year. Here it matches the plan the state site listed first on ${LIST_DATE.en} — drag the slider to see where that stops being true.`,
   seeMath: "See the math",
   openFirst: "Open the state site's #1 fine print",
   sideBySide: "Side by side",
@@ -91,7 +92,7 @@ const en = {
   surpriseBody: (sticker: string, real: string, over: string): Parts => [`Advertised at `, sticker, ` per kWh. Over your year you'd really pay `, real, ` — `, over, ` more than the sticker price suggests.`],
   showWhy: "Show me why",
   sticker: "sticker", real: "real",
-  shareGap: (gap: string) => `The state site's #1 power plan would cost me ${gap} more a year than my best plan. Wattch read the fine print on every Houston plan:`,
+  shareGap: (gap: string) => `The power plan the state site listed first on ${LIST_DATE.en} would cost me ${gap} more a year than my best plan. Wattch read the fine print on every Houston plan:`,
   shareBest: "Wattch read the fine print on every Houston power plan and found my best one:",
   shareMine: "Share my result", shareCard: "Share card", linkCopied: "Link copied",
   shareFailed: "Couldn't share — copy the address bar instead",
@@ -150,13 +151,13 @@ const es: Words = {
   atUsage: (kwh, seasons, mine) => mine
     ? `Con tus propios 12 meses (unos ${n(kwh, "es")} kWh al mes)`
     : `Con ${n(kwh, "es")} kWh al mes${seasons ? ", con las temporadas reales de Houston" : ", igual cada mes"}`,
-  moreAYear: (filtered) => `más al año — si escoges el plan que el sitio del estado pone primero${filtered ? " (entre los planes que pasan tus filtros)" : ""}.`,
-  stateFirst: (rank) => `#1 del sitio del estado · #${rank} para ti`,
+  moreAYear: (filtered) => `más al año — si escoges el plan que el sitio del estado mostraba primero el ${LIST_DATE.es}${filtered ? " (entre los planes que pasan tus filtros)" : ""}.`,
+  stateFirst: (rank) => `#1 del estado el ${LIST_DATE.es} · #${rank}\u00a0para\u00a0ti`,
   yourFirst: "Tu #1",
   why: "¿Por qué?",
   creditNeeds: (kwh) => `el crédito pide ${n(kwh, "es")} kWh`,
   bestTitle: "Tu mejor plan: ",
-  bestBody: (provider, annual) => `${provider} · ${annual} al año. Aquí coincide con la primera opción del sitio del estado — mueve la barra para ver dónde deja de ser cierto.`,
+  bestBody: (provider, annual) => `${provider} · ${annual} al año. Aquí coincide con el plan que el sitio del estado mostraba primero el ${LIST_DATE.es} — mueve la barra para ver dónde deja de ser cierto.`,
   seeMath: "Ver las cuentas",
   openFirst: "Abrir la letra pequeña del #1 del estado",
   sideBySide: "Lado a lado",
@@ -164,7 +165,7 @@ const es: Words = {
   surpriseBody: (sticker, real, over) => [`Anunciado a `, sticker, ` por kWh. En tu año pagarías en realidad `, real, ` — `, over, ` más de lo que sugiere el precio anunciado.`],
   showWhy: "Muéstrame por qué",
   sticker: "anunciado", real: "real",
-  shareGap: (gap) => `El plan #1 del sitio del estado me costaría ${gap} más al año que mi mejor plan. Wattch leyó la letra pequeña de cada plan de Houston:`,
+  shareGap: (gap) => `El plan que el sitio del estado mostraba primero el ${LIST_DATE.es} me costaría ${gap} más al año que mi mejor plan. Wattch leyó la letra pequeña de cada plan de Houston:`,
   shareBest: "Wattch leyó la letra pequeña de cada plan de luz de Houston y encontró el mejor para mí:",
   shareMine: "Compartir mi resultado", shareCard: "Tarjeta para compartir", linkCopied: "Enlace copiado",
   shareFailed: "No se pudo compartir — copia la dirección de la barra",

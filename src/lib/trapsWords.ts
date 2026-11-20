@@ -30,7 +30,7 @@ export const TRAPS_WORDS = {
     h1: "The traps in the fine print",
     area: "Area",
     intro: (city: string) =>
-      `Every kind of catch Wattch found while reading ${city}'s plans. Each one has a real plan from today's list, priced over a ${city} year at three sizes of home. “More than the best” means more than the cheapest plan for that same home.`,
+      `Every kind of catch Wattch found while reading ${city}'s plans. Each one has a real plan from the list Wattch read, priced over a ${city} year at three sizes of home. “More than the best” means more than the cheapest plan for that same home.`,
     kinds: "Trap types",
     count: (n: number) => `${n} of today's ranked plans`,
     example: "Real example",
@@ -42,7 +42,7 @@ export const TRAPS_WORDS = {
     best: "The best plan",
     forHome: "for this home",
     read: "Read this plan's fine print",
-    none: "No plan on today's list has this one.",
+    none: "No plan Wattch read has this one.",
   },
   es: {
     title: (city: string) => `Wattch — las trampas en la letra pequeña de los planes de ${city}`,
@@ -50,7 +50,7 @@ export const TRAPS_WORDS = {
     h1: "Las trampas de la letra pequeña",
     area: "Área",
     intro: (city: string) =>
-      `Cada tipo de trampa que Wattch encontró al leer los planes de ${city}. Cada uno tiene un plan real de la lista de hoy, con el precio de un año en ${city} para tres tamaños de casa. “Más que el mejor” quiere decir más que el plan más barato para esa misma casa.`,
+      `Cada tipo de trampa que Wattch encontró al leer los planes de ${city}. Cada uno tiene un plan real de la lista que Wattch leyó, con el precio de un año en ${city} para tres tamaños de casa. “Más que el mejor” quiere decir más que el plan más barato para esa misma casa.`,
     kinds: "Tipos de trampa",
     count: (n: number) => `${n} de los planes de hoy en la lista`,
     example: "Ejemplo real",
@@ -62,6 +62,6 @@ export const TRAPS_WORDS = {
     best: "El mejor plan",
     forHome: "para esta casa",
     read: "Leer la letra pequeña de este plan",
-    none: "Ningún plan de la lista de hoy tiene esta.",
+    none: "Ningún plan que Wattch leyó tiene esta.",
   },
 } as const;

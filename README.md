@@ -13,7 +13,7 @@ match within about a tenth of a cent (±0.11¢, since labels round to 0.1¢). Bi
 
 ## What it shows
 - **The reader wall** — one tile per plan flipping from "reading…" to ✓ (replays the real reads and their timing).
-- **The reveal** — what the plan the state site lists first would cost you a year vs. your best plan, and why
+- **The reveal** — what the plan the state site listed first on Nov 16 (the day Wattch read the list) would cost you a year vs. your best plan, and why
   (e.g. "Its $125 credit only kicks in at 1,000 kWh. You'd miss it 6 months a year").
 - **Houston seasons** — 12 real months shaped by ERCOT grid data for the Coast zone, not one flat month.
 - **Plan pages** — the label check table, your bill line by line, your year, and a bill-vs-usage chart with price cliffs.

@@ -126,7 +126,7 @@ tiered prices and setup fees. In Houston, 17 ⟲ of the 143 ranked plans have a 
 
 **23. Is Simple Saver 3 still the state site's #1 today?**
 Honest answer: in Dallas–Fort Worth, yes. In Houston, prices moved after I read the labels on Nov 16: SimpleSaver 12 (same
-provider) dropped from 6.5¢ to 6.1¢ and now sits just above it. That's why I say "listed first when I read them". The
+provider) dropped from 6.5¢ to 6.1¢ and now sits just above it. That's why the app and I say "listed first on Nov 16", never "lists first" today. The
 point doesn't change: a plan sorted to the top by its 1,000 kWh price can cost a normal home hundreds more over a year,
 and Wattch shows it with the label's own numbers. Plans that leave the state's list are marked on their page and never
 ranked (checked free from the state's own export, docs/SOURCES.md).

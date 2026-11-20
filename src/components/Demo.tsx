@@ -6,6 +6,7 @@ import { CountUp } from "@/components/CountUp";
 import { JudgeQr } from "@/components/JudgeQr";
 import { Kapi } from "@/components/Kapi";
 import { YearBars } from "@/components/YearBars";
+import { LIST_DATE } from "@/lib/listDate";
 
 type P = { id: string; name: string; provider: string; sticker: number; annual: number; real: number };
 export type DemoData = {
@@ -28,7 +29,7 @@ export function Demo({ d, speed = "normal" }: { d: DemoData; speed?: keyof typeo
       <h1 className="display text-5xl font-extrabold leading-[0.95] sm:text-8xl"><span className="num text-volt">{d.total}</span> power plans.</h1>
       <p className="mt-6 max-w-3xl text-xl text-paper/80 sm:text-3xl">The state&apos;s Power to Choose site sorts them by one sticker price — the price at exactly 1,000 kWh.</p>
     </Scene>,
-    <Scene key="b" eyebrow="The state site's #1 pick">
+    <Scene key="b" eyebrow={`The state site's #1 on ${LIST_DATE.en}`}>
       <h2 className="display text-4xl font-extrabold leading-tight sm:text-7xl">{d.pick.name}</h2>
       <p className="mt-2 text-xl text-paper/70 sm:text-2xl">{tidy(d.pick.provider)}</p>
       <p className="mt-8 text-2xl sm:text-4xl">Sticker price: <b className="num text-volt">{d.pick.sticker.toFixed(1)}¢</b> per kWh.</p>
@@ -43,7 +44,7 @@ export function Demo({ d, speed = "normal" }: { d: DemoData; speed?: keyof typeo
     <Scene key="d" eyebrow={`A Houston home using ${d.kwh.toLocaleString("en-US")} kWh a month`}>
       <Kapi pose="surprised" className="float-right h-20 w-20 sm:h-36 sm:w-36" />
       <p className="display text-[5rem] font-extrabold leading-[0.85] text-volt sm:text-[11rem]"><span className="num"><CountUp value={d.gap} format={money} /></span></p>
-      <h2 className="display mt-4 text-3xl font-extrabold leading-tight sm:text-6xl">more a year on the state site&apos;s #1.</h2>
+      <h2 className="display mt-4 text-3xl font-extrabold leading-tight sm:text-6xl">more a year on the state site&apos;s #1 ({LIST_DATE.en}).</h2>
       <p className="mt-4 text-xl text-paper/80 sm:text-3xl">Over a real Houston year it ranks <b className="num text-volt">#{d.pickRank}</b> of {d.ranked}.</p>
     </Scene>,
     <Scene key="e" eyebrow="Why?">
@@ -56,7 +57,7 @@ export function Demo({ d, speed = "normal" }: { d: DemoData; speed?: keyof typeo
       <h2 className="display text-4xl font-extrabold leading-tight sm:text-7xl">{d.best.name}</h2>
       <p className="mt-2 text-xl text-paper/70 sm:text-2xl">{tidy(d.best.provider)}</p>
       <div className="mt-8 grid max-w-4xl gap-4 sm:grid-cols-2">
-        <div className="rounded-3xl bg-paper/10 p-5"><p className="text-sm font-bold uppercase text-volt lg:text-lg">State site&apos;s #1</p><p className="num mt-2 text-4xl font-semibold lg:text-7xl">{money(d.pick.annual)}<span className="text-lg opacity-70 lg:text-3xl">/yr</span></p><p className="num text-paper/70 lg:mt-1 lg:text-2xl">really {d.pick.real.toFixed(1)}¢/kWh</p></div>
+        <div className="rounded-3xl bg-paper/10 p-5"><p className="text-sm font-bold uppercase text-volt lg:text-lg">State site&apos;s #1 ({LIST_DATE.en})</p><p className="num mt-2 text-4xl font-semibold lg:text-7xl">{money(d.pick.annual)}<span className="text-lg opacity-70 lg:text-3xl">/yr</span></p><p className="num text-paper/70 lg:mt-1 lg:text-2xl">really {d.pick.real.toFixed(1)}¢/kWh</p></div>
         <div className="rounded-3xl bg-good-2 p-5 text-ink"><p className="text-sm font-bold uppercase text-good lg:text-lg">Wattch&apos;s #1</p><p className="num mt-2 text-4xl font-semibold lg:text-7xl">{money(d.best.annual)}<span className="text-lg opacity-70 lg:text-3xl">/yr</span></p><p className="num text-ink-2 lg:mt-1 lg:text-2xl">really {d.best.real.toFixed(1)}¢/kWh</p></div>
       </div>
     </Scene>,
