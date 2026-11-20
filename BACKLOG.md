@@ -970,3 +970,7 @@
 - [x] FG8 Re-run Lighthouse on /, /wall, /plan/33633 after today's changes; log scores
 - [x] FG9 Fresh clone of origin/overnight with no keys: npm ci, test, build (proves the repo stands alone)
 - [ ] FG10 Morning handoff (7:00 AM or at stop) with the SimpleSaver 12 question at the top
+
+## FH — checks while waiting for merge 2 (Nov 19 23:55)
+- [x] FH1 "Already on a plan?" still finds plans that left the list (people are still on them) and does their switch math — yes (searches all verified plans)
+- [x] FH2 /traps examples + home trap count never use a plan that left the list — yes (rankable pool; 7 example ids, none delisted)
