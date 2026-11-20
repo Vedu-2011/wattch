@@ -319,3 +319,4 @@ person: Vercel's free build limit was hit at ~04:10 (production after "merge" li
 - 2026-11-19 23:36 PT · meta-check now also checks redirects: /?lang=es → /es (area kept), /favicon.ico → /icon.svg. All ok.
 - 2026-11-19 23:41 PT · Codex 54 P2 fixed: on phones a plan that left the list showed a green ✓ (the 'left the list' tag is desktop-only); now it's a gray '–' tile at every size, no green stamp. Phone screenshot checked (12 such tiles). tests/lint/build/check-all/demo-flow green.
 - 2026-11-19 23:46 PT · Re-recorded wall clips (04-05, 06, 09, 10b, 10c, 11) + gallery 2 & 7 + demo-flow shots after the tile change. All ok, 0 errors.
+- 2026-11-19 23:51 PT · Codex 55 (5a85b10..): clean. Pre-merge run: 265 tests, lint 0, build, check-all 5/5, demo-flow OK. Handoff saved (_coord/handoffs/2026-11-19-2348--triple-h--claude--final-1.md); merge 2 at ~00:20 (2 h rule).
