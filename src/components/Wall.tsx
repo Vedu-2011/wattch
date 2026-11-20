@@ -23,7 +23,9 @@ const cents = (n: number) => `${n.toFixed(1)}¢`;
  * The wall replays real reads: faster reads finish first. Pace is by order (not raw time), so one very slow label
  * doesn't leave the wall sitting still — tiles land steadily across the whole replay.
  */
-function useReveal(plans: ClientPlan[], totalMs = 9000) {
+const SEEN_KEY = "wattch-wall-seen";
+
+function useReveal(plans: ClientPlan[], seenKey: string, totalMs = 9000) {
   const order = useMemo(() => {
     const sorted = [...plans].sort((a, b) => (a.readMs || 0) - (b.readMs || 0));
     const n = Math.max(sorted.length - 1, 1);
@@ -31,6 +33,14 @@ function useReveal(plans: ClientPlan[], totalMs = 9000) {
   }, [plans, totalMs]);
   const [now, setNow] = useState(0);
   const [skip, setSkip] = useState(false);
+  // The replay plays once per browser tab. Coming back (back button, Español, a slider change) shows the
+  // answer at once instead of making people sit through 9 seconds again. A new tab, the other city, or ?replay=1 plays it again.
+  useEffect(() => {
+    try {
+      if (new URLSearchParams(window.location.search).get("replay") === "1") return;
+      if (window.sessionStorage.getItem(seenKey) === "1") setSkip(true); // eslint-disable-line react-hooks/set-state-in-effect -- reads browser-only storage after hydration
+    } catch { /* storage blocked: just play it */ }
+  }, [seenKey]);
   useEffect(() => {
     if (skip) return;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -42,13 +52,18 @@ function useReveal(plans: ClientPlan[], totalMs = 9000) {
     return () => cancelAnimationFrame(raf);
   }, [skip, totalMs]);
   const readIds = new Set(order.filter((o) => skip || o.at <= now).map((o) => o.id));
-  return { readIds, done: skip || now >= totalMs, skip: () => setSkip(true) };
+  const done = skip || now >= totalMs;
+  useEffect(() => {
+    if (!done) return;
+    try { window.sessionStorage.setItem(seenKey, "1"); } catch { /* storage blocked: fine */ }
+  }, [done, seenKey]);
+  return { readIds, done, skip: () => setSkip(true) };
 }
 
 
 export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons, months: initialMonths = null, filters: initialFilters = NO_FILTERS, withConditional: initialConditional = true, lang = "en", area = "houston", kwhNote = null }: { plans: ClientPlan[]; kwh: number; kwhNote?: "low" | "high" | "bad" | null; builtAt: string; seasons: boolean; months?: number[] | null; filters?: WallFilters; withConditional?: boolean; lang?: Lang; area?: Area }) {
   const w = words(lang, area);
-  const { readIds, done, skip } = useReveal(plans);
+  const { readIds, done, skip } = useReveal(plans, `${SEEN_KEY}-${area}`);
   const [kwh, setKwh] = useState(initialKwh);
   const [seasons, setSeasons] = useState(initialSeasons);
   // your own 12 months, when you've typed them in; otherwise an average spread by Houston seasons
