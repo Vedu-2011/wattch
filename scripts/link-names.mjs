@@ -9,7 +9,7 @@ const BASE = process.env.BASE ?? "http://localhost:3000";
 const CHROME = process.env.CHROME_PATH ?? "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const pages = [
   "/", "/es", "/wall?kwh=1100", "/wall?kwh=1100&lang=es", "/wall?kwh=1100&area=dallas",
-  "/plan/33633?kwh=1100", "/plan/33633?kwh=1100&lang=es", "/plan/31967?area=dallas&kwh=1100",
+  "/plan/33633?kwh=1100", "/plan/39294?kwh=1100&lang=es", "/plan/33633?kwh=1100&lang=es", "/plan/31967?area=dallas&kwh=1100",
   "/compare?a=37797&b=33633&kwh=1100", "/compare?a=37797&b=33633&kwh=1100&lang=es",
   "/traps", "/traps?lang=es", "/traps?area=dallas", "/how", "/how?lang=es", "/sources", "/sources?lang=es", "/remind", "/remind?lang=es",
 ];

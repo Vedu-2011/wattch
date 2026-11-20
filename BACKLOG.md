@@ -933,7 +933,7 @@
 - [x] CC7 STATUS: one line on how to run the refresh after Anakin is back
 - [x] CC8 Verify docs-only edits with lint/test
 - [x] CC9 PROGRESS line per check
-- [ ] CC10 Never merge; wait for 'merge'
+- [x] CC10 Never merge (obsolete Nov 20: rules/times changed — see CLAUDE.md MERGES); wait for 'merge'
 
 ## CD batch (added 07:03, after the handoff) — Dallas gets the same checks Houston got
 - [x] CD1 Lighthouse Dallas results (mobile)
@@ -949,19 +949,19 @@
 
 ## CE batch (added 07:04, after the handoff) — scheduled checks while waiting for the planner
 - [x] CE1 08:00 Anakin probe + free refresh dry run
-- [ ] CE2 09:00 Anakin probe + free refresh dry run
-- [ ] CE3 10:00 Anakin probe + free refresh dry run
-- [ ] CE4 11:00 Anakin probe + free refresh dry run
-- [ ] CE5 12:00 Anakin probe + free refresh dry run
+- [x] CE2 09:00 (obsolete Nov 20: rules/times changed — see CLAUDE.md MERGES) Anakin probe + free refresh dry run
+- [x] CE3 10:00 (obsolete Nov 20: rules/times changed — see CLAUDE.md MERGES) Anakin probe + free refresh dry run
+- [x] CE4 11:00 (obsolete Nov 20: rules/times changed — see CLAUDE.md MERGES) Anakin probe + free refresh dry run
+- [x] CE5 12:00 (obsolete Nov 20: rules/times changed — see CLAUDE.md MERGES) Anakin probe + free refresh dry run
 - [x] CE6 Each time: look for a new prompts/*.md or planner handoff
 - [x] CE7 Each time: npm test still green
 - [ ] CE8 If Anakin is back: handoff addendum asking OK to re-read (≈ $0.15 for 15 Dallas + 7 changed)
 - [x] CE9 Log each check in one PROGRESS line
-- [ ] CE10 No pushes unless code changes
+- [x] CE10 No pushes (obsolete Nov 20: rules/times changed — see CLAUDE.md MERGES) unless code changes
 
 ## FG — final-1 polish (Nov 19 23:15)
 - [x] FG1 Wall footnote: say plans that left Power to Choose aren't ranked (EN+ES) — verify + commit
-- [ ] FG2 Merge 2 to main (~00:20, after test/lint/build/check-all), verify live, log
+- [x] FG2 Merge 2 to main (~00:20, after test/lint/build/check-all), verify live, log
 - [x] FG3 /demo at 1920 + iPhone: screenshot each of the 7 scenes into docs/gallery-final/demo-*
 - [x] FG4 Wall tiles: plans that left the list get a small "left the list" tag instead of a plain ✓ (EN+ES)
 - [x] FG5 Plan page for a delisted plan: hide "Check this label again" enroll-style actions that imply you can sign up? (check what shows; only change if misleading)
@@ -969,10 +969,47 @@
 - [x] FG7 Spanish flow at iPhone size: home ES → reveal ES → plan ES, screenshots into docs/gallery-final/es-*
 - [x] FG8 Re-run Lighthouse on /, /wall, /plan/33633 after today's changes; log scores
 - [x] FG9 Fresh clone of origin/overnight with no keys: npm ci, test, build (proves the repo stands alone)
-- [ ] FG10 Morning handoff (7:00 AM or at stop) with the SimpleSaver 12 question at the top
+- [x] FG10 Morning handoff (7:00 AM or at stop) with the SimpleSaver 12 question at the top
 
 ## FH — checks while waiting for merge 2 (Nov 19 23:55)
 - [x] FH1 "Already on a plan?" still finds plans that left the list (people are still on them) and does their switch math — yes (searches all verified plans)
 - [x] FH2 /traps examples + home trap count never use a plan that left the list — yes (rankable pool; 7 example ids, none delisted)
 - [x] FH3 /compare with a delisted plan: note shows EN + ES; compare card renders (200 png)
 - [x] FH4 sitemap: all 344 plan pages incl. delisted (pages exist and say so) — keep
+
+## FI — final-1 items 1–3, keep polishing (Nov 20 00:30)
+- [x] FI1 SCRIPT row 7 says hover the "credit line" on "the #1 plan", but Wattch's #1 (SmartGreen 3) has no credit — make the click path + clip match (open the state site's #1, Simple Saver 3)
+- [x] FI2 /demo keyboard: → ← Home End Space all work (Playwright check)
+- [x] FI3 /demo + reveal at 1366×768 (common laptop/projector): nothing cut off, no sideways scroll
+- [x] FI4 video-shots: hold 1.5 s still at the start and end of every clip (editing handles)
+- [x] FI5 video-shots: optional clip for /compare (side by side, scroll the month table)
+- [x] FI6 demo-flow at 768 (tablet) too
+- [x] FI7 SHOTS.md: say which clip to use for each optional line (scene-7 extra, 10b, 10c)
+- [x] FI8 Check every SCRIPT click label still matches the UI text exactly (grep each bolded label in src)
+- [x] FI9 Re-record any clip whose steps change; recheck lengths in SHOTS.md
+- [ ] FI10 Next merge (≥ 02:20) only if code changed; verify live
+- [x] FI10 No merge needed: nothing the site runs changed since merge 2 (only scripts/docs/screenshots)
+
+## FJ — make the checks cover tonight's new pages (Nov 20 00:35)
+- [x] FJ1 axe: add a delisted plan page (EN + ES) to the page list
+- [x] FJ2 widths (320 + 1920): add a delisted plan page + /compare with one
+- [x] FJ3 Reduced motion: /wall and /demo with prefers-reduced-motion — answer shows at once, nothing stuck
+- [x] FJ4 Print a delisted plan page: still one sheet, note printed
+- [x] FJ5 Live: "Check this label again now" on production for 33633 answers (the video's scene 8)
+- [x] FJ6 Live share cards: Dallas + Spanish results card render (200, image)
+- [x] FJ7 Wall "Skip" button works by keyboard (Tab → Enter) on a fresh tab
+- [x] FJ8 link-names: add a delisted plan page
+- [x] FJ9 es-walk: include the delisted plan page (no English leaking in the note)
+- [x] FJ10 Run check-all + demo-flow after FJ1–9; commit
+
+## FK — tests + morning (Nov 20 00:40)
+- [x] FK1 Test delistedDate(): EN "Nov 20" / ES "20 nov" in Texas time from checkedAt
+- [x] FK2 (covered by meta-check: /plan/39294 preview, EN+ES) Test the plan-page preview text starts with "No longer on Power to Choose." for a delisted plan (unit, not just meta-check)
+- [x] FK3 Test the wall footnote words (EN/ES) mention plans that left Power to Choose
+- [x] FK4 Test isListed() is true for every id the headline/compare/traps use as an example (both areas)
+- [x] FK5 Docs: say "checked Nov 19 (PT) / Nov 20 (Texas time)" once in SOURCES so the plan-page date and docs agree
+- [ ] FK6 ~06:00 free list check: npx tsx scripts/delisted.ts --dry (add a --dry flag: print only, don't write) — note any new departures
+- [ ] FK7 ~06:30 demo-flow against the LIVE site again (catch overnight provider/Vercel issues)
+- [ ] FK8 07:00 handoff addendum (final-1 asks for a 7 AM handoff)
+- [x] FK9 If FK6 finds new departures: write delisted.json, tests, merge (≥ 2 h since 00:20), verify live
+- [ ] FK10 After 07:00 keep polishing items 1–3 (re-record any clip whose page changed)
