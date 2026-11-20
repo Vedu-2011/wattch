@@ -341,3 +341,5 @@ person: Vercel's free build limit was hit at ~04:10 (production after "merge" li
 - 2026-11-20 02:39 PT · FL4 SHOTS.md lengths re-measured after the 02:10 re-record (5 rows off by 1 s).
 - 2026-11-20 02:39 PT · FL8 live /plan/24734 (newly delisted Simple Switch 11): EN 'checked Nov 20', ES 'revisado el 20 nov'. OK.
 - 2026-11-20 02:59 PT · FL5 list check ~03:00 (--dry): no change since 02:10 (Houston 16, Dallas 13 gone).
+- 2026-11-20 04:00 PT · list check 04:00: no change.
+- 2026-11-20 05:38 PT · list check ~05:20: first try 'fetch failed' (state site blipped; nothing written — dry run), retry 05:40 OK: no change.
