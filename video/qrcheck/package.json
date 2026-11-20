@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "name": "wattch-video-qrcheck",
+  "version": "1.0.0",
+  "dependencies": {
+    "jsqr": "1.4.0",
+    "pngjs": "7.0.0"
+  }
+}

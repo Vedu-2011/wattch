@@ -5,7 +5,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parent
-RAW = Path('/Users/mellamputi_vedhanth/Hackathons/Triple H/video/raw')
+RAW = ROOT / 'raw'
 WORK = ROOT / 'work-v3'
 OUT = ROOT / 'out'
 WORK.mkdir(parents=True, exist_ok=True)
@@ -41,9 +41,6 @@ for idx, (name, start, stop, source_start, source_stop) in enumerate(SCENES):
     motion = min(available, length)
     hold = max(0, length - motion)
     target = WORK / f'{idx:02d}.mp4'
-    if target.exists():
-        segments.append(target)
-        continue
     vf = f'fps=30,scale=1920:1080:flags=lanczos,setsar=1,trim=duration={motion},setpts=PTS-STARTPTS,tpad=stop_mode=clone:stop_duration={hold:.4f},trim=duration={length}'
     run(['ffmpeg', '-y', '-loglevel', 'error', '-ss', str(source_start), '-i', str(source), '-vf', vf,
          '-an', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20', '-pix_fmt', 'yuv420p', '-r', '30', str(target)])
