@@ -46,17 +46,20 @@ Anyone in Houston or Dallas–Fort Worth choosing a plan, in English or Spanish.
 (Checked Nov 16: across 9 pages, no cookies, nothing in browser storage, no requests to any outside site.)
 
 **9. How is this different from Power to Choose or comparison sites?**
-Power to Choose sorts by the 1,000 kWh price the provider prints. Wattch prices every plan at your own usage through a real
-year and shows the math. Comparison sites: **[CHECK]** — I haven't tested EnergyBot or ComparePower side by side yet, so I
-won't claim what they do or don't show.
+Power to Choose shows each label's 500 / 1,000 / 2,000 kWh prices and tells you to read the fact sheet yourself. The good
+comparison sites (EnergyBot, ComparePower, ElectricityPlans) already price plans at your usage — I checked their own pages
+on Nov 20, quotes in docs/SOURCES.md. What none of them show is the part Wattch is built on: every label read for you,
+checked against the label's own printed prices, and every number on screen traced back to a line of fine print.
 
 **10. How would it make money?**
 Free for families. The plan: a referral fee when someone switches through Wattch, shown on the page, and computed after the
-ranking so money can't change the order. **[CHECK]** referral fee size — not sourced; don't give a dollar figure.
+ranking so money can't change the order. EnergyBot, ComparePower and ElectricityPlans all say on their own sites that
+providers pay them when someone enrolls (docs/SOURCES.md). None of them shows the fee size, so I don't give a dollar figure.
 
 **11. How big is the market?**
 ERCOT counts about 2.5 million CenterPoint homes (2,519,376 residential meters in the Nov 2 2026 profile counts) and about
-2.7 million Oncor North Central homes (947,346 + 1,745,928). Statewide market size: **[CHECK]**.
+2.7 million Oncor North Central homes (947,346 + 1,745,928). Statewide: ERCOT says it "administers retail switching for 8 million premises in competitive choice areas"
+(ercot.com/about, Nov 20) — homes and businesses, so I say "about 8 million homes and businesses can choose".
 
 **12. Do people really pick the wrong plan?**
 In a 2024 EnergyBot survey of Dallas and Houston shoppers, 98% didn't pick the cheapest plan — even though 87% said cost

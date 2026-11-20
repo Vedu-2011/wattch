@@ -46,9 +46,9 @@ counts are bigger because they include softer catches (autopay credit, 3-month p
 - **2,693,274** Oncor homes in the North Central weather zone (Dallas–Fort Worth; 947,346 low-winter + 1,745,928
   high-winter), same ERCOT file. Wattch already covers them: 172 ⟲ plans read, 154 ⟲ verified. Together ≈ 5.2 million
   homes in the two areas Wattch reads today. Source: ERCOT (SOURCES.md).
-- The same pipeline works for the rest of Texas's competitive market (AEP, TNMP): **[CHECK]** total
-  competitive-market homes from an ERCOT/PUCT page before using any statewide number. ("8 million premises" is
-  unverified — don't use.)
+- The same pipeline works for the rest of Texas's competitive market (AEP, TNMP): ERCOT "administers retail switching
+  for 8 million premises in competitive choice areas" (ercot.com/about, read Nov 20; its profile page says "nearly 8
+  million"). Say "about 8 million homes and businesses can choose" — premises include businesses, so not "8 million families".
 - Illustration only, my math: if 1% of CenterPoint homes (≈25,000) switched off a plan that costs them $378 more,
   that's ≈ $9.5M a year back to families. Label it "illustration", not a forecast.
 
@@ -57,14 +57,17 @@ Screens: home → the wall reading every plan → the reveal → plan page with 
 One line each: Read every plan · Your real year · Proof for every number · Switch-or-wait math · Share.
 
 **8 · Why you can trust it: AI reads, code decides**
-Texas requires each label to print its average price at 500, 1,000 and 2,000 kWh (16 TAC §25.475 — **[CHECK]** exact
-wording before the slide). Claude Haiku reads the label; plain code rebuilds those three prices; all three must match to
+Texas requires each label to print its average price at 500, 1,000 and 2,000 kWh (16 TAC §25.475(g)(2)(C):
+prices "expressed in cents per kilowatt hour, rounded to the nearest one-tenth of one cent" at "500, 1,000 and 2,000
+kilowatt hours per month" for residential customers — checked on Cornell LII, Nov 20). Claude Haiku reads the label; plain code rebuilds those three prices; all three must match to
 about a tenth of a cent (±0.11¢; labels round to 0.1¢) or the plan isn't ranked. Median read 3.7 s ⟲. 276 ⟲ automated tests.
 
 **9 · Business model**
 - Free for families, always. No account needed.
-- Revenue 1: referral fee when a family switches through Wattch — the same model the big comparison sites use
-  **[CHECK]** (find each one's own disclosure page). Wattch's rule: the ranking is computed before any deal is known
+- Revenue 1: referral fee when a family switches through Wattch — the same model the big comparison sites say they use
+  ("that provider pays us a referral fee" — EnergyBot; "Energy companies pay us a service fee for referring customers" —
+  ComparePower; "We earn compensation from the electricity provider you select" — ElectricityPlans; links in SOURCES.md).
+  Their fee sizes aren't shown on their sites, so the deck gives no dollar figure. Wattch's rule: the ranking is computed before any deal is known
   and never changes for money; the fee is shown on the page.
 - Revenue 2 (later): a paid API / white-label for credit unions, apartment managers and nonprofits that help families
   with bills.
@@ -72,13 +75,19 @@ about a tenth of a cent (±0.11¢; labels round to 0.1¢) or the plan isn't rank
   cost $0.68). Running cost is tiny.
 
 **10 · Competitors**
-| | Ranks by your real year | Reads the fine print | Shows proof | Price to families |
-|---|---|---|---|---|
-| Power to Choose (state) | No — one price at 1,000 kWh | No | No | Free |
-| EnergyBot | **[CHECK]** | **[CHECK]** | **[CHECK]** | Free |
-| ComparePower | **[CHECK]** | **[CHECK]** | **[CHECK]** | Free |
-| Wattch | Yes — Houston seasons or your own 12 months | Yes — every label | Yes — every number traced to the label | Free |
-Fill the [CHECK] cells only after opening each site and trying it; screenshot what you saw.
+Each cell is what that company says on its own site (quotes + links in SOURCES.md, read Nov 20). "Not shown" = their
+own pages don't say it — not proof they don't do it.
+| | Prices plans at your usage | Reads each plan's fine print for you | Shows the proof behind a price | Paid by | Cost to families |
+|---|---|---|---|---|---|
+| Power to Choose (state) | No — shows each label's 500 / 1,000 / 2,000 kWh prices; you can filter out usage fees/credits and tiered rates | No — tells you to read the fact sheet yourself | Links each plan's fact sheet | The state (PUCT) | Free |
+| EnergyBot | Yes — "forecasted cost against your actual usage" | Not shown (tells you to check the label) | Partly — "we calculate the full bill"; no label or bill lines on its Texas page | Provider referral fees | Free |
+| ComparePower | Yes — "total annual cost … based on your 12 months of usage history" | Not shown (puts the label on its site) | Partly — label on site; no bill-line math shown | Provider referral fees | Free |
+| ElectricityPlans | Yes (Texas) — "estimate your bills for every month of the year" | Says "we review all of the details to find the fine print" | Partly — "we show you all the details of how your bill is calculated" | Provider compensation | Free |
+| Rocket Money | Doesn't compare power plans — negotiates cable, internet, phone and security bills | — | — | Subscription | $15/month (Premium+) |
+| Wattch | Yes — Houston/Dallas seasons or your own 12 months | Yes — AI reads every label; code checks it against the label's own 3 prices | Yes — every number traced to the label text | Later: referral fee, shown on the page | Free |
+**Say it honestly:** the good comparison sites already price plans at your usage. What Wattch adds is the part none of
+them show: every label read for you, checked against its own printed prices, and every number traced back to the fine
+print — plus the trap guide and the switch-or-wait math.
 
 **11 · Traction / proof**
 - Houston: 172 ⟲ labels read, 171 verified, 143 ranked. Dallas–Fort Worth: 172 ⟲ read, 154 verified, 125 ranked
@@ -101,8 +110,12 @@ Vedhanth M. — founder, built everything (solo). AI tools used: Claude Code, Co
 Haiku (Anthropic API), Anakin.io for hard-to-open labels.
 
 **14 · The ask**
-**[PLANNER/VEDHANTH DECIDE]** e.g. "$X to launch across Texas: data refresh every night, Spanish, and a pilot with one
-Houston nonprofit." Keep the number small and tied to concrete costs.
+**[DECIDE — Vedhanth]** My recommendation: **ask for a pilot, not money.** "I'm looking for one Houston nonprofit or
+credit union to pilot Wattch with the families they help with bills this winter, and mentors who know Texas energy
+rules." Reason: Wattch has no users yet (slide 11 says so), and an honest, concrete next step scores better with judges
+than an unsourced dollar figure. If a dollar ask is required by the track, keep it tied to costs the repo can show:
+re-reading every Houston label once ≈ $0.68 in AI (build logs) — so the running cost is tiny and the ask is time and
+partners, not cash.
 
 **15 · Close**
 "Texas gave families the power to choose. Wattch gives them the time back." · getwattch.vercel.app · QR to /demo.
