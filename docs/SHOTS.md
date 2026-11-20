@@ -1,8 +1,12 @@
 # Video shots — raw 1920×1080 clips
 
-## Codex final cut (Nov 20)
+## Codex video-3 recut (Nov 20)
 
-`video/out/wattch-demo.mp4` is now a 5:37 cut with Vedhanth's real voice and script rows 10b Dallas and 10c Español included. It has 69 burned 52 px captions from his actual recording. The QR decodes from the encoded end frame; loudness and peak are measured in `video/out/verification.json`. The earlier 5:00 silent cut is superseded. Video and contact sheet stay local and are not uploaded.
+The current cut follows the recorded voice and runs about 3:45. Six affected clips were recorded again after the Nov 16 copy update: wall/reveal, 12-month lock, current plan, Spanish, share, and compare. The wall clip is split at source second 10; its two source ranges do not overlap. Voice gaps and every source interval are measured in `video/out/verification.json`. `video/out/contact-sheet-early.png` samples the encoded video every two seconds from 0:40 to 2:00. The four delivery files are copied to the home project's `video/out/`; no media is uploaded.
+
+## Previous video-2 cut (Nov 20)
+
+Video-2 was a 5:37 cut with Vedhanth's real voice and script rows 10b Dallas and 10c Español included. It had 69 burned 52 px captions from his actual recording. The QR decoded from the encoded end frame. Video and contact sheet stay local and are not uploaded.
 
 
 One clip per row of docs/SCRIPT.md, recorded by `scripts/video-shots.mjs` against a local production build.

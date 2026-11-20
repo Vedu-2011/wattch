@@ -1,6 +1,6 @@
 # Wattch final demo cut
 
-The current `out/wattch-demo.mp4` is a 5:37 cut with Vedhanth's own voice, Dallas and Español scenes, 69 burned captions, and a QR end card. All media stays local; only edit and verification scripts are committed. Read `out/verification.json` for measured specifications and the stutter review note.
+The current `out/wattch-demo.mp4` is a roughly 3:45 cut with Vedhanth's own voice, Dallas and Español scenes, 69 burned captions, and a QR end card. The wall capture plays once: tile footage uses source 0–10 s and the reveal continues from 10 s. Picture durations follow the narration; extra time holds the last frame. All media stays local; only edit and verification scripts are committed. Read `out/verification.json` for measured specifications, the source range audit, and all voice gaps over 1.2 s.
 
 To rebuild, place the raw clips in `video/raw/` (a symlink to the home project's raw folder also works) and Vedhanth's Voice Memos recording at `video/voiceover.qta`. Run `npm ci --prefix video/qrcheck`. Transcribe locally with whisper.cpp small.en and medium.en to `video/work/voice-medium.json`; then run `python3 video/final.py` and `python3 video/verify_final.py`. The scripts use ffmpeg, ffprobe, qrencode, Pillow, and the local `jsqr`/`pngjs` decoder packages. Every rebuild renders the clips again.
 

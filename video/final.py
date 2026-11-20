@@ -32,7 +32,7 @@ SCENES = [
  ('11-share',5,None,191,197,0),
  ('12-home-end',0,None,197,214.7,0),
 ]
-GAP = 0.35
+GAP = 0.4
 END_CARD = 5
 VOICE_ON_CARD = 2.5
 S=[]; source_ranges=[]; cursor=0
