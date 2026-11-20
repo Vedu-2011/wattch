@@ -322,3 +322,4 @@ person: Vercel's free build limit was hit at ~04:10 (production after "merge" li
 - 2026-11-19 23:51 PT · Codex 55 (5a85b10..): clean. Pre-merge run: 265 tests, lint 0, build, check-all 5/5, demo-flow OK. Handoff saved (_coord/handoffs/2026-11-19-2348--triple-h--claude--final-1.md); merge 2 at ~00:20 (2 h rule).
 - 2026-11-19 23:52 PT · FH1 'Already on a plan?' still finds delisted plans (right: people are on them) and prices them. FH2 /traps examples + home trap counts come only from ranked plans (7 example ids, none delisted). No change.
 - 2026-11-19 23:52 PT · FH3 /compare?a=39294 (delisted) shows the note in EN + ES; its share card renders. No change.
+- 2026-11-19 23:53 PT · FH4 sitemap lists all 344 plan pages incl. the 25 delisted ones; kept (their pages explain it).
