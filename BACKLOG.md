@@ -962,7 +962,7 @@
 ## FG — final-1 polish (Nov 19 23:15)
 - [x] FG1 Wall footnote: say plans that left Power to Choose aren't ranked (EN+ES) — verify + commit
 - [ ] FG2 Merge 2 to main (~00:20, after test/lint/build/check-all), verify live, log
-- [ ] FG3 /demo at 1920 + iPhone: screenshot each of the 7 scenes into docs/gallery-final/demo-*
+- [x] FG3 /demo at 1920 + iPhone: screenshot each of the 7 scenes into docs/gallery-final/demo-*
 - [x] FG4 Wall tiles: plans that left the list get a small "left the list" tag instead of a plain ✓ (EN+ES)
 - [ ] FG5 Plan page for a delisted plan: hide "Check this label again" enroll-style actions that imply you can sign up? (check what shows; only change if misleading)
 - [x] FG6 demo-flow.mjs: also open a delisted plan page and check the note shows (EN+ES)

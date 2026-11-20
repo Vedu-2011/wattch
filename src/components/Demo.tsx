@@ -24,7 +24,7 @@ export const SCENE_MS = { normal: 6000, slow: 10000 } as const;
 export function Demo({ d, speed = "normal" }: { d: DemoData; speed?: keyof typeof SCENE_MS }) {
   const sceneMs = SCENE_MS[speed];
   const scenes = [
-    <Scene key="a" eyebrow="Houston, today">
+    <Scene key="a" eyebrow="Houston, as Wattch read them">
       <h1 className="display text-5xl font-extrabold leading-[0.95] sm:text-8xl"><span className="num text-volt">{d.total}</span> power plans.</h1>
       <p className="mt-6 max-w-3xl text-xl text-paper/80 sm:text-3xl">The state&apos;s Power to Choose site sorts them by one sticker price — the price at exactly 1,000 kWh.</p>
     </Scene>,
@@ -62,7 +62,7 @@ export function Demo({ d, speed = "normal" }: { d: DemoData; speed?: keyof typeo
     </Scene>,
     <Scene key="g" eyebrow="Now you">
       <div className="max-w-4xl text-ink"><JudgeQr /></div>
-      <p className="mt-6 text-lg text-paper/70 sm:text-2xl">{d.withTrap} plans on today&apos;s list have a trap like this one. <Link href="/traps" className="underline underline-offset-4">See them all</Link>.</p>
+      <p className="mt-6 text-lg text-paper/70 sm:text-2xl">{d.withTrap} plans Wattch ranks have a trap like this one. <Link href="/traps" className="underline underline-offset-4">See them all</Link>.</p>
     </Scene>,
   ];
   const n = scenes.length;
