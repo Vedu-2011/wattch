@@ -68,7 +68,7 @@ The strongest stat is ours and is reproducible from the repo (`npx tsx scripts/h
 the plan Power to Choose listed first on Nov 16 ranks #69 of 143 and costs $378/yr more than the best plan.
 
 ### How the state's list changed (Nov 16 → Nov 19)
-Power to Choose's own CSV export (powertochoose.org/en-us/Plan/ExportToCsv), downloaded free on Nov 19 ~10:20 PM PT by
+Power to Choose's own CSV export (powertochoose.org/en-us/Plan/ExportToCsv), downloaded free on Nov 19 ~10:20 PM PT (= Nov 20, 12:20 AM Texas time, which is the date plan pages show) by
 `scripts/delisted.ts` and `npx tsx scripts/refresh.ts` (dry run, no AI): Houston 12 of 172 read plans gone, 76 advertised
 price changes; Dallas–Fort Worth 13 of 172 gone, 68 price changes. Gone plans: data/delisted.json. On that list Houston's
 lowest 1,000 kWh price is SimpleSaver 12 at 6.1¢ (Wattch read it at 6.5¢ on Nov 16), then Simple Saver 3 at 6.2¢;

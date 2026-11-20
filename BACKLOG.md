@@ -1001,3 +1001,15 @@
 - [x] FJ8 link-names: add a delisted plan page
 - [x] FJ9 es-walk: include the delisted plan page (no English leaking in the note)
 - [x] FJ10 Run check-all + demo-flow after FJ1–9; commit
+
+## FK — tests + morning (Nov 20 00:40)
+- [x] FK1 Test delistedDate(): EN "Nov 20" / ES "20 nov" in Texas time from checkedAt
+- [x] FK2 (covered by meta-check: /plan/39294 preview, EN+ES) Test the plan-page preview text starts with "No longer on Power to Choose." for a delisted plan (unit, not just meta-check)
+- [x] FK3 Test the wall footnote words (EN/ES) mention plans that left Power to Choose
+- [x] FK4 Test isListed() is true for every id the headline/compare/traps use as an example (both areas)
+- [x] FK5 Docs: say "checked Nov 19 (PT) / Nov 20 (Texas time)" once in SOURCES so the plan-page date and docs agree
+- [ ] FK6 ~06:00 free list check: npx tsx scripts/delisted.ts --dry (add a --dry flag: print only, don't write) — note any new departures
+- [ ] FK7 ~06:30 demo-flow against the LIVE site again (catch overnight provider/Vercel issues)
+- [ ] FK8 07:00 handoff addendum (final-1 asks for a 7 AM handoff)
+- [ ] FK9 If FK6 finds new departures: write delisted.json, tests, merge (≥ 2 h since 00:20), verify live
+- [ ] FK10 After 07:00 keep polishing items 1–3 (re-record any clip whose page changed)
