@@ -9,6 +9,8 @@ Backup clips for every row: docs/SHOTS.md (video/raw/, 1920×1080).
 **Setup before recording**
 - Chrome, 1920×1080, zoom 100%, bookmarks bar hidden, one tab. Open https://getwattch.vercel.app (or the overnight
   preview if not merged yet).
+- Warm the site first: open the results page once (Average home → Read every plan) and wait for the number. In one
+  of many live test runs (Nov 20, 7:10 AM) the first load sat on "Getting every plan…" for 30 s; every run after was ~10 s.
 - Mic check: record 10 s, listen back. Quiet room. Triple H takes points off for unclear audio.
 - Practice once with a stopwatch. Speak slowly — the timings below assume ~140 words a minute.
 
@@ -18,7 +20,7 @@ Backup clips for every row: docs/SHOTS.md (video/raw/, 1920×1080).
 | 2 | 0:25–0:50 | Point at the rotating trap card on home; let it change once. | "The truth is in a PDF every plan has to publish, called the Electricity Facts Label. That's where the catches are: bill credits you only get above a certain usage, minimum-use fees, teaser prices that last three months. Wattch reads all of them." |
 | 3 | 0:50–1:10 | Usage picker → choose **Average home** (1,100 kWh — it's already selected by default). Click **Read every plan**. | "I'll say I'm a typical Houston home, about 1,100 kilowatt-hours a month, and press read every plan." |
 | 4 | 1:10–1:40 | /wall: the tiles stamp ✓ as Kapi walks across. Don't talk over the first 3 seconds — let it play. | "Every tile is one real plan. An AI model, Claude Haiku, reads each label. But I don't trust the AI. Texas makes every label print its own average price at three usages. My code rebuilds those three prices from what the AI read, and they have to match to about a tenth of a cent. 171 of 172 ⟲ check out. Only those get ranked." |
-| 5 | 1:40–2:20 | The reveal: let the $ count up. Pause on it. Point at the year bars. | "Here's the answer. The plan the state site listed first when I read them — Simple Saver 3, 6.2 cents ⟲ — ranks number 69 ⟲ out of 139 for this home, and costs **378 dollars more a year** ⟲ than the best plan. Why? Its 125-dollar credit only kicks in at 1,000 kilowatt-hours. Look at the bars: Houston summers clear the line, but six months ⟲ a year this home doesn't, so the credit never comes." |
+| 5 | 1:40–2:20 | The reveal: let the $ count up. Pause on it. Point at the year bars. | "Here's the answer. The plan the state site listed first when I read them — Simple Saver 3, 6.2 cents ⟲ — ranks number 69 ⟲ out of 143 for this home, and costs **378 dollars more a year** ⟲ than the best plan. Why? Its 125-dollar credit only kicks in at 1,000 kilowatt-hours. Look at the bars: Houston summers clear the line, but six months ⟲ a year this home doesn't, so the credit never comes." |
 | 6 | 2:20–2:35 | Toggle **Price locked 12+ months**. Point at the new number. | "Some cheap plans only lock the price for three months. If I only want prices locked for a year, the gap is still 208 dollars ⟲." Toggle it back off. |
 | 7 | 2:35–3:15 | Back on the reveal, click **Open the state site's #1 fine print** → Simple Saver 3's plan page. **Hover** the energy-charge bill line, then the **$125 credit** line, so the numbers glow in the label text below. Scroll to the three-price check table. | "Every number is provable. This is the actual label text. When I hover a line of the bill, the exact number it came from lights up in the fine print. And here's the check: the label's own three prices next to the ones my code rebuilt. They match." |
 | 8 | 3:15–3:35 | Click **Check this label again now**. Wait for the answer. | "Prices change, so any plan Wattch has read can be re-checked live. Wattch downloads the label again right now and tells me if anything changed." |
@@ -46,7 +48,7 @@ Drop order if you run long: 10c first, then the scene-7 line, then 10b. (10c che
   which is exactly why Wattch keeps the last checked copy" and move on.
 
 **Checked against the code (Claude Code, Nov 20; labels read Nov 16, departures checked Nov 20)**
-172 / 171 / 139 / #69 / $378 / $125 / 1,000 kWh / 6 months: scripts/headline.ts at 1,100 kWh with seasons.
+172 / 171 / 143 / #69 / $378 / $125 / 1,000 kWh / 6 months: scripts/headline.ts at 1,100 kWh with seasons.
 6.2¢: plan 33633 `ptc.k1000` (Nov 16 list). $208 locked: seen in clip 06-locked-12 (Nov 19). Scene 9 "$378 … $150 … 5 months …
 Switch now": seen in clip 09-current-plan. Dallas $530 / #82 of 125: headline.ts + clip 10b-dallas. 7 trap kinds: trapGuide.ts.
 "More than 150": Power to Choose listed 172 Houston plans on Nov 16 and 157 on Nov 19 (scripts/delisted.ts, free).

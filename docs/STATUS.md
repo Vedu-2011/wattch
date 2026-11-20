@@ -4,8 +4,8 @@ Live: https://getwattch.vercel.app (main) · Overnight work: branch `overnight` 
 main, NOT merged — waits for Vedhanth's "merge") · Repo: github.com/Vedu-2011/wattch
 
 ## Nov 19–20 (final-1) — what changed and how to check it (5 minutes, on the live site)
-Main is merged (merges no longer wait for "merge", max one per ~2 h). Data: the Nov 16 read; 16 Houston + 13 Dallas plans
-have since left Power to Choose → marked and never ranked. Headline: **#69 of 139, $378** (Houston) · **#82 of 125, $530** (Dallas).
+Main is merged (merges no longer wait for "merge", max one per ~2 h). Data: the Nov 16 read; 12 Houston + 13 Dallas plans
+have since left Power to Choose → marked and never ranked. Headline: **#69 of 143, $378** (Houston) · **#82 of 125, $530** (Dallas).
 1. Phone: home → **Average home** → **Read every plan** → $378. Press back, then forward: the answer shows at once (no 9 s replay).
 2. Scroll the tiles: a few are gray with "–" (phone) or "left the list" (computer). Tap one's plan page → yellow note at the top.
 3. Open /demo?speed=slow → it plays by itself, 10 s a scene.

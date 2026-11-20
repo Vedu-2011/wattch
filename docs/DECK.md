@@ -33,9 +33,9 @@ cost mattered most." Small print on the slide: "EnergyBot is a commercial compar
 Source: energybot.com/electricity-plan-study.html (quoted in SOURCES.md).
 
 **5 · How big the trap is in the data**
-13 ⟲ of the 139 ⟲ ranked Houston plans have a hidden catch that changes the price; 7 kinds of trap. Breakdown (plans can have more than one):
-3-month teaser 20 · autopay credit 15 · bill-credit cliff 9 · minimum-use fee 8 · time-of-use 9 · setup fee 6 · tiered 1 ⟲.
-Source: data/plans.json via /traps and src/lib/hero.ts (checked Nov 20, plans that left the list excluded). Wording matters: "13 plans with a trap that
+13 ⟲ of the 143 ⟲ ranked Houston plans have a hidden catch that changes the price; 7 kinds of trap. Breakdown (plans can have more than one):
+3-month teaser 20 · autopay credit 15 · bill-credit cliff 12 · minimum-use fee 9 · time-of-use 9 · setup fee 6 · tiered 1 ⟲.
+Source: data/plans.json via /traps and src/lib/hero.ts (checked Nov 20, plans that left the list excluded). Wording matters: "17 plans with a trap that
 makes them cost more than they look" = rankable plans with at least one red ("over") warning (hero.ts). The per-kind
 counts are bigger because they include softer catches (autopay credit, 3-month price) — say "catches", not "traps", for those.
 
@@ -81,13 +81,13 @@ about a tenth of a cent (±0.11¢; labels round to 0.1¢) or the plan isn't rank
 Fill the [CHECK] cells only after opening each site and trying it; screenshot what you saw.
 
 **11 · Traction / proof**
-- Houston: 172 ⟲ labels read, 171 verified, 139 ranked. Dallas–Fort Worth: 172 ⟲ read, 154 verified, 125 ranked
+- Houston: 172 ⟲ labels read, 171 verified, 143 ranked. Dallas–Fort Worth: 172 ⟲ read, 154 verified, 125 ranked
   (same "6.2¢" plan ranks #82 ⟲ there, $530 ⟲ more a year). All public and re-checkable live.
 - Reading a whole area costs about $1.15 in AI (0.67¢ a label); unchanged labels cost $0 to re-check.
 - English + Spanish on every page (same math, only the words change); contract-end calendar reminders; 276 ⟲ automated tests.
 - Accessibility: 0 axe issues on 27 pages (English + Spanish); Lighthouse accessibility 100 on every page tested.
 - Stays honest as the list changes: a free check of the state's list (one command, run by hand; last run Nov 20) marks
-  plans that have left it (16 in Houston between Nov 16 and Nov 20) so they're never ranked.
+  plans that have left it (12 in Houston between Nov 16 and Nov 20) so they're never ranked.
 - Built and shipped solo in one week.
 (No users yet — say so honestly if asked.)
 
@@ -108,6 +108,6 @@ Houston nonprofit." Keep the number small and tied to concrete costs.
 "Texas gave families the power to choose. Wattch gives them the time back." · getwattch.vercel.app · QR to /demo.
 
 ---
-**Checked (Claude Code, Nov 20; labels read Nov 16, departures checked Nov 20):** $378 / #69 / 139 / 172 / 171 / $1,712 / $1,334 / 6 months / $125 — headline.ts.
+**Checked (Claude Code, Nov 20; labels read Nov 16, departures checked Nov 20):** $378 / #69 / 143 / 172 / 171 / $1,712 / $1,334 / 6 months / $125 — headline.ts.
 Trap counts — summary of /traps data (re-run before slides). 2,519,376 — 1,868,817 + 650,559 from SOURCES.md.
 1,117 kWh — SOURCES.md. $0.68 re-read — PROGRESS.md A1. 1% illustration: 2,519,376 × 1% × $378 = $9.52M.

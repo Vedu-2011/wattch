@@ -1009,7 +1009,7 @@
 - [x] FK4 Test isListed() is true for every id the headline/compare/traps use as an example (both areas)
 - [x] FK5 Docs: say "checked Nov 19 (PT) / Nov 20 (Texas time)" once in SOURCES so the plan-page date and docs agree
 - [ ] FK6 ~06:00 free list check: npx tsx scripts/delisted.ts --dry (add a --dry flag: print only, don't write) — note any new departures
-- [ ] FK7 ~06:30 demo-flow against the LIVE site again (catch overnight provider/Vercel issues)
+- [x] FK7 ~06:30 demo-flow against the LIVE site again (catch overnight provider/Vercel issues)
 - [ ] FK8 07:00 handoff addendum (final-1 asks for a 7 AM handoff)
 - [x] FK9 If FK6 finds new departures: write delisted.json, tests, merge (≥ 2 h since 00:20), verify live
 - [ ] FK10 After 07:00 keep polishing items 1–3 (re-record any clip whose page changed)
@@ -1019,9 +1019,9 @@
 - [x] FL2 SCRIPT/DEVPOST header: "left by Nov 19" → "by Nov 20"
 - [x] FL3 README: one line on how to refresh numbers before recording (delisted --dry → write → npm test shows stale doc lines)
 - [x] FL4 SHOTS.md: re-measure clip lengths after the 02:10 re-record (ffprobe)
-- [ ] FL5 Hourly free list check 03:00, 04:00, 05:00 (--dry; apply only if 2 checks in a row agree)
-- [ ] FL6 FK7 at ~06:30: demo-flow against production
+- [x] FL5 Hourly free list check 03:00, 04:00, 05:00 (--dry; apply only if 2 checks in a row agree)
+- [x] FL6 FK7 at ~06:30: demo-flow against production
 - [ ] FL7 FK8 at 07:00: handoff addendum 3
 - [x] FL8 Spanish: check the new "Nov 20" date reads "20 nov" on a live delisted plan page
-- [ ] FL9 gallery-final: retake after any data change (only if FL5 applies something)
+- [x] FL9 gallery-final: retake after any data change (only if FL5 applies something)
 - [ ] FL10 Merge 4 only if FL5 applies a change (≥ 04:40)

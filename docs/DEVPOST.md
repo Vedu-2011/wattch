@@ -33,7 +33,7 @@ for a number that was never real.
   across a real Houston year using ERCOT's grid data — an August bill is about 2.6× a February one — and prices every
   plan month by month.
 - **The reveal.** For an average 1,100 kWh home, the plan with the lowest advertised price on Power to Choose when Wattch
-  read the list (Simple Saver 3, "6.2¢") ranks **#69 of 139** ⟲ and costs **$378 a year more** ⟲ than the best plan. Why: its $125 credit
+  read the list (Simple Saver 3, "6.2¢") ranks **#69 of 143** ⟲ and costs **$378 a year more** ⟲ than the best plan. Why: its $125 credit
   needs 1,000 kWh, and that home is under 1,000 kWh six months a year. A bar chart shows exactly which months miss.
 - **Proof for every number.** Each plan page shows the label text the AI read with every number the math used
   highlighted. Hover a bill line and its number lights up in the fine print. A table shows the label's own three
@@ -89,7 +89,7 @@ for a number that was never real.
   separates "new file" from "new prices".
 - **Seasons.** My first model used statewide Texas data. I replaced it with Houston-area grid data, which made the
   summer/spring gap bigger — and that's exactly where bill-credit plans hurt.
-- **The list moves.** Between Nov 16 and Nov 20, 16 Houston plans left Power to Choose and about 70 changed their
+- **The list moves.** Between Nov 16 and Nov 20, 12 Houston plans left Power to Choose and about 70 changed their
   advertised price. A plan you can't sign up for shouldn't be anyone's #1, so a free script now checks the state's list (run by hand; last on Nov 20) and
   marks those plans instead of quietly ranking them.
 - **Being honest.** One prepaid plan's label prints prices its own charges don't add up to. Instead of forcing it, the
@@ -139,7 +139,7 @@ Retake with `node scripts/gallery.mjs` (or `node scripts/gallery.mjs 7,8` for ju
 - Demo video: (add)
 
 ## Checked against the code (Claude Code, Nov 20; labels read Nov 16, departures checked Nov 20)
-172 plans / 171 verified / 139 ranked / #69 / $378 / 6 months / $125 / 1,000 kWh / 6.2¢: scripts/headline.ts.
+172 plans / 171 verified / 143 ranked / #69 / $378 / 6 months / $125 / 1,000 kWh / 6.2¢: scripts/headline.ts.
 158 direct / 14 Anakin / median 3,707 ms: data/plans.json. 7 trap kinds: src/lib/trapGuide.ts. 2.6× Aug/Feb: docs/SOURCES.md.
 276 tests: `npm test`. axe 0 on 27 pages: scripts/axe.mjs. Lighthouse a11y 100 on /, /wall, /plan (D2) and /remind, /how,
 Dallas wall, Dallas traps (H7): PROGRESS.md.
@@ -147,5 +147,5 @@ Screen-reader links, heading levels and page language on 19 pages: scripts/link-
 Dallas (added later Nov 16): 172 plans / 154 verified / 125 ranked / #82 / $530: scripts/headline.ts; $1.149 read cost:
 PROGRESS.md (F2). Bill sentence "1,100 kWh × 6.5611¢": src/lib/bill/explain.ts on plan 33633. Questions "6 months, $750":
 src/lib/questions.test.ts.
-"16 left / about 70 re-priced": scripts/delisted.ts + `npx tsx scripts/refresh.ts` dry run, Nov 19–20 (Houston 16 gone, 76
+"12 left / about 70 re-priced": scripts/delisted.ts + `npx tsx scripts/refresh.ts` dry run, Nov 19–20 (Houston 12 gone, 76
 price changes; Dallas 13 gone, 68). EnergyBot quote: docs/SOURCES.md (verified). NOT used: Peltier/Lieber $480 (couldn't find it).

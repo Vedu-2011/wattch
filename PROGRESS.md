@@ -343,3 +343,5 @@ person: Vercel's free build limit was hit at ~04:10 (production after "merge" li
 - 2026-11-20 02:59 PT · FL5 list check ~03:00 (--dry): no change since 02:10 (Houston 16, Dallas 13 gone).
 - 2026-11-20 04:00 PT · list check 04:00: no change.
 - 2026-11-20 05:38 PT · list check ~05:20: first try 'fetch failed' (state site blipped; nothing written — dry run), retry 05:40 OK: no change.
+- 2026-11-20 09:10 PT · The 4 Houston Constellation plans that vanished overnight are BACK on Power to Choose (checks 07:05 + 09:04 agreed) → delisted.json rewritten: 12 Houston + 13 Dallas. Headline back to #69 of 143, $378; usage traps 17; /traps cliff 12, min-fee 9. docs.numbers.test caught all 6 stale docs; fixed; SOURCES tells the overnight story. Tests 276, lint 0, build, check-all 5/5, demo-flow OK, gallery retaken, clips re-recording.
+- 2026-11-20 09:10 PT · FK7 live demo-flow 07:10: iPad run sat on 'Getting every plan…' 30 s once (cold load?); 5 probe loads (~10 s each) + 2 full live flows after = all OK. Not reproducible; SCRIPT setup now says to warm the results page before recording.
