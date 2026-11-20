@@ -961,7 +961,7 @@
 
 ## FG — final-1 polish (Nov 19 23:15)
 - [x] FG1 Wall footnote: say plans that left Power to Choose aren't ranked (EN+ES) — verify + commit
-- [ ] FG2 Merge 2 to main (~00:20, after test/lint/build/check-all), verify live, log
+- [x] FG2 Merge 2 to main (~00:20, after test/lint/build/check-all), verify live, log
 - [x] FG3 /demo at 1920 + iPhone: screenshot each of the 7 scenes into docs/gallery-final/demo-*
 - [x] FG4 Wall tiles: plans that left the list get a small "left the list" tag instead of a plain ✓ (EN+ES)
 - [x] FG5 Plan page for a delisted plan: hide "Check this label again" enroll-style actions that imply you can sign up? (check what shows; only change if misleading)
@@ -969,7 +969,7 @@
 - [x] FG7 Spanish flow at iPhone size: home ES → reveal ES → plan ES, screenshots into docs/gallery-final/es-*
 - [x] FG8 Re-run Lighthouse on /, /wall, /plan/33633 after today's changes; log scores
 - [x] FG9 Fresh clone of origin/overnight with no keys: npm ci, test, build (proves the repo stands alone)
-- [ ] FG10 Morning handoff (7:00 AM or at stop) with the SimpleSaver 12 question at the top
+- [x] FG10 Morning handoff (7:00 AM or at stop) with the SimpleSaver 12 question at the top
 
 ## FH — checks while waiting for merge 2 (Nov 19 23:55)
 - [x] FH1 "Already on a plan?" still finds plans that left the list (people are still on them) and does their switch math — yes (searches all verified plans)
