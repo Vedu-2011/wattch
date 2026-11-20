@@ -45,7 +45,7 @@ Drop order if you run long: 10c first, then the scene-7 line, then 10b. (10c che
 - Live re-check fails (provider site down) → it says so in plain words; say "the provider's site is down right now,
   which is exactly why Wattch keeps the last checked copy" and move on.
 
-**Checked against the code (Claude Code, Nov 19)**
+**Checked against the code (Claude Code, Nov 20; labels read Nov 16, departures checked Nov 20)**
 172 / 171 / 139 / #69 / $378 / $125 / 1,000 kWh / 6 months: scripts/headline.ts at 1,100 kWh with seasons.
 6.2¢: plan 33633 `ptc.k1000` (Nov 16 list). $208 locked: seen in clip 06-locked-12 (Nov 19). Scene 9 "$378 … $150 … 5 months …
 Switch now": seen in clip 09-current-plan. Dallas $530 / #82 of 125: headline.ts + clip 10b-dallas. 7 trap kinds: trapGuide.ts.
@@ -55,5 +55,5 @@ so don't say "puts first" (present tense) unless the data is re-read. Dallas: Si
 Scene 8 on Simple Saver 3 (live, Nov 20 00:40): the re-check answered in 1.5 s — the provider re-issued the file but it
 still prints the same 3 prices, so the page says so. That's a good moment: "the file changed, the prices didn't".
 Clicks (all found in the code): "Average home" (UsagePicker), "Read every plan" (UsagePicker), "Price locked 12+ months"
-(Wall), "Check this label again now" (LiveCheck), "Already on a plan" (CurrentPlan), "Share my result" (ShareButton),
+(Wall), "Check this label again now" (LiveCheck), "Already on a plan" (CurrentPlan), "Share card" (ShareButton),
 header "Traps" (layout). Still do one dry run on the live site before recording.

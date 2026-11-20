@@ -108,6 +108,6 @@ Houston nonprofit." Keep the number small and tied to concrete costs.
 "Texas gave families the power to choose. Wattch gives them the time back." · getwattch.vercel.app · QR to /demo.
 
 ---
-**Checked (Claude Code, Nov 19):** $378 / #69 / 139 / 172 / 171 / $1,712 / $1,334 / 6 months / $125 — headline.ts.
+**Checked (Claude Code, Nov 20; labels read Nov 16, departures checked Nov 20):** $378 / #69 / 139 / 172 / 171 / $1,712 / $1,334 / 6 months / $125 — headline.ts.
 Trap counts — summary of /traps data (re-run before slides). 2,519,376 — 1,868,817 + 650,559 from SOURCES.md.
 1,117 kWh — SOURCES.md. $0.68 re-read — PROGRESS.md A1. 1% illustration: 2,519,376 × 1% × $378 = $9.52M.

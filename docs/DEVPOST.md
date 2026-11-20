@@ -138,7 +138,7 @@ Retake with `node scripts/gallery.mjs` (or `node scripts/gallery.mjs 7,8` for ju
 - Code: https://github.com/Vedu-2011/wattch
 - Demo video: (add)
 
-## Checked against the code (Claude Code, Nov 19)
+## Checked against the code (Claude Code, Nov 20; labels read Nov 16, departures checked Nov 20)
 172 plans / 171 verified / 139 ranked / #69 / $378 / 6 months / $125 / 1,000 kWh / 6.2¢: scripts/headline.ts.
 158 direct / 14 Anakin / median 3,707 ms: data/plans.json. 7 trap kinds: src/lib/trapGuide.ts. 2.6× Aug/Feb: docs/SOURCES.md.
 269 tests: `npm test`. axe 0 on 27 pages: scripts/axe.mjs. Lighthouse a11y 100 on /, /wall, /plan (D2) and /remind, /how,
