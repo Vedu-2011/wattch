@@ -351,3 +351,5 @@ person: Vercel's free build limit was hit at ~04:10 (production after "merge" li
 
 - 2026-11-20 10:08 PT · planner · SCRIPT rows 10b (Dallas) and 10c (Español) are now REQUIRED, not optional (Vedhanth). Video cut must include them (~5:30).
 - 2026-11-20 10:12 PT · final-2 #4: gallery-final looked clean at phone + 1920; one honesty fix found there: 'Today's prices' → 'Prices as of Nov 16' (compare, results footnote, my-12-months note; ES too), variable-plan note 'the price on its label', trap guide 'the plans Wattch ranks' / 'starting price'. 280 tests, lint 0, check-all 5/5, demo-flow OK, galleries retaken.
+- 2026-11-20 10:14 PT · Codex 58 (0ea353e..): clean. Merge waits until ~11:30 (2 h after merge 4). Note: docs/SCRIPT.md was edited by someone else at 10:06 (10b/10c no longer optional) — left uncommitted, not mine today.
+- 2026-11-20 11:00 PT · 11:00 hourly: state list unchanged; live pages 200.
