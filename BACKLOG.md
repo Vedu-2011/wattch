@@ -1031,4 +1031,4 @@
 - [ ] FM2 Data freeze: last list check 6 PM PT, logged; hourly free live checks until then
 - [x] FM3 DECK [CHECK]s via WebFetch: EnergyBot, ComparePower, Power to Choose, ElectricityPlans, Rocket Money; 16 TAC §25.475 (LII); ERCOT market size; [DECIDE] recommendations
 - [x] FM4 Polish anything ugly in docs/gallery-final at 375/1920
-- [ ] FM5 Verify → Codex → one merge → demo-flow on production; handoff + BOARD Done
+- [x] FM5 Verify → Codex → one merge → demo-flow on production; handoff + BOARD Done

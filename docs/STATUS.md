@@ -1,7 +1,15 @@
-# Wattch — STATUS (Claude Code, overnight-2, updated Nov 16 2026 ~06:50 PT)
+# Wattch — STATUS (Claude Code, updated Nov 20 2026 ~11:45 PT)
 
 Live: https://getwattch.vercel.app (main) · Overnight work: branch `overnight` (Vercel preview, 225 commits ahead of
 main, NOT merged — waits for Vedhanth's "merge") · Repo: github.com/Vedu-2011/wattch
+
+## Nov 20 (final-2) — dated wording, sourced deck, merged (main 4a4fc15)
+The app no longer claims anything about today's state list: "the plan the state site **listed first on Nov 16**" /
+"mostraba primero el 16 de nov", "State site's #1, Nov 16", "Prices as of Nov 16". Data frozen at the Nov 16 read with
+12 Houston + 13 Dallas plans marked as gone; last list check 6 PM PT today. Deck competitor table, label rule (16 TAC
+§25.475(g)(2)(C)) and the "8 million premises" market line now quote each source's own page (docs/SOURCES.md).
+Check (2 min, live): results → headline ends "…listed first on Nov 16."; Español → "…mostraba primero el 16 de nov.";
+compare page → "Prices as of Nov 16, before taxes."; share card → "…listed first on Nov 16."
 
 ## Nov 19–20 (final-1) — what changed and how to check it (5 minutes, on the live site)
 Main is merged (merges no longer wait for "merge", max one per ~2 h). Data: the Nov 16 read; 12 Houston + 13 Dallas plans
