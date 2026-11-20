@@ -32,6 +32,8 @@ yarn-error.log*
 
 # local Claude Code preview config
 .claude/
+# local Codex setup (hooks use home-folder paths)
+.codex/
 
 # env files (can opt-in for committing if needed)
 .env*
@@ -44,3 +46,6 @@ yarn-error.log*
 next-env.d.ts
 .trash/
 .overnight-stop
+
+# overnight screenshots stay on disk, not in git (52 MB; docs/gallery/ is the kept set)
+docs/screenshots/overnight-2/

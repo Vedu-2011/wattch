@@ -31,4 +31,8 @@ The rules in ~/Hackathons/CLAUDE.md apply here too. This file adds what's specif
 ## OVERNIGHT RULES (survive context compaction — re-read OVERNIGHT.md whenever unsure)
 - Work loop: BACKLOG.md top item → verify (test, lint, build, screenshots) → commit → `git push origin overnight` → PROGRESS.md → next.
 - Never stop, never ask, never say "done". Never delete (mv to .trash/ + log in _coord/TO-DELETE.md).
-- Never cd+git in one command; one git command per Bash call; edit files with Edit/Write. Never touch main.
+- Never cd+git in one command; one git command per Bash call; edit files with Edit/Write. Merge to main only per MERGES below.
+
+## MERGES (Vedhanth, Nov 19 10:15 PM PT)
+- For Wattch, merges to main no longer need Vedhanth's "merge": merge when test + lint + build + check-all pass and
+  the live site is verified right after. Max one merge every ~2 hours (Vercel free build limit). Log each in PROGRESS.md.

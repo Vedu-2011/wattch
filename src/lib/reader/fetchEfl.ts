@@ -23,9 +23,35 @@ async function pdfText(bytes: Uint8Array): Promise<string> {
 
 const looksLikeEfl = (t: string) => /average\s+(monthly\s+)?(use|usage)|average price/i.test(t) && /kwh/i.test(t);
 
+/**
+ * Some label links don't lead straight to the label. Where the same label sits at a plainer address, use that:
+ * - Vistra's shopping sites (Express Energy, Veteran Energy, TriEagle) open a viewer page that builds the PDF in
+ *   the browser (a blob iframe). The PDF itself comes from /api/getdocument with the same plan code.
+ * - Power to Choose links one Octopus plan to the Spanish label; the English one has the same plan code.
+ */
+export function plainLabelUrl(url: string, today = new Date()): string {
+  const u = new URL(url);
+  if (/\/PDFGenerator$/i.test(u.pathname) && u.searchParams.get("formType") === "EnergyFactsLabel" && u.searchParams.get("comProdId")) {
+    const q = new URLSearchParams({
+      docType: "EnergyFactsLabel",
+      productid: u.searchParams.get("comProdId")!,
+      efldate: `${today.toISOString().slice(0, 10)}T00:00:00`,
+      tdsp: u.searchParams.get("tdsp") ?? "CENTERP",
+      language: u.searchParams.get("lang") ?? "en",
+      classification: u.searchParams.get("custClass") ?? "Residential",
+    });
+    return `${u.origin}/api/getdocument?${q}`;
+  }
+  if (u.hostname.endsWith("octopusenergy.com") && u.pathname.startsWith("/es/")) {
+    u.pathname = u.pathname.slice(3);
+    return u.toString();
+  }
+  return url;
+}
+
 /** Plain fetch first (free). If the page needs a real browser, or the site blocks us, ask Anakin.io to read it. */
 export async function fetchEfl(rawUrl: string, opts: { anakinKey?: string; timeoutMs?: number } = {}): Promise<FetchedEfl> {
-  const url = safeUrl(rawUrl);
+  const url = plainLabelUrl(safeUrl(rawUrl));
   const t0 = Date.now();
   try {
     const res = await fetch(url, { headers: { "User-Agent": UA }, redirect: "follow", signal: AbortSignal.timeout(opts.timeoutMs ?? 25000) });
@@ -46,14 +72,23 @@ export async function fetchEfl(rawUrl: string, opts: { anakinKey?: string; timeo
 export async function anakinRead(url: string, t0 = Date.now(), key?: string): Promise<FetchedEfl> {
   const headers: Record<string, string> = { "Content-Type": "application/json" };
   if (key) headers["X-API-Key"] = key;
-  const res = await fetch("https://api.anakin.io/v1/url-scraper/scrape", {
-    method: "POST", headers, body: JSON.stringify({ url }), signal: AbortSignal.timeout(110000),
-  });
+  let res = await scrape(url, headers);
+  // too many at once: wait and try again (2 more tries) before giving up
+  for (let i = 0; res.status === 429 && i < 2; i++) {
+    await new Promise((r) => setTimeout(r, 4000 * (i + 1)));
+    res = await scrape(url, headers);
+  }
   if (!res.ok) throw new ReadError(res.status === 402 ? "Out of Anakin.io reads for now." : `Anakin.io couldn't open this page (${res.status}).`);
   const data = (await res.json()) as { markdown?: string; finalUrl?: string };
   const text = data.markdown ?? "";
   if (!looksLikeEfl(text)) throw new ReadError("The page opened, but it doesn't look like a fine-print label.");
   return { text, via: "anakin", sha256: sha(new TextEncoder().encode(text)), ms: Date.now() - t0, finalUrl: data.finalUrl ?? url };
+}
+
+function scrape(url: string, headers: Record<string, string>) {
+  return fetch("https://api.anakin.io/v1/url-scraper/scrape", {
+    method: "POST", headers, body: JSON.stringify({ url }), signal: AbortSignal.timeout(110000),
+  });
 }
 
 export function sha(b: Uint8Array) {

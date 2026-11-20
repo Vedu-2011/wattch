@@ -3,10 +3,11 @@ import { describe, expect, it } from "vitest";
 import { labelCheck, monthlyBill } from "@/lib/bill";
 import type { PlanRecord } from "@/lib/plans/schema";
 import { fillTdu, grounded } from "./parse";
-import { rescue, tduCandidates, textSha, type ManualRead } from "./rescue";
-import { ptcAveragesOnLabel, readSoFedForm } from "./templates";
+import { explainMismatch, rescue, slipFixes, tduCandidates, textSha, type ManualRead } from "./rescue";
+import { ptcAveragesOnLabel, readProntoLabel, readSoFedForm } from "./templates";
 
-const text = (id: string) => readFileSync(`data/text/${id}.txt`, "utf8");
+// frozen copies of real labels (Nov 15 2026): data/text changes every time a label is re-fetched
+const text = (id: string) => readFileSync(`test-data/labels/${id}.txt`, "utf8");
 const manual = (id: string) => JSON.parse(readFileSync(`data/manual/${id}.json`, "utf8")) as ManualRead;
 const CNP = [{ cents: 6.5333, monthly: 4.9 }, { cents: 6.5611, monthly: 4.9 }];
 
@@ -89,10 +90,92 @@ describe("hand-reads in data/manual are still checked by code", () => {
   });
 });
 
+describe("Pronto Power labels (prepaid, real text)", () => {
+  it("Saver One: bundled 17.53¢ rate + $0.39/day × 30 → 19.9 / 18.7 / 18.1", () => {
+    const p = readProntoLabel(text("36326"))!;
+    expect(p.energyTiers[0].cents).toBe(17.53);
+    expect(p.baseChargeDollars).toBe(11.7);
+    expect([p.tduCentsPerKwh, p.tduMonthlyDollars]).toEqual([0, 0]);
+    expect(labelCheck(p).rows.map((r) => r.ours)).toEqual([19.9, 18.7, 18.1]);
+  });
+  it("Fall 2026: energy 8.3067¢ + printed CenterPoint delivery + daily fee → 18.2 / 16.5 / 15.7; $50 fee, 3 months", () => {
+    const p = readProntoLabel(text("36760"))!;
+    expect([p.energyTiers[0].cents, p.tduCentsPerKwh, p.tduMonthlyDollars]).toEqual([8.3067, 6.5333, 4.9]);
+    expect([p.termMonths, p.earlyTerminationFee.dollars]).toEqual([3, 50]);
+    expect(labelCheck(p).ok).toBe(true);
+  });
+  it("'Power To Choose' plan: its printed charges don't add up to its averages → explained, not verified", () => {
+    const rec = { meta: { ptc: { k500: 17.6, k1000: 15.9, k2000: 15.1 } }, pricing: null,
+      check: { status: "mismatch", rows: [], message: "" } } as unknown as PlanRecord;
+    expect(rescue({ ...rec, read: { parsedBy: "x" } } as PlanRecord, text("33670"), CNP)).toBeNull();
+    const e = explainMismatch(text("33670"), rec);
+    expect(e.check.message).toContain("come to 18.2¢ / 17.1¢ / 16.5¢, not the 17.6¢ / 15.9¢ / 15.1¢");
+    expect(e.check.rows.every((r) => !r.ok)).toBe(true);
+  });
+  it("only applies to Pronto labels", () => {
+    expect(readProntoLabel(text("36619"))).toBeNull();
+  });
+});
+
+describe("small reader slips fixed by code (Nov 15 re-read)", () => {
+  const base = {
+    baseChargeDollars: 0, energyTiers: [{ fromKwh: 0, cents: 11.09 }], tduCentsPerKwh: 6.5333, tduMonthlyDollars: 4.9,
+    credits: [], usageFees: [], amortizedFees: [], touPeriods: [], termMonths: 12,
+    earlyTerminationFee: { dollars: 100, perMonthRemaining: false }, labelAvg: { k500: 18.6, k1000: 8.1, k2000: 12.9 }, notes: [],
+  };
+  it("Spark Sure Saver 12: a $100 credit read as starting at 1,000.01 kWh → label's 8.1¢ at 1,000 needs it at 1,000", () => {
+    const p = { ...base, credits: [{ minKwh: 1000.01, maxKwh: null, dollars: 100, label: "credit", conditional: false }] };
+    expect(labelCheck(p).ok).toBe(false);
+    const fixes = slipFixes(p);
+    expect(fixes).toHaveLength(1);
+    expect(fixes[0].pricing.credits[0].minKwh).toBe(1000);
+    expect(labelCheck(fixes[0].pricing).rows.map((r) => r.ours)).toEqual([18.6, 8.1, 12.9]);
+  });
+  it("Just Energy Days Bundle: 'Day Hours credited back' read as −4.1¢ → 0¢ rebuilds 11.1 / 10.2 / 9.8", () => {
+    const p = {
+      ...base, energyTiers: [{ fromKwh: 0, cents: 4.1 }], tduCentsPerKwh: 6.5611, termMonths: 3,
+      amortizedFees: [{ dollars: 49.99, months: 12, label: "setup" }],
+      touPeriods: [{ label: "Day Hours credit", share: 0.33, cents: -4.1 }, { label: "other", share: 0.67, cents: 4.1 }],
+      labelAvg: { k500: 11.1, k1000: 10.2, k2000: 9.8 },
+    };
+    expect(labelCheck(p).ok).toBe(false);
+    const [fix] = slipFixes(p);
+    expect(fix.pricing.touPeriods[0].cents).toBe(0);
+    expect(labelCheck(fix.pricing).ok).toBe(true);
+  });
+  it("leaves real bonus credits alone (TXU's −4.65¢ isn't the negative of another period's price)", () => {
+    const p = { ...base, touPeriods: [{ label: "night bonus", share: 0.1, cents: -4.65 }, { label: "all", share: 0.9, cents: 18.6 }] };
+    expect(slipFixes(p)).toEqual([]);
+  });
+  it("rescue only keeps a fix when the label check passes", () => {
+    const p = { ...base, credits: [{ minKwh: 1000.01, maxKwh: null, dollars: 5, label: "credit", conditional: false }] };
+    const rec = { meta: { ptc: { k500: 0, k1000: 0, k2000: 0 } }, read: { parsedBy: "x" }, pricing: p,
+      check: { status: "mismatch", rows: [], message: "" } } as unknown as PlanRecord;
+    expect(rescue(rec, "", [])).toBeNull();
+  });
+});
+
 describe("averages must sit in the price row", () => {
   const ptc = { k500: 19.2, k1000: 6.2, k2000: 12.2 };
   it("accepts a row of three prices", () => {
     expect(ptcAveragesOnLabel("Average price per kWh 19.2¢ 6.2¢ 12.2¢", ptc)).toBe(true);
+  });
+  it("accepts a price printed with two decimals (Express: '20.6¢ 7.60¢ 13.7¢')", () => {
+    expect(ptcAveragesOnLabel(text("36619"), { k500: 20.6, k1000: 7.6, k2000: 13.7 })).toBe(true);
+  });
+  it("Express Flash Value 12: right read, delivery 'passed through as billed' → CenterPoint's charges make all 3 match", () => {
+    const pricing = {
+      baseChargeDollars: 0, energyTiers: [{ fromKwh: 0, cents: 13.097 }], tduCentsPerKwh: 0, tduMonthlyDollars: 0,
+      credits: [{ minKwh: 999, maxKwh: null, dollars: 125, label: "Monthly Bill Credit", conditional: false }],
+      usageFees: [], amortizedFees: [], touPeriods: [], termMonths: 12, earlyTerminationFee: { dollars: 20, perMonthRemaining: true },
+      labelAvg: { k500: 20.6, k1000: 7.6, k2000: 13.7 }, notes: [],
+    };
+    const rec = { meta: { ptc: { k500: 20.6, k1000: 7.6, k2000: 13.7 } }, read: { parsedBy: "claude-haiku-5-5" }, pricing,
+      check: { status: "mismatch", rows: [], message: "" } } as unknown as PlanRecord;
+    const fix = rescue(rec, text("36619"), CNP)!;
+    expect(fix.tduFilled).toBe(true);
+    expect(fix.rows.every((r) => r.ok)).toBe(true);
+    expect(fix.rows.map((r) => r.ours).slice(0, 2)).toEqual([20.6, 7.6]);
   });
   it("rejects the same numbers scattered around the label", () => {
     expect(ptcAveragesOnLabel("Renewable 19.2 ¢ … deposit 6.2 ¢ … late fee 12.2 ¢", ptc)).toBe(false);

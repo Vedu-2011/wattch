@@ -3,7 +3,8 @@ import type { PlanPricing } from "@/lib/plans/schema";
 /** Rounds to cents. */
 const cents = (d: number) => Math.round(d * 100) / 100;
 
-export type BillLine = { label: string; dollars: number };
+/** key ties a bill line to the label numbers it was built from (see src/lib/finePrint.ts). */
+export type BillLine = { label: string; dollars: number; key: string };
 
 /** Energy charge in dollars for one month, using blocks or the time-of-use mix the EFL assumes. */
 export function energyDollars(p: PlanPricing, kwh: number): number {
@@ -25,17 +26,17 @@ export function energyDollars(p: PlanPricing, kwh: number): number {
 export function billLines(p: PlanPricing, kwh: number, opts: { includeConditional?: boolean } = {}): BillLine[] {
   const includeConditional = opts.includeConditional ?? true;
   const lines: BillLine[] = [
-    { label: "Energy charge", dollars: energyDollars(p, kwh) },
-    { label: "Base charge", dollars: p.baseChargeDollars },
-    { label: "Delivery per kWh", dollars: (kwh * p.tduCentsPerKwh) / 100 },
-    { label: "Delivery monthly fee", dollars: p.tduMonthlyDollars },
+    { label: "Energy charge", dollars: energyDollars(p, kwh), key: "energy" },
+    { label: "Base charge", dollars: p.baseChargeDollars, key: "base" },
+    { label: "Delivery per kWh", dollars: (kwh * p.tduCentsPerKwh) / 100, key: "tduKwh" },
+    { label: "Delivery monthly fee", dollars: p.tduMonthlyDollars, key: "tduMonthly" },
   ];
-  for (const f of p.usageFees) if (kwh < f.belowKwh) lines.push({ label: f.label, dollars: f.dollars });
-  for (const f of p.amortizedFees) lines.push({ label: `${f.label} (spread over ${f.months} mo)`, dollars: f.dollars / f.months });
-  for (const c of p.credits) {
-    if (c.conditional && !includeConditional) continue;
-    if (kwh >= c.minKwh && (c.maxKwh === null || kwh <= c.maxKwh)) lines.push({ label: c.label, dollars: -c.dollars });
-  }
+  p.usageFees.forEach((f, i) => { if (kwh < f.belowKwh) lines.push({ label: f.label, dollars: f.dollars, key: `fee-${i}` }); });
+  p.amortizedFees.forEach((f, i) => lines.push({ label: `${f.label} (spread over ${f.months} mo)`, dollars: f.dollars / f.months, key: `amort-${i}` }));
+  p.credits.forEach((c, i) => {
+    if (c.conditional && !includeConditional) return;
+    if (kwh >= c.minKwh && (c.maxKwh === null || kwh <= c.maxKwh)) lines.push({ label: c.label, dollars: -c.dollars, key: `credit-${i}` });
+  });
   return lines;
 }
 

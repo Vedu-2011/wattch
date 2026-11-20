@@ -2,7 +2,7 @@ Electricity Facts Label (EFL)
 Spark Energy, LLC
 CenterPoint Energy Service Area
 Choose 6
-ISSUE DATE: 11/15/2026
+ISSUE DATE: 11/16/2026
 Electricity
 Price
 Average Monthly Use (Residential) 500 kWh 1000 kWh 2000 kWh

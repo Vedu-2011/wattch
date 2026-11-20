@@ -1,0 +1,74 @@
+{
+ "source": "ERCOT Backcasted (Actual) Load Profiles, residential profiles for the COAST weather zone (Houston), mixed by ERCOT's count of CenterPoint homes in each",
+ "url": "https://www.ercot.com/mktinfo/loadprofile/alp",
+ "countsUrl": "https://www.ercot.com/mktinfo/loadprofile",
+ "years": [
+  2023,
+  2024,
+  2025
+ ],
+ "weights": {
+  "RESLOWR_COAST": 1868817,
+  "RESHIWR_COAST": 650559,
+  "countsDate": "2026-11-02"
+ },
+ "note": "By calendar month. A profile is ERCOT's modeled average home in that class, not a meter reading of any one home.",
+ "kwhPerHome": [
+  944.8,
+  836.8,
+  896.0,
+  1041.3,
+  1468.6,
+  1831.5,
+  1998.2,
+  2169.8,
+  1718.6,
+  1327.6,
+  916.2,
+  869.5
+ ],
+ "shape": [
+  0.7078,
+  0.6267,
+  0.671,
+  0.7801,
+  1.1005,
+  1.3721,
+  1.4963,
+  1.6255,
+  1.2872,
+  0.9948,
+  0.6867,
+  0.6513
+ ],
+ "compare": {
+  "RESLOWR_COAST": [
+   0.5862,
+   0.5583,
+   0.6643,
+   0.7909,
+   1.1316,
+   1.4246,
+   1.5545,
+   1.6868,
+   1.3337,
+   1.0183,
+   0.6716,
+   0.5792
+  ],
+  "RESHIWR_COAST": [
+   1.0797,
+   0.8357,
+   0.6917,
+   0.7471,
+   1.0054,
+   1.2116,
+   1.3182,
+   1.4378,
+   1.1448,
+   0.923,
+   0.7329,
+   0.8719
+  ]
+ }
+}

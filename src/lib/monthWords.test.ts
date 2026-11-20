@@ -1,0 +1,26 @@
+import { describe, expect, it } from "vitest";
+import { COMPARE_WORDS } from "@/lib/compareWords";
+import { WORDS } from "@/lib/i18n";
+import { PLAN_WORDS } from "@/lib/planWords";
+import { CURRENT_WORDS } from "@/lib/wallToolsWords";
+
+// "1 months", "1 meses" and "0 months" showed on variable plans; terms read like a person wrote them.
+describe("month wording", () => {
+  for (const W of [PLAN_WORDS, COMPARE_WORDS]) {
+    it("plan terms", () => {
+      expect([W.en.months(0), W.en.months(1), W.en.months(12)]).toEqual(["month to month", "1 month", "12 months"]);
+      expect([W.es.months(0), W.es.months(1), W.es.months(12)]).toEqual(["mes a mes", "1 mes", "12 meses"]);
+    });
+  }
+  it("short-price chip and payback", () => {
+    expect(WORDS.es.monthPrice(1)).toBe("precio por 1 mes");
+    expect(WORDS.es.monthPrice(3)).toBe("precio por 3 meses");
+    expect(CURRENT_WORDS.es.mo(1)).toBe("1 mes");
+    expect(WORDS.en.monthsUnder(1, 1000)).toBe("1 month under 1,000 kWh");
+    expect(WORDS.es.monthsUnder(1, 1000)).toBe("1 mes por debajo de 1,000 kWh");
+    expect(WORDS.en.monthsUnder(6, 1000)).toBe("6 months under 1,000 kWh");
+    expect(PLAN_WORDS.es.readBy("hand-read by Claude Code, Nov 15 2026")).toBe("leída a mano por Claude Code, 15 nov 2026");
+    expect(PLAN_WORDS.es.readBy("claude-haiku-5-5")).toBe("leída por claude-haiku-5-5");
+    expect(PLAN_WORDS.en.readBy("hand-read by Claude Code, Nov 15 2026")).toBe("hand-read by Claude Code, Nov 15 2026");
+  });
+});

@@ -37,7 +37,7 @@ the newest file in ~/Hackathons/_coord/handoffs/ (overnight-1). Then:
   Move unwanted files to .trash/ and log them in ~/Hackathons/_coord/TO-DELETE.md.
 - Never `cd` then git in one command. Run git alone from the project root, or `git -C "<abs path>"`.
 - One git command per Bash call. Edit files with Edit/Write, not sed/awk/heredocs.
-- Never touch `main`, never force-push, never rewrite history.
+- Never force-push, never rewrite history. Merge to main only per CLAUDE.md "MERGES".
 - Non-interactive only: `git commit -m`, `npx --yes`, `npm init -y`, `playwright --reporter=line`.
   No vim/nano/less/man, no `vercel` CLI, no sudo/brew/global installs. Background dev servers and stop them after.
 - Stay inside ~/Hackathons/Triple H (plus _coord for BOARD/handoffs/logs). Don't edit .claude/.

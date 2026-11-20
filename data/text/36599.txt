@@ -2,7 +2,7 @@ Electricity Facts Label (EFL)
 TXU Energy Retail Company LLC
 TXU Energy Free Nights & Cool Summer 12SM
 Service Area - CenterPoint Energy
-November 15, 2026
+November 16, 2026
 Electricity
 Price
 Average Monthly Use 500 kWh 1000 kWh 2000 kWh
@@ -83,7 +83,7 @@ P.O. Box 650764 Dallas, TX 75265-0764
 email: txuenergy@txu.com website: txu.com
 Version:
 CPXFNCOOLS12AD
-November 15, 2026
+November 16, 2026
 10142026_UNB
 Additional
 Detail

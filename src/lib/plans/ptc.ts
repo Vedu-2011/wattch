@@ -3,6 +3,14 @@ import type { PlanMeta } from "./schema";
 export const PTC_CSV_URL = "https://www.powertochoose.org/en-us/Plan/ExportToCsv";
 export const HOUSTON_TDU = "CENTERPOINT ENERGY HOUSTON ELECTRIC LLC";
 
+/** The areas Wattch reads. Each is one delivery utility (TDU) on Power to Choose; Houston is the main one. */
+export const AREAS = {
+  houston: { tdu: HOUSTON_TDU, city: "Houston", utility: "CenterPoint", dataFile: "data/plans.json", textDir: "data/text" },
+  dallas: { tdu: "ONCOR ELECTRIC DELIVERY COMPANY", city: "Dallas–Fort Worth", utility: "Oncor", dataFile: "data/plans-dallas.json", textDir: "data/text-dallas" },
+} as const;
+export type Area = keyof typeof AREAS;
+export const asArea = (v: string | null | undefined): Area => (v === "dallas" ? "dallas" : "houston");
+
 /** Small CSV parser that handles quoted fields with commas and quotes. */
 export function parseCsv(text: string): string[][] {
   const rows: string[][] = [];
@@ -28,11 +36,16 @@ export function parseCsv(text: string): string[][] {
 
 /** Power to Choose CSV → Houston (CenterPoint), English listings. */
 export function houstonPlans(csv: string): PlanMeta[] {
+  return areaPlans(csv, "houston");
+}
+
+/** Power to Choose CSV → one area's English listings. */
+export function areaPlans(csv: string, area: Area): PlanMeta[] {
   const [head, ...rows] = parseCsv(csv.replace(/^﻿/, ""));
   const ix = (name: string) => head.indexOf(`[${name}]`);
   const g = (r: string[], name: string) => (r[ix(name)] ?? "").trim();
   return rows
-    .filter((r) => g(r, "TduCompanyName") === HOUSTON_TDU && g(r, "Language") === "English" && g(r, "FactsURL"))
+    .filter((r) => g(r, "TduCompanyName") === AREAS[area].tdu && g(r, "Language") === "English" && g(r, "FactsURL"))
     .map((r) => ({
       id: g(r, "idKey"),
       provider: g(r, "RepCompany"),

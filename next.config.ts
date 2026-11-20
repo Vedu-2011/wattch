@@ -3,6 +3,8 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   cacheComponents: true,
+  // plan pages show the label text the reader saw, read from disk at request time
+  outputFileTracingIncludes: { "/plan/*": ["./data/text/**/*", "./data/text-dallas/**/*"] },
   partialPrefetching: true,
   turbopack: {
     rules: {

@@ -17,7 +17,7 @@ const plan = (id: string, p: PlanPricing, over: Partial<ClientPlan> = {}): Clien
 const apGas = pricing({ energyTiers: [{ fromKwh: 0, cents: 11.649 }], tduCentsPerKwh: 6.5611, credits: [{ minKwh: 1000, maxKwh: null, dollars: 125, label: "Usage credit", conditional: false }] });
 const flat11 = pricing({ energyTiers: [{ fromKwh: 0, cents: 3.5 }] }); // ~10¢ all-in, like the real winner
 
-describe("Texas seasons (EIA-861M, 2023–2025)", () => {
+describe("Houston seasons (ERCOT Coast profiles, 2023–2025)", () => {
   it("12 months that average to 1.0", () => {
     expect(SEASON_SHAPE).toHaveLength(12);
     expect(SEASON_SHAPE.reduce((s, v) => s + v, 0) / 12).toBeCloseTo(1, 3);

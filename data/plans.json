@@ -1,11 +1,10 @@
 {
- "builtAt": "2026-11-16T05:58:09.704Z",
+ "builtAt": "2026-11-16T07:03:52.084Z",
  "source": "https://www.powertochoose.org/en-us/Plan/ExportToCsv",
  "model": "claude-haiku-5-5",
  "counts": {
-  "verified": 161,
-  "unread": 8,
-  "mismatch": 3
+  "verified": 171,
+  "mismatch": 1
  },
  "plans": [
   {
@@ -462,18 +461,18 @@
      "k2000": 14.1
     },
     "notes": [
-     "Early termination fee is $20 per month remaining in term",
-     "Price can change for TDU, PUCT and other pass-through charges",
-     "Average price excludes taxes, TDU underground fees, and non-recurring charges",
-     "Renewable content is 23%, below Texas average of 37%"
+     "Early termination fee is $20 per month remaining in term.",
+     "Price can change for TDU charges and other pass-through costs.",
+     "Averages exclude taxes, TDU underground fees, and municipal charges.",
+     "Non-recurring fees in Terms of Service are not included in price."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:09.258Z",
+    "fetchedAt": "2026-11-16T06:51:41.827Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "a6f7056398578eb1c692edf6509f8b4a4ffd6bc9d346070c9e516e4403979033",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 4977
+    "readMs": 5420
    },
    "check": {
     "status": "verified",
@@ -545,17 +544,17 @@
     },
     "notes": [
      "Early termination fee is $20 per month remaining in term.",
-     "Price may change for TDU, RCOT, PUCT or other fee changes.",
-     "Averages exclude taxes, underground fees, and municipal charges.",
-     "Non-recurring charges are not included in the price."
+     "Prices can change for TDU, RCOT, PUCT and other fee changes.",
+     "Average price excludes taxes, TDU underground fees, and municipal charges.",
+     "Non-recurring charges are listed in Terms of Service, not included in price."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:19.323Z",
+    "fetchedAt": "2026-11-16T06:51:53.238Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "5f24936c7a034ad0b54bf8c0547fb0a94982419185204ad737c605a7fc13d606",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 5528
+    "readMs": 5089
    },
    "check": {
     "status": "verified",
@@ -602,7 +601,7 @@
     }
    },
    "pricing": {
-    "baseChargeDollars": 4.9,
+    "baseChargeDollars": 0,
     "energyTiers": [
      {
       "fromKwh": 0,
@@ -610,7 +609,7 @@
      }
     ],
     "tduCentsPerKwh": 6.5611,
-    "tduMonthlyDollars": 0,
+    "tduMonthlyDollars": 4.9,
     "credits": [],
     "usageFees": [],
     "amortizedFees": [],
@@ -626,18 +625,18 @@
      "k2000": 15.3
     },
     "notes": [
-     "Average prices exclude JustGreen charge and sales taxes.",
-     "Exit fee is $175 per ESIID if you terminate early.",
-     "Price can change with TDU/TDSP and government-imposed charges.",
-     "Some locations may have extra TDSP underground facilities charge."
+     "Exit fee is $175 per ESIID",
+     "Price can change with TDU/TDSP and regulatory charges",
+     "Average price excludes JustGreen charge and sales taxes",
+     "Renewable content is 22%"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:53.478Z",
-    "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fetchedAt": "2026-11-16T06:51:25.047Z",
+    "via": "anakin",
+    "sha256": "a56e7076dbb222b3ddc47975d5d05856a7083dc046228d7e934364aed867f6e3",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 4507
+    "readMs": 16779
    },
    "check": {
     "status": "verified",
@@ -708,18 +707,18 @@
      "k2000": 15.3
     },
     "notes": [
-     "Average prices exclude JustGreen charge and sales taxes.",
+     "Average price excludes JustGreen charge and sales taxes.",
      "Exit fee is $175 per ESIID.",
-     "Price can change with TDU/TDSP and government fee changes.",
-     "Some cities may add TDSP underground facilities charge not shown."
+     "Price can change with TDU/TDSP and regulatory charges.",
+     "Some cities add TDSP underground facilities charge not shown."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:09.214Z",
-    "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fetchedAt": "2026-11-16T06:56:16.789Z",
+    "via": "anakin",
+    "sha256": "6ffe52b0f6472e80462b0be28371325640e6855dd0af1fc3c36ff4b1ad634a11",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 5446
+    "readMs": 13637
    },
    "check": {
     "status": "verified",
@@ -804,18 +803,18 @@
      "k2000": 14.9
     },
     "notes": [
-     "$125 credit only if usage is at least 1,000 kWh per billing cycle",
-     "Credit may not apply in partial billing cycles at contract start or end",
-     "Minimum usage fee $4.99 applies to cycles under 400 kWh",
-     "Average price excludes JustGreen charge, sales taxes, and city-specific charges"
+     "Power Perks Credit of $125 applies only at 1,000 kWh or more per cycle.",
+     "Minimum Usage Fee of $4.99 applies to cycles under 400 kWh.",
+     "Exit fee is $175 per ESIID.",
+     "Average prices exclude JustGreen charge, taxes, and some city fees."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:04.862Z",
-    "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fetchedAt": "2026-11-16T07:00:00.721Z",
+    "via": "anakin",
+    "sha256": "9f188fb6e1bbe24c9a60ca0154631c5eab109defc34a702e6f22c581a321283b",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 5100
+    "readMs": 16407
    },
    "check": {
     "status": "verified",
@@ -877,7 +876,7 @@
      {
       "dollars": 49.99,
       "months": 12,
-      "label": "One-time GoodBundle setup and carbon offset purchase"
+      "label": "GoodBundle setup and carbon offset purchase"
      }
     ],
     "touPeriods": [],
@@ -892,18 +891,18 @@
      "k2000": 9.9
     },
     "notes": [
-     "Price excludes JustGreen charge",
-     "One-time $49.99 setup fee spread into averages over 12 months",
-     "Exit fee $175 per ESI ID",
-     "Averages exclude sales taxes and other government charges"
+     "Average prices exclude JustGreen charge.",
+     "One-time $49.99 GoodBundle setup fee required to enroll.",
+     "Exit fee is $175 per ESI ID.",
+     "TDSP customer charge of $4.90 per month is passed through."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:00.680Z",
-    "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fetchedAt": "2026-11-16T06:54:26.946Z",
+    "via": "anakin",
+    "sha256": "c156aa06f456ba7f15f5e776dd12a114ce2e938c023da39f46fd90776cbcf747",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 6540
+    "readMs": 18057
    },
    "check": {
     "status": "verified",
@@ -997,11 +996,11 @@
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:51:53.640Z",
+    "fetchedAt": "2026-11-16T06:50:48.057Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "",
     "parsedBy": "hand-read by Claude Code, Nov 15 2026",
-    "readMs": 7494
+    "readMs": 0
    },
    "check": {
     "status": "verified",
@@ -1062,7 +1061,7 @@
       "minKwh": 1000,
       "maxKwh": null,
       "dollars": 125,
-      "label": "$125 credit when usage is >= 1,000 kWh in a billing cycle",
+      "label": "$125 credit when usage >= 1,000 kWh per billing cycle",
       "conditional": false
      }
     ],
@@ -1080,18 +1079,18 @@
      "k2000": 12.2
     },
     "notes": [
-     "$125 credit applies only when usage is at least 1,000 kWh.",
-     "Price is fixed for 3 months; may change only for specified pass-through reasons.",
-     "Early termination fee is $150 flat.",
-     "Averages exclude sales tax and Gross Receipts Reimbursement."
+     "Price is fixed for 3 months only, then may change.",
+     "$125 credit applies only when usage is 1,000 kWh or more.",
+     "Early termination fee is $150.00.",
+     "TDSP delivery charges are passed through and may change."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:58.376Z",
+    "fetchedAt": "2026-11-16T06:56:50.511Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "parsedBy": "claude-haiku-5-5 + averages from Power to Choose",
-    "readMs": 5786
+    "sha256": "d775bcc46f1ba827eda0b051f679f225fc9c7c2215a465f0122a1c08ad7ac78f",
+    "parsedBy": "claude-haiku-5-5",
+    "readMs": 3707
    },
    "check": {
     "status": "verified",
@@ -1115,7 +1114,7 @@
       "ok": true
      }
     ],
-    "message": "The reader copied one average wrong; with the averages the label prints, all 3 match."
+    "message": "All 3 label averages match."
    }
   },
   {
@@ -1152,7 +1151,7 @@
       "minKwh": 1000,
       "maxKwh": null,
       "dollars": 125,
-      "label": "$125 credit when usage is >= 1,000 kWh in a billing cycle",
+      "label": "$125 credit when usage >= 1,000 kWh per billing cycle",
       "conditional": false
      }
     ],
@@ -1170,18 +1169,18 @@
      "k2000": 12.5
     },
     "notes": [
-     "$125 credit only when usage is at least 1,000 kWh per cycle",
-     "Early termination fee is $150 flat",
-     "Price can change for TDSP, ERCOT, and regulatory cost changes",
-     "Delivery charges include $4.90 monthly plus 6.56110¢ per kWh"
+     "$125 credit only when usage is at least 1,000 kWh",
+     "Early termination fee $150 if you leave early",
+     "Price may change for TDSP, ERCOT, or regulatory fee changes",
+     "Average prices shown are for 500, 1,000, 2,000 kWh as printed"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:58.062Z",
-    "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fetchedAt": "2026-11-16T06:51:29.080Z",
+    "via": "anakin",
+    "sha256": "f7daf2c73198dd0cc006837e85de2c2259ae06085a818bd95df2a88347c7af85",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 2939
+    "readMs": 32882
    },
    "check": {
     "status": "verified",
@@ -1252,18 +1251,18 @@
      "k2000": 12.8
     },
     "notes": [
-     "Price is fixed for 14 months; may change only for listed reasons.",
-     "Early termination fee is $175.00.",
-     "Delivery charges include $4.90 monthly plus 6.5611¢ per kWh.",
-     "Average prices exclude sales tax and Gross Receipts Reimbursement."
+     "Fixed rate 14 months; early termination fee $175.00",
+     "Delivery charges passed through: 6.5611¢/kWh plus $4.90/month",
+     "Price may change for TDSP, ERCOT, or regulatory fee changes",
+     "Product is 5.85% renewable; sales taxes not included"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:57.986Z",
+    "fetchedAt": "2026-11-16T06:51:28.998Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "bfe9748c0fe966f531c6550dd53398440e6daa32c9ad6ff4d3e78a7cc7cae892",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 2923
+    "readMs": 3176
    },
    "check": {
     "status": "verified",
@@ -1334,18 +1333,18 @@
      "k2000": 11.8
     },
     "notes": [
-     "Price may change for TDSP charges and government-imposed fees.",
-     "Early termination fee is $125.00 flat.",
-     "Base charge is $0; TDSP delivery charges add $4.90 monthly.",
-     "Average prices exclude sales tax and Gross Receipts Reimbursement."
+     "Fixed rate for 12 months; early termination fee $125.00",
+     "Price may change for TDSP, ERCOT, or regulatory fee changes",
+     "Monthly TDSP delivery charges of $4.90 plus 6.5611¢/kWh apply",
+     "Product is 5.85% renewable"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:56.468Z",
+    "fetchedAt": "2026-11-16T06:51:25.736Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "2ee70658dc7a6182b4275d15ec2824f2d16406a844d7b9bcbab0a1fad5eba648",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 2922
+    "readMs": 3343
    },
    "check": {
     "status": "verified",
@@ -1416,18 +1415,18 @@
      "k2000": 13.3
     },
     "notes": [
-     "Fixed rate for 24 months; early termination fee $175.00.",
-     "Price may change for TDSP charges, ERCOT fees, or new laws.",
-     "Monthly TDSP delivery charge $4.90 plus per-kWh delivery charge applies.",
-     "Average prices include PUC assessment; sales taxes excluded."
+     "Fixed-rate 24-month term; $175 early termination fee.",
+     "Energy rate is 6.449¢; delivery charges added separately from TDSP.",
+     "$4.90 monthly TDSP delivery charge plus 6.5611¢ per kWh.",
+     "Price may change for TDSP, ERCOT, or regulatory-driven fee changes."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:56.613Z",
+    "fetchedAt": "2026-11-16T06:51:28.363Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "2a75ae7ad87aa533312ad2d4a604ccfa7c60464711b4809e6567177ae4f32697",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 3047
+    "readMs": 3390
    },
    "check": {
     "status": "verified",
@@ -1498,18 +1497,18 @@
      "k2000": 15.9
     },
     "notes": [
-     "Price may change with TDU, PUCT, or other administrative charges.",
-     "Early termination fee: $20 per month remaining in term.",
-     "Average prices exclude taxes, underground fees, and municipal charges.",
-     "Non-recurring charges are not included in the price."
+     "Early termination fee is $20 per month remaining in term",
+     "Price can change with TDU charges and other pass-through fees",
+     "Average price excludes taxes, TDU underground fees, and municipal charges",
+     "Product is 23% renewable energy"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:37.099Z",
+    "fetchedAt": "2026-11-16T06:52:02.033Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "2ce8bbc238c375d61f80a9d5f51bba31b57b5df1247306cea1e1fbbb4dec81dd",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 4508
+    "readMs": 4794
    },
    "check": {
     "status": "verified",
@@ -1581,17 +1580,17 @@
     },
     "notes": [
      "Early termination fee is $20 per month remaining in term.",
-     "Prices may change with TDU charges and other pass-through costs.",
-     "Average prices exclude taxes, TDU underground fees, and municipal charges.",
-     "Non-recurring fees are not included in the price; see Term of Service."
+     "Price can change for TDU, PUCT and other pass-through charges.",
+     "Average prices exclude sales tax, TDU underground fees, and municipal charges.",
+     "Non-recurring fees are not included in the price."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:36.235Z",
+    "fetchedAt": "2026-11-16T06:52:00.628Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "94ace98b727ff2a155f0bf3b56b36f755ce97fdfea875f549d066d5663d87b79",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 4672
+    "readMs": 5175
    },
    "check": {
     "status": "verified",
@@ -1662,18 +1661,18 @@
      "k2000": 13.5
     },
     "notes": [
-     "Early termination fee: $20 per whole month remaining.",
-     "Price can change with TDSP charges and ERCOT fees.",
-     "Late payment penalty 5%; $30 NSF fee; $50 disconnect and reconnect fees.",
+     "Fixed 12-month plan; $20 per remaining month to cancel early.",
+     "Delivery charges: $4.90 monthly plus 6.5611¢ per kWh.",
+     "Late payment penalty 5%; $30 NSF fee; $50 disconnect/reconnect fees.",
      "Renewable content 29%, below statewide average of 37.2%."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:41.628Z",
+    "fetchedAt": "2026-11-16T06:51:15.470Z",
     "via": "direct",
-    "sha256": "829c356c02c86880f49ae4e00f46c72356abd3914420c19be1eba571163ff6ac",
+    "sha256": "525d5cb3a2a3096c5f01a8881a7f0a48df0763ceaee1938a33e50d031b093ec0",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 3608
+    "readMs": 3993
    },
    "check": {
     "status": "verified",
@@ -1745,17 +1744,17 @@
     },
     "notes": [
      "Early termination fee: $20 per whole month remaining.",
-     "Monthly CenterPoint delivery charge of $4.90 plus per-kWh delivery charge.",
-     "Late payment penalty 5%; $30 NSF fee; $50 disconnect and reconnect fees.",
-     "Prices exclude state and local sales taxes and Gross Receipts Reimbursement."
+     "Monthly price includes CenterPoint delivery charges of $4.90 plus 6.5611¢/kWh.",
+     "Late payment penalty 5%; $30 NSF fee; $50 disconnect/reconnect fees.",
+     "Renewable content 29%, below statewide average of 37.2%."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:41.871Z",
+    "fetchedAt": "2026-11-16T06:51:15.483Z",
     "via": "direct",
-    "sha256": "37b48fdfc159ec1954734fd8e562870f0fee94a972a74bbf494a00d3afe50f67",
+    "sha256": "35c4ab32761882129705f0c0afa410376c7e1258aacb8bf3f4a6f84b542a9d7a",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 4486
+    "readMs": 4044
    },
    "check": {
     "status": "verified",
@@ -1826,18 +1825,18 @@
      "k2000": 12.4
     },
     "notes": [
-     "Price is fixed for 3 months; average price may change with TDSP charges.",
-     "Early termination fee: $20 per whole month remaining in contract.",
-     "Monthly $4.90 CenterPoint delivery charge applies on top of energy price.",
-     "Late payment penalty 5%; $30 NSF fee; $50 disconnect and reconnect fees."
+     "Early termination fee: $20 per remaining month of contract",
+     "Monthly CenterPoint delivery charge of $4.90 plus 6.5611¢ per kWh",
+     "Late payment penalty 5%; $30 NSF fee; $50 disconnect/reconnect fees",
+     "Renewable content 29%, below statewide average of 37.2%"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:54.545Z",
+    "fetchedAt": "2026-11-16T06:51:25.474Z",
     "via": "direct",
-    "sha256": "ab4c0280dd5d60e432a78506aaf944460bd84390fc785fdcd095dd8fb79bfe2f",
+    "sha256": "a24db60801c5a379f98587ca4207eca43330670d43464f54c7ea3523e5ca0f71",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 3514
+    "readMs": 3523
    },
    "check": {
     "status": "verified",
@@ -1908,18 +1907,18 @@
      "k2000": 13
     },
     "notes": [
-     "Price rises if CenterPoint delivery charges change",
-     "Early cancellation costs $20 per remaining month",
-     "$30 NSF fee, 5% late payment penalty apply",
-     "$50 disconnect and $50 reconnect fees for non-payment"
+     "Early termination fee: $20 per whole month remaining.",
+     "Monthly CenterPoint delivery charge of $4.90 plus per-kWh charge.",
+     "Late payment penalty 5%; $30 NSF fee; $50 disconnect/reconnect fees.",
+     "Renewable content 29%, below statewide average 37.2%."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:17.881Z",
+    "fetchedAt": "2026-11-16T06:51:52.994Z",
     "via": "direct",
-    "sha256": "0f7254c877d6f349494764c37ffabd34dd77cb773bc9d6b5accff15dd6864a0f",
+    "sha256": "54096a720d44b0aeaea9406741a057df96c9ef41c180397f47cf68957a9ee34d",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 3268
+    "readMs": 3148
    },
    "check": {
     "status": "verified",
@@ -1990,18 +1989,18 @@
      "k2000": 13.6
     },
     "notes": [
-     "Fixed 12-month term; $20 fee per whole month remaining if canceled.",
-     "CenterPoint delivery charge $4.90 monthly plus 6.5611¢ per kWh.",
+     "Early termination fee: $20 per whole month remaining.",
+     "Price is fixed for the 12-month term.",
      "Late payment penalty 5%; $30 NSF fee; $50 disconnect and reconnect fees.",
-     "Prices exclude state and local sales taxes and gross receipts charge."
+     "Average prices exclude sales tax and gross receipts charges."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:43.063Z",
+    "fetchedAt": "2026-11-16T06:51:15.858Z",
     "via": "direct",
-    "sha256": "43e0fccf5b20398cc9b517ffa861448e67713eaa937e1d21d817a4b1caf076ec",
+    "sha256": "c23063f30359a28069e531d8ae46e52fe2b30514fbb6e751a619c166c00a0439",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 3639
+    "readMs": 4965
    },
    "check": {
     "status": "verified",
@@ -2072,18 +2071,18 @@
      "k2000": 12
     },
     "notes": [
-     "Price excludes state and local taxes and miscellaneous gross receipts tax.",
-     "Early termination fee is $100 flat.",
-     "Price can change with TDSP charges or regulatory actions.",
-     "Monthly CenterPoint charge of $4.90 applies on top of the energy charge."
+     "Price includes CenterPoint delivery charges of 6.533¢ per kWh plus $4.9 monthly.",
+     "Early termination fee is $100 flat, not per month remaining.",
+     "Price can change with TDSP charges and regulatory fee changes.",
+     "Prices exclude state and local taxes and miscellaneous gross receipts tax."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:06.264Z",
+    "fetchedAt": "2026-11-16T06:51:38.011Z",
     "via": "direct",
-    "sha256": "44052fde913d04a789a55d50e8a6954b2243baebe3546f819623a28802ec13aa",
+    "sha256": "17d39a6bdd87e1d21386dcce74a3e399ffa5c37567086be38c8f5da3b201c547",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 3152
+    "readMs": 3638
    },
    "check": {
     "status": "verified",
@@ -2154,18 +2153,18 @@
      "k2000": 12
     },
     "notes": [
-     "Price can change with TDSP charge or regulatory changes.",
-     "Early termination fee is a flat $125.00.",
-     "Prices exclude state and local taxes.",
-     "Product is 23.8% renewable, below statewide average of 37.2%."
+     "Price can change with TDSP charges and regulatory fees.",
+     "Early termination fee is $125 flat.",
+     "Delivery charges are passed through by CenterPoint and may change.",
+     "Price excludes state and local taxes."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:07.833Z",
+    "fetchedAt": "2026-11-16T06:51:41.549Z",
     "via": "direct",
-    "sha256": "047c42636974f98c0b0c914b653264b63fa9eb85e37ca0aab16c5da1b29995a2",
+    "sha256": "1ec5420d2b9a352d0196f957eefe0409bfc3b4a0bc7195549c37632a1471242f",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 3580
+    "readMs": 5159
    },
    "check": {
     "status": "verified",
@@ -2236,18 +2235,18 @@
      "k2000": 12.4
     },
     "notes": [
-     "Price can change with TDSP charge or regulatory changes.",
+     "Price can change with TDSP charge and regulatory fee changes.",
      "Early termination fee is $150 flat.",
-     "Renewable content is 23.8%, below statewide average.",
-     "Prices exclude state and local taxes."
+     "Renewable content is 23.8%, below the statewide average.",
+     "Prices exclude state and local taxes and miscellaneous gross receipts tax."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:06.413Z",
+    "fetchedAt": "2026-11-16T06:51:38.028Z",
     "via": "direct",
-    "sha256": "6baa6a6ab79408dbb84d9066c2e464c285da5899083be64948ce8185ba34735a",
+    "sha256": "22b466034aef9329f2e636b692639701902c957b1c460c7beaa4cd7b124febe8",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 2839
+    "readMs": 3520
    },
    "check": {
     "status": "verified",
@@ -2318,18 +2317,18 @@
      "k2000": 12.6
     },
     "notes": [
-     "Price can change with TDSP charge changes or legal/regulatory actions.",
-     "Early termination fee is $200 flat.",
-     "Price excludes state and local taxes.",
-     "Product is 23.8% renewable versus 37.2% statewide average."
+     "Fixed energy charge plus CenterPoint delivery charges make up the price",
+     "Early termination fee is $200 flat",
+     "Price can change with TDSP, ERCOT, or regulatory charge changes",
+     "Product is 23.8% renewable"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:06.911Z",
+    "fetchedAt": "2026-11-16T06:51:38.334Z",
     "via": "direct",
-    "sha256": "6ebd568b626f342c6906bb25066b2a12af6eff79f5eef4ddcbfa45893adb9014",
+    "sha256": "aa8ac3bff1c5c9e165c258fb58016fc9fe8c218983227412bae23311016032b9",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 2755
+    "readMs": 3295
    },
    "check": {
     "status": "verified",
@@ -2387,10 +2386,10 @@
     "tduMonthlyDollars": 4.9,
     "credits": [
      {
-      "minKwh": 999,
+      "minKwh": 1000,
       "maxKwh": null,
       "dollars": 125,
-      "label": "Bill credit if usage exceeds 999 kWh in a billing cycle",
+      "label": "Bill credit for usage exceeding 999 kWh",
       "conditional": false
      }
     ],
@@ -2408,18 +2407,18 @@
      "k2000": 12.6
     },
     "notes": [
-     "$125 credit applies only when usage exceeds 999 kWh",
-     "Averages at 500 kWh are much higher than at 1,000 kWh due to the credit",
-     "Prices can change during the term due to TDSP and regulatory charges",
-     "Early termination fee is $100 flat; 23.8% renewable content"
+     "$125 credit applies only when usage exceeds 999 kWh monthly",
+     "Delivery charges are passed through and may change",
+     "Price may change with TDSP or regulatory fee changes",
+     "Early termination fee is $100 flat"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:40.349Z",
+    "fetchedAt": "2026-11-16T06:52:03.117Z",
     "via": "direct",
-    "sha256": "a72aa784837cf0d0ce075a04b2e64dfe376d38254989336756f289985f4c999e",
+    "sha256": "c2afe7bb1c689b094e4e3558587d0e84c08280f018c491d1d722b563e968cdf8",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 3169
+    "readMs": 2982
    },
    "check": {
     "status": "verified",
@@ -2490,18 +2489,18 @@
      "k2000": 13
     },
     "notes": [
-     "Price rises if CenterPoint delivery charges or fees change.",
-     "Early termination fee $150 unless you move with proof.",
-     "Solar Buyback available only with on-site solar generation.",
-     "Renewable content 24.7% versus 37.2% statewide average."
+     "Early termination fee is $150 flat, waived if you move.",
+     "Price can change with TDU delivery charge changes during the term.",
+     "Delivery charges from CenterPoint are passed through and not fixed.",
+     "Renewable content 24.7%, below the 37.2% statewide average."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:51:51.548Z",
+    "fetchedAt": "2026-11-16T06:50:44.470Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "7286cd0aca0f0458002eb8a8108aef3c10d0414c73037c91805d85535efbf001",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 2602
+    "readMs": 3313
    },
    "check": {
     "status": "verified",
@@ -2572,18 +2571,18 @@
      "k2000": 13.1
     },
     "notes": [
-     "Price rises if CenterPoint delivery charges or regulatory fees change.",
-     "Early termination fee is flat $250, not per month remaining.",
-     "Fee waived if you move and provide forwarding address.",
-     "Solar Buyback may be available; check eligibility details separately."
+     "Fixed rate for 24 months; price may change with TDU charges.",
+     "Early termination fee is $250 flat.",
+     "Delivery charges from CenterPoint are passed through and listed here.",
+     "Solar Buyback may be available; contact Customer Care for details."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:51:51.700Z",
+    "fetchedAt": "2026-11-16T06:50:47.129Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "7241f480d11b77d2a97d73feda4ffb083b6d56fcd2eaf755f4ac819a467df862",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 3390
+    "readMs": 2799
    },
    "check": {
     "status": "verified",
@@ -2654,18 +2653,18 @@
      "k2000": 12.6
     },
     "notes": [
-     "Price can change with TDU delivery charge changes during contract",
-     "Early termination fee of $150 applies before contract end",
-     "Fee waived if you move and provide proof",
-     "Solar Buyback available only with on-site solar generation"
+     "Delivery charges from CenterPoint are passed through, plus $4.90 monthly.",
+     "Early termination fee is a flat $150.",
+     "Price can change during the contract for TDU and regulatory charges.",
+     "Solar Buyback may be available; contact Customer Care for details."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:51:48.379Z",
+    "fetchedAt": "2026-11-16T06:50:43.568Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "06f8589fb74e100553e9e3773861880c2a6d2a6e7fa447c2b329731e3852e5bb",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 3142
+    "readMs": 3560
    },
    "check": {
     "status": "verified",
@@ -2712,7 +2711,7 @@
     }
    },
    "pricing": {
-    "baseChargeDollars": 4.9,
+    "baseChargeDollars": 0,
     "energyTiers": [
      {
       "fromKwh": 0,
@@ -2720,7 +2719,7 @@
      }
     ],
     "tduCentsPerKwh": 6.533,
-    "tduMonthlyDollars": 0,
+    "tduMonthlyDollars": 4.9,
     "credits": [],
     "usageFees": [],
     "amortizedFees": [],
@@ -2731,7 +2730,7 @@
       "cents": 9.2
      },
      {
-      "label": "Weekends",
+      "label": "Weekends (free)",
       "share": 0.3,
       "cents": 0
      }
@@ -2747,18 +2746,18 @@
      "k2000": 13.2
     },
     "notes": [
-     "Weekend usage is free: 0.0¢/kWh on Saturdays and Sundays.",
-     "Weekday energy price is 9.2¢/kWh, plus CenterPoint delivery charges.",
-     "Early termination fee is $250 flat if you leave early.",
-     "Averages assume 30% weekend and 70% weekday usage."
+     "Weekend energy is free (0¢) under this time-of-use plan.",
+     "Weekday energy costs 9.2¢/kWh plus CenterPoint delivery charges.",
+     "Early termination fee is $250 total for leaving before 24 months.",
+     "Averages assume 30% weekend and 70% weekday usage; yours may differ."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:51:48.375Z",
+    "fetchedAt": "2026-11-16T06:50:43.566Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "428bea36400e734c4ec6eac9a71265f62298361080a30205908c96f943249170",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 3518
+    "readMs": 4490
    },
    "check": {
     "status": "verified",
@@ -2819,12 +2818,12 @@
     "amortizedFees": [],
     "touPeriods": [
      {
-      "label": "Daytime (6:00 AM - 11:00 PM)",
+      "label": "Daytime",
       "share": 0.65,
       "cents": 6.79
      },
      {
-      "label": "Bright Nights (11:00 PM - 6:00 AM)",
+      "label": "Bright Nights (11 PM-6 AM)",
       "share": 0.35,
       "cents": 0
      }
@@ -2840,18 +2839,18 @@
      "k2000": 11.7
     },
     "notes": [
-     "Bright Nights hours 11 PM-6 AM are free energy; averages assume 35% usage.",
-     "$5 processing fee each billing period without Auto-Pay.",
-     "Early termination: $15 times months remaining on term.",
-     "Price can change for CenterPoint charges and fees outside Chariot's control."
+     "Free Bright Nights energy only 11 PM-6 AM; assumes 35% usage there",
+     "Non-Auto-Pay bills incur $5 processing fee each period",
+     "Early termination: $15 per month remaining on term",
+     "Price can change for CenterPoint charges and regulatory fees"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:11.414Z",
+    "fetchedAt": "2026-11-16T06:51:48.797Z",
     "via": "direct",
-    "sha256": "be267b745ca5c2af202bd38935bba94942ff165fbce691b9e896ada77f6b8fc8",
+    "sha256": "2533f834ddaa526468bd1c148c40083c23e623dbc14804751ce44632b3ab2aa9",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 3408
+    "readMs": 3759
    },
    "check": {
     "status": "verified",
@@ -2912,12 +2911,12 @@
     "amortizedFees": [],
     "touPeriods": [
      {
-      "label": "Daytime (6:00 AM - 11:00 PM)",
+      "label": "Daytime (6:00 AM-11:00 PM)",
       "share": 0.65,
       "cents": 7.4
      },
      {
-      "label": "Bright Nights (11:00 PM - 6:00 AM)",
+      "label": "Bright Nights (11:00 PM-6:00 AM)",
       "share": 0.35,
       "cents": 0
      }
@@ -2933,18 +2932,19 @@
      "k2000": 12.1
     },
     "notes": [
-     "Free Bright Nights hours (11 PM-6 AM) at 0¢ per kWh.",
-     "Assumes 35% of usage occurs during Bright Nights hours.",
-     "$5 processing fee per bill without Auto-Pay enrollment.",
-     "Early termination: $15 times months remaining on term."
+     "Free Bright Nights hours (11 PM-6 AM) assumed at 35% of usage",
+     "$5 processing fee each billing period without Auto-Pay",
+     "Early termination: $15 per month remaining on contract",
+     "Prices may change for CenterPoint delivery charge changes",
+     "CenterPoint underground cost recovery charge not included in averages in some cities"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:14.240Z",
+    "fetchedAt": "2026-11-16T06:51:48.959Z",
     "via": "direct",
-    "sha256": "3c8f8619e71896c80710fea5fb0f209598872f6a500ff21802d5a675f262c5f6",
+    "sha256": "d204d9a500f93be4c2b2f1544bd176128a0e6332344d47805b9eda31b46aa3a3",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 3596
+    "readMs": 4034
    },
    "check": {
     "status": "verified",
@@ -3005,12 +3005,12 @@
     "amortizedFees": [],
     "touPeriods": [
      {
-      "label": "Daytime (6:00 AM - 11:00 PM)",
+      "label": "Daytime",
       "share": 0.65,
       "cents": 7.71
      },
      {
-      "label": "Bright Nights (11:00 PM - 6:00 AM)",
+      "label": "Bright Nights",
       "share": 0.35,
       "cents": 0
      }
@@ -3026,18 +3026,18 @@
      "k2000": 12.3
     },
     "notes": [
-     "Free Bright Nights hours 11 PM to 6 AM; price assumes 35% usage there.",
-     "Without Auto-Pay and paperless billing, a $5 processing fee applies.",
-     "Early termination fee is $15 times months remaining on term.",
-     "Price can change for Centerpoint charges and government-driven fees."
+     "Bright Nights free hours 11PM-6AM; price assumes 35% usage there.",
+     "Early termination fee: $15 per month remaining on contract.",
+     "$5 processing fee each billing period without Auto-Pay.",
+     "Prices may change for Centerpoint charge and regulatory changes."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:14.823Z",
+    "fetchedAt": "2026-11-16T06:51:49.008Z",
     "via": "direct",
-    "sha256": "1510552445c1cafb9f1525f3837a627973052b10f226f82a732a00387894671e",
+    "sha256": "0835758b1f3bda3c1f8b40daddb859b48e8de805e306bec5afd724c24dd4e639",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 4499
+    "readMs": 3671
    },
    "check": {
     "status": "verified",
@@ -3098,12 +3098,12 @@
     "amortizedFees": [],
     "touPeriods": [
      {
-      "label": "Daytime (06:00 AM-11:00 PM)",
+      "label": "Daytime",
       "share": 0.65,
       "cents": 5.55
      },
      {
-      "label": "Bright Nights (11:00 PM-06:00 AM)",
+      "label": "Bright Nights",
       "share": 0.35,
       "cents": 0
      }
@@ -3119,18 +3119,18 @@
      "k2000": 10.9
     },
     "notes": [
-     "Bright Nights hours free energy; averages assume 35% usage then.",
-     "Base charge $9.95 plus CenterPoint $4.90 monthly fixed.",
-     "$5 processing fee if not on Auto-Pay each billing period.",
+     "Bright Nights free hours 11 PM to 6 AM; daytime rate applies otherwise.",
+     "Price rises with usage outside the Bright Nights hours.",
+     "$5 processing fee per bill without Auto-Pay enrollment.",
      "Early termination: $15 times months remaining on term."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:21.150Z",
+    "fetchedAt": "2026-11-16T06:51:54.398Z",
     "via": "direct",
-    "sha256": "e28d5ce16f5a31a6f40933efa203e5a09058d205119f323f9a048016afa3dd2f",
+    "sha256": "754e75ff688c972edd25b7a440c848fbe83adbda0e63e931d691eea27218a8df",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 3662
+    "readMs": 4126
    },
    "check": {
     "status": "verified",
@@ -3201,18 +3201,18 @@
      "k2000": 17.7
     },
     "notes": [
-     "Price can change at Chariot Energy's sole discretion after first cycle.",
-     "Excludes CenterPoint underground facilities charge in some cities.",
+     "Price can change at Chariot Energy's sole discretion after first billing cycle.",
+     "Excludes Centerpoint underground facilities charge in some cities.",
      "Excludes state and local sales taxes.",
      "Late payment penalty 5% of past due balances; disconnect and NSF fees apply."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:17.419Z",
+    "fetchedAt": "2026-11-16T06:50:59.591Z",
     "via": "direct",
-    "sha256": "ae79cd1df3f8d7a5aaee086fd32e818bdba8cbb196ea442a1b065b0389fbc4ce",
+    "sha256": "3a3138adf7be9394f2a4c392b06bbba6a033d4948c0d2b2b744f58fbadc76ca6",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 3151
+    "readMs": 5190
    },
    "check": {
     "status": "verified",
@@ -3273,7 +3273,7 @@
       "minKwh": 1000,
       "maxKwh": null,
       "dollars": 125,
-      "label": "Residential Usage Credit when usage >= 1000 kWh",
+      "label": "Residential Usage Credit",
       "conditional": false
      }
     ],
@@ -3291,18 +3291,18 @@
      "k2000": 12.9
     },
     "notes": [
-     "$125 credit applies only when usage is at least 1,000 kWh",
-     "Centerpoint underground facilities charge may apply in some cities, not included",
-     "Early termination: $15 per month remaining on contract",
-     "Fees not included: $10 disconnect notice, $35 NSF, $25 non-pay disconnect, 5% late penalty"
+     "$125 credit applies only when usage is at least 1,000 kWh monthly",
+     "Early termination fee: $15 per month remaining on contract",
+     "Delivery charges are passed through; $4.90 monthly plus 6.5333¢/kWh",
+     "Centerpoint underground facilities charge in some cities is not included"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:35.927Z",
+    "fetchedAt": "2026-11-16T06:51:58.803Z",
     "via": "direct",
-    "sha256": "0376b04205716929cd65a8791114e45c6b254723634c5bf1ef3cd87452cb1952",
+    "sha256": "56e314e6412664c577919f711cb5bc7fa62bfd8511daf72347bdc5d0052fe5b5",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 3776
+    "readMs": 3229
    },
    "check": {
     "status": "verified",
@@ -3373,18 +3373,18 @@
      "k2000": 12.7
     },
     "notes": [
-     "Label energy charge is 5.8716¢/kWh; TDSP delivery charges are passed through separately",
-     "Label averages (13.4¢/12.9¢/12.7¢) include TDSP charges not listed as amounts on this label",
-     "$95 early termination fee; waived only if customer moves",
-     "Price may change for TDSP, ERCOT fee, or regulatory changes"
+     "TDSP delivery charges are passed through and not printed on the label",
+     "$95 early termination fee, waived if customer moves",
+     "Price may change for TDSP, ERCOT, and legal/regulatory changes",
+     "Label averages exceed energy charge; delivery charges are not included in the energy rate"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:09.667Z",
+    "fetchedAt": "2026-11-16T06:51:47.248Z",
     "via": "direct",
-    "sha256": "e19c93a39cc1b7c5f80c8323dad32b18dc4bf35e899fe266b1de931928e5ae8c",
-    "parsedBy": "claude-haiku-5-5",
-    "readMs": 5366
+    "sha256": "d157017d81f236a7055c93b1b86a69578c132e56e0a548b5c7f1871e7d0903c4",
+    "parsedBy": "claude-haiku-5-5 + averages from Power to Choose",
+    "readMs": 6302
    },
    "check": {
     "status": "verified",
@@ -3408,8 +3408,8 @@
       "ok": true
      }
     ],
-    "tduFilled": true,
-    "message": "This label doesn't print delivery charges. With CenterPoint's charges from other labels (6.5333¢/kWh + $4.90/mo), all 3 averages match."
+    "message": "The reader copied one average wrong; with the averages the label prints, all 3 match.",
+    "tduFilled": true
    }
   },
   {
@@ -3456,18 +3456,18 @@
      "k2000": 12.6
     },
     "notes": [
-     "Label's averages include TDSP delivery charges, which are not printed as amounts.",
-     "Early termination fee is $150; waived only if you move.",
-     "Price may change for TDSP, ERCOT, and regulatory-driven cost changes.",
-     "Product is 22% renewable versus 37% statewide average."
+     "TDSP delivery charges are passed through and not printed on label",
+     "Early termination fee $150; waived if customer moves",
+     "Price may change for TDSP and regulatory fee changes",
+     "Renewable content is 22%, below the 37% statewide average"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:51:48.378Z",
+    "fetchedAt": "2026-11-16T06:50:43.567Z",
     "via": "direct",
-    "sha256": "90965bfc1967dc7c1c91878b2d9f0d1c9a140057fbba9ffb51c0c4d9f03111df",
-    "parsedBy": "claude-haiku-5-5",
-    "readMs": 6696
+    "sha256": "31159aa501524666357bc3f4bdeeb18693df319e4d9705f0e870bbf99ccd45c4",
+    "parsedBy": "claude-haiku-5-5 + averages from Power to Choose",
+    "readMs": 7178
    },
    "check": {
     "status": "verified",
@@ -3491,8 +3491,8 @@
       "ok": true
      }
     ],
-    "tduFilled": true,
-    "message": "This label doesn't print delivery charges. With CenterPoint's charges from other labels (6.5333¢/kWh + $4.90/mo), all 3 averages match."
+    "message": "The reader copied one average wrong; with the averages the label prints, all 3 match.",
+    "tduFilled": true
    }
   },
   {
@@ -3539,18 +3539,18 @@
      "k2000": 13
     },
     "notes": [
-     "Label average prices exclude CenterPoint TDSP delivery charges, which are passed through separately.",
-     "$295 early termination fee applies through end of contract term.",
-     "Price can change for TDSP, ERCOT fee, or regulatory changes.",
-     "Renewable content is 22%; statewide average is 37%."
+     "Delivery (TDSP) charges are passed through and not printed on label",
+     "$295 early termination fee applies through end of contract",
+     "Price may change for TDSP and regulatory charges",
+     "Averages include delivery charges not shown on label, so cannot be rebuilt"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:51:55.080Z",
+    "fetchedAt": "2026-11-16T06:50:49.422Z",
     "via": "direct",
-    "sha256": "69a627d518aca131c0e51b6cbd6b14b4a7f6fd6b8cae9ccc8520cdf87b2332cb",
-    "parsedBy": "claude-haiku-5-5",
-    "readMs": 7361
+    "sha256": "8ab834130d8b1170a05dd43ff91969109f3ebed44d9f41b3715c7a651d5e77b8",
+    "parsedBy": "claude-haiku-5-5 + averages from Power to Choose",
+    "readMs": 4752
    },
    "check": {
     "status": "verified",
@@ -3574,8 +3574,8 @@
       "ok": true
      }
     ],
-    "tduFilled": true,
-    "message": "This label doesn't print delivery charges. With CenterPoint's charges from other labels (6.5333¢/kWh + $4.90/mo), all 3 averages match."
+    "message": "The reader copied one average wrong; with the averages the label prints, all 3 match.",
+    "tduFilled": true
    }
   },
   {
@@ -3622,18 +3622,18 @@
      "k2000": 13.4
     },
     "notes": [
-     "Label gives no TDSP delivery charge amounts; check the website.",
-     "Early termination fee is $395 flat through contract end.",
-     "Price may change for TDSP and regulatory fee changes.",
-     "Renewable sell-back credits apply only on that specific product."
+     "Label does not print TDSP delivery charge amounts; passed through separately",
+     "Early termination fee is $395 flat through end of term",
+     "Price may change for TDSP and regulatory fee changes",
+     "Renewable sell-back credits apply only to eligible enrolled customers"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:51:48.376Z",
+    "fetchedAt": "2026-11-16T06:50:43.567Z",
     "via": "direct",
-    "sha256": "3dc1fd485078b0eb83b4fe9fa836588dfe8706d0744a4c07cee9b11a84e79f6f",
-    "parsedBy": "claude-haiku-5-5",
-    "readMs": 5352
+    "sha256": "373e726cc91951e4fe5a4d2760ad8a6ffdc59efbaf4d2d54a7a8ba98f4f54026",
+    "parsedBy": "claude-haiku-5-5 + averages from Power to Choose",
+    "readMs": 6585
    },
    "check": {
     "status": "verified",
@@ -3657,8 +3657,8 @@
       "ok": true
      }
     ],
-    "tduFilled": true,
-    "message": "This label doesn't print delivery charges. With CenterPoint's charges from other labels (6.5333¢/kWh + $4.90/mo), all 3 averages match."
+    "message": "The reader copied one average wrong; with the averages the label prints, all 3 match.",
+    "tduFilled": true
    }
   },
   {
@@ -3705,18 +3705,18 @@
      "k2000": 11.9
     },
     "notes": [
-     "Label averages exclude TDSP delivery charges, which are passed through as billed.",
+     "Label averages (12.6/12.1/11.9¢) are far above the 5.07¢ energy charge.",
+     "TDSP delivery charges are passed through; amounts not printed on label.",
      "$75 early termination fee applies through end of contract term.",
-     "Price may change for TDSP, ERCOT fee, or law-driven changes.",
-     "Renewable content is 22%, below the 37% statewide average."
+     "Price may change for TDSP and regulatory charges during the term."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:48.787Z",
+    "fetchedAt": "2026-11-16T06:51:19.529Z",
     "via": "direct",
-    "sha256": "f9c0a9a40fe9482194f39dea093f2f8f181449c37ca796f9c6991f1bbd518423",
-    "parsedBy": "claude-haiku-5-5",
-    "readMs": 5754
+    "sha256": "01e482cbababbda543eb0e11ddc60f13ee4f34288aa55e43096e063b3351c8ad",
+    "parsedBy": "claude-haiku-5-5 + averages from Power to Choose",
+    "readMs": 5674
    },
    "check": {
     "status": "verified",
@@ -3740,8 +3740,8 @@
       "ok": true
      }
     ],
-    "tduFilled": true,
-    "message": "This label doesn't print delivery charges. With CenterPoint's charges from other labels (6.5333¢/kWh + $4.90/mo), all 3 averages match."
+    "message": "The reader copied one average wrong; with the averages the label prints, all 3 match.",
+    "tduFilled": true
    }
   },
   {
@@ -3788,18 +3788,18 @@
      "k2000": 13.5
     },
     "notes": [
-     "$75 one-time termination fee; waived if you move.",
-     "Price can change for CenterPoint, ERCOT, PUCT, or legal-related charges.",
+     "$75 one-time termination fee; waived if moving with proof.",
+     "Price may change for CenterPoint, ERCOT, PUCT, or regulatory fee changes.",
      "Autopay required per label.",
-     "Centerpoint Underground Facilities charge may apply, not included in averages."
+     "Averages exclude taxes, fees, and city Underground Facilities charges."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:24.670Z",
+    "fetchedAt": "2026-11-16T06:51:04.758Z",
     "via": "direct",
-    "sha256": "911c0d3bbbd3aa849e954b048dca0e989f08af13262e7a3292606748260b2d36",
+    "sha256": "6fc9a512e836d13cad7a93912216f7322af8687869a18ff96c167f5faa0b53a9",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 3499
+    "readMs": 5055
    },
    "check": {
     "status": "verified",
@@ -3871,17 +3871,17 @@
     },
     "notes": [
      "$150 one-time termination fee; waived if you move.",
-     "Price can change for CenterPoint, ERCOT, PUCT, or legal-fee changes.",
-     "Autopay required for this plan.",
-     "Excludes taxes, Gross Receipts, PUC Assessment, and city underground charges."
+     "Autopay required per label.",
+     "Price may change for CenterPoint charges, ERCOT/PUCT fees, or new laws.",
+     "Averages exclude taxes, Gross Receipts Reimbursement, PUC Assessment, and city underground charges."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:25.393Z",
+    "fetchedAt": "2026-11-16T06:51:04.781Z",
     "via": "direct",
-    "sha256": "f92edbb8e1026a47da98761cb2d88be80b99b8b8530daefc1e52a7428a6f0695",
+    "sha256": "8820db8aed1eecd094f5956d1a704a16a47a98ee94d9e28aab81870db6a3afe3",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 3161
+    "readMs": 3233
    },
    "check": {
     "status": "verified",
@@ -3952,18 +3952,19 @@
      "k2000": 13
     },
     "notes": [
-     "$50 one-time termination fee; waived if you move",
-     "Autopay required for this price",
-     "Price can change for CenterPoint and regulatory charges",
-     "Centerpoint underground/city charges may apply extra"
+     "$50 one-time termination fee; waived on moving with forwarding address",
+     "Autopay required per Other Key Terms",
+     "Price may change for CenterPoint, ERCOT, PUCT, or regulatory charges",
+     "Averages exclude taxes, Gross Receipts Reimbursement, and PUC Assessment fees",
+     "Some cities may add CenterPoint Underground Facilities charge not shown"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:58.958Z",
+    "fetchedAt": "2026-11-16T06:52:14.216Z",
     "via": "direct",
-    "sha256": "9840bdc0bd1cd743a3fc40ee0e22b4971d21b200840a4da25503f6e44d9ce9a6",
+    "sha256": "75ec2cf9a84279cd616fb5a803f0a6f1855532b117711a100161cb42b2344bf0",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 2955
+    "readMs": 3111
    },
    "check": {
     "status": "verified",
@@ -4268,26 +4269,20 @@
     "credits": [
      {
       "minKwh": 1000,
-      "maxKwh": 1999.999,
+      "maxKwh": 1999.99,
       "dollars": 35,
-      "label": "Residential Usage Credit (usage >= 1000 kWh)",
+      "label": "Residential Usage Credit",
       "conditional": false
      },
      {
       "minKwh": 2000,
       "maxKwh": null,
       "dollars": 50,
-      "label": "Residential Usage Credit $35 plus Additional Residential Usage Credit $15 (usage >= 2000 kWh)",
+      "label": "Residential Usage Credit + Additional Residential Usage Credit",
       "conditional": false
      }
     ],
-    "usageFees": [
-     {
-      "belowKwh": 0,
-      "dollars": 0,
-      "label": "Minimum Usage Fee"
-     }
-    ],
+    "usageFees": [],
     "amortizedFees": [],
     "touPeriods": [],
     "termMonths": 12,
@@ -4301,18 +4296,18 @@
      "k2000": 15.9
     },
     "notes": [
-     "Usage credits apply only at 1,000 kWh or more monthly.",
-     "Additional $15 credit applies only at 2,000 kWh or more.",
-     "Early termination fee is $150 flat.",
-     "Price may change for TDU charges or ERCOT/government fee changes."
+     "Usage credits apply only at 1,000 kWh and 2,000 kWh or more.",
+     "Monthly credits of $35 and an extra $15 at 2,000 kWh.",
+     "Early termination fee of $150 applies during the 12-month term.",
+     "AC protection, heating and water heater coverage are added products with their own charges."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:51:53.729Z",
+    "fetchedAt": "2026-11-16T06:50:49.133Z",
     "via": "direct",
-    "sha256": "98e5e41909f2746b1d8909cb0ced21c08f486a41058198c3f9112f1cc99c9a10",
+    "sha256": "f1370bd6afe669d71dcf08bd275ac35eb91b1d028d93bb5f03a463ef3a3c2243",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 4489
+    "readMs": 4172
    },
    "check": {
     "status": "verified",
@@ -4384,13 +4379,7 @@
       "conditional": false
      }
     ],
-    "usageFees": [
-     {
-      "belowKwh": 0,
-      "dollars": 0,
-      "label": "Minimum Usage Fee"
-     }
-    ],
+    "usageFees": [],
     "amortizedFees": [],
     "touPeriods": [],
     "termMonths": 14,
@@ -4404,18 +4393,18 @@
      "k2000": 12.6
     },
     "notes": [
-     "Usage credits apply only at 1,000 kWh and 2,000 kWh or more.",
-     "Early termination fee is $150 flat.",
-     "Price may change due to TDU charges or ERCOT fee changes.",
-     "Averages exclude taxes, gross receipts tax, and city underground facility charges."
+     "Usage credits apply only at 1,000 kWh and 2,000 kWh or higher.",
+     "Credits total $50 monthly at 2,000 kWh and above.",
+     "Early termination fee is a flat $150.",
+     "Price may change for TDU charges or ERCOT/regulatory fee changes."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:18.092Z",
+    "fetchedAt": "2026-11-16T06:51:53.102Z",
     "via": "direct",
-    "sha256": "2e96d2ad31c30a096176a77029be6aaa1815429c10be2bb18290f4b2df82ffcf",
+    "sha256": "d992aabbaacddf2371c0804721b42ba6d53b91e6e3639e362f2d477352d4a850",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 4746
+    "readMs": 3570
    },
    "check": {
     "status": "verified",
@@ -4474,7 +4463,7 @@
     "credits": [
      {
       "minKwh": 1000,
-      "maxKwh": null,
+      "maxKwh": 1999.999,
       "dollars": 35,
       "label": "Residential Usage Credit (usage >= 1000 kWh)",
       "conditional": false
@@ -4482,8 +4471,8 @@
      {
       "minKwh": 2000,
       "maxKwh": null,
-      "dollars": 15,
-      "label": "Additional Residential Usage Credit (usage >= 2000 kWh)",
+      "dollars": 50,
+      "label": "Residential Usage Credit plus Additional Residential Usage Credit (usage >= 2000 kWh)",
       "conditional": false
      }
     ],
@@ -4501,18 +4490,18 @@
      "k2000": 14.1
     },
     "notes": [
-     "Credits apply only when monthly usage reaches 1000 kWh or more",
-     "Additional $15 credit requires usage of 2000 kWh or more",
-     "Price may change for TDU charge or ERCOT/government fee changes",
-     "Early termination fee is flat $150 over the 36-month term"
+     "Monthly usage credits apply only at 1,000 kWh and 2,000 kWh+",
+     "Usage below 1,000 kWh gets no bill credit",
+     "Early termination fee is $150 flat",
+     "Price may change for TDU charge or regulatory cost changes"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:32.247Z",
+    "fetchedAt": "2026-11-16T06:51:58.525Z",
     "via": "direct",
-    "sha256": "6f0700b08aac275c18e3c98b7b595779a441bbfcfa2c02657e49ca7665c35337",
+    "sha256": "0458db5a69ba3afe909d275523a1ee04b7d2c911030aae14aa543299333edf04",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 3679
+    "readMs": 4243
    },
    "check": {
     "status": "verified",
@@ -4571,7 +4560,7 @@
     "credits": [],
     "usageFees": [
      {
-      "belowKwh": 999,
+      "belowKwh": 1000,
       "dollars": 0,
       "label": "Minimum Usage Fee of $0 if usage is less than or equal to 999 kWh"
      }
@@ -4589,18 +4578,18 @@
      "k2000": 13.2
     },
     "notes": [
-     "Label's averages exclude taxes and some TDU pass-through charges.",
-     "Early termination fee is $50.00.",
-     "Price can change for TDU, ERCOT, TRE, or legal cost changes.",
-     "Some locations may pay a city underground facilities charge, not included."
+     "Label averages exceed energy charge: TDU delivery charges are not printed",
+     "Termination fee is $50 flat",
+     "Renewable content 24.7%",
+     "Some locations may have city-authorized TDU underground charges not included"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:11.671Z",
+    "fetchedAt": "2026-11-16T06:50:55.391Z",
     "via": "direct",
-    "sha256": "531515d6f5211d087e07a1015139d0f4bbc1de8b63fd58010fb109ccb8c1dd78",
-    "parsedBy": "claude-haiku-5-5",
-    "readMs": 5745
+    "sha256": "45b3ccf6283fb6167c023a36a21b15dbfe4918aa7f5ca519ed29378f3ee58b32",
+    "parsedBy": "claude-haiku-5-5 + averages from Power to Choose",
+    "readMs": 5898
    },
    "check": {
     "status": "verified",
@@ -4624,8 +4613,8 @@
       "ok": true
      }
     ],
-    "tduFilled": true,
-    "message": "This label doesn't print delivery charges. With CenterPoint's charges from other labels (6.5333¢/kWh + $4.90/mo), all 3 averages match."
+    "message": "The reader copied one average wrong; with the averages the label prints, all 3 match.",
+    "tduFilled": true
    }
   },
   {
@@ -4662,7 +4651,7 @@
      {
       "belowKwh": 1000,
       "dollars": 0,
-      "label": "Minimum Usage Fee of $0 if usage is less than or equal to 999 kWh"
+      "label": "Minimum Usage Fee (none charged, $0) if usage is less than or equal to 999 kWh"
      }
     ],
     "amortizedFees": [],
@@ -4678,18 +4667,18 @@
      "k2000": 12.1
     },
     "notes": [
-     "Label averages include CenterPoint TDU delivery charges; the TDU rate is not printed on this label",
-     "Price excludes taxes and gross receipt tax reimbursement",
-     "Early termination fee is a flat $50.00",
-     "Price may change for TDU charges or ERCOT/regulatory fee changes"
+     "Early termination fee is $50.00 flat.",
+     "Price may change for TDU charge or regulatory cost changes.",
+     "Renewable content is 24.7 percent.",
+     "Averages exclude taxes, gross receipt tax, and city underground charges."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:21.666Z",
+    "fetchedAt": "2026-11-16T06:51:04.231Z",
     "via": "direct",
-    "sha256": "3f6b0fb83db6d70d5d1c47549dc3f81f793d4918ee6cf7bfc11536917993a15b",
-    "parsedBy": "claude-haiku-5-5",
-    "readMs": 5871
+    "sha256": "68ab1d5bd5677e891caf7d4dbc8b56b2aca7170284128823df2e79dfe606470b",
+    "parsedBy": "claude-haiku-5-5 + averages from Power to Choose",
+    "readMs": 5542
    },
    "check": {
     "status": "verified",
@@ -4713,8 +4702,8 @@
       "ok": true
      }
     ],
-    "tduFilled": true,
-    "message": "This label doesn't print delivery charges. With CenterPoint's charges from other labels (6.5333¢/kWh + $4.90/mo), all 3 averages match."
+    "message": "The reader copied one average wrong; with the averages the label prints, all 3 match.",
+    "tduFilled": true
    }
   },
   {
@@ -4761,18 +4750,18 @@
      "k2000": 14.5
     },
     "notes": [
-     "Requires automatic payments; otherwise plan not offered.",
-     "Autopay breakage fee: $5.00 per billing cycle if autopay fails.",
-     "$95 early termination fee applies through contract end.",
-     "Price may change for TDSP and regulatory fee changes."
+     "Requires automatic payments; $5.00 autopay breakage fee per cycle",
+     "Early termination fee $95 through end of term",
+     "Price may change for TDSP and regulatory charges",
+     "Web enrollment only; 22% renewable content"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:59.403Z",
+    "fetchedAt": "2026-11-16T06:52:14.348Z",
     "via": "direct",
-    "sha256": "fdd376f0697f74020c7928de3d8e5a33dc4206e73e052f48fc9d593e0f0dde60",
+    "sha256": "38b0e038067fdf84a65200ad50879628c5e2b6fcdf055bfa3377368eb845b745",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 3519
+    "readMs": 3824
    },
    "check": {
     "status": "verified",
@@ -4844,17 +4833,17 @@
     },
     "notes": [
      "Requires automatic payments; $5.00 autopay breakage fee per cycle.",
-     "Early termination fee $150 through end of contract term.",
+     "Early termination fee $150 through end of contract.",
      "Price may change for TDSP and regulatory fee changes.",
-     "Average prices include CenterPoint delivery and base charges."
+     "Delivery charges are passed through and may change."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:22.738Z",
+    "fetchedAt": "2026-11-16T06:51:04.757Z",
     "via": "direct",
-    "sha256": "db8b9adfbe6131442692ae22d425645b6bfddbc3c951b01b48d2c57c11e3b7e3",
+    "sha256": "1298b61540fd5bef96c3d93002117dd40ca7caf3e2f345fcd0e1fdc4caf2c71b",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 2654
+    "readMs": 2630
    },
    "check": {
     "status": "verified",
@@ -4925,18 +4914,18 @@
      "k2000": 14.4
     },
     "notes": [
-     "Plan requires automatic payments; enrollment is web-only.",
-     "$5.00 autopay breakage fee per billing cycle if payment fails or you opt out.",
-     "$150 termination fee applies through end of 13-month term.",
-     "Price may change for TDSP charges and regulatory fee changes."
+     "Autopay required; $5.00 breakage fee if autopay fails",
+     "Early termination fee $150 through end of term",
+     "Price may change for TDSP and regulatory fee changes",
+     "Plan available through web enrollment only"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:54:00.892Z",
+    "fetchedAt": "2026-11-16T06:52:15.014Z",
     "via": "direct",
-    "sha256": "aa848ce775defdd59c0f53ecd887f9cf84dcd756aad0f235b6205f5c71cb8232",
+    "sha256": "4c2cfa23b1acd5c3a3cac376c0c53256e558fc6bc1f06cfd622e69f34eaeb237",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 2762
+    "readMs": 2943
    },
    "check": {
     "status": "verified",
@@ -5007,18 +4996,18 @@
      "k2000": 14.6
     },
     "notes": [
-     "Autopay required; without autopay, $5.00 breakage fee per cycle",
+     "Autopay breakage fee: $5.00 per billing cycle if autopay fails",
+     "Automatic payments required to get this plan",
      "Early termination fee $295 through end of contract",
-     "Price may change for TDSP and regulatory fee changes",
-     "Renewable content is 22%, below statewide average of 37%"
+     "Price may change for TDSP and regulatory charges"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:21.292Z",
+    "fetchedAt": "2026-11-16T06:51:01.290Z",
     "via": "direct",
-    "sha256": "6058196469cd848c854365f885b122f440102d3f5b6cd0c5c778a199d25b1868",
+    "sha256": "4d2feab389799a115369aa26eff3f086e28d9a22c1ccfce39d56b334fbcedd6c",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 3377
+    "readMs": 2941
    },
    "check": {
     "status": "verified",
@@ -5089,18 +5078,18 @@
      "k2000": 13.5
     },
     "notes": [
-     "Requires automatic payments; otherwise $5.00 per billing cycle breakage fee",
-     "Early termination fee $75 through end of contract term",
-     "Price may change for TDSP and regulatory fee changes",
-     "Base charge $4.95 plus CenterPoint delivery $4.90 monthly"
+     "Requires automatic payments; enrollment via web only.",
+     "$5.00 autopay breakage fee per billing cycle if payment fails.",
+     "Price may change for TDSP charges and regulatory fee changes.",
+     "22% renewable content; statewide average is 37%."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:47.851Z",
+    "fetchedAt": "2026-11-16T06:51:19.174Z",
     "via": "direct",
-    "sha256": "c75462dcddb7138e8c242e23c6e6035123bdbb602a0f62a6d73378ab1d138dc2",
+    "sha256": "e099d58dc7affaeefc710431e990f7d079b7bcce3f40790b38e8badad668fd6b",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 2733
+    "readMs": 3030
    },
    "check": {
     "status": "verified",
@@ -5171,18 +5160,18 @@
      "k2000": 14
     },
     "notes": [
-     "Label gives no TDSP delivery charge amounts; they are passed through as billed.",
-     "Early termination fee $95; waived if you move with proof.",
-     "Price may change for TDSP, ERCOT, and legal or regulatory cost changes.",
-     "Average prices exclude TDSP delivery charges, so your bill will be higher."
+     "TDSP delivery charges are passed through and not printed; they are excluded here.",
+     "Early termination fee $95; waived if customer moves with proof.",
+     "Price may change for TDSP, ERCOT and regulatory cost changes.",
+     "Label averages are higher than the energy charge alone; delivery charges are not itemized on the label."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:45.863Z",
+    "fetchedAt": "2026-11-16T06:52:06.827Z",
     "via": "direct",
-    "sha256": "c5e11a386dff4569c7ce3e4b7feb6f861aa0ce7d619c339f72d08f6363c2af01",
-    "parsedBy": "claude-haiku-5-5",
-    "readMs": 5390
+    "sha256": "8687672565e18eb7b6ee41e207005d30bb62cc7f1539be0aca02c59a092734ae",
+    "parsedBy": "claude-haiku-5-5 + averages from Power to Choose",
+    "readMs": 5565
    },
    "check": {
     "status": "verified",
@@ -5206,8 +5195,8 @@
       "ok": true
      }
     ],
-    "tduFilled": true,
-    "message": "This label doesn't print delivery charges. With CenterPoint's charges from other labels (6.5333¢/kWh + $4.90/mo), all 3 averages match."
+    "message": "The reader copied one average wrong; with the averages the label prints, all 3 match.",
+    "tduFilled": true
    }
   },
   {
@@ -5254,18 +5243,18 @@
      "k2000": 14
     },
     "notes": [
-     "Label's averages include TDSP delivery charges, which are not printed as numbers here.",
-     "Early termination fee is $150 flat, waived if you move.",
-     "Price may change for TDSP, ERCOT, and regulatory cost changes.",
-     "Renewable content is 22%, below the 37% statewide average."
+     "TDSP delivery charges are passed through and not printed on this label",
+     "Early termination fee $150; waived if customer moves with proof",
+     "Price may change for TDSP, ERCOT fee, and regulatory changes",
+     "Label averages exceed energy charge because delivery charges are not included in the figures printed"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:51:48.380Z",
+    "fetchedAt": "2026-11-16T06:50:43.568Z",
     "via": "direct",
-    "sha256": "d611c18484bf3badd537ad116f6eeb042ff74a864587ba110aa7917b3857bcf3",
-    "parsedBy": "claude-haiku-5-5",
-    "readMs": 5258
+    "sha256": "2f2c1a5af9e3af9aeeb5730576d06a41dccb902491a8c38da1ce1d4cc503cec3",
+    "parsedBy": "claude-haiku-5-5 + averages from Power to Choose",
+    "readMs": 5852
    },
    "check": {
     "status": "verified",
@@ -5289,8 +5278,8 @@
       "ok": true
      }
     ],
-    "tduFilled": true,
-    "message": "This label doesn't print delivery charges. With CenterPoint's charges from other labels (6.5333¢/kWh + $4.90/mo), all 3 averages match."
+    "message": "The reader copied one average wrong; with the averages the label prints, all 3 match.",
+    "tduFilled": true
    }
   },
   {
@@ -5337,18 +5326,18 @@
      "k2000": 14
     },
     "notes": [
-     "Label gives no TDSP delivery charge amounts; averages exclude them.",
-     "Early termination fee is $180 flat through end of term.",
-     "Price may change for TDSP, ERCOT, and legal or regulatory changes.",
-     "Renewable sell-back credits apply only to enrolled eligible customers."
+     "TDSP delivery charges are passed through and not printed; label averages exclude them",
+     "Label averages are higher than the energy charge alone; delivery charges are not itemized",
+     "$180 early termination fee applies through end of contract term",
+     "Price may change for TDSP, ERCOT, and regulatory cost changes"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:17.813Z",
+    "fetchedAt": "2026-11-16T06:50:59.593Z",
     "via": "direct",
-    "sha256": "c3a9df15f33b673f541b93a4c79f3e7dea9aad944ed6523f8d2e8d16300511f3",
-    "parsedBy": "claude-haiku-5-5",
-    "readMs": 4920
+    "sha256": "bdd1a7d9ea029ba74499f4cc1dbac7622b94d9d00c1369c8b3d36aed890d2fbf",
+    "parsedBy": "claude-haiku-5-5 + averages from Power to Choose",
+    "readMs": 5164
    },
    "check": {
     "status": "verified",
@@ -5372,8 +5361,8 @@
       "ok": true
      }
     ],
-    "tduFilled": true,
-    "message": "This label doesn't print delivery charges. With CenterPoint's charges from other labels (6.5333¢/kWh + $4.90/mo), all 3 averages match."
+    "message": "The reader copied one average wrong; with the averages the label prints, all 3 match.",
+    "tduFilled": true
    }
   },
   {
@@ -5420,18 +5409,18 @@
      "k2000": 14.3
     },
     "notes": [
-     "Label averages exceed energy charge; TDSP delivery charges not printed on label.",
-     "Early termination fee is $295 flat through end of term.",
-     "Price may change for TDSP, ERCOT, and regulatory cost changes.",
-     "Renewable sell-back credits apply only to eligible enrolled customers."
+     "TDSP delivery charges are passed through and not printed on the label",
+     "Early termination fee is $295 flat through end of term",
+     "Price may change for TDSP, ERCOT, and regulatory changes",
+     "Product is 22% renewable; statewide average is 37%"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:51:59.690Z",
+    "fetchedAt": "2026-11-16T06:50:51.490Z",
     "via": "direct",
-    "sha256": "0f9648a49ca68bc9c56ae8d1b1c04fdf08cc78c5f727776aed8442a21fbad46a",
-    "parsedBy": "claude-haiku-5-5",
-    "readMs": 7260
+    "sha256": "0d668a97ccff9c6ddcfe7498df163764bb96f36f39199bf5a0c9add8318c5a60",
+    "parsedBy": "claude-haiku-5-5 + averages from Power to Choose",
+    "readMs": 5509
    },
    "check": {
     "status": "verified",
@@ -5455,8 +5444,8 @@
       "ok": true
      }
     ],
-    "tduFilled": true,
-    "message": "This label doesn't print delivery charges. With CenterPoint's charges from other labels (6.5333¢/kWh + $4.90/mo), all 3 averages match."
+    "message": "The reader copied one average wrong; with the averages the label prints, all 3 match.",
+    "tduFilled": true
    }
   },
   {
@@ -5503,18 +5492,18 @@
      "k2000": 13.2
     },
     "notes": [
-     "Early termination fee is $75; waived only if you move.",
-     "Price may change for TDSP and regulatory fee changes.",
-     "Label averages exclude TDSP delivery charges, which are passed through as billed.",
-     "Product is 22% renewable versus 37% statewide average."
+     "TDSP delivery charges are passed through and not printed; they add to the bill",
+     "$75 early termination fee; waived only if customer moves",
+     "Price may change for TDSP, ERCOT, and legal or regulatory changes",
+     "Renewable content is 22%, below the 37% statewide average"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:48.200Z",
+    "fetchedAt": "2026-11-16T06:51:19.463Z",
     "via": "direct",
-    "sha256": "fd2781044df383579a3510f014c67bed5476f7d687d1836c8f6a848cfcdce015",
-    "parsedBy": "claude-haiku-5-5",
-    "readMs": 5132
+    "sha256": "7659839755a6915c67302d151515d6e48719840e2db35657638558a56a6b987b",
+    "parsedBy": "claude-haiku-5-5 + averages from Power to Choose",
+    "readMs": 5473
    },
    "check": {
     "status": "verified",
@@ -5538,8 +5527,8 @@
       "ok": true
      }
     ],
-    "tduFilled": true,
-    "message": "This label doesn't print delivery charges. With CenterPoint's charges from other labels (6.5333¢/kWh + $4.90/mo), all 3 averages match."
+    "message": "The reader copied one average wrong; with the averages the label prints, all 3 match.",
+    "tduFilled": true
    }
   },
   {
@@ -6011,18 +6000,77 @@
      "k2000": 13.7
     }
    },
-   "pricing": null,
+   "pricing": {
+    "baseChargeDollars": 0,
+    "energyTiers": [
+     {
+      "fromKwh": 0,
+      "cents": 13.097
+     }
+    ],
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
+    "credits": [
+     {
+      "minKwh": 999,
+      "maxKwh": null,
+      "dollars": 125,
+      "label": "Monthly Bill Credit over 999 kWh",
+      "conditional": false
+     }
+    ],
+    "usageFees": [],
+    "amortizedFees": [],
+    "touPeriods": [],
+    "termMonths": 12,
+    "earlyTerminationFee": {
+     "dollars": 20,
+     "perMonthRemaining": true
+    },
+    "labelAvg": {
+     "k500": 20.6,
+     "k1000": 7.6,
+     "k2000": 13.7
+    },
+    "notes": [
+     "$125 monthly credit applies only above 999 kWh",
+     "TDU delivery charges are passed through, not included in numbers shown",
+     "Early termination: $20 times months remaining on term",
+     "Paperless product; a valid email is required or fees apply",
+     "Renewable content is 3% by default"
+    ]
+   },
    "read": {
-    "fetchedAt": "2026-11-16T05:57:32.634Z",
+    "fetchedAt": "2026-11-16T07:03:15.716Z",
     "via": "direct",
-    "sha256": "",
-    "parsedBy": "none",
-    "readMs": 0
+    "sha256": "62eef7f668eb68d698f383d7675c8f28c728f9dfa44fe194bb92667731d17a94",
+    "parsedBy": "claude-haiku-5-5",
+    "readMs": 7354
    },
    "check": {
-    "status": "unread",
-    "rows": [],
-    "message": "The page opened, but it doesn't look like a fine-print label."
+    "status": "verified",
+    "rows": [
+     {
+      "kwh": 500,
+      "printed": 20.6,
+      "ours": 20.6,
+      "ok": true
+     },
+     {
+      "kwh": 1000,
+      "printed": 7.6,
+      "ours": 7.6,
+      "ok": true
+     },
+     {
+      "kwh": 2000,
+      "printed": 13.7,
+      "ours": 13.6,
+      "ok": true
+     }
+    ],
+    "message": "The label doesn't print delivery charges; with CenterPoint's, all 3 averages match.",
+    "tduFilled": true
    }
   },
   {
@@ -6044,18 +6092,68 @@
      "k2000": 11.7
     }
    },
-   "pricing": null,
+   "pricing": {
+    "baseChargeDollars": 0,
+    "energyTiers": [
+     {
+      "fromKwh": 0,
+      "cents": 4.9217
+     }
+    ],
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
+    "credits": [],
+    "usageFees": [],
+    "amortizedFees": [],
+    "touPeriods": [],
+    "termMonths": 12,
+    "earlyTerminationFee": {
+     "dollars": 20,
+     "perMonthRemaining": true
+    },
+    "labelAvg": {
+     "k500": 12.5,
+     "k1000": 12,
+     "k2000": 11.7
+    },
+    "notes": [
+     "TDU delivery charges are passed through and not included in the energy price",
+     "Paperless only: a valid email address is required or fees apply",
+     "Early termination fee is $20 per month remaining on the term",
+     "Renewable content is 3% by default"
+    ]
+   },
    "read": {
-    "fetchedAt": "2026-11-16T05:57:27.138Z",
+    "fetchedAt": "2026-11-16T07:02:43.051Z",
     "via": "direct",
-    "sha256": "",
-    "parsedBy": "none",
-    "readMs": 0
+    "sha256": "67f4cc6f1535de899087d2ca0c1cf783a12f6e19e43a4f1ee655e095046dda5d",
+    "parsedBy": "claude-haiku-5-5 + averages from Power to Choose",
+    "readMs": 7130
    },
    "check": {
-    "status": "unread",
-    "rows": [],
-    "message": "The page opened, but it doesn't look like a fine-print label."
+    "status": "verified",
+    "rows": [
+     {
+      "kwh": 500,
+      "printed": 12.5,
+      "ours": 12.4,
+      "ok": true
+     },
+     {
+      "kwh": 1000,
+      "printed": 12,
+      "ours": 11.9,
+      "ok": true
+     },
+     {
+      "kwh": 2000,
+      "printed": 11.7,
+      "ours": 11.7,
+      "ok": true
+     }
+    ],
+    "message": "The reader copied one average wrong; with the averages the label prints, all 3 match.",
+    "tduFilled": true
    }
   },
   {
@@ -6077,18 +6175,68 @@
      "k2000": 14.6
     }
    },
-   "pricing": null,
+   "pricing": {
+    "baseChargeDollars": 0,
+    "energyTiers": [
+     {
+      "fromKwh": 0,
+      "cents": 7.8
+     }
+    ],
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
+    "credits": [],
+    "usageFees": [],
+    "amortizedFees": [],
+    "touPeriods": [],
+    "termMonths": 13,
+    "earlyTerminationFee": {
+     "dollars": 20,
+     "perMonthRemaining": true
+    },
+    "labelAvg": {
+     "k500": 15.3,
+     "k1000": 14.9,
+     "k2000": 14.6
+    },
+    "notes": [
+     "TDU delivery charges are passed through and not included in the energy price",
+     "Early termination fee is $20 per month remaining on the term",
+     "Paperless product; a valid email address is required or fees apply",
+     "Renewable content is 3% by default"
+    ]
+   },
    "read": {
-    "fetchedAt": "2026-11-16T05:57:46.709Z",
+    "fetchedAt": "2026-11-16T07:03:37.673Z",
     "via": "direct",
-    "sha256": "",
-    "parsedBy": "none",
-    "readMs": 0
+    "sha256": "6853ec54d705f5df7b205b1e347f8ae1b1b08e6347c0fdcd11e29bf48b9622d1",
+    "parsedBy": "claude-haiku-5-5 + averages from Power to Choose",
+    "readMs": 6812
    },
    "check": {
-    "status": "unread",
-    "rows": [],
-    "message": "The page opened, but it doesn't look like a fine-print label."
+    "status": "verified",
+    "rows": [
+     {
+      "kwh": 500,
+      "printed": 15.3,
+      "ours": 15.3,
+      "ok": true
+     },
+     {
+      "kwh": 1000,
+      "printed": 14.9,
+      "ours": 14.8,
+      "ok": true
+     },
+     {
+      "kwh": 2000,
+      "printed": 14.6,
+      "ours": 14.6,
+      "ok": true
+     }
+    ],
+    "message": "The reader copied one average wrong; with the averages the label prints, all 3 match.",
+    "tduFilled": true
    }
   },
   {
@@ -6110,18 +6258,68 @@
      "k2000": 11.3
     }
    },
-   "pricing": null,
+   "pricing": {
+    "baseChargeDollars": 0,
+    "energyTiers": [
+     {
+      "fromKwh": 0,
+      "cents": 4.5
+     }
+    ],
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
+    "credits": [],
+    "usageFees": [],
+    "amortizedFees": [],
+    "touPeriods": [],
+    "termMonths": 8,
+    "earlyTerminationFee": {
+     "dollars": 20,
+     "perMonthRemaining": true
+    },
+    "labelAvg": {
+     "k500": 12,
+     "k1000": 11.6,
+     "k2000": 11.3
+    },
+    "notes": [
+     "TDU delivery charges are passed through and not listed on label",
+     "Paperless product: valid email required or e-Docs Breakage Fee applies",
+     "Early termination: $20 per month remaining on contract",
+     "Averages exclude municipal facility relocation fees and other charges"
+    ]
+   },
    "read": {
-    "fetchedAt": "2026-11-16T05:57:35.771Z",
+    "fetchedAt": "2026-11-16T07:03:30.913Z",
     "via": "direct",
-    "sha256": "",
-    "parsedBy": "none",
-    "readMs": 0
+    "sha256": "efe5522aa24deb8e3e2c237d6efae1b358501235b84d26c23deb87d17ca5c6d7",
+    "parsedBy": "claude-haiku-5-5 + averages from Power to Choose",
+    "readMs": 6758
    },
    "check": {
-    "status": "unread",
-    "rows": [],
-    "message": "The page opened, but it doesn't look like a fine-print label."
+    "status": "verified",
+    "rows": [
+     {
+      "kwh": 500,
+      "printed": 12,
+      "ours": 12,
+      "ok": true
+     },
+     {
+      "kwh": 1000,
+      "printed": 11.6,
+      "ours": 11.5,
+      "ok": true
+     },
+     {
+      "kwh": 2000,
+      "printed": 11.3,
+      "ours": 11.3,
+      "ok": true
+     }
+    ],
+    "message": "The reader copied one average wrong; with the averages the label prints, all 3 match.",
+    "tduFilled": true
    }
   },
   {
@@ -6414,18 +6612,18 @@
      "k2000": 12.2
     },
     "notes": [
-     "Paperless product: email address required or fees may apply.",
-     "Flat $150 early termination fee if you leave before term ends.",
-     "No early termination fee if you move with proof.",
-     "Price may change with TDU charge and regulatory changes."
+     "Price includes CenterPoint delivery charges: $4.90 monthly plus 6.5611¢ per kWh.",
+     "Early termination fee is $150 flat; waived if you move.",
+     "Paperless plan: a valid email address is required or fees may apply.",
+     "Price may change with TDU charges and regulatory changes during contract."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:47.600Z",
+    "fetchedAt": "2026-11-16T06:51:16.985Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "0b1fb5f0ad0c24fbddc92da899f27063df529c8285576f77dba0092d81448b6a",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 2152
+    "readMs": 2189
    },
    "check": {
     "status": "verified",
@@ -6578,18 +6776,18 @@
      "k2000": 10.4
     },
     "notes": [
-     "Fixed-rate plan; price may change with TDU charges.",
-     "$150 early termination fee if you leave before term ends.",
-     "Paperless product: a valid email address is required or fees may apply.",
-     "TDU delivery charges are passed through; local underground charges not included."
+     "Paperless product: valid email required or fees may apply.",
+     "Price may change during contract for TDU charge changes.",
+     "Early termination fee is $150 flat before term ends.",
+     "TDU underground facilities charge may apply, not included in averages."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:28.385Z",
+    "fetchedAt": "2026-11-16T06:51:56.685Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "565e702deee28210e98d50db57edf83932f267555bf383329b2f723ef916fac4",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 2489
+    "readMs": 2117
    },
    "check": {
     "status": "verified",
@@ -6906,18 +7104,18 @@
      "k2000": 14.8
     },
     "notes": [
-     "Early termination fee is $150 through end of contract.",
-     "Price can change for TDSP and regulatory fee changes.",
-     "Renewable Rewards buy-back credits apply only to eligible enrolled customers.",
-     "Delivery charges include $4.90 monthly plus 6.5611¢ per kWh."
+     "Early termination fee $150 through end of contract term.",
+     "Price may change for TDSP and regulatory charges.",
+     "Renewable Rewards buy-back credits require eligibility; not a standard credit.",
+     "Base charge $5.00 plus TDU delivery $4.90 monthly apply."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:01.142Z",
+    "fetchedAt": "2026-11-16T06:50:51.749Z",
     "via": "direct",
-    "sha256": "5c4c4ca00eaa4a75f5f5f022f1e2ec93dd01e6c2b6bec06b8f99f832a6bf6c95",
+    "sha256": "f4fde9b0b987d60404956b04fd6c65e60d91e07012a30843f933217a391cfb65",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 3246
+    "readMs": 3640
    },
    "check": {
     "status": "verified",
@@ -6988,18 +7186,18 @@
      "k2000": 14.9
     },
     "notes": [
-     "Price can change for TDSP and regulatory fee changes.",
-     "Early termination fee $295; waived if you move.",
-     "Renewable Rewards credits apply only to eligible enrolled customers.",
-     "Base charge $5.00 plus TDU charges $4.90 monthly apply."
+     "Price can change for TDSP charges and government-imposed fees.",
+     "$295 early termination fee through end of contract term.",
+     "Renewable Rewards buy-back credits require eligibility and product enrollment.",
+     "Fixed rate for 24 months; base charge $5 monthly."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:07.221Z",
+    "fetchedAt": "2026-11-16T06:50:53.852Z",
     "via": "direct",
-    "sha256": "3febe70e7aff523727cae2ef5fd3d6cb5785a3e0e942e71de2aa67237b81a6c8",
+    "sha256": "39eee96bc59809dfef5dde7614c92bbcb00a85b4606ec818baa7aa974e23d9ee",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 3642
+    "readMs": 3114
    },
    "check": {
     "status": "verified",
@@ -7070,18 +7268,18 @@
      "k2000": 15.2
     },
     "notes": [
-     "Early termination fee is $395, waived only if you move",
-     "Price can change for TDSP and regulatory fee changes",
-     "Renewable Rewards buy-back credits apply only to eligible enrolled customers",
-     "Base charge $5.00 plus TDU delivery $4.90 monthly apply"
+     "Fixed rate for 36 months; price may change for delivery or regulatory fees.",
+     "Early termination fee $395 applies through end of contract term.",
+     "Monthly base charge $5.00 plus TDU delivery charges $4.90 plus per-kWh delivery.",
+     "Renewable Rewards credits apply only to enrolled customers with excess generation."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:27.070Z",
+    "fetchedAt": "2026-11-16T06:51:05.959Z",
     "via": "direct",
-    "sha256": "2bca3bd55f78e54c49bccd0ec1d0ac6d13f221e528f43876d6ddcf0c565122c0",
+    "sha256": "2ffb80cde6fdd0ab98eb6a3ede022bbe1253ab2d9dd9da62b87f7cf85ea0eeb0",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 3176
+    "readMs": 3531
    },
    "check": {
     "status": "verified",
@@ -7152,18 +7350,18 @@
      "k2000": 14
     },
     "notes": [
+     "Fixed rate for 8 months; $75 termination fee applies",
      "Price can change for TDSP and regulatory fee changes",
-     "Early termination fee $75 applies through contract end",
-     "Fee waived if customer moves with forwarding address",
-     "Renewable content is not 100% Texas wind"
+     "$5 base charge plus $4.90 delivery charge each month",
+     "Renewable content is 51% Texas Wind; not 100% Texas"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:49.753Z",
+    "fetchedAt": "2026-11-16T06:51:22.205Z",
     "via": "direct",
-    "sha256": "a4550de2174b8be0f6e81fa8c7a0d1d563a172a9859d4088ae103e1403a0f1f7",
+    "sha256": "12f24a4ad30786d91364e13ebac81649f234b2ba13b30b54df23eb2f35286e14",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 3062
+    "readMs": 3530
    },
    "check": {
     "status": "verified",
@@ -7234,17 +7432,18 @@
      "k2000": 17.5
     },
     "notes": [
-     "Month-to-month term; price can change at provider's discretion.",
-     "Base charge $5.00 plus TDU delivery charges $4.90 monthly.",
-     "Renewable Rewards buy-back credits apply only if enrolled and eligible."
+     "Month-to-month variable price; price may change at provider's discretion.",
+     "Base charge $5.00 plus CenterPoint delivery $4.90 monthly.",
+     "Renewable Rewards buy-back credits apply only to enrolled customers.",
+     "Label says 100% renewable, sourced from national solar facilities."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:02.445Z",
+    "fetchedAt": "2026-11-16T06:50:52.248Z",
     "via": "direct",
-    "sha256": "db2e8f071d67fb3fbc221520ca625fb35976a8adda1f5d003989751bfc636b3a",
+    "sha256": "865ed7bbd4a4bc99951c7f6cab6bdd1016ff9ae0a51a538eed1e89adb0a17a50",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 2416
+    "readMs": 3369
    },
    "check": {
     "status": "verified",
@@ -8054,18 +8253,18 @@
      "k2000": 15.3
     },
     "notes": [
-     "Average prices exclude JustGreen charge and sales taxes.",
-     "$175 exit fee per ESIID if you terminate early.",
-     "Price can change for TDU/TDSP, ERCOT, or government-imposed fee changes.",
-     "Some cities charge TDSP Underground Facilities fee not included here."
+     "Exit fee is $175 per ESIID.",
+     "Price excludes JustGreen charge, taxes, and fees.",
+     "Price can change for TDU/TDSP and certain fee changes.",
+     "Some cities may add TDSP underground facilities charge."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:59.391Z",
+    "fetchedAt": "2026-11-16T06:51:32.174Z",
     "via": "direct",
-    "sha256": "4736a25f1bb5d7095e1d98814633e736ba42e4c83174d51b173393941016bd96",
+    "sha256": "221d71b4308d5466efdf9fa527660ab4416f215ae0d71b4b5ec6ed0c59acfb48",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 3300
+    "readMs": 3513
    },
    "check": {
     "status": "verified",
@@ -8136,18 +8335,18 @@
      "k2000": 15.3
     },
     "notes": [
-     "Average prices exclude JustGreen charge and sales taxes.",
-     "Exit fee is $175 per ESIID if you terminate early.",
-     "Price can change for TDU/TDSP and government-imposed charges.",
-     "Renewable content is 22%, below the 37.2% statewide average."
+     "Exit fee is $175 per ESIID, not reduced over term.",
+     "Averages exclude JustGreen charge, sales taxes, and fees.",
+     "City TDSP underground facilities charge may apply, not included.",
+     "Renewable content is 22%, below statewide average of 37.2%."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:53.334Z",
+    "fetchedAt": "2026-11-16T06:51:25.027Z",
     "via": "direct",
-    "sha256": "e4217153b83fd7569697afecd54534c1aec6a22c3271c9ad9d589a7293c49899",
+    "sha256": "38f95e02a794c5b9432f3cb05735c2937075300145c7f0eb047f3dd0a6c834ef",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 3270
+    "readMs": 3335
    },
    "check": {
     "status": "verified",
@@ -8232,18 +8431,18 @@
      "k2000": 14.9
     },
     "notes": [
-     "Smart Choice Credit of $125 applies only at 1,000 kWh or more per cycle.",
-     "Minimum usage fee of $4.99 applies to cycles under 400 kWh.",
-     "Exit fee of $175 per ESIID if you terminate early.",
-     "Averages exclude sales taxes, JustGreen charge, and possible city underground facilities charges."
+     "$125 credit only when usage is at least 1,000 kWh per bill",
+     "Minimum usage fee $4.99 if usage under 400 kWh",
+     "Exit fee $175 per ESIID if you cancel early",
+     "Price excludes taxes, JustGreen charge, and some city TDSP charges"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:10.864Z",
+    "fetchedAt": "2026-11-16T06:50:54.865Z",
     "via": "direct",
-    "sha256": "7fcb67d50ca6215d38a91c85c9ac71871cb5f70d119bfb7e4716ac335d67d9e0",
+    "sha256": "6007e84661b84783f26244ecd3600548761ddd0a0b6f98f9972edcb6f5b0bd2f",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 3641
+    "readMs": 4339
    },
    "check": {
     "status": "verified",
@@ -8290,7 +8489,7 @@
     }
    },
    "pricing": {
-    "baseChargeDollars": 4.9,
+    "baseChargeDollars": 0,
     "energyTiers": [
      {
       "fromKwh": 0,
@@ -8298,32 +8497,24 @@
      }
     ],
     "tduCentsPerKwh": 6.5611,
-    "tduMonthlyDollars": 0,
-    "credits": [
-     {
-      "minKwh": 0,
-      "maxKwh": null,
-      "dollars": 0,
-      "label": "Day Hours energy credit (9AM-4PM usage), amount not stated as fixed dollars; credit equals Energy Charges for Day Hours usage",
-      "conditional": false
-     }
-    ],
+    "tduMonthlyDollars": 4.9,
+    "credits": [],
     "usageFees": [],
     "amortizedFees": [
      {
       "dollars": 49.99,
       "months": 12,
-      "label": "GoodBundle setup and carbon offset purchase"
+      "label": "GoodBundle setup and carbon offset (1/12 included in averages)"
      }
     ],
     "touPeriods": [
      {
-      "label": "Day Hours (9AM-4PM)",
+      "label": "Day Hours (9AM-4PM) energy credit",
       "share": 0.33,
       "cents": 0
      },
      {
-      "label": "All other hours",
+      "label": "Non-Day Hours energy",
       "share": 0.67,
       "cents": 4.1
      }
@@ -8339,18 +8530,18 @@
      "k2000": 9.8
     },
     "notes": [
-     "Day Hours (9AM-4PM) usage gets a bill credit; price depends on it",
-     "Average prices assume 33% of usage during Day Hours",
-     "Credit may be missing if interval data unavailable from utility",
-     "$49.99 setup fee spread into averages over 12 months"
+     "Day Hours (9AM-4PM) energy is credited back on your bill.",
+     "One-time $49.99 GoodBundle setup fee is spread into averages.",
+     "Averages exclude JustGreen charge, taxes, and fees.",
+     "Exit fee is $175 per ESI ID; price may change with TDSP charges."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:09.964Z",
+    "fetchedAt": "2026-11-16T06:50:54.343Z",
     "via": "direct",
-    "sha256": "57b29ee6f5f55a4deaf99a8d74eebf47b7b1aedf5bd46ddd4524b1ff2ce84fd4",
-    "parsedBy": "claude-haiku-5-5",
-    "readMs": 6447
+    "sha256": "a2ff535006984277b8d4e0f76ed75a2c2c2d126c1430d8211a2522cd9b637fb2",
+    "parsedBy": "claude-haiku-5-5 + code fix",
+    "readMs": 6330
    },
    "check": {
     "status": "verified",
@@ -8374,7 +8565,7 @@
       "ok": true
      }
     ],
-    "message": "All 3 label averages match."
+    "message": "The reader counted credited-back hours as a negative price; on the label those hours are free (0¢). With that fixed, all 3 averages match."
    }
   },
   {
@@ -8397,7 +8588,7 @@
     }
    },
    "pricing": {
-    "baseChargeDollars": 4.9,
+    "baseChargeDollars": 0,
     "energyTiers": [
      {
       "fromKwh": 0,
@@ -8405,14 +8596,14 @@
      }
     ],
     "tduCentsPerKwh": 6.5611,
-    "tduMonthlyDollars": 0,
+    "tduMonthlyDollars": 4.9,
     "credits": [],
     "usageFees": [],
     "amortizedFees": [
      {
       "dollars": 49.99,
       "months": 12,
-      "label": "GoodBundle setup and carbon offset purchase (1/12 included in averages)"
+      "label": "GoodBundle setup and carbon offset purchase"
      }
     ],
     "touPeriods": [],
@@ -8427,18 +8618,18 @@
      "k2000": 9.8
     },
     "notes": [
-     "Average prices exclude JustGreen charge and sales taxes.",
-     "$4.90 monthly TDSP customer charge is passed through, not Just Energy's base charge.",
-     "One-time $49.99 setup fee is spread into averages over 12 months.",
-     "Exit fee is $175 per ESI ID if you terminate early."
+     "Average prices exclude JustGreen charge and sales taxes",
+     "One-time $49.99 GoodBundle setup fee required to enroll",
+     "Exit fee is $175 per ESI ID",
+     "Price can change for TDU/TDSP and certain fee changes"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:51:54.153Z",
+    "fetchedAt": "2026-11-16T06:50:49.180Z",
     "via": "direct",
-    "sha256": "e14b6268b3f1eb9e3e5ca53e72194ed996ff3aa94bf0e8903c897277b2146912",
+    "sha256": "eac2d32e236792ea1f2a930e0841bb6722483a9bc017c763fadf9c59b5cd4cbb",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 5533
+    "readMs": 4207
    },
    "check": {
     "status": "verified",
@@ -8656,18 +8847,75 @@
      "k2000": 11.9
     }
    },
-   "pricing": null,
+   "pricing": {
+    "baseChargeDollars": 0,
+    "energyTiers": [
+     {
+      "fromKwh": 0,
+      "cents": 5.3905
+     }
+    ],
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
+    "credits": [
+     {
+      "minKwh": 0,
+      "maxKwh": null,
+      "dollars": 5,
+      "label": "Autopay discount $5.00 per billing cycle (requires valid card registration)",
+      "conditional": true
+     }
+    ],
+    "usageFees": [],
+    "amortizedFees": [],
+    "touPeriods": [],
+    "termMonths": 14,
+    "earlyTerminationFee": {
+     "dollars": 200,
+     "perMonthRemaining": false
+    },
+    "labelAvg": {
+     "k500": 11.9,
+     "k1000": 11.9,
+     "k2000": 11.9
+    },
+    "notes": [
+     "$5 autopay credit requires valid card; ACH not supported for setup",
+     "Credit removed from second invoice without valid card enrollment",
+     "Averages exclude taxes, TDU underground and relocation fees",
+     "Price can change for TDU and regulatory cost changes"
+    ]
+   },
    "read": {
-    "fetchedAt": "2026-11-16T05:57:31.281Z",
-    "via": "direct",
-    "sha256": "",
-    "parsedBy": "none",
-    "readMs": 0
+    "fetchedAt": "2026-11-16T07:02:55.354Z",
+    "via": "anakin",
+    "sha256": "2a45ec3714d732d38c53fc1f8b9e8e8412f4ee0f3027829036f146394846cf7f",
+    "parsedBy": "claude-haiku-5-5",
+    "readMs": 19250
    },
    "check": {
-    "status": "unread",
-    "rows": [],
-    "message": "The page opened, but it doesn't look like a fine-print label."
+    "status": "verified",
+    "rows": [
+     {
+      "kwh": 500,
+      "printed": 11.9,
+      "ours": 11.9,
+      "ok": true
+     },
+     {
+      "kwh": 1000,
+      "printed": 11.9,
+      "ours": 11.9,
+      "ok": true
+     },
+     {
+      "kwh": 2000,
+      "printed": 11.9,
+      "ours": 11.9,
+      "ok": true
+     }
+    ],
+    "message": "All 3 label averages match."
    }
   },
   {
@@ -8704,7 +8952,7 @@
       "minKwh": 0,
       "maxKwh": null,
       "dollars": 5,
-      "label": "Autopay discount, $5.00 per billing cycle",
+      "label": "Autopay discount (requires valid card enrollment before second invoice)",
       "conditional": true
      }
     ],
@@ -8722,18 +8970,18 @@
      "k2000": 13.5
     },
     "notes": [
-     "$5.00 autopay credit requires valid card enrollment before second invoice",
-     "Initial invoice gets $5.00 credit automatically as courtesy",
-     "ACH bank payments not supported for initial setup",
-     "Early termination fee is $200 flat; 2% card processing fee applies"
+     "$5 autopay credit requires valid credit or debit card enrollment",
+     "Initial $5 credit given automatically; later months need card enrollment",
+     "ACH bank registration not supported for initial setup",
+     "2% credit card processing fee per transaction; $10 disconnect fee"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:20.128Z",
+    "fetchedAt": "2026-11-16T06:57:11.272Z",
     "via": "anakin",
     "sha256": "54ec1bdb7f34deb535370b02a1a95a08431621661c7f4e4511802cc5d55a6044",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 20220
+    "readMs": 22283
    },
    "check": {
     "status": "verified",
@@ -8902,18 +9150,18 @@
      "k2000": 10.9
     },
     "notes": [
-     "$5.00 autopay credit requires valid card enrollment before second invoice",
-     "New accounts get $5 credit on first invoice only as grace period",
-     "Card only; ACH not supported for initial setup",
-     "$150 early termination fee; price can change with TDU charges"
+     "$5 autopay credit requires valid card enrollment before second invoice",
+     "ACH bank payment not supported for initial setup",
+     "Price excludes taxes and TDU underground or relocation fees",
+     "$150 termination fee; price may change with TDU charges"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:24.856Z",
+    "fetchedAt": "2026-11-16T06:57:33.557Z",
     "via": "anakin",
     "sha256": "da20770ca008d1b60cc8e6efe6e3837e9882bf875a0d40903a605d83bc1b9377",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 19806
+    "readMs": 16573
    },
    "check": {
     "status": "verified",
@@ -9370,7 +9618,7 @@
     }
    },
    "pricing": {
-    "baseChargeDollars": 0,
+    "baseChargeDollars": 11.7,
     "energyTiers": [
      {
       "fromKwh": 0,
@@ -9384,7 +9632,7 @@
      {
       "belowKwh": 26,
       "dollars": 0.5,
-      "label": "Fee if billing period usage is less than 26 kWh"
+      "label": "Fee if a billing period's use is under 26 kWh"
      }
     ],
     "amortizedFees": [],
@@ -9395,47 +9643,44 @@
      "perMonthRemaining": false
     },
     "labelAvg": {
-     "k500": 15.9,
-     "k1000": 17.6,
-     "k2000": 15.9
+     "k500": 17.6,
+     "k1000": 15.9,
+     "k2000": 15.1
     },
     "notes": [
-     "Daily customer fee of $0.39 applies per day from CenterPoint.",
-     "$0.50 fee if billing period usage is under 26 kWh.",
-     "Negative balances are billed $0.01 higher per kWh until repaid.",
-     "Pre-pay/pay-as-you-go product; month-to-month with no termination fee."
+     "Prepaid. A $0.39 daily fee (about $11.70 a month) is in the averages."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:59.661Z",
+    "fetchedAt": "2026-11-16T06:50:04.822Z",
     "via": "direct",
     "sha256": "7ed2000bc8ec92abdd0cc7e659ea85d780119485788f5633780aa74f44ccd9f2",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 4501
+    "readMs": 6099
    },
    "check": {
     "status": "mismatch",
     "rows": [
      {
       "kwh": 500,
-      "printed": 15.9,
-      "ours": 15.9,
-      "ok": true
+      "printed": 17.6,
+      "ours": 18.2,
+      "ok": false
      },
      {
       "kwh": 1000,
-      "printed": 17.6,
-      "ours": 15.9,
+      "printed": 15.9,
+      "ours": 17.1,
       "ok": false
      },
      {
       "kwh": 2000,
-      "printed": 15.9,
-      "ours": 15.9,
-      "ok": true
+      "printed": 15.1,
+      "ours": 16.5,
+      "ok": false
      }
     ],
-    "message": "Our math didn't match the label."
+    "message": "The label's own charges (15.9¢ per kWh plus a $0.39 daily fee) come to 18.2¢ / 17.1¢ / 16.5¢, not the 17.6¢ / 15.9¢ / 15.1¢ it prints."
    }
   },
   {
@@ -9472,7 +9717,7 @@
      {
       "belowKwh": 26,
       "dollars": 0.5,
-      "label": "Fee if billing period usage is less than 26 kWh"
+      "label": "Fee if a billing period's use is under 26 kWh"
      }
     ],
     "amortizedFees": [],
@@ -9483,47 +9728,44 @@
      "perMonthRemaining": false
     },
     "labelAvg": {
-     "k500": 16.5,
-     "k1000": 18.2,
-     "k2000": 16.5
+     "k500": 18.2,
+     "k1000": 16.5,
+     "k2000": 15.7
     },
     "notes": [
-     "Daily customer fee of $0.39 per day applies on top of energy charge",
-     "Delivery charges from CenterPoint are passed through in addition",
-     "$0.50 fee if billing period usage is under 26 kWh",
-     "Early termination fee is $50.00; prices may change with utility charges"
+     "Prepaid. A $0.39 daily fee (about $11.70 a month) is in the averages."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:45.814Z",
+    "fetchedAt": "2026-11-16T06:50:10.949Z",
     "via": "direct",
     "sha256": "0be98e95824b58df84b5fc8add9bd911da3bf4c54f5e12926204b95e5c288378",
-    "parsedBy": "claude-haiku-5-5",
-    "readMs": 4882
+    "parsedBy": "code (Pronto label reader)",
+    "readMs": 4699
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
-      "printed": 16.5,
+      "printed": 18.2,
       "ours": 18.2,
-      "ok": false
+      "ok": true
      },
      {
       "kwh": 1000,
-      "printed": 18.2,
+      "printed": 16.5,
       "ours": 16.5,
-      "ok": false
+      "ok": true
      },
      {
       "kwh": 2000,
-      "printed": 16.5,
+      "printed": 15.7,
       "ours": 15.7,
-      "ok": false
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "message": "Read by code: the label prints its rate and the 3 averages in one row, and a daily fee over 30 days; all 3 match."
    }
   },
   {
@@ -9546,11 +9788,11 @@
     }
    },
    "pricing": {
-    "baseChargeDollars": 0,
+    "baseChargeDollars": 11.7,
     "energyTiers": [
      {
       "fromKwh": 0,
-      "cents": 0
+      "cents": 17.53
      }
     ],
     "tduCentsPerKwh": 0,
@@ -9560,7 +9802,7 @@
      {
       "belowKwh": 26,
       "dollars": 0.5,
-      "label": "$0.50 fee if billing-period usage is less than 26 kWh"
+      "label": "Fee if a billing period's use is under 26 kWh"
      }
     ],
     "amortizedFees": [],
@@ -9571,47 +9813,44 @@
      "perMonthRemaining": false
     },
     "labelAvg": {
-     "k500": 17.53,
-     "k1000": 19.9,
-     "k2000": 18.7
+     "k500": 19.9,
+     "k1000": 18.7,
+     "k2000": 18.1
     },
     "notes": [
-     "Daily customer fee of $0.39 per day applies.",
-     "$0.50 fee if billing usage is under 26 kWh.",
-     "Month-to-month; no termination fee.",
-     "Balances below $0.00 billed $0.01 more per kWh."
+     "Prepaid. A $0.39 daily fee (about $11.70 a month) is in the averages."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:43.519Z",
+    "fetchedAt": "2026-11-16T06:50:04.823Z",
     "via": "direct",
     "sha256": "20d87932f0f16583be6a40163bd6d2bec8142be57b8ff9121002dfce0eef8d34",
-    "parsedBy": "claude-haiku-5-5",
-    "readMs": 10017
+    "parsedBy": "code (Pronto label reader)",
+    "readMs": 6123
    },
    "check": {
-    "status": "mismatch",
+    "status": "verified",
     "rows": [
      {
       "kwh": 500,
-      "printed": 17.53,
-      "ours": 0,
-      "ok": false
+      "printed": 19.9,
+      "ours": 19.9,
+      "ok": true
      },
      {
       "kwh": 1000,
-      "printed": 19.9,
-      "ours": 0,
-      "ok": false
+      "printed": 18.7,
+      "ours": 18.7,
+      "ok": true
      },
      {
       "kwh": 2000,
-      "printed": 18.7,
-      "ours": 0,
-      "ok": false
+      "printed": 18.1,
+      "ours": 18.1,
+      "ok": true
      }
     ],
-    "message": "Our math didn't match the label."
+    "message": "Read by code: the label prints its rate and the 3 averages in one row, and a daily fee over 30 days; all 3 match."
    }
   },
   {
@@ -10138,18 +10377,18 @@
      "k2000": 14.4
     },
     "notes": [
-     "Early termination fee of $150 applies through end of contract",
+     "$150 early termination fee applies through end of term",
      "Price may change for TDSP and regulatory charges",
-     "Base charge $5.00 plus TDU delivery $4.90 monthly",
-     "Product is 22% renewable versus 37% statewide average"
+     "Product is 22% renewable versus 37% statewide average",
+     "Base charge $5.00 per billing cycle plus TDU charges"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:14.662Z",
+    "fetchedAt": "2026-11-16T06:50:56.968Z",
     "via": "direct",
-    "sha256": "340ca4d7675944166d7e334620077ed6c8b4d356e8846c2efee08c27fd05f0ce",
+    "sha256": "574cff9a1d10e1f77dac59e1b233479b8d9721589135edcfa6cb3e32b2d8eefc",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 3145
+    "readMs": 2624
    },
    "check": {
     "status": "verified",
@@ -10220,18 +10459,18 @@
      "k2000": 14.3
     },
     "notes": [
-     "Price may change for TDSP, ERCOT, and legal-related charges.",
-     "Early termination fee is $150 through end of term.",
-     "Fee waived if customer moves with forwarding address.",
-     "Product is 22% renewable; statewide average is 37%."
+     "Fixed rate for 13 months; price may change for TDSP and regulatory fees",
+     "$150 early termination fee applies through end of contract",
+     "$5.00 monthly base charge plus $4.90 CenterPoint delivery charge",
+     "Product is 22% renewable versus 37% statewide average"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:54:01.915Z",
+    "fetchedAt": "2026-11-16T06:52:17.327Z",
     "via": "direct",
-    "sha256": "25ce863a42c02c9fe19ce2851fe89fd6fbc5750f55f65a9bca5e6fa58c66b7ff",
+    "sha256": "be523efeececb262a452aa1d44e8c6d771f33e6442a2fc0fd960c4ace1c9474e",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 3377
+    "readMs": 3645
    },
    "check": {
     "status": "verified",
@@ -10302,18 +10541,18 @@
      "k2000": 14.3
     },
     "notes": [
-     "Price can change for TDSP and certain regulatory or fee changes.",
-     "Early termination fee is $180 through end of contract.",
-     "Fee waived if customer moves and provides forwarding address.",
-     "Product is 22% renewable; statewide average is 37%."
+     "Flat $180 early termination fee through end of term",
+     "Price may change for TDSP and regulatory fee changes",
+     "Product is 22% renewable; statewide average is 37%",
+     "Excess solar buy-back requires a separate Payback product"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:28.557Z",
+    "fetchedAt": "2026-11-16T06:51:08.451Z",
     "via": "direct",
-    "sha256": "a5be3580eaa1729d3d26a66b68b993a4f025e20e261944e02cf1f4f2031d1042",
+    "sha256": "35920dafc9ede93727b31963ce71c6d0f0cb6607cfdb588036d87138b8830451",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 2549
+    "readMs": 2595
    },
    "check": {
     "status": "verified",
@@ -10384,18 +10623,18 @@
      "k2000": 14.8
     },
     "notes": [
-     "Monthly base charge of $5.00 plus $4.90 CenterPoint delivery charge",
-     "Early termination fee is $295, applies through end of contract",
-     "Price may change for TDSP, ERCOT, and legal or regulatory changes",
-     "Product is only 22% renewable versus 37% statewide average"
+     "Early termination fee $295, waived only if customer moves",
+     "Price may change for TDSP, ERCOT, and legal/regulatory charges",
+     "Base charge $5.00 per billing cycle plus TDU charges",
+     "Product is 22% renewable versus 37% statewide average"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:14.506Z",
+    "fetchedAt": "2026-11-16T06:50:55.618Z",
     "via": "direct",
-    "sha256": "95bd767bffb6e46f63928d3d5f24abbc689db3bbbc81195d295ffaf839bc31ac",
+    "sha256": "8f9e772eb00f0c276c006bc54cb36b01a2adaf26651865977bd2242c14ef3eb8",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 2612
+    "readMs": 3971
    },
    "check": {
     "status": "verified",
@@ -10466,18 +10705,18 @@
      "k2000": 13.5
     },
     "notes": [
-     "Fixed rate for 8 months; $75 early termination fee applies.",
-     "Price may change for TDSP, ERCOT, and legal/regulatory cost changes.",
-     "Delivery charges include $4.90 monthly plus 6.5611¢ per kWh.",
-     "Product is 22% renewable versus 37% statewide average."
+     "Flat $75 early termination fee; waived only if customer moves.",
+     "Price may change for TDSP charges and regulatory fee changes.",
+     "Product is 22% renewable; statewide average is 37%.",
+     "Excess solar buy-back requires a separate Reliant Payback product."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:49.096Z",
+    "fetchedAt": "2026-11-16T06:51:20.831Z",
     "via": "direct",
-    "sha256": "6449a9f09c2f29c93c9e379113ae9414457bd2282a35e061c2309c041cc77c5d",
+    "sha256": "e46d7c4459558fff64b3e15c32e1fc8af7f54e5f9ef280fdcf52532470b5352d",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 2542
+    "readMs": 2949
    },
    "check": {
     "status": "verified",
@@ -12448,13 +12687,7 @@
     "tduCentsPerKwh": 6.5333,
     "tduMonthlyDollars": 4.9,
     "credits": [],
-    "usageFees": [
-     {
-      "belowKwh": 1000,
-      "dollars": 0,
-      "label": "Minimum Usage Fee $0.00 if usage < 1000 kWh"
-     }
-    ],
+    "usageFees": [],
     "amortizedFees": [],
     "touPeriods": [],
     "termMonths": 12,
@@ -12468,18 +12701,18 @@
      "k2000": 12.7
     },
     "notes": [
-     "Price can change for TDSP charges, ERCOT fees, or new laws.",
-     "Early termination fee $100; waived if you move with forwarding address.",
-     "Insufficient funds fee $30; disconnection fee $50; DNP notice $9.99.",
-     "Averages exclude taxes, fees, and possible city underground facilities charge."
+     "Price can change for TDSP, ERCOT, and regulatory fee changes.",
+     "$100 termination fee; waived if moving with proof.",
+     "Fees not in price: insufficient funds $30, DNP $9.99, disconnection $50.",
+     "Label shows residential averages; small commercial rates differ."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:20.571Z",
+    "fetchedAt": "2026-11-16T06:51:00.673Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "c35ab0f9f424cf28246dddc3ba11c325394ff9ff3f7de54b4ff12b4e58720082",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 6498
+    "readMs": 5286
    },
    "check": {
     "status": "verified",
@@ -12536,13 +12769,7 @@
     "tduCentsPerKwh": 6.5333,
     "tduMonthlyDollars": 4.9,
     "credits": [],
-    "usageFees": [
-     {
-      "belowKwh": 1000,
-      "dollars": 0,
-      "label": "Minimum Usage Fee $0.00 if usage < 1000 kWh"
-     }
-    ],
+    "usageFees": [],
     "amortizedFees": [],
     "touPeriods": [],
     "termMonths": 15,
@@ -12556,18 +12783,18 @@
      "k2000": 13
     },
     "notes": [
-     "Price can change for TDSP, ERCOT, and government-driven charges.",
-     "Early termination fee $100; waived if you move.",
-     "Insufficient funds fee $30; disconnection fee $50.",
-     "Averages assume residential usage; small commercial rates differ."
+     "Residential price assumes CenterPoint delivery charges; they are included.",
+     "Early termination fee $100; waived if you move with proof.",
+     "Insufficient funds $30, disconnection $50, DNP notice $9.99 not in price.",
+     "Price can change for TDSP, ERCOT, or regulatory-driven charges."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:16.413Z",
+    "fetchedAt": "2026-11-16T06:50:56.999Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "92b91a582f2fc7951eb1e097269ea1b43e22ec2a5b3e91af89563a97aad6a6dc",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 5251
+    "readMs": 7757
    },
    "check": {
     "status": "verified",
@@ -12644,18 +12871,18 @@
      "k2000": 12.1
     },
     "notes": [
-     "Price can change for TDSP, ERCOT, and regulatory fee changes.",
-     "$100 early termination fee; no fee if you move.",
-     "Insufficient funds $30, disconnection $50, DNP notice $9.99 not included.",
-     "Small commercial demand meters have $10.82 per kW TDU demand charges."
+     "Price can change for TDSP, ERCOT, and regulatory charge changes",
+     "$100 early termination fee; waived if moving with forwarding address",
+     "Fees not in price: insufficient funds $30, disconnection $50, DNP notice $9.99",
+     "Averages exclude taxes and fees; small commercial rates shown separately"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:32.240Z",
+    "fetchedAt": "2026-11-16T06:51:10.712Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "6afe03e9cfaa839d115d7a89bf7d7ee6c4f566602694295dae031daacdb6803b",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 5605
+    "readMs": 5339
    },
    "check": {
     "status": "verified",
@@ -12724,7 +12951,7 @@
      {
       "belowKwh": 1000,
       "dollars": 0,
-      "label": "Minimum Usage Fee: $0.00 if usage < 1000 kWh"
+      "label": "Minimum Usage Fee (listed as $0.00 if usage < 1000 kWh)"
      }
     ],
     "amortizedFees": [],
@@ -12740,18 +12967,18 @@
      "k2000": 12.9
     },
     "notes": [
-     "$100 monthly credit applies only if usage exceeds 1,000 kWh",
-     "Averages exclude taxes and fees; price may change for TDSP charges",
-     "$100 early termination fee; waived if moving with forwarding address",
+     "$100 monthly credit applies only when usage exceeds 1,000 kWh",
+     "Price can change for TDSP, ERCOT and regulatory fee changes",
+     "$100 early termination fee; waived if you move",
      "Insufficient funds $30, disconnection $50, DNP notice $9.99 not included"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:50.764Z",
+    "fetchedAt": "2026-11-16T06:52:12.145Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "parsedBy": "claude-haiku-5-5",
-    "readMs": 3365
+    "sha256": "a2e215339b53106c5ef3240d39ed1668c1506fddd64a44447d91d8922f4b2614",
+    "parsedBy": "claude-haiku-5-5 + code fix",
+    "readMs": 6225
    },
    "check": {
     "status": "verified",
@@ -12775,7 +13002,7 @@
       "ok": true
      }
     ],
-    "message": "All 3 label averages match."
+    "message": "The reader started the credit just above a round number (like 1,000.01 kWh), but the label counts it at exactly that usage. With that fixed, all 3 averages match."
    }
   },
   {
@@ -12845,11 +13072,11 @@
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:57:26.353Z",
+    "fetchedAt": "2026-11-16T06:50:47.784Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "",
     "parsedBy": "hand-read by Claude Code, Nov 15 2026",
-    "readMs": 7245
+    "readMs": 0
    },
    "check": {
     "status": "verified",
@@ -12920,18 +13147,18 @@
      "k2000": 15.3
     },
     "notes": [
-     "Average price excludes JustGreen charge and sales taxes.",
-     "Exit fee is $175 per ESIID.",
-     "Price can change with TDU/TDSP and government fee changes.",
-     "Some cities add TDSP Underground Facilities charge not included."
+     "Exit fee is $175 per ESI ID",
+     "Price can change for TDU/TDSP and regulatory charges",
+     "Excludes JustGreen charge, sales taxes, and fees",
+     "Renewable content is 22%, below statewide average"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:53.944Z",
-    "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fetchedAt": "2026-11-16T06:51:25.204Z",
+    "via": "anakin",
+    "sha256": "7c446a5d97d0abe3c693707e419e909638996b948646f10dee9723d55e5fd4d5",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 4430
+    "readMs": 49807
    },
    "check": {
     "status": "verified",
@@ -13002,18 +13229,18 @@
      "k2000": 15.3
     },
     "notes": [
-     "Average prices exclude JustGreen charge and sales taxes.",
-     "Exit fee is $175 per ESIID.",
-     "Price can change with TDU/TDSP and regulatory charges.",
-     "Some cities add TDSP Underground Facilities charge not included."
+     "Exit fee is $175 per ESIID",
+     "Price can change with TDU/TDSP and regulatory charges",
+     "Average price excludes JustGreen charge and sales taxes",
+     "Renewable content is 22%"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:27.540Z",
-    "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fetchedAt": "2026-11-16T06:51:07.389Z",
+    "via": "anakin",
+    "sha256": "cdc946ba64dac30776c9ab3ab87d41379ec38657b48b04879ec53640cb4259fd",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 4699
+    "readMs": 16561
    },
    "check": {
     "status": "verified",
@@ -13075,7 +13302,7 @@
      {
       "dollars": 49.99,
       "months": 12,
-      "label": "One-time GoodBundle set up and carbon offset purchase"
+      "label": "GoodBundle set up and carbon offset purchase"
      }
     ],
     "touPeriods": [],
@@ -13090,18 +13317,18 @@
      "k2000": 9.9
     },
     "notes": [
-     "Average prices include one-time $49.99 setup fee spread over 12 months",
+     "Average prices exclude JustGreen charge",
+     "One-time $49.99 GoodBundle setup fee required to enroll",
      "Exit fee is $175 per ESI ID",
-     "Average price excludes JustGreen charge",
-     "Price excludes sales taxes, government charges, and some city TDSP underground charges"
+     "Prices exclude sales taxes and TDSP underground facilities charges"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:04.395Z",
-    "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fetchedAt": "2026-11-16T06:59:44.743Z",
+    "via": "anakin",
+    "sha256": "010b7e7f4f8d117f89d2bf517d0e6e2401b6d7c981d94d606ea5805cad6d55d4",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 4818
+    "readMs": 15974
    },
    "check": {
     "status": "verified",
@@ -13186,18 +13413,18 @@
      "k2000": 14.9
     },
     "notes": [
-     "$125 credit applies only when usage is 1,000 kWh or more per cycle",
-     "Minimum usage fee $4.99 applies to cycles under 400 kWh",
-     "Average prices exclude JustGreen charge, taxes, and certain city fees",
-     "$175 exit fee per ESIID if you terminate early"
+     "$125 credit only applies at 1,000 kWh or more per bill",
+     "Minimum usage fee $4.99 below 400 kWh",
+     "Exit fee $175 per ESIID if you terminate early",
+     "Average prices exclude JustGreen charge and taxes"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:52:06.951Z",
-    "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fetchedAt": "2026-11-16T06:55:59.437Z",
+    "via": "anakin",
+    "sha256": "7bba6fa13f14b1ad1e8d75ae74d35d495a86528c6e51b49a138c9a7fa9936300",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 4719
+    "readMs": 17351
    },
    "check": {
     "status": "verified",
@@ -13258,7 +13485,7 @@
      {
       "belowKwh": 1000,
       "dollars": 0,
-      "label": "Minimum Usage Fee (listed as $0.00 if usage < 1000 kWh)"
+      "label": "Minimum Usage Fee (listed as $0.00)"
      }
     ],
     "amortizedFees": [],
@@ -13274,18 +13501,18 @@
      "k2000": 12.7
     },
     "notes": [
-     "Price can change for TDSP charges and regulatory fee changes",
-     "Fees not in price: insufficient funds $30, DNP notice $9.99, disconnection $50",
-     "$100 termination fee; waived if you move and provide forwarding address",
-     "Averages shown are for residential use; small commercial rates listed separately"
+     "Price can change for TDSP, ERCOT, and regulatory charge changes.",
+     "Fees not in price: insufficient funds $30, DNP $9.99, disconnection $50.",
+     "$100 termination fee; waived if moving with forwarding address.",
+     "Averages shown are residential; small commercial rates listed separately."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:28.655Z",
+    "fetchedAt": "2026-11-16T06:51:56.861Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "77bce1137a7abed21c050c0bf4f594b04907ad73582af825e3411171cb3ac499",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 3590
+    "readMs": 3767
    },
    "check": {
     "status": "verified",
@@ -13346,7 +13573,7 @@
      {
       "belowKwh": 1000,
       "dollars": 0,
-      "label": "Minimum Usage Fee $0.00 if usage < 1000 kWh"
+      "label": "Minimum Usage Fee: $0.00 per bill month if usage < 1000 kWh"
      }
     ],
     "amortizedFees": [],
@@ -13362,18 +13589,18 @@
      "k2000": 12.1
     },
     "notes": [
-     "Price can change for TDSP, ERCOT, or regulatory charge changes",
-     "Early termination fee $100; waived if you move",
-     "Other fees: insufficient funds $30, DNP notice $9.99, disconnection $50",
-     "Renewable content 37.2%; no incentive or bill credit"
+     "Price can change for TDSP, ERCOT, and regulatory charges.",
+     "Early termination fee $100; waived if you move.",
+     "Insufficient funds $30; disconnection $50; DNP notice $9.99.",
+     "Average prices exclude taxes and some city underground charges."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:31.710Z",
+    "fetchedAt": "2026-11-16T06:51:58.327Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sha256": "0eed5ab0abf45ac2af6927973d0a8a22d5c81c869150f1dc85660576e5d49bf8",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 4524
+    "readMs": 5153
    },
    "check": {
     "status": "verified",
@@ -13434,7 +13661,13 @@
     "tduCentsPerKwh": 0,
     "tduMonthlyDollars": 0,
     "credits": [],
-    "usageFees": [],
+    "usageFees": [
+     {
+      "belowKwh": 1000,
+      "dollars": 0,
+      "label": "Minimum Usage Fee"
+     }
+    ],
     "amortizedFees": [],
     "touPeriods": [],
     "termMonths": 12,
@@ -13448,18 +13681,18 @@
      "k2000": 13.5
     },
     "notes": [
-     "$130 a month even if you use almost nothing.",
-     "First 1,000 kWh have no energy charge; 14¢ after.",
-     "Delivery is bundled into the $130 and 14¢.",
-     "$200 early termination fee."
+     "Energy charge applies only above 1000 kWh per billing cycle.",
+     "Base charge $130 monthly applies regardless of usage.",
+     "TDU delivery charges are bundled into base charge and energy rate.",
+     "$200 early termination fee; waived if moving with forwarding address."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:30.877Z",
+    "fetchedAt": "2026-11-16T06:51:56.952Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "parsedBy": "hand-read by Claude Code, Nov 15 2026",
-    "readMs": 6221
+    "sha256": "2399a7d433ce62eef75c3fcd560cbc00fe15925cf2763b425961929d64654cc0",
+    "parsedBy": "claude-haiku-5-5",
+    "readMs": 6164
    },
    "check": {
     "status": "verified",
@@ -13483,7 +13716,7 @@
       "ok": true
      }
     ],
-    "message": "Hand-read, then checked by code: all 3 averages match. Energy is charged only above 1,000 kWh and delivery is bundled in; the reader added a fake $0 minimum-use fee."
+    "message": "All 3 label averages match."
    }
   },
   {
@@ -13531,17 +13764,17 @@
     },
     "notes": [
      "Product change fee of $29.95 if you adjust your plan rate.",
-     "Automatic payment authorization and enablement required.",
-     "Price can change with TDSP charges or government-ordered fees.",
-     "Averages exclude taxes and other listed charges."
+     "Automatic payment authorization and enablement required for this plan.",
+     "Price can change with TDSP charges and regulatory fee changes.",
+     "Average prices exclude taxes, TDU underground fees, and municipal charges."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:08.225Z",
+    "fetchedAt": "2026-11-16T06:51:41.649Z",
     "via": "direct",
-    "sha256": "1c647f19dd7e7b04add373a81ae0bf4b84d160ac16bc190a175b2d8e90e4f983",
+    "sha256": "6020a2269b396a8e75b75312b232648aa3dcbec36e5992923ea153264220473d",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 9236
+    "readMs": 7146
    },
    "check": {
     "status": "verified",
@@ -13612,18 +13845,18 @@
      "k2000": 13.8
     },
     "notes": [
-     "Product change fee of $29.95 to adjust plan rate",
-     "Price can change with TDSP charges and regulatory fee changes",
-     "Average prices exclude taxes, TDU underground fees, and municipal charges",
-     "$200 termination fee applies if you leave early"
+     "Price can change with TDSP charges and regulatory fee changes.",
+     "Early termination fee is $200 flat.",
+     "Product change fee of $29.95 to adjust plan rate.",
+     "Averages exclude taxes, TDU underground fees, and municipal charges."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:07.951Z",
+    "fetchedAt": "2026-11-16T06:51:41.631Z",
     "via": "direct",
-    "sha256": "7a7520e36608dc95083d88b2e15bef10fa7746ef39277d509ca2cb7ab1a6cdd6",
+    "sha256": "e5ac31ba7042a4816a7ee719d3a2705cc9b433c3f2d477e95264636245bed6b9",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 8831
+    "readMs": 7376
    },
    "check": {
     "status": "verified",
@@ -13695,17 +13928,17 @@
     },
     "notes": [
      "Product change fee of $29.95 if you adjust plan rate.",
-     "Automatic payment authorization required; plan requires continued enablement.",
-     "Price can change with TDSP charges or new government fees.",
+     "Automatic payment authorization and enablement required for this plan.",
+     "Price may change for TDSP charges, ERCOT fees, or new laws.",
      "Average prices exclude taxes, TDU underground fees, and municipal charges."
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:09.419Z",
+    "fetchedAt": "2026-11-16T06:51:46.708Z",
     "via": "direct",
-    "sha256": "2e162d8a47a9218874fe6b91a509e7e20a4f80d406cc02e2aadf202d07367379",
+    "sha256": "e0603a7e2901d3ec14f38ebbd1d6ade12759107c6c8b9807404c38a5a18a735b",
     "parsedBy": "claude-haiku-5-5",
-    "readMs": 8461
+    "readMs": 4906
    },
    "check": {
     "status": "verified",
@@ -13751,18 +13984,67 @@
      "k2000": 13.9
     }
    },
-   "pricing": null,
+   "pricing": {
+    "baseChargeDollars": 4.95,
+    "energyTiers": [
+     {
+      "fromKwh": 0,
+      "cents": 13.7
+     }
+    ],
+    "tduCentsPerKwh": 0,
+    "tduMonthlyDollars": 0,
+    "credits": [],
+    "usageFees": [],
+    "amortizedFees": [],
+    "touPeriods": [],
+    "termMonths": 12,
+    "earlyTerminationFee": {
+     "dollars": 20,
+     "perMonthRemaining": true
+    },
+    "labelAvg": {
+     "k500": 14.7,
+     "k1000": 14.2,
+     "k2000": 13.9
+    },
+    "notes": [
+     "Early cancellation fee: $20 per month remaining in term.",
+     "Delivery (CenterPoint TDU) charges are passed through, not printed on label.",
+     "Average prices exclude municipal facility relocation fees and other charges.",
+     "Price may change for TDU, ERCOT, or regulatory-driven fee changes."
+    ]
+   },
    "read": {
-    "fetchedAt": "2026-11-16T05:57:29.901Z",
+    "fetchedAt": "2026-11-16T07:02:50.182Z",
     "via": "direct",
-    "sha256": "",
-    "parsedBy": "none",
-    "readMs": 0
+    "sha256": "b86cf4173e51a8c66c78130ae15654f70dabaf9b3a76ab13cd7b3757c1d09171",
+    "parsedBy": "claude-haiku-5-5",
+    "readMs": 3566
    },
    "check": {
-    "status": "unread",
-    "rows": [],
-    "message": "The page opened, but it doesn't look like a fine-print label."
+    "status": "verified",
+    "rows": [
+     {
+      "kwh": 500,
+      "printed": 14.7,
+      "ours": 14.7,
+      "ok": true
+     },
+     {
+      "kwh": 1000,
+      "printed": 14.2,
+      "ours": 14.2,
+      "ok": true
+     },
+     {
+      "kwh": 2000,
+      "printed": 13.9,
+      "ours": 13.9,
+      "ok": true
+     }
+    ],
+    "message": "All 3 label averages match."
    }
   },
   {
@@ -14045,17 +14327,17 @@
     "amortizedFees": [],
     "touPeriods": [
      {
-      "label": "Free Nights 9 PM–5 AM",
+      "label": "Free Nights Savings (9:00 p.m.-4:59 a.m.)",
       "share": 0.4313,
       "cents": 0
      },
      {
-      "label": "Daytime",
+      "label": "Daytime (remaining usage)",
       "share": 0.5687,
       "cents": 18.6
      },
      {
-      "label": "Cool Summer Bonus (25% back on Jul–Sep nights)",
+      "label": "Cool Summer Bonus (25% credit on night energy, Jul-Sep, share 14.23%)",
       "share": 0.1423,
       "cents": -4.65
      }
@@ -14071,18 +14353,18 @@
      "k2000": 17.2
     },
     "notes": [
-     "Nights 9 PM–5 AM are free; the label assumes 43% of use then.",
-     "Daytime energy is 18.6¢ — high if you use power by day.",
-     "Not for homes with EVs, batteries or solar.",
-     "$150 early cancellation fee."
+     "Free Nights credit applies only 9:00 p.m. to 4:59 a.m. daily",
+     "Cool Summer 25% bonus applies only July through September",
+     "TDU delivery charges are passed through, not printed; entered as 0",
+     "Early cancellation fee $150 flat for 12-month term"
     ]
    },
    "read": {
-    "fetchedAt": "2026-11-16T05:53:44.663Z",
+    "fetchedAt": "2026-11-16T06:52:05.341Z",
     "via": "direct",
-    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "parsedBy": "hand-read by Claude Code, Nov 15 2026",
-    "readMs": 6100
+    "sha256": "3942c786dbd77df81a07f3e8f7b8da034583c91bc3d9624c0d42205091f6c5bb",
+    "parsedBy": "claude-haiku-5-5 + averages from Power to Choose",
+    "readMs": 6802
    },
    "check": {
     "status": "verified",
@@ -14106,7 +14388,7 @@
       "ok": true
      }
     ],
-    "message": "Hand-read, then checked by code: all 3 averages match. The label's own formula also subtracts a 25% Cool Summer Bonus on 14.23% of use, and it leaves delivery charges blank (filled from other CenterPoint labels).",
+    "message": "The reader copied one average wrong; with the averages the label prints, all 3 match.",
     "tduFilled": true
    }
   },
@@ -14129,18 +14411,68 @@
      "k2000": 11.7
     }
    },
-   "pricing": null,
+   "pricing": {
+    "baseChargeDollars": 0,
+    "energyTiers": [
+     {
+      "fromKwh": 0,
+      "cents": 4.9217
+     }
+    ],
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
+    "credits": [],
+    "usageFees": [],
+    "amortizedFees": [],
+    "touPeriods": [],
+    "termMonths": 12,
+    "earlyTerminationFee": {
+     "dollars": 20,
+     "perMonthRemaining": true
+    },
+    "labelAvg": {
+     "k500": 12.5,
+     "k1000": 12,
+     "k2000": 11.7
+    },
+    "notes": [
+     "TDU delivery charges are passed through and not included in the energy price",
+     "Early termination fee is $20 per month remaining on the term",
+     "Paperless product: a valid email address is required or fees apply",
+     "Average prices exclude municipal fees and facility relocation charges"
+    ]
+   },
    "read": {
-    "fetchedAt": "2026-11-16T05:57:33.610Z",
+    "fetchedAt": "2026-11-16T07:03:23.071Z",
     "via": "direct",
-    "sha256": "",
-    "parsedBy": "none",
-    "readMs": 0
+    "sha256": "9c81620e581cd6dadac2225cb382dc13fa470104325aeb403d9b150a68ddc5ed",
+    "parsedBy": "claude-haiku-5-5 + averages from Power to Choose",
+    "readMs": 6909
    },
    "check": {
-    "status": "unread",
-    "rows": [],
-    "message": "The page opened, but it doesn't look like a fine-print label."
+    "status": "verified",
+    "rows": [
+     {
+      "kwh": 500,
+      "printed": 12.5,
+      "ours": 12.4,
+      "ok": true
+     },
+     {
+      "kwh": 1000,
+      "printed": 12,
+      "ours": 11.9,
+      "ok": true
+     },
+     {
+      "kwh": 2000,
+      "printed": 11.7,
+      "ours": 11.7,
+      "ok": true
+     }
+    ],
+    "message": "The reader copied one average wrong; with the averages the label prints, all 3 match.",
+    "tduFilled": true
    }
   },
   {
@@ -14162,18 +14494,68 @@
      "k2000": 11.3
     }
    },
-   "pricing": null,
+   "pricing": {
+    "baseChargeDollars": 0,
+    "energyTiers": [
+     {
+      "fromKwh": 0,
+      "cents": 4.5
+     }
+    ],
+    "tduCentsPerKwh": 6.5333,
+    "tduMonthlyDollars": 4.9,
+    "credits": [],
+    "usageFees": [],
+    "amortizedFees": [],
+    "touPeriods": [],
+    "termMonths": 8,
+    "earlyTerminationFee": {
+     "dollars": 20,
+     "perMonthRemaining": true
+    },
+    "labelAvg": {
+     "k500": 12,
+     "k1000": 11.6,
+     "k2000": 11.3
+    },
+    "notes": [
+     "Label averages include TDU delivery charges, which are passed through and not printed.",
+     "Early termination fee is $20 per month remaining on term.",
+     "Paperless product; valid email required or e-Docs Breakage Fee applies.",
+     "Municipal relocation fees and other municipal charges are not included in averages."
+    ]
+   },
    "read": {
-    "fetchedAt": "2026-11-16T05:57:48.915Z",
+    "fetchedAt": "2026-11-16T07:03:44.487Z",
     "via": "direct",
-    "sha256": "",
-    "parsedBy": "none",
-    "readMs": 0
+    "sha256": "8bb4d3432ae96d92d7a47cedf5067622a7aae044f1a8a0e6dd982b34b4633dc8",
+    "parsedBy": "claude-haiku-5-5 + averages from Power to Choose",
+    "readMs": 7564
    },
    "check": {
-    "status": "unread",
-    "rows": [],
-    "message": "The page opened, but it doesn't look like a fine-print label."
+    "status": "verified",
+    "rows": [
+     {
+      "kwh": 500,
+      "printed": 12,
+      "ours": 12,
+      "ok": true
+     },
+     {
+      "kwh": 1000,
+      "printed": 11.6,
+      "ours": 11.5,
+      "ok": true
+     },
+     {
+      "kwh": 2000,
+      "printed": 11.3,
+      "ours": 11.3,
+      "ok": true
+     }
+    ],
+    "message": "The reader copied one average wrong; with the averages the label prints, all 3 match.",
+    "tduFilled": true
    }
   }
  ]
