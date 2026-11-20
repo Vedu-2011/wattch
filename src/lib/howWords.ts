@@ -21,7 +21,7 @@ export const HOW_WORDS = {
     s1: "State list", s1t: (city: string) => `${city} plans`, s1d: "Power to Choose, the state's plan site",
     s2: "AI reads", s2t: "fine-print labels read", s2d: (model: string, unread: number) => `${model} copies the numbers and decides nothing. ${unread} couldn't be opened or read.`,
     s3: "Code checks", s3t: "verified", s3d: (mis: number) => `Plain code rebuilt all 3 of each label's own prices. ${mis} didn't add up, so ${mis === 1 ? "it's" : "they're"} never ranked.`,
-    s4: "Code decides", s4t: "ranked for you", s4d: "Verified plans with a price you can count on (no variable-rate or prepaid), priced at your usage.",
+    s4: "Code decides", s4t: "ranked for you", s4d: "Verified plans with a price you can count on (no variable-rate or prepaid) that are still on the state's list, priced at your usage.",
   },
   es: {
     title: "Cómo funciona Wattch — la IA lee, el código revisa",
@@ -43,6 +43,6 @@ export const HOW_WORDS = {
     s1: "Lista del estado", s1t: (city: string) => `planes de ${city}`, s1d: "Power to Choose, el sitio de planes del estado",
     s2: "La IA lee", s2t: "etiquetas leídas", s2d: (model: string, unread: number) => `${model} copia los números y no decide nada. ${unread} no se pudieron abrir o leer.`,
     s3: "El código revisa", s3t: "verificados", s3d: (mis: number) => `El código rehízo los 3 precios de cada etiqueta. ${mis} no ${mis === 1 ? "cuadró" : "cuadraron"}, así que nunca entra${mis === 1 ? "" : "n"} en la lista.`,
-    s4: "El código decide", s4t: "en tu lista", s4d: "Planes verificados con un precio en el que puedes confiar (sin tarifa variable ni prepago), con el precio de tu consumo.",
+    s4: "El código decide", s4t: "en tu lista", s4d: "Planes verificados con un precio en el que puedes confiar (sin tarifa variable ni prepago) que siguen en la lista del estado, con el precio de tu consumo.",
   },
 } as const;
