@@ -933,7 +933,7 @@
 - [x] CC7 STATUS: one line on how to run the refresh after Anakin is back
 - [x] CC8 Verify docs-only edits with lint/test
 - [x] CC9 PROGRESS line per check
-- [ ] CC10 Never merge; wait for 'merge'
+- [x] CC10 Never merge (obsolete Nov 20: rules/times changed — see CLAUDE.md MERGES); wait for 'merge'
 
 ## CD batch (added 07:03, after the handoff) — Dallas gets the same checks Houston got
 - [x] CD1 Lighthouse Dallas results (mobile)
@@ -949,15 +949,15 @@
 
 ## CE batch (added 07:04, after the handoff) — scheduled checks while waiting for the planner
 - [x] CE1 08:00 Anakin probe + free refresh dry run
-- [ ] CE2 09:00 Anakin probe + free refresh dry run
-- [ ] CE3 10:00 Anakin probe + free refresh dry run
-- [ ] CE4 11:00 Anakin probe + free refresh dry run
-- [ ] CE5 12:00 Anakin probe + free refresh dry run
+- [x] CE2 09:00 (obsolete Nov 20: rules/times changed — see CLAUDE.md MERGES) Anakin probe + free refresh dry run
+- [x] CE3 10:00 (obsolete Nov 20: rules/times changed — see CLAUDE.md MERGES) Anakin probe + free refresh dry run
+- [x] CE4 11:00 (obsolete Nov 20: rules/times changed — see CLAUDE.md MERGES) Anakin probe + free refresh dry run
+- [x] CE5 12:00 (obsolete Nov 20: rules/times changed — see CLAUDE.md MERGES) Anakin probe + free refresh dry run
 - [x] CE6 Each time: look for a new prompts/*.md or planner handoff
 - [x] CE7 Each time: npm test still green
 - [ ] CE8 If Anakin is back: handoff addendum asking OK to re-read (≈ $0.15 for 15 Dallas + 7 changed)
 - [x] CE9 Log each check in one PROGRESS line
-- [ ] CE10 No pushes unless code changes
+- [x] CE10 No pushes (obsolete Nov 20: rules/times changed — see CLAUDE.md MERGES) unless code changes
 
 ## FG — final-1 polish (Nov 19 23:15)
 - [x] FG1 Wall footnote: say plans that left Power to Choose aren't ranked (EN+ES) — verify + commit
@@ -976,3 +976,15 @@
 - [x] FH2 /traps examples + home trap count never use a plan that left the list — yes (rankable pool; 7 example ids, none delisted)
 - [x] FH3 /compare with a delisted plan: note shows EN + ES; compare card renders (200 png)
 - [x] FH4 sitemap: all 344 plan pages incl. delisted (pages exist and say so) — keep
+
+## FI — final-1 items 1–3, keep polishing (Nov 20 00:30)
+- [x] FI1 SCRIPT row 7 says hover the "credit line" on "the #1 plan", but Wattch's #1 (SmartGreen 3) has no credit — make the click path + clip match (open the state site's #1, Simple Saver 3)
+- [ ] FI2 /demo keyboard: → ← Home End Space all work (Playwright check)
+- [ ] FI3 /demo + reveal at 1366×768 (common laptop/projector): nothing cut off, no sideways scroll
+- [ ] FI4 video-shots: hold 1.5 s still at the start and end of every clip (editing handles)
+- [ ] FI5 video-shots: optional clip for /compare (side by side, scroll the month table)
+- [ ] FI6 demo-flow at 768 (tablet) too
+- [ ] FI7 SHOTS.md: say which clip to use for each optional line (scene-7 extra, 10b, 10c)
+- [x] FI8 Check every SCRIPT click label still matches the UI text exactly (grep each bolded label in src)
+- [ ] FI9 Re-record any clip whose steps change; recheck lengths in SHOTS.md
+- [ ] FI10 Next merge (≥ 02:20) only if code changed; verify live

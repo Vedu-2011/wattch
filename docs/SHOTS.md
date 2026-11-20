@@ -17,8 +17,8 @@ no cursor). Clips fail loudly on any page error or 4xx/5xx.
 | `03-pick-usage` | 8 s | 3 (0:50–1:10) | Click **Average home** → **Read every plan** |
 | `04-05-wall-reveal` | 19 s | 4 + 5 (1:10–2:20) | Tiles stamp as Kapi walks (9 s), then the **$378** reveal and the year bars |
 | `06-locked-12` | 19 s | 6 (2:20–2:35) | Toggle **Price locked 12+ months**; the number changes |
-| `07-plan-page` | 13 s | 7 (2:35–3:15) | Wattch's #1 (SmartGreen 3): hover each bill line, its number lights up in the label |
-| `07b-pick-plan-page` | 12 s | 7 (alt) | The state site's #1 (Simple Saver 3): hover down to the **$125 credit** line |
+| `07b-pick-plan-page` | 12 s | 7 (2:35–3:15) | The state site's #1 (Simple Saver 3): hover each bill line down to the **$125 credit** line |
+| `07-plan-page` | 13 s | 7 (alt) | Wattch's #1 (SmartGreen 3): hover each bill line (no credit on this plan) |
 | `08-live-check` | 7 s | 8 (3:15–3:35) | **Check this label again now** → "Same label, word for word" (live fetch from the provider) |
 | `09-current-plan` | 23 s | 9 (3:35–4:05) | **Already on a plan?** → type `simple saver` → Simple Saver 3 → switch / wait answer |
 | `10-traps` | 17 s | 10 (4:05–4:25) | Trap guide, slow scroll through the first kinds |
