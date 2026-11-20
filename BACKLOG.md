@@ -979,8 +979,8 @@
 
 ## FI — final-1 items 1–3, keep polishing (Nov 20 00:30)
 - [x] FI1 SCRIPT row 7 says hover the "credit line" on "the #1 plan", but Wattch's #1 (SmartGreen 3) has no credit — make the click path + clip match (open the state site's #1, Simple Saver 3)
-- [ ] FI2 /demo keyboard: → ← Home End Space all work (Playwright check)
-- [ ] FI3 /demo + reveal at 1366×768 (common laptop/projector): nothing cut off, no sideways scroll
+- [x] FI2 /demo keyboard: → ← Home End Space all work (Playwright check)
+- [x] FI3 /demo + reveal at 1366×768 (common laptop/projector): nothing cut off, no sideways scroll
 - [ ] FI4 video-shots: hold 1.5 s still at the start and end of every clip (editing handles)
 - [ ] FI5 video-shots: optional clip for /compare (side by side, scroll the month table)
 - [ ] FI6 demo-flow at 768 (tablet) too
