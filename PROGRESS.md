@@ -321,3 +321,4 @@ person: Vercel's free build limit was hit at ~04:10 (production after "merge" li
 - 2026-11-19 23:46 PT · Re-recorded wall clips (04-05, 06, 09, 10b, 10c, 11) + gallery 2 & 7 + demo-flow shots after the tile change. All ok, 0 errors.
 - 2026-11-19 23:51 PT · Codex 55 (5a85b10..): clean. Pre-merge run: 265 tests, lint 0, build, check-all 5/5, demo-flow OK. Handoff saved (_coord/handoffs/2026-11-19-2348--triple-h--claude--final-1.md); merge 2 at ~00:20 (2 h rule).
 - 2026-11-19 23:52 PT · FH1 'Already on a plan?' still finds delisted plans (right: people are on them) and prices them. FH2 /traps examples + home trap counts come only from ranked plans (7 example ids, none delisted). No change.
+- 2026-11-19 23:52 PT · FH3 /compare?a=39294 (delisted) shows the note in EN + ES; its share card renders. No change.
