@@ -6,7 +6,7 @@ from PIL import Image, ImageDraw, ImageFont
 R=Path(__file__).resolve().parent; O=R/'out'; v=O/'wattch-demo.mp4'
 p=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_streams','-show_format','-of','json',str(v)]))
 duration=float(p['format']['duration']); streams=p['streams']
-assert 330<=duration<350
+assert 225<=duration<=255
 assert any(s.get('codec_name')=='h264' and s.get('width')==1920 and s.get('height')==1080 and s.get('r_frame_rate')=='30/1' and int(s.get('nb_frames',0))==round(duration*30) for s in streams)
 assert any(s.get('codec_name')=='aac' and s.get('sample_rate')=='48000' for s in streams)
 
@@ -33,6 +33,21 @@ for block in blocks:
     assert '-->' in lines[1]
 
 timeline=json.loads((O/'timeline.json').read_text())
+source_by_clip={}
+for scene in timeline:
+    if 'source_start' not in scene: continue
+    assert scene['source_end']>scene['source_start'], scene
+    for prior in source_by_clip.get(scene['clip'],[]):
+        assert scene['source_start']>=prior['source_end'] or scene['source_end']<=prior['source_start'], (prior,scene)
+    source_by_clip.setdefault(scene['clip'],[]).append(scene)
+
+silence_log=subprocess.run(['ffmpeg','-hide_banner','-i',str(v),'-af','silencedetect=noise=-40dB:d=0.15','-f','null','-'],capture_output=True,text=True,check=True).stderr
+starts=[float(x) for x in re.findall(r'silence_start: (\d+(?:\.\d+)?)',silence_log)]
+ends=[float(x) for x in re.findall(r'silence_end: (\d+(?:\.\d+)?)',silence_log)]
+gaps=[{'start':round(a,3),'end':round(b,3),'seconds':round(b-a,3)} for a,b in zip(starts,ends)]
+longest=max(gaps,key=lambda g:g['seconds'])
+assert longest['seconds']<=3.05,longest
+assert all(g['seconds']<=3.05 for g in gaps)
 sheet=Image.new('RGB',(1920,4*310),'#1b1611'); d=ImageDraw.Draw(sheet)
 font=ImageFont.truetype('/System/Library/Fonts/Supplemental/Arial.ttf',20)
 for i,scene in enumerate(timeline):
@@ -43,9 +58,20 @@ for i,scene in enumerate(timeline):
     d.text((x,y+263),f"{scene['start']:03d}s {scene['clip']}",font=font,fill='white')
 sheet.save(O/'contact-sheet.png')
 
+early=Image.new('RGB',(1920,5*255),'#1b1611'); ed=ImageDraw.Draw(early)
+for i,at in enumerate(range(40,122,2)):
+    data=subprocess.check_output(['ffmpeg','-v','error','-ss',str(at),'-i',str(v),'-frames:v','1','-f','image2pipe','-vcodec','png','-'])
+    x,y=(i%10)*192,(i//10)*255
+    early.paste(Image.open(io.BytesIO(data)).convert('RGB').resize((188,106)),(x,y))
+    ed.text((x+4,y+110),f'{at//60}:{at%60:02}',font=font,fill='white')
+early.save(O/'contact-sheet-early.png')
+
 report={'status':'FINAL CANDIDATE — voice and captions present','duration_seconds':duration,'frames':round(duration*30),
         'resolution':'1920x1080','fps':30,'video_codec':'H.264','audio_codec':'AAC 48kHz',
         'voice':'Vedhanth own voice, normal speed','caption_count':len(blocks),'caption_source':'locally transcribed actual voice, small.en and medium.en cross-checked',
+        'source_ranges_not_reused':True,
+        'source_ranges':{clip:[{'start':s['source_start'],'end':s['source_end']} for s in scenes] for clip,scenes in source_by_clip.items()},
+        'longest_voice_silence':longest,'voice_silence_over_1_2_seconds':[g for g in gaps if g['seconds']>1.2],
         'loudness_lufs':loud,'true_peak_dbfs':peak,'qr_decode':decoded,
         'stutter_cut':'none — no unambiguous repeated word/false start in two ASR passes; 2:46 phrase reviewed as possible slip',
         'caption_word_match':'checked against corrected medium.en transcript; small.en agrees on suspected what-it-costs phrase'}

@@ -14,24 +14,35 @@ W.mkdir(parents=True, exist_ok=True)
 O.mkdir(parents=True, exist_ok=True)
 RAW = R / 'raw'
 
-# Clip, target start/end, source start, voice start/end, voice delay.
-S = [
- ('01-home',0,23,0,0,19.5,0),
- ('02-trap-card',23,46,0,19.5,37.5,0),
- ('03-pick-usage',46,61,0,37.5,46.3,0),
- ('04-05-wall-reveal',61,94,0,46.3,73.7,3),
- ('04-05-wall-reveal',94,134,10,73.7,108,0),
- ('06-locked-12',134,151,7,108,118.2,0),
- ('07b-pick-plan-page',151,188,0,118.2,136.7,0),
- ('08-live-check',188,207,0,136.7,149.9,0),
- ('09-current-plan',207,234,0,149.9,160.9,0),
- ('10-traps',234,254,0,160.9,169.3,0),
- ('10b-dallas',254,276,0,169.3,182.3,0),
- ('10c-espanol',276,296,0,182.3,191,0),
- ('11-share',296,312,5,191,197,0),
- ('12-home-end',312,332,0,197,214.7,0),
+# Clip, source start/end, voice start/end, initial picture hold. The wall
+# capture is split at 10 s: tiles first, the reveal from 10 s onward.
+SCENES = [
+ ('01-home',0,None,0,19.5,0),
+ ('02-trap-card',0,None,19.5,37.5,0),
+ ('03-pick-usage',0,None,37.5,46.3,0),
+ ('04-05-wall-reveal',0,10,46.3,73.7,2),
+ ('04-05-wall-reveal',10,None,73.7,108,1),
+ ('06-locked-12',7,None,108,118.2,0),
+ ('07b-pick-plan-page',0,None,118.2,136.7,0),
+ ('08-live-check',0,None,136.7,149.9,0),
+ ('09-current-plan',0,None,149.9,160.9,0),
+ ('10-traps',0,None,160.9,169.3,0),
+ ('10b-dallas',0,None,169.3,182.3,0),
+ ('10c-espanol',0,None,182.3,191,0),
+ ('11-share',5,None,191,197,0),
+ ('12-home-end',0,None,197,214.7,0),
 ]
-END = 337
+GAP = 0.35
+END_CARD = 5
+VOICE_ON_CARD = 2.5
+S=[]; source_ranges=[]; cursor=0
+for i,(name,seek,source_end,va,vb,delay) in enumerate(SCENES):
+    length=vb-va+delay+(0 if i==len(SCENES)-1 else GAP)
+    if i==len(SCENES)-1: length-=VOICE_ON_CARD
+    S.append((name,cursor,cursor+length,seek,va,vb,delay))
+    source_ranges.append(source_end)
+    cursor+=length
+END=cursor+END_CARD
 def run(args): subprocess.run(args, check=True, stdout=subprocess.DEVNULL)
 def dur(p): return float(json.loads(subprocess.check_output(['ffprobe','-v','error','-show_format','-of','json',str(p)]))['format']['duration'])
 
@@ -40,6 +51,7 @@ parts=[]
 for i,(name,a,b,seek,va,vb,delay) in enumerate(S):
     src=RAW/f'{name}.mp4'
     motion=min(dur(src)-seek,b-a)
+    if source_ranges[i] is not None: motion=min(motion,source_ranges[i]-seek)
     target=W/f'{i:02d}.mp4'
     vf=f'fps=30,scale=1920:1080:flags=lanczos,setsar=1,trim=duration={motion},setpts=PTS-STARTPTS,tpad=stop_mode=clone:stop_duration={b-a-motion},trim=duration={b-a}'
     run(['ffmpeg','-y','-v','error','-ss',str(seek),'-i',str(src),'-vf',vf,'-an','-c:v','libx264','-preset','veryfast','-crf','20','-pix_fmt','yuv420p','-r','30',str(target)])
@@ -66,9 +78,10 @@ audio_filters=[]
 for i,(_,a,b,_,va,vb,delay) in enumerate(S):
     chain=f'[0:a]atrim=start={va}:end={vb},asetpts=PTS-STARTPTS'
     if delay: chain+=f',adelay={int(delay*1000)}|{int(delay*1000)}'
-    chain+=f',apad=pad_dur={b-a},atrim=duration={b-a}[a{i}]'
+    audio_length=b-a+(VOICE_ON_CARD if i==len(S)-1 else 0)
+    chain+=f',apad=pad_dur={audio_length},atrim=duration={audio_length}[a{i}]'
     audio_filters.append(chain)
-audio_filters.append(f'anullsrc=r=48000:cl=mono,atrim=duration={END-S[-1][2]}[tail]')
+audio_filters.append(f'anullsrc=r=48000:cl=mono,atrim=duration={END_CARD-VOICE_ON_CARD}[tail]')
 audio_filters.append(''.join(f'[a{i}]' for i in range(len(S)))+'[tail]concat=n='+str(len(S)+1)+':v=0:a=1,highpass=f=60,afftdn=nf=-30,loudnorm=I=-16:TP=-1.5:LRA=11[aout]')
 audio=W/'master.wav'
 run(['ffmpeg','-y','-v','error','-i',str(R/'voiceover.qta'),'-filter_complex',';'.join(audio_filters),'-map','[aout]','-ar','48000','-c:a','pcm_s16le',str(audio)])
@@ -83,14 +96,14 @@ def fix(s):
 def shifted(t):
     for name,a,b,seek,va,vb,delay in S:
         if va<=t<vb: return a+delay+t-va
-    return END-5
+    return END-(END_CARD-VOICE_ON_CARD)
 cues=[]
 for seg in trans:
     va=seg['offsets']['from']/1000; vb=seg['offsets']['to']/1000
     if va>=214.7: continue
     text=fix(seg['text'])
     if not text: continue
-    start=max(0,shifted(va)); end=min(END-5,shifted(vb))
+    start=max(0,shifted(va)); end=min(END-(END_CARD-VOICE_ON_CARD),shifted(vb))
     if end<=start: continue
     cues.append((start,end,text))
 
@@ -127,5 +140,9 @@ run(['ffmpeg','-y','-v','error','-f','concat','-safe','0','-i',str(caplist),'-vf
 out=O/'wattch-demo.mp4'
 run(['ffmpeg','-y','-v','error','-i',str(picture),'-i',str(capvid),'-i',str(audio),'-filter_complex','[0:v][1:v]overlay=0:870:shortest=1[v]',
      '-map','[v]','-map','2:a','-t',str(END),'-r','30','-c:v','libx264','-preset','fast','-crf','19','-pix_fmt','yuv420p','-c:a','aac','-b:a','192k','-movflags','+faststart',str(out)])
-(O/'timeline.json').write_text(json.dumps([{'clip':x[0],'start':x[1],'end':x[2],'voice_start':x[4],'voice_end':x[5]} for x in S]+[{'clip':'end-card','start':332,'end':337}],indent=2))
+(O/'timeline.json').write_text(json.dumps([{'clip':x[0],'start':x[1],'end':x[2],
+ 'source_start':x[3], 'source_end':x[3]+min(dur(RAW/f'{x[0]}.mp4')-x[3],x[2]-x[1],
+ (source_ranges[i]-x[3]) if source_ranges[i] is not None else float('inf')),
+ 'voice_start':x[4],'voice_end':x[5]} for i,x in enumerate(S)]+[
+ {'clip':'end-card','start':cursor,'end':END}],indent=2))
 print(out, len(cues), 'captions')
