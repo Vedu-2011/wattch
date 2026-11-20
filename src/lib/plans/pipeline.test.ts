@@ -23,7 +23,7 @@ describe("/how diagram numbers", () => {
       expect(c.ranked).toBeLessThanOrEqual(c.verified);
     });
   }
-  it("Houston matches the numbers in the demo script (172 → 171 → 143; 12 left Power to Choose by Nov 19)", () => {
-    expect(pipelineCounts("houston")).toMatchObject({ total: 172, verified: 171, ranked: 143 });
+  it("Houston matches the numbers in the demo script (172 → 171 → 139; 16 left Power to Choose by Nov 20)", () => {
+    expect(pipelineCounts("houston")).toMatchObject({ total: 172, verified: 171, ranked: 139 });
   });
 });

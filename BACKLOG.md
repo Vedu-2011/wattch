@@ -1011,5 +1011,5 @@
 - [ ] FK6 ~06:00 free list check: npx tsx scripts/delisted.ts --dry (add a --dry flag: print only, don't write) — note any new departures
 - [ ] FK7 ~06:30 demo-flow against the LIVE site again (catch overnight provider/Vercel issues)
 - [ ] FK8 07:00 handoff addendum (final-1 asks for a 7 AM handoff)
-- [ ] FK9 If FK6 finds new departures: write delisted.json, tests, merge (≥ 2 h since 00:20), verify live
+- [x] FK9 If FK6 finds new departures: write delisted.json, tests, merge (≥ 2 h since 00:20), verify live
 - [ ] FK10 After 07:00 keep polishing items 1–3 (re-record any clip whose page changed)

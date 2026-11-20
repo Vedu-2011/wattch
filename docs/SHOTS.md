@@ -35,8 +35,8 @@ Optional lines in SCRIPT.md → clip
 - 10b Dallas → `10b-dallas` · 10c Español → `10c-espanol` · a side-by-side moment → `05b-compare`.
 
 Notes
-- Recorded Nov 19 late evening PT against the Nov 16 data (with plans that have since left Power to Choose marked and
-  unranked). If the data is refreshed, re-record: the numbers in the clips come straight from the data.
+- Recorded Nov 20 ~2:30 AM PT against the Nov 16 data (with the 16 Houston + 13 Dallas plans that have since left
+  Power to Choose marked and unranked). If the data is refreshed, re-record: the numbers in the clips come straight from the data.
 - `06-locked-12` shows **SimpleSaver 12** as the state site's #1 among 12-month plans (#38 for this home, $208 a year
   more than the best 12-month plan). That's correct for the Nov 16 list.
 - Clip lengths are real time. Slow a clip down in the editor rather than re-recording when the narration runs long.
