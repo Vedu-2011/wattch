@@ -125,9 +125,9 @@ vercel · vitest · playwright · axe-core · power-to-choose · ercot-load-prof
 ## Gallery (docs/gallery/, 1920×1080, upload in this order; captions ≤ 1 line)
 1. `1-home.png` — Pick your usage. Wattch has read all 172 ⟲ Houston plans.
 2. `2-reading-every-plan.png` — Every tile is a real plan's fine print being read and checked.
-3. `3-the-reveal.png` — The state site's #1 plan costs an average home $378 ⟲ more a year, and the bars show why.
+3. `3-the-reveal.png` — The plan the state site listed first on Nov 16 costs an average home $378 ⟲ more a year, and the bars show why.
 4. `4-fine-print-proof.png` — Every number traced back to the label: hover the $125 credit and it lights up in the fine print.
-5. `5-side-by-side.png` — The best plan vs the state site's #1, month by month.
+5. `5-side-by-side.png` — The best plan vs the state site's #1 on Nov 16, month by month.
 6. `6-trap-guide.png` — Every kind of catch Wattch found, each with a real plan.
 7. `7-dallas-fort-worth.png` — Dallas–Fort Worth too: the same "6.2¢" plan costs $530 ⟲ more a year there.
 8. `8-en-espanol.png` — En español: every bill line explained in plain words, next to the label check.

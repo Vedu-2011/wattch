@@ -1,3 +1,4 @@
+import { LIST_DATE } from "./listDate";
 /** "Already on a plan?" and "Use my real 12 months" (both on /wall), in English and Spanish. */
 export const CURRENT_WORDS = {
   en: {
@@ -14,7 +15,7 @@ export const CURRENT_WORDS = {
     perYr: "/yr",
     yours: "Your plan", best: "Best plan", fee: "Exit fee now", payback: "Pays back in", mo: (n: number) => `${n} mo`,
     basis: (mine: boolean, k: string, city: string, seasons: boolean) =>
-      `${mine ? "Your own 12 months" : `Same ${k} kWh average${seasons ? ` with ${city} seasons` : ""}`}, today's prices, before taxes.`,
+      `${mine ? "Your own 12 months" : `Same ${k} kWh average${seasons ? ` with ${city} seasons` : ""}`}, prices as of ${LIST_DATE.en}, before taxes.`,
     feeFrom: "Exit fee from your plan's label:",
     feeVal: (d: number, perMonth: boolean) => `$${d}${perMonth ? " × months left" : ""}`,
     noFee: "none listed",
@@ -35,7 +36,7 @@ export const CURRENT_WORDS = {
     perYr: "/año",
     yours: "Tu plan", best: "Mejor plan", fee: "Cargo por salida hoy", payback: "Se paga en", mo: (n: number) => (n === 1 ? "1 mes" : `${n} meses`),
     basis: (mine: boolean, k: string, city: string, seasons: boolean) =>
-      `${mine ? "Tus propios 12 meses" : `El mismo promedio de ${k} kWh${seasons ? ` con las temporadas de ${city}` : ""}`}, precios de hoy, antes de impuestos.`,
+      `${mine ? "Tus propios 12 meses" : `El mismo promedio de ${k} kWh${seasons ? ` con las temporadas de ${city}` : ""}`}, precios del ${LIST_DATE.es}, antes de impuestos.`,
     feeFrom: "Cargo por salida según la etiqueta de tu plan:",
     feeVal: (d: number, perMonth: boolean) => `$${d}${perMonth ? " × meses que falten" : ""}`,
     noFee: "no aparece",

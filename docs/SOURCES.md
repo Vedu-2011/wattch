@@ -53,11 +53,43 @@ month partly reflects the month before; real homes vary (a home with gas heat ha
   - **Caveat (say it in the deck):** EnergyBot is a commercial comparison site (paid by providers for referrals, per news coverage — that article
     didn't load for me, so don't quote it). The survey count isn't on the page; 501 is the usage-data sample. Don't call it "501 people surveyed".
 
+## Competitors, the label rule and Texas market size (read Nov 20, 2026 — each company's own pages)
+Read with a web-fetch tool on Nov 20 (Power to Choose pages with curl, because it refuses automated fetchers). Quotes are verbatim.
+- **EnergyBot** — usage: "Rankings are generated from rate data and a forecasted cost against your actual usage from your
+  utility." Money: "EnergyBot is free to use. When you enroll with a provider through our site, that provider pays us a
+  referral fee." / "Referral fees do not influence our recommendations." Proof: "we calculate the full bill rather than
+  quoting an energy rate alone." — https://www.energybot.com/about/how-energybot-makes-money.html
+  Fine print: tells shoppers to "check the electricity facts label" — https://www.energybot.com/electricity-rates/texas/
+- **ComparePower** — usage: "can show you a total annual cost for any plan based on your 12 months of usage history."
+  Money: "Energy companies pay us a service fee for referring customers, and because we are advocates for the consumer,
+  we'll always keep our services free for the user." Label: "Click on the facts label and watch the magic happen." —
+  https://comparepower.com/about/ · "be sure to check the facts label carefully" — https://comparepower.com/answers/
+- **ElectricityPlans** — usage: "We'll estimate your bills for every month of the year." —
+  https://electricityplans.com/texas/tools/billsmart-electricity-shopping-tools/ · fine print: "we review all of the
+  details to find the fine print and hidden fees in each electricity plan"; proof: "we show you all the details of how
+  your bill is calculated"; money: "We earn compensation from the electricity provider you select when you enroll through
+  our platform." / "Consumers like you never pay a fee to use our site." — https://electricityplans.com/faq/
+- **Rocket Money** — doesn't compare electricity plans; bill negotiation covers "cable and satellite tv subscriptions,
+  internet service providers, cell phone and wireless plans, and home security systems" and is "included in Rocket
+  Money's Premium+ tier, which costs $15 per month." — https://www.rocketmoney.com/faq
+- **Power to Choose** — "you may use this feature to filter out those plans that feature minimum usage fees/credits and
+  tiered rates" and "it is critical that you click the FACT SHEET link and spend time carefully reading the document" —
+  https://www.powertochoose.org/en-us/Content/UserGuide · "This website is available to all electric providers to list
+  their offers for free." — https://www.powertochoose.org/en-us . Its pages don't state the default sort order; "the
+  state site's #1" in Wattch means the lowest printed 1,000 kWh price on its CSV export (row 1 of the table above).
+- **16 TAC §25.475(g)(2)(C)** — average prices "must be expressed in cents per kilowatt hour, rounded to the nearest
+  one-tenth of one cent"; (g)(2)(C)(i) "For residential customers, 500, 1,000 and 2,000 kilowatt hours per month".
+  (c)(4)(A): a provider's website "must prominently display the EFL for any products offered without a person having to
+  enter any personal information". — https://www.law.cornell.edu/regulations/texas/16-Tex-Admin-Code-SS-25-475
+- **Texas market size** — ERCOT "administers retail switching for 8 million premises in competitive choice areas" and
+  serves "more than 27 million Texas customers" — https://www.ercot.com/about ("nearly 8 million premises" on
+  https://www.ercot.com/about/profile). Premises include businesses: say "homes and businesses", not "families".
+- Not found on any of these sites: referral fee sizes (so no dollar figure in the deck).
+
 ### NOT VERIFIED — do NOT use
 - **Peltier / Lieber "$480 per family per year" / "~$4B" / "~11M families"** (ARCHITECTURE.md) — 3 searches (authors + figures + Dallas
   Morning News Watchdog) found no such study or article. Different big numbers exist (winter-storm repricing $4.2B, "$16B overcharges",
   a "$28B overpay" report) but they're about other things — don't swap them in.
-- ERCOT "8 million premises" — not checked.
 - Houston "~45% Hispanic" (reason for the Spanish version) — census.gov QuickFacts blocks automated browsers (Cloudflare) and
   the Census API now needs a key, so I couldn't open the page myself. A search summary says QuickFacts shows 44.1% Hispanic or
   Latino and 47.2% speak a language other than English at home (ACS 2019–2023) for Houston city — Vedhanth: open
