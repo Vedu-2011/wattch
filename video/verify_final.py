@@ -55,7 +55,7 @@ for i,scene in enumerate(timeline):
     data=subprocess.check_output(['ffmpeg','-v','error','-ss',str(at),'-i',str(v),'-frames:v','1','-f','image2pipe','-vcodec','png','-'])
     x,y=(i%4)*480+10,(i//4)*310+8
     sheet.paste(Image.open(io.BytesIO(data)).convert('RGB').resize((460,259)),(x,y))
-    d.text((x,y+263),f"{scene['start']:03d}s {scene['clip']}",font=font,fill='white')
+    d.text((x,y+263),f"{scene['start']:05.1f}s {scene['clip']}",font=font,fill='white')
 sheet.save(O/'contact-sheet.png')
 
 early=Image.new('RGB',(1920,5*255),'#1b1611'); ed=ImageDraw.Draw(early)
