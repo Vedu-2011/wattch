@@ -23,7 +23,9 @@ const cents = (n: number) => `${n.toFixed(1)}¢`;
  * The wall replays real reads: faster reads finish first. Pace is by order (not raw time), so one very slow label
  * doesn't leave the wall sitting still — tiles land steadily across the whole replay.
  */
-function useReveal(plans: ClientPlan[], totalMs = 9000) {
+const SEEN_KEY = "wattch-wall-seen";
+
+function useReveal(plans: ClientPlan[], seenKey: string, totalMs = 9000) {
   const order = useMemo(() => {
     const sorted = [...plans].sort((a, b) => (a.readMs || 0) - (b.readMs || 0));
     const n = Math.max(sorted.length - 1, 1);
@@ -31,6 +33,14 @@ function useReveal(plans: ClientPlan[], totalMs = 9000) {
   }, [plans, totalMs]);
   const [now, setNow] = useState(0);
   const [skip, setSkip] = useState(false);
+  // The replay plays once per browser tab. Coming back (back button, Español, a slider change) shows the
+  // answer at once instead of making people sit through 9 seconds again. A new tab, the other city, or ?replay=1 plays it again.
+  useEffect(() => {
+    try {
+      if (new URLSearchParams(window.location.search).get("replay") === "1") return;
+      if (window.sessionStorage.getItem(seenKey) === "1") setSkip(true); // eslint-disable-line react-hooks/set-state-in-effect -- reads browser-only storage after hydration
+    } catch { /* storage blocked: just play it */ }
+  }, [seenKey]);
   useEffect(() => {
     if (skip) return;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -42,13 +52,18 @@ function useReveal(plans: ClientPlan[], totalMs = 9000) {
     return () => cancelAnimationFrame(raf);
   }, [skip, totalMs]);
   const readIds = new Set(order.filter((o) => skip || o.at <= now).map((o) => o.id));
-  return { readIds, done: skip || now >= totalMs, skip: () => setSkip(true) };
+  const done = skip || now >= totalMs;
+  useEffect(() => {
+    if (!done) return;
+    try { window.sessionStorage.setItem(seenKey, "1"); } catch { /* storage blocked: fine */ }
+  }, [done, seenKey]);
+  return { readIds, done, skip: () => setSkip(true) };
 }
 
 
 export function Wall({ plans, kwh: initialKwh, builtAt, seasons: initialSeasons, months: initialMonths = null, filters: initialFilters = NO_FILTERS, withConditional: initialConditional = true, lang = "en", area = "houston", kwhNote = null }: { plans: ClientPlan[]; kwh: number; kwhNote?: "low" | "high" | "bad" | null; builtAt: string; seasons: boolean; months?: number[] | null; filters?: WallFilters; withConditional?: boolean; lang?: Lang; area?: Area }) {
   const w = words(lang, area);
-  const { readIds, done, skip } = useReveal(plans);
+  const { readIds, done, skip } = useReveal(plans, `${SEEN_KEY}-${area}`);
   const [kwh, setKwh] = useState(initialKwh);
   const [seasons, setSeasons] = useState(initialSeasons);
   // your own 12 months, when you've typed them in; otherwise an average spread by Houston seasons
@@ -220,9 +235,11 @@ function Walker({ progress, done, label, valueText }: { progress: number; done: 
 
 function Tile({ p, read, w }: { p: ClientPlan; read: boolean; w: Words }) {
   const ok = p.status === "verified";
-  const back = ok ? "bg-good-2" : p.status === "mismatch" ? "bg-volt-2" : "bg-paper-2";
+  // read and checked, but no longer on Power to Choose: shown like the other unranked tiles at every size
+  const gone = ok && p.listed === false;
+  const back = gone ? "bg-paper-2" : ok ? "bg-good-2" : p.status === "mismatch" ? "bg-volt-2" : "bg-paper-2";
   return (
-    <div className={`flip ${read ? "is-read" : ""} h-8 sm:h-20`} title={`${p.provider} — ${p.planName}`}>
+    <div className={`flip ${read ? "is-read" : ""} h-8 sm:h-20`} title={`${p.provider} — ${p.planName}${p.listed === false ? ` (${w.tileGone})` : ""}`}>
       <div className="flip-inner h-full">
         <div className="flip-face relative flex h-full items-center justify-center overflow-hidden rounded-md bg-card shadow-[var(--shadow-soft)] sm:block sm:rounded-xl sm:p-2">
           <div className="scanline pointer-events-none absolute inset-x-0 h-1/2 bg-gradient-to-b from-transparent via-volt-2 to-transparent opacity-70" />
@@ -230,10 +247,13 @@ function Tile({ p, read, w }: { p: ClientPlan; read: boolean; w: Words }) {
           <p className="relative mt-1 hidden text-[0.6875rem] leading-tight text-ink-2 [overflow-wrap:anywhere] sm:line-clamp-2">{title(p.provider)}</p>
         </div>
         <div className={`flip-face flip-back flex h-full items-center justify-center rounded-md shadow-[var(--shadow-soft)] sm:block sm:rounded-xl sm:p-2 sm:pr-7 ${back}`}>
-          <span aria-hidden className={`text-sm font-bold sm:hidden ${ok ? "text-good" : "text-ink-2"}`}>{ok ? "✓" : p.status === "mismatch" ? "?" : "–"}</span>
-          {ok && read && <span aria-hidden className="stamp absolute right-1.5 top-1.5 hidden h-5 w-5 items-center justify-center rounded-full bg-good text-[0.6875rem] font-bold text-paper sm:flex">✓</span>}
+          <span aria-hidden className={`text-sm font-bold sm:hidden ${ok && !gone ? "text-good" : "text-ink-2"}`}>{gone ? "–" : ok ? "✓" : p.status === "mismatch" ? "?" : "–"}</span>
+          {ok && !gone && read && <span aria-hidden className="stamp absolute right-1.5 top-1.5 hidden h-5 w-5 items-center justify-center rounded-full bg-good text-[0.6875rem] font-bold text-paper sm:flex">✓</span>}
           <p className="hidden text-[0.6875rem] font-semibold leading-tight [overflow-wrap:anywhere] sm:line-clamp-2">{p.planName}</p>
-          {ok && p.pricing ? (
+          {gone ? (
+            // read and checked, but no longer on Power to Choose (data/delisted.json): not ranked, so no price here
+            <p className="mt-1 hidden text-[0.6875rem] leading-tight text-ink-2 sm:block">{w.tileGone}</p>
+          ) : ok && p.pricing ? (
             <p className="num mt-1 hidden text-[0.6875rem] leading-tight sm:block">
               {p.pricing.touPeriods.length ? w.tileTou : `${p.pricing.energyTiers[p.pricing.energyTiers.length - 1].cents.toFixed(1)}¢/kWh`}
               {p.pricing.credits.some((c) => !c.conditional && c.minKwh > 0) ? <span className="text-over"> · {w.tileCliff}</span> : <span className="text-good"> · ✓</span>}

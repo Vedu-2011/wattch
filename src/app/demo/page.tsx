@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Demo, type DemoData } from "@/components/Demo";
+import { Suspense } from "react";
+import { Demo, DemoFromUrl, type DemoData } from "@/components/Demo";
 import { heroStats } from "@/lib/hero";
 import { clientPlans, snapshotInfo } from "@/lib/plans/data";
 import { HEADLINE_KWH as KWH, headline } from "@/lib/headline";
@@ -26,5 +27,6 @@ export default function DemoPage() {
     why: r.why,
     creditLine: credit?.minKwh ?? null,
   };
-  return <Demo d={data} />;
+  // ?speed=slow is read in the browser (the page itself stays prerendered)
+  return <Suspense fallback={<Demo d={data} />}><DemoFromUrl d={data} /></Suspense>;
 }

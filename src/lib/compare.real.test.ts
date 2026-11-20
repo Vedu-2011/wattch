@@ -55,7 +55,8 @@ describe("notFirm and the ranking use the same rule", () => {
     const { rankable } = await import("./rank");
     for (const area of ["houston", "dallas"] as const) {
       const ranked = new Set(rankable(clientPlans(area)).map((p) => p.id));
-      for (const p of clientPlans(area)) expect(notFirm(planById(p.id)!) === null, `${area} ${p.id}`).toBe(ranked.has(p.id));
+      // plans that left Power to Choose have a firm number but aren't ranked (data/delisted.json)
+      for (const p of clientPlans(area)) expect(notFirm(planById(p.id)!) === null && p.listed !== false, `${area} ${p.id}`).toBe(ranked.has(p.id));
     }
   });
 });

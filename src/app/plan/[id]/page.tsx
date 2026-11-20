@@ -7,6 +7,8 @@ import { Fresh } from "@/components/Fresh";
 import { HighlightScope, HoverKey, LabelText } from "@/components/Highlight";
 import { LiveCheck } from "@/components/LiveCheck";
 import { canRecheck } from "@/lib/plans/recheck";
+import { isListed } from "@/lib/plans/delisted";
+import { delistedDate } from "@/lib/delistedDate";
 import { PrintButton } from "@/components/PrintButton";
 import { ShareLink } from "@/components/ShareLink";
 import { YearBars } from "@/components/YearBars";
@@ -54,7 +56,9 @@ export async function generateMetadata({ params, searchParams }: PageProps<"/pla
   const tag = rec.check.status === "unread" ? (es ? "letra pequeña sin leer" : "fine print not read yet")
     : rec.check.status === "mismatch" ? (es ? "su letra pequeña no cuadra" : "its fine print doesn't add up")
     : (es ? "la letra pequeña, revisada" : "the fine print, checked");
-  return { title: `${rec.meta.planName} — ${tag} · Wattch`, description, alternates: langPair(`/plan/${id}`, sp), ...shareMeta(`${cardUrl(sp, { area })}&plan=${encodeURIComponent(id)}`) };
+  // a plan that left Power to Choose says so first in its preview
+  const gone = isListed(rec.meta.id) ? "" : es ? "Ya no está en Power to Choose. " : "No longer on Power to Choose. ";
+  return { title: `${rec.meta.planName} — ${tag} · Wattch`, description: gone + description, alternates: langPair(`/plan/${id}`, sp), ...shareMeta(`${cardUrl(sp, { area })}&plan=${encodeURIComponent(id)}`) };
 }
 
 export default async function PlanPage({ params, searchParams }: PageProps<"/plan/[id]">) {
@@ -102,6 +106,7 @@ export default async function PlanPage({ params, searchParams }: PageProps<"/pla
       <div className="no-print flex flex-wrap items-center justify-between gap-3"><Link href={`/wall?${back}`} className="whitespace-nowrap text-sm font-medium text-ink-2 hover:text-ink">{t.all}</Link><span className="flex items-center gap-2"><ShareLink title={`${rec.meta.planName} · Wattch`} lang={lang} /><PrintButton lang={lang} /></span></div>
       <h1 className="display mt-3 text-4xl font-extrabold leading-tight">{rec.meta.planName}</h1>
       <p className="mt-1 text-ink-2">{rec.meta.provider} · {es ? ({ Fixed: "Precio fijo", Variable: "Precio variable" } as Record<string, string>)[rec.meta.rateType] ?? rec.meta.rateType : rec.meta.rateType} {p ? `· ${t.months(p.termMonths)} ` : ""}· {t.renewable(rec.meta.renewablePct)}</p>
+      {!isListed(rec.meta.id) && <p role="note" className="mt-3 rounded-2xl bg-volt-2 px-4 py-3 text-sm font-medium">{t.delisted(delistedDate(lang))}</p>}
 
       <div className="mt-6 grid gap-4 sm:grid-cols-[1.2fr_1fr]">
         <section className="rounded-3xl bg-card p-5 shadow-[var(--shadow-soft)]">

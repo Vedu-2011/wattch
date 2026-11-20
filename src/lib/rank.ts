@@ -15,6 +15,8 @@ export type ClientPlan = {
   prepaid: boolean;
   ptc: { k500: number; k1000: number; k2000: number };
   status: "verified" | "mismatch" | "unread";
+  /** false: the plan left Power to Choose after Wattch read it (data/delisted.json) — never ranked */
+  listed?: boolean;
   readMs: number;
   pricing: PlanPricing | null;
   // Not sent to the browser (the plan page reads the full record on the server); optional so tests can omit them.
@@ -67,11 +69,11 @@ export function traps(p: PlanPricing): Trap[] {
 }
 
 /**
- * Plans we can honestly put a yearly price on: verified, not prepaid, and not variable-rate
- * (a variable plan's price can change every month, so a yearly cost would be a guess).
+ * Plans we can honestly put a yearly price on: verified, not prepaid, not variable-rate (a variable plan's price can
+ * change every month, so a yearly cost would be a guess), and still listed on Power to Choose.
  */
 export const rankable = (plans: ClientPlan[]) =>
-  plans.filter((p) => p.status === "verified" && p.pricing && !p.prepaid && p.rateType.toLowerCase() !== "variable");
+  plans.filter((p) => p.status === "verified" && p.pricing && !p.prepaid && p.rateType.toLowerCase() !== "variable" && p.listed !== false);
 
 /** The 12 months we price: flat, or shaped like a real year in that area (Houston by default). */
 export const yearFor = (kwh: number, seasons = true, area: Area = "houston") => (seasons ? seasonalYear(kwh, shapeFor(area)) : flatYear(kwh));

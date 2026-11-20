@@ -23,16 +23,16 @@ describe("one headline, everywhere", () => {
       expect(wall.pick?.plan.id).toBe(h.pick?.plan.id);
     });
   }
-  it("Houston's headline is the one in the deck, video and Devpost ($378, state #1 ranks #74)", () => {
+  it("Houston's headline is the one in the deck, video and Devpost ($378, state #1 ranks #69 of the plans still listed)", () => {
     const h = headline(load("houston"));
     expect(Math.round(h.gap)).toBe(378);
-    expect(h.pickRank).toBe(74);
+    expect(h.pickRank).toBe(69);
     expect(h.pick?.plan.id).toBe("33633");
     expect(h.best?.plan.id).toBe("37797");
   });
-  it("Dallas–Fort Worth: state #1 ranks #91, $530 a year more (after the free form-field rescue, Nov 16)", () => {
+  it("Dallas–Fort Worth: state #1 ranks #82, $530 a year more (after the free form-field rescue, Nov 16)", () => {
     const h = headline(load("dallas"), "dallas");
     expect(Math.round(h.gap)).toBe(530);
-    expect(h.pickRank).toBe(91);
+    expect(h.pickRank).toBe(82);
   });
 });

@@ -1,8 +1,8 @@
 # Devpost submission — Wattch (Triple H · also STEM2Connect + GenHacks)
 
-Paste each section into the matching Devpost field. Draft v1 by Claude Code (overnight-2, Nov 16 2026) — for the planner
-and Vedhanth to edit. Solo "I" voice. Every number below comes from the repo (`npx tsx scripts/headline.ts`,
-data/plans.json built Nov 16 2026 07:03 UTC) or a source quoted in docs/SOURCES.md. If the data is re-read before
+Paste each section into the matching Devpost field. Final v2 by Claude Code (Nov 19 2026, prompts/final-1.md) — for the
+planner and Vedhanth to edit. Solo "I" voice. Every number below comes from the repo (`npx tsx scripts/headline.ts`,
+labels read Nov 16 2026; plans that left Power to Choose by Nov 19 are marked and not ranked) or a source quoted in docs/SOURCES.md. If the data is re-read before
 submitting, re-run headline.ts and update the numbers marked ⟲.
 
 ## Project name
@@ -12,8 +12,8 @@ Wattch
 Texas lets you pick your power plan, then hides the real price in the fine print. Wattch reads every Houston plan's label, checks its own work, and shows what each one really costs you.
 
 ## Inspiration
-In Houston you have to pick your own electricity plan. The state's site, Power to Choose, lists 172 ⟲ of them and shows
-one big number for each: the price if you use exactly 1,000 kWh. The catch is in a PDF called the Electricity Facts
+In Houston you have to pick your own electricity plan. The state's site, Power to Choose, listed 172 ⟲ of them when I read them and
+shows one big number for each: the price if you use exactly 1,000 kWh. The catch is in a PDF called the Electricity Facts
 Label. Many plans give a $100–$125 bill credit only in months you use more than 1,000 kWh. That makes the advertised
 price look amazing, and real homes don't use 1,000 kWh every month. Houston summers blow past it; spring and winter
 don't.
@@ -32,8 +32,8 @@ for a number that was never real.
 - **Your real year, not one number.** Pick your usage (or type your own 12 months from your bill). Wattch spreads it
   across a real Houston year using ERCOT's grid data — an August bill is about 2.6× a February one — and prices every
   plan month by month.
-- **The reveal.** For an average 1,100 kWh home, the plan with the lowest advertised price on Power to Choose (Simple
-  Saver 3, "6.2¢") ranks **#74 of 154** ⟲ and costs **$378 a year more** ⟲ than the best plan. Why: its $125 credit
+- **The reveal.** For an average 1,100 kWh home, the plan with the lowest advertised price on Power to Choose when Wattch
+  read the list (Simple Saver 3, "6.2¢") ranks **#69 of 143** ⟲ and costs **$378 a year more** ⟲ than the best plan. Why: its $125 credit
   needs 1,000 kWh, and that home is under 1,000 kWh six months a year. A bar chart shows exactly which months miss.
 - **Proof for every number.** Each plan page shows the label text the AI read with every number the math used
   highlighted. Hover a bill line and its number lights up in the fine print. A table shows the label's own three
@@ -49,7 +49,7 @@ for a number that was never real.
 - **Ask yourself before you sign.** Each plan page writes up to 4 questions from that plan's own label and your months:
   "Will I use 1,000 kWh or more every single month? With your usage you'd miss it 6 months a year, $750 in all."
 - **Dallas–Fort Worth too.** The same pipeline read all 172 ⟲ Oncor plans (154 ⟲ verified) with its own seasons from
-  ERCOT's North Central zone. The same "6.2¢" plan ranks #91 ⟲ there and costs $530 ⟲ more a year.
+  ERCOT's North Central zone. The same "6.2¢" plan ranks #82 ⟲ there and costs $530 ⟲ more a year.
 - **En español.** Every page works in Spanish (tap Español, or add `?lang=es`): the results, the plan page, compare,
   the trap guide, reminders and the share card. Same math, only the words change; the label's own text stays as printed.
 - **Don't get rolled over.** Enter your contract's end date and get a calendar reminder 30 days before (no account,
@@ -70,12 +70,13 @@ for a number that was never real.
 - **Seasons:** ERCOT's 15-minute residential load profiles for the Coast weather zone (2023–2025), mixed by how many
   CenterPoint homes are in each profile type. That gives the monthly shape; your average sets the size.
 - **Deciding:** the bill math, yearly cost, ranking, price cliffs, filters, switching math and every "why" sentence
-  are plain code with 262 tests ⟲, including a test that every verified plan still rebuilds its own label.
+  are plain code with 265 tests ⟲, including a test that every verified plan still rebuilds its own label.
 - **Staying fresh:** `npm run refresh` downloads the state's list for free and shows what changed; `--apply`
   re-downloads every label and only sends the ones whose text changed to the AI. The Dallas read cost $1.15 for 172
-  labels, about 0.67¢ each.
+  labels, about 0.67¢ each. A free check (`scripts/delisted.ts`) marks plans that have left the state's list since
+  they were read: their page says so, and they're never ranked.
 - **Stack:** Next.js 16 + React 19 + TypeScript, Tailwind CSS, zod (validates the AI's output and the data file),
-  unpdf (PDF text), Vercel. Accessibility checked with axe (0 issues on 17 pages, phone and desktop) and Lighthouse
+  unpdf (PDF text), Vercel. Accessibility checked with axe (0 issues on 25 pages, phone and desktop) and Lighthouse
   (100 accessibility on every page I tested).
 
 ## Challenges I ran into
@@ -88,12 +89,15 @@ for a number that was never real.
   separates "new file" from "new prices".
 - **Seasons.** My first model used statewide Texas data. I replaced it with Houston-area grid data, which made the
   summer/spring gap bigger — and that's exactly where bill-credit plans hurt.
+- **The list moves.** Between Nov 16 and Nov 19, 12 Houston plans left Power to Choose and about 70 changed their
+  advertised price. A plan you can't sign up for shouldn't be anyone's #1, so a free script now checks the state's list (run by hand; last on Nov 19) and
+  marks those plans instead of quietly ranking them.
 - **Being honest.** One prepaid plan's label prints prices its own charges don't add up to. Instead of forcing it, the
   plan page says exactly what doesn't match.
 
 ## Accomplishments that I'm proud of
 - 171 of 172 ⟲ Houston plans verified against their own label, to about a tenth of a cent.
-- Finding that the cheapest-looking plan ranks #74 ⟲ for a typical home, and being able to show why with a bar chart
+- Finding that the cheapest-looking plan ranks #69 ⟲ for a typical home, and being able to show why with a bar chart
   anyone understands.
 - Every number on screen can be traced back to a line of fine print.
 
@@ -130,17 +134,18 @@ vercel · vitest · playwright · axe-core · power-to-choose · ercot-load-prof
 Retake with `node scripts/gallery.mjs` (or `node scripts/gallery.mjs 7,8` for just the new two) against a local prod build on :3000 if the data changes.
 
 ## Links
-- Live app: https://getwattch.vercel.app ⟲ (main — merge the overnight branch first if the planner approves)
+- Live app: https://getwattch.vercel.app
 - Code: https://github.com/Vedu-2011/wattch
 - Demo video: (add)
 
-## Checked against the code (Claude Code, Nov 16)
-172 plans / 171 verified / 154 ranked / #74 / $378 / 6 months / $125 / 1,000 kWh / 6.2¢: scripts/headline.ts.
+## Checked against the code (Claude Code, Nov 19)
+172 plans / 171 verified / 143 ranked / #69 / $378 / 6 months / $125 / 1,000 kWh / 6.2¢: scripts/headline.ts.
 158 direct / 14 Anakin / median 3,707 ms: data/plans.json. 7 trap kinds: src/lib/trapGuide.ts. 2.6× Aug/Feb: docs/SOURCES.md.
-262 tests: `npm test`. axe 0 on 25 pages: scripts/axe.mjs. Lighthouse a11y 100 on /, /wall, /plan (D2) and /remind, /how,
+265 tests: `npm test`. axe 0 on 25 pages: scripts/axe.mjs. Lighthouse a11y 100 on /, /wall, /plan (D2) and /remind, /how,
 Dallas wall, Dallas traps (H7): PROGRESS.md.
 Screen-reader links, heading levels and page language on 19 pages: scripts/link-names.mjs. All page checks: scripts/check-all.mjs.
-Dallas (added later Nov 16): 172 plans / 154 verified / 137 ranked / #91 / $530: scripts/headline.ts; $1.149 read cost:
+Dallas (added later Nov 16): 172 plans / 154 verified / 125 ranked / #82 / $530: scripts/headline.ts; $1.149 read cost:
 PROGRESS.md (F2). Bill sentence "1,100 kWh × 6.5611¢": src/lib/bill/explain.ts on plan 33633. Questions "6 months, $750":
 src/lib/questions.test.ts.
-EnergyBot quote: docs/SOURCES.md (verified). NOT used: Peltier/Lieber $480 (couldn't find it).
+"12 left / about 70 re-priced": scripts/delisted.ts + `npx tsx scripts/refresh.ts` dry run, Nov 19 (Houston 12 gone, 76
+price changes; Dallas 13 gone, 68). EnergyBot quote: docs/SOURCES.md (verified). NOT used: Peltier/Lieber $480 (couldn't find it).

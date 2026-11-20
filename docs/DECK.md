@@ -1,6 +1,6 @@
 # Business-track deck — Wattch (≤15 slides)
 
-Draft v1 by Claude Code (overnight-2, Nov 16 2026) for the planner to turn into slides. Triple H business track asks
+Final v2 by Claude Code (Nov 19 2026, prompts/final-1.md) for the planner to turn into slides. 15 slides. Triple H business track asks
 for: executive summary, market opportunity, business model, the ask; presenter role-plays an executive.
 Rule: every number has a source in docs/SOURCES.md or comes from the repo. Anything marked **[CHECK]** is not yet
 sourced — don't put it on a slide until it is. ⟲ = changes when the plan data is refreshed.
@@ -16,13 +16,13 @@ Vedhanth M., Founder & CEO · Houston · getwattch.vercel.app
   that's only true at exactly 1,000 kWh a month.
 - Product: Wattch reads every plan's legally required fine-print label, checks its own reading against the label's
   printed prices, and ranks plans by what they cost over a real Houston year.
-- Proof: 171 of 172 ⟲ Houston plans verified. For an average home, the state site's #1 plan ranks #74 ⟲ and costs
-  $378 ⟲ a year more than the best.
+- Proof: 171 of 172 ⟲ Houston plans verified. For an average home, the plan the state site listed first (Nov 16) ranks #69 ⟲
+  of 143 and costs $378 ⟲ a year more than the best.
 - Model: free for families; revenue from switch referrals, shown openly and never used to rank.
 - Ask: (see slide 14).
 
 **3 · The problem, in one plan**
-Simple Saver 3: "6.2¢ ⟲ per kWh" on Power to Choose. The label: a $125 credit only in months above 1,000 kWh.
+Simple Saver 3: "6.2¢ ⟲ per kWh", first on Power to Choose's list when Wattch read it (Nov 16). The label: a $125 credit only in months above 1,000 kWh.
 A Houston home averaging 1,100 kWh misses it 6 months ⟲ a year → $1,712 ⟲ for the year vs $1,334 ⟲ for the best plan.
 Visual: the 12-month bars with the 1,000 kWh line (screenshot from /wall).
 Source: scripts/headline.ts; the plan's label (linked from /plan/33633).
@@ -33,9 +33,9 @@ cost mattered most." Small print on the slide: "EnergyBot is a commercial compar
 Source: energybot.com/electricity-plan-study.html (quoted in SOURCES.md).
 
 **5 · How big the trap is in the data**
-18 ⟲ of 172 ⟲ plans have a hidden catch that changes the price; 7 kinds of trap. Breakdown (plans can have more than one):
-3-month teaser 20 · autopay credit 15 · bill-credit cliff 12 · minimum-use fee 10 · time-of-use 9 · setup fee 6 · tiered 1 ⟲.
-Source: data/plans.json via /traps and src/lib/hero.ts (checked Nov 16). Wording matters: "18 plans with a trap that
+17 ⟲ of the 143 ⟲ ranked Houston plans have a hidden catch that changes the price; 7 kinds of trap. Breakdown (plans can have more than one):
+3-month teaser 20 · autopay credit 15 · bill-credit cliff 12 · minimum-use fee 9 · time-of-use 9 · setup fee 6 · tiered 1 ⟲.
+Source: data/plans.json via /traps and src/lib/hero.ts (checked Nov 19, plans that left the list excluded). Wording matters: "17 plans with a trap that
 makes them cost more than they look" = rankable plans with at least one red ("over") warning (hero.ts). The per-kind
 counts are bigger because they include softer catches (autopay credit, 3-month price) — say "catches", not "traps", for those.
 
@@ -59,7 +59,7 @@ One line each: Read every plan · Your real year · Proof for every number · Sw
 **8 · Why you can trust it: AI reads, code decides**
 Texas requires each label to print its average price at 500, 1,000 and 2,000 kWh (16 TAC §25.475 — **[CHECK]** exact
 wording before the slide). Claude Haiku reads the label; plain code rebuilds those three prices; all three must match to
-about a tenth of a cent (±0.11¢; labels round to 0.1¢) or the plan isn't ranked. Median read 3.7 s ⟲. 262 ⟲ automated tests.
+about a tenth of a cent (±0.11¢; labels round to 0.1¢) or the plan isn't ranked. Median read 3.7 s ⟲. 265 ⟲ automated tests.
 
 **9 · Business model**
 - Free for families, always. No account needed.
@@ -81,11 +81,13 @@ about a tenth of a cent (±0.11¢; labels round to 0.1¢) or the plan isn't rank
 Fill the [CHECK] cells only after opening each site and trying it; screenshot what you saw.
 
 **11 · Traction / proof**
-- Houston: 172 ⟲ labels read, 171 verified, 154 ranked. Dallas–Fort Worth: 172 ⟲ read, 154 verified, 137 ranked
-  (same "6.2¢" plan ranks #91 ⟲ there, $530 ⟲ more a year). All public and re-checkable live.
+- Houston: 172 ⟲ labels read, 171 verified, 143 ranked. Dallas–Fort Worth: 172 ⟲ read, 154 verified, 125 ranked
+  (same "6.2¢" plan ranks #82 ⟲ there, $530 ⟲ more a year). All public and re-checkable live.
 - Reading a whole area costs about $1.15 in AI (0.67¢ a label); unchanged labels cost $0 to re-check.
-- English + Spanish on every page (same math, only the words change); contract-end calendar reminders; 262 ⟲ automated tests.
+- English + Spanish on every page (same math, only the words change); contract-end calendar reminders; 265 ⟲ automated tests.
 - Accessibility: 0 axe issues on 25 pages (English + Spanish); Lighthouse accessibility 100 on every page tested.
+- Stays honest as the list changes: a free check of the state's list (one command, run by hand; last run Nov 19) marks
+  plans that have left it (12 in Houston between Nov 16 and Nov 19) so they're never ranked.
 - Built and shipped solo in one week.
 (No users yet — say so honestly if asked.)
 
@@ -106,6 +108,6 @@ Houston nonprofit." Keep the number small and tied to concrete costs.
 "Texas gave families the power to choose. Wattch gives them the time back." · getwattch.vercel.app · QR to /demo.
 
 ---
-**Checked (Claude Code, Nov 16):** $378 / #74 / 154 / 172 / 171 / $1,712 / $1,334 / 6 months / $125 — headline.ts.
+**Checked (Claude Code, Nov 19):** $378 / #69 / 143 / 172 / 171 / $1,712 / $1,334 / 6 months / $125 — headline.ts.
 Trap counts — summary of /traps data (re-run before slides). 2,519,376 — 1,868,817 + 650,559 from SOURCES.md.
 1,117 kWh — SOURCES.md. $0.68 re-read — PROGRESS.md A1. 1% illustration: 2,519,376 × 1% × $378 = $9.52M.

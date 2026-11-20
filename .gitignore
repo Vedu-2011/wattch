@@ -49,3 +49,6 @@ next-env.d.ts
 
 # overnight screenshots stay on disk, not in git (52 MB; docs/gallery/ is the kept set)
 docs/screenshots/overnight-2/
+
+# raw demo-video captures (scripts/video-shots.mjs)
+video/

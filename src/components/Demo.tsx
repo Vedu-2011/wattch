@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { CountUp } from "@/components/CountUp";
 import { JudgeQr } from "@/components/JudgeQr";
 import { Kapi } from "@/components/Kapi";
@@ -16,12 +17,14 @@ const money = (n: number) => n.toLocaleString("en-US", { style: "currency", curr
 const tidy = (s: string) => s.replace(/\b(LLC|INC|LP|L\.P\.|CO)\b\.?/gi, "").replace(/\(TX\)/gi, "").replace(/\s+/g, " ").trim()
   .toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase());
 
-const SCENE_MS = 6000;
+/** Time per scene: 6 s live; ?speed=slow gives 10 s for screen recording (the narration has room to breathe). */
+export const SCENE_MS = { normal: 6000, slow: 10000 } as const;
 
 /** Scripted, click-free walk-through. Auto-advances; ← → or space to drive it by hand; tap Pause to hold a scene. */
-export function Demo({ d }: { d: DemoData }) {
+export function Demo({ d, speed = "normal" }: { d: DemoData; speed?: keyof typeof SCENE_MS }) {
+  const sceneMs = SCENE_MS[speed];
   const scenes = [
-    <Scene key="a" eyebrow="Houston, today">
+    <Scene key="a" eyebrow="Houston, as Wattch read them">
       <h1 className="display text-5xl font-extrabold leading-[0.95] sm:text-8xl"><span className="num text-volt">{d.total}</span> power plans.</h1>
       <p className="mt-6 max-w-3xl text-xl text-paper/80 sm:text-3xl">The state&apos;s Power to Choose site sorts them by one sticker price — the price at exactly 1,000 kWh.</p>
     </Scene>,
@@ -59,7 +62,7 @@ export function Demo({ d }: { d: DemoData }) {
     </Scene>,
     <Scene key="g" eyebrow="Now you">
       <div className="max-w-4xl text-ink"><JudgeQr /></div>
-      <p className="mt-6 text-lg text-paper/70 sm:text-2xl">{d.withTrap} plans on today&apos;s list have a trap like this one. <Link href="/traps" className="underline underline-offset-4">See them all</Link>.</p>
+      <p className="mt-6 text-lg text-paper/70 sm:text-2xl">{d.withTrap} plans Wattch ranks have a trap like this one. <Link href="/traps" className="underline underline-offset-4">See them all</Link>.</p>
     </Scene>,
   ];
   const n = scenes.length;
@@ -68,9 +71,9 @@ export function Demo({ d }: { d: DemoData }) {
   const go = useCallback((to: number) => setI(Math.max(0, Math.min(n - 1, to))), [n]);
   useEffect(() => {
     if (!playing || i >= n - 1) return;
-    const t = setTimeout(() => setI((x) => x + 1), SCENE_MS);
+    const t = setTimeout(() => setI((x) => x + 1), sceneMs);
     return () => clearTimeout(t);
-  }, [playing, i, n]);
+  }, [playing, i, n, sceneMs]);
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "ArrowRight") go(i + 1);
@@ -88,7 +91,7 @@ export function Demo({ d }: { d: DemoData }) {
       <div className="relative flex min-h-[70vh] flex-col justify-center overflow-hidden rounded-[2rem] bg-ink p-6 text-paper shadow-[var(--shadow-lift)] sm:p-12">
         <div aria-live="polite">{scenes[i]}</div>
         <div className="absolute inset-x-0 bottom-0 h-1.5 bg-paper/10">
-          {playing && i < n - 1 && <div key={i} className="demo-bar h-full bg-volt" style={{ animationDuration: `${SCENE_MS}ms` }} />}
+          {playing && i < n - 1 && <div key={i} className="demo-bar h-full bg-volt" style={{ animationDuration: `${sceneMs}ms` }} />}
         </div>
       </div>
       <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
@@ -118,4 +121,9 @@ function Scene({ eyebrow, children }: { eyebrow: string; children: React.ReactNo
       {children}
     </div>
   );
+}
+
+/** The demo with its speed from the URL (?speed=slow → 10 s a scene, for screen recording). */
+export function DemoFromUrl({ d }: { d: DemoData }) {
+  return <Demo d={d} speed={useSearchParams().get("speed") === "slow" ? "slow" : "normal"} />;
 }

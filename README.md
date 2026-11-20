@@ -21,7 +21,7 @@ match within about a tenth of a cent (±0.11¢, since labels round to 0.1¢). Bi
 - **Your own 12 months** — type your usage from your bills instead of using an average.
 - **Filters** — price locked 12+ months, no bill-credit cliffs, 50%+ renewable, 4+ stars; autopay discounts on/off. Every setting lives in the URL.
 - **Already on a plan?** — switch-or-wait math with your plan's real early-exit fee.
-- **/compare** — two plans month by month. **/traps** — every kind of catch, each with a real plan. **/demo** — a click-free walk-through for presenting.
+- **/compare** — two plans month by month. **/traps** — every kind of catch, each with a real plan. **/demo** — a click-free walk-through for presenting (`?speed=slow` gives 10 s a scene for screen recording).
 - **Check this label again now** — re-downloads a label live and says whether the prices changed (on every plan Wattch has read).
 - **Share card + QR** for trying it on your own phone. Every link previews in its own language and city: a results link
   shows the gap, a plan link that plan's real yearly cost and rank, a compare link who saves how much (`/api/card`). Plan and compare pages have a Share button.
@@ -32,6 +32,8 @@ match within about a tenth of a cent (±0.11¢, since labels round to 0.1¢). Bi
 - **Spanish** — every page people use (home, wall incl. "Already on a plan?" and "Use my real 12 months", plan,
   compare, traps, /how, reminder + .ics, 404 and error pages, share card, live re-check messages). Label text and the
   AI's notes stay in English on purpose (marked `lang="en"`); plan and provider names stay as the label prints them.
+- **Plans that left the list** — a free check of the state's own export (`scripts/delisted.ts` → `data/delisted.json`)
+  marks plans that are no longer on Power to Choose: their page and link preview say so, and they're never ranked.
 - **/remind** — a calendar reminder (.ics) 30 days before your contract ends; nothing is stored.
 
 ## AI tools used
@@ -90,7 +92,10 @@ node scripts/link-names.mjs     # screen readers: no two same-name links going d
 node scripts/es-walk.mjs        # clicks through the Spanish site at 375 + 1440, flags English text + labels (app on :3000)
 node scripts/widths.mjs         # every page EN + ES at 320 + 1920: no sideways scroll or cut-off text (app on :3000)
 node scripts/shots.mjs <folder> # screenshots at 375 / 1440 / 1920 (needs the dev server and Google Chrome)
-node scripts/gallery.mjs        # the 6 Devpost gallery images, 1920×1080, into docs/gallery (app on :3000)
+node scripts/gallery.mjs        # the 8 Devpost gallery images, 1920×1080, into docs/gallery (app on :3000)
+node scripts/demo-flow.mjs      # the demo flow on iPhone + 1920 (home → reveal → plan → compare → Español → Dallas), docs/gallery-final
+node scripts/video-shots.mjs    # raw 1920×1080 clips for the demo video into video/raw (list: docs/SHOTS.md)
+npx tsx scripts/delisted.ts     # free: which read plans have left Power to Choose → data/delisted.json
 npx tsx scripts/rehash.ts       # free: re-download labels and fix stored hashes (no AI); lists labels that changed
 python3 -I scripts/profile_counts.py <xlsx> "<TDSP>" <zone> <out.csv>   # one utility's home counts from ERCOT's workbook
 ```
