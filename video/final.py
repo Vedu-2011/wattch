@@ -75,7 +75,7 @@ run(['ffmpeg','-y','-v','error','-i',str(R/'voiceover.qta'),'-filter_complex',';
 
 # Captions are direct from two-pass Whisper transcript, with spelling corrections only.
 trans=json.loads((R/'work/voice-medium.json').read_text())['transcription']
-corrections=[('Watch','Wattch'),('watch','Wattch'),('Haikyu','Haiku'),('Haikyuu','Haiku'),('sources them','sorts them'),('source them','sorts them'),("it's own","its own"),('The labels own','The label’s own'),('what I cost','what it costs'),('3 usages','three usages'),('3 prices','three prices'),('7 kinds','seven kinds'),('6 months','six months'),('3 months','three months'),('Dallas Fort Worth','Dallas–Fort Worth'),('spanish','Spanish')]
+corrections=[('Watch','Wattch'),('watch','Wattch'),('Haikyu','Haiku'),('Haikyuu','Haiku'),('sources','sorts'),('source','sorts'),("it's own","its own"),('The labels own','The label’s own'),('what I','what it'),('cost at 3 usages','costs at three usages'),('3 usages','three usages'),('3 prices','three prices'),('7 kinds','seven kinds'),('6 months','six months'),('3 months','three months'),('Dallas Fort Worth','Dallas–Fort Worth'),('spanish','Spanish')]
 def fix(s):
     s=s.strip()
     for old,new in corrections: s=s.replace(old,new)

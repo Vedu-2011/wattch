@@ -22,6 +22,9 @@ decoded=subprocess.check_output(['node',str(R/'qr-check.cjs'),str(frame)],text=T
 assert decoded=='https://getwattch.vercel.app'
 
 srt=(O/'captions.srt').read_text()
+joined=' '.join(line for block in srt.strip().split('\n\n') for line in block.splitlines()[2:]).lower()
+assert 'sources them' not in joined and 'source them' not in joined and 'sorts them' in joined
+assert 'what i cost' not in joined and 'what it costs' in joined
 blocks=[b for b in srt.strip().split('\n\n') if b]
 assert len(blocks)>50
 for block in blocks:
