@@ -235,7 +235,9 @@ function Walker({ progress, done, label, valueText }: { progress: number; done: 
 
 function Tile({ p, read, w }: { p: ClientPlan; read: boolean; w: Words }) {
   const ok = p.status === "verified";
-  const back = ok ? "bg-good-2" : p.status === "mismatch" ? "bg-volt-2" : "bg-paper-2";
+  // read and checked, but no longer on Power to Choose: shown like the other unranked tiles at every size
+  const gone = ok && p.listed === false;
+  const back = gone ? "bg-paper-2" : ok ? "bg-good-2" : p.status === "mismatch" ? "bg-volt-2" : "bg-paper-2";
   return (
     <div className={`flip ${read ? "is-read" : ""} h-8 sm:h-20`} title={`${p.provider} — ${p.planName}${p.listed === false ? ` (${w.tileGone})` : ""}`}>
       <div className="flip-inner h-full">
@@ -245,10 +247,10 @@ function Tile({ p, read, w }: { p: ClientPlan; read: boolean; w: Words }) {
           <p className="relative mt-1 hidden text-[0.6875rem] leading-tight text-ink-2 [overflow-wrap:anywhere] sm:line-clamp-2">{title(p.provider)}</p>
         </div>
         <div className={`flip-face flip-back flex h-full items-center justify-center rounded-md shadow-[var(--shadow-soft)] sm:block sm:rounded-xl sm:p-2 sm:pr-7 ${back}`}>
-          <span aria-hidden className={`text-sm font-bold sm:hidden ${ok ? "text-good" : "text-ink-2"}`}>{ok ? "✓" : p.status === "mismatch" ? "?" : "–"}</span>
-          {ok && read && <span aria-hidden className="stamp absolute right-1.5 top-1.5 hidden h-5 w-5 items-center justify-center rounded-full bg-good text-[0.6875rem] font-bold text-paper sm:flex">✓</span>}
+          <span aria-hidden className={`text-sm font-bold sm:hidden ${ok && !gone ? "text-good" : "text-ink-2"}`}>{gone ? "–" : ok ? "✓" : p.status === "mismatch" ? "?" : "–"}</span>
+          {ok && !gone && read && <span aria-hidden className="stamp absolute right-1.5 top-1.5 hidden h-5 w-5 items-center justify-center rounded-full bg-good text-[0.6875rem] font-bold text-paper sm:flex">✓</span>}
           <p className="hidden text-[0.6875rem] font-semibold leading-tight [overflow-wrap:anywhere] sm:line-clamp-2">{p.planName}</p>
-          {ok && p.listed === false ? (
+          {gone ? (
             // read and checked, but no longer on Power to Choose (data/delisted.json): not ranked, so no price here
             <p className="mt-1 hidden text-[0.6875rem] leading-tight text-ink-2 sm:block">{w.tileGone}</p>
           ) : ok && p.pricing ? (
