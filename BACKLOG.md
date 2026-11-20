@@ -1022,6 +1022,6 @@
 - [ ] FL5 Hourly free list check 03:00, 04:00, 05:00 (--dry; apply only if 2 checks in a row agree)
 - [ ] FL6 FK7 at ~06:30: demo-flow against production
 - [ ] FL7 FK8 at 07:00: handoff addendum 3
-- [ ] FL8 Spanish: check the new "Nov 20" date reads "20 nov" on a live delisted plan page
+- [x] FL8 Spanish: check the new "Nov 20" date reads "20 nov" on a live delisted plan page
 - [ ] FL9 gallery-final: retake after any data change (only if FL5 applies something)
 - [ ] FL10 Merge 4 only if FL5 applies a change (≥ 04:40)
